@@ -1,0 +1,9 @@
+# Common
+node_modules
+dist
+.nuxt
+coverage
+reports
+
+# Files
+**/*.js
