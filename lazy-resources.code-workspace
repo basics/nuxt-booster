@@ -1,0 +1,89 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "breadcrumbs.enabled": true,
+    "editor.cursorBlinking": "phase",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.maxColumn": 200,
+    "editor.minimap.showSlider": "always",
+    "editor.smoothScrolling": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "eslint.alwaysShowStatus": true,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "vue",
+      "html"
+    ],
+    "files.exclude": {
+      ".nuxt/": false,
+      ".scannerwork/": true,
+      "dist/": false,
+      "node_modules/": false,
+      "output/": true,
+      "**/.idea": true,
+      "**/*.iml": true,
+      "**/out": true,
+      "**/gen": true,
+      "**/logs": true,
+      "**/*.log": true,
+      "**/.DS_Store": true,
+      ".*": false
+    },
+    "files.associations": {
+      ".branchlintrc": "json",
+      ".huskyrc": "json",
+      ".lintstagedrc": "json",
+      ".postcssrc": "json",
+      ".releaserc": "json",
+      ".stylelintrc": "json",
+      ".vcmrc": "json",
+      "*.css": "postcss",
+      "*.pcss": "postcss",
+      ".*ignore": "ignore",
+      "*.js.tmpl": "javascript",
+      "*.html.tmpl": "html"
+    },
+    "javascript.format.enable": false,
+    "path-intellisense.mappings": {
+      "@": "${workspaceRoot}/example",
+      "@@": "${workspaceRoot}"
+    },
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "vetur.format.enable": false,
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
+    "workbench.settings.enableNaturalLanguageSearch": false
+  },
+  "extensions": {
+    "recommendations": [
+      "stylelint.vscode-stylelint",
+      "dbaeumer.vscode-eslint",
+      "octref.vetur",
+      "christian-kohler.path-intellisense",
+      "pflannery.vscode-versionlens",
+      "eamodio.gitlens",
+      "EditorConfig.EditorConfig",
+      "codezombiech.gitignore",
+      "mrmlnc.vscode-attrs-sorter",
+      "steoates.autoimport",
+      "wayou.vscode-todo-highlight",
+      "yzhang.markdown-all-in-one",
+      "dariofuzinato.vue-peek",
+      "formulahendry.auto-close-tag",
+      "formulahendry.auto-rename-tag",
+      "jcbuisson.vue",
+      "naumovs.color-highlight",
+      "csstools.postcss"
+    ]
+  }
+}
