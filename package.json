@@ -1,0 +1,51 @@
+{
+  "name": "lazy-resources",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Thorn-Welf Walli",
+      "email": "lammpee@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GrabarzUndPartner/lazy-resources.git"
+  },
+  "private": true,
+  "files": [
+    "lib"
+  ],
+  "main": "lib/module.js",
+  "scripts": {
+    "dev": "nuxt example",
+    "generate": "nuxt generate --config-file example/nuxt.config.js",
+    "lint": "eslint --ext .js,.vue .",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "test": "yarn lint && jest"
+  },
+  "dependencies": {
+    "lost": "^8.3.1",
+    "postcss-nesting": "^7.0.1",
+    "stylelint": "^13.4.0",
+    "stylelint-config-lost": "0.0.3",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@nuxtjs/eslint-config": "3.0.0",
+    "@nuxtjs/module-test-utils": "1.6.1",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "26.0.1",
+    "eslint": "7.0.0",
+    "husky": "4.2.5",
+    "jest": "24.0.0",
+    "nuxt-edge": "latest",
+    "standard-version": "8.0.0"
+  }
+}
