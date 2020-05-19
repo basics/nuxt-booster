@@ -28,7 +28,7 @@
   "dependencies": {
     "lost": "^8.3.1",
     "postcss-nesting": "^7.0.1",
-    "stylelint": "^13.4.0",
+    "stylelint": "^13.5.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-standard": "^20.0.0"
