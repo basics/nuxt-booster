@@ -14,13 +14,12 @@ import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomHeadline from '@/components/atoms/Headline'
 
 export default {
-  lazyResources: {
-    main: true
-  },
+  critical: true,
+
   components: {
     LayoutTwoColumns,
     AtomHeadline
-  },
+  }
   // created () {
   //   console.log('created', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
   // },
@@ -30,10 +29,10 @@ export default {
   // beforeMount () {
   //   console.log('beforeMount', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
   // },
-  mounted () {
-    // console.log('mounted', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
-    console.log(this)
-  }
+  // mounted () {
+  //   // console.log('mounted', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
+  //   console.log(this)
+  // }
   // data () {
   //   return {
   //     fonts: this.$fontCollection.fonts

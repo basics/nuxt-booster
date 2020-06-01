@@ -8,6 +8,7 @@
 <script>
 import OrganismTestA from '@/components/organisms/TestA'
 import OrganismTestB from '@/components/organisms/TestB'
+
 export default {
   components: {
     OrganismTestA,
