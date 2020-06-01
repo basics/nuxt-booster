@@ -14,9 +14,6 @@ import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
 
 export default {
-  lazyResources: {
-    main: true
-  },
   components: {
     LayoutTwoColumns,
     AtomBaseButton
