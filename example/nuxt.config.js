@@ -20,6 +20,17 @@ module.exports = {
     }
   },
 
+  render: {
+    bundleRenderer: {
+      directives: {
+        font (el, binding) {
+          el.data.staticClass = el.data.staticClass + ' font'
+          el.data.style = Object.assign(el.data.style || {}, binding.value)
+        }
+      }
+    }
+  },
+
   modules: [
     { handler: require('../') }
   ]
