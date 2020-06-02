@@ -1,5 +1,5 @@
 <template>
-  <button v-font="fonts.getFont('Comic Neue', 700, 'italic')" class="atom-base-button">
+  <button v-font="$fonts.getFont('Comic Neue', 700, 'italic')" class="atom-base-button">
     {{ label }}
   </button>
 </template>
