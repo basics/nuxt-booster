@@ -24,10 +24,11 @@ module.exports = {
     bundleRenderer: {
       directives: {
         font (vnode, binding) {
+          vnode.data.staticClass = (vnode.data.staticClass + ' ' + binding.value.class).trim()
           if (vnode.context.$options.$critical) {
-            vnode.data.staticClass = vnode.data.staticClass + ' font'
+            vnode.data.staticClass = (vnode.data.staticClass + ' font').trim()
           }
-          vnode.data.style = Object.assign(vnode.data.style || {}, binding.value)
+          vnode.data.style = Object.assign(vnode.data.style || {}, binding.value.style)
         }
       }
     }
