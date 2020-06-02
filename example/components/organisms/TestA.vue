@@ -20,25 +20,6 @@ export default {
     LayoutTwoColumns,
     AtomHeadline
   }
-  // created () {
-  //   console.log('created', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
-  // },
-  // updated () {
-  //   console.log('updated', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
-  // },
-  // beforeMount () {
-  //   console.log('beforeMount', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
-  // },
-  // mounted () {
-  //   // console.log('mounted', JSON.stringify(this.$lazyResourcesContainer.fontFamilies))
-  //   console.log(this)
-  // }
-  // data () {
-  //   return {
-  //     fonts: this.$fontCollection.fonts
-  //   }
-  // },
-
 }
 </script>
 
