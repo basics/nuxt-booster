@@ -24,7 +24,9 @@ module.exports = {
     bundleRenderer: {
       directives: {
         font (el, binding) {
-          el.data.staticClass = el.data.staticClass + ' font'
+          if (el.context.$options.$critical) {
+            el.data.staticClass = el.data.staticClass + ' font'
+          }
           el.data.style = Object.assign(el.data.style || {}, binding.value)
         }
       }
