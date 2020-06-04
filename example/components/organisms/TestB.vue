@@ -13,10 +13,10 @@
 </template>
 
 <script>
+import AtomLazyImage from 'lazy-resources/components/LazyImage'
+import LazyIframe from 'lazy-resources/components/LazyIframe'
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
-import LazyImage from '@/../lib/components/LazyImage'
-import LazyIframe from '@/../lib/components/LazyIframe'
 
 export default {
   components: {
