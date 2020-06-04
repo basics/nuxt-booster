@@ -1,7 +1,7 @@
 <template>
-  <figure class="atom-lazy-image">
+  <figure class="lazy-image">
     <img
-      v-if="lazy"
+      v-if="width && height"
       :src="lazy.src"
       :srcset="lazy.srcset"
       :width="width"
@@ -51,7 +51,7 @@ export default {
 
   data () {
     return {
-      lazy: null,
+      lazy: { src: null, srcset: null },
       width: null,
       height: null
     }
@@ -65,7 +65,7 @@ export default {
 
   created () {
     if (!this.$options.critical) {
-      this.observer = new global.IntersectionObserver(() => this.load(), { threshold: 0 })
+      this.observer = new global.IntersectionObserver(([e]) => this.onIntersect(e))
     } else {
       getImageSize(this.src)
     }
@@ -94,6 +94,12 @@ export default {
       this.$emit('load', e.target)
     },
 
+    onIntersect (e) {
+      if (e.isIntersecting) {
+        this.load()
+      }
+    },
+
     disableObserver () {
       if (this.observer) {
         this.observer.unobserve(this.$el)
@@ -104,7 +110,7 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-.atom-lazy-image {
+.lazy-image {
   img {
     display: block;
   }
