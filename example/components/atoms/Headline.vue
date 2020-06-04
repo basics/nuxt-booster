@@ -1,14 +1,11 @@
 <template>
-  <h1 class="atom-headline">
+  <h1 v-font="$fonts.getFont('Comic Neue', 400, 'normal')" class="atom-headline">
     {{ content }}
   </h1>
 </template>
 
 <script>
 export default {
-  lazyResources: {
-    fontFamily: ['FontHeadline']
-  },
   props: {
     content: {
       type: String,

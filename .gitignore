@@ -3,7 +3,10 @@ node_modules
 .idea
 *.log*
 .nuxt
-.vscode
+.history
+reports
+.vscode/*
+!.vscode/launch.json
 .DS_Store
 coverage
 dist

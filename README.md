@@ -1,9 +1,10 @@
 # lazy-resources
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
-[![Codecov][codecov-src]][codecov-href]
+[![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
+
+[![Master][github-workflow-master-src]][github-workflow-master-href]
+
+[![Renovate - Status][renovate-status-src]][renovate-status-href]
 [![License][license-src]][license-href]
 
 > 
@@ -38,6 +39,20 @@ yarn add lazy-resources # or npm install lazy-resources
 2. Install dependencies using `yarn install` or `npm install`
 3. Start development server using `npm run dev`
 
+## Preview
+
+1. Clone this repository
+2. Install dependencies using `yarn install` or `npm install`
+3. Build and start with express `npm run start:generate`
+4. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in Browser.
+
+or look here
+
+- [Preview](https://grabarzundpartner.github.io/lazy-resources/)
+- [Report Client](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/client.html)
+- [Report Modern](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/modern.html)
+- [Report Server](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/server.html)
+
 ## License
 
 [MIT License](./LICENSE)
@@ -45,17 +60,15 @@ yarn add lazy-resources # or npm install lazy-resources
 Copyright (c) Thorn Walli <lammpee@gmail.com>
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/lazy-resources/latest.svg
-[npm-version-href]: https://npmjs.com/package/lazy-resources
 
-[npm-downloads-src]: https://img.shields.io/npm/dt/lazy-resources.svg
-[npm-downloads-href]: https://npmjs.com/package/lazy-resources
+[grabarz-partner-module-src]: <https://img.shields.io/badge/Grabarz%20&%20Partner-Module-d19700>
+[grabarz-partner-href]: <https://grabarzundpartner.de>
 
-[github-actions-ci-src]: https://github.com//workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com//actions?query=workflow%3Aci
+[renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
+[renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
 
-[codecov-src]: https://img.shields.io/codecov/c/github/.svg
-[codecov-href]: https://codecov.io/gh/
+[github-workflow-master-src]: <https://github.com/GrabarzUndPartner/lazy-resources/workflows/Master/badge.svg?branch=master>
+[github-workflow-master-href]: <https://github.com/GrabarzUndPartner/lazy-resources/actions?query=workflow%3AMaster>
 
-[license-src]: https://img.shields.io/npm/l/lazy-resources.svg
+[license-src]: https://img.shields.io/npm/l/lazy-resources.svg?style=flat-square
 [license-href]: https://npmjs.com/package/lazy-resources
