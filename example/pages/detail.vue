@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div><organism-test-a src="https://placeimg.com/200/300?index-a" /></div>
-    <div><organism-test-b src="https://placeimg.com/400/300?index-b" /></div>
-    <nuxt-link to="/detail">
-      DETAIL
+    <div><organism-test-a src="https://placeimg.com/200/300?detail-a" /></div>
+    <div><organism-test-b src="https://placeimg.com/400/300?detail-b" /></div>
+    <nuxt-link to="/">
+      Index
     </nuxt-link>
   </div>
 </template>

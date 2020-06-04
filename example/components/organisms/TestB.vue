@@ -2,9 +2,11 @@
   <layout-two-columns class="organism-test">
     <template v-slot:left>
       <atom-base-button />
+      <atom-lazy-image :src="$attrs.src" />
     </template>
     <template v-slot:right>
       <atom-base-button />
+      <atom-lazy-image :src="$attrs.src" />
     </template>
   </layout-two-columns>
 </template>
@@ -12,14 +14,13 @@
 <script>
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
+import AtomLazyImage from '@/../lib/components/LazyImage'
 
 export default {
-  lazyResources: {
-    main: true
-  },
   components: {
     LayoutTwoColumns,
-    AtomBaseButton
+    AtomBaseButton,
+    AtomLazyImage
   }
 }
 </script>
