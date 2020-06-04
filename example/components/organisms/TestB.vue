@@ -14,7 +14,7 @@
 <script>
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
-import AtomLazyImage from '@/components/atoms/LazyImage'
+import AtomLazyImage from '@/../lib/components/LazyImage'
 
 export default {
   components: {

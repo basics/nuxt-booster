@@ -27,16 +27,12 @@
     "generate": "nuxt generate --config-file example/nuxt.config.js",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
-    "test": "yarn lint && jest"
+    "test": "yarn lint && jest",
+    "express-server": "node ./tools/express-server.js",
+    "start:generate": "yarn generate && yarn express-server --dist dist/"
   },
   "dependencies": {
-    "buffer-image-size": "^0.6.4",
-    "lost": "^8.3.1",
-    "postcss-nesting": "^7.0.1",
-    "stylelint": "^13.5.0",
-    "stylelint-config-lost": "0.0.3",
-    "stylelint-config-recess-order": "^2.0.4",
-    "stylelint-config-standard": "^20.0.0"
+    "buffer-image-size": "^0.6.4"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",
@@ -47,10 +43,18 @@
     "@nuxtjs/module-test-utils": "1.6.1",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.0.1",
+    "change-case": "^4.1.1",
     "eslint": "7.0.0",
     "husky": "4.2.5",
     "jest": "24.0.0",
     "nuxt-edge": "latest",
-    "standard-version": "8.0.0"
+    "standard-version": "8.0.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "stylelint": "^13.5.0",
+    "stylelint-config-lost": "0.0.3",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-standard": "^20.0.0",
+    "lost": "^8.3.1",
+    "postcss-nesting": "^7.0.1"
   }
 }
