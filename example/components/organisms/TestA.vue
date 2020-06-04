@@ -2,17 +2,17 @@
   <layout-two-columns class="organism-test">
     <template v-slot:left>
       <atom-headline />
-      <atom-lazy-image :src="$attrs.src" />
+      <lazy-image :src="$attrs.src" />
     </template>
     <template v-slot:right>
       <atom-headline />
-      <atom-lazy-image :src="$attrs.src" />
+      <lazy-image :src="$attrs.src" />
     </template>
   </layout-two-columns>
 </template>
 
 <script>
-import AtomLazyImage from 'lazy-resources/components/LazyImage'
+import LazyImage from 'lazy-resources/components/LazyImage'
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomHeadline from '@/components/atoms/Headline'
 
@@ -22,7 +22,7 @@ export default {
   components: {
     LayoutTwoColumns,
     AtomHeadline,
-    AtomLazyImage
+    LazyImage
   }
 }
 </script>
