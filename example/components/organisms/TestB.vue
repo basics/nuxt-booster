@@ -2,17 +2,19 @@
   <layout-two-columns class="organism-test">
     <template v-slot:left>
       <atom-base-button />
-      <atom-lazy-image :src="$attrs.src" />
+      <lazy-image :src="$attrs.src" />
     </template>
     <template v-slot:right>
       <atom-base-button />
-      <atom-lazy-image :src="$attrs.src" />
+      <lazy-image :src="$attrs.src" />
+      <lazy-iframe src="https://grabarzundpartner.de" />
     </template>
   </layout-two-columns>
 </template>
 
 <script>
-import AtomLazyImage from 'lazy-resources/components/LazyImage'
+import LazyImage from 'lazy-resources/components/LazyImage'
+import LazyIframe from 'lazy-resources/components/LazyIframe'
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
 
@@ -20,7 +22,8 @@ export default {
   components: {
     LayoutTwoColumns,
     AtomBaseButton,
-    AtomLazyImage
+    LazyImage,
+    LazyIframe
   }
 }
 </script>
