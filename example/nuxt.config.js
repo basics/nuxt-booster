@@ -2,6 +2,8 @@ const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const isDev = process.env.NODE_ENV === 'development'
 
+const pkg = require('../package')
+
 module.exports = {
   dev: isDev,
 
@@ -13,6 +15,7 @@ module.exports = {
   // mode: 'spa',
 
   build: {
+
     postcss: {
       plugins: {
         'postcss-nesting': {},
@@ -25,6 +28,8 @@ module.exports = {
     },
 
     extend (config) {
+      config.resolve.alias[pkg.name] = resolve(__dirname, '../lib')
+
       if (!isDev) {
         config.plugins.push(new BundleAnalyzerPlugin({
           reportFilename: resolve(`reports/webpack/${config.name}.html`),

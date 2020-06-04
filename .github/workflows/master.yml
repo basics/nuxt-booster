@@ -80,7 +80,8 @@ jobs:
       - name: Build
         run: |
           npm run generate
-          cp -R reports/* dist/reports/
+          mkdir dist/reports dist/reports/webpack
+          cp -R reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
         env:
           WEBSITE_HOST: 'https://grabarzundpartner.github.io/lazy-resources'

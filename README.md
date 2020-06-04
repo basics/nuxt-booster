@@ -49,9 +49,9 @@ yarn add lazy-resources # or npm install lazy-resources
 or look here
 
 - [Preview](https://grabarzundpartner.github.io/lazy-resources/)
-- [Report Client](https://grabarzundpartner.github.io/lazy-resources/reports/client.html)
-- [Report Modern](https://grabarzundpartner.github.io/lazy-resources/reports/modern.html)
-- [Report Server](https://grabarzundpartner.github.io/lazy-resources/reports/server.html)
+- [Report Client](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/client.html)
+- [Report Modern](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/modern.html)
+- [Report Server](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/server.html)
 
 ## License
 
