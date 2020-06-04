@@ -12,9 +12,9 @@
 </template>
 
 <script>
+import AtomLazyImage from 'lazy-resources/components/LazyImage'
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
-import AtomLazyImage from '@/../lib/components/LazyImage'
 
 export default {
   components: {
