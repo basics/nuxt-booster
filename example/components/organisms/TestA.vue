@@ -14,7 +14,7 @@
 <script>
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomHeadline from '@/components/atoms/Headline'
-import AtomLazyImage from '@/components/atoms/LazyImage'
+import AtomLazyImage from '@/../lib/components/LazyImage'
 
 export default {
   critical: true,
