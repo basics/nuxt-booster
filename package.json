@@ -30,6 +30,7 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
+    "buffer-image-size": "^0.6.4",
     "lost": "^8.3.1",
     "postcss-nesting": "^7.0.1",
     "stylelint": "^13.5.0",
