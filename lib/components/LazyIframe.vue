@@ -33,7 +33,6 @@ export default {
 
   methods: {
     onIntersect (e) {
-      console.log(e)
       if (e.isIntersecting) {
         this.lazySrc = this.src
         this.disableObserver()

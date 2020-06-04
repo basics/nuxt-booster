@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import AtomLazyImage from 'lazy-resources/components/LazyImage'
+import LazyImage from 'lazy-resources/components/LazyImage'
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomHeadline from '@/components/atoms/Headline'
 
