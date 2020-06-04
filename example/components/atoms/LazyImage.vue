@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import timeoutFetch from '@/utils/timeoutFetch'
 global.IntersectionObserver = global.IntersectionObserver || class { observe () {}; unobserve () {}}
 
 export default {
@@ -101,9 +102,13 @@ export default {
 
 async function getImageSize (url) {
   if (process.server) {
-    const sizeOf = (await import('buffer-image-size')).default
-    const buffer = await getBuffer(url)
-    return sizeOf(buffer)
+    try {
+      const sizeOf = (await import('buffer-image-size')).default
+      const buffer = await getBuffer(url)
+      return sizeOf(buffer)
+    } catch (e) {
+      return {}
+    }
   } else {
     return new Promise((resolve) => {
       const img = new Image()
@@ -114,7 +119,7 @@ async function getImageSize (url) {
 }
 
 async function getBuffer (url) {
-  const result = await fetch(url, { method: 'GET' })
+  const result = await timeoutFetch(url, { method: 'GET' })
   const blob = await result.blob()
   const arrayBuffer = await blob.arrayBuffer()
   return Buffer.from(arrayBuffer)
