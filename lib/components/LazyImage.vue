@@ -10,7 +10,7 @@
         loading="lazy"
       />
       <template lang="html">
-        <noscript v-if="!lazy.src || !lazy.srcset">
+        <noscript v-if="!$options.critical">
           <img :src="src" :srcset="srcset" :width="size.width" :height="size.height" v-bind="$attrs" loading="lazy"/>
         </noscript>
       </template>
