@@ -9,11 +9,17 @@
         v-bind="$attrs"
         :loading="loading"
       />
-      <template lang="html">
-        <noscript v-if="!$options.critical && seo">
-          <img :src="src" :srcset="srcset" :width="size.width" :height="size.height" v-bind="$attrs" loading="lazy"/>
-        </noscript>
-      </template>
+      <custom-no-script v-if="!$options.critical && seo">
+        <img
+          :src="src"
+          :srcset="srcset"
+          :width="size.width"
+          :height="size.height"
+          v-bind="$attrs"
+          loading="lazy"
+        >
+      </custom-no-script>
+
       <figcaption v-if="hasSlot">
         <slot>{{ test }}</slot>
       </figcaption>
@@ -25,11 +31,13 @@
 import IntersectionObserver from '../abstracts/IntersectionObserver'
 import { getImageSize } from '../utils/image'
 import CustomImage from './CustomImage'
+import CustomNoScript from './CustomNoScript'
 
 export default {
   components: {
     IntersectionObserver,
-    CustomImage
+    CustomImage,
+    CustomNoScript
   },
 
   props: {
