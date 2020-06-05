@@ -29,7 +29,7 @@
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest",
     "express-server": "node ./tools/express-server.js",
-    "start:generate": "yarn generate && yarn express-server --dist dist/"
+    "start:generate": "npm run generate && npm run express-server -- --dist dist/"
   },
   "dependencies": {
     "buffer-image-size": "^0.6.4"

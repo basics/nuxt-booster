@@ -1,9 +1,17 @@
 <template>
-  <iframe :src="lazySrc" v-bind="$attrs" class="lazy-iframe" />
+  <intersection-observer @enter="onEnter">
+    <iframe :src="lazySrc" v-bind="$attrs" class="lazy-iframe" loading="lazy" />
+  </intersection-observer>
 </template>
 
 <script>
+import IntersectionObserver from '../abstracts/IntersectionObserver'
+
 export default {
+  components: {
+    IntersectionObserver
+  },
+
   props: {
     src: {
       type: String,
@@ -19,28 +27,9 @@ export default {
     }
   },
 
-  created () {
-    this.observer = new IntersectionObserver(([e]) => this.onIntersect(e))
-  },
-
-  mounted () {
-    this.observer.observe(this.$el)
-  },
-
-  destroyed () {
-    this.disableObserver()
-  },
-
   methods: {
-    onIntersect (e) {
-      if (e.isIntersecting) {
-        this.lazySrc = this.src
-        this.disableObserver()
-      }
-    },
-
-    disableObserver () {
-      this.observer.unobserve(this.$el)
+    onEnter (e) {
+      this.lazySrc = this.src
     }
   }
 }
