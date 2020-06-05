@@ -24,7 +24,6 @@
 <script>
 import IntersectionObserver from '../abstracts/IntersectionObserver'
 import { getImageSize } from '../utils/image'
-global.IntersectionObserver = global.IntersectionObserver || class { observe () {}; unobserve () {}}
 
 export default {
   components: {
@@ -48,9 +47,7 @@ export default {
   },
 
   async fetch () {
-    const { width, height } = await getImageSize(this.src)
-    this.width = width
-    this.height = height
+    ({ width: this.width, height: this.height } = await getImageSize(this.src))
     if (this.$options.critical) {
       this.load()
     }
@@ -76,10 +73,7 @@ export default {
 
   methods: {
     load () {
-      this.lazy = {
-        src: this.src,
-        srcset: this.srcset
-      }
+      ({ src: this.lazy.src, srcset: this.lazy.srcset } = this)
     },
 
     onLoad (e) {
