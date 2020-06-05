@@ -1,19 +1,19 @@
 <template>
   <intersection-observer @enter="onEnter">
     <figure class="lazy-image">
-      <img
-        v-if="width && height"
+      <custom-image
+        v-if="lazy.src || lazy.srcset"
         :src="lazy.src"
         :srcset="lazy.srcset"
-        :width="width"
-        :height="height"
+        :size="size"
         v-bind="$attrs"
         loading="lazy"
-        @load="onLoad"
-      >
-      <noscript v-if="!lazy" inline-template>
-        <img :src="src" :srcset="srcset" :width="width" :height="height" v-bind="$attrs" loading="lazy"/>
-      </noscript>
+      />
+      <template lang="html">
+        <noscript v-if="!lazy.src || !lazy.srcset">
+          <img :src="src" :srcset="srcset" :width="size.width" :height="size.height" v-bind="$attrs" loading="lazy"/>
+        </noscript>
+      </template>
       <figcaption v-if="hasSlot">
         <slot>{{ test }}</slot>
       </figcaption>
@@ -24,10 +24,12 @@
 <script>
 import IntersectionObserver from '../abstracts/IntersectionObserver'
 import { getImageSize } from '../utils/image'
+import CustomImage from './CustomImage'
 
 export default {
   components: {
-    IntersectionObserver
+    IntersectionObserver,
+    CustomImage
   },
 
   props: {
@@ -47,7 +49,7 @@ export default {
   },
 
   async fetch () {
-    ({ width: this.width, height: this.height } = await getImageSize(this.src))
+    ({ width: this.size.width, height: this.size.height } = await getImageSize(this.src))
     if (this.$options.critical) {
       this.load()
     }
@@ -56,8 +58,10 @@ export default {
   data () {
     return {
       lazy: { src: null, srcset: null },
-      width: null,
-      height: null
+      size: {
+        width: null,
+        height: null
+      }
     }
   },
 
@@ -78,10 +82,6 @@ export default {
       ({ src: this.lazy.src, srcset: this.lazy.srcset } = this)
     },
 
-    onLoad (e) {
-      this.$emit('load', e.target)
-    },
-
     onEnter () {
       this.load()
     }
@@ -90,9 +90,5 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-.lazy-image {
-  img {
-    display: block;
-  }
-}
+/* .lazy-image {} */
 </style>
