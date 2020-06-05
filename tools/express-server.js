@@ -1,3 +1,4 @@
+const compression = require('compression')
 const express = require('express')
 const esm = require('esm')
 const { getArg } = esm(module)(require.resolve('./utils'))
@@ -7,6 +8,7 @@ const dist = getDist()
 const host = getHost()
 const port = getPort()
 
+app.use(compression())
 app.use(express.static(dist))
 app.listen(port, host, function () {
   const { address, port } = this.address()
