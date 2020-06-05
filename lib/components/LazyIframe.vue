@@ -1,6 +1,6 @@
 <template>
   <intersection-observer @enter="onEnter">
-    <iframe :src="lazySrc" v-bind="$attrs" class="lazy-iframe" />
+    <iframe :src="lazySrc" v-bind="$attrs" class="lazy-iframe" loading="lazy" />
   </intersection-observer>
 </template>
 
