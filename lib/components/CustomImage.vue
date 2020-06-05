@@ -1,12 +1,12 @@
 <template>
   <img
     class="custom-image"
+    v-bind="$attrs"
     :src="src"
     :srcset="srcset"
     :width="size.width"
     :height="size.height"
-    v-bind="$attrs"
-    loading="lazy"
+    :loading="loading"
     @load="onLoad"
   >
 </template>
@@ -32,6 +32,16 @@ export default {
       type: Object,
       default () {
         return { width: null, height: null }
+      }
+    }
+  },
+
+  computed: {
+    loading () {
+      if (this.$options.critical) {
+        return 'eager'
+      } else {
+        return 'lazy'
       }
     }
   },
