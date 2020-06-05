@@ -68,7 +68,9 @@ export default {
   },
 
   created () {
-    getImageSize(this.src)
+    if (this.$options.critical) {
+      getImageSize(this.src)
+    }
   },
 
   methods: {
