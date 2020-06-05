@@ -28,13 +28,15 @@ export default {
               'https://placeimg.com/300/200?detail-a-1',
               'https://placeimg.com/600/400?detail-a-1'
             ],
-            media: '(min-width: 600px)'
+            media: '(min-width: 600px)',
+            type: 'image/jpeg'
           },
           {
             srcset: [
               'https://placeimg.com/200/300?detail-a-2',
               'https://placeimg.com/400/600?detail-a-2'
-            ]
+            ],
+            type: 'image/jpeg'
           }
         ]
       },
@@ -47,13 +49,15 @@ export default {
               'https://placeimg.com/300/200?detail-b-1',
               'https://placeimg.com/600/400/?detail-b-1'
             ],
-            media: '(min-width: 600px)'
+            media: '(min-width: 600px)',
+            type: 'image/jpeg'
           },
           {
             srcset: [
               'https://placeimg.com/200/300?detail-b-2',
               'https://placeimg.com/400/600?detail-b-2'
-            ]
+            ],
+            type: 'image/jpeg'
           }
         ]
       }

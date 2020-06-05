@@ -1,10 +1,10 @@
 <template>
-  <lazy-image v-bind="lazyImage">
+  <lazy-image v-bind="$attrs" :src="lazyImage.src" :srcset="lazyImage.srcset">
     <!-- eslint-disable-next-line vue/no-template-shadow -->
     <template slot-scope="{ lazy }">
       <picture v-if="lazy">
         <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
-        <img :src="placeholder" :alt="$attrs.alt" :title="$attrs.title" loading="eager">
+        <img :src="fallback" v-bind="$attrs" loading="eager">
       </picture>
     </template>
   </lazy-image>
@@ -12,7 +12,6 @@
 
 <script>
 
-import { PLACEHOLDER } from '../utils/image'
 import LazyImage from './LazyImage'
 
 export default {
@@ -27,30 +26,24 @@ export default {
       type: Array,
       default () {
         return [
-          {
-            srcset: [],
-            type: null,
-            media: null
-          }
+          // {
+          //   srcset: [],
+          //   type: null,
+          //   media: null
+          // }
         ]
       }
     }
   },
 
-  data () {
-    return {
-      placeholder: PLACEHOLDER
-    }
-  },
-
   computed: {
+    fallback () {
+      return this.cleanPath([].concat(this.preparedSources[0].srcset)[0])
+    },
     lazyImage () {
       const source = this.getMatchedSource()
       return {
-        caption: this.$attrs.caption,
-        alt: this.$attrs.alt,
-        title: this.$attrs.title,
-        src: [].concat(source.srcset)[0].replace(/([^ ]*) *.*/, '$1'),
+        src: this.cleanPath([].concat(source.srcset)[0]),
         srcset: source.srcset
       }
     },
@@ -66,7 +59,9 @@ export default {
   },
 
   methods: {
-
+    cleanPath (path) {
+      return path.replace(/([^ ]*) *.*/, '$1')
+    },
     getMatchedSource () {
       if (!process.server) {
         return this.preparedSources.find(({ media }) => global.matchMedia(media))

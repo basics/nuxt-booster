@@ -18,10 +18,8 @@
           v-bind="$attrs"
         />
       </custom-no-script>
-      <figcaption v-if="hasSlot || caption">
-        <slot name="caption">
-          {{ caption }}
-        </slot>
+      <figcaption v-if="hasSlot">
+        <slot name="caption" />
       </figcaption>
     </figure>
   </intersection-observer>
@@ -59,13 +57,6 @@ export default {
       type: Boolean,
       default () {
         return true
-      }
-    },
-
-    caption: {
-      type: String,
-      default () {
-        return null
       }
     }
   },
