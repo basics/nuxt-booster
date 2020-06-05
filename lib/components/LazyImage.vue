@@ -1,29 +1,36 @@
 <template>
-  <figure class="lazy-image">
-    <img
-      v-if="width && height"
-      :src="lazy.src"
-      :srcset="lazy.srcset"
-      :width="width"
-      :height="height"
-      v-bind="$attrs"
-      loading="lazy"
-      @load="onLoad"
-    >
-    <noscript v-if="!lazy" inline-template>
-      <img :src="src" :srcset="srcset" :width="width" :height="height" v-bind="$attrs" loading="lazy"/>
-    </noscript>
-    <figcaption v-if="hasSlot">
-      <slot>{{ test }}</slot>
-    </figcaption>
-  </figure>
+  <intersection-observer @enter="onEnter">
+    <figure class="lazy-image">
+      <img
+        v-if="width && height"
+        :src="lazy.src"
+        :srcset="lazy.srcset"
+        :width="width"
+        :height="height"
+        v-bind="$attrs"
+        loading="lazy"
+        @load="onLoad"
+      >
+      <noscript v-if="!lazy" inline-template>
+        <img :src="src" :srcset="srcset" :width="width" :height="height" v-bind="$attrs" loading="lazy"/>
+      </noscript>
+      <figcaption v-if="hasSlot">
+        <slot>{{ test }}</slot>
+      </figcaption>
+    </figure>
+  </intersection-observer>
 </template>
 
 <script>
+import IntersectionObserver from '../abstracts/IntersectionObserver'
 import { getImageSize } from '../utils/image'
 global.IntersectionObserver = global.IntersectionObserver || class { observe () {}; unobserve () {}}
 
 export default {
+  components: {
+    IntersectionObserver
+  },
+
   props: {
     src: {
       type: String,
@@ -64,21 +71,7 @@ export default {
   },
 
   created () {
-    if (!this.$options.critical) {
-      this.observer = new global.IntersectionObserver(([e]) => this.onIntersect(e))
-    } else {
-      getImageSize(this.src)
-    }
-  },
-
-  mounted () {
-    if (this.observer) {
-      this.observer.observe(this.$el)
-    }
-  },
-
-  destroyed () {
-    this.disableObserver()
+    getImageSize(this.src)
   },
 
   methods: {
@@ -87,23 +80,14 @@ export default {
         src: this.src,
         srcset: this.srcset
       }
-      this.disableObserver()
     },
 
     onLoad (e) {
       this.$emit('load', e.target)
     },
 
-    onIntersect (e) {
-      if (e.isIntersecting) {
-        this.load()
-      }
-    },
-
-    disableObserver () {
-      if (this.observer) {
-        this.observer.unobserve(this.$el)
-      }
+    onEnter () {
+      this.load()
     }
   }
 }
