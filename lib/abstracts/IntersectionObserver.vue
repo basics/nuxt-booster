@@ -41,25 +41,21 @@ export default {
   },
 
   destroyed () {
-    this.disableObserver()
+    if (this.observer) {
+      this.observer.disconnect()
+    }
   },
 
   methods: {
     onIntersect (e) {
       if (e.isIntersecting) {
-        this.disableObserver()
+        this.observer.unobserve(this.$el)
         this.triggerEnter()
       }
     },
 
     triggerEnter (e) {
       this.$emit('enter', e)
-    },
-
-    disableObserver () {
-      if (this.observer) {
-        this.observer.unobserve(this.$el)
-      }
     }
   },
 
