@@ -1,14 +1,16 @@
 <template>
   <intersection-observer @enter="onEnter">
     <figure class="lazy-image">
-      <custom-image
-        v-if="lazy.src || lazy.srcset"
-        :src="lazy.src"
-        :srcset="lazy.srcset"
-        :size="size"
-        v-bind="$attrs"
-        :loading="loading"
-      />
+      <slot>
+        <custom-image
+          v-if="lazy.src || lazy.srcset"
+          :src="lazy.src"
+          :srcset="lazy.srcset"
+          :size="size"
+          v-bind="$attrs"
+          :loading="loading"
+        />
+      </slot>
       <custom-no-script v-if="!$options.critical && seo">
         <custom-image
           :src="src"
@@ -19,7 +21,9 @@
         />
       </custom-no-script>
       <figcaption v-if="hasSlot">
-        <slot>{{ test }}</slot>
+        <slot name="caption">
+          {{ test }}
+        </slot>
       </figcaption>
     </figure>
   </intersection-observer>
