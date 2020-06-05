@@ -1,11 +1,12 @@
 <template>
   <img
-    class="custom-image"
     v-bind="$attrs"
     :src="src"
     :srcset="srcset"
     :width="size.width"
     :height="size.height"
+    :alt="alt"
+    :title="title"
     :loading="loading"
     @load="onLoad"
   >
@@ -22,7 +23,7 @@ export default {
     },
 
     srcset: {
-      type: String,
+      type: [String, Array],
       default () {
         return null
       }
@@ -32,6 +33,20 @@ export default {
       type: Object,
       default () {
         return { width: null, height: null }
+      }
+    },
+
+    alt: {
+      type: String,
+      default () {
+        return null
+      }
+    },
+
+    title: {
+      type: String,
+      default () {
+        return null
       }
     }
   },
@@ -55,7 +70,7 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-.custom-image {
+.img {
   display: block;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <intersection-observer @enter="onEnter">
-    <figure class="lazy-image">
-      <slot>
+    <figure>
+      <slot :lazy="lazy">
         <custom-image
           v-if="lazy.src || lazy.srcset"
           :src="lazy.src"
@@ -18,9 +18,9 @@
           v-bind="$attrs"
         />
       </custom-no-script>
-      <figcaption v-if="hasSlot">
+      <figcaption v-if="hasSlot || caption">
         <slot name="caption">
-          {{ test }}
+          {{ caption }}
         </slot>
       </figcaption>
     </figure>
@@ -49,7 +49,7 @@ export default {
     },
 
     srcset: {
-      type: String,
+      type: [String, Array],
       default () {
         return null
       }
@@ -59,6 +59,13 @@ export default {
       type: Boolean,
       default () {
         return true
+      }
+    },
+
+    caption: {
+      type: String,
+      default () {
+        return null
       }
     }
   },
@@ -82,7 +89,7 @@ export default {
 
   computed: {
     hasSlot () {
-      return this.$slots.default
+      return this.$slots.caption
     }
   },
 
@@ -105,5 +112,5 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-/* .lazy-image {} */
+/* figure {} */
 </style>
