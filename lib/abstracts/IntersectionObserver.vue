@@ -4,9 +4,33 @@ global.IntersectionObserver = global.IntersectionObserver || class { observe () 
 export default {
   abstract: true,
 
+  props: {
+    root: {
+      type: global.HTMLElement,
+      default () {
+        return null
+      }
+    },
+
+    rootMargin: {
+      type: String,
+      default () {
+        return '0px'
+      }
+    },
+
+    threshold: {
+      type: Array,
+      default () {
+        return [0]
+      }
+    }
+  },
+
   created () {
+    const options = (({ root, rootMargin, threshold }) => ({ root, rootMargin, threshold }))(this)
     if (!this.$options.critical) {
-      this.observer = new IntersectionObserver(([e]) => this.onIntersect(e))
+      this.observer = new IntersectionObserver(([e]) => this.onIntersect(e), options)
     }
   },
 
