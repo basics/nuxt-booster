@@ -8,7 +8,6 @@
           :srcset="lazy.srcset"
           :size="size"
           v-bind="$attrs"
-          :loading="loading"
         />
       </slot>
       <custom-no-script v-if="!$options.critical && seo">
@@ -17,7 +16,6 @@
           :srcset="srcset"
           :size="size"
           v-bind="$attrs"
-          :loading="loading"
         />
       </custom-no-script>
       <figcaption v-if="hasSlot">
@@ -85,14 +83,6 @@ export default {
   computed: {
     hasSlot () {
       return this.$slots.default
-    },
-
-    loading () {
-      if (this.$options.critical) {
-        return 'eager'
-      } else {
-        return 'lazy'
-      }
     }
   },
 
