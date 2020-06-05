@@ -7,10 +7,10 @@
         :srcset="lazy.srcset"
         :size="size"
         v-bind="$attrs"
-        loading="lazy"
+        :loading="loading"
       />
       <template lang="html">
-        <noscript v-if="!$options.critical">
+        <noscript v-if="!$options.critical && seo">
           <img :src="src" :srcset="srcset" :width="size.width" :height="size.height" v-bind="$attrs" loading="lazy"/>
         </noscript>
       </template>
@@ -45,6 +45,13 @@ export default {
       default () {
         return null
       }
+    },
+
+    seo: {
+      type: Boolean,
+      default () {
+        return true
+      }
     }
   },
 
@@ -68,6 +75,14 @@ export default {
   computed: {
     hasSlot () {
       return this.$slots.default
+    },
+
+    loading () {
+      if (this.$options.critical) {
+        return 'eager'
+      } else {
+        return 'lazy'
+      }
     }
   },
 
