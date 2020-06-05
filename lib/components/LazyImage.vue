@@ -10,16 +10,14 @@
         :loading="loading"
       />
       <custom-no-script v-if="!$options.critical && seo">
-        <img
+        <custom-image
           :src="src"
           :srcset="srcset"
-          :width="size.width"
-          :height="size.height"
+          :size="size"
           v-bind="$attrs"
-          loading="lazy"
-        >
+          :loading="loading"
+        />
       </custom-no-script>
-
       <figcaption v-if="hasSlot">
         <slot>{{ test }}</slot>
       </figcaption>
