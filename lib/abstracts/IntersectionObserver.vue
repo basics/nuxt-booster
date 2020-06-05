@@ -1,4 +1,6 @@
 <script>
+global.IntersectionObserver = global.IntersectionObserver || class { observe () {}; unobserve () {}}
+
 export default {
   abstract: true,
 
