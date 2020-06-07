@@ -32,7 +32,8 @@
     "start:generate": "npm run generate && npm run express-server -- --dist dist/"
   },
   "dependencies": {
-    "buffer-image-size": "^0.6.4"
+    "buffer-image-size": "^0.6.4",
+    "sort-media-queries": "^0.2.2"
   },
   "devDependencies": {
     "@babel/core": "7.10.2",

@@ -12,6 +12,7 @@
 
 <script>
 
+import sortMediaQueries from 'sort-media-queries'
 import LazyImage from './LazyImage'
 
 export default {
@@ -38,30 +39,27 @@ export default {
 
   computed: {
     fallback () {
-      return this.cleanPath([].concat(this.preparedSources[0].srcset)[0])
+      return this.preparedSources[0].originSrcset[0]
     },
     lazyImage () {
       const source = this.getMatchedSource()
       return {
-        src: this.cleanPath([].concat(source.srcset)[0]),
+        src: source.originSrcset[0],
         srcset: source.srcset
       }
     },
     preparedSources () {
-      return this.sources.map((source) => {
+      return sortMediaQueries(this.sources, 'media').map((source) => {
         let srcset = [].concat(source.srcset)
         if (srcset.length > 1) {
-          srcset = srcset.map((value, i) => `${value} ${i + 1}x`)
+          srcset = srcset.map((value, i) => !/^.* +\dx$/.test(value) ? `${value} ${i + 1}x` : value)
         }
-        return Object.assign({}, source, { srcset })
+        return Object.assign({}, source, { srcset, originSrcset: [].concat(source.srcset) })
       })
     }
   },
 
   methods: {
-    cleanPath (path) {
-      return path.replace(/([^ ]*) *.*/, '$1')
-    },
     getMatchedSource () {
       if (!process.server) {
         return this.preparedSources.find(({ media }) => global.matchMedia(media))
