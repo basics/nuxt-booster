@@ -1,5 +1,18 @@
 # Project Changelog
 
+# [1.3.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.2.1...v1.3.0) (2020-06-08)
+
+
+### Bug Fixes
+
+* **cleanup:** clean up code ([92896d8](https://github.com/GrabarzUndPartner/lazy-resources/commit/92896d8fce3149dfd950d306cd8c2e3ce04f005c))
+* **readme:** add dot ([7a18a9e](https://github.com/GrabarzUndPartner/lazy-resources/commit/7a18a9efab1b698c8e6529b8e696e340588b51ce))
+
+
+### Features
+
+* **cleanup-picture:** add lazy picture; clean up code ([1526d48](https://github.com/GrabarzUndPartner/lazy-resources/commit/1526d48f1b4ae016d332fda029f541b272a581e6))
+
 ## [1.2.2](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.2.1...v1.2.2) (2020-06-08)
 
 
