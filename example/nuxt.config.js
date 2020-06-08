@@ -53,21 +53,6 @@ module.exports = {
     base: getBasePath()
   },
 
-  // TODO: Noch in Module
-  render: {
-    bundleRenderer: {
-      directives: {
-        font (vnode, binding) {
-          vnode.data.staticClass = (vnode.data.staticClass + ' ' + binding.value.getFamilyAsClassName()).trim()
-          if (vnode.context.$options.critical) {
-            vnode.data.staticClass = (vnode.data.staticClass + ' font').trim()
-          }
-          vnode.data.style = Object.assign(vnode.data.style || {}, binding.value.toCSSVars())
-        }
-      }
-    }
-  },
-
   modules: [
     [
       resolve(__dirname, '..'), {
