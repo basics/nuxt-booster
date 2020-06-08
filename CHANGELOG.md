@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.3.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.3.0...v1.3.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* **missing-vars:** add missing vars lazy-image ([508a09e](https://github.com/GrabarzUndPartner/lazy-resources/commit/508a09e48c54ff95f915da23bf68363c54e95e7c))
+
 # [1.3.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.2.1...v1.3.0) (2020-06-08)
 
 
