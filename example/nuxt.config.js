@@ -53,6 +53,7 @@ module.exports = {
     base: getBasePath()
   },
 
+  // TODO: Noch in Module
   render: {
     bundleRenderer: {
       directives: {
