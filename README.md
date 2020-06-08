@@ -19,7 +19,7 @@
 yarn add lazy-resources # or npm install lazy-resources
 ```
 
-2. Add `lazy-resources` to the `modules` section of `nuxt.config.js`
+2. Add `lazy-resources` to the `modules` section of `nuxt.config.js`.
 
 ```js
 {
