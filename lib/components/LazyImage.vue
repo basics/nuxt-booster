@@ -1,9 +1,8 @@
 <template>
   <intersection-observer @enter="onEnter">
     <figure>
-      <slot :lazy="lazy">
+      <slot v-if="lazy.src || lazy.srcset" :lazy="lazy">
         <custom-image
-          v-if="lazy.src || lazy.srcset"
           :src="lazy.src"
           :srcset="lazy.srcset"
           :width="width"

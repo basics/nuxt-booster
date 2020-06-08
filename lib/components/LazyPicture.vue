@@ -1,17 +1,20 @@
 <template>
   <lazy-image v-bind="$attrs" :src="lazyImage.src" :srcset="lazyImage.srcset">
-    <template slot-scope="{ lazy }" lang="html">
-      <picture v-if="lazy">
+    <template lang="html">
+      <picture>
         <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
-        <custom-image :src="fallback" v-bind="$attrs" />
+        <custom-image :src="lazyImage.src" v-bind="$attrs" />
       </picture>
+    </template>
+    <template v-slot:caption>
+      <slot name="caption" />
     </template>
   </lazy-image>
 </template>
 
 <script>
 
-import { sortSourcesByMedia, normalizeSrcset, getMatchedSource } from '../utils/image'
+import { sortSourcesByMedia, getMatchedSource, normalizeSrcsetOfSources } from '../utils/image'
 import CustomImage from './CustomImage'
 import LazyImage from './LazyImage'
 
@@ -39,9 +42,6 @@ export default {
   },
 
   computed: {
-    fallback () {
-      return this.preparedSources[0].srcset
-    },
     lazyImage () {
       const source = getMatchedSource(this.preparedSources)
       return {
@@ -50,10 +50,7 @@ export default {
       }
     },
     preparedSources () {
-      return sortSourcesByMedia(this.sources).map((source) => {
-        source.srcset = normalizeSrcset(source.srcset)
-        return source
-      })
+      return normalizeSrcsetOfSources(sortSourcesByMedia(this.sources))
     }
   }
 }
