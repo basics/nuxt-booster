@@ -6,7 +6,8 @@
           v-if="lazy.src || lazy.srcset"
           :src="lazy.src"
           :srcset="lazy.srcset"
-          :size="size"
+          :width="size.width"
+          :height="size.height"
           v-bind="$attrs"
         />
       </slot>

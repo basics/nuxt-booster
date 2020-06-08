@@ -4,7 +4,7 @@
     <template slot-scope="{ lazy }">
       <picture v-if="lazy">
         <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
-        <img :src="fallback" v-bind="$attrs" loading="eager">
+        <custom-image :src="fallback" v-bind="$attrs" loading="eager" />
       </picture>
     </template>
   </lazy-image>
@@ -13,11 +13,13 @@
 <script>
 
 import sortMediaQueries from 'sort-media-queries'
+import CustomImage from './CustomImage'
 import LazyImage from './LazyImage'
 
 export default {
 
   components: {
+    CustomImage,
     LazyImage
   },
 
@@ -49,7 +51,7 @@ export default {
       }
     },
     preparedSources () {
-      return sortMediaQueries(this.sources, 'media').map((source) => {
+      return sortMediaQueries(this.sources.map(source => this.preFillSource(source)), 'media').reverse().map((source) => {
         let srcset = [].concat(source.srcset)
         if (srcset.length > 1) {
           srcset = srcset.map((value, i) => !/^.* +\dx$/.test(value) ? `${value} ${i + 1}x` : value)
@@ -60,9 +62,13 @@ export default {
   },
 
   methods: {
+    preFillSource (source) {
+      source.media = source.media || 'all'
+      return source
+    },
     getMatchedSource () {
       if (!process.server) {
-        return this.preparedSources.find(({ media }) => global.matchMedia(media))
+        return this.preparedSources.find(({ media }) => global.matchMedia(media).matches)
       } else {
         return this.preparedSources[0]
       }

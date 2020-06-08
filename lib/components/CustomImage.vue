@@ -1,8 +1,6 @@
 <template>
   <img
     v-bind="$attrs"
-    :width="size.width"
-    :height="size.height"
     :loading="loading"
     @load="onLoad"
   >
@@ -10,15 +8,6 @@
 
 <script>
 export default {
-  props: {
-    size: {
-      type: Object,
-      default () {
-        return { width: null, height: null }
-      }
-    }
-  },
-
   computed: {
     loading () {
       if (this.$options.critical) {
@@ -38,7 +27,7 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-.img {
+img {
   display: block;
 }
 </style>
