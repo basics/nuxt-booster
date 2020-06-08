@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.2](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.2.1...v1.2.2) (2020-06-08)
+
+
+### Bug Fixes
+
+* **readme:** add dot ([7a18a9e](https://github.com/GrabarzUndPartner/lazy-resources/commit/7a18a9efab1b698c8e6529b8e696e340588b51ce))
+
 ## [1.2.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.2.0...v1.2.1) (2020-06-08)
 
 
