@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.2.0...v1.2.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* **mailmap:** managing git user aliases ([0320ea3](https://github.com/GrabarzUndPartner/lazy-resources/commit/0320ea39906856e06aa67b2a203544881ab9b878))
+
 # [1.2.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.1.0...v1.2.0) (2020-06-05)
 
 
