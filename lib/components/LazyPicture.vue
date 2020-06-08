@@ -1,7 +1,6 @@
 <template>
   <lazy-image v-bind="$attrs" :src="lazyImage.src" :srcset="lazyImage.srcset">
-    <!-- eslint-disable-next-line vue/no-template-shadow -->
-    <template slot-scope="{ lazy }">
+    <template slot-scope="{ lazy }" lang="html">
       <picture v-if="lazy">
         <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
         <custom-image :src="fallback" v-bind="$attrs" />
@@ -12,7 +11,7 @@
 
 <script>
 
-import { sortMediaQueries } from '../utils/image'
+import { sortSourcesByMedia, normalizeSrcset, getMatchedSource } from '../utils/image'
 import CustomImage from './CustomImage'
 import LazyImage from './LazyImage'
 
@@ -44,37 +43,19 @@ export default {
       return this.preparedSources[0].srcset
     },
     lazyImage () {
-      const source = this.getMatchedSource()
+      const source = getMatchedSource(this.preparedSources)
       return {
-        src: source.originSrcset[0],
+        src: source.srcset,
         srcset: source.srcset
       }
     },
     preparedSources () {
-      return sortMediaQueries(this.sources.map(source => this.preFillSource(source)), 'media').reverse().map((source) => {
-        let srcset = [].concat(source.srcset)
-        if (srcset.length > 1) {
-          srcset = srcset.map((value, i) => !/^.* +\dx$/.test(value) ? `${value} ${i + 1}x` : value)
-        }
-        return Object.assign({}, source, { srcset, originSrcset: [].concat(source.srcset) })
+      return sortSourcesByMedia(this.sources).map((source) => {
+        source.srcset = normalizeSrcset(source.srcset)
+        return source
       })
     }
-  },
-
-  methods: {
-    preFillSource (source) {
-      source.media = source.media || 'all'
-      return source
-    },
-    getMatchedSource () {
-      if (!process.server) {
-        return this.preparedSources.find(({ media }) => global.matchMedia(media).matches)
-      } else {
-        return this.preparedSources[0]
-      }
-    }
   }
-
 }
 </script>
 
