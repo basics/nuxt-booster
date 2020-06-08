@@ -1,7 +1,7 @@
 <template>
   <intersection-observer @enter="onEnter">
     <figure>
-      <slot v-if="lazy.src || lazy.srcset" :lazy="lazy">
+      <slot v-if="lazy.src || lazy.srcset" :width="width" :height="height">
         <custom-image v-bind="{...$attrs, width, height, src: lazy.src, srcset: lazy.srcset}" />
       </slot>
       <custom-no-script v-if="!$options.critical && seo">

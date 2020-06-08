@@ -1,9 +1,9 @@
 <template>
   <lazy-image v-bind="$attrs" :src="lazyImage.src" :srcset="lazyImage.srcset">
-    <template lang="html">
+    <template v-scope="{width, height}" lang="html">
       <picture>
         <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
-        <custom-image :src="lazyImage.src" v-bind="$attrs" />
+        <custom-image :src="lazyImage.src" :width="width" :height="height" v-bind="$attrs" />
       </picture>
     </template>
     <template v-slot:caption>
