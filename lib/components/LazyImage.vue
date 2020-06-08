@@ -59,6 +59,8 @@ export default {
 
   data () {
     return {
+      width: null,
+      height: null,
       lazy: { src: null, srcset: null }
     }
   },
