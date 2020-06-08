@@ -2,22 +2,10 @@
   <intersection-observer @enter="onEnter">
     <figure>
       <slot v-if="lazy.src || lazy.srcset" :lazy="lazy">
-        <custom-image
-          :src="lazy.src"
-          :srcset="lazy.srcset"
-          :width="width"
-          :height="height"
-          v-bind="$attrs"
-        />
+        <custom-image v-bind="{...$attrs, width, height, src: lazy.src, srcset: lazy.srcset}" />
       </slot>
       <custom-no-script v-if="!$options.critical && seo">
-        <custom-image
-          :src="src"
-          :srcset="srcset"
-          :width="width"
-          :height="height"
-          v-bind="$attrs"
-        />
+        <custom-image v-bind="{...$attrs, width, height, src, srcset}" />
       </custom-no-script>
       <figcaption v-if="hasSlot">
         <slot name="caption" />
@@ -41,7 +29,7 @@ export default {
 
   props: {
     src: {
-      type: String,
+      type: [String, Array],
       default () {
         return null
       }
