@@ -6,8 +6,8 @@
           v-if="lazy.src || lazy.srcset"
           :src="lazy.src"
           :srcset="lazy.srcset"
-          :width="size.width"
-          :height="size.height"
+          :width="width"
+          :height="height"
           v-bind="$attrs"
         />
       </slot>
@@ -15,7 +15,8 @@
         <custom-image
           :src="src"
           :srcset="srcset"
-          :size="size"
+          :width="width"
+          :height="height"
           v-bind="$attrs"
         />
       </custom-no-script>
@@ -63,7 +64,7 @@ export default {
   },
 
   async fetch () {
-    ({ width: this.size.width, height: this.size.height } = await getImageSize(this.src))
+    ({ width: this.width, height: this.height } = await getImageSize(this.src))
     if (this.$options.critical) {
       this.load()
     }
@@ -71,11 +72,7 @@ export default {
 
   data () {
     return {
-      lazy: { src: null, srcset: null },
-      size: {
-        width: null,
-        height: null
-      }
+      lazy: { src: null, srcset: null }
     }
   },
 
