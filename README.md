@@ -13,7 +13,7 @@
 
 ## Setup
 
-1. Add `lazy-resources` dependency to your project
+1. Add `lazy-resources` dependency to your project.
 
 ```bash
 yarn add lazy-resources # or npm install lazy-resources
