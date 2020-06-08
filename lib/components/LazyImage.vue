@@ -1,12 +1,12 @@
 <template>
   <intersection-observer @enter="onEnter">
-    <figure class="lazy-image">
-      <slot>
+    <figure>
+      <slot v-if="lazy.src || lazy.srcset" :lazy="lazy">
         <custom-image
-          v-if="lazy.src || lazy.srcset"
           :src="lazy.src"
           :srcset="lazy.srcset"
-          :size="size"
+          :width="width"
+          :height="height"
           v-bind="$attrs"
         />
       </slot>
@@ -14,14 +14,13 @@
         <custom-image
           :src="src"
           :srcset="srcset"
-          :size="size"
+          :width="width"
+          :height="height"
           v-bind="$attrs"
         />
       </custom-no-script>
       <figcaption v-if="hasSlot">
-        <slot name="caption">
-          {{ test }}
-        </slot>
+        <slot name="caption" />
       </figcaption>
     </figure>
   </intersection-observer>
@@ -49,7 +48,7 @@ export default {
     },
 
     srcset: {
-      type: String,
+      type: [String, Array],
       default () {
         return null
       }
@@ -64,7 +63,7 @@ export default {
   },
 
   async fetch () {
-    ({ width: this.size.width, height: this.size.height } = await getImageSize(this.src))
+    ({ width: this.width, height: this.height } = await getImageSize(this.src))
     if (this.$options.critical) {
       this.load()
     }
@@ -72,17 +71,13 @@ export default {
 
   data () {
     return {
-      lazy: { src: null, srcset: null },
-      size: {
-        width: null,
-        height: null
-      }
+      lazy: { src: null, srcset: null }
     }
   },
 
   computed: {
     hasSlot () {
-      return this.$slots.default
+      return this.$slots.caption
     }
   },
 
@@ -105,5 +100,5 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-/* .lazy-image {} */
+/* figure {} */
 </style>
