@@ -5,8 +5,8 @@
   ],
   "version": "4.43.0",
   "hash": "cbf470e81ff6dc7b2f3c",
-  "time": 1016,
-  "builtAt": 1592769029937,
+  "time": 981,
+  "builtAt": 1592769373078,
   "publicPath": "/lazy-resources/_nuxt/",
   "outputPath": "/home/runner/work/lazy-resources/lazy-resources/example/.nuxt/dist/server",
   "assetsByChunkName": {
