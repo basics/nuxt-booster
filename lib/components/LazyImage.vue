@@ -51,6 +51,7 @@ export default {
   },
 
   async fetch () {
+    // console.log('AHA', this.srcset);
     ({ width: this.width, height: this.height } = await getImageSize(this.src))
     if (this.$options.critical) {
       this.load()

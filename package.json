@@ -24,7 +24,8 @@
   "main": "lib/module.js",
   "scripts": {
     "dev": "nuxt example",
-    "generate": "nuxt generate --config-file example/nuxt.config.js",
+    "build": "nuxt build --target static --config-file example/nuxt.config.js",
+    "generate": "npm run build && nuxt export --config-file example/nuxt.config.js",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest",
