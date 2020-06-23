@@ -46,7 +46,7 @@
     "babel-jest": "26.0.1",
     "change-case": "^4.1.1",
     "core-js": "^3.6.5",
-    "eslint": "7.3.0",
+    "eslint": "7.3.1",
     "husky": "4.2.5",
     "jest": "26.0.1",
     "lost": "^8.3.1",
