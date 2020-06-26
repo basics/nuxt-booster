@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { sortSourcesByMedia } from '../utils/source'
+import { sortByMediaQuery } from '../utils/mediaQuery'
 import CustomImage from './CustomImage'
 import CustomSource from './CustomSource'
 import LazyImage from './LazyImage'
@@ -37,7 +37,7 @@ export default {
 
   computed: {
     fallbackImage () {
-      const fallback = sortSourcesByMedia(this.sources)[0]
+      const fallback = sortByMediaQuery(this.sources)[0]
       return {
         src: fallback.src,
         srcset: fallback.srcset
@@ -45,7 +45,7 @@ export default {
     },
 
     sortedSources () {
-      return sortSourcesByMedia(this.sources)
+      return sortByMediaQuery(this.sources)
     }
   }
 }

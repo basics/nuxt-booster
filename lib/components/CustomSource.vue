@@ -7,6 +7,7 @@
 
 <script>
 import srcset from 'srcset'
+import { sortSrcset } from '../utils/srcset'
 
 export default {
   props: {
@@ -20,7 +21,7 @@ export default {
 
   computed: {
     preparedSrcset () {
-      return srcset.stringify(this.srcset || []) || null
+      return srcset.stringify(sortSrcset(this.srcset || [])) || null
     }
   }
 }

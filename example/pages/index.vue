@@ -37,11 +37,11 @@ export default {
           },
           {
             srcset: [{
-              url: 'https://placeimg.com/300/200?index-a-2',
-              density: 1
-            }, {
               url: 'https://placeimg.com/600/400?index-a-2',
               density: 2
+            }, {
+              url: 'https://placeimg.com/300/200?index-a-2',
+              density: 1
             }],
             type: 'image/jpeg'
           }
@@ -53,11 +53,11 @@ export default {
         sources: [
           {
             srcset: [{
-              url: 'https://placeimg.com/300/200?index-b-1',
-              density: 1
-            }, {
               url: 'https://placeimg.com/600/400?index-b-1',
               density: 2
+            }, {
+              url: 'https://placeimg.com/300/200?index-b-1',
+              density: 1
             }],
             media: '(min-width: 600px)',
             type: 'image/jpeg'
