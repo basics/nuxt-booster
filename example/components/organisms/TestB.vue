@@ -7,7 +7,7 @@
     <template v-slot:right>
       <atom-base-button />
       <lazy-picture v-bind="$attrs.picture" />
-      <lazy-iframe src="https://grabarzundpartner.de" />
+      <!-- <lazy-iframe src="https://grabarzundpartner.de" /> -->
     </template>
   </layout-two-columns>
 </template>
@@ -15,7 +15,7 @@
 <script>
 import LazyImage from 'lazy-resources/components/LazyImage'
 import LazyPicture from 'lazy-resources/components/LazyPicture'
-import LazyIframe from 'lazy-resources/components/LazyIframe'
+// import LazyIframe from 'lazy-resources/components/LazyIframe'
 import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomBaseButton from '@/components/atoms/BaseButton'
 
@@ -24,8 +24,8 @@ export default {
     LayoutTwoColumns,
     AtomBaseButton,
     LazyImage,
-    LazyPicture,
-    LazyIframe
+    LazyPicture
+    // LazyIframe
   }
 }
 </script>

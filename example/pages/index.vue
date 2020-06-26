@@ -25,18 +25,24 @@ export default {
         title: 'Title Text',
         sources: [
           {
-            srcset: [
-              'https://placeimg.com/300/200?index-a-1',
-              'https://placeimg.com/600/400?index-a-1'
-            ],
+            srcset: [{
+              url: 'https://placeimg.com/600/400?index-a-1',
+              density: 2
+            }, {
+              url: 'https://placeimg.com/300/200?index-a-1',
+              density: 1
+            }],
             media: '(min-width: 600px)',
             type: 'image/jpeg'
           },
           {
-            srcset: [
-              'https://placeimg.com/200/300?index-a-2',
-              'https://placeimg.com/400/600?index-a-2'
-            ],
+            srcset: [{
+              url: 'https://placeimg.com/600/400?index-a-2',
+              density: 2
+            }, {
+              url: 'https://placeimg.com/300/200?index-a-2',
+              density: 1
+            }],
             type: 'image/jpeg'
           }
         ]
@@ -46,18 +52,24 @@ export default {
         title: 'Title Text',
         sources: [
           {
-            srcset: [
-              'https://placeimg.com/300/200?index-b-1',
-              'https://placeimg.com/600/400/?index-b-1'
-            ],
+            srcset: [{
+              url: 'https://placeimg.com/600/400?index-b-1',
+              density: 2
+            }, {
+              url: 'https://placeimg.com/300/200?index-b-1',
+              density: 1
+            }],
             media: '(min-width: 600px)',
             type: 'image/jpeg'
           },
           {
-            srcset: [
-              'https://placeimg.com/200/300?index-b-2',
-              'https://placeimg.com/400/600?index-b-2'
-            ],
+            srcset: [{
+              url: 'https://placeimg.com/600/400?index-b-2',
+              density: 2
+            }, {
+              url: 'https://placeimg.com/300/200?index-b-2',
+              density: 1
+            }],
             type: 'image/jpeg'
           }
         ]

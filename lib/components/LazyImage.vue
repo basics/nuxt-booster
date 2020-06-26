@@ -29,14 +29,14 @@ export default {
 
   props: {
     src: {
-      type: [String, Array],
+      type: String,
       default () {
         return null
       }
     },
 
     srcset: {
-      type: [String, Array],
+      type: Array,
       default () {
         return null
       }
@@ -51,7 +51,7 @@ export default {
   },
 
   async fetch () {
-    ({ width: this.width, height: this.height } = await getImageSize(this.src))
+    ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset))
     if (this.$options.critical) {
       this.load()
     }
@@ -59,8 +59,8 @@ export default {
 
   data () {
     return {
-      width: null,
-      height: null,
+      width: 0,
+      height: 0,
       lazy: { src: null, srcset: null }
     }
   },
@@ -73,7 +73,7 @@ export default {
 
   created () {
     if (this.$options.critical) {
-      getImageSize(this.src)
+      getImageSize(this.src || this.srcset)
     }
   },
 

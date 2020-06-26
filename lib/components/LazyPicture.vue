@@ -1,9 +1,9 @@
 <template>
-  <lazy-image v-bind="$attrs" :src="lazyImage.src" :srcset="lazyImage.srcset">
-    <template v-scope="{width, height}" lang="html">
+  <lazy-image v-bind="$attrs" :src="fallbackImage.src" :srcset="fallbackImage.srcset">
+    <template v-slot:default="{width, height}" lang="html">
       <picture>
-        <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
-        <custom-image :src="lazyImage.src" :width="width" :height="height" v-bind="$attrs" />
+        <custom-source v-for="(source, index) in sortedSources" :key="index" v-bind="source" />
+        <custom-image :src="fallbackImage.src" :srcset="fallbackImage.srcset" :width="width" :height="height" v-bind="$attrs" />
       </picture>
     </template>
     <template v-slot:caption>
@@ -13,44 +13,39 @@
 </template>
 
 <script>
-
-import { sortSourcesByMedia, getMatchedSource, normalizeSrcsetOfSources } from '../utils/image'
+import { sortByMediaQuery } from '../utils/mediaQuery'
 import CustomImage from './CustomImage'
+import CustomSource from './CustomSource'
 import LazyImage from './LazyImage'
 
 export default {
 
   components: {
     CustomImage,
+    CustomSource,
     LazyImage
   },
 
   props: {
-
     sources: {
       type: Array,
       default () {
-        return [
-          // {
-          //   srcset: [],
-          //   type: null,
-          //   media: null
-          // }
-        ]
+        return []
       }
     }
   },
 
   computed: {
-    lazyImage () {
-      const source = getMatchedSource(this.preparedSources)
+    fallbackImage () {
+      const fallback = sortByMediaQuery(this.sources)[0]
       return {
-        src: source.srcset,
-        srcset: source.srcset
+        src: fallback.src,
+        srcset: fallback.srcset
       }
     },
-    preparedSources () {
-      return normalizeSrcsetOfSources(sortSourcesByMedia(this.sources))
+
+    sortedSources () {
+      return sortByMediaQuery(this.sources)
     }
   }
 }
