@@ -1,5 +1,27 @@
 # Project Changelog
 
+# [1.4.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.3.1...v1.4.0) (2020-06-26)
+
+
+### Bug Fixes
+
+* **density:** different order ([3ed3e88](https://github.com/GrabarzUndPartner/lazy-resources/commit/3ed3e882aaeb636ef79574f395defec8c14e85e4))
+* **font:** optimized preload of fonts ([e2f3d7a](https://github.com/GrabarzUndPartner/lazy-resources/commit/e2f3d7a4b04770956ce189fc5a53eaa1e82606fa))
+* **font:** remove idleCallback to lazy load fonts ([5344daf](https://github.com/GrabarzUndPartner/lazy-resources/commit/5344dafba7a2db1e79f2d5aaf56c6a236ab67824))
+* **image:** cleanup ([1bf3276](https://github.com/GrabarzUndPartner/lazy-resources/commit/1bf32761ed9571827b613fd54990020d2382c833))
+* **image:** detect size of srcset ([2fa4246](https://github.com/GrabarzUndPartner/lazy-resources/commit/2fa4246731d9c19469db9539eb6800eb72b62668))
+* **lazy:** full supported srcset ([7572268](https://github.com/GrabarzUndPartner/lazy-resources/commit/7572268520b500c17b46a06d1a8658f216b6ab1b))
+* **lazy-image:** optimized above loading mechanik test ([f5ea445](https://github.com/GrabarzUndPartner/lazy-resources/commit/f5ea445a52d3b83cd8a239f9eed987dae14c3c1c))
+* **nuxt:** removed express ([7a93ef7](https://github.com/GrabarzUndPartner/lazy-resources/commit/7a93ef713a48af2329d7fff542370527938214d1))
+* **srcset:** cleanup ([92c3415](https://github.com/GrabarzUndPartner/lazy-resources/commit/92c3415d9dba87e3b1cac999ce2ba3a7698b47f2))
+* **srcset:** prevented loop ([d2db9b5](https://github.com/GrabarzUndPartner/lazy-resources/commit/d2db9b5cdf682112b667af875883dbe3dbf324d1))
+* **srcset:** sort srcsets ([091bd70](https://github.com/GrabarzUndPartner/lazy-resources/commit/091bd705004b83cc1ffde91ef6ba04db643bc10b))
+
+
+### Features
+
+* **nuxt:** migration of nuxt 2.13.1 ([232c012](https://github.com/GrabarzUndPartner/lazy-resources/commit/232c0122e0cca872188e9805a2fbf8e2987cb0e7))
+
 ## [1.3.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.3.0...v1.3.1) (2020-06-08)
 
 
