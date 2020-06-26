@@ -33,7 +33,8 @@
   },
   "dependencies": {
     "buffer-image-size": "^0.6.4",
-    "sort-media-queries": "^0.2.2"
+    "sort-media-queries": "^0.2.2",
+    "srcset": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.10.3",

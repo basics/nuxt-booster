@@ -1,6 +1,6 @@
 <template>
   <lazy-image v-bind="$attrs" :src="lazyImage.src" :srcset="lazyImage.srcset">
-    <template v-scope="{width, height}" lang="html">
+    <template v-slot:default="{width, height}" lang="html">
       <picture>
         <source v-for="(source, index) in preparedSources" :key="index" v-bind="source">
         <custom-image :src="lazyImage.src" :width="width" :height="height" v-bind="$attrs" />
@@ -30,13 +30,7 @@ export default {
     sources: {
       type: Array,
       default () {
-        return [
-          // {
-          //   srcset: [],
-          //   type: null,
-          //   media: null
-          // }
-        ]
+        return []
       }
     }
   },
@@ -45,7 +39,7 @@ export default {
     lazyImage () {
       const source = getMatchedSource(this.preparedSources)
       return {
-        src: source.srcset,
+        src: source.src,
         srcset: source.srcset
       }
     },

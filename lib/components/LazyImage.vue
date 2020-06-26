@@ -16,7 +16,7 @@
 
 <script>
 import IntersectionObserver from '../abstracts/IntersectionObserver'
-import { getImageSize } from '../utils/image'
+import { getImageSizeOfSrc, getImageSizeOfSrcset } from '../utils/image'
 import CustomImage from './CustomImage'
 import CustomNoScript from './CustomNoScript'
 
@@ -29,16 +29,16 @@ export default {
 
   props: {
     src: {
-      type: [String, Array],
+      type: String,
       default () {
         return null
       }
     },
 
     srcset: {
-      type: [String, Array],
+      type: Array,
       default () {
-        return null
+        return []
       }
     },
 
@@ -51,8 +51,11 @@ export default {
   },
 
   async fetch () {
-    // console.log('AHA', this.srcset);
-    ({ width: this.width, height: this.height } = await getImageSize(this.src))
+    if (this.src) {
+      ({ width: this.width, height: this.height } = await getImageSizeOfSrc(this.src))
+    } else {
+      ({ width: this.width, height: this.height } = await getImageSizeOfSrcset(this.srcset))
+    }
     if (this.$options.critical) {
       this.load()
     }
@@ -60,8 +63,8 @@ export default {
 
   data () {
     return {
-      width: null,
-      height: null,
+      width: 0,
+      height: 0,
       lazy: { src: null, srcset: null }
     }
   },
@@ -74,7 +77,11 @@ export default {
 
   created () {
     if (this.$options.critical) {
-      getImageSize(this.src)
+      if (this.src) {
+        getImageSizeOfSrc(this.src)
+      } else {
+        getImageSizeOfSrcset(this.srcset)
+      }
     }
   },
 
