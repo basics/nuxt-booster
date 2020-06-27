@@ -30,26 +30,6 @@ module.exports = {
       }
     },
 
-    // babel: {
-    //   presets ({ isServer, isModern, isDev }) {
-    //     // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
-    //     return [
-    //       [
-    //         require.resolve('@nuxt/babel-preset-app-edge'),
-    //         {
-    //           buildTarget: isServer ? 'server' : 'client',
-    //           corejs: { version: 3 },
-    //           useBuiltIns: isModern ? 'entry' : 'usage',
-    //           forceAllTransforms: !isDev && !isModern,
-    //           shippedProposals: true,
-    //           loose: true,
-    //           bugfixes: true
-    //         }
-    //       ]
-    //     ]
-    //   }
-    // },
-
     postcss: {
       plugins: {
         'postcss-nesting': {},
