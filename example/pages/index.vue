@@ -1,80 +1,139 @@
 <template>
   <div>
-    <div><organism-test-a :picture="pictureA" src="https://placeimg.com/200/300?index-a" /></div>
-    <div><organism-test-b :picture="pictureB" src="https://placeimg.com/400/300?index-b" /></div>
-    <nuxt-link to="/detail">
-      DETAIL
-    </nuxt-link>
+    <h1>Preview</h1>
+    <h2>Critical</h2>
+    <nav>
+      <ul>
+        <li v-for="(link, index) in criticalLinks" :key="index">
+          <nuxt-link :to="link.to" :title="link.title">
+            {{ link.title }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </nav>
+    <h2>Lazy</h2>
+    <nav>
+      <ul>
+        <li v-for="(link, index) in lazyLinks" :key="index">
+          <nuxt-link :to="link.to" :title="link.title">
+            {{ link.title }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </nav>
+    <h2>Both</h2>
+    <nav>
+      <ul>
+        <li v-for="(link, index) in bothLinks" :key="index">
+          <nuxt-link :to="link.to" :title="link.title">
+            {{ link.title }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
 <script>
-import OrganismTestA from '@/components/organisms/TestA'
-import OrganismTestB from '@/components/organisms/TestB'
-
 export default {
-  components: {
-    OrganismTestA,
-    OrganismTestB
-  },
   data () {
     return {
-      pictureA: {
-        caption: 'test',
-        alt: 'Alt Text',
-        title: 'Title Text',
-        sources: [
-          {
-            srcset: [{
-              url: 'https://placeimg.com/600/400?index-a-1',
-              density: 2
-            }, {
-              url: 'https://placeimg.com/300/200?index-a-1',
-              density: 1
-            }],
-            media: '(min-width: 600px)',
-            type: 'image/jpeg'
-          },
-          {
-            srcset: [{
-              url: 'https://placeimg.com/600/400?index-a-2',
-              density: 2
-            }, {
-              url: 'https://placeimg.com/300/200?index-a-2',
-              density: 1
-            }],
-            type: 'image/jpeg'
-          }
-        ]
-      },
-      pictureB: {
-        alt: 'Alt Text',
-        title: 'Title Text',
-        sources: [
-          {
-            srcset: [{
-              url: 'https://placeimg.com/600/400?index-b-1',
-              density: 2
-            }, {
-              url: 'https://placeimg.com/300/200?index-b-1',
-              density: 1
-            }],
-            media: '(min-width: 600px)',
-            type: 'image/jpeg'
-          },
-          {
-            srcset: [{
-              url: 'https://placeimg.com/600/400?index-b-2',
-              density: 2
-            }, {
-              url: 'https://placeimg.com/300/200?index-b-2',
-              density: 1
-            }],
-            type: 'image/jpeg'
-          }
-        ]
-      }
+      criticalLinks: [
+        {
+          title: 'Font',
+          to: '/critical/font'
+        },
+        {
+          title: 'LazyImageSrc',
+          to: '/critical/lazy-image-src'
+        },
+        {
+          title: 'LazyImageSrcset',
+          to: '/critical/lazy-image-srcset'
+        },
+        {
+          title: 'LazyPicture',
+          to: '/critical/lazy-picture'
+        },
+        {
+          title: 'LazyIframe',
+          to: '/critical/lazy-iframe'
+        }
+      ],
+      lazyLinks: [
+        {
+          title: 'Font',
+          to: '/lazy/font'
+        },
+        {
+          title: 'LazyImageSrc',
+          to: '/lazy/lazy-image-src'
+        },
+        {
+          title: 'LazyImageSrcset',
+          to: '/lazy/lazy-image-srcset'
+        },
+        {
+          title: 'LazyPicture',
+          to: '/lazy/lazy-picture'
+        },
+        {
+          title: 'LazyIframe',
+          to: '/lazy/lazy-iframe'
+        }
+      ],
+      bothLinks: [
+        {
+          title: 'Font',
+          to: '/both/font'
+        },
+        {
+          title: 'LazyImageSrc',
+          to: '/both/lazy-image-src'
+        },
+        {
+          title: 'LazyImageSrcset',
+          to: '/both/lazy-image-srcset'
+        },
+        {
+          title: 'LazyPicture',
+          to: '/both/lazy-picture'
+        },
+        {
+          title: 'LazyIframe',
+          to: '/both/lazy-iframe'
+        }
+      ]
     }
   }
 }
 </script>
+
+<style lang="postcss">
+h1,
+h2 {
+  font-family: monospace;
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+
+  & li {
+    margin: 10px 0;
+  }
+}
+
+a {
+  font-family: monospace;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+}
+
+</style>
