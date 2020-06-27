@@ -16,7 +16,7 @@
 1. Add `lazy-resources` dependency to your project.
 
 ```bash
-yarn add lazy-resources # or npm install lazy-resources
+npm run add lazy-resources # or npm install lazy-resources
 ```
 
 2. Add `lazy-resources` to the `modules` section of `nuxt.config.js`.
@@ -36,13 +36,13 @@ yarn add lazy-resources # or npm install lazy-resources
 ## Development
 
 1. Clone this repository
-2. Install dependencies using `yarn install` or `npm install`
+2. Install dependencies using `npm run install` or `npm install`
 3. Start development server using `npm run dev`
 
 ## Preview
 
 1. Clone this repository
-2. Install dependencies using `yarn install` or `npm install`
+2. Install dependencies using `npm run install` or `npm install`
 3. Build and start with express `npm run start:generate`
 4. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in Browser.
 
