@@ -14,6 +14,7 @@
 <script>
 
 export default {
+  layout: 'detail',
   data () {
     return {
       contentA: '<p>Lorem ipsum dolor sit amet…</p>'

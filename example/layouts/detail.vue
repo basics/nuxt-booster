@@ -1,6 +1,12 @@
 <template>
   <div>
     <Nuxt />
+    <nuxt-link class="overview-link" to="/">
+      &larr;
+      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" critical>
+        Back
+      </span>
+    </nuxt-link>
   </div>
 </template>
 
@@ -13,6 +19,10 @@ export default {
 <style lang="postcss">
 body {
   margin: 0;
+}
+
+.test {
+  background: red;
 }
 
 .overview-link {
