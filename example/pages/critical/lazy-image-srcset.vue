@@ -2,7 +2,7 @@
   <div>
     <organism-preview-container critical>
       <template>
-        <LazyImage v-bind="imageA" />
+        <LazyImage v-bind="imageA" critical="false" />
       </template>
       <template v-slot:title>
         <p>Critical<br>LazyImage - SRCSET<br>Image Switch by >480 &amp; >768px</p>
@@ -29,13 +29,15 @@ export default {
           //   url: 'img/critical-768.jpg',
           //   width: 768
           // },
-          // {
-          //   url: 'img/critical-960.jpg',
-          //   width: 960
-          // },
+          {
+            url: 'img/critical-960.jpg',
+            density: 2
+            // width: 960
+          },
           {
             url: 'img/critical-480.jpg',
-            width: 480
+            density: 1
+            // width: 480
           }
         ]
         // sizes: [

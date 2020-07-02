@@ -4,7 +4,7 @@
       <slot v-if="lazy.src || lazy.srcset" :width="width" :height="height">
         <custom-image v-bind="{...$attrs, width, height, src: lazy.src, srcset: lazy.srcset}" />
       </slot>
-      <custom-no-script v-if="!$options.critical && seo">
+      <custom-no-script v-if="($attrs.critical === 'false' || !$options.critical) && seo">
         <custom-image v-bind="{...$attrs, width, height, src, srcset}" />
       </custom-no-script>
       <figcaption v-if="hasSlot">
@@ -52,9 +52,9 @@ export default {
 
   async fetch () {
     ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset))
-    if (this.$options.critical) {
-      this.load()
-    }
+    // if (this.$options.critical) {
+    //   this.load()
+    // }
   },
 
   data () {
@@ -72,9 +72,9 @@ export default {
   },
 
   created () {
-    if (this.$options.critical) {
-      getImageSize(this.src || this.srcset)
-    }
+    // if (this.$options.critical) {
+    //   getImageSize(this.src || this.srcset)
+    // }
   },
 
   methods: {
