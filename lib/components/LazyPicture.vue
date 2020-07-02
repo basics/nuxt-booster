@@ -14,8 +14,8 @@
 
 <script>
 import { sortByMediaQuery } from '../utils/mediaQuery'
-import CustomImage from './CustomImage'
-import CustomSource from './CustomSource'
+import CustomImage from './customs/CustomImage'
+import CustomSource from './customs/CustomSource'
 import LazyImage from './LazyImage'
 
 export default {

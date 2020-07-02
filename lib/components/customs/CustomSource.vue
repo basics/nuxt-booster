@@ -7,7 +7,7 @@
 
 <script>
 import srcset from 'srcset'
-import { sortSrcset } from '../utils/srcset'
+import { sortSrcset } from '../../utils/srcset'
 
 export default {
   props: {

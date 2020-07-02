@@ -17,8 +17,8 @@
 <script>
 import IntersectionObserver from '../abstracts/IntersectionObserver'
 import { getImageSize } from '../utils/image'
-import CustomImage from './CustomImage'
-import CustomNoScript from './CustomNoScript'
+import CustomImage from './customs/CustomImage'
+import CustomNoScript from './customs/CustomNoScript'
 
 export default {
   components: {
@@ -90,5 +90,7 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-/* figure {} */
+figure {
+  margin: 0;
+}
 </style>
