@@ -21,18 +21,18 @@ export default {
         alt: 'Alt Text',
         title: 'Title Text',
         srcset: [
-          {
-            url: 'img/critical-1200.jpg',
-            width: 1200
-          },
-          {
-            url: 'img/critical-768.jpg',
-            width: 768
-          },
-          {
-            url: 'img/critical-960.jpg',
-            width: 960
-          },
+          // {
+          //   url: 'img/critical-1200.jpg',
+          //   width: 1200
+          // },
+          // {
+          //   url: 'img/critical-768.jpg',
+          //   width: 768
+          // },
+          // {
+          //   url: 'img/critical-960.jpg',
+          //   width: 960
+          // },
           {
             url: 'img/critical-480.jpg',
             width: 480
