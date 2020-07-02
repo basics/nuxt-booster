@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/critical/lazy-image-srcset", (function(a){return {data:[{}],fetch:[{width:a,height:a,lazy:{src:null,srcset:[{url:"https:\u002F\u002Fdummyimage.com\u002F768x768\u002Feeeeee\u002F000000.jpg?text=C",width:a},{url:"https:\u002F\u002Fdummyimage.com\u002F1200x1200\u002Feeeeee\u002F000000.jpg?text=C",width:2400}]}}],mutations:void 0}}(768)));
