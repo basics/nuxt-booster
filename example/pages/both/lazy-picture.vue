@@ -30,20 +30,41 @@ export default {
         sources: [
           {
             srcset: [{
-              url: 'https://dummyimage.com/1200x1200/eeeeee/000000.jpg?text=C'
+              url: 'img/critical-1200.webp'
             }, {
-              url: 'https://dummyimage.com/2400x2400/eeeeee/000000.jpg?text=C',
+              url: 'img/critical-2400.webp',
               density: 2
             }],
-            media: '(min-width: 768px)'
+            media: '(min-width: 768px)',
+            type: 'image/webp'
           },
           {
             srcset: [{
-              url: 'https://dummyimage.com/768x768/eeeeee/000000.jpg?text=C'
+              url: 'img/critical-1200.jpg'
             }, {
-              url: 'https://dummyimage.com/1536x1536/eeeeee/000000.jpg?text=C',
+              url: 'img/critical-2400.jpg',
               density: 2
-            }]
+            }],
+            media: '(min-width: 768px)',
+            type: 'image/jpeg'
+          },
+          {
+            srcset: [{
+              url: 'img/critical-768.webp'
+            }, {
+              url: 'img/critical-1536.webp',
+              density: 2
+            }],
+            type: 'image/webp'
+          },
+          {
+            srcset: [{
+              url: 'img/critical-768.jpg'
+            }, {
+              url: 'img/critical-1536.jpg',
+              density: 2
+            }],
+            type: 'image/jpeg'
           }
         ]
       },
@@ -53,20 +74,41 @@ export default {
         sources: [
           {
             srcset: [{
-              url: 'https://dummyimage.com/1200x1200/eeeeee/000000.jpg?text=L'
+              url: 'img/lazy-1200.webp'
             }, {
-              url: 'https://dummyimage.com/2400x2400/eeeeee/000000.jpg?text=L',
+              url: 'img/lazy-2400.webp',
               density: 2
             }],
-            media: '(min-width: 768px)'
+            media: '(min-width: 768px)',
+            type: 'image/webp'
           },
           {
             srcset: [{
-              url: 'https://dummyimage.com/768x768/eeeeee/000000.jpg?text=L'
+              url: 'img/lazy-1200.jpg'
             }, {
-              url: 'https://dummyimage.com/1536x1536/eeeeee/000000.jpg?text=L',
+              url: 'img/lazy-2400.jpg',
               density: 2
-            }]
+            }],
+            media: '(min-width: 768px)',
+            type: 'image/jpeg'
+          },
+          {
+            srcset: [{
+              url: 'img/lazy-768.webp'
+            }, {
+              url: 'img/lazy-1536.webp',
+              density: 2
+            }],
+            type: 'image/webp'
+          },
+          {
+            srcset: [{
+              url: 'img/lazy-768.jpg'
+            }, {
+              url: 'img/lazy-1536.jpg',
+              density: 2
+            }],
+            type: 'image/jpeg'
           }
         ]
       }

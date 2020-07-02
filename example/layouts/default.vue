@@ -1,6 +1,9 @@
 <template>
   <div>
-    <nuxt-link class="overview-link" to="/">
+    <a v-if="$route.path === '/'" target="_blank" href="https://github.com/GrabarzUndPartner/lazy-resources" class="overview-link">
+      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" critical>GITHUB</span>
+    </a>
+    <nuxt-link v-if="$route.path !== '/'" class="overview-link" to="/">
       <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" critical>&larr; Back</span>
     </nuxt-link>
     <Nuxt />
@@ -22,6 +25,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   padding: 10px;
   font-size: calc(18 / 414 * 100vw);
   color: #000;
@@ -49,13 +53,4 @@ body,
   height: 100%;
 }
 
-.transition-back-button-enter-active,
-.transition-back-button-leave-active {
-  transition: transform 0.3s ease;
-}
-
-.transition-back-button-enter,
-.transition-back-button-leave-to {
-  transform: translateX(-100%);
-}
 </style>

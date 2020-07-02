@@ -21,7 +21,7 @@ export default {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
-        src: 'https://dummyimage.com/1080x1080/eeeeee/000000.jpg?text=L'
+        src: 'img/lazy-1080.jpg'
       }
     }
   }
