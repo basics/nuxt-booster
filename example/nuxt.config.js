@@ -26,7 +26,7 @@ module.exports = {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3 },
               useBuiltIns: isModern ? 'entry' : 'usage',
-              forceAllTransforms: !isDev && !isModern,
+              forceAllTransforms: !isDev && !isModern && !isServer,
               shippedProposals: true,
               loose: true,
               bugfixes: true
