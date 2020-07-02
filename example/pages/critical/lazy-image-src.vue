@@ -20,7 +20,7 @@ export default {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
-        src: 'https://dummyimage.com/1080x1080/eeeeee/000000.jpg?text=C'
+        src: 'img/critical-1080.jpg'
       }
     }
   }

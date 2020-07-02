@@ -30,11 +30,11 @@ export default {
         title: 'Title Text',
         srcset: [
           {
-            url: 'https://dummyimage.com/768x768/eeeeee/000000.jpg?text=C',
+            url: 'img/critical-768.jpg',
             width: 768
           },
           {
-            url: 'https://dummyimage.com/1200x1200/eeeeee/000000.jpg?text=C',
+            url: 'img/critical-1200.jpg',
             width: 2400
           }
         ]
@@ -45,11 +45,11 @@ export default {
         title: 'Title Text',
         srcset: [
           {
-            url: 'https://dummyimage.com/768x768/eeeeee/000000.jpg?text=L',
+            url: 'img/lazy-768.jpg',
             width: 768
           },
           {
-            url: 'https://dummyimage.com/1200x1200/eeeeee/000000.jpg?text=L',
+            url: 'img/lazy-1200.jpg',
             width: 2400
           }
         ]

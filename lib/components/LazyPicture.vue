@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { sortByMediaQuery } from '../utils/mediaQuery'
+import { sortByMediaQuery, sortByType } from '../utils/mediaQuery'
 import CustomImage from './customs/CustomImage'
 import CustomSource from './customs/CustomSource'
 import LazyImage from './LazyImage'
@@ -45,7 +45,7 @@ export default {
     },
 
     sortedSources () {
-      return sortByMediaQuery(this.sources)
+      return sortByType(sortByMediaQuery(this.sources), 'image/webp')
     }
   }
 }
