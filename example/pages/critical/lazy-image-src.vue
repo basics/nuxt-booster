@@ -14,7 +14,6 @@
 <script>
 
 export default {
-  layout: 'detail',
   data () {
     return {
       imageA: {

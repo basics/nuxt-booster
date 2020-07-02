@@ -5,15 +5,15 @@
         <article v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="contentA" />
       </template>
       <template v-slot:title>
-        <p>Critical<br>Font</p>
+        <p>Critical<br>Font (700)</p>
       </template>
     </organism-preview-container>
     <organism-preview-container>
       <template>
-        <article v-html="contentA" />
+        <article v-font="$fonts.getFont('Comic Neue', 300, 'normal')" v-html="contentA" />
       </template>
       <template v-slot:title>
-        <p>Font</p>
+        <p>Font (300)</p>
       </template>
     </organism-preview-container>
   </div>
@@ -22,7 +22,6 @@
 <script>
 
 export default {
-  layout: 'detail',
   data () {
     return {
       contentA: '<p>Lorem ipsum dolor sit amet…</p>'
