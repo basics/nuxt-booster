@@ -21,13 +21,19 @@ module.exports = {
   build: {
 
     babel: {
-      presets ({ isServer }) {
+      presets ({ isServer, isModern, isDev }) {
+        // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
             require.resolve('@nuxt/babel-preset-app-edge'),
             {
               buildTarget: isServer ? 'server' : 'client',
-              corejs: { version: 3 }
+              corejs: { version: 3 },
+              useBuiltIns: isModern ? 'entry' : 'usage',
+              forceAllTransforms: !isDev && !isModern && !isServer,
+              shippedProposals: true,
+              loose: true,
+              bugfixes: true
             }
           ]
         ]
