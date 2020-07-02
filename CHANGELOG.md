@@ -1,5 +1,15 @@
 # Project Changelog
 
+## [1.4.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.0...v1.4.1) (2020-07-02)
+
+
+### Bug Fixes
+
+* **fonts:** cleanup ([1a5598b](https://github.com/GrabarzUndPartner/lazy-resources/commit/1a5598ba46e4e418b30f226bb27924ab052e233a))
+* **fonts:** filter used font-families & prevent double load of critical fonts ([8ce4aed](https://github.com/GrabarzUndPartner/lazy-resources/commit/8ce4aed1974af9c6627a388f99d0e8da1a5855af))
+* **fonts:** removed monospace & correctly flag critical components ([d83042c](https://github.com/GrabarzUndPartner/lazy-resources/commit/d83042cfc4ba1a28058bb510e1f884e8f57a3fdc))
+* **preview-container:** restructured css ([46de972](https://github.com/GrabarzUndPartner/lazy-resources/commit/46de972f39013e07b1d09a33ddc037b3e794b0bc))
+
 # [1.4.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.3.1...v1.4.0) (2020-06-26)
 
 
