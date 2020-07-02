@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.4.4](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.3...v1.4.4) (2020-07-02)
+
+
+### Bug Fixes
+
+* **img:** test ([7374cda](https://github.com/GrabarzUndPartner/lazy-resources/commit/7374cda4b184344801b49fd10324406e3ff69e59))
+
 ## [1.4.3](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.2...v1.4.3) (2020-07-02)
 
 
