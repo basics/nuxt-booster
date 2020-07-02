@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(/_nuxt/example/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff2) format('woff2');
+}
+.font-comic-neue { font-family: var(--family, 'Arial', 'sans-serif'); font-style: var(--font-style, normal); font-weight: var(--font-weight, 400); }
+.font { --family: var(--font-family); }

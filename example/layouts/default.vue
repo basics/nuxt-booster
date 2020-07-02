@@ -1,5 +1,8 @@
 <template>
   <div>
+    <nuxt-link class="overview-link" to="/">
+      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" critical>&larr; Back</span>
+    </nuxt-link>
     <Nuxt />
   </div>
 </template>
