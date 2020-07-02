@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/both/font", {data:[{}],fetch:[],mutations:void 0});
