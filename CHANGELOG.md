@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.4.2](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.1...v1.4.2) (2020-07-02)
+
+
+### Bug Fixes
+
+* **img:** additional srcset images ([4184639](https://github.com/GrabarzUndPartner/lazy-resources/commit/41846393b61eb8c6aa972adc9219910ed69ad6a0))
+
 ## [1.4.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.0...v1.4.1) (2020-07-02)
 
 
