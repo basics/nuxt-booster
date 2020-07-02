@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/alt", (function(a,b,c){return {data:[{}],fetch:[{width:c,height:b,lazy:{src:a,srcset:a}},{width:b,height:c,lazy:{src:a,srcset:a}},{width:400,height:b,lazy:{src:a,srcset:a}},{width:b,height:c,lazy:{src:a,srcset:a}}],mutations:void 0}}(null,300,200)));
