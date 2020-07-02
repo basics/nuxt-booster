@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/lazy/font", {data:[{}],fetch:[],mutations:void 0});

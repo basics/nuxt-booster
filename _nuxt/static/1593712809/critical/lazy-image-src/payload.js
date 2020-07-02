@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/critical/lazy-image-src", (function(a){return {data:[{}],fetch:[{width:a,height:a,lazy:{src:"img\u002Fcritical-1080.jpg",srcset:null}}],mutations:a}}(void 0)));
