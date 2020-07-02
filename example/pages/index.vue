@@ -112,7 +112,6 @@ export default {
 <style lang="postcss">
 h1,
 h2 {
-  font-family: monospace;
   text-align: center;
 }
 
@@ -130,7 +129,6 @@ ul {
 }
 
 a {
-  font-family: monospace;
   font-size: 16px;
   color: #000;
   text-decoration: none;

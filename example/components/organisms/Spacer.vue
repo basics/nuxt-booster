@@ -23,7 +23,6 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-family: monospace;
   font-size: calc(32 / 414 * 100vw);
 
   @media (min-width: 768px) {

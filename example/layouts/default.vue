@@ -20,7 +20,6 @@ body {
   top: 0;
   left: 0;
   padding: 10px;
-  font-family: monospace;
   font-size: calc(18 / 414 * 100vw);
   color: #000;
   text-decoration: none;

@@ -1,11 +1,9 @@
 <template>
   <div>
     <Nuxt />
-    <nuxt-link class="overview-link" to="/">
-      &larr;
-      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" critical>
-        Back
-      </span>
+
+    <nuxt-link v-font="$fonts.getFont('Comic Neue', 400, 'normal')" critical class="overview-link" to="/">
+      &larr; Back
     </nuxt-link>
   </div>
 </template>
@@ -30,7 +28,6 @@ body {
   top: 0;
   left: 0;
   padding: 10px;
-  font-family: monospace;
   font-size: calc(18 / 414 * 100vw);
   color: #000;
   text-decoration: none;

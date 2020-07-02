@@ -48,7 +48,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: monospace;
     font-size: calc(32 / 414 * 100vw);
 
     @media (min-width: 768px) {
