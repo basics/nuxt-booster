@@ -1,6 +1,6 @@
 <template>
   <div>
-    <organism-preview-container critical>
+    <organism-preview-container>
       <template>
         <LazyImage v-bind="imageA" />
       </template>

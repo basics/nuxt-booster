@@ -1,21 +1,18 @@
 <template>
-  <div critical="true">
-    <organism-preview-container critical="true">
-      <template>
-        <LazyImage v-bind="imageA" />
-      </template>
-      <template v-slot:title>
-        <p critical="true">
-          Critical<br>LazyImage - SRCSET<br>Image Switch by >480 &amp; >768px
-        </p>
-      </template>
-    </organism-preview-container>
+  <div>
+    <organism-image-text :image="imageA" :critical="Boolean(true)" />
   </div>
 </template>
 
 <script>
 
+import OrganismImageText from '@/components/organisms/ImageText'
+
 export default {
+  components: {
+    OrganismImageText
+  },
+
   data () {
     return {
       imageA: {

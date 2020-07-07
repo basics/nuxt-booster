@@ -1,7 +1,7 @@
 <template>
   <div class="preview-container">
     <div class="preview-container__preview">
-      <slot />
+      <slot name="default" />
     </div>
     <div class="preview-container__info">
       <slot name="title">
