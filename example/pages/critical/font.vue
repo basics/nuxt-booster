@@ -2,7 +2,7 @@
   <div>
     <organism-preview-container critical>
       <template>
-        <article v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="contentA" />
+        <article v-font="$fonts.getFont('Comic Neue', 700, 'normal').isCritical()" v-html="contentA" />
       </template>
       <template v-slot:title>
         <p>Critical<br>Font</p>
