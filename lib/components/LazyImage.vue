@@ -56,7 +56,7 @@ export default {
   },
 
   async fetch () {
-    ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset, this.$getSize))
+    ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset, this.$getImageSizeFromUrl))
     // console.log(this.width, this.height, this.srcset)
     // if (this.$options.critical) {
     //   this.load()

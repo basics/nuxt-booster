@@ -9,7 +9,6 @@
 export default {
   computed: {
     loading () {
-      console.log(this)
       // TODO: performance check of the best above the fold loading mechanic
       if (this.isCritical) {
         return 'eager'
