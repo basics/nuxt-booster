@@ -2,7 +2,7 @@
   <div>
     <div><organism-test-a :picture="pictureA" src="https://placeimg.com/200/300?index-a" /></div>
     <div><organism-test-b :picture="pictureB" src="https://placeimg.com/400/300?index-b" /></div>
-    <nuxt-link to="/detail">
+    <nuxt-link to="/alt/detail">
       DETAIL
     </nuxt-link>
   </div>

@@ -3,10 +3,10 @@
     <organism-spacer />
     <organism-preview-container>
       <template>
-        <article v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="contentA" />
+        <article v-font="$fonts.getFont('Lobster Two', 700, 'normal')" v-html="contentA" />
       </template>
       <template v-slot:title>
-        <p>Font</p>
+        <p>Font basic usage</p>
       </template>
     </organism-preview-container>
   </div>
