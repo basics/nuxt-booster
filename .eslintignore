@@ -6,4 +6,4 @@ coverage
 reports
 
 # Plugin
-lib/plugin.js
+lib/plugin/*

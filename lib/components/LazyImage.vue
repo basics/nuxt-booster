@@ -1,11 +1,11 @@
 <template>
   <intersection-observer @enter="onEnter">
     <figure>
-      <slot v-if="lazy.src || lazy.srcset" :width="width" :height="height">
-        <custom-image v-bind="{...$attrs, width, height, src: lazy.src, srcset: lazy.srcset}" />
+      <slot>
+        <custom-image v-bind="{...$attrs, width, height, src: src, srcset: preparedSrcset}" />
       </slot>
-      <custom-no-script v-if="($attrs.critical === 'false' || !$options.critical) && seo">
-        <custom-image v-bind="{...$attrs, width, height, src, srcset}" />
+      <custom-no-script>
+        <custom-image v-bind="{...$attrs, width, height, src, srcset: preparedSrcset}" />
       </custom-no-script>
       <figcaption v-if="hasSlot">
         <slot name="caption" />
@@ -15,16 +15,21 @@
 </template>
 
 <script>
+import { hydrateSsrOnly } from 'vue-lazy-hydration'
+import srcset from 'srcset'
 import IntersectionObserver from '../abstracts/IntersectionObserver'
 import { getImageSize } from '../utils/image'
-import CustomImage from './customs/CustomImage'
+import { sortSrcset } from '../utils/srcset'
 import CustomNoScript from './customs/CustomNoScript'
 
 export default {
   components: {
     IntersectionObserver,
-    CustomImage,
-    CustomNoScript
+    CustomNoScript,
+    CustomImage: hydrateSsrOnly(
+      () => import('./customs/CustomImage.vue'),
+      { ignoredProps: ['srcset'] }
+    )
   },
 
   props: {
@@ -51,7 +56,8 @@ export default {
   },
 
   async fetch () {
-    ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset))
+    ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset, this.$getImageSizeFromUrl))
+    // console.log(this.width, this.height, this.srcset)
     // if (this.$options.critical) {
     //   this.load()
     // }
@@ -66,6 +72,10 @@ export default {
   },
 
   computed: {
+    preparedSrcset () {
+      return srcset.stringify(sortSrcset(this.srcset || [])) || null
+    },
+
     hasSlot () {
       return this.$slots.caption
     }

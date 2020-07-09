@@ -1,6 +1,6 @@
 <template>
   <div>
-    <organism-preview-container critical>
+    <organism-preview-container>
       <template>
         <article v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="contentA" />
       </template>

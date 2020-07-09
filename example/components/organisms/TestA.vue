@@ -18,7 +18,6 @@ import LayoutTwoColumns from '@/components/layouts/TwoColumns'
 import AtomHeadline from '@/components/atoms/Headline'
 
 export default {
-  critical: true,
 
   components: {
     LayoutTwoColumns,

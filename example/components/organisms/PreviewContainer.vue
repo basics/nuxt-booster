@@ -1,7 +1,7 @@
 <template>
   <div class="preview-container">
     <div class="preview-container__preview">
-      <slot />
+      <slot name="default" />
     </div>
     <div class="preview-container__info">
       <slot name="title">
@@ -75,10 +75,6 @@ export default {
       width: 100%;
       height: 100%;
       font-size: calc(20 / 414 * 100vw);
-
-      & p {
-        font-family: var(--font-family);
-      }
 
       @media (min-width: 768px) {
         font-size: calc(20 / 768 * 100vw);

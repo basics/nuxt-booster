@@ -1,6 +1,6 @@
 <template>
   <div>
-    <organism-preview-container critical>
+    <organism-preview-container>
       <template>
         <LazyIframe v-bind="iframeA" />
       </template>

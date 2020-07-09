@@ -28,7 +28,7 @@ export default {
   },
 
   created () {
-    if (!this.$options.critical || !this.$attrs.critical) {
+    if (!this.$attrs.critical || !this.$options.critical) {
       const options = (({ root, rootMargin, threshold }) => ({ root, rootMargin, threshold }))(this)
       this.observer = new IntersectionObserver(([e]) => this.onIntersect(e), options)
     }

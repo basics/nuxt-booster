@@ -1,19 +1,18 @@
 <template>
   <div>
-    <organism-preview-container critical>
-      <template>
-        <LazyImage v-bind="imageA" critical="false" />
-      </template>
-      <template v-slot:title>
-        <p>Critical<br>LazyImage - SRCSET<br>Image Switch by >480 &amp; >768px</p>
-      </template>
-    </organism-preview-container>
+    <organism-image-text :image="imageA" :critical="Boolean(true)" />
   </div>
 </template>
 
 <script>
 
+import OrganismImageText from '@/components/organisms/ImageText'
+
 export default {
+  components: {
+    OrganismImageText
+  },
+
   data () {
     return {
       imageA: {
@@ -21,23 +20,33 @@ export default {
         alt: 'Alt Text',
         title: 'Title Text',
         srcset: [
-          // {
-          //   url: 'img/critical-1200.jpg',
-          //   width: 1200
-          // },
-          // {
-          //   url: 'img/critical-768.jpg',
-          //   width: 768
-          // },
           {
-            url: 'img/critical-960.jpg',
-            density: 2
-            // width: 960
+            url: 'img/critical-2400.webp',
+            width: 2400
           },
           {
-            url: 'img/critical-480.jpg',
-            density: 1
-            // width: 480
+            url: 'img/critical-1536.webp',
+            width: 1536
+          },
+          {
+            url: 'img/critical-1200.webp',
+            width: 1200
+          },
+          {
+            url: 'img/critical-1080.webp',
+            width: 1080
+          },
+          {
+            url: '/img/critical-960.webp',
+            width: 960
+          },
+          {
+            url: 'img/critical-768.webp',
+            width: 768
+          },
+          {
+            url: '/img/critical-480.webp',
+            width: 480
           }
         ]
         // sizes: [
