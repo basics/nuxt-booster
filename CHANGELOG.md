@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.5.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.5.0...v1.5.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* **font:** optimize & fix client directive ([23f6106](https://github.com/GrabarzUndPartner/lazy-resources/commit/23f6106530be4973bf62a9410f93d6b28209d078))
+
 # [1.5.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.4...v1.5.0) (2020-07-09)
 
 
