@@ -24,7 +24,9 @@ header {
 }
 
 .overview-link {
+  display: inline-block;
   padding: 10px;
+  padding: calc(10 / 414 * 100vw);
   font-size: calc(18 / 414 * 100vw);
   color: #000;
   text-decoration: none;
@@ -34,10 +36,12 @@ header {
   backdrop-filter: blur(5px);
 
   @media (min-width: 768px) {
+    padding: calc(10 / 768 * 100vw);
     font-size: calc(18 / 768 * 100vw);
   }
 
   @media (min-width: 1024px) {
+    padding: 10px;
     font-size: 18px;
   }
 }
