@@ -16,11 +16,14 @@ export default {
 </script>
 
 <style lang="postcss">
-.overview-link {
+header {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+.overview-link {
   padding: 10px;
   font-size: calc(18 / 414 * 100vw);
   color: #000;
