@@ -110,6 +110,31 @@ module.exports = {
               src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff2'
             }
           ]
+        }, {
+          family: 'Lobster Two',
+          fallback: ['Arial', 'sans-serif'],
+          variance: [
+            {
+              style: 'normal',
+              weight: 400,
+              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-regular.woff2'
+            },
+            {
+              style: 'italic',
+              weight: 400,
+              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-italic.woff2'
+            },
+            {
+              style: 'normal',
+              weight: 700,
+              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-700.woff2'
+            },
+            {
+              style: 'italic',
+              weight: 700,
+              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-700italic.woff2'
+            }
+          ]
         }]
       }
     ]
