@@ -1,5 +1,22 @@
 # Project Changelog
 
+# [1.5.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.4...v1.5.0) (2020-07-09)
+
+
+### Bug Fixes
+
+* **critical:** detect critical parent in childs ([abe4f96](https://github.com/GrabarzUndPartner/lazy-resources/commit/abe4f961ca202f608804af52480ea777ea9e9244))
+* **font:** refactored code - simplified and reduced ([fba68b1](https://github.com/GrabarzUndPartner/lazy-resources/commit/fba68b11f479e728c7606233785544b9167d3199))
+* **fonts:** reimplemented lazy load of fonts ([09c608c](https://github.com/GrabarzUndPartner/lazy-resources/commit/09c608c9e37f30c7bba6d63127a30c9bc075a144))
+* **image:** critical detection ([cccdf09](https://github.com/GrabarzUndPartner/lazy-resources/commit/cccdf093a4cd1e3e29dd5b2f6d4cf33b87b2dd40))
+* **srcset:** optimized critical loading ([c3973aa](https://github.com/GrabarzUndPartner/lazy-resources/commit/c3973aa7be84fb3734ba2de2723e84f174f940e8))
+* **thorn:** ein schönes Ei hattest du mir da gelegt ;) ([00198a3](https://github.com/GrabarzUndPartner/lazy-resources/commit/00198a3db5296df1b7b0145a2a62bd3a5188cbf4))
+
+
+### Features
+
+* **font:** selector definition embedded in v-font directive ([f2f2a25](https://github.com/GrabarzUndPartner/lazy-resources/commit/f2f2a25c4fc820ec08d6f8adbbb845cf0e06a793))
+
 ## [1.4.4](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.4.3...v1.4.4) (2020-07-02)
 
 
