@@ -29,7 +29,8 @@
     "lint": "eslint --ext .js,.vue .",
     "release": "npm run test && standard-version && git push --follow-tags && npm publish",
     "test": "npm run lint && jest",
-    "start:generate": "npm run generate && nuxt serve"
+    "serve": "nuxt serve --config-file example/nuxt.config.js",
+    "start:generate": "npm run generate && npm run serve"
   },
   "dependencies": {
     "buffer-image-size": "^0.6.4",
