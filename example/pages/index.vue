@@ -1,6 +1,15 @@
 <template>
   <div>
     <h1>Preview</h1>
+    <nav>
+      <ul>
+        <li v-for="(link, index) in links" :key="index">
+          <nuxt-link :to="link.to" :title="link.title">
+            {{ link.title }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </nav>
     <h2>Critical</h2>
     <nav>
       <ul>
@@ -38,6 +47,12 @@
 export default {
   data () {
     return {
+      links: [
+        {
+          title: 'Full Example',
+          to: '/full-example'
+        }
+      ],
       criticalLinks: [
         {
           title: 'Font basic usage',
