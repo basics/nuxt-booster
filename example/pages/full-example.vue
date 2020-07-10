@@ -19,7 +19,8 @@
         $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i'),
         $fonts.getFont('Comic Neue', 700, 'normal').bySelector('b'),
         $fonts.getFont('Comic Neue', 700, 'italic').bySelector('i b'),
-        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('b i')
+        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('b i'),
+        $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i > b')
       ]"
       class="component-text"
       v-html="textA"
