@@ -40,8 +40,12 @@ export default {
     return {
       criticalLinks: [
         {
-          title: 'Font',
-          to: '/critical/font'
+          title: 'Font basic usage',
+          to: '/critical/font-basic'
+        },
+        {
+          title: 'Font extended usage',
+          to: '/critical/font-extended'
         },
         {
           title: 'LazyImageSrc',
@@ -62,8 +66,12 @@ export default {
       ],
       lazyLinks: [
         {
-          title: 'Font',
-          to: '/lazy/font'
+          title: 'Font basic usage',
+          to: '/lazy/font-basic'
+        },
+        {
+          title: 'Font extended usage',
+          to: '/lazy/font-extended'
         },
         {
           title: 'LazyImageSrc',
@@ -84,8 +92,12 @@ export default {
       ],
       bothLinks: [
         {
-          title: 'Font',
-          to: '/both/font'
+          title: 'Font basic usage',
+          to: '/both/font-basic'
+        },
+        {
+          title: 'Font extended usage',
+          to: '/both/font-extended'
         },
         {
           title: 'LazyImageSrc',
