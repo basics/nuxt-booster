@@ -35,14 +35,72 @@ npm run add lazy-resources # or npm install lazy-resources
 
 ## Components
 
-…
+The use of the components is default `lazy`.  
+`lazy` components are activated by [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).  
+If you use the attribute `critical`, the components switch to `eager`.
+
+It is recommended that you declare components visible in the initial viewport with `critical`.  
+Any Vue component can be set with the attribute `critical`. 
+
+Important `critical` option is inherited on child nodes.
+
+When using `slot` and `v-font` on a component set directly with `critical`, the font must be set as `critical` separately via [isCritical](#iscritical).
+
+### LazyIframe [[code](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/LazyIframe.vue)]
+
+Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
+
+```html
+<lazy-iframe src="…" />
+```
+
+### LazyImage [[code](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/LazyImage.vue)]
+
+Use native attributes to configure [image](https://www.w3schools.com/tags/tag_img.asp) (eg. `<img>`).
+
+> Do not use the `loading` attribute, this will break the LazyLoad mechanism.
+
+
+```html
+<lazy-image src="…" />
+```
+
+### LazyPicture [[code](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/LazyPicture.vue)]
+
+Use native attributes to configure [picture](https://www.w3schools.com/tags/tag_picture.asp) (eg. `<picture>`).
+
+```html
+<lazy-picture src="…" />
+```
+
+#### Properties
+
+
+```js
+{
+  alt: '…', // Image alt
+  title: '…', // Image Title    
+  sources: [
+    {
+      // srcset can be filled with additional objects for different densities. 
+      srcset: [
+      {
+        url: '…', // File path
+        density: undefined// Value for density eg. 1x, 2x, by default not set.
+      }
+      ],
+      type: // mimetype
+    }
+  ]
+}
+```
 
 
 ## Using
 
 ### v-font
 
-For using the `v-font` directive, you can use \$getFont to register a font on the current node.  
+For using the `v-font` directive, you can use `$getFont` to register a font on the current node.  
 By multiple Fonts Variants you can set a array.
 
 **Single Variance**
@@ -96,17 +154,17 @@ Other fonts load by lazyload, when show in viewport.
 Defines css selectors to which the font should be applied. 
 
 ```html 
-<node v-font="[$getFont(…).bySelector('strong')]">…
+<node v-font="$getFont(…).bySelector('strong')">…
 ```
 
 OR operators can be defined by string or array.
 
 ```html 
 <!-- String -->
-<node v-font="[$getFont(…).bySelector('strong,i')]">…
+<node v-font="$getFont(…).bySelector('strong,i')">…
 
 <!-- Array -->
-<node v-font="[$getFont(…).bySelector('strong', 'i')]">…
+<node v-font="$getFont(…).bySelector('strong', 'i')">…
 ```
 
 ## Usage
