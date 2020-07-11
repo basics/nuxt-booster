@@ -2,7 +2,14 @@
   <div>
     <organism-preview-container>
       <template>
-        <article v-font="[$fonts.getFont('Comic Neue', 400, 'normal').isCritical(), $fonts.getFont('Comic Neue', 700, 'normal').bySelector('strong').isCritical(), $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i').isCritical()]" v-html="contentA" />
+        <article
+          v-font="[
+            $fonts.getFont('Comic Neue', 400, 'normal').isCritical(),
+            $fonts.getFont('Comic Neue', 700, 'normal').bySelector('b, strong').isCritical(),
+            $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i, em').isCritical()
+          ]"
+          v-html="contentA"
+        />
       </template>
       <template v-slot:title>
         <p>Critical<br>Font extended usage</p>
@@ -10,7 +17,14 @@
     </organism-preview-container>
     <organism-preview-container>
       <template>
-        <article v-font="[$fonts.getFont('Lobster Two', 400, 'normal'), $fonts.getFont('Lobster Two', 700, 'normal').bySelector('strong'), $fonts.getFont('Lobster Two', 400, 'italic').bySelector('i')]" v-html="contentA" />
+        <article
+          v-font="[
+            $fonts.getFont('Lobster Two', 400, 'normal'),
+            $fonts.getFont('Lobster Two', 700, 'normal').bySelector('b, strong'),
+            $fonts.getFont('Lobster Two', 400, 'italic').bySelector('i, em')
+          ]"
+          v-html="contentA"
+        />
       </template>
       <template v-slot:title>
         <p>Font extended usage</p>
