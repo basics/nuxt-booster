@@ -98,6 +98,40 @@ Use native attributes to configure [picture](https://www.w3schools.com/tags/tag_
 
 ## Using
 
+
+### Critical Attribute & Option
+
+Use `critical` to switch the component contained in the module or $getFont to `eager`.
+
+#### Examples
+
+**Attribute**
+
+```html
+<!-- use default attribute -->
+<lazy-picture src="…" critical/>
+
+<!-- use boolean -->
+<lazy-picture src="…" :critical="true"/>
+```
+
+**Single File Example**
+
+```html
+<template>
+  <div>
+    <span v-font="$getFont(…)"></span>
+  </div>
+</template>
+
+<script>
+export default {
+  critical: true,
+  props: { … }
+}
+</script>
+```
+
 ### v-font
 
 For using the `v-font` directive, you can use `$getFont` to register a font on the current node.  
@@ -141,7 +175,7 @@ Sets the font as critical. Use critical for Font, that you see in the initial vi
 Other fonts load by lazyload, when show in viewport.
 
 ```html 
-<node v-font="[$getFont(…).isCritical()]">…
+<node v-font="$getFont(…).isCritical()">…
 ```
 
 
