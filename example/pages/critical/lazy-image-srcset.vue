@@ -21,19 +21,19 @@ export default {
         title: 'Title Text',
         srcset: [
           {
-            url: 'img/critical-2400.webp',
+            url: '/img/critical-2400.webp',
             width: 2400
           },
           {
-            url: 'img/critical-1536.webp',
+            url: '/img/critical-1536.webp',
             width: 1536
           },
           {
-            url: 'img/critical-1200.webp',
+            url: '/img/critical-1200.webp',
             width: 1200
           },
           {
-            url: 'img/critical-1080.webp',
+            url: '/img/critical-1080.webp',
             width: 1080
           },
           {
@@ -41,11 +41,11 @@ export default {
             width: 960
           },
           {
-            url: 'img/critical-768.webp',
+            url: '/img/critical-768.webp',
             width: 768
           },
           {
-            url: '/img/critical-480.webp',
+            url: require('@/assets/img/critical-480.webp'),
             width: 480
           }
         ]
@@ -59,3 +59,7 @@ export default {
   }
 }
 </script>
+
+// deepblue
+// sinnerschrader
+// interone
