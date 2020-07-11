@@ -16,7 +16,7 @@
 export default {
   data () {
     return {
-      contentA: '<p>Lorem ipsum dolor sit amet…</p>'
+      contentA: '<p>This is a basic test with single font variant.</p>'
     }
   }
 }
