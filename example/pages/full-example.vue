@@ -17,10 +17,10 @@
         $fonts.getFont('Comic Neue', 400, 'normal'),
         $fonts.getFont('Lobster Two', 700, 'normal').bySelector('h2'),
         $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i'),
-        $fonts.getFont('Comic Neue', 700, 'normal').bySelector('b'),
-        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('i b'),
-        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('b i'),
-        $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i > b')
+        $fonts.getFont('Comic Neue', 700, 'normal').bySelector('b,strong'),
+        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('i b,i strong'),
+        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('b i, strong i'),
+        $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i > b, i > strong')
       ]"
       class="component-text"
       v-html="textA"
