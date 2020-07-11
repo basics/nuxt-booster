@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/max-fonts", {data:[{}],fetch:[],mutations:void 0});

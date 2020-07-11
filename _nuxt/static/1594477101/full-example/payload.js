@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/full-example", (function(a,b){return {data:[{}],fetch:[{width:a,height:a,lazy:{src:b,srcset:b}},{width:a,height:a,lazy:{src:b,srcset:b}}],mutations:void 0}}(480,null)));
