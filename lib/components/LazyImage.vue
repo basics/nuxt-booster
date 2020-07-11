@@ -1,7 +1,7 @@
 <template>
   <intersection-observer @enter="onEnter">
     <figure>
-      <slot>
+      <slot :src="src" :srcset="preparedSrcset" :width="width" :height="height">
         <custom-image v-bind="{...$attrs, width, height, src: src, srcset: preparedSrcset}" />
       </slot>
       <custom-no-script>
