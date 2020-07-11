@@ -51,6 +51,10 @@ export default {
         {
           title: 'Full Example',
           to: '/full-example'
+        },
+        {
+          title: 'Max Fonts',
+          to: '/max-fonts'
         }
       ],
       criticalLinks: [
