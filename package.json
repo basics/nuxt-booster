@@ -56,7 +56,7 @@
     "lost": "^8.3.1",
     "nuxt-edge": "latest",
     "postcss-nesting": "^7.0.1",
-    "standard-version": "8.0.0",
+    "standard-version": "8.0.1",
     "stylelint": "^13.6.1",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "^2.0.4",
