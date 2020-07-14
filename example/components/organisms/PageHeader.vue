@@ -1,17 +1,18 @@
 <template>
   <header>
     <a v-if="$route.path === '/'" target="_blank" href="https://github.com/GrabarzUndPartner/lazy-resources" class="overview-link">
-      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')">GITHUB</span>
+      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" class="font-comic-neue-400-normalaa">GITHUB</span>
     </a>
     <nuxt-link v-if="$route.path !== '/'" class="overview-link" to="/">
-      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')">&larr; Back</span>
+      <span v-font="$fonts.getFont('Comic Neue', 400, 'normal')" class="font-comic-neue-400-normalaa">&larr; Back</span>
     </nuxt-link>
   </header>
 </template>
 
 <script>
 export default {
-
+  // TODO: solve font loading bug -> no font-classes will be added on server side
+  // Current Quickfix: added class manually
 }
 </script>
 

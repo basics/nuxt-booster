@@ -33,13 +33,12 @@
     "start:generate": "npm run generate && npm run serve"
   },
   "dependencies": {
-    "buffer-image-size": "^0.6.4",
-    "image-size": "^0.8.3",
     "sort-media-queries": "^0.2.2",
     "srcset": "^2.0.1",
     "vue-lazy-hydration": "^1.0.0-beta.12"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.0.1",
     "@babel/core": "7.10.4",
     "@babel/preset-env": "7.10.4",
     "@commitlint/cli": "9.0.1",
@@ -52,15 +51,24 @@
     "core-js": "^3.6.5",
     "eslint": "7.4.0",
     "husky": "4.2.5",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "imagemin-svgo": "^8.0.0",
     "jest": "26.1.0",
     "lost": "^8.3.1",
+    "lqip-loader": "^2.2.0",
     "nuxt-edge": "latest",
     "postcss-nesting": "^7.0.1",
+    "responsive-loader": "^1.2.0",
+    "sharp": "^0.25.4",
+    "sqip-loader": "^1.0.0",
     "standard-version": "8.0.0",
     "stylelint": "^13.6.1",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-standard": "^20.0.0",
+    "webp-loader": "^0.6.0",
     "webpack-bundle-analyzer": "^3.8.0"
   }
 }

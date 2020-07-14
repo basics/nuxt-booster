@@ -45,15 +45,12 @@ export default {
             width: 768
           },
           {
-            url: require('@/assets/img/critical-480.webp'),
+          // url: '/img/critical-480.jpg',
+            url: require('@/assets/img/critical-480.jpg'),
             width: 480
           }
-        ]
-        // sizes: [
-        //   '(min-width: 768px) 1200px',
-        //   '(min-width: 480px) 768px',
-        //   '100vw'
-        // ]
+        ],
+        src: require('@/assets/img/critical-480.jpg?sqip')
       }
     }
   }
