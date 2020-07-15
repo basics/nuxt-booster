@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [1.5.2](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.5.1...v1.5.2) (2020-07-11)
+
+
+### Bug Fixes
+
+* **font:** replace style attribute with classes ([c7bd1a1](https://github.com/GrabarzUndPartner/lazy-resources/commit/c7bd1a17c37492b4b872c080488258496a29f35f))
+* **selectors:** add sort for font variance selectors; update pages ([6a756ff](https://github.com/GrabarzUndPartner/lazy-resources/commit/6a756fff627e3fede9e8127968b748b4ed20ff0d))
+
 ## [1.5.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.5.0...v1.5.1) (2020-07-09)
 
 
