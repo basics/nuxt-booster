@@ -27,7 +27,6 @@
     "build": "nuxt build --target static --config-file example/nuxt.config.js",
     "generate": "npm run build && nuxt export --config-file example/nuxt.config.js",
     "lint": "eslint --ext .js,.vue .",
-    "release": "npm run test && standard-version && git push --follow-tags && npm publish",
     "test": "npm run lint && jest",
     "serve": "nuxt serve --config-file example/nuxt.config.js",
     "start:generate": "npm run generate && npm run serve"
@@ -56,7 +55,6 @@
     "lost": "^8.3.1",
     "nuxt-edge": "latest",
     "postcss-nesting": "^7.0.1",
-    "standard-version": "8.0.0",
     "stylelint": "^13.6.1",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "^2.0.4",
