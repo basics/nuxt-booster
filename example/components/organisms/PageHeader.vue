@@ -11,7 +11,8 @@
 
 <script>
 export default {
-
+  // TODO: solve font loading bug -> no font-classes will be added on server side
+  // Current Quickfix: added class manually
 }
 </script>
 

@@ -77,6 +77,18 @@ module.exports = {
     base: getBasePath()
   },
 
+  buildModules: [
+    ['@aceforth/nuxt-optimized-images', {
+      optimizeImages: true,
+      optimizeImagesInDev: true,
+      sqip: {
+        numberOfPrimitives: 100,
+        blur: 0,
+        mode: 1
+      }
+    }]
+  ],
+
   modules: [
     [
       resolve(__dirname, '..'), {

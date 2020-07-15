@@ -1,9 +1,9 @@
 <template>
-  <lazy-image v-bind="$attrs" :src="fallbackImage.src" :srcset="fallbackImage.srcset">
-    <template v-slot:default="{width, height}" lang="html">
+  <lazy-image v-bind="{...$attrs, src: fallbackImage.src, srcset: fallbackImage.srcset}">
+    <template v-slot:default="{src, srcset, width, height}" lang="html">
       <picture>
         <custom-source v-for="(source, index) in sortedSources" :key="index" v-bind="source" />
-        <custom-image :src="fallbackImage.src" :srcset="fallbackImage.srcset" :width="width" :height="height" v-bind="$attrs" />
+        <custom-image v-bind="{...$attrs, width, height, src: src, srcset: srcset}" />
       </picture>
     </template>
     <template v-slot:caption>
@@ -13,17 +13,21 @@
 </template>
 
 <script>
+import { hydrateSsrOnly } from 'vue-lazy-hydration'
 import { sortByMediaQuery, sortByType } from '../utils/mediaQuery'
-import CustomImage from './customs/CustomImage'
+import { sortSrcset } from '../utils/srcset'
 import CustomSource from './customs/CustomSource'
 import LazyImage from './LazyImage'
 
 export default {
 
   components: {
-    CustomImage,
     CustomSource,
-    LazyImage
+    LazyImage,
+    CustomImage: hydrateSsrOnly(
+      () => import('./customs/CustomImage.vue'),
+      { ignoredProps: ['srcset'] }
+    )
   },
 
   props: {
@@ -40,7 +44,7 @@ export default {
       const fallback = sortByMediaQuery(this.sources)[0]
       return {
         src: fallback.src,
-        srcset: fallback.srcset
+        srcset: sortSrcset(fallback.srcset || [])
       }
     },
 
