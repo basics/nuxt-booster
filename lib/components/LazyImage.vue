@@ -3,11 +3,11 @@
     <section>
       <lazy-hydrate ssr-only :trigger-hydration="init">
         <figure>
-          <slot :src="src" :srcset="lazySrcsetString" :width="width" :height="height">
-            <custom-image v-bind="{src: src, srcset: lazySrcsetString, width, height, alt, title}" @load="onLoad" />
+          <slot :src="src" :srcset="imageSrcset" :width="width" :height="height">
+            <custom-image v-bind="{src: src, srcset: imageSrcset, width, height, alt, title}" @load="onLoad" />
           </slot>
           <custom-no-script v-if="!init">
-            <custom-image v-bind="{src: criticalSrc, srcset: criticalSrcsetString, width, height, alt, title}" />
+            <custom-image v-bind="{src: noscriptSrc, srcset: srcset, width, height, alt, title}" />
           </custom-no-script>
           <figcaption v-if="hasSlot">
             <slot name="caption" />
@@ -26,9 +26,7 @@
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
-import srcset from 'srcset'
 import IntersectionObserver from '../abstracts/IntersectionObserver'
-import { sortSrcset } from '../utils/srcset'
 import { hasGoodOverallConditions } from '../utils/client'
 import CustomNoScript from './customs/CustomNoScript'
 import CustomImage from './customs/CustomImage'
@@ -52,7 +50,7 @@ export default {
     },
 
     srcset: {
-      type: Array,
+      type: String,
       default () {
         return null
       }
@@ -70,39 +68,40 @@ export default {
       default () {
         return ''
       }
-    }
-  },
+    },
 
-  fetch () {
-    if (this.src && 'dimensions' in this.src) {
-      this.width = this.src.dimensions.width
-      this.height = this.src.dimensions.height
+    width: {
+      type: Number,
+      default () {
+        return null
+      }
+    },
+
+    height: {
+      type: Number,
+      default () {
+        return null
+      }
     }
   },
 
   data () {
     return {
       init: false,
-      loading: false,
-      width: null,
-      height: null
+      loading: false
     }
   },
 
   computed: {
-    lazySrcsetString () {
-      if (hasGoodOverallConditions() || this.init || imageCache.has(this.criticalSrcsetString)) {
-        imageCache.add(this.criticalSrcsetString)
-        return this.criticalSrcsetString
+    imageSrcset () {
+      if (this.init) {
+        imageCache.add(this.srcset)
+        return this.srcset
       }
       return null
     },
 
-    criticalSrcsetString () {
-      return srcset.stringify(sortSrcset(this.srcset || [])) || null
-    },
-
-    criticalSrc () {
+    noscriptSrc () {
       if (this.srcset) {
         return null
       }
@@ -121,7 +120,7 @@ export default {
     },
 
     onEnter () {
-      this.init = hasGoodOverallConditions()
+      this.init = hasGoodOverallConditions() || imageCache.has(this.srcset)
     },
 
     onLoad () {
