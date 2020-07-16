@@ -5,7 +5,7 @@ describe('module', () => {
 
   beforeAll(async () => {
     ({ nuxt } = (await setup(loadConfig(__dirname, '../../example'))))
-  }, 60000)
+  }, 120000)
 
   afterAll(async () => {
     await nuxt.close()
