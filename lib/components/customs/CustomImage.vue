@@ -31,6 +31,9 @@ export default {
 
 <style lang="postcss" type="flow" scoped>
 img {
-  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: cover;
 }
 </style>

@@ -1,33 +1,28 @@
 <template>
-  <lazy-image v-bind="{...$attrs, src: fallbackImage.src, srcset: fallbackImage.srcset}">
-    <template v-slot:default="{src, srcset, width, height}" lang="html">
-      <picture>
-        <custom-source v-for="(source, index) in sortedSources" :key="index" v-bind="source" />
-        <custom-image v-bind="{...$attrs, width, height, src: src, srcset: srcset}" />
-      </picture>
+  <image-container :loading="loading" @visible="onVisible" @requestHiRes="onRequestHiRes">
+    <template>
+      <custom-picture v-bind="{src: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
+      <custom-no-script v-if="!init">
+        <custom-picture v-bind="{src: placeholder, sources, width, height, alt, title}" />
+      </custom-no-script>
     </template>
-    <template v-slot:caption>
-      <slot name="caption" />
-    </template>
-  </lazy-image>
+  </image-container>
 </template>
 
 <script>
-import { hydrateSsrOnly } from 'vue-lazy-hydration'
-import { sortByMediaQuery, sortByType } from '../utils/mediaQuery'
-import { sortSrcset } from '../utils/srcset'
-import CustomSource from './customs/CustomSource'
-import LazyImage from './LazyImage'
+import { hasGoodOverallConditions } from '../utils/client'
+import ImageContainer from './ImageContainer'
+import CustomNoScript from './customs/CustomNoScript'
+import CustomPicture from './customs/CustomPicture'
+
+const imageCache = new Set()
 
 export default {
 
   components: {
-    CustomSource,
-    LazyImage,
-    CustomImage: hydrateSsrOnly(
-      () => import('./customs/CustomImage.vue'),
-      { ignoredProps: ['srcset'] }
-    )
+    ImageContainer,
+    CustomNoScript,
+    CustomPicture
   },
 
   props: {
@@ -36,20 +31,79 @@ export default {
       default () {
         return []
       }
+    },
+
+    placeholder: {
+      type: String,
+      default () {
+        return null
+      }
+    },
+
+    alt: {
+      type: String,
+      default () {
+        return ''
+      }
+    },
+
+    title: {
+      type: String,
+      default () {
+        return ''
+      }
+    },
+
+    width: {
+      type: Number,
+      default () {
+        return null
+      }
+    },
+
+    height: {
+      type: Number,
+      default () {
+        return null
+      }
+    }
+  },
+
+  data () {
+    return {
+      init: false,
+      loading: false
     }
   },
 
   computed: {
-    fallbackImage () {
-      const fallback = sortByMediaQuery(this.sources)[0]
-      return {
-        src: fallback.src,
-        srcset: sortSrcset(fallback.srcset || [])
+    pictureSources () {
+      if (this.init) {
+        imageCache.add(JSON.stringify(this.sources))
+        return this.sources
       }
+      return null
     },
 
-    sortedSources () {
-      return sortByType(sortByMediaQuery(this.sources), 'image/webp')
+    hasSlot () {
+      return this.$slots.caption
+    }
+  },
+
+  methods: {
+    onRequestHiRes () {
+      this.loading = true
+      this.init = true
+    },
+
+    onVisible () {
+      this.loading = hasGoodOverallConditions() || imageCache.has(JSON.stringify(this.sources))
+      this.init = hasGoodOverallConditions() || imageCache.has(JSON.stringify(this.sources))
+    },
+
+    onLoad () {
+      this.loading = false
+      this.$emit('load')
     }
   }
 }

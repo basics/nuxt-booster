@@ -15,50 +15,27 @@
 
 export default {
   data () {
+    const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
+    const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
+
     return {
       pictureA: {
-        alt: 'Alt Text',
-        title: 'Title Text',
         sources: [
           {
-            srcset: [{
-              url: 'img/critical-1200.webp'
-            }, {
-              url: 'img/critical-2400.webp',
-              density: 2
-            }],
-            media: '(min-width: 768px)',
+            srcset: criticalImageWebp.srcSet,
             type: 'image/webp'
           },
           {
-            srcset: [{
-              url: 'img/critical-1200.jpg'
-            }, {
-              url: 'img/critical-2400.jpg',
-              density: 2
-            }],
-            media: '(min-width: 768px)',
-            type: 'image/jpeg'
-          },
-          {
-            srcset: [{
-              url: 'img/critical-768.webp'
-            }, {
-              url: 'img/critical-1536.webp',
-              density: 2
-            }],
-            type: 'image/webp'
-          },
-          {
-            srcset: [{
-              url: 'img/critical-768.jpg'
-            }, {
-              url: 'img/critical-1536.jpg',
-              density: 2
-            }],
+            srcset: criticalImageJpeg.srcSet,
             type: 'image/jpeg'
           }
-        ]
+        ],
+        placeholder: criticalImageJpeg.placeholder,
+        width: criticalImageJpeg.width,
+        height: criticalImageJpeg.height,
+        alt: 'Alt Text',
+        title: 'Title Text',
+        caption: null
       }
     }
   }

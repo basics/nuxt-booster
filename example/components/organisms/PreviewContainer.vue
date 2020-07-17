@@ -21,16 +21,8 @@ export default {
 .preview-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin: 50px 0;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  min-height: 100vh;
+  min-height: stretch;
 
   @media (orientation: landscape) {
     flex-direction: row;
@@ -41,13 +33,24 @@ export default {
   }
 
   & > div {
-    flex: 0 0 50%;
-  }
-
-  & .preview-container__info {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 50vh;
+
+    @media (orientation: landscape) {
+      width: 50vw;
+      height: 100vh;
+    }
+
+    @media (min-width: 1024px) {
+      width: 50vw;
+      height: 100vh;
+    }
+  }
+
+  & .preview-container__info {
     font-size: calc(32 / 414 * 100vw);
 
     @media (min-width: 768px) {

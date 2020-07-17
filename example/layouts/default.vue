@@ -16,17 +16,13 @@ export default {
 </script>
 
 <style lang="postcss">
+html {
+  height: stretch;
+}
+
 body {
+  min-height: 100vh;
+  min-height: stretch;
   margin: 0;
 }
-
-html,
-body,
-#__nuxt,
-#__layout,
-#__layout > div,
-#__layout > div > div {
-  height: 100%;
-}
-
 </style>
