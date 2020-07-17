@@ -6,6 +6,9 @@
         <custom-picture v-bind="{src: placeholder, sources, width, height, alt, title}" />
       </custom-no-script>
     </template>
+    <template v-slot:caption>
+      <slot name="caption" />
+    </template>
   </image-container>
 </template>
 
