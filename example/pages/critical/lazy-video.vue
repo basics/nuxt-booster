@@ -1,6 +1,16 @@
 <template>
   <div>
-    <LazyVideo dash="/video/h264.mpd" hls="/video/h264.m3u8" :autoplay="Boolean(true)" />
+    <LazyVideo
+      :landscape="{
+        dash: '/video/h264_landscape.mpd',
+        hls: '/video/h264_landscape.m3u8'
+      }"
+      :portrait="{
+        dash: '/video/h264_portrait.mpd',
+        hls: '/video/h264_portrait.m3u8'
+      }"
+      :autoplay="Boolean(true)"
+    />
     <div class="dimension">
       {{ width }} {{ height }}
     </div>
