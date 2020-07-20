@@ -6,7 +6,7 @@
 
 <script>
 // https://shaka-player-demo.appspot.com/docs/api/tutorial-ui.html
-import { resizeObserver } from '../utils/viewport'
+import { resizeObserver, getPhysicalResolution } from '../utils/viewport'
 
 export default {
   props: {
@@ -44,13 +44,21 @@ export default {
 
   async mounted () {
     const video = this.$el.querySelector('video')
-    const { player } = await loadPlayer(video)
+    const { player, support } = await loadPlayer(video)
     this.player = player
+    console.log(player)
+    const config = player.getConfiguration()
+    const test = config.abrFactory()
+    test.init(() => {
+      console.log('AJAJAK')
+    })
+    test.enable()
+
     this.subscriber = resizeObserver.subscribe((resolution) => {
       if (resolution.x > resolution.y) {
-        loadManifest(this.landscape, player, resolution)
+        loadManifest(this.landscape, player, resolution, support)
       } else {
-        loadManifest(this.portrait, player, resolution)
+        loadManifest(this.portrait, player, resolution, support)
       }
     })
   },
@@ -69,22 +77,34 @@ async function loadPlayer (video) {
   const shaka = await import('shaka-player/dist/shaka-player.ui')
   import('shaka-player/dist/controls.css')
   shaka.polyfill.installAll()
+  const support = shaka.Player.probeSupport()
   return new Promise((resolve) => {
-    document.addEventListener('shaka-ui-loaded', () => {
+    document.addEventListener('shaka-ui-loaded', async () => {
       const ui = video.ui
       const controls = ui.getControls()
-      resolve({ controls, player: controls.getPlayer() })
+      const player = controls.getPlayer()
+
+      // const test = new shaka.abr.SimpleAbrManager()
+      // test.init(() => {
+      //   console.log('JUPP')
+      // })
+      // test.enable()
+      // // player.configure({ abr: test })
+      // console.log(test)
+      resolve({ controls, player, support: await support })
     })
   })
 }
 
-async function loadManifest (manifest, player, resolution) {
-  try {
-    await player.load(manifest.dash, player.getMediaElement().currentTime)
-  } catch (e) {
-    await player.load(manifest.hls, player.getMediaElement().currentTime)
-  }
+async function loadManifest (manifest, player, resolution, support) {
+  const currentTime = player.getMediaElement().currentTime
+  await player.unload()
   setRestrictions(player, resolution)
+  if (support.manifest.mpd) {
+    await player.load(manifest.dash, currentTime)
+  } else {
+    await player.load(manifest.hls, currentTime)
+  }
 }
 
 function setRestrictions (player, resolution) {
