@@ -7,9 +7,14 @@
 [![Renovate - Status][renovate-status-src]][renovate-status-href]
 [![License][license-src]][license-href]
 
-> 
-
 [**Release Notes** 📖](./CHANGELOG.md)
+
+## Browsers support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Vivaldi |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+
 
 ## Setup
 
@@ -201,19 +206,30 @@ OR operators can be defined by string or array.
 <node v-font="$getFont(…).bySelector('strong', 'i')">…
 ```
 
-## Usage
-
-
-
-
-
-
 
 …
 
 ## TODOS
 
-- [ ] create jest test for check usage
+- [ ] Complete readme
+- [ ] Cross Browser (IE Edge, Firefox, Chrome, Edge, Safari)
+- [ ] Live example website (eg. grabarzundpartner.de)
+- [ ] Example/Test pages
+- [ ] Create jest test based on test pages
+  - [ ] v-font
+  - [ ] LazyImage
+  - [ ] LazyPicture
+  - [ ] LazyIframe
+  - [ ] LazyVideo
+- [ ] Clean Up!
+  - [ ] Namings
+  - [ ] code optimization 
+- [ ] Publish module (npm, nuxt-modules)
+
+### if we have time
+- [ ] Documentation and preparation for video streaming with LazyVideo
+- [ ] IE 11 (FontFace): https://github.com/bramstein/fontloader
+- [ ] Cypress visual regression tests
 
 
 ## Development
