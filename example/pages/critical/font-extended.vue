@@ -5,8 +5,8 @@
         <article
           v-font="[
             $fonts.getFont('Comic Neue', 400, 'normal').isCritical(),
-            $fonts.getFont('Comic Neue', 700, 'normal').bySelector('b, strong').isCritical(),
-            $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i, em').isCritical()
+            $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b, strong').isCritical(),
+            $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i, em').isCritical()
           ]"
           v-html="contentA"
         />

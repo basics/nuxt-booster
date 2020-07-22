@@ -8,14 +8,14 @@
               Basic font assign
             </li>
             <hr>
-            <li v-font="$fonts.getFont('Comic Neue', 700, 'normal').bySelector('strong').isCritical()">
+            <li v-font="$fonts.getFont('Comic Neue', 700, 'normal').addSelector('strong').isCritical()">
               font assign by <strong>single selector</strong>
             </li>
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Comic Neue', 700, 'normal').bySelector('strong').isCritical(),
-                  $fonts.getFont('Comic Neue', 700, 'italic').bySelector('i').isCritical()
+                  $fonts.getFont('Comic Neue', 700, 'normal').addSelector('strong').isCritical(),
+                  $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i').isCritical()
                 ]"
               >font assign by <strong>multiple</strong> <i>variances</i></span>
             </li>
@@ -23,14 +23,14 @@
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Comic Neue', 700, 'normal').bySelector('strong, b').isCritical()
+                  $fonts.getFont('Comic Neue', 700, 'normal').addSelector('strong, b').isCritical()
                 ]"
               >font assign by <strong>multiple</strong> <b>selectors (String)</b></span>
             </li>
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Comic Neue', 400, 'italic').bySelector(['i', 'em']).isCritical()
+                  $fonts.getFont('Comic Neue', 400, 'italic').addSelector(['i', 'em']).isCritical()
                 ]"
               >font assign by <i>multiple</i> <em>selectors (Array)</em></span>
             </li>
@@ -38,7 +38,7 @@
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Comic Neue', 700, 'italic').bySelector('strong > i').isCritical()
+                  $fonts.getFont('Comic Neue', 700, 'italic').addSelector('strong > i').isCritical()
                 ]"
               >font assign by <strong><i>deep</i> selector</strong></span>
             </li>
@@ -57,14 +57,14 @@
               Basic font assign
             </li>
             <hr>
-            <li v-font="$fonts.getFont('Lobster Two', 700, 'normal').bySelector('strong')">
+            <li v-font="$fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong')">
               font assign by <strong>single selector</strong>
             </li>
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Lobster Two', 700, 'normal').bySelector('strong'),
-                  $fonts.getFont('Lobster Two', 700, 'italic').bySelector('i')
+                  $fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong'),
+                  $fonts.getFont('Lobster Two', 700, 'italic').addSelector('i')
                 ]"
               >font assign by <strong>multiple</strong> <i>variances</i></span>
             </li>
@@ -72,14 +72,14 @@
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Lobster Two', 700, 'normal').bySelector('strong, b')
+                  $fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong, b')
                 ]"
               >font assign by <strong>multiple</strong> <b>selectors (String)</b></span>
             </li>
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Lobster Two', 400, 'italic').bySelector(['i', 'em'])
+                  $fonts.getFont('Lobster Two', 400, 'italic').addSelector(['i', 'em'])
                 ]"
               >font assign by <i>multiple</i> <em>selectors (Array)</em></span>
             </li>
@@ -87,7 +87,7 @@
             <li>
               <span
                 v-font="[
-                  $fonts.getFont('Lobster Two', 700, 'italic').bySelector('strong > i')
+                  $fonts.getFont('Lobster Two', 700, 'italic').addSelector('strong > i')
                 ]"
               >font assign by <strong><i>deep</i> selector</strong></span>
             </li>

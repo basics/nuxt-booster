@@ -4,8 +4,8 @@
       <LazyPicture v-bind="stage.picture" />
       <h1
         v-font="[
-          $fonts.getFont('Lobster Two', 700, 'normal').bySelector('span').isCritical(),
-          $fonts.getFont('Comic Neue', 300, 'italic').bySelector('span.claim').isCritical()
+          $fonts.getFont('Lobster Two', 700, 'normal').addSelector('span').isCritical(),
+          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('span.claim').isCritical()
         ]"
       >
         <span>{{ stage.headline }}</span><br>
@@ -15,12 +15,12 @@
     <div
       v-font="[
         $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Lobster Two', 700, 'normal').bySelector('h2'),
-        $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i'),
-        $fonts.getFont('Comic Neue', 700, 'normal').bySelector('b,strong'),
-        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('i b,i strong'),
-        $fonts.getFont('Comic Neue', 700, 'italic').bySelector('b i, strong i'),
-        $fonts.getFont('Comic Neue', 400, 'italic').bySelector('i > b, i > strong')
+        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('h2'),
+        $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i'),
+        $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b,strong'),
+        $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i b,i strong'),
+        $fonts.getFont('Comic Neue', 700, 'italic').addSelector('b i, strong i'),
+        $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i > b, i > strong')
       ]"
       class="component-text"
       v-html="textA"
@@ -30,7 +30,7 @@
       <div
         v-font="[
           $fonts.getFont('Comic Neue', 400, 'normal'),
-          $fonts.getFont('Lobster Two', 700, 'normal').bySelector('h2')]"
+          $fonts.getFont('Lobster Two', 700, 'normal').addSelector('h2')]"
         class="text"
         v-html="imageTextA.text"
       />
@@ -38,11 +38,11 @@
     <div
       v-font="[
         $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Lobster Two', 700, 'normal').bySelector('h2'),
-        $fonts.getFont('Lobster Two', 400, 'italic').bySelector('i'),
-        $fonts.getFont('Lobster Two', 700, 'normal').bySelector('b'),
-        $fonts.getFont('Lobster Two', 700, 'italic').bySelector('i b'),
-        $fonts.getFont('Lobster Two', 700, 'italic').bySelector('b i')
+        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('h2'),
+        $fonts.getFont('Lobster Two', 400, 'italic').addSelector('i'),
+        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('b'),
+        $fonts.getFont('Lobster Two', 700, 'italic').addSelector('i b'),
+        $fonts.getFont('Lobster Two', 700, 'italic').addSelector('b i')
       ]"
       class="component-text"
       v-html="textB"
