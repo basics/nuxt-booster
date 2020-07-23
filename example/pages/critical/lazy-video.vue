@@ -1,14 +1,8 @@
 <template>
   <div>
     <LazyVideo
-      :landscape="{
-        dash: '/video/h264_landscape.mpd',
-        hls: '/video/h264_landscape.m3u8'
-      }"
-      :portrait="{
-        dash: '/video/h264_portrait.mpd',
-        hls: '/video/h264_portrait.m3u8'
-      }"
+      dash="/video/h264.mpd"
+      hls="/video/h264.m3u8"
       :autoplay="Boolean(true)"
     />
     <div class="dimension">
@@ -18,28 +12,21 @@
 </template>
 
 <script>
-import { getPhysicalResolution } from 'lazy-resources/utils/viewport'
+import { resizeObserver } from 'lazy-resources/utils/viewport'
 
 export default {
   data () {
     return {
+      width: 0,
+      height: 0
     }
   },
 
-  computed: {
-    width () {
-      if (process.client) {
-        return getPhysicalResolution().x
-      }
-      return ''
-    },
-
-    height () {
-      if (process.client) {
-        return getPhysicalResolution().y
-      }
-      return ''
-    }
+  mounted () {
+    this.subscriber = resizeObserver.subscribe((resolution) => {
+      this.width = resolution.x
+      this.height = resolution.y
+    })
   }
 }
 </script>

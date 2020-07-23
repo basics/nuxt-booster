@@ -1,5 +1,6 @@
 <template>
   <div>
+    <GoogleLighthouse />
     <organism-page-header :critical="Boolean(true)" />
     <Nuxt />
   </div>
