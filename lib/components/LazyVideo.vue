@@ -1,6 +1,6 @@
 <template>
   <div data-shaka-player-container>
-    <video data-shaka-player :autoplay="autoplay" :muted="isMuted" playsinline />
+    <video ref="video" data-shaka-player :autoplay="autoplay" :muted="isMuted" playsinline />
   </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
   },
 
   mounted () {
-    const video = this.$el.querySelector('video')
+    const video = this.$refs.video
     this.streamPlayer = new StreamPlayer(video)
     this.streamPlayer.setup(this.dash, this.hls)
   },
