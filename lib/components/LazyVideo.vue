@@ -6,7 +6,7 @@
 
 <script>
 // https://shaka-player-demo.appspot.com/docs/api/tutorial-ui.html
-import StreamPlayer from '../classes/Player'
+import StreamPlayer from '../classes/StreamPlayer'
 
 export default {
   props: {
@@ -44,7 +44,6 @@ export default {
 
   mounted () {
     const video = this.$el.querySelector('video')
-
     this.streamPlayer = new StreamPlayer(video)
     this.streamPlayer.setup(this.dash, this.hls)
   },
