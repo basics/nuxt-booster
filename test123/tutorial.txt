@@ -1,0 +1,173 @@
+docker pull google/shaka-packager
+
+docker run -v $PWD:/media -it --rm google/shaka-packager
+
+packager \
+  'in=../prepared/subtitle/en-us.vtt,stream=text,language=en-us,init_segment=text/en-us/init.mp4,segment_template=text/en-us/$Number$.m4s,playlist_name=text/en-us/main.m3u8,hls_group_id=text,hls_name=ENGLISH' \
+  'in=../prepared/subtitle/fr.vtt,stream=text,language=fr,init_segment=text/fr/init.mp4,segment_template=text/fr/$Number$.m4s,playlist_name=text/fr/main.m3u8,hls_group_id=text,hls_name=FRENCH' \
+  'in=../prepared/subtitle/it.vtt,stream=text,language=it,init_segment=text/it/init.mp4,segment_template=text/it/$Number$.m4s,playlist_name=text/it/main.m3u8,hls_group_id=text,hls_name=ITALIAN' \
+  'in=../prepared/audio-en-48k.mp4,stream=audio,language=en,init_segment=audio/en/48k/init.mp4,segment_template=audio/en/48k/$Number$.m4s,playlist_name=audio/en/48k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-96k.mp4,stream=audio,language=en,init_segment=audio/en/96k/init.mp4,segment_template=audio/en/96k/$Number$.m4s,playlist_name=audio/en/96k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-128k.mp4,stream=audio,language=en,init_segment=audio/en/128k/init.mp4,segment_template=audio/en/128k/$Number$.m4s,playlist_name=audio/en/128k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-192k.mp4,stream=audio,language=en,init_segment=audio/en/192k/init.mp4,segment_template=audio/en/192k/$Number$.m4s,playlist_name=audio/en/192k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-es-48k.mp4,stream=audio,language=es,init_segment=audio/es/48k/init.mp4,segment_template=audio/es/48k/$Number$.m4s,playlist_name=audio/es/48k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-96k.mp4,stream=audio,language=es,init_segment=audio/es/96k/init.mp4,segment_template=audio/es/96k/$Number$.m4s,playlist_name=audio/es/96k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-128k.mp4,stream=audio,language=es,init_segment=audio/es/128k/init.mp4,segment_template=audio/es/128k/$Number$.m4s,playlist_name=audio/es/128k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-192k.mp4,stream=audio,language=es,init_segment=audio/es/192k/init.mp4,segment_template=audio/es/192k/$Number$.m4s,playlist_name=audio/es/192k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/video-640-145k.mp4,stream=video,init_segment=h264/640-145k/init.mp4,segment_template=h264/640-145k/$Number$.m4s,playlist_name=h264/640-145k/main.m3u8,iframe_playlist_name=h264/640-145k/iframe.m3u8' \
+  'in=../prepared/video-640p-145k.mp4,stream=video,init_segment=h264/640p-145k/init.mp4,segment_template=h264/640p-145k/$Number$.m4s,playlist_name=h264/640p-145k/main.m3u8,iframe_playlist_name=h264/640p-145k/iframe.m3u8' \
+  'in=../prepared/video-768-300k.mp4,stream=video,init_segment=h264/768-300k/init.mp4,segment_template=h264/768-300k/$Number$.m4s,playlist_name=h264/768-300k/main.m3u8,iframe_playlist_name=h264/768-300k/iframe.m3u8' \
+  'in=../prepared/video-768p-300k.mp4,stream=video,init_segment=h264/768p-300k/init.mp4,segment_template=h264/768p-300k/$Number$.m4s,playlist_name=h264/768p-300k/main.m3u8,iframe_playlist_name=h264/768p-300k/iframe.m3u8' \
+  'in=../prepared/video-960-600k.mp4,stream=video,init_segment=h264/960-600k/init.mp4,segment_template=h264/960-600k/$Number$.m4s,playlist_name=h264/960-600k/main.m3u8,iframe_playlist_name=h264/960-600k/iframe.m3u8' \
+  'in=../prepared/video-960p-600k.mp4,stream=video,init_segment=h264/960p-600k/init.mp4,segment_template=h264/960p-600k/$Number$.m4s,playlist_name=h264/960p-600k/main.m3u8,iframe_playlist_name=h264/960p-600k/iframe.m3u8' \
+  'in=../prepared/video-960-900k.mp4,stream=video,init_segment=h264/960-900k/init.mp4,segment_template=h264/960-900k/$Number$.m4s,playlist_name=h264/960-900k/main.m3u8,iframe_playlist_name=h264/960-900k/iframe.m3u8' \
+  'in=../prepared/video-960p-900k.mp4,stream=video,init_segment=h264/960p-900k/init.mp4,segment_template=h264/960p-900k/$Number$.m4s,playlist_name=h264/960p-900k/main.m3u8,iframe_playlist_name=h264/960p-900k/iframe.m3u8' \
+  'in=../prepared/video-960-1600k.mp4,stream=video,init_segment=h264/960-1600k/init.mp4,segment_template=h264/960-1600k/$Number$.m4s,playlist_name=h264/960-1600k/main.m3u8,iframe_playlist_name=h264/960-1600k/iframe.m3u8' \
+  'in=../prepared/video-960p-1600k.mp4,stream=video,init_segment=h264/960p-1600k/init.mp4,segment_template=h264/960p-1600k/$Number$.m4s,playlist_name=h264/960p-1600k/main.m3u8,iframe_playlist_name=h264/960p-1600k/iframe.m3u8' \
+  'in=../prepared/video-1080p-2000k.mp4,stream=video,init_segment=h264/1080p-2000k/init.mp4,segment_template=h264/1080p-2000k/$Number$.m4s,playlist_name=h264/1080p-2000k/main.m3u8,iframe_playlist_name=h264/1080p-2000k/iframe.m3u8' \
+  'in=../prepared/video-1280-2400k.mp4,stream=video,init_segment=h264/1280-2400k/init.mp4,segment_template=h264/1280-2400k/$Number$.m4s,playlist_name=h264/1280-2400k/main.m3u8,iframe_playlist_name=h264/1280-2400k/iframe.m3u8' \
+  'in=../prepared/video-1280p-2400k.mp4,stream=video,init_segment=h264/1280p-2400k/init.mp4,segment_template=h264/1280p-2400k/$Number$.m4s,playlist_name=h264/1280p-2400k/main.m3u8,iframe_playlist_name=h264/1280p-2400k/iframe.m3u8' \
+  'in=../prepared/video-1280-3400k.mp4,stream=video,init_segment=h264/1280-3400k/init.mp4,segment_template=h264/1280-3400k/$Number$.m4s,playlist_name=h264/1280-3400k/main.m3u8,iframe_playlist_name=h264/1280-3400k/iframe.m3u8' \
+  'in=../prepared/video-1280p-3400k.mp4,stream=video,init_segment=h264/1280p-3400k/init.mp4,segment_template=h264/1280p-3400k/$Number$.m4s,playlist_name=h264/1280p-3400k/main.m3u8,iframe_playlist_name=h264/1280p-3400k/iframe.m3u8' \
+  'in=../prepared/video-1920-4500k.mp4,stream=video,init_segment=h264/1920-4500k/init.mp4,segment_template=h264/1920-4500k/$Number$.m4s,playlist_name=h264/1920-4500k/main.m3u8,iframe_playlist_name=h264/1920-4500k/iframe.m3u8' \
+  'in=../prepared/video-1920-5800k.mp4,stream=video,init_segment=h264/1920-5800k/init.mp4,segment_template=h264/1920-5800k/$Number$.m4s,playlist_name=h264/1920-5800k/main.m3u8,iframe_playlist_name=h264/1920-5800k/iframe.m3u8' \
+  'in=../prepared/video-2560-8100k.mp4,stream=video,init_segment=h264/2560-8100k/init.mp4,segment_template=h264/2560-8100k/$Number$.m4s,playlist_name=h264/2560-8100k/main.m3u8,iframe_playlist_name=h264/2560-8100k/iframe.m3u8' \
+  'in=../prepared/video-3840-11600k.mp4,stream=video,init_segment=h264/3840-11600k/init.mp4,segment_template=h264/3840-11600k/$Number$.m4s,playlist_name=h264/3840-11600k/main.m3u8,iframe_playlist_name=h264/3840-11600k/iframe.m3u8' \
+  'in=../prepared/video-3840-16800k.mp4,stream=video,init_segment=h264/3840-16800k/init.mp4,segment_template=h264/3840-16800k/$Number$.m4s,playlist_name=h264/3840-16800k/main.m3u8,iframe_playlist_name=h264/3840-16800k/iframe.m3u8' \
+  --hls_master_playlist_output h264.m3u8 \
+  --generate_static_live_mpd \
+  --mpd_output h264.mpd
+
+# LANDSCAPE & PORTRAIT
+
+packager \
+  'in=../prepared/subtitle/en-us.vtt,stream=text,language=en-us,init_segment=text/en-us/init.mp4,segment_template=text/en-us/$Number$.m4s,playlist_name=text/en-us/main.m3u8,hls_group_id=text,hls_name=ENGLISH' \
+  'in=../prepared/subtitle/fr.vtt,stream=text,language=fr,init_segment=text/fr/init.mp4,segment_template=text/fr/$Number$.m4s,playlist_name=text/fr/main.m3u8,hls_group_id=text,hls_name=FRENCH' \
+  'in=../prepared/subtitle/it.vtt,stream=text,language=it,init_segment=text/it/init.mp4,segment_template=text/it/$Number$.m4s,playlist_name=text/it/main.m3u8,hls_group_id=text,hls_name=ITALIAN' \
+  'in=../prepared/audio-en-48k.mp4,stream=audio,language=en,init_segment=audio/en/48k/init.mp4,segment_template=audio/en/48k/$Number$.m4s,playlist_name=audio/en/48k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-96k.mp4,stream=audio,language=en,init_segment=audio/en/96k/init.mp4,segment_template=audio/en/96k/$Number$.m4s,playlist_name=audio/en/96k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-128k.mp4,stream=audio,language=en,init_segment=audio/en/128k/init.mp4,segment_template=audio/en/128k/$Number$.m4s,playlist_name=audio/en/128k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-192k.mp4,stream=audio,language=en,init_segment=audio/en/192k/init.mp4,segment_template=audio/en/192k/$Number$.m4s,playlist_name=audio/en/192k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-es-48k.mp4,stream=audio,language=es,init_segment=audio/es/48k/init.mp4,segment_template=audio/es/48k/$Number$.m4s,playlist_name=audio/es/48k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-96k.mp4,stream=audio,language=es,init_segment=audio/es/96k/init.mp4,segment_template=audio/es/96k/$Number$.m4s,playlist_name=audio/es/96k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-128k.mp4,stream=audio,language=es,init_segment=audio/es/128k/init.mp4,segment_template=audio/es/128k/$Number$.m4s,playlist_name=audio/es/128k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-192k.mp4,stream=audio,language=es,init_segment=audio/es/192k/init.mp4,segment_template=audio/es/192k/$Number$.m4s,playlist_name=audio/es/192k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/video-640-145k.mp4,stream=video,init_segment=h264/640-145k/init.mp4,segment_template=h264/640-145k/$Number$.m4s,playlist_name=h264/640-145k/main.m3u8,iframe_playlist_name=h264/640-145k/iframe.m3u8' \
+  'in=../prepared/video-640p-145k.mp4,stream=video,init_segment=h264/640p-145k/init.mp4,segment_template=h264/640p-145k/$Number$.m4s,playlist_name=h264/640p-145k/main.m3u8,iframe_playlist_name=h264/640p-145k/iframe.m3u8' \
+  'in=../prepared/video-768-300k.mp4,stream=video,init_segment=h264/768-300k/init.mp4,segment_template=h264/768-300k/$Number$.m4s,playlist_name=h264/768-300k/main.m3u8,iframe_playlist_name=h264/768-300k/iframe.m3u8' \
+  'in=../prepared/video-768p-300k.mp4,stream=video,init_segment=h264/768p-300k/init.mp4,segment_template=h264/768p-300k/$Number$.m4s,playlist_name=h264/768p-300k/main.m3u8,iframe_playlist_name=h264/768p-300k/iframe.m3u8' \
+  'in=../prepared/video-960-600k.mp4,stream=video,init_segment=h264/960-600k/init.mp4,segment_template=h264/960-600k/$Number$.m4s,playlist_name=h264/960-600k/main.m3u8,iframe_playlist_name=h264/960-600k/iframe.m3u8' \
+  'in=../prepared/video-960p-600k.mp4,stream=video,init_segment=h264/960p-600k/init.mp4,segment_template=h264/960p-600k/$Number$.m4s,playlist_name=h264/960p-600k/main.m3u8,iframe_playlist_name=h264/960p-600k/iframe.m3u8' \
+  'in=../prepared/video-960-900k.mp4,stream=video,init_segment=h264/960-900k/init.mp4,segment_template=h264/960-900k/$Number$.m4s,playlist_name=h264/960-900k/main.m3u8,iframe_playlist_name=h264/960-900k/iframe.m3u8' \
+  'in=../prepared/video-960p-900k.mp4,stream=video,init_segment=h264/960p-900k/init.mp4,segment_template=h264/960p-900k/$Number$.m4s,playlist_name=h264/960p-900k/main.m3u8,iframe_playlist_name=h264/960p-900k/iframe.m3u8' \
+  'in=../prepared/video-960-1600k.mp4,stream=video,init_segment=h264/960-1600k/init.mp4,segment_template=h264/960-1600k/$Number$.m4s,playlist_name=h264/960-1600k/main.m3u8,iframe_playlist_name=h264/960-1600k/iframe.m3u8' \
+  'in=../prepared/video-960p-1600k.mp4,stream=video,init_segment=h264/960p-1600k/init.mp4,segment_template=h264/960p-1600k/$Number$.m4s,playlist_name=h264/960p-1600k/main.m3u8,iframe_playlist_name=h264/960p-1600k/iframe.m3u8' \
+  'in=../prepared/video-1280-2400k.mp4,stream=video,init_segment=h264/1280-2400k/init.mp4,segment_template=h264/1280-2400k/$Number$.m4s,playlist_name=h264/1280-2400k/main.m3u8,iframe_playlist_name=h264/1280-2400k/iframe.m3u8' \
+  'in=../prepared/video-1280p-2400k.mp4,stream=video,init_segment=h264/1280p-2400k/init.mp4,segment_template=h264/1280p-2400k/$Number$.m4s,playlist_name=h264/1280p-2400k/main.m3u8,iframe_playlist_name=h264/1280p-2400k/iframe.m3u8' \
+  'in=../prepared/video-1280-3400k.mp4,stream=video,init_segment=h264/1280-3400k/init.mp4,segment_template=h264/1280-3400k/$Number$.m4s,playlist_name=h264/1280-3400k/main.m3u8,iframe_playlist_name=h264/1280-3400k/iframe.m3u8' \
+  'in=../prepared/video-1280p-3400k.mp4,stream=video,init_segment=h264/1280p-3400k/init.mp4,segment_template=h264/1280p-3400k/$Number$.m4s,playlist_name=h264/1280p-3400k/main.m3u8,iframe_playlist_name=h264/1280p-3400k/iframe.m3u8' \
+  'in=../prepared/video-1920-4500k.mp4,stream=video,init_segment=h264/1920-4500k/init.mp4,segment_template=h264/1920-4500k/$Number$.m4s,playlist_name=h264/1920-4500k/main.m3u8,iframe_playlist_name=h264/1920-4500k/iframe.m3u8' \
+  'in=../prepared/video-1920p-4500k.mp4,stream=video,init_segment=h264/1920p-4500k/init.mp4,segment_template=h264/1920p-4500k/$Number$.m4s,playlist_name=h264/1920p-4500k/main.m3u8,iframe_playlist_name=h264/1920p-4500k/iframe.m3u8' \
+  'in=../prepared/video-1920-5800k.mp4,stream=video,init_segment=h264/1920-5800k/init.mp4,segment_template=h264/1920-5800k/$Number$.m4s,playlist_name=h264/1920-5800k/main.m3u8,iframe_playlist_name=h264/1920-5800k/iframe.m3u8' \
+  'in=../prepared/video-1920p-5800k.mp4,stream=video,init_segment=h264/1920p-5800k/init.mp4,segment_template=h264/1920p-5800k/$Number$.m4s,playlist_name=h264/1920p-5800k/main.m3u8,iframe_playlist_name=h264/1920p-5800k/iframe.m3u8' \
+  --hls_master_playlist_output h264.m3u8 \
+  --generate_static_live_mpd \
+  --mpd_output h264.mpd
+
+# LANDSCAPE
+
+packager \
+  'in=../prepared/subtitle/en-us.vtt,stream=text,language=en-us,init_segment=text/en-us/init.mp4,segment_template=text/en-us/$Number$.m4s,playlist_name=text/en-us/main.m3u8,hls_group_id=text,hls_name=ENGLISH' \
+  'in=../prepared/subtitle/fr.vtt,stream=text,language=fr,init_segment=text/fr/init.mp4,segment_template=text/fr/$Number$.m4s,playlist_name=text/fr/main.m3u8,hls_group_id=text,hls_name=FRENCH' \
+  'in=../prepared/subtitle/it.vtt,stream=text,language=it,init_segment=text/it/init.mp4,segment_template=text/it/$Number$.m4s,playlist_name=text/it/main.m3u8,hls_group_id=text,hls_name=ITALIAN' \
+  'in=../prepared/audio-en-48k.mp4,stream=audio,language=en,init_segment=audio/en/48k/init.mp4,segment_template=audio/en/48k/$Number$.m4s,playlist_name=audio/en/48k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-96k.mp4,stream=audio,language=en,init_segment=audio/en/96k/init.mp4,segment_template=audio/en/96k/$Number$.m4s,playlist_name=audio/en/96k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-128k.mp4,stream=audio,language=en,init_segment=audio/en/128k/init.mp4,segment_template=audio/en/128k/$Number$.m4s,playlist_name=audio/en/128k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-192k.mp4,stream=audio,language=en,init_segment=audio/en/192k/init.mp4,segment_template=audio/en/192k/$Number$.m4s,playlist_name=audio/en/192k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-es-48k.mp4,stream=audio,language=es,init_segment=audio/es/48k/init.mp4,segment_template=audio/es/48k/$Number$.m4s,playlist_name=audio/es/48k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-96k.mp4,stream=audio,language=es,init_segment=audio/es/96k/init.mp4,segment_template=audio/es/96k/$Number$.m4s,playlist_name=audio/es/96k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-128k.mp4,stream=audio,language=es,init_segment=audio/es/128k/init.mp4,segment_template=audio/es/128k/$Number$.m4s,playlist_name=audio/es/128k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-192k.mp4,stream=audio,language=es,init_segment=audio/es/192k/init.mp4,segment_template=audio/es/192k/$Number$.m4s,playlist_name=audio/es/192k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/video-640-145k.mp4,stream=video,init_segment=h264/640-145k/init.mp4,segment_template=h264/640-145k/$Number$.m4s,playlist_name=h264/640-145k/main.m3u8,iframe_playlist_name=h264/640-145k/iframe.m3u8' \
+  'in=../prepared/video-768-300k.mp4,stream=video,init_segment=h264/768-300k/init.mp4,segment_template=h264/768-300k/$Number$.m4s,playlist_name=h264/768-300k/main.m3u8,iframe_playlist_name=h264/768-300k/iframe.m3u8' \
+  'in=../prepared/video-960-600k.mp4,stream=video,init_segment=h264/960-600k/init.mp4,segment_template=h264/960-600k/$Number$.m4s,playlist_name=h264/960-600k/main.m3u8,iframe_playlist_name=h264/960-600k/iframe.m3u8' \
+  'in=../prepared/video-960-900k.mp4,stream=video,init_segment=h264/960-900k/init.mp4,segment_template=h264/960-900k/$Number$.m4s,playlist_name=h264/960-900k/main.m3u8,iframe_playlist_name=h264/960-900k/iframe.m3u8' \
+  'in=../prepared/video-960-1600k.mp4,stream=video,init_segment=h264/960-1600k/init.mp4,segment_template=h264/960-1600k/$Number$.m4s,playlist_name=h264/960-1600k/main.m3u8,iframe_playlist_name=h264/960-1600k/iframe.m3u8' \
+  'in=../prepared/video-1280-2400k.mp4,stream=video,init_segment=h264/1280-2400k/init.mp4,segment_template=h264/1280-2400k/$Number$.m4s,playlist_name=h264/1280-2400k/main.m3u8,iframe_playlist_name=h264/1280-2400k/iframe.m3u8' \
+  'in=../prepared/video-1280-3400k.mp4,stream=video,init_segment=h264/1280-3400k/init.mp4,segment_template=h264/1280-3400k/$Number$.m4s,playlist_name=h264/1280-3400k/main.m3u8,iframe_playlist_name=h264/1280-3400k/iframe.m3u8' \
+  'in=../prepared/video-1920-4500k.mp4,stream=video,init_segment=h264/1920-4500k/init.mp4,segment_template=h264/1920-4500k/$Number$.m4s,playlist_name=h264/1920-4500k/main.m3u8,iframe_playlist_name=h264/1920-4500k/iframe.m3u8' \
+  'in=../prepared/video-1920-5800k.mp4,stream=video,init_segment=h264/1920-5800k/init.mp4,segment_template=h264/1920-5800k/$Number$.m4s,playlist_name=h264/1920-5800k/main.m3u8,iframe_playlist_name=h264/1920-5800k/iframe.m3u8' \
+  --hls_master_playlist_output h264_landscape.m3u8 \
+  --generate_static_live_mpd \
+  --mpd_output h264_landscape.mpd
+
+# PORTRAIT
+
+packager \
+  'in=../prepared/subtitle/en-us.vtt,stream=text,language=en-us,init_segment=text/en-us/init.mp4,segment_template=text/en-us/$Number$.m4s,playlist_name=text/en-us/main.m3u8,hls_group_id=text,hls_name=ENGLISH' \
+  'in=../prepared/subtitle/fr.vtt,stream=text,language=fr,init_segment=text/fr/init.mp4,segment_template=text/fr/$Number$.m4s,playlist_name=text/fr/main.m3u8,hls_group_id=text,hls_name=FRENCH' \
+  'in=../prepared/subtitle/it.vtt,stream=text,language=it,init_segment=text/it/init.mp4,segment_template=text/it/$Number$.m4s,playlist_name=text/it/main.m3u8,hls_group_id=text,hls_name=ITALIAN' \
+  'in=../prepared/audio-en-48k.mp4,stream=audio,language=en,init_segment=audio/en/48k/init.mp4,segment_template=audio/en/48k/$Number$.m4s,playlist_name=audio/en/48k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-96k.mp4,stream=audio,language=en,init_segment=audio/en/96k/init.mp4,segment_template=audio/en/96k/$Number$.m4s,playlist_name=audio/en/96k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-128k.mp4,stream=audio,language=en,init_segment=audio/en/128k/init.mp4,segment_template=audio/en/128k/$Number$.m4s,playlist_name=audio/en/128k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-en-192k.mp4,stream=audio,language=en,init_segment=audio/en/192k/init.mp4,segment_template=audio/en/192k/$Number$.m4s,playlist_name=audio/en/192k/main.m3u8,hls_group_id=audio,hls_name=ENGLISH' \
+  'in=../prepared/audio-es-48k.mp4,stream=audio,language=es,init_segment=audio/es/48k/init.mp4,segment_template=audio/es/48k/$Number$.m4s,playlist_name=audio/es/48k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-96k.mp4,stream=audio,language=es,init_segment=audio/es/96k/init.mp4,segment_template=audio/es/96k/$Number$.m4s,playlist_name=audio/es/96k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-128k.mp4,stream=audio,language=es,init_segment=audio/es/128k/init.mp4,segment_template=audio/es/128k/$Number$.m4s,playlist_name=audio/es/128k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/audio-es-192k.mp4,stream=audio,language=es,init_segment=audio/es/192k/init.mp4,segment_template=audio/es/192k/$Number$.m4s,playlist_name=audio/es/192k/main.m3u8,hls_group_id=audio,hls_name=ESPANGOL' \
+  'in=../prepared/video-640p-145k.mp4,stream=video,init_segment=h264/640p-145k/init.mp4,segment_template=h264/640p-145k/$Number$.m4s,playlist_name=h264/640p-145k/main.m3u8,iframe_playlist_name=h264/640p-145k/iframe.m3u8' \
+  'in=../prepared/video-768p-300k.mp4,stream=video,init_segment=h264/768p-300k/init.mp4,segment_template=h264/768p-300k/$Number$.m4s,playlist_name=h264/768p-300k/main.m3u8,iframe_playlist_name=h264/768p-300k/iframe.m3u8' \
+  'in=../prepared/video-960p-600k.mp4,stream=video,init_segment=h264/960p-600k/init.mp4,segment_template=h264/960p-600k/$Number$.m4s,playlist_name=h264/960p-600k/main.m3u8,iframe_playlist_name=h264/960p-600k/iframe.m3u8' \
+  'in=../prepared/video-960p-900k.mp4,stream=video,init_segment=h264/960p-900k/init.mp4,segment_template=h264/960p-900k/$Number$.m4s,playlist_name=h264/960p-900k/main.m3u8,iframe_playlist_name=h264/960p-900k/iframe.m3u8' \
+  'in=../prepared/video-960p-1600k.mp4,stream=video,init_segment=h264/960p-1600k/init.mp4,segment_template=h264/960p-1600k/$Number$.m4s,playlist_name=h264/960p-1600k/main.m3u8,iframe_playlist_name=h264/960p-1600k/iframe.m3u8' \
+  'in=../prepared/video-1280p-2400k.mp4,stream=video,init_segment=h264/1280p-2400k/init.mp4,segment_template=h264/1280p-2400k/$Number$.m4s,playlist_name=h264/1280p-2400k/main.m3u8,iframe_playlist_name=h264/1280p-2400k/iframe.m3u8' \
+  'in=../prepared/video-1280p-3400k.mp4,stream=video,init_segment=h264/1280p-3400k/init.mp4,segment_template=h264/1280p-3400k/$Number$.m4s,playlist_name=h264/1280p-3400k/main.m3u8,iframe_playlist_name=h264/1280p-3400k/iframe.m3u8' \
+  'in=../prepared/video-1920p-4500k.mp4,stream=video,init_segment=h264/1920p-4500k/init.mp4,segment_template=h264/1920p-4500k/$Number$.m4s,playlist_name=h264/1920p-4500k/main.m3u8,iframe_playlist_name=h264/1920p-4500k/iframe.m3u8' \
+  'in=../prepared/video-1920p-5800k.mp4,stream=video,init_segment=h264/1920p-5800k/init.mp4,segment_template=h264/1920p-5800k/$Number$.m4s,playlist_name=h264/1920p-5800k/main.m3u8,iframe_playlist_name=h264/1920p-5800k/iframe.m3u8' \
+  --hls_master_playlist_output h264_portrait.m3u8 \
+  --generate_static_live_mpd \
+  --mpd_output h264_portrait.mpd
+
+
+ffmpeg \
+  -y \
+  -i ./original.mp4 \
+  -i ./audio/en.mp3 \
+  -i ./audio/es.mp3 \
+  -preset veryfast -keyint_min 100 -g 100 -sc_threshold 0 -r 24 \
+  -c:v libx264 -pix_fmt yuv420p \
+  -c:a aac \
+  -map 0:v:0 -f ffmetadata ./prepared/chapters.txt.chap \
+  -map 0:v:0 -b:v 16800k -maxrate 17976k -bufsize 29400k -vf 'scale=3840:-2' ./prepared/video-3840-16800k.mp4 \
+  -map 0:v:0 -b:v 11600k -maxrate 12412k -bufsize 20300k -vf 'scale=3840:-2' ./prepared/video-3840-11600k.mp4 \
+  -map 0:v:0 -b:v 8100k -maxrate 8667k -bufsize 14175k -vf 'scale=2560:-2' ./prepared/video-2560-8100k.mp4 \
+  -map 0:v:0 -b:v 5800k -maxrate 6206k -bufsize 10150k -vf 'crop=in_h*9/16:in_h,scale=-2:1920' ./prepared/video-1920p-5800k.mp4 \
+  -map 0:v:0 -b:v 5800k -maxrate 6206k -bufsize 10150k -vf 'scale=1920:-2' ./prepared/video-1920-5800k.mp4 \
+  -map 0:v:0 -b:v 4500k -maxrate 4815k -bufsize 7875k -vf 'crop=in_h*9/16:in_h,scale=-2:1920' ./prepared/video-1920p-4500k.mp4 \
+  -map 0:v:0 -b:v 4500k -maxrate 4815k -bufsize 7875k -vf 'scale=1920:-2' ./prepared/video-1920-4500k.mp4 \
+  -map 0:v:0 -b:v 3400k -maxrate 3638k -bufsize 5950k -vf 'crop=in_h*9/16:in_h,scale=-2:1280' ./prepared/video-1280p-3400k.mp4 \
+  -map 0:v:0 -b:v 3400k -maxrate 3638k -bufsize 5950k -vf 'scale=1280:-2' ./prepared/video-1280-3400k.mp4 \
+  -map 0:v:0 -b:v 2400k -maxrate 2568k -bufsize 4200k -vf 'crop=in_h*9/16:in_h,scale=-2:1280' ./prepared/video-1280p-2400k.mp4 \
+  -map 0:v:0 -b:v 2400k -maxrate 2568k -bufsize 4200k -vf 'scale=1280:-2' ./prepared/video-1280-2400k.mp4 \
+  -map 0:v:0 -b:v 2000k -maxrate 2140k -bufsize 3500k -vf 'crop=in_h*9/16:in_h,scale=-2:1080' ./prepared/video-1080p-2000k.mp4 \
+  -map 0:v:0 -b:v 1600k -maxrate 1712k -bufsize 2800k -vf 'crop=in_h*9/16:in_h,scale=-2:960' ./prepared/video-960p-1600k.mp4 \
+  -map 0:v:0 -b:v 1600k -maxrate 1712k -bufsize 2800k -vf 'scale=960:-2' ./prepared/video-960-1600k.mp4 \
+  -map 0:v:0 -b:v 900k -maxrate 963k -bufsize 1575k -vf 'crop=in_h*9/16:in_h,scale=-2:960' ./prepared/video-960p-900k.mp4 \
+  -map 0:v:0 -b:v 900k -maxrate 963k -bufsize 1575k -vf 'scale=960:-2' ./prepared/video-960-900k.mp4 \
+  -map 0:v:0 -b:v 600k -maxrate 642k -bufsize 1050k -vf 'crop=in_h*9/16:in_h,scale=-2:960' ./prepared/video-960p-600k.mp4 \
+  -map 0:v:0 -b:v 600k -maxrate 642k -bufsize 1050k -vf 'scale=960:-2' ./prepared/video-960-600k.mp4 \
+  -map 0:v:0 -b:v 300k -maxrate 321k -bufsize 525k -vf 'crop=in_h*9/16:in_h,scale=-2:720' ./prepared/video-768p-300k.mp4 \
+  -map 0:v:0 -b:v 300k -maxrate 321k -bufsize 525k -vf 'scale=768:-2' ./prepared/video-768-300k.mp4 \
+  -map 0:v:0 -b:v 145k -maxrate 155k -bufsize 254k -vf 'crop=in_h*9/16:in_h,scale=-2:640' ./prepared/video-640p-145k.mp4 \
+  -map 0:v:0 -b:v 145k -maxrate 155k -bufsize 254k -vf 'scale=640:-2' ./prepared/video-640-145k.mp4 \
+  -map 1:a:0 -b:a 192k ./prepared/audio-en-192k.mp4 \
+  -map 1:a:0 -b:a 128k ./prepared/audio-en-128k.mp4 \
+  -map 1:a:0 -b:a 96k ./prepared/audio-en-96k.mp4 \
+  -map 1:a:0 -b:a 48k ./prepared/audio-en-48k.mp4 \
+  -map 2:a:0 -b:a 192k ./prepared/audio-es-192k.mp4 \
+  -map 2:a:0 -b:a 128k ./prepared/audio-es-128k.mp4 \
+  -map 2:a:0 -b:a 96k ./prepared/audio-es-96k.mp4 \
+  -map 2:a:0 -b:a 48k ./prepared/audio-es-48k.mp4
+
+
+ffmpeg -i video-1920-4500k.mp4 -filter:v "crop=348:818:785:0" video-348-4500k.mp4

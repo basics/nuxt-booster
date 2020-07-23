@@ -32,6 +32,8 @@
     "start:generate": "npm run generate && npm run serve"
   },
   "dependencies": {
+    "rxjs": "^6.6.0",
+    "shaka-player": "^3.0.1",
     "sort-media-queries": "^0.2.2",
     "srcset": "^2.0.1",
     "vue-lazy-hydration": "^1.0.0-beta.12"
