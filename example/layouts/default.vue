@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GoogleLighthouse />
+    <GoogleLighthouse url="https://grabarzundpartner.de" />
     <organism-page-header :critical="Boolean(true)" />
     <Nuxt />
   </div>
