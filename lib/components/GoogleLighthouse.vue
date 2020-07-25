@@ -1,24 +1,16 @@
+<template>
+  <lighthouse-widget v-if="run" v-bind="$attrs" />
+</template>
+
 <script>
 export default {
-  props: {
-    url: {
-      type: String,
-      default () {
-        return null
-      }
-    },
-
-    statsMetric: {
-      type: String,
-      default () {
-        return 'performance'
-      }
-    }
+  components: {
+    LighthouseWidget: () => import('./lighthouse/Widget.vue')
   },
 
   data () {
     return {
-      comp: null
+      run: (this.$route.query.lh)
     }
   },
 
@@ -30,20 +22,6 @@ export default {
       }
       next()
     })
-  },
-
-  async mounted () {
-    if (this.$route.query.lh) {
-      this.comp = (await import('./lighthouse/Widget.vue')).default
-    }
-  },
-
-  render (createElement) {
-    if (this.comp) {
-      return createElement('component', { is: this.comp, props: { url: this.url } })
-    } else {
-      return null
-    }
   }
 }
 </script>
