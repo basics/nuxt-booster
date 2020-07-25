@@ -1,17 +1,11 @@
 <template>
-  <lighthouse-widget v-if="run" v-bind="$attrs" />
+  <lighthouse-widget v-if="!!$route.query.lh" v-bind="$attrs" />
 </template>
 
 <script>
 export default {
   components: {
     LighthouseWidget: () => import('./lighthouse/Widget.vue')
-  },
-
-  data () {
-    return {
-      run: (this.$route.query.lh)
-    }
   },
 
   created () {
