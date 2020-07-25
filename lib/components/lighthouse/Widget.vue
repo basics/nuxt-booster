@@ -11,7 +11,7 @@
       <circle :class="stateClasses" cx="50" cy="50" r="45" />
       <line v-if="stats.isFailed()" x1="18" y1="18" x2="82" y2="82" />
       <text v-if="stats.isReady()" x="50" y="50" text-anchor="middle" alignment-baseline="central">
-        {{ score * 100 }}
+        {{ Math.round(score * 100) }}
       </text>
     </svg>
     <span v-if="stats.isReady()">
@@ -81,7 +81,7 @@ export default {
     },
 
     reportUrl () {
-      return `https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=${this.url}`
+      return `https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=${global.encodeURI(this.url)}`
     }
   },
 
