@@ -2,10 +2,10 @@
   <a
     :href="reportUrl"
     class="lighthouse"
+    target="_blank"
     :style="style"
     :class="{ready: stats.isReady()}"
-    target="_blank"
-    :title="alt"
+    :title="title"
   >
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
       <circle :class="stateClasses" cx="50" cy="50" r="45" />
@@ -15,7 +15,9 @@
       </text>
     </svg>
     <span v-if="stats.isReady()">
-      Report<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z" /></svg>
+      Report<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z" />
+      </svg>
     </span>
   </a>
 </template>
@@ -48,7 +50,11 @@ export default {
 
   computed: {
     style () {
-      return { '--color-status': this.color, '--radian': this.radian * 45, '--duration': `${1000 / (Math.PI * 2) * this.radian}ms` }
+      return {
+        '--color-status': this.color,
+        '--radian': this.radian * 45,
+        '--duration': `${1000 / (Math.PI * 2) * this.radian}ms`
+      }
     },
 
     stateClasses () {
@@ -59,7 +65,7 @@ export default {
       }
     },
 
-    alt () {
+    title () {
       return `
         Performance: ${this.stats.getScoreOfMetric('performance') * 100}
         SEO: ${this.stats.getScoreOfMetric('seo') * 100}
@@ -99,8 +105,8 @@ export default {
 
   methods: {
     async getMetrics () {
+      this.stats = getPendingStats()
       try {
-        this.stats = getPendingStats()
         this.stats = await getLighthouseMetrics(this.url || global.location.href)
       } catch (errorStats) {
         this.stats = errorStats
