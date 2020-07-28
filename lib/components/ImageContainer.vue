@@ -10,7 +10,7 @@
         </figure>
       </lazy-hydrate>
       <span v-show="loading" class="loading" />
-      <button v-if="!init" @click="onClick">
+      <button v-if="!init" class="noscript-hide" @click="onClick">
         <slot name="button">
           HiRes
         </slot>

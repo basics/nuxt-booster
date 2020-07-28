@@ -113,5 +113,5 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-/* figure {} */
+/* css */
 </style>
