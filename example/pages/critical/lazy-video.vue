@@ -1,8 +1,8 @@
 <template>
   <div>
     <LazyVideo
-      dash="/video/h264.mpd"
-      hls="/video/h264.m3u8"
+      dash="/stream/h264.mpd"
+      hls="/stream/h264.m3u8"
       :autoplay="Boolean(true)"
     />
     <div class="dimension">

@@ -11,3 +11,7 @@ reports
 coverage
 dist
 video
+example/static/stream
+stream/A
+stream/B
+stream/source
