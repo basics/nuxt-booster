@@ -6,8 +6,8 @@ module.exports = class Audio extends BaseFfmpeg {
     super(config.source, mapConfig(config, path.join(basePath, 'audio', config.lang.code)))
   }
 
-  run () {
-    return super.run(batchPreset, preset)
+  run (lockJSON) {
+    return super.run(lockJSON, batchPreset, preset)
   }
 }
 

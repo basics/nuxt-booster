@@ -4,7 +4,6 @@ const Progress = require('../Progress')
 module.exports = class RenditionProgress {
   constructor () {
     this.progress = new Progress()
-    this.finished = []
     this.stdout = JSONStream.parse()
     this.stderr = JSONStream.parse()
     this.stdout.on('data', data => onData(data, this.progress, this.finished))
@@ -32,7 +31,6 @@ function onData (data, progress, finished) {
     }
     case 'finish': {
       progress.update(data.key, { percent: 100 })
-      finished.push(...data.data)
       break
     }
     default: {

@@ -35,35 +35,47 @@ module.exports = class BaseFfmpeg extends EventEmitter {
     log({ key: this.key, status: 'progress', data: progress })
   }
 
-  run (batchPreset, preset = () => {}) {
+  run (lockJSON, batchPreset, preset = () => {}) {
     this.task.preset(preset)
-    const result = processBatchPreset(this.task, this.config, batchPreset)
-
+    const result = processBatchPreset(this.task, this.config, batchPreset, lockJSON).filter(Boolean)
     return new Promise((resolve) => {
-      this.task
-        .on('end', () => {
-          log({ key: this.key, status: 'finish', data: result })
-          resolve()
-        })
-        .run()
+      if (result.length) {
+        this.task
+          .on('end', () => {
+            log({ key: this.key, status: 'finish', data: result })
+            resolve(result)
+          })
+          .run()
+      } else {
+        log({ key: this.key, status: 'finish', data: result })
+        resolve(result)
+      }
     })
   }
 }
 
-function processBatchPreset (command, config, batchPreset) {
+function processBatchPreset (command, config, batchPreset, lockJSON) {
   if (Array.isArray(config)) {
     return config.map((item) => {
-      return processPreset(command, item, batchPreset)
+      return processPreset(command, item, batchPreset, lockJSON)
     })
   } else {
-    return [processPreset(command, config, batchPreset)]
+    return [processPreset(command, config, batchPreset, lockJSON)]
   }
 }
 
-function processPreset (command, config, batchPreset) {
-  const result = batchPreset(command, config)
-  createDir(result.filePath)
-  return result
+function processPreset (command, config, batchPreset, lockJSON) {
+  if (!isAlreadyGenerated(config, lockJSON)) {
+    const result = batchPreset(command, config)
+    createDir(result.filePath)
+    return result
+  }
+  return null
+}
+
+function isAlreadyGenerated (config, lockJSON) {
+  const configString = JSON.stringify(config)
+  return lockJSON.find(item => JSON.stringify(item) === configString)
 }
 
 function onError (err, stdout, stderr) {

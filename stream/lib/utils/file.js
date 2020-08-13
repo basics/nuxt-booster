@@ -12,12 +12,20 @@ exports.readFile = (file) => {
 }
 
 exports.readJSONFile = async (file) => {
-  const buffer = await this.readFile(file)
-  return JSON.parse(buffer)
+  try {
+    const buffer = await this.readFile(file)
+    return JSON.parse(buffer)
+  } catch (e) {
+    return []
+  }
 }
 
 exports.writeFile = (file, data) => {
   return new Promise((resolve) => {
     fs.writeFile(file, data, 'utf8', resolve)
   })
+}
+
+exports.writeJSONFile = (file, data) => {
+  return this.writeFile(file, JSON.stringify(data))
 }

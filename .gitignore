@@ -14,4 +14,5 @@ video
 example/static/stream
 stream/A
 stream/B
+stream/C
 stream/source

@@ -3,7 +3,7 @@ const BaseFfmpeg = require('./BaseFfmpeg')
 
 module.exports = class Subtitle extends BaseFfmpeg {
   constructor (config, basePath) {
-    super(config.source, mapConfig(config, path.join(basePath, 'subtitle')))
+    super(config.source, mapConfig(config, basePath))
   }
 
   run () {

@@ -6,8 +6,8 @@ module.exports = class Video extends BaseFfmpeg {
     super(config.source, mapConfig(config, path.join(basePath, 'video')), `${config.source} : ${config.width}x${config.height}`)
   }
 
-  run () {
-    return super.run(batchPreset, preset)
+  run (lockJSON) {
+    return super.run(lockJSON, batchPreset, preset)
   }
 }
 

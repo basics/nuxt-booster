@@ -8,7 +8,7 @@ module.exports = (options, script) => {
     renditionProgress.destroy()
   })
   const streams = renditionProgress.getStreams()
-  // const streams = [process.stdout, process.stderr];
+  // const streams = [process.stdout, process.stderr]
   return docker.run('dkarchmervue/fluent-ffmpeg', [
     'node', script,
     '--outputDir', options.outputDir
