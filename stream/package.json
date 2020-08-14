@@ -25,8 +25,8 @@
     "colors": "^1.4.0",
     "commander": "^6.0.0",
     "dockerode": "^3.2.1",
-    "fluent-ffmpeg": "^2.0.1",
+    "fluent-ffmpeg": "^2.1.2",
     "mkdirp": "^1.0.4",
-    "node-webvtt": "^1.9.0"
+    "node-webvtt": "^1.9.1"
   }
 }
