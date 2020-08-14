@@ -1,5 +1,42 @@
 # Project Changelog
 
+# [1.6.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.5.2...v1.6.0) (2020-08-14)
+
+
+### Bug Fixes
+
+* **caption:** added support ([0ec35f5](https://github.com/GrabarzUndPartner/lazy-resources/commit/0ec35f5fbdc4039433a2b7e534b76f203bf1a85e))
+* **cleanup:** removed unused images ([3fd0c64](https://github.com/GrabarzUndPartner/lazy-resources/commit/3fd0c64ffce141d02d96e3ba45754c4b1e333676))
+* **cleanup:** removed unused utils ([8e35d5e](https://github.com/GrabarzUndPartner/lazy-resources/commit/8e35d5e80aa7482f95122ab0dafdc74203503d35))
+* **client:** deviceMemory fallback integrated, currently chrome dont support it ([ea7503f](https://github.com/GrabarzUndPartner/lazy-resources/commit/ea7503f6a73304ddc47b40d2692cc7962017a7f9))
+* **font:** default font as '' ([8045c9e](https://github.com/GrabarzUndPartner/lazy-resources/commit/8045c9e712b893145c083c16eb49dda942b0810e))
+* **image:** new src and srcset declaration ([f638e91](https://github.com/GrabarzUndPartner/lazy-resources/commit/f638e91a5d68368c169122b17764a931ea948690))
+* **image:** refactored loading mechanism ([862705b](https://github.com/GrabarzUndPartner/lazy-resources/commit/862705bfaac3d910546f728135e09a5adc85d568))
+* **image:** uncompleted size detection ([6f7aca2](https://github.com/GrabarzUndPartner/lazy-resources/commit/6f7aca28604d959bd12ed777f0a9b5ff51941cf4))
+* **lazy-image:** added noscript style rules ([31504aa](https://github.com/GrabarzUndPartner/lazy-resources/commit/31504aa588173ecd9e818c05265610f3da6e4411))
+* **lazy-image:** refactored lazy-image/-picture ([28deeb4](https://github.com/GrabarzUndPartner/lazy-resources/commit/28deeb4ea278140afe740aa9faa8ee6b03e4a96f))
+* **lighthouse:** added indicator result ([ed8a033](https://github.com/GrabarzUndPartner/lazy-resources/commit/ed8a033ffdbad30c24eef0b46960a9c88b8b5a5b))
+* **lighthouse:** cleanup ([ddbdc79](https://github.com/GrabarzUndPartner/lazy-resources/commit/ddbdc7925f82b982ef1705629c2495c6323cac16))
+* **lighthouse:** cleanup async loader ([991e137](https://github.com/GrabarzUndPartner/lazy-resources/commit/991e13745c9bd07225453b173964972cf0580655))
+* **lighthouse:** cleanup load validation ([a2846b5](https://github.com/GrabarzUndPartner/lazy-resources/commit/a2846b5647287545ba4c005ddfa1a174019580d6))
+* **lighthouse:** fixed score by math.round ([00edc9d](https://github.com/GrabarzUndPartner/lazy-resources/commit/00edc9de17b213be526ea9f48244f220a00dab1c))
+* **lock-file:** create incremental updates ([1fd64ca](https://github.com/GrabarzUndPartner/lazy-resources/commit/1fd64cac6452426217f794c4e703bb791c3a405d))
+* **optimized-images:** option to resize and change format to webp ([9b69939](https://github.com/GrabarzUndPartner/lazy-resources/commit/9b69939daf1b6b13552ef6924ba23ad513b42b8a))
+* **orientation:** optimized calculation ([b0c90b4](https://github.com/GrabarzUndPartner/lazy-resources/commit/b0c90b4db2c818b9a100b429402b43913fe9bcdc))
+* **picture:** ssrOnly Support implemented ([b027b33](https://github.com/GrabarzUndPartner/lazy-resources/commit/b027b3362c936e33ce74392b770a954b69db77fa))
+* **player:** renamed to StreamPlayer ([8ada197](https://github.com/GrabarzUndPartner/lazy-resources/commit/8ada197c21faf5dc9c40d3f8658cc4cc8adea704))
+* **stream:** added renditions ([6b9be98](https://github.com/GrabarzUndPartner/lazy-resources/commit/6b9be98e588319c366bd8c15f507442f775c1ee5))
+* **video:** correct restrictions ([b97db72](https://github.com/GrabarzUndPartner/lazy-resources/commit/b97db72546b4b2acd552158a14161963e1a225fd))
+* **video:** implemented manifest change by orientation change ([5649e08](https://github.com/GrabarzUndPartner/lazy-resources/commit/5649e08763b9adc9502f753d835816466ca0e3bf))
+* **video:** ios native orientation stream support ([5b80f91](https://github.com/GrabarzUndPartner/lazy-resources/commit/5b80f911cefc4a4eb5d6b0b638429c04ad706415))
+
+
+### Features
+
+* **lazy-video:** added responsive-video support ([4858317](https://github.com/GrabarzUndPartner/lazy-resources/commit/48583173d339564f586eeda984421185d96987ed))
+* **lighthouse:** created async widget ([4c43743](https://github.com/GrabarzUndPartner/lazy-resources/commit/4c43743b22be10aeccc6367d0efa2af2167f42ef))
+* **video:** implemented streaming ability ([cfe5261](https://github.com/GrabarzUndPartner/lazy-resources/commit/cfe526123aad3fa47a4d29f3296e53dc5f5ded9b))
+
 ## [1.5.2](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.5.1...v1.5.2) (2020-07-11)
 
 
