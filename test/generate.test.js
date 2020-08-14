@@ -136,19 +136,19 @@ describe('generate', () => {
     expect(dom.querySelector('#criticalFontAssignByDeepSelector.font-comic-neue-700-italic-c3ryb25nid4gaq')).not.toBeNull()
   })
 
-  test('lazy-picture', () => {
-    html = getHTML('tests/lazy-picture')
-    dom = getDom(html)
-
-    expect(dom.querySelector('#criticalContainer picture img[loading="eager"]')).not.toBeNull()
-    expect(dom.querySelector('#lazyContainer picture img[loading="lazy"]')).not.toBeNull()
-  })
-
   test('lazy-image', () => {
     html = getHTML('tests/lazy-image')
     dom = getDom(html)
 
     expect(dom.querySelector('#criticalContainer img[loading="eager"]')).not.toBeNull()
     expect(dom.querySelector('#lazyContainer img[loading="lazy"]')).not.toBeNull()
+  })
+
+  test('lazy-picture', () => {
+    html = getHTML('tests/lazy-picture')
+    dom = getDom(html)
+
+    expect(dom.querySelector('#criticalContainer picture img[loading="eager"]')).not.toBeNull()
+    expect(dom.querySelector('#lazyContainer picture img[loading="lazy"]')).not.toBeNull()
   })
 })

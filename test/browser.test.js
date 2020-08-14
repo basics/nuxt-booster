@@ -1,20 +1,14 @@
 const { join, resolve } = require('path')
 const puppeteer = require('puppeteer')
 const { setup, loadConfig, generatePort } = require('@nuxtjs/module-test-utils')
-// const { deleteDir, makeDir } = require('./utils')
-// const { getDom, getFontFaceSnippet, minifyHTML } = require('./utils')
 
-describe('browser', () => {
+describe('browser (puppeteer)', () => {
   let nuxt,
     browser, page
   const fixtureDir = resolve(__dirname, 'fixture', 'browser')
   const buildDir = join(fixtureDir, '.nuxt')
 
   beforeAll(async () => {
-    // await deleteDir(fixtureDir)
-    // await makeDir(fixtureDir)
-    // await makeDir(resolve(fixtureDir, 'screenshots'))
-
     const overrides = {
       modern: false,
       buildDir
@@ -37,8 +31,6 @@ describe('browser', () => {
 
   async function getUrl (path) {
     return `http://localhost:${await generatePort()}${path}`
-    // return await Promise.resolve(`https://grabarzundpartner.github.io/lazy-resources${path}`)
-    // return await Promise.resolve(`http://localhost:3000${path}`)
   }
 
   test('v-font (font assign simple) (element class)', async () => {
@@ -50,38 +42,89 @@ describe('browser', () => {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
     await page.waitForSelector('#lazyFontAssignSimple.font-lobster-two-400-normal')
-
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple').classList.contains('font-lobster-two-400-normal'))).not.toBeFalsy()
-
-    // html = getHTML()
-    // dom = getDom(html)
-
-    // // // font face exists?
-    // // expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Lobster Two', 'normal', 400))).not.toBe(-1)
-    // // // font class exists?
-    // // expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal')).not.toBe(-1)
-    // // // font link preload exists?
-    // // expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal"]')).not.toBeNull()
-    // // element has font class?
-    // expect(dom.querySelector('.overview-link span.font-comic-neue-400-normal')).not.toBeNull()
   })
 
-  // async function getHTML (path = '') {
-  //   html = await get('/' + join('', path))
-  //   return minifyHTML(html)
-  // }
+  test('v-font (font assign by single selector) (element class)', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/v-font'))
 
-  // test('v-font (layout) (font-face, class, link (preload), element class)', async () => {
-  //   html = await getHTML()
-  //   dom = getDom(html)
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector').classList.contains('.font-lobster-two-700-normal-c3ryb25n'))).toBeFalsy()
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    // element has font class?
+    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-lobster-two-700-normal-c3ryb25n')
+  })
 
-  //   // font face exists?
-  //   expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
-  //   // font class exists?
-  //   expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal')).not.toBe(-1)
-  //   // font link preload exists?
-  //   expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal"]')).not.toBeNull()
-  //   // element has font class?
-  //   expect(dom.querySelector('.overview-link span.font-comic-neue-400-normal')).not.toBeNull()
-  // })
+  test('v-font (font assign by multiple variances) (element class)', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/v-font'))
+
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-lobster-two-700-normal-c3ryb25n'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-lobster-two-700-italic-aq'))).toBeFalsy()
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    // element has font class?
+    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-lobster-two-700-normal-c3ryb25n')
+    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-lobster-two-700-italic-aq')
+  })
+
+  test('v-font (font assign by multiple selectors (string)) (element class)', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/v-font'))
+
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-lobster-two-700-normal-c3ryb25n'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-lobster-two-700-normal-yg'))).toBeFalsy()
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    // element has font class?
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-lobster-two-700-normal-c3ryb25n')
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-lobster-two-700-normal-yg')
+  })
+
+  test('v-font (font assign by multiple selectors (array)) (element class)', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/v-font'))
+
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-lobster-two-400-italic-aq'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-lobster-two-400-italic-zw0'))).toBeFalsy()
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    // element has font class?
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-lobster-two-400-italic-aq')
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-lobster-two-400-italic-zw0')
+  })
+
+  test('v-font (font assign by deep selector) (element class)', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/v-font'))
+
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector').classList.contains('.font-lobster-two-700-italic-c3ryb25nid4gaq'))).toBeFalsy()
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    // element has font class?
+    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-lobster-two-700-italic-c3ryb25nid4gaq')
+  })
+
+  test('lazy-image', async () => {
+    await page.goto(await getUrl('/tests/lazy-image'))
+
+    page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight)
+    })
+    await page.waitForSelector('#lazyContainer img[loading="lazy"][srcset]')
+  })
+
+  test('lazy-picture', async () => {
+    await page.goto(await getUrl('/tests/lazy-picture'))
+
+    page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight)
+    })
+    await page.waitForSelector('#lazyContainer picture source')
+  })
 })
