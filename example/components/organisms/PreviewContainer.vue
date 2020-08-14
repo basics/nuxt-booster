@@ -21,7 +21,8 @@ export default {
 .preview-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
+  min-height: stretch;
   margin: 50px 0;
 
   &:first-child {
@@ -36,27 +37,30 @@ export default {
     flex-direction: row;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 992px) {
     flex-direction: row;
   }
 
   & > div {
-    flex: 0 0 50%;
-  }
-
-  & .preview-container__info {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: calc(32 / 414 * 100vw);
+    width: 100vw;
+    height: 50vh;
 
-    @media (min-width: 768px) {
-      font-size: calc(32 / 768 * 100vw);
+    @media (orientation: landscape) {
+      width: 50vw;
+      height: 100vh;
     }
 
-    @media (min-width: 1024px) {
-      font-size: 32px;
+    @media (min-width: 992px) {
+      width: 50vw;
+      height: 100vh;
     }
+  }
+
+  & .preview-container__info {
+    font-size: calc(32 / 16 * 1em);
 
     & p {
       line-height: calc(44 / 32);
@@ -65,6 +69,7 @@ export default {
   }
 
   & .preview-container__preview {
+    font-size: calc(18 / 16 * 1em);
     background: #eee;
 
     & > article {
@@ -74,15 +79,6 @@ export default {
       justify-content: center;
       width: 100%;
       height: 100%;
-      font-size: calc(20 / 414 * 100vw);
-
-      @media (min-width: 768px) {
-        font-size: calc(20 / 768 * 100vw);
-      }
-
-      @media (min-width: 1024px) {
-        font-size: 20px;
-      }
     }
 
     & > div {
@@ -98,21 +94,6 @@ export default {
       position: relative;
       width: 100%;
       height: 100%;
-    }
-
-    & > figure {
-      position: relative;
-      width: 100%;
-      height: 100%;
-
-      & img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
     }
   }
 }

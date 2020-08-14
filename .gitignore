@@ -10,4 +10,10 @@ reports
 .DS_Store
 coverage
 dist
+test/fixture
 video
+example/static/stream
+stream/A
+stream/B
+stream/C
+stream/source

@@ -1,7 +1,9 @@
 <template>
   <div class="organism-spacer">
-    <p>Scroll down</p>
-    <span>&darr;</span>
+    <div>
+      <p>Scroll down</p>
+      <span>&darr;</span>
+    </div>
   </div>
 </template>
 
@@ -18,30 +20,27 @@ export default {
 
 <style lang="postcss">
 .organism-spacer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-size: calc(32 / 414 * 100vw);
+  min-height: 100vh;
+  min-height: stretch;
+  font-size: calc(32 / 16 * 1em);
 
-  @media (min-width: 768px) {
-    font-size: calc(32 / 768 * 100vw);
-  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 
-  @media (min-width: 1024px) {
-    font-size: 32px;
-  }
+    & > span {
+      display: block;
+      font-size: calc(44 / 32 * 1em);
+      text-align: center;
+    }
 
-  & > span {
-    display: block;
-    font-size: 44px;
-    text-align: center;
-  }
-
-  & p {
-    line-height: calc(44 / 32);
-    text-align: center;
+    & p {
+      line-height: calc(44 / 32);
+      text-align: center;
+    }
   }
 }
 </style>

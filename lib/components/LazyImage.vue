@@ -1,39 +1,34 @@
 <template>
-  <intersection-observer @enter="onEnter">
-    <figure>
-      <slot>
-        <custom-image v-bind="{...$attrs, width, height, src: src, srcset: preparedSrcset}" />
-      </slot>
-      <custom-no-script>
-        <custom-image v-bind="{...$attrs, width, height, src, srcset: preparedSrcset}" />
+  <image-container :loading="loading" @visible="onVisible" @requestHiRes="onRequestHiRes">
+    <template>
+      <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title}" @load="onLoad" />
+      <custom-no-script v-if="!init">
+        <custom-image v-bind="{srcset: srcset, width, height, alt, title}" />
       </custom-no-script>
-      <figcaption v-if="hasSlot">
-        <slot name="caption" />
-      </figcaption>
-    </figure>
-  </intersection-observer>
+    </template>
+    <template v-slot:caption>
+      <slot name="caption" />
+    </template>
+  </image-container>
 </template>
 
 <script>
-import { hydrateSsrOnly } from 'vue-lazy-hydration'
-import srcset from 'srcset'
-import IntersectionObserver from '../abstracts/IntersectionObserver'
-import { getImageSize } from '../utils/image'
-import { sortSrcset } from '../utils/srcset'
+import { hasGoodOverallConditions } from '../utils/client'
+import ImageContainer from './ImageContainer'
 import CustomNoScript from './customs/CustomNoScript'
+import CustomImage from './customs/CustomImage'
+
+const imageCache = new Set()
 
 export default {
   components: {
-    IntersectionObserver,
+    ImageContainer,
     CustomNoScript,
-    CustomImage: hydrateSsrOnly(
-      () => import('./customs/CustomImage.vue'),
-      { ignoredProps: ['srcset'] }
-    )
+    CustomImage
   },
 
   props: {
-    src: {
+    placeholder: {
       type: String,
       default () {
         return null
@@ -41,39 +36,55 @@ export default {
     },
 
     srcset: {
-      type: Array,
+      type: String,
       default () {
         return null
       }
     },
 
-    seo: {
-      type: Boolean,
+    alt: {
+      type: String,
       default () {
-        return true
+        return ''
+      }
+    },
+
+    title: {
+      type: String,
+      default () {
+        return ''
+      }
+    },
+
+    width: {
+      type: Number,
+      default () {
+        return null
+      }
+    },
+
+    height: {
+      type: Number,
+      default () {
+        return null
       }
     }
   },
 
-  async fetch () {
-    ({ width: this.width, height: this.height } = await getImageSize(this.src || this.srcset, this.$getImageSizeFromUrl))
-    // console.log(this.width, this.height, this.srcset)
-    // if (this.$options.critical) {
-    //   this.load()
-    // }
-  },
-
   data () {
     return {
-      width: 0,
-      height: 0,
-      lazy: { src: null, srcset: null }
+      init: false,
+      loading: false
     }
   },
 
   computed: {
-    preparedSrcset () {
-      return srcset.stringify(sortSrcset(this.srcset || [])) || null
+    imageSrcset () {
+      if (this.init) {
+        imageCache.add(this.srcset)
+        return this.srcset
+      }
+      return null
     },
 
     hasSlot () {
@@ -81,26 +92,25 @@ export default {
     }
   },
 
-  created () {
-    // if (this.$options.critical) {
-    //   getImageSize(this.src || this.srcset)
-    // }
-  },
-
   methods: {
-    load () {
-      ({ src: this.lazy.src, srcset: this.lazy.srcset } = this)
+    onRequestHiRes () {
+      this.loading = true
+      this.init = true
     },
 
-    onEnter () {
-      this.load()
+    onVisible () {
+      this.loading = hasGoodOverallConditions() || imageCache.has(this.srcset)
+      this.init = hasGoodOverallConditions() || imageCache.has(this.srcset)
+    },
+
+    onLoad () {
+      this.loading = false
+      this.$emit('load')
     }
   }
 }
 </script>
 
 <style lang="postcss" type="flow" scoped>
-figure {
-  margin: 0;
-}
+/* css */
 </style>

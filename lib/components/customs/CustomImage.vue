@@ -17,6 +17,10 @@ export default {
     }
   },
 
+  mounted () {
+    console.log('mounted')
+  },
+
   methods: {
     onLoad (e) {
       this.$emit('load', e.target)
@@ -27,6 +31,9 @@ export default {
 
 <style lang="postcss" type="flow" scoped>
 img {
-  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: cover;
 }
 </style>
