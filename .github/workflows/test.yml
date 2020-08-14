@@ -38,10 +38,12 @@ jobs:
       # - name: Test
       #   run: npm run test
 
-      - run: jest --json --outputFile=result.json --testLocationInResults
-          - uses: tanmen/jest-reporter@v1
-            if: always()
-            with:
-              github-token: "${{ secrets.GITHUB_TOKEN }}"
-              github_token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Test
+        run: jest --json --outputFile=result.json --testLocationInResults
+
+      - uses: tanmen/jest-reporter@v1
+        if: always()
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
 
