@@ -38,9 +38,9 @@ jobs:
       # - name: Test
       #   run: npm run test
 
-      - name: Comment with Test Coverage
-        uses: dkershner6/jest-coverage-commenter-action@v1
-        with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          test_command: "npm run test"
+      - run: jest --json --outputFile=result.json --testLocationInResults
+          - uses: tanmen/jest-reporter@v1
+            if: always()
+            with:
+              github-token: ${{ secrets.GITHUB_TOKEN }}
 
