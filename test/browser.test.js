@@ -1,7 +1,7 @@
 const { join, resolve } = require('path')
 const puppeteer = require('puppeteer')
 const { setup, loadConfig, generatePort } = require('@nuxtjs/module-test-utils')
-const { deleteDir, makeDir } = require('./utils')
+// const { deleteDir, makeDir } = require('./utils')
 // const { getDom, getFontFaceSnippet, minifyHTML } = require('./utils')
 
 describe('browser', () => {
@@ -11,9 +11,9 @@ describe('browser', () => {
   const buildDir = join(fixtureDir, '.nuxt')
 
   beforeAll(async () => {
-    await deleteDir(fixtureDir)
-    await makeDir(fixtureDir)
-    await makeDir(resolve(fixtureDir, 'screenshots'))
+    // await deleteDir(fixtureDir)
+    // await makeDir(fixtureDir)
+    // await makeDir(resolve(fixtureDir, 'screenshots'))
 
     const overrides = {
       modern: false,
