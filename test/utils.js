@@ -1,5 +1,7 @@
-
 import { JSDOM } from 'jsdom'
+const fs = require('fs')
+const rimraf = require('rimraf')
+
 const minify = require('html-minifier').minify
 
 export function getDom (html) {
@@ -25,4 +27,15 @@ const minifyDefaultOptions = {
 
 export function minifyHTML (html) {
   return minify(html, minifyDefaultOptions)
+}
+
+export function makeDir (path) {
+  return fs.promises.mkdir(path)
+}
+export function deleteDir (path) {
+  return new Promise((resolve) => {
+    if (fs.existsSync(path)) {
+      rimraf(path, resolve)
+    } else { resolve() }
+  })
 }

@@ -57,15 +57,16 @@
       <template>
         <div>
           <ul>
-            <li v-font="$fonts.getFont('Lobster Two', 400, 'normal')">
+            <li id="lazyFontAssignSimple" v-font="$fonts.getFont('Lobster Two', 400, 'normal')">
               Basic font assign
             </li>
             <hr>
-            <li v-font="$fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong')">
+            <li id="lazyFontAssignBySingleSelector" v-font="$fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong')">
               font assign by <strong>single selector</strong>
             </li>
             <li>
               <span
+                id="lazyFontAssignByMultipleVariances"
                 v-font="[
                   $fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong'),
                   $fonts.getFont('Lobster Two', 700, 'italic').addSelector('i')
@@ -75,6 +76,7 @@
             <hr>
             <li>
               <span
+                id="lazyFontAssignByMultipleSelectorsString"
                 v-font="[
                   $fonts.getFont('Lobster Two', 700, 'normal').addSelector('strong, b')
                 ]"
@@ -82,6 +84,7 @@
             </li>
             <li>
               <span
+                id="lazyFontAssignByMultipleSelectorsArray"
                 v-font="[
                   $fonts.getFont('Lobster Two', 400, 'italic').addSelector(['i', 'em'])
                 ]"
@@ -90,6 +93,7 @@
             <hr>
             <li>
               <span
+                id="lazyFontAssignByDeepSelector"
                 v-font="[
                   $fonts.getFont('Lobster Two', 700, 'italic').addSelector('strong > i')
                 ]"
