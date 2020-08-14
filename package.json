@@ -28,6 +28,7 @@
     "generate": "npm run build && nuxt export --config-file example/nuxt.config.js",
     "lint": "eslint --ext .js,.vue .",
     "test": "npm run lint && jest",
+    "jest-test": "jest --json --outputFile=result.json --testLocationInResults",
     "serve": "nuxt serve --config-file example/nuxt.config.js",
     "start:generate": "npm run generate && npm run serve"
   },

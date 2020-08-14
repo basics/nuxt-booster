@@ -39,7 +39,7 @@ jobs:
       #   run: npm run test
 
       - name: Test
-        run: jest --json --outputFile=result.json --testLocationInResults
+        run: npm run jest-test
 
       - uses: tanmen/jest-reporter@v1
         if: always()
