@@ -84,8 +84,6 @@ section {
     & figcaption {
       position: absolute;
       top: 100px;
-      font-size: 60px;
-      color: red;
     }
   }
 

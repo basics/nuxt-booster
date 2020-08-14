@@ -54,6 +54,11 @@
 
 export default {
   data () {
+    const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
+    const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
+    const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
+    const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
+
     return {
       contentA: '<p>This is a basic test with single font variant.</p>',
 
@@ -64,96 +69,44 @@ export default {
       imageTextA: {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
-          alt: 'Alt Text',
-          title: 'Title Text',
           sources: [
             {
-              srcset: [{
-                url: 'img/lazy-1200.webp'
-              }, {
-                url: 'img/lazy-2400.webp',
-                density: 2
-              }],
-              media: '(min-width: 768px)',
+              srcset: lazyImageWebp.srcSet,
               type: 'image/webp'
             },
             {
-              srcset: [{
-                url: 'img/lazy-1200.jpg'
-              }, {
-                url: 'img/lazy-2400.jpg',
-                density: 2
-              }],
-              media: '(min-width: 768px)',
-              type: 'image/jpeg'
-            },
-            {
-              srcset: [{
-                url: 'img/lazy-768.webp'
-              }, {
-                url: 'img/lazy-1536.webp',
-                density: 2
-              }],
-              type: 'image/webp'
-            },
-            {
-              srcset: [{
-                url: 'img/lazy-768.jpg'
-              }, {
-                url: 'img/lazy-1536.jpg',
-                density: 2
-              }],
+              srcset: lazyImageJpeg.srcSet,
               type: 'image/jpeg'
             }
-          ]
+          ],
+          placeholder: lazyImageJpeg.placeholder,
+          width: lazyImageJpeg.width,
+          height: lazyImageJpeg.height,
+          alt: 'Alt Text',
+          title: 'Title Text',
+          caption: null
         }
       },
       stage: {
         headline: 'Stage Headline',
         claim: 'Stage Claim',
         picture: {
-          alt: 'Alt Text',
-          title: 'Title Text',
           sources: [
             {
-              srcset: [{
-                url: 'img/critical-1200.webp'
-              }, {
-                url: 'img/critical-2400.webp',
-                density: 2
-              }],
-              media: '(min-width: 768px)',
+              srcset: criticalImageWebp.srcSet,
               type: 'image/webp'
             },
             {
-              srcset: [{
-                url: 'img/critical-1200.jpg'
-              }, {
-                url: 'img/critical-2400.jpg',
-                density: 2
-              }],
-              media: '(min-width: 768px)',
-              type: 'image/jpeg'
-            },
-            {
-              srcset: [{
-                url: 'img/critical-768.webp'
-              }, {
-                url: 'img/critical-1536.webp',
-                density: 2
-              }],
-              type: 'image/webp'
-            },
-            {
-              srcset: [{
-                url: 'img/critical-768.jpg'
-              }, {
-                url: 'img/critical-1536.jpg',
-                density: 2
-              }],
+              srcset: criticalImageJpeg.srcSet,
               type: 'image/jpeg'
             }
-          ]
+          ],
+          placeholder: criticalImageJpeg.placeholder,
+          width: criticalImageJpeg.width,
+          height: criticalImageJpeg.height,
+          alt: 'Alt Text',
+          title: 'Title Text',
+          caption: null
         }
       }
 
@@ -164,7 +117,7 @@ export default {
 
 <style lang="postcss" scoped>
 .page-full-example {
-  font-size: 20px;
+  font-size: calc(20 / 16 * 1em);
 
   & > * {
     margin: 40px 0;
@@ -174,12 +127,21 @@ export default {
 .component-stage {
   position: relative;
   height: 100%;
+  max-height: 100vh;
   margin: 0;
   overflow: hidden;
 
   & .claim {
     font-size: 0.6em;
     text-transform: none;
+  }
+
+  & >>> picture {
+    &::before {
+      display: block;
+      padding-top: calc(9 / 16 * 100%);
+      content: "";
+    }
   }
 
   & >>> img {

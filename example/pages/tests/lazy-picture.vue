@@ -1,19 +1,19 @@
 <template>
   <div>
-    <organism-preview-container critical>
+    <organism-preview-container id="criticalContainer" critical>
       <template>
-        <LazyPicture v-bind="criticalPicture" />
+        <LazyPicture v-bind="pictureCritical" />
       </template>
       <template v-slot:title>
-        <p>Critical<br>LazyPicture<br>Source Switch by >768px</p>
+        <p>Critical - LazyPicture</p>
       </template>
     </organism-preview-container>
-    <organism-preview-container>
+    <organism-preview-container id="lazyContainer">
       <template>
-        <LazyPicture v-bind="lazyPicture" />
+        <LazyPicture v-bind="pictureLazy" />
       </template>
       <template v-slot:title>
-        <p>LazyPicture<br>Source Switch by >768px</p>
+        <p>Lazy - LazyPicture</p>
       </template>
     </organism-preview-container>
   </div>
@@ -29,7 +29,7 @@ export default {
     const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
 
     return {
-      criticalPicture: {
+      pictureCritical: {
         sources: [
           {
             srcset: criticalImageWebp.srcSet,
@@ -47,7 +47,7 @@ export default {
         title: 'Title Text',
         caption: null
       },
-      lazyPicture: {
+      pictureLazy: {
         sources: [
           {
             srcset: lazyImageWebp.srcSet,

@@ -25,9 +25,10 @@
   "scripts": {
     "dev": "nuxt example",
     "build": "nuxt build --target static --config-file example/nuxt.config.js",
-    "generate": "npm run build && nuxt export --config-file example/nuxt.config.js",
+    "generate": "nuxt generate --config-file example/nuxt.config.js",
     "lint": "eslint --ext .js,.vue .",
     "test": "npm run lint && jest",
+    "jest": "jest",
     "serve": "nuxt serve --config-file example/nuxt.config.js",
     "start:generate": "npm run generate && npm run serve"
   },

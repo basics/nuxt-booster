@@ -1,8 +1,8 @@
 <template>
   <div>
-    <organism-preview-container>
+    <organism-preview-container critical>
       <template>
-        <LazyImage v-bind="imageA" />
+        <LazyImage v-bind="criticalImage" />
       </template>
       <template v-slot:title>
         <p>Critical<br>LazyImage - SRCSET<br>Image Switch by >768px</p>
@@ -10,7 +10,7 @@
     </organism-preview-container>
     <organism-preview-container>
       <template>
-        <LazyImage v-bind="imageB" />
+        <LazyImage v-bind="lazyImage" />
       </template>
       <template v-slot:title>
         <p>LazyImage - SRCSET<br>Image Switch by >768px</p>
@@ -20,39 +20,23 @@
 </template>
 
 <script>
-
 export default {
   data () {
+    const criticalImage = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
+    const lazyImage = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
+
     return {
-      imageA: {
+      criticalImage: {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
-        srcset: [
-          {
-            url: 'img/critical-768.jpg',
-            width: 768
-          },
-          {
-            url: 'img/critical-1200.jpg',
-            width: 2400
-          }
-        ]
+        srcset: criticalImage.srcSet
       },
-      imageB: {
+      lazyImage: {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
-        srcset: [
-          {
-            url: 'img/lazy-768.jpg',
-            width: 768
-          },
-          {
-            url: 'img/lazy-1200.jpg',
-            width: 2400
-          }
-        ]
+        srcset: lazyImage.srcSet
       }
     }
   }

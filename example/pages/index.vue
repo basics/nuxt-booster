@@ -59,6 +59,14 @@ export default {
         {
           title: 'Test: v-font',
           to: '/tests/v-font'
+        },
+        {
+          title: 'Test: LazyPicture',
+          to: '/tests/lazy-picture'
+        },
+        {
+          title: 'Test: LazyImage',
+          to: '/tests/lazy-image'
         }
       ],
       criticalLinks: [
@@ -71,12 +79,8 @@ export default {
           to: '/critical/font-extended'
         },
         {
-          title: 'LazyImageSrc',
-          to: '/critical/lazy-image-src'
-        },
-        {
-          title: 'LazyImageSrcset',
-          to: '/critical/lazy-image-srcset'
+          title: 'LazyImage',
+          to: '/critical/lazy-image'
         },
         {
           title: 'LazyPicture',
@@ -97,12 +101,8 @@ export default {
           to: '/lazy/font-extended'
         },
         {
-          title: 'LazyImageSrc',
-          to: '/lazy/lazy-image-src'
-        },
-        {
-          title: 'LazyImageSrcset',
-          to: '/lazy/lazy-image-srcset'
+          title: 'LazyImage',
+          to: '/lazy/lazy-image'
         },
         {
           title: 'LazyPicture',
@@ -123,12 +123,8 @@ export default {
           to: '/both/font-extended'
         },
         {
-          title: 'LazyImageSrc',
-          to: '/both/lazy-image-src'
-        },
-        {
-          title: 'LazyImageSrcset',
-          to: '/both/lazy-image-srcset'
+          title: 'LazyImage',
+          to: '/both/lazy-image'
         },
         {
           title: 'LazyPicture',
@@ -145,6 +141,7 @@ export default {
 </script>
 
 <style lang="postcss">
+
 h1,
 h2 {
   text-align: center;
@@ -159,12 +156,12 @@ ul {
   list-style: none;
 
   & li {
-    margin: 10px 0;
+    margin: calc(10 / 16 * 1em) 0;
   }
 }
 
 a {
-  font-size: 16px;
+  font-size: 1em;
   color: #000;
   text-decoration: none;
 }

@@ -36,7 +36,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 32px;
+  font-size: calc(32 / 16 * 1em);
   color: white;
 }
 </style>

@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const isDev = process.env.NODE_ENV === 'development'
-
+const isTest = true || process.env.NODE_ENV === 'test'
 const pkg = require('../package')
 
 module.exports = {
@@ -54,7 +54,7 @@ module.exports = {
     extend (config) {
       config.resolve.alias[pkg.name] = resolve(__dirname, '../lib')
 
-      if (!isDev) {
+      if (!isDev && !isTest) {
         config.plugins.push(new BundleAnalyzerPlugin({
           reportFilename: resolve(`reports/webpack/${config.name}.html`),
           statsFilename: resolve(`reports/webpack/stats/${config.name}.json`),
@@ -153,12 +153,6 @@ module.exports = {
   ],
 
   head: {
-    link: [
-      {
-        rel: 'preconnect',
-        href: 'https://dummyimage.com'
-      }
-    ],
     meta: [
       {
         charset: 'utf-8'

@@ -26,24 +26,13 @@ header {
 
 .overview-link {
   display: inline-block;
-  padding: 10px;
-  padding: calc(10 / 414 * 100vw);
-  font-size: calc(18 / 414 * 100vw);
+  padding: calc(10 / 18 * 1em);
+  font-size: calc(18 / 16 * 1em);
   color: #000;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.4);
-  border-radius: 0 0 5px 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-
-  @media (min-width: 768px) {
-    padding: calc(10 / 768 * 100vw);
-    font-size: calc(18 / 768 * 100vw);
-  }
-
-  @media (min-width: 1024px) {
-    padding: 10px;
-    font-size: 18px;
-  }
+  border-radius: 0 0 calc(5 / 18 * 1em) 0;
+  box-shadow: 0 0 calc(5 / 18 * 1em) rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(calc(5 / 18 * 1em));
 }
 </style>
