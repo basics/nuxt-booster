@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const isDev = process.env.NODE_ENV === 'development'
-const isTest = true || process.env.NODE_ENV === 'test'
+const isTest = process.env.NODE_ENV === 'test'
 const pkg = require('../package')
 
 module.exports = {
