@@ -38,8 +38,9 @@ jobs:
       - name: Test
         run: npm run test
 
-      - uses: romeovs/lcov-reporter-action@v0.2.16
+      - name: Comment with Test Coverage
+        uses: dkershner6/jest-coverage-commenter-action@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          lcov-file: ./coverage/lcov.info
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          test_command: "npm run test:coverage"
 
