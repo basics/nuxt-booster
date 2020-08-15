@@ -51,7 +51,7 @@
     "babel-jest": "26.3.0",
     "change-case": "^4.1.1",
     "core-js": "^3.6.5",
-    "eslint": "7.6.0",
+    "eslint": "7.7.0",
     "husky": "4.2.5",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
