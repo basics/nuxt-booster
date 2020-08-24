@@ -33,10 +33,67 @@ npm run add lazy-resources # or npm install lazy-resources
     'lazy-resources',
 
     // With options
-    ['lazy-resources', { /* module options */ }]
+    ['lazy-resources', { 
+        fonts: [{
+          family: 'Font A',
+          fallback: ['Arial', 'sans-serif'],
+          variance: [
+            {
+              style: 'normal',
+              weight: 300,
+              src: '@/assets/fonts/font-a-300'
+            }, {
+              style: 'italic',
+              weight: 300,
+              src: '@/assets/fonts/font-a-300Italic'
+            }, {
+              style: 'normal',
+              weight: 400,
+              src: '@/assets/fonts/font-a-regular'
+            }, {
+              style: 'italic',
+              weight: 400,
+              src: '@/assets/fonts/font-a-regularItalic'
+            }, {
+              style: 'normal',
+              weight: 700,
+              src: '@/assets/fonts/font-a-700'
+            }, {
+              style: 'italic',
+              weight: 700,
+              src: '@/assets/fonts/font-a-700Italic'
+            }
+          ]
+        }]
+     }]
   ]
 }
 ```
+
+## Options
+
+| Property | Type    | Description                             | Default |
+| -------- | ------- | --------------------------------------- | ------- |
+| `fonts`  | `Array` | List of included [fonts](#font-object). | `[]`    |
+
+
+### Font Object
+
+| Property   | Type     | Description                                     | Default     |
+| ---------- | -------- | ----------------------------------------------- | ----------- |
+| `family`   | `String` | Font-Family Name                                | `undefined` |
+| `fallback` | `Array`  | Fallback fonts e.g. `['Arial', 'sans-serif']`   | `undefined` |
+| `variance` | `Array`  | List of [font variances](#font-variance-object) | `[]`        |
+
+
+### Font Variance Object
+
+| Property | Type     | Description                                            | Default     |
+| -------- | -------- | ------------------------------------------------------ | ----------- |
+| `style`  | `String` | CSS-Prop. `font-style`                                 | `undefined` |
+| `weight` | `String` | CSS-Prop. `font-weight`                                | `undefined` |
+| `src`    | `String` | File Path without extension. `require` path available. | `[]`        |
+
 
 ## Components
 
@@ -214,11 +271,11 @@ OR operators can be defined by string or array.
 - [ ] Complete readme
 - [ ] Cross Browser (IE Edge, Firefox, Chrome, Edge, Safari)
 - [ ] Live example website (eg. grabarzundpartner.de)
-- [ ] Example/Test pages
+- [x] Example/Test pages
 - [ ] Create jest test based on test pages
-  - [ ] v-font
-  - [ ] LazyImage
-  - [ ] LazyPicture
+  - [x] v-font
+  - [x] LazyImage
+  - [x] LazyPicture
   - [ ] LazyIframe
   - [ ] LazyVideo
 - [ ] Clean Up!
