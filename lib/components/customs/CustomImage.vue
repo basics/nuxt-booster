@@ -1,6 +1,5 @@
 <template>
   <img
-    v-bind="$attrs"
     :loading="loading"
     @load="onLoad"
   >
@@ -10,12 +9,16 @@
 export default {
   computed: {
     loading () {
-      if (this.$options.critical) {
+      if (this.isCritical) {
         return 'eager'
       } else {
         return 'lazy'
       }
     }
+  },
+
+  mounted () {
+    console.log('mounted')
   },
 
   methods: {
@@ -28,6 +31,9 @@ export default {
 
 <style lang="postcss" type="flow" scoped>
 img {
-  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: cover;
 }
 </style>

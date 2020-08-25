@@ -1,94 +1,116 @@
 <template>
-  <intersection-observer @enter="onEnter">
-    <figure>
-      <slot v-if="lazy.src || lazy.srcset" :width="width" :height="height">
-        <custom-image v-bind="{...$attrs, width, height, src: lazy.src, srcset: lazy.srcset}" />
-      </slot>
-      <custom-no-script v-if="!$options.critical && seo">
-        <custom-image v-bind="{...$attrs, width, height, src, srcset}" />
+  <image-container :loading="loading" @visible="onVisible" @requestHiRes="onRequestHiRes">
+    <template>
+      <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title}" @load="onLoad" />
+      <custom-no-script v-if="!init">
+        <custom-image v-bind="{srcset: srcset, width, height, alt, title}" />
       </custom-no-script>
-      <figcaption v-if="hasSlot">
-        <slot name="caption" />
-      </figcaption>
-    </figure>
-  </intersection-observer>
+    </template>
+    <template v-slot:caption>
+      <slot name="caption" />
+    </template>
+  </image-container>
 </template>
 
 <script>
-import IntersectionObserver from '../abstracts/IntersectionObserver'
-import { getImageSize } from '../utils/image'
-import CustomImage from './CustomImage'
-import CustomNoScript from './CustomNoScript'
+import { hasGoodOverallConditions } from '../utils/client'
+import ImageContainer from './ImageContainer'
+import CustomNoScript from './customs/CustomNoScript'
+import CustomImage from './customs/CustomImage'
+
+const imageCache = new Set()
 
 export default {
   components: {
-    IntersectionObserver,
-    CustomImage,
-    CustomNoScript
+    ImageContainer,
+    CustomNoScript,
+    CustomImage
   },
 
   props: {
-    src: {
-      type: [String, Array],
+    placeholder: {
+      type: String,
       default () {
         return null
       }
     },
 
     srcset: {
-      type: [String, Array],
+      type: String,
       default () {
         return null
       }
     },
 
-    seo: {
-      type: Boolean,
+    alt: {
+      type: String,
       default () {
-        return true
+        return ''
       }
-    }
-  },
+    },
 
-  async fetch () {
-    ({ width: this.width, height: this.height } = await getImageSize(this.src))
-    if (this.$options.critical) {
-      this.load()
+    title: {
+      type: String,
+      default () {
+        return ''
+      }
+    },
+
+    width: {
+      type: Number,
+      default () {
+        return null
+      }
+    },
+
+    height: {
+      type: Number,
+      default () {
+        return null
+      }
     }
   },
 
   data () {
     return {
-      width: null,
-      height: null,
-      lazy: { src: null, srcset: null }
+      init: false,
+      loading: false
     }
   },
 
   computed: {
+    imageSrcset () {
+      if (this.init) {
+        imageCache.add(this.srcset)
+        return this.srcset
+      }
+      return null
+    },
+
     hasSlot () {
       return this.$slots.caption
     }
   },
 
-  created () {
-    if (this.$options.critical) {
-      getImageSize(this.src)
-    }
-  },
-
   methods: {
-    load () {
-      ({ src: this.lazy.src, srcset: this.lazy.srcset } = this)
+    onRequestHiRes () {
+      this.loading = true
+      this.init = true
     },
 
-    onEnter () {
-      this.load()
+    onVisible () {
+      this.loading = hasGoodOverallConditions() || imageCache.has(this.srcset)
+      this.init = hasGoodOverallConditions() || imageCache.has(this.srcset)
+    },
+
+    onLoad () {
+      this.loading = false
+      this.$emit('load')
     }
   }
 }
 </script>
 
 <style lang="postcss" type="flow" scoped>
-/* figure {} */
+/* css */
 </style>
