@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LazyVideo
+    <lazy-video
       dash="/stream/h264.mpd"
       hls="/stream/h264.m3u8"
       :autoplay="Boolean(true)"
@@ -14,7 +14,11 @@
 <script>
 import { resizeObserver } from 'lazy-resources/utils/viewport'
 
+import LazyVideo from 'lazy-resources/components/LazyVideo'
 export default {
+  components: {
+    LazyVideo
+  },
   data () {
     return {
       width: 0,

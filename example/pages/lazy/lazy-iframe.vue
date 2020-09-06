@@ -3,7 +3,7 @@
     <organism-spacer />
     <organism-preview-container>
       <template>
-        <LazyIframe v-bind="iframeA" />
+        <lazy-iframe v-bind="iframeA" />
       </template>
       <template v-slot:title>
         <p>LazyIframe</p>
@@ -13,8 +13,11 @@
 </template>
 
 <script>
-
+import LazyIframe from 'lazy-resources/components/LazyIframe'
 export default {
+  components: {
+    LazyIframe
+  },
   data () {
     return {
       iframeA: {

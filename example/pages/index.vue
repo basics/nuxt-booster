@@ -49,8 +49,12 @@ export default {
     return {
       links: [
         {
-          title: 'Full Example',
-          to: '/full-example'
+          title: 'Full Example With Components',
+          to: '/full-example-with-components'
+        },
+        {
+          title: 'Full Example Without Components',
+          to: '/full-example-without-components'
         },
         {
           title: 'Max Fonts',

@@ -18,6 +18,11 @@ module.exports = {
     '~/components',
     { path: '~/components/organisms/', prefix: 'organism' }],
 
+  server: {
+    port: getPort(),
+    host: getHost()
+  },
+
   build: {
 
     babel: {
@@ -167,6 +172,14 @@ module.exports = {
 
 function getBasePath () {
   return process.env.npm_config_base || process.env.BASE_PATH || '/'
+}
+
+function getHost () {
+  return process.env.npm_config_host || process.env.HOST || 'localhost'
+}
+
+function getPort () {
+  return process.env.npm_config_port || process.env.PORT || 3000
 }
 
 function getDistPath () {

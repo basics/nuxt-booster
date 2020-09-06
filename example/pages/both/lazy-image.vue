@@ -2,7 +2,7 @@
   <div>
     <organism-preview-container critical>
       <template>
-        <LazyImage v-bind="criticalImage" />
+        <lazy-image v-bind="criticalImage" />
       </template>
       <template v-slot:title>
         <p>Critical<br>LazyImage - SRCSET<br>Image Switch by >768px</p>
@@ -10,7 +10,7 @@
     </organism-preview-container>
     <organism-preview-container>
       <template>
-        <LazyImage v-bind="lazyImage" />
+        <lazy-image v-bind="lazyImage" />
       </template>
       <template v-slot:title>
         <p>LazyImage - SRCSET<br>Image Switch by >768px</p>
@@ -20,7 +20,11 @@
 </template>
 
 <script>
+import LazyImage from 'lazy-resources/components/LazyImage'
 export default {
+  components: {
+    LazyImage
+  },
   data () {
     const criticalImage = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const lazyImage = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
