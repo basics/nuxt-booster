@@ -1,31 +1,47 @@
 <template>
-  <organism-preview-container>
-    <template v-slot:default>
-      <LazyImage v-bind="image" />
-    </template>
-    <template v-slot:title>
-      <div v-font="$fonts.getFont('Comic Neue', 700, 'normal').addSelector('p')">
-        <p>
-          Critical<br>LazyImage - SRCSET<br>Image Switch by >480 &amp; >768px
-        </p>
-      </div>
-    </template>
-  </organism-preview-container>
+  <div class="component-image-text">
+    <lazy-picture v-bind="picture" />
+    <div
+      v-font="[
+        $fonts.getFont('Comic Neue', 400, 'normal'),
+        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('h2')]"
+      class="text"
+      v-html="text"
+    />
+  </div>
 </template>
 
 <script>
+import LazyPicture from 'lazy-resources/components/LazyPicture'
 export default {
+  components: {
+    LazyPicture
+  },
   props: {
-    image: {
-      type: Object,
-      default () {
-        return null
-      }
-    }
+    picture: { type: Object, default () { return {} } },
+    text: { type: String, default () { return 'Headline' } }
   }
 }
 </script>
 
 <style lang="postcss">
-  /* hello */
+.component-image-text {
+  & >>> img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+
+    & > * {
+      width: 50%;
+    }
+  }
+
+  & .text {
+    padding: 2%;
+  }
+}
 </style>

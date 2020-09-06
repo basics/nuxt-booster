@@ -1,16 +1,18 @@
 <template>
   <div>
-    <GoogleLighthouse url="https://grabarzundpartner.de" />
+    <google-lighthouse url="https://grabarzundpartner.de" />
     <organism-page-header :critical="Boolean(true)" />
     <Nuxt />
   </div>
 </template>
 
 <script>
+import GoogleLighthouse from 'lazy-resources/components/GoogleLighthouse'
 import OrganismPageHeader from '@/components/organisms/PageHeader'
 
 export default {
   components: {
+    GoogleLighthouse,
     OrganismPageHeader
   }
 }

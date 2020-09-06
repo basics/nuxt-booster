@@ -5,6 +5,9 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
+      "lazy-resources/*": [
+        "lib/*"
+      ],
       "@/*": [
         "example/*"
       ],

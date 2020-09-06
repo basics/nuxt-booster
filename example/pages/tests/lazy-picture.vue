@@ -2,7 +2,7 @@
   <div>
     <organism-preview-container id="criticalContainer" critical>
       <template>
-        <LazyPicture v-bind="pictureCritical" />
+        <lazy-picture v-bind="pictureCritical" />
       </template>
       <template v-slot:title>
         <p>Critical - LazyPicture</p>
@@ -10,7 +10,7 @@
     </organism-preview-container>
     <organism-preview-container id="lazyContainer">
       <template>
-        <LazyPicture v-bind="pictureLazy" />
+        <lazy-picture v-bind="pictureLazy" />
       </template>
       <template v-slot:title>
         <p>Lazy - LazyPicture</p>
@@ -20,8 +20,11 @@
 </template>
 
 <script>
-
+import LazyPicture from 'lazy-resources/components/LazyPicture'
 export default {
+  components: {
+    LazyPicture
+  },
   data () {
     const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')

@@ -3,7 +3,7 @@
     <organism-spacer />
     <organism-preview-container>
       <template>
-        <LazyPicture v-bind="lazyPicture" />
+        <lazy-picture v-bind="lazyPicture" />
       </template>
       <template v-slot:title>
         <p>LazyPicture<br>Source Switch by >768px</p>
@@ -13,8 +13,11 @@
 </template>
 
 <script>
-
+import LazyPicture from 'lazy-resources/components/LazyPicture'
 export default {
+  components: {
+    LazyPicture
+  },
   data () {
     const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
