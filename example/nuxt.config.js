@@ -15,8 +15,9 @@ module.exports = {
   // mode: 'spa',
 
   components: [
-    '~/components',
-    { path: '~/components/organisms/', prefix: 'organism' }],
+    // '~/components',
+    // { path: '~/components/organisms/', prefix: 'organism' }
+  ],
 
   server: {
     port: getPort(),
