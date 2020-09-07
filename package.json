@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@modified/shaka-player": "^3.0.0",
+    "cheerio": "^1.0.0-rc.3",
     "rxjs": "^6.6.2",
     "sort-media-queries": "^0.2.2",
     "srcset": "^3.0.0",
