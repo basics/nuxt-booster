@@ -2,7 +2,6 @@ const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
-const cheerio = require('cheerio')
 const pkg = require('../package')
 
 module.exports = {
@@ -72,20 +71,6 @@ module.exports = {
           defaultSizes: 'gzip',
           statsOptions: 'normal'
         }))
-      }
-    }
-  },
-
-  hooks: {
-    generate: {
-      page: (page) => {
-        const $ = cheerio.load(page.html)
-        $('body script, head link').each((i, el) => {
-          if (/\/[\d]*\.[\w]*(\.modern)?\.js/gm.test(el.attribs.src || el.attribs.href)) {
-            return $(el).remove()
-          }
-        })
-        page.html = $.html()
       }
     }
   },
