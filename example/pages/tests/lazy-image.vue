@@ -20,9 +20,11 @@
 </template>
 
 <script>
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 import LazyImage from 'lazy-resources/components/LazyImage'
 export default {
   components: {
+    OrganismPreviewContainer,
     LazyImage
   },
   data () {

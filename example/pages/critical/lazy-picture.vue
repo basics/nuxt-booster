@@ -13,9 +13,11 @@
 
 <script>
 import LazyPicture from 'lazy-resources/components/LazyPicture'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
-    LazyPicture
+    LazyPicture,
+    OrganismPreviewContainer
   },
   data () {
     const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')

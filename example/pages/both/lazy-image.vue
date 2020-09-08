@@ -21,8 +21,10 @@
 
 <script>
 import LazyImage from 'lazy-resources/components/LazyImage'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
+    OrganismPreviewContainer,
     LazyImage
   },
   data () {

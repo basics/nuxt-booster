@@ -20,8 +20,13 @@
 </template>
 
 <script>
-
+import OrganismSpacer from '@/components/organisms/Spacer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
+  components: {
+    OrganismSpacer,
+    OrganismPreviewContainer
+  },
   data () {
     return {
       contentA: '<p>This is a <strong>RichText</strong> with different <i>font variants</i>.</p>'
