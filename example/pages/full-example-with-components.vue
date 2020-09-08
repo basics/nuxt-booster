@@ -13,7 +13,7 @@ import { hydrateWhenVisible } from 'vue-lazy-hydration'
 export default {
 
   components: {
-    ComponentStage: () => import(/* webpackMode: 'eager' */'@/components/organisms/Stage'),
+    ComponentStage: () => import('@/components/organisms/Stage'),
     ComponentTextA: hydrateWhenVisible(() => import('@/components/organisms/TextFontA'), { observerOptions: { rootMargin: '0px' } }),
     ComponentTextImage: hydrateWhenVisible(() => import('@/components/organisms/ImageText'), { observerOptions: { rootMargin: '0px' } }),
     ComponentTextB: hydrateWhenVisible(() => import('@/components/organisms/TextFontB'), { observerOptions: { rootMargin: '0px' } })
