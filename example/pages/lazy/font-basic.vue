@@ -13,8 +13,13 @@
 </template>
 
 <script>
-
+import OrganismSpacer from '@/components/organisms/Spacer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
+  components: {
+    OrganismSpacer,
+    OrganismPreviewContainer
+  },
   data () {
     return {
       contentA: '<p>This is a basic test with single font variant.</p>'

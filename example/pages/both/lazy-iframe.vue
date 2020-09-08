@@ -13,8 +13,10 @@
 
 <script>
 import LazyIframe from 'lazy-resources/components/LazyIframe'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
+    OrganismPreviewContainer,
     LazyIframe
   },
   data () {
