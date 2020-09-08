@@ -95,6 +95,10 @@ module.exports = {
     }]
   ],
 
+  plugins: [
+    '@/plugins/lazyHydrate'
+  ],
+
   modules: [
     [
       resolve(__dirname, '..'), {
