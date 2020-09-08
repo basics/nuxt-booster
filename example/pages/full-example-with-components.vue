@@ -8,14 +8,15 @@
 </template>
 
 <script>
+import { hydrateWhenVisible } from 'vue-lazy-hydration'
 
 export default {
 
   components: {
-    ComponentStage: () => import('@/components/organisms/Stage'),
-    ComponentTextA: () => import('@/components/organisms/TextFontA'),
-    ComponentTextImage: () => import('@/components/organisms/ImageText'),
-    ComponentTextB: () => import('@/components/organisms/TextFontB')
+    ComponentStage: () => import(/* webpackMode: 'eager' */'@/components/organisms/Stage'),
+    ComponentTextA: hydrateWhenVisible(() => import('@/components/organisms/TextFontA'), { observerOptions: { rootMargin: '0px' } }),
+    ComponentTextImage: hydrateWhenVisible(() => import('@/components/organisms/ImageText'), { observerOptions: { rootMargin: '0px' } }),
+    ComponentTextB: hydrateWhenVisible(() => import('@/components/organisms/TextFontB'), { observerOptions: { rootMargin: '0px' } })
   },
 
   data () {
