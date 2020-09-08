@@ -19,6 +19,28 @@ export default {
 </script>
 
 <style lang="postcss">
+
+[class*="font-"] {
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-weight: normal;
+  }
+
+  & i,
+  & em {
+    font-style: normal;
+  }
+
+  & b,
+  & strong {
+    font-weight: normal;
+  }
+}
+
 html {
   height: stretch;
 }
