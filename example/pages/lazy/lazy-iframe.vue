@@ -14,8 +14,12 @@
 
 <script>
 import LazyIframe from 'lazy-resources/components/LazyIframe'
+import OrganismSpacer from '@/components/organisms/Spacer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
+    OrganismSpacer,
+    OrganismPreviewContainer,
     LazyIframe
   },
   data () {
