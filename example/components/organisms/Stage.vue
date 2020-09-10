@@ -65,6 +65,7 @@ export default {
     left: 50%;
     padding: 20px;
     color: white;
+    text-align: center;
     background: rgba(0, 0, 0, 0.4);
     transform: translate(-50%, -50%);
   }

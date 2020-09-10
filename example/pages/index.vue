@@ -143,31 +143,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss">
-
-h1,
-h2 {
-  text-align: center;
-}
-
-nav {
-  text-align: center;
-}
-
-ul {
-  padding: 0;
-  list-style: none;
-
-  & li {
-    margin: calc(10 / 16 * 1em) 0;
-  }
-}
-
-a {
-  font-size: 1em;
-  color: #000;
-  text-decoration: none;
-}
-
-</style>
