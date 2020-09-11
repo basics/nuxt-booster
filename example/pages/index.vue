@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-index">
     <h1>Preview</h1>
     <nav>
       <ul>
@@ -63,6 +63,10 @@ export default {
         {
           title: 'Test: v-font',
           to: '/tests/v-font'
+        },
+        {
+          title: 'Test: v-font (media)',
+          to: '/tests/v-font-media'
         },
         {
           title: 'Test: LazyPicture',
@@ -146,28 +150,30 @@ export default {
 
 <style lang="postcss">
 
-h1,
-h2 {
-  text-align: center;
-}
-
-nav {
-  text-align: center;
-}
-
-ul {
-  padding: 0;
-  list-style: none;
-
-  & li {
-    margin: calc(10 / 16 * 1em) 0;
+.page-index {
+  & h1,
+  & h2 {
+    text-align: center;
   }
-}
 
-a {
-  font-size: 1em;
-  color: #000;
-  text-decoration: none;
+  & nav {
+    text-align: center;
+  }
+
+  & ul {
+    padding: 0;
+    list-style: none;
+
+    & li {
+      margin: calc(10 / 16 * 1em) 0;
+    }
+  }
+
+  & a {
+    font-size: 1em;
+    color: #000;
+    text-decoration: none;
+  }
 }
 
 </style>

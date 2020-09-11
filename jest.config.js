@@ -14,5 +14,9 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
-  testPathIgnorePatterns: []
+  testPathIgnorePatterns: [
+    // 'generate.test.js',
+    // 'module.test.js',
+    // 'browser.test.js'
+  ]
 }

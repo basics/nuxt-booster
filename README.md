@@ -242,6 +242,18 @@ Other fonts load by lazyload, when show in viewport.
 <node v-font="$getFont(…).isCritical()">…
 ```
 
+#### byMedia(media)
+
+> ⚠️ If byMedia is set, same font definition is ignored without
+
+Font load and show by current CSS Media Query.
+
+Ideal for Viewport optimized font load.
+
+```html 
+<node v-font="$getFont(…).isCritical().byMedia('(min-width: 992px)')">…
+```
+
 
 #### bySelector(selector)
 

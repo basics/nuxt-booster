@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .preview-container {
   display: flex;
   flex-direction: column;
@@ -88,6 +88,16 @@ export default {
       justify-content: center;
       width: 100%;
       height: 100%;
+
+      & > ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        & li {
+          margin: calc(10 / 16 * 1em) 0;
+        }
+      }
     }
 
     & > iframe {

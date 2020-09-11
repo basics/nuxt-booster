@@ -111,8 +111,6 @@
 <script>
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
-  components: [
-    OrganismPreviewContainer
-  ]
+  components: { OrganismPreviewContainer }
 }
 </script>
