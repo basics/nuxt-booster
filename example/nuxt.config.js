@@ -43,7 +43,6 @@ module.exports = {
   // },
 
   build: {
-
     babel: {
       presets ({ isServer, isModern, isDev }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
