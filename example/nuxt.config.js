@@ -6,22 +6,41 @@ const pkg = require('../package')
 
 module.exports = {
   dev: isDev,
-
+  target: 'static',
   modern: isDev ? false : 'client',
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-
+  loading: false,
   // mode: 'spa',
 
   components: [
-    '~/components',
-    { path: '~/components/organisms/', prefix: 'organism' }],
+    // '~/components',
+    // { path: '~/components/organisms/', prefix: 'organism' }
+  ],
 
   server: {
     port: getPort(),
     host: getHost()
   },
+
+  // features: {
+  //   router: true, // not implemented
+  //   store: false,
+  //   layouts: true,
+  //   meta: true,
+  //   middleware: false,
+  //   transitions: true,
+  //   deprecations: false,
+  //   validate: false,
+  //   asyncData: true,
+  //   fetch: true,
+  //   clientOnline: false,
+  //   clientPrefetch: false,
+  //   clientUseUrl: false, // this is a bit of an odd one, but using URL should eg be ok for modern mode already
+  //   componentAliases: false,
+  //   componentClientOnly: false
+  // },
 
   build: {
 
@@ -92,6 +111,10 @@ module.exports = {
         mode: 1
       }
     }]
+  ],
+
+  plugins: [
+    '@/plugins/lazyHydrate'
   ],
 
   modules: [
