@@ -3,11 +3,11 @@
     <lazy-picture v-bind="picture" />
     <h1
       v-font="[
-        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('span').isCritical(),
-        $fonts.getFont('Comic Neue', 300, 'italic').addSelector('span.claim').isCritical()
+        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('.headline').isCritical(),
+        $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
       ]"
     >
-      <span>{{ headline }}</span><br>
+      <span class="headline">{{ headline }}</span>
       <span class="claim">{{ claim }}</span>
     </h1>
   </div>
@@ -38,8 +38,16 @@ export default {
   overflow: hidden;
 
   & .claim {
-    font-size: 0.6em;
+    display: block;
+    font-size: 25px;
+    line-height: 50px;
     text-transform: none;
+  }
+
+  & .headline {
+    display: block;
+    font-size: 40px;
+    line-height: 80px;
   }
 
   & picture {
@@ -63,6 +71,7 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 300px;
     padding: 20px;
     color: white;
     text-align: center;
