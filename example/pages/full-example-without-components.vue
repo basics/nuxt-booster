@@ -5,11 +5,11 @@
       <lazy-picture v-bind="stage.picture" />
       <h1
         v-font="[
-          $fonts.getFont('Lobster Two', 700, 'normal').addSelector('span').isCritical(),
-          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('span.claim').isCritical()
+          $fonts.getFont('Lobster Two', 700, 'normal').addSelector('.headline').isCritical(),
+          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
         ]"
       >
-        <span>{{ stage.headline }}</span><br>
+        <span class="headline">{{ stage.headline }}</span>
         <span class="claim">{{ stage.claim }}</span>
       </h1>
     </div>
@@ -152,8 +152,16 @@ export default {
     overflow: hidden;
 
     & .claim {
-      font-size: 0.6em;
+      display: block;
+      font-size: 25px;
+      line-height: 50px;
       text-transform: none;
+    }
+
+    & .headline {
+      display: block;
+      font-size: 40px;
+      line-height: 80px;
     }
 
     & picture {
@@ -177,8 +185,10 @@ export default {
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 300px;
       padding: 20px;
       color: white;
+      text-align: center;
       background: rgba(0, 0, 0, 0.4);
       transform: translate(-50%, -50%);
     }
