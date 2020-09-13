@@ -25,8 +25,11 @@
 </template>
 
 <script>
-
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
+  components: {
+    OrganismPreviewContainer
+  },
   data () {
     return {
       content: 'This is a basic test with single font variant.'
