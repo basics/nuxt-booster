@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
   build-baqend-pages:
-    name: Build (GH-Pages)
+    name: Build (Baqend-Pages)
     needs: install
     runs-on: ${{ matrix.os }}
 
@@ -69,7 +69,7 @@ jobs:
           path: dist
 
   deploy-baqend:
-    name: Deploy (BAQEND-Pages)
+    name: Deploy (Baqend-Pages)
     needs: build-baqend-pages
     runs-on: ${{ matrix.os }}
     strategy:
