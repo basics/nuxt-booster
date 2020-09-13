@@ -1,8 +1,8 @@
 <template>
-  <header
-    v-font="[
+  <!-- v-font="[
       $fonts.getFont('Quicksand', 400, 'normal').isCritical()
-    ]"
+    ]" -->
+  <header
     class="page-header"
   >
     <a v-if="$route.path === '/'" target="_blank" href="https://github.com/GrabarzUndPartner/lazy-resources" class="overview-link">
