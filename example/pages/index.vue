@@ -1,6 +1,14 @@
 <template>
-  <div class="page-index">
-    <h1>Preview</h1>
+  <div
+    v-font="[
+      $fonts.getFont('Quicksand', 400, 'normal').isCritical(),
+      $fonts.getFont('Quicksand', 700, 'normal').addSelector('h1, h2').isCritical()
+    ]"
+    class="page-index"
+  >
+    <h1>
+      Preview
+    </h1>
     <nav>
       <ul>
         <li v-for="(link, index) in links" :key="index">
@@ -149,7 +157,6 @@ export default {
 </script>
 
 <style lang="postcss">
-
 .page-index {
   & h1,
   & h2 {
@@ -171,7 +178,7 @@ export default {
 
   & a {
     font-size: 1em;
-    color: #000;
+    color: currentColor;
     text-decoration: none;
   }
 }
