@@ -1,5 +1,10 @@
 <template>
-  <header class="page-header">
+  <header
+    v-font="[
+      $fonts.getFont('Quicksand', 400, 'normal').isCritical()
+    ]"
+    class="page-header"
+  >
     <a v-if="$route.path === '/'" target="_blank" href="https://github.com/GrabarzUndPartner/lazy-resources" class="overview-link">
       <span>GITHUB</span>
     </a>
@@ -15,7 +20,6 @@
   top: 0;
   left: 0;
   z-index: 1;
-  font-family: sans-serif;
 
   & .overview-link {
     display: inline-block;

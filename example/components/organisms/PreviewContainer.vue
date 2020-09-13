@@ -3,7 +3,7 @@
     <div class="preview-container__preview">
       <slot name="default" />
     </div>
-    <div class="preview-container__info">
+    <div v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()" class="preview-container__info">
       <slot name="title">
         <p>Preview Info</p>
       </slot>
@@ -70,7 +70,16 @@ export default {
 
   & .preview-container__preview {
     font-size: calc(18 / 16 * 1em);
-    background: #eee;
+
+    --bg-opacity: 1;
+
+    background-color: #edf2f7;
+    background-color: rgba(237, 242, 247, var(--bg-opacity));
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #2d3748;
+      background-color: rgba(45, 55, 72, var(--bg-opacity));
+    }
 
     & > article {
       position: relative;

@@ -98,6 +98,32 @@ module.exports = {
     [
       resolve(__dirname, '..'), {
         fonts: [{
+          family: 'Quicksand',
+          fallback: ['sans-serif'],
+          variance: [
+            {
+              style: 'normal',
+              weight: 300,
+              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff2'
+            }, {
+              style: 'normal',
+              weight: 400,
+              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff2'
+            }, {
+              style: 'normal',
+              weight: 500,
+              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff2'
+            }, {
+              style: 'normal',
+              weight: 600,
+              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff2'
+            }, {
+              style: 'normal',
+              weight: 700,
+              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff2'
+            }
+          ]
+        }, {
           family: 'Comic Neue',
           fallback: ['Arial', 'sans-serif'],
           variance: [
