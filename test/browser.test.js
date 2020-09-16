@@ -43,7 +43,7 @@ describe('browser (puppeteer)', () => {
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimple.font-lobster-two-400-normal')
+    await page.waitForSelector('#lazyFontAssignSimple.font-montserrat-alternates-400-normal')
   })
 
   test('v-font (font assign by single selector) (element class)', async () => {
@@ -51,11 +51,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector').classList.contains('.font-lobster-two-700-normal-c3ryb25n'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector').classList.contains('.font-montserrat-alternates-700-normal-c3ryb25n'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-lobster-two-700-normal-c3ryb25n')
+    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-montserrat-alternates-700-normal-c3ryb25n')
   })
 
   test('v-font (font assign by multiple variances) (element class)', async () => {
@@ -63,13 +63,13 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-lobster-two-700-normal-c3ryb25n'))).toBeFalsy()
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-lobster-two-700-italic-aq'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-montserrat-alternates-700-normal-c3ryb25n'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-montserrat-alternates-700-italic-aq'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-lobster-two-700-normal-c3ryb25n')
-    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-lobster-two-700-italic-aq')
+    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-montserrat-alternates-700-normal-c3ryb25n')
+    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-montserrat-alternates-700-italic-aq')
   })
 
   test('v-font (font assign by multiple selectors (string)) (element class)', async () => {
@@ -77,13 +77,13 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-lobster-two-700-normal-c3ryb25n'))).toBeFalsy()
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-lobster-two-700-normal-yg'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-montserrat-alternates-700-normal-c3ryb25n'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-montserrat-alternates-700-normal-yg'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-lobster-two-700-normal-c3ryb25n')
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-lobster-two-700-normal-yg')
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-montserrat-alternates-700-normal-c3ryb25n')
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-montserrat-alternates-700-normal-yg')
   })
 
   test('v-font (font assign by multiple selectors (array)) (element class)', async () => {
@@ -91,13 +91,13 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-lobster-two-400-italic-aq'))).toBeFalsy()
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-lobster-two-400-italic-zw0'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-montserrat-alternates-400-italic-aq'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-montserrat-alternates-400-italic-zw0'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-lobster-two-400-italic-aq')
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-lobster-two-400-italic-zw0')
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-montserrat-alternates-400-italic-aq')
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-montserrat-alternates-400-italic-zw0')
   })
 
   test('v-font (font assign by deep selector) (element class)', async () => {
@@ -105,11 +105,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector').classList.contains('.font-lobster-two-700-italic-c3ryb25nid4gaq'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector').classList.contains('.font-montserrat-alternates-700-italic-c3ryb25nid4gaq'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-lobster-two-700-italic-c3ryb25nid4gaq')
+    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-montserrat-alternates-700-italic-c3ryb25nid4gaq')
   })
 
   // /tests/v-font-media
@@ -119,11 +119,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font-media'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479').classList.contains('.font-lobster-two-700-italic-kg1hec13awr0adogndc5chgp'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479').classList.contains('.font-montserrat-alternates-700-italic-kg1hec13awr0adogndc5chgp'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-lobster-two-700-italic-kg1hec13awr0adogndc5chgp')
+    await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-montserrat-alternates-700-italic-kg1hec13awr0adogndc5chgp')
   })
 
   test('v-font (media) (font assign simple by 480px) (element class)', async () => {
@@ -131,11 +131,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font-media'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480').classList.contains('.font-lobster-two-400-normal-kg1pbi13awr0adogndgwchgp'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480').classList.contains('.font-montserrat-alternates-400-normal-kg1pbi13awr0adogndgwchgp'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleBy480.font-lobster-two-400-normal-kg1pbi13awr0adogndgwchgp')
+    await page.waitForSelector('#lazyFontAssignSimpleBy480.font-montserrat-alternates-400-normal-kg1pbi13awr0adogndgwchgp')
   })
 
   test('v-font (media) (font assign simple by 960px) (element class)', async () => {
@@ -143,11 +143,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font-media'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960').classList.contains('.font-lobster-two-400-italic-kg1pbi13awr0adogotywchgp'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960').classList.contains('.font-montserrat-alternates-400-italic-kg1pbi13awr0adogotywchgp'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleBy960.font-lobster-two-400-italic-kg1pbi13awr0adogotywchgp')
+    await page.waitForSelector('#lazyFontAssignSimpleBy960.font-montserrat-alternates-400-italic-kg1pbi13awr0adogotywchgp')
   })
 
   test('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
@@ -155,11 +155,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/tests/v-font-media'))
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440').classList.contains('.font-lobster-two-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440').classList.contains('.font-montserrat-alternates-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i'))).toBeFalsy()
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
     // element has font class?
-    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-lobster-two-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')
+    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-montserrat-alternates-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')
   })
 
   // /tests/lazy-image
