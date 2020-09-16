@@ -1,0 +1,4 @@
+
+# pages/**/*.vue
+# !pages/tests/lazy-picture.vue
+# !pages/full-example-with-components.vue

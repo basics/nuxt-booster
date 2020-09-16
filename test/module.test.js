@@ -24,19 +24,21 @@ describe('module', () => {
     await nuxt.close()
   })
 
-  test('v-font (layout) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML()
-    dom = getDom(html)
+  // test('v-font (layout) (font-face, class, link (preload), element class)', async () => {
+  //   html = await getHTML()
+  //   dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
-    // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal')).not.toBe(-1)
-    // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('.overview-link span.font-comic-neue-400-normal')).not.toBeNull()
-  })
+  //   // font face exists?
+  //   expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
+  //   // font class exists?
+  //   expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal')).not.toBe(-1)
+  //   // font link preload exists?
+  //   expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal"]')).not.toBeNull()
+  //   // element has font class?
+  //   expect(dom.querySelector('.overview-link span.font-comic-neue-400-normal')).not.toBeNull()
+  // })
+
+  // /tests/v-font
 
   test('v-font (font assign simple) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font')
@@ -132,6 +134,66 @@ describe('module', () => {
     expect(dom.querySelector('#criticalFontAssignByDeepSelector.font-comic-neue-700-italic-c3ryb25nid4gaq')).not.toBeNull()
   })
 
+  // /tests/v-font-media
+
+  test('v-font (media) (font assign simple by max 479px) (font-face, class, link (preload), element class)', async () => {
+    html = await getHTML('tests/v-font-media')
+    dom = getDom(html)
+
+    // font face exists?
+    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 700))).not.toBe(-1)
+    // font class exists?
+    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-italic-kg1hec13awr0adogndc5chgp')).not.toBe(-1)
+    // font link preload exists?
+    expect(dom.head.querySelector('link[hid="font-comic-neue-700-italic-kg1hec13awr0adogndc5chgp"][media="(max-width: 479px)"]')).not.toBeNull()
+    // element has font class?
+    expect(dom.querySelector('#criticalFontAssignSimpleByMax479.font-comic-neue-700-italic-kg1hec13awr0adogndc5chgp')).not.toBeNull()
+  })
+
+  test('v-font (media) (font assign simple by 480px) (font-face, class, link (preload), element class)', async () => {
+    html = await getHTML('tests/v-font-media')
+    dom = getDom(html)
+
+    // font face exists?
+    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
+    // font class exists?
+    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal-kg1pbi13awr0adogndgwchgp')).not.toBe(-1)
+    // font link preload exists?
+    expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal-kg1pbi13awr0adogndgwchgp"][media="(min-width: 480px)"]')).not.toBeNull()
+    // element has font class?
+    expect(dom.querySelector('#criticalFontAssignSimpleBy480.font-comic-neue-400-normal-kg1pbi13awr0adogndgwchgp')).not.toBeNull()
+  })
+
+  test('v-font (media) (font assign simple by 960px) (font-face, class, link (preload), element class)', async () => {
+    html = await getHTML('tests/v-font-media')
+    dom = getDom(html)
+
+    // font face exists?
+    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 400))).not.toBe(-1)
+    // font class exists?
+    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-italic-kg1pbi13awr0adogotywchgp')).not.toBe(-1)
+    // font link preload exists?
+    expect(dom.head.querySelector('link[hid="font-comic-neue-400-italic-kg1pbi13awr0adogotywchgp"][media="(min-width: 960px)"]')).not.toBeNull()
+    // element has font class?
+    expect(dom.querySelector('#criticalFontAssignSimpleBy960.font-comic-neue-400-italic-kg1pbi13awr0adogotywchgp')).not.toBeNull()
+  })
+
+  test('v-font (media) (font assign with selector by 1440px) (font-face, class, link (preload), element class)', async () => {
+    html = await getHTML('tests/v-font-media')
+    dom = getDom(html)
+
+    // font face exists?
+    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 700))).not.toBe(-1)
+    // font class exists?
+    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')).not.toBe(-1)
+    // font link preload exists?
+    expect(dom.head.querySelector('link[hid="font-comic-neue-700-normal-kg1pbi13awr0adogmtq0mhb4kq"][media="(min-width: 1440px)"]')).not.toBeNull()
+    // element has font class?
+    expect(dom.querySelector('#criticalFontBySingleSelectorBy1440.font-comic-neue-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')).not.toBeNull()
+  })
+
+  // /tests/lazy-image
+
   test('lazy-image', async () => {
     html = await getHTML('tests/lazy-image')
     dom = getDom(html)
@@ -139,6 +201,8 @@ describe('module', () => {
     expect(dom.querySelector('#criticalContainer img[loading="eager"]')).not.toBeNull()
     expect(dom.querySelector('#lazyContainer img[loading="lazy"]')).not.toBeNull()
   })
+
+  // /tests/lazy-picture
 
   test('lazy-picture', async () => {
     html = await getHTML('tests/lazy-picture')

@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.6.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.6.0...v1.6.1) (2020-09-16)
+
+
+### Bug Fixes
+
+* **fonts:** update font handling ([051201e](https://github.com/GrabarzUndPartner/lazy-resources/commit/051201e7a624fe4943f4b5ace3a95f4a5f5a7b22))
+
 # [1.6.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.5.2...v1.6.0) (2020-08-14)
 
 
