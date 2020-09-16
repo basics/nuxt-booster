@@ -1,6 +1,14 @@
 <template>
-  <div>
-    <h1>Preview</h1>
+  <div
+    v-font="[
+      $fonts.getFont('Quicksand', 400, 'normal').isCritical(),
+      $fonts.getFont('Quicksand', 700, 'normal').addSelector('h1, h2').isCritical()
+    ]"
+    class="page-index"
+  >
+    <h1>
+      Preview
+    </h1>
     <nav>
       <ul>
         <li v-for="(link, index) in links" :key="index">
@@ -63,6 +71,10 @@ export default {
         {
           title: 'Test: v-font',
           to: '/tests/v-font'
+        },
+        {
+          title: 'Test: v-font (media)',
+          to: '/tests/v-font-media'
         },
         {
           title: 'Test: LazyPicture',
@@ -143,3 +155,32 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss">
+.page-index {
+  & h1,
+  & h2 {
+    text-align: center;
+  }
+
+  & nav {
+    text-align: center;
+  }
+
+  & ul {
+    padding: 0;
+    list-style: none;
+
+    & li {
+      margin: calc(10 / 16 * 1em) 0;
+    }
+  }
+
+  & a {
+    font-size: 1em;
+    color: currentColor;
+    text-decoration: none;
+  }
+}
+
+</style>

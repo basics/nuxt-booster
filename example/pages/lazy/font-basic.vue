@@ -3,7 +3,7 @@
     <organism-spacer />
     <organism-preview-container>
       <template>
-        <article v-font="$fonts.getFont('Lobster Two', 700, 'normal')" v-html="contentA" />
+        <article v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal')" v-html="contentA" />
       </template>
       <template v-slot:title>
         <p>Font basic usage</p>

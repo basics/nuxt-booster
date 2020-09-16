@@ -20,27 +20,6 @@ export default {
 
 <style lang="postcss">
 
-[class*="font-"] {
-  & h1,
-  & h2,
-  & h3,
-  & h4,
-  & h5,
-  & h6 {
-    font-weight: normal;
-  }
-
-  & i,
-  & em {
-    font-style: normal;
-  }
-
-  & b,
-  & strong {
-    font-weight: normal;
-  }
-}
-
 html {
   height: stretch;
 }
@@ -50,6 +29,13 @@ body {
   min-height: stretch;
   margin: 0;
   font-size: calc(16 / 320 * 100vw);
+  color: #2f495e;
+  background-color: #fff;
+
+  @media (prefers-color-scheme: dark) {
+    color: #f5f7fa;
+    background-color: #2c3e50;
+  }
 
   @media (min-width: 375px) {
     font-size: calc(16 / 375 * 100vw);

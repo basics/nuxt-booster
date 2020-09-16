@@ -4,7 +4,7 @@
     <div
       v-font="[
         $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('h2')]"
+        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2')]"
       class="text"
       v-html="text"
     />
