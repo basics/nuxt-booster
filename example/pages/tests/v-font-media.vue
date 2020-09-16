@@ -27,7 +27,7 @@
       <template>
         <div>
           <ul>
-            <li id="lazyFontAssignSimpleByMax479" v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic').addMedia('(max-width: 479px)').isCritical()">
+            <li id="lazyFontAssignSimpleByMax479" v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic').addMedia('(max-width: 479px)')">
               font assign simple by max 479px
             </li>
             <li id="lazyFontAssignSimpleBy480" v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal').addMedia('(min-width: 480px)')">
