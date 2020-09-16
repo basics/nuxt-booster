@@ -19,9 +19,9 @@
       <template>
         <article
           v-font="[
-            $fonts.getFont('Lobster Two', 400, 'normal'),
-            $fonts.getFont('Lobster Two', 700, 'normal').addSelector('b, strong'),
-            $fonts.getFont('Lobster Two', 400, 'italic').addSelector('i, em')
+            $fonts.getFont('Montserrat Alternates', 400, 'normal'),
+            $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('b, strong'),
+            $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i, em')
           ]"
           v-html="contentA"
         />

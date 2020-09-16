@@ -30,7 +30,8 @@
     "test": "npm run lint && jest",
     "jest": "jest",
     "serve": "nuxt serve --config-file example/nuxt.config.js",
-    "start:generate": "npm run generate && npm run serve"
+    "start:generate": "npm run generate && npm run serve",
+    "express": "node ./tools/express-server.js"
   },
   "dependencies": {
     "@modified/shaka-player": "^3.0.0",

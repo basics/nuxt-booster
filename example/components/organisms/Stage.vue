@@ -3,7 +3,7 @@
     <lazy-picture v-bind="picture" />
     <h1
       v-font="[
-        $fonts.getFont('Lobster Two', 700, 'normal').addSelector('span').isCritical(),
+        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('span').isCritical(),
         $fonts.getFont('Comic Neue', 300, 'italic').addSelector('span.claim').isCritical()
       ]"
     >

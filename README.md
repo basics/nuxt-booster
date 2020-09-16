@@ -242,6 +242,18 @@ Other fonts load by lazyload, when show in viewport.
 <node v-font="$getFont(…).isCritical()">…
 ```
 
+#### addMedia(...media)
+
+> ⚠️ Font preload not supported orientation media query. e.g. `(orientation: portrait)`
+
+Font load and show by current CSS Media Query.
+
+Ideal for Viewport optimized font load.
+
+```html 
+<node v-font="$getFont(…).isCritical().addMedia('(min-width: 992px)')">…
+```
+
 
 #### bySelector(selector)
 
