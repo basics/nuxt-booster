@@ -27,16 +27,16 @@
       <template>
         <div>
           <ul>
-            <li id="lazyFontAssignSimpleByMax479" v-font="$fonts.getFont('Lobster Two', 700, 'italic').addMedia('(max-width: 479px)').isCritical()">
+            <li id="lazyFontAssignSimpleByMax479" v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic').addMedia('(max-width: 479px)').isCritical()">
               font assign simple by max 479px
             </li>
-            <li id="lazyFontAssignSimpleBy480" v-font="$fonts.getFont('Lobster Two', 400, 'normal').addMedia('(min-width: 480px)')">
+            <li id="lazyFontAssignSimpleBy480" v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal').addMedia('(min-width: 480px)')">
               font assign simple by 480px
             </li>
-            <li id="lazyFontAssignSimpleBy960" v-font="$fonts.getFont('Lobster Two', 400, 'italic').addMedia('(min-width: 960px)')">
+            <li id="lazyFontAssignSimpleBy960" v-font="$fonts.getFont('Montserrat Alternates', 400, 'italic').addMedia('(min-width: 960px)')">
               font assign simple by 960px
             </li>
-            <li id="lazyFontBySingleSelectorBy1440" v-font="$fonts.getFont('Lobster Two', 700, 'normal').addMedia('(min-width: 1440px)').addSelector('b')">
+            <li id="lazyFontBySingleSelectorBy1440" v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal').addMedia('(min-width: 1440px)').addSelector('b')">
               font assign with <b>selector by 1440px</b>
             </li>
           </ul>

@@ -122,7 +122,7 @@ module.exports = {
         fonts: [{
           family: 'Quicksand',
           fallback: ['sans-serif'],
-          variance: [
+          variances: [
             {
               style: 'normal',
               weight: 300,
@@ -148,7 +148,7 @@ module.exports = {
         }, {
           family: 'Comic Neue',
           fallback: ['Arial', 'sans-serif'],
-          variance: [
+          variances: [
             {
               style: 'normal',
               weight: 300,
@@ -176,28 +176,33 @@ module.exports = {
             }
           ]
         }, {
-          family: 'Lobster Two',
-          fallback: ['Arial', 'sans-serif'],
-          variance: [
+          family: 'Montserrat Alternates',
+          fallback: ['sans-serif'],
+          variances: [
             {
               style: 'normal',
+              weight: 300,
+              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff2'
+            }, {
+              style: 'italic',
+              weight: 300,
+              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff2'
+            }, {
+              style: 'normal',
               weight: 400,
-              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-regular.woff2'
-            },
-            {
+              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff2'
+            }, {
               style: 'italic',
               weight: 400,
-              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-italic.woff2'
-            },
-            {
+              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff2'
+            }, {
               style: 'normal',
               weight: 700,
-              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-700.woff2'
-            },
-            {
+              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff2'
+            }, {
               style: 'italic',
               weight: 700,
-              src: '@/assets/fonts/lobster-two-v12-latin/lobster-two-v12-latin-700italic.woff2'
+              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff2'
             }
           ]
         }]
