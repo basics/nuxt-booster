@@ -28,8 +28,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-
+<style lang="postcss" scoped>
 .component-stage {
   position: relative;
   height: 100vh;
@@ -46,8 +45,13 @@ export default {
 
   & .headline {
     display: block;
-    font-size: 40px;
-    line-height: 80px;
+    font-size: 30px;
+    line-height: 60px;
+
+    @media (min-width: 768px) {
+      font-size: 40px;
+      line-height: 80px;
+    }
   }
 
   & picture {
@@ -69,14 +73,23 @@ export default {
 
   & h1 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    padding: 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0;
     color: white;
     text-align: center;
     background: rgba(0, 0, 0, 0.4);
-    transform: translate(-50%, -50%);
+
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      bottom: auto;
+      left: auto;
+      width: 400px;
+    }
   }
 }
 </style>

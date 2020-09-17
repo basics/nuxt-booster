@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .component-text-font-a {
   padding: 0 10%;
 }

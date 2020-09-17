@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .component-image-text {
   & >>> img {
     width: 100%;
