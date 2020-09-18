@@ -72,6 +72,6 @@
     "stylelint-config-recess-order": "^2.1.0",
     "stylelint-config-standard": "^20.0.0",
     "webp-loader": "^0.6.0",
-    "webpack-bundle-analyzer": "^3.8.0"
+    "webpack-bundle-analyzer": "^3.9.0"
   }
 }
