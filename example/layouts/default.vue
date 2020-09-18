@@ -14,6 +14,19 @@ export default {
   components: {
     GoogleLighthouse,
     OrganismPageHeader
+  },
+
+  head () {
+    return {
+      title: this.$route.name,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$route.name} - description`
+        }
+      ]
+    }
   }
 }
 </script>
