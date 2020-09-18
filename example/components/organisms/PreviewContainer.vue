@@ -3,20 +3,13 @@
     <div class="preview-container__preview">
       <slot name="default" />
     </div>
-    <!-- v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()" -->
-    <div class="preview-container__info">
+    <div v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()" class="preview-container__info">
       <slot name="title">
         <p>Preview Info</p>
       </slot>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>
 
 <style lang="postcss" scoped>
 .preview-container {
@@ -89,6 +82,7 @@ export default {
       justify-content: center;
       width: 100%;
       height: 100%;
+      text-align: center;
     }
 
     & > div {
