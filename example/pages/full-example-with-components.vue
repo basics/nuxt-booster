@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import { initializeComponent } from 'lazy-resources/utils/client'
+import { hydrateWhenVisible } from 'vue-lazy-hydration'
 
 export default {
 
   components: {
-    ComponentStage: initializeComponent(() => import(/* webpackMode: "eager" */'@/components/organisms/Stage'), true),
+    ComponentStage: initializeComponent(() => import('@/components/organisms/Stage'), true),
     ComponentTextA: initializeComponent(() => import('@/components/organisms/TextFontA')),
     ComponentTextImage: initializeComponent(() => import('@/components/organisms/ImageText')),
     ComponentTextB: initializeComponent(() => import('@/components/organisms/TextFontB'))
@@ -80,6 +80,14 @@ export default {
         }
       }
     }
+  }
+}
+
+function initializeComponent (fn, critical) {
+  if (critical) {
+    return fn
+  } else {
+    return hydrateWhenVisible(fn, { observerOptions: { rootMargin: '0px' } })
   }
 }
 </script>
