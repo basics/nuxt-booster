@@ -13,7 +13,7 @@ import { initializeComponent } from 'lazy-resources/utils/client'
 export default {
 
   components: {
-    ComponentStage: initializeComponent(() => import('@/components/organisms/Stage')),
+    ComponentStage: initializeComponent(() => import(/* webpackMode: "eager" */'@/components/organisms/Stage'), true),
     ComponentTextA: initializeComponent(() => import('@/components/organisms/TextFontA')),
     ComponentTextImage: initializeComponent(() => import('@/components/organisms/ImageText')),
     ComponentTextB: initializeComponent(() => import('@/components/organisms/TextFontB'))
@@ -79,7 +79,6 @@ export default {
           caption: null
         }
       }
-
     }
   }
 }
