@@ -3,8 +3,8 @@
     <lazy-picture v-bind="picture" />
     <h1
       v-font="[
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline').isCritical(),
-        $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
+        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline'),
+        $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim')
       ]"
     >
       <span class="headline">{{ headline }}</span>
@@ -23,6 +23,9 @@ export default {
     picture: { type: Object, default () { return {} } },
     headline: { type: String, default () { return 'Headline' } },
     claim: { type: String, default () { return 'Claim' } }
+  },
+  created () {
+    console.log(this.critical)
   }
 
 }

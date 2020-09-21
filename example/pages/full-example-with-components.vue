@@ -1,6 +1,6 @@
 <template>
   <div class="page-full-example-with-components">
-    <component :is="components.ComponentStage" v-bind="stage" />
+    <component-stage v-bind="stage" />
 
     <component-text-a v-bind="textA" />
     <component-text-image v-bind="imageTextA" />
@@ -9,14 +9,19 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration'
-
 export default {
 
-  components: {
-    ComponentTextA: initializeComponent(() => import('@/components/organisms/TextFontA')),
-    ComponentTextImage: initializeComponent(() => import('@/components/organisms/ImageText')),
-    ComponentTextB: initializeComponent(() => import('@/components/organisms/TextFontB'))
+  components: {},
+
+  speedkitComponents: {
+    critical: {
+      ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage')
+    },
+    lazy: {
+      ComponentTextA: () => import('@/components/organisms/TextFontA'),
+      ComponentTextImage: () => import('@/components/organisms/ImageText'),
+      ComponentTextB: () => import('@/components/organisms/TextFontB')
+    }
   },
 
   data () {
@@ -26,9 +31,6 @@ export default {
     const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
 
     return {
-      components: {
-        ComponentStage: initializeComponent(() => import(/* webpackMode: "eager" */'@/components/organisms/Stage'), true)
-      },
       contentA: '<p>This is a basic test with single font variant.</p>',
 
       textA: {
@@ -83,14 +85,6 @@ export default {
         }
       }
     }
-  }
-}
-
-function initializeComponent (fn, critical) {
-  if (critical) {
-    return fn
-  } else {
-    return hydrateWhenVisible(fn, { observerOptions: { rootMargin: '0px' } })
   }
 }
 </script>
