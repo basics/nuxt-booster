@@ -11,7 +11,7 @@ import GoogleLighthouse from 'lazy-resources/components/GoogleLighthouse'
 import OrganismPageHeader from '@/components/organisms/PageHeader'
 
 export default {
-  components: {
+  speedkitComponents: {
     GoogleLighthouse,
     OrganismPageHeader
   },

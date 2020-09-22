@@ -1,7 +1,7 @@
 <template>
   <div class="page-full-example-with-components">
     <component-stage v-bind="stage" />
-    <component-stage-none v-bind="stage" :critical="false" />
+    <component-stage-none v-bind="stage" />
     <component-text-a v-bind="textA" />
     <component-text-image v-bind="imageTextA" />
     <component-text-b v-bind="textB" />
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import ComponentStage from '@/components/organisms/Stage'
+// import ComponentStage from '@/components/organisms/Stage'
 
 export default {
 
-  components: {
-    ComponentStage, // : import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
+  speedkitComponents: {
+    ComponentStage: import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
     ComponentStageNone: () => import('@/components/organisms/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextImage: () => import('@/components/organisms/ImageText'),
