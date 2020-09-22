@@ -1,7 +1,7 @@
 <template>
   <div class="page-full-example-with-components">
     <component-stage v-bind="stage" />
-
+    <component-stage-none v-bind="stage" :critical="false" />
     <component-text-a v-bind="textA" />
     <component-text-image v-bind="imageTextA" />
     <component-text-b v-bind="textB" />
@@ -15,6 +15,7 @@ export default {
 
   components: {
     ComponentStage, // : import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
+    ComponentStageNone: () => import('@/components/organisms/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextImage: () => import('@/components/organisms/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
