@@ -9,19 +9,15 @@
 </template>
 
 <script>
+import ComponentStage from '@/components/organisms/Stage'
+
 export default {
 
-  components: {},
-
-  speedkitComponents: {
-    critical: {
-      ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage')
-    },
-    lazy: {
-      ComponentTextA: () => import('@/components/organisms/TextFontA'),
-      ComponentTextImage: () => import('@/components/organisms/ImageText'),
-      ComponentTextB: () => import('@/components/organisms/TextFontB')
-    }
+  components: {
+    ComponentStage, // : import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
+    ComponentTextA: () => import('@/components/organisms/TextFontA'),
+    ComponentTextImage: () => import('@/components/organisms/ImageText'),
+    ComponentTextB: () => import('@/components/organisms/TextFontB')
   },
 
   data () {

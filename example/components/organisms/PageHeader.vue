@@ -1,7 +1,7 @@
 <template>
   <header
     v-font="[
-      $fonts.getFont('Quicksand', 400, 'normal').isCritical()
+      $fonts.getFont('Quicksand', 400, 'normal')
     ]"
     class="page-header"
   >
@@ -13,6 +13,12 @@
     </nuxt-link>
   </header>
 </template>
+
+<script>
+export default {
+
+}
+</script>
 
 <style lang="postcss" scoped>
 .page-header {
