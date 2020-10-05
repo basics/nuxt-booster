@@ -27,6 +27,6 @@
     "dockerode": "^3.2.1",
     "fluent-ffmpeg": "^2.1.2",
     "mkdirp": "^1.0.4",
-    "node-webvtt": "^1.9.1"
+    "node-webvtt": "^1.9.3"
   }
 }
