@@ -9,6 +9,7 @@
     >
       <span class="headline">{{ headline }}</span>
       <span class="claim">{{ claim }}</span>
+      <span class="test">{{ test }}</span>
     </h1>
   </div>
 </template>
@@ -24,10 +25,14 @@ export default {
     headline: { type: String, default () { return 'Headline' } },
     claim: { type: String, default () { return 'Claim' } }
   },
-  created () {
-    console.log(this.critical)
+  data () {
+    return {
+      test: null
+    }
+  },
+  mounted () {
+    this.test = 'BAAAAAm'
   }
-
 }
 </script>
 

@@ -8,16 +8,22 @@
     <a v-if="$route.path === '/'" target="_blank" href="https://github.com/GrabarzUndPartner/lazy-resources" class="overview-link">
       <span>GITHUB</span>
     </a>
-    <nuxt-link v-if="$route.path !== '/'" class="overview-link" to="/">
+    <lazy-link v-if="$route.path !== '/'" class="overview-link" to="/">
       <span>&larr; Back</span>
-    </nuxt-link>
+    </lazy-link>
   </header>
 </template>
 
 <script>
-export default {
 
+import LazyLink from 'lazy-resources/components/LazyLink'
+
+export default {
+  components: {
+    LazyLink
+  }
 }
+
 </script>
 
 <style lang="postcss" scoped>

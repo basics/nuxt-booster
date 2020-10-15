@@ -13,7 +13,7 @@
 export default {
 
   speedkitComponents: {
-    ComponentStage: import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
+    ComponentStage: () => import('@/components/organisms/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextImage: () => import('@/components/organisms/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')

@@ -12,9 +12,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in links" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
+          <lazy-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </nuxt-link>
+          </lazy-link>
         </li>
       </ul>
     </nav>
@@ -22,9 +22,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in criticalLinks" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
+          <lazy-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </nuxt-link>
+          </lazy-link>
         </li>
       </ul>
     </nav>
@@ -32,9 +32,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in lazyLinks" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
+          <lazy-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </nuxt-link>
+          </lazy-link>
         </li>
       </ul>
     </nav>
@@ -42,9 +42,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in bothLinks" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
+          <lazy-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </nuxt-link>
+          </lazy-link>
         </li>
       </ul>
     </nav>
@@ -52,7 +52,13 @@
 </template>
 
 <script>
+
+import LazyLink from 'lazy-resources/components/LazyLink'
+
 export default {
+  components: {
+    LazyLink
+  },
   data () {
     return {
       links: [
@@ -151,6 +157,13 @@ export default {
           to: '/both/lazy-iframe'
         }
       ]
+    }
+  },
+  methods: {
+    clickf (e) {
+      // e.defaultPrevented = false
+      console.log('test', e)
+      return false
     }
   }
 }
