@@ -1,7 +1,7 @@
 <template>
   <image-container :loading="loading" @visible="onVisible" @requestHiRes="onRequestHiRes">
     <template>
-      <custom-picture v-bind="{srcset: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
+      <custom-picture v-bind="{src: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
       <custom-no-script v-if="!init">
         <custom-picture v-bind="{srcset: placeholder, sources, width, height, alt, title}" />
       </custom-no-script>

@@ -105,9 +105,12 @@ module.exports = {
       optimizeImages: true,
       optimizeImagesInDev: true,
       sqip: {
-        numberOfPrimitives: 100,
+        numberOfPrimitives: 20,
         blur: 0,
         mode: 1
+      },
+      lqip: {
+        palette: true
       }
     }]
   ],
@@ -117,6 +120,7 @@ module.exports = {
   ],
 
   modules: [
+    ['nuxt-i18n', {}],
     [
       resolve(__dirname, '..'), {
         fonts: [{

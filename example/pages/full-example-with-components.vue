@@ -22,8 +22,11 @@ export default {
   data () {
     const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
+    const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip')
+    // console.log(criticalPlaceholder)
     const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
+    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip')
 
     return {
       contentA: '<p>This is a basic test with single font variant.</p>',
@@ -49,7 +52,7 @@ export default {
               type: 'image/jpeg'
             }
           ],
-          placeholder: lazyImageJpeg.placeholder,
+          placeholder: lazyPlaceholder.preview,
           width: lazyImageJpeg.width,
           height: lazyImageJpeg.height,
           alt: 'Alt Text',
@@ -71,7 +74,7 @@ export default {
               type: 'image/jpeg'
             }
           ],
-          placeholder: criticalImageJpeg.placeholder,
+          placeholder: criticalPlaceholder.preview,
           width: criticalImageJpeg.width,
           height: criticalImageJpeg.height,
           alt: 'Alt Text',
