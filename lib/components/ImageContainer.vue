@@ -1,31 +1,20 @@
 <template>
   <intersection-observer @enter="onEnter">
-    <section>
-      <lazy-hydrate ssr-only :trigger-hydration="loading">
-        <figure>
-          <slot />
-          <figcaption v-if="hasSlot">
-            <slot name="caption" />
-          </figcaption>
-        </figure>
-      </lazy-hydrate>
+    <figure>
+      <slot />
       <span v-show="loading" class="loading" />
-      <button v-if="!init" class="noscript-hide" @click="onClick">
-        <slot name="button">
-          HiRes
-        </slot>
-      </button>
-    </section>
+      <figcaption v-if="hasSlot">
+        <slot name="caption" />
+      </figcaption>
+    </figure>
   </intersection-observer>
 </template>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 import IntersectionObserver from '../abstracts/IntersectionObserver'
 
 export default {
   components: {
-    LazyHydrate,
     IntersectionObserver
   },
 
@@ -59,10 +48,6 @@ export default {
   },
 
   methods: {
-    onClick () {
-      this.$emit('requestHiRes')
-    },
-
     onEnter () {
       this.$emit('visible')
     }
@@ -71,21 +56,11 @@ export default {
 </script>
 
 <style lang="postcss" type="flow" scoped>
-section {
+figure {
   position: relative;
   width: 100%;
   height: 100%;
-
-  & > figure {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-
-    & figcaption {
-      position: absolute;
-      top: 100px;
-    }
-  }
+  margin: 0;
 
   & > span.loading {
     position: absolute;
@@ -118,15 +93,5 @@ section {
       will-change: transform;
     }
   }
-
-  & > button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-}
-
-@keyframes spinner {
-  to { transform: rotateZ(360deg); }
 }
 </style>

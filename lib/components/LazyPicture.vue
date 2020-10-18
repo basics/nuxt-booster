@@ -1,7 +1,7 @@
 <template>
-  <image-container :loading="loading" @visible="onVisible" @requestHiRes="onRequestHiRes">
+  <image-container :loading="loading" @visible="onVisible">
     <template>
-      <custom-picture v-bind="{src: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
+      <custom-picture v-bind="{srcset: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
       <custom-no-script v-if="!init">
         <custom-picture v-bind="{srcset: placeholder, sources, width, height, alt, title}" />
       </custom-no-script>
@@ -13,12 +13,9 @@
 </template>
 
 <script>
-import { hasGoodOverallConditions } from '../utils/client'
 import ImageContainer from './ImageContainer'
 import CustomNoScript from './customs/CustomNoScript'
 import CustomPicture from './customs/CustomPicture'
-
-const imageCache = new Set()
 
 export default {
 
@@ -37,7 +34,7 @@ export default {
     },
 
     placeholder: {
-      type: String,
+      type: [Array, String],
       default () {
         return null
       }
@@ -82,7 +79,6 @@ export default {
   computed: {
     pictureSources () {
       if (this.init) {
-        imageCache.add(JSON.stringify(this.sources))
         return this.sources
       }
       return null
@@ -94,14 +90,10 @@ export default {
   },
 
   methods: {
-    onRequestHiRes () {
-      this.loading = true
-      this.init = true
-    },
 
     onVisible () {
-      this.loading = hasGoodOverallConditions() || imageCache.has(JSON.stringify(this.sources))
-      this.init = hasGoodOverallConditions() || imageCache.has(JSON.stringify(this.sources))
+      this.loading = true
+      this.init = true
     },
 
     onLoad () {
@@ -112,6 +104,6 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" type="flow" scoped>
 /* css */
 </style>

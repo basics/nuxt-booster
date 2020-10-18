@@ -169,21 +169,21 @@ export default {
       }
     }
 
-    & picture {
+    & >>> picture {
       &::before {
         display: block;
         padding-top: calc(9 / 16 * 100%);
         content: "";
       }
-    }
 
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     & h1 {
@@ -212,7 +212,6 @@ export default {
     & >>> img {
       width: 100%;
       height: 100%;
-      object-fit: scale-down;
     }
 
     @media (min-width: 768px) {

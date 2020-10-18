@@ -171,7 +171,7 @@ describe('browser (puppeteer)', () => {
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
     })
-    await page.waitForSelector('#lazyContainer img[loading="lazy"][srcset]')
+    await page.waitForSelector('#lazyContainer :not(noscript) > img[loading="lazy"][srcset]')
   })
 
   // /tests/lazy-picture
@@ -183,6 +183,9 @@ describe('browser (puppeteer)', () => {
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
     })
-    await page.waitForSelector('#lazyContainer picture source')
+
+    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source'))).toBeFalsy()
+
+    await page.waitForSelector('#lazyContainer :not(noscript) > picture source')
   })
 })
