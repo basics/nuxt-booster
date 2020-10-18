@@ -26,16 +26,16 @@ export default {
   left: 0;
   z-index: 1000;
   width: 100%;
-  color: #2f495e;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  color: #f5f7fa;
+  background-color: #2c3e50;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   opacity: 0;
   transform: translateY(-50%);
 
   @media (prefers-color-scheme: dark) {
-    color: #f5f7fa;
-    background-color: #2c3e50;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    color: #2f495e;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   }
 
   & > div {
