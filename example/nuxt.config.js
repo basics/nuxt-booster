@@ -11,7 +11,10 @@ module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  loading: false,
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
   // mode: 'spa',
 
   components: [

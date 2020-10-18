@@ -12,9 +12,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in links" :key="index">
-          <lazy-link :to="link.to" :title="link.title">
+          <nuxt-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </lazy-link>
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -22,9 +22,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in criticalLinks" :key="index">
-          <lazy-link :to="link.to" :title="link.title">
+          <nuxt-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </lazy-link>
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -32,9 +32,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in lazyLinks" :key="index">
-          <lazy-link :to="link.to" :title="link.title">
+          <nuxt-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </lazy-link>
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -42,9 +42,9 @@
     <nav>
       <ul>
         <li v-for="(link, index) in bothLinks" :key="index">
-          <lazy-link :to="link.to" :title="link.title">
+          <nuxt-link :to="link.to" :title="link.title">
             {{ link.title }}
-          </lazy-link>
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -53,12 +53,7 @@
 
 <script>
 
-import LazyLink from 'lazy-resources/components/LazyLink'
-
 export default {
-  components: {
-    LazyLink
-  },
   data () {
     return {
       links: [

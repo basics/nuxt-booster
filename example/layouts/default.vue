@@ -3,17 +3,22 @@
     <google-lighthouse url="https://grabarzundpartner.de" />
     <organism-page-header />
     <Nuxt />
+    <speedkit-info-layer />
   </div>
 </template>
 
 <script>
 import GoogleLighthouse from 'lazy-resources/components/GoogleLighthouse'
 import OrganismPageHeader from '@/components/organisms/PageHeader'
+import SpeedkitInfoLayer from '@/components/InfoLayer'
 
 export default {
   speedkitComponents: {
     GoogleLighthouse,
     OrganismPageHeader
+  },
+  components: {
+    SpeedkitInfoLayer
   },
 
   head () {
