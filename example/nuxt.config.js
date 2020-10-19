@@ -17,10 +17,7 @@ module.exports = {
   },
   // mode: 'spa',
 
-  components: [
-    // '~/components',
-    // { path: '~/components/organisms/', prefix: 'organism' }
-  ],
+  components: ['~/components/auto-import/'],
 
   server: {
     port: getPort(),

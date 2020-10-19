@@ -4,6 +4,7 @@
     <organism-page-header />
     <Nuxt />
     <info-layer />
+    <LazyGithubCorner />
   </div>
 </template>
 
