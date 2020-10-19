@@ -15,9 +15,11 @@
 import OnlySsr from 'lazy-resources/abstracts/OnlySsr'
 export default {
   name: 'SpeedkitInfoLayer',
+
   components: {
     OnlySsr
   },
+
   props: {
     ignoreNoSsr: {
       type: Boolean,
