@@ -2,7 +2,9 @@
   <div>
     <organism-preview-container id="criticalContainer">
       <template>
-        <component-text-a v-bind="textA" critical />
+        <div>
+          <component-text-a v-bind="textA" critical />
+        </div>
       </template>
       <template v-slot:title>
         <p>Critical - Critical (Prop)</p>
