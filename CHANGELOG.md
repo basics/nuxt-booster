@@ -1,5 +1,48 @@
 # Project Changelog
 
+# [1.7.0](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.6.1...v1.7.0) (2020-10-20)
+
+
+### Bug Fixes
+
+* **chunks:** filter component chunks ([014952b](https://github.com/GrabarzUndPartner/lazy-resources/commit/014952bee7cc40eaf15009d47e73e9307dd3259a))
+* **cleanup:** cleanup ([098e5ff](https://github.com/GrabarzUndPartner/lazy-resources/commit/098e5ff08e2814d5efee98eace411d86b809556b))
+* **cleanup:** cleanup component load ([3573878](https://github.com/GrabarzUndPartner/lazy-resources/commit/35738787051063d58a5a4365bf9a9e0544c70159))
+* **cleanup:** removed bullshit of myself ([89b6423](https://github.com/GrabarzUndPartner/lazy-resources/commit/89b642334475b61bbe9207784874988446fbe1e2))
+* **cleanup:** removed bullshit of myself ([dcb0f7e](https://github.com/GrabarzUndPartner/lazy-resources/commit/dcb0f7e65d70c066c911e16ea60a4b7f861ed329))
+* **cleanup:** renaming & removed code ([4eedccc](https://github.com/GrabarzUndPartner/lazy-resources/commit/4eedcccf68ef06eac92673eaaee47df7a69d2621))
+* **client:** right import ([9fa5de7](https://github.com/GrabarzUndPartner/lazy-resources/commit/9fa5de77a5414a7172728bc190c442ea5f1c549a))
+* **component-load:** disable critical of one multiple used component on one page ([d6d0595](https://github.com/GrabarzUndPartner/lazy-resources/commit/d6d0595668c511b3dfc0ba21eb113bedc8f947ee))
+* **component-load:** moved components to speedkit-components ([235d9be](https://github.com/GrabarzUndPartner/lazy-resources/commit/235d9be8fabbc25f6e71c26d831536582f2d3c28))
+* **component-load:** static/dynamic load detection to flag components critical ([d4155bb](https://github.com/GrabarzUndPartner/lazy-resources/commit/d4155bbbc57a11bfce689585bfe5ba355af64d51))
+* **connection:** fix connection detection ([9a4e169](https://github.com/GrabarzUndPartner/lazy-resources/commit/9a4e1693f51f42df98b8faf03156fb57ba65e0bf))
+* **critical-components:** auto load (eager/lazy) components in pages ([e1f8b68](https://github.com/GrabarzUndPartner/lazy-resources/commit/e1f8b6894b70b3fcafa9620b7e07a3de07de8590))
+* **draft:** first draft ([9b60d08](https://github.com/GrabarzUndPartner/lazy-resources/commit/9b60d08c6d0b630ef3df8adb350506ba4e542645))
+* **dynamic-import:** disabled for page, default strategy implemented ([7f58ce3](https://github.com/GrabarzUndPartner/lazy-resources/commit/7f58ce36fa858568d7b9c38df63a4a2fb0c1fa18))
+* **hook:** moved from nuxt.config to module ([dc208f7](https://github.com/GrabarzUndPartner/lazy-resources/commit/dc208f70939a824d2dc4b677573768ee26af07bf))
+* **import:** eager for first component ([6d8f841](https://github.com/GrabarzUndPartner/lazy-resources/commit/6d8f841ae4811bfd799a943291a88d5e9020c494))
+* **import:** removed eager ([50c3bf0](https://github.com/GrabarzUndPartner/lazy-resources/commit/50c3bf0e4aec7984031f718ba7adfc531d565709))
+* **info-layer:** modified info layer ([6cf004d](https://github.com/GrabarzUndPartner/lazy-resources/commit/6cf004dcc179de0a10c601b84ec767c8694e3371))
+* **lazy-component:** implemented load strategy of components ([b385932](https://github.com/GrabarzUndPartner/lazy-resources/commit/b3859325f1e20afc0332f372a5b1c246dc9d51cd))
+* **load:** rearranged loads ([4d97b1f](https://github.com/GrabarzUndPartner/lazy-resources/commit/4d97b1f84b67fe044770b58a5979351d96d7bd69))
+* **load:** removed async/await in initiale load ([aebd35d](https://github.com/GrabarzUndPartner/lazy-resources/commit/aebd35d990d6bdc6d0daa32863d421abd8885873))
+* **load:** removed load event in speedkit.js ([47043b0](https://github.com/GrabarzUndPartner/lazy-resources/commit/47043b009321af0adc21e370abd65693d4832563))
+* **module:** loading script logic ([ef3f4d3](https://github.com/GrabarzUndPartner/lazy-resources/commit/ef3f4d38cca8b617fb5af59164e3959be3a53728))
+* **module:** script loading ([be9f630](https://github.com/GrabarzUndPartner/lazy-resources/commit/be9f6306e7d4c3b41b51572e2ffbdfa6d4b2d018))
+* **nuxtjs:** version update ([e1b0bf2](https://github.com/GrabarzUndPartner/lazy-resources/commit/e1b0bf28f87e90cf09f2073e5e911977c605fb04))
+* **pagespeed:** optimization ([e17d6c5](https://github.com/GrabarzUndPartner/lazy-resources/commit/e17d6c523e7e8a22756a7b09e64c9c40587c2c1c))
+* **placeholder:** switched to sqip ([924be54](https://github.com/GrabarzUndPartner/lazy-resources/commit/924be54d5c183b2b6480e38844b039f529c93a04))
+* **preload:** only the first component chunk ([96eb002](https://github.com/GrabarzUndPartner/lazy-resources/commit/96eb00285b05fe1f05eb3efd546e60f24dd86060))
+* **template:** removed scripts from rendered template ([0680fac](https://github.com/GrabarzUndPartner/lazy-resources/commit/0680fac91baf206b59f6c1943bdf63f6f0cad690))
+* **v-font:** fix critical property ([6580b86](https://github.com/GrabarzUndPartner/lazy-resources/commit/6580b86416e0c1290c6ad2b961d876c9162feb1a))
+* **webpack:** fix entry files; add GithubCorner as auto-import ([4c90c5c](https://github.com/GrabarzUndPartner/lazy-resources/commit/4c90c5cc0bef93c3fd6bec3c7c78aaa216e6282c))
+* **webpack:** removed lazy comments ([838685f](https://github.com/GrabarzUndPartner/lazy-resources/commit/838685f9a6956cc9181894d756dc1f80a3ae29a3))
+
+
+### Features
+
+* **import:** improve the component load; add lazy component wrapper ([c010fb2](https://github.com/GrabarzUndPartner/lazy-resources/commit/c010fb2e1ce9f6cc186767192b4c3ee50c7695da))
+
 ## [1.6.1](https://github.com/GrabarzUndPartner/lazy-resources/compare/v1.6.0...v1.6.1) (2020-09-16)
 
 
