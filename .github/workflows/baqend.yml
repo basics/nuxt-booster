@@ -58,7 +58,7 @@ jobs:
         run: |
           npm run generate --base=/${GITHUB_REF##refs/heads/}/ --website-host=https://pagespeed.app.baqend.com/${GITHUB_REF##refs/heads/}
           mkdir dist/reports dist/reports/webpack
-          cp -R reports/webpack/* dist/reports/webpack
+          cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
         env:
           DIST_PATH: dist

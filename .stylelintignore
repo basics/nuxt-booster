@@ -3,7 +3,7 @@ node_modules
 dist
 .nuxt
 coverage
-reports
+.reports
 
 # Files
 **/*.js

@@ -79,8 +79,8 @@ module.exports = {
 
       if (!isDev && !isTest) {
         config.plugins.push(new BundleAnalyzerPlugin({
-          reportFilename: resolve(`reports/webpack/${config.name}.html`),
-          statsFilename: resolve(`reports/webpack/stats/${config.name}.json`),
+          reportFilename: resolve(`.reports/webpack/${config.name}.html`),
+          statsFilename: resolve(`.reports/webpack/stats/${config.name}.json`),
           analyzerMode: 'static',
           generateStatsFile: true,
           openAnalyzer: false,

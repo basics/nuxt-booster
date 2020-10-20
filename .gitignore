@@ -4,7 +4,7 @@ node_modules
 *.log*
 .nuxt
 .history
-reports
+.reports
 .vscode/*
 !.vscode/launch.json
 .DS_Store
