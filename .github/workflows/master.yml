@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v1
       - name: cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         id: cache
         with:
           path: node_modules
@@ -72,7 +72,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v1
       - name: cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         id: cache
         with:
           path: node_modules
