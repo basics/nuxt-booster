@@ -1,7 +1,7 @@
 <template>
   <div>
-    <google-lighthouse url="https://grabarzundpartner.de" />
-    <organism-page-header />
+    <!-- <google-lighthouse url="https://grabarzundpartner.de" /> -->
+    <organism-page-header critical />
     <Nuxt />
     <info-layer />
     <LazyGithubCorner />
@@ -9,17 +9,18 @@
 </template>
 
 <script>
-import GoogleLighthouse from 'lazy-resources/components/GoogleLighthouse'
-import OrganismPageHeader from '@/components/organisms/PageHeader'
 import InfoLayer from '@/components/InfoLayer'
 
+// import GoogleLighthouse from '@/components/components/GoogleLighthouse'
+// import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
-    GoogleLighthouse,
-    OrganismPageHeader
+    // GoogleLighthouse: () => import('lazy-resources/components/GoogleLighthouse'),
+    OrganismPageHeader: () => import('@/components/organisms/PageHeader')
   },
   components: {
     InfoLayer
+    // OrganismPageHeader
   },
 
   head () {
