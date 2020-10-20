@@ -2,7 +2,7 @@
   <div
     v-font="[
       $fonts.getFont('Comic Neue', 400, 'normal'),
-      $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
+      $fonts.getFont('Comic Neue', 700, 'normal').addSelector('h2'),
       $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i'),
       $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b,strong'),
       $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i b,i strong'),
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .component-text-font-a {
   padding: 0 10%;
 }

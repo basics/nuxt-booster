@@ -1,9 +1,9 @@
 <template>
-  <image-container :loading="loading" @visible="onVisible" @requestHiRes="onRequestHiRes">
+  <image-container :loading="loading" @visible="onVisible">
     <template>
       <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title}" @load="onLoad" />
       <custom-no-script v-if="!init">
-        <custom-image v-bind="{srcset: srcset, width, height, alt, title}" />
+        <custom-image v-bind="{src: placeholder, srcset: srcset, width, height, alt, title}" />
       </custom-no-script>
     </template>
     <template v-slot:caption>
@@ -13,12 +13,9 @@
 </template>
 
 <script>
-import { hasGoodOverallConditions } from '../utils/client'
 import ImageContainer from './ImageContainer'
 import CustomNoScript from './customs/CustomNoScript'
 import CustomImage from './customs/CustomImage'
-
-const imageCache = new Set()
 
 export default {
   components: {
@@ -81,7 +78,6 @@ export default {
   computed: {
     imageSrcset () {
       if (this.init) {
-        imageCache.add(this.srcset)
         return this.srcset
       }
       return null
@@ -93,14 +89,9 @@ export default {
   },
 
   methods: {
-    onRequestHiRes () {
+    onVisible () {
       this.loading = true
       this.init = true
-    },
-
-    onVisible () {
-      this.loading = hasGoodOverallConditions() || imageCache.has(this.srcset)
-      this.init = hasGoodOverallConditions() || imageCache.has(this.srcset)
     },
 
     onLoad () {

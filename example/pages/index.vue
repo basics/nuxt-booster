@@ -52,6 +52,7 @@
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -83,6 +84,14 @@ export default {
         {
           title: 'Test: LazyImage',
           to: '/tests/lazy-image'
+        },
+        {
+          title: 'Test: Component Import (Critical by Prop)',
+          to: '/tests/component-import/critical-prop'
+        },
+        {
+          title: 'Test: Component Import (Critical by Parent)',
+          to: '/tests/component-import/critical-parent'
         }
       ],
       criticalLinks: [

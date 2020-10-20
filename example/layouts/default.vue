@@ -1,24 +1,45 @@
 <template>
   <div>
-    <google-lighthouse url="https://grabarzundpartner.de" />
-    <organism-page-header :critical="Boolean(true)" />
+    <!-- <google-lighthouse url="https://grabarzundpartner.de" /> -->
+    <organism-page-header critical />
     <Nuxt />
+    <info-layer />
+    <LazyGithubCorner />
   </div>
 </template>
 
 <script>
-import GoogleLighthouse from 'lazy-resources/components/GoogleLighthouse'
-import OrganismPageHeader from '@/components/organisms/PageHeader'
+import InfoLayer from '@/components/InfoLayer'
 
+// import GoogleLighthouse from '@/components/components/GoogleLighthouse'
+// import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
+  speedkitComponents: {
+    // GoogleLighthouse: () => import('lazy-resources/components/GoogleLighthouse'),
+    OrganismPageHeader: () => import('@/components/organisms/PageHeader')
+  },
   components: {
-    GoogleLighthouse,
-    OrganismPageHeader
+    InfoLayer
+    // OrganismPageHeader
+  },
+
+  head () {
+    return {
+      title: this.$route.name,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$route.name} - description`
+        }
+      ]
+    }
   }
 }
 </script>
 
 <style lang="postcss">
+
 html {
   height: stretch;
 }

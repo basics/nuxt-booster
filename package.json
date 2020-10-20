@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "@modified/shaka-player": "^3.0.0",
+    "cheerio": "^1.0.0-rc.3",
+    "nuxt-i18n": "^6.15.3",
     "rxjs": "^6.6.3",
     "sort-media-queries": "^0.2.2",
     "srcset": "^3.0.0",
@@ -65,7 +67,7 @@
     "postcss-nesting": "^7.0.1",
     "puppeteer": "^5.3.1",
     "responsive-loader": "2.1.1",
-    "sharp": "^0.26.1",
+    "sharp": "^0.26.2",
     "sqip-loader": "^1.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-lost": "0.0.3",

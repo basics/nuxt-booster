@@ -6,25 +6,43 @@ const pkg = require('../package')
 
 module.exports = {
   dev: isDev,
-
+  target: 'static',
   modern: isDev ? false : 'client',
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
   // mode: 'spa',
 
-  components: [
-    '~/components',
-    { path: '~/components/organisms/', prefix: 'organism' }],
+  components: ['~/components/auto-import/'],
 
   server: {
     port: getPort(),
     host: getHost()
   },
 
-  build: {
+  // features: {
+  //   router: true, // not implemented
+  //   store: false,
+  //   layouts: true,
+  //   meta: true,
+  //   middleware: false,
+  //   transitions: true,
+  //   deprecations: false,
+  //   validate: false,
+  //   asyncData: true,
+  //   fetch: true,
+  //   clientOnline: false,
+  //   clientPrefetch: false,
+  //   clientUseUrl: false, // this is a bit of an odd one, but using URL should eg be ok for modern mode already
+  //   componentAliases: false,
+  //   componentClientOnly: false
+  // },
 
+  build: {
     babel: {
       presets ({ isServer, isModern, isDev }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
@@ -61,8 +79,8 @@ module.exports = {
 
       if (!isDev && !isTest) {
         config.plugins.push(new BundleAnalyzerPlugin({
-          reportFilename: resolve(`reports/webpack/${config.name}.html`),
-          statsFilename: resolve(`reports/webpack/stats/${config.name}.json`),
+          reportFilename: resolve(`.reports/webpack/${config.name}.html`),
+          statsFilename: resolve(`.reports/webpack/stats/${config.name}.json`),
           analyzerMode: 'static',
           generateStatsFile: true,
           openAnalyzer: false,
@@ -87,14 +105,22 @@ module.exports = {
       optimizeImages: true,
       optimizeImagesInDev: true,
       sqip: {
-        numberOfPrimitives: 100,
+        numberOfPrimitives: 20,
         blur: 0,
         mode: 1
+      },
+      lqip: {
+        palette: true
       }
     }]
   ],
 
+  plugins: [
+    '@/plugins/lazyHydrate'
+  ],
+
   modules: [
+    ['nuxt-i18n', {}],
     [
       resolve(__dirname, '..'), {
         fonts: [{
@@ -189,6 +215,9 @@ module.exports = {
   ],
 
   head: {
+    htmlAttrs: {
+      lang: 'en'
+    },
     meta: [
       {
         charset: 'utf-8'
@@ -197,7 +226,8 @@ module.exports = {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
       }
-    ]
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   }
 }
 

@@ -5,7 +5,7 @@
       :key="index"
       v-bind="source"
     >
-    <custom-image v-bind="{src: src, width, height, alt, title}" @load="onLoad" />
+    <custom-image v-bind="{src, srcset, width, height, alt, title}" @load="onLoad" />
   </picture>
 </template>
 
@@ -19,6 +19,13 @@ export default {
 
   props: {
     src: {
+      type: String,
+      default () {
+        return null
+      }
+    },
+
+    srcset: {
       type: String,
       default () {
         return null

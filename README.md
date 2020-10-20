@@ -298,7 +298,7 @@ OR operators can be defined by string or array.
 - [ ] Publish module (npm, nuxt-modules)
 
 ### if we have time
-- [ ] Collector as standalone vue plugin
+- [ ] vFont-Collector as standalone vue plugin
 - [ ] Documentation and preparation for video streaming with LazyVideo
 - [ ] IE 11 (FontFace): https://github.com/bramstein/fontloader
 - [ ] Cypress visual regression tests

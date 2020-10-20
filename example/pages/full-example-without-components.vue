@@ -5,11 +5,11 @@
       <lazy-picture v-bind="stage.picture" />
       <h1
         v-font="[
-          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('span').isCritical(),
-          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('span.claim').isCritical()
+          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline').isCritical(),
+          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
         ]"
       >
-        <span>{{ stage.headline }}</span><br>
+        <span class="headline">{{ stage.headline }}</span>
         <span class="claim">{{ stage.claim }}</span>
       </h1>
     </div>
@@ -152,35 +152,59 @@ export default {
     overflow: hidden;
 
     & .claim {
-      font-size: 0.6em;
+      display: block;
+      font-size: 25px;
+      line-height: 50px;
       text-transform: none;
     }
 
-    & picture {
+    & .headline {
+      display: block;
+      font-size: 30px;
+      line-height: 60px;
+
+      @media (min-width: 768px) {
+        font-size: 40px;
+        line-height: 80px;
+      }
+    }
+
+    & >>> picture {
       &::before {
         display: block;
         padding-top: calc(9 / 16 * 100%);
         content: "";
       }
-    }
 
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     & h1 {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      padding: 20px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      margin: 0;
       color: white;
+      text-align: center;
       background: rgba(0, 0, 0, 0.4);
-      transform: translate(-50%, -50%);
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        width: 400px;
+      }
     }
   }
 
@@ -188,7 +212,6 @@ export default {
     & >>> img {
       width: 100%;
       height: 100%;
-      object-fit: scale-down;
     }
 
     @media (min-width: 768px) {

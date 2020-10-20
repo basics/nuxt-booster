@@ -24,12 +24,11 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .component-image-text {
   & >>> img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
   }
 
   @media (min-width: 768px) {
