@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: cache node_modules
         uses: actions/cache@v2
         id: cache
@@ -48,7 +48,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Versioning
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -70,7 +70,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: cache node_modules
         uses: actions/cache@v2
         id: cache
