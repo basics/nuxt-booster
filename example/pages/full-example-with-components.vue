@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// import ComponentStage from '@/components/organisms/Stage'
 
 export default {
 
@@ -61,6 +60,7 @@ export default {
         }
       },
       stage: {
+        critical: true,
         headline: 'Stage Headline',
         claim: 'Stage Claim',
         picture: {

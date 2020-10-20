@@ -9,7 +9,6 @@
     >
       <span class="headline">{{ headline }}</span>
       <span class="claim">{{ claim }}</span>
-      <span class="test">{{ test }}</span>
     </h1>
   </div>
 </template>
@@ -24,14 +23,6 @@ export default {
     picture: { type: Object, default () { return {} } },
     headline: { type: String, default () { return 'Headline' } },
     claim: { type: String, default () { return 'Claim' } }
-  },
-  data () {
-    return {
-      test: null
-    }
-  },
-  mounted () {
-    this.test = 'BAAAAAm'
   }
 }
 </script>
