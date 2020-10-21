@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { getLighthouseMetrics, getPendingStats } from 'lazy-resources/utils/lighthouse'
+import { getLighthouseMetrics, getPendingStats } from '../../utils/lighthouse'
 
 export default {
   props: {
