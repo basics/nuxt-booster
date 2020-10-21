@@ -32,7 +32,7 @@ export default {
   animation-name: fade-in;
   animation-duration: 0.2s;
   animation-delay: 0.5s;
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(calc(7 / 16 * 1em));
   animation-fill-mode: forwards;
 
   & > div {
@@ -42,7 +42,7 @@ export default {
     color: #f5f7fa;
     text-align: center;
     background-color: #2c3e50;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 calc(10 / 16 * 1em) rgba(255, 255, 255, 0.6);
     transform: translateY(-50%);
     animation-name: fall-down;
     animation-duration: 0.2s;
@@ -52,7 +52,7 @@ export default {
     @media (prefers-color-scheme: dark) {
       color: #2f495e;
       background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 calc(10 / 16 * 1em) rgba(0, 0, 0, 0.6);
     }
   }
 }
