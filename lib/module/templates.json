@@ -1,19 +1,13 @@
 [
-  "components/SpeedkitLayer.vue",
-  "components/LazyIframe.vue",
-  "components/LazyImage.vue",
-  "components/GoogleLighthouse.vue",
-  "abstracts/OnlySsr.vue",
   "plugins/vFont.js",
   "classes/Critical.js",
   "classes/Font.js",
   "classes/FontFamily.js",
   "classes/FontList.js",
-  "utils/performance.js",
+  "speedkit.js",
+  "speedkitComponent.js",
   "utils/cssSelector.js",
   "utils/string.js",
   "utils/base64.js",
-  "utils/lighthouse.js",
-  "speedkitComponent.js",
-  "speedkit.js"
+  "utils/performance.js"
 ]
