@@ -37,7 +37,7 @@ export default {
 
   data () {
     return {
-      url: global.location.href,
+      url: '',
       stats: getPendingStats()
     }
   },
@@ -101,9 +101,11 @@ export default {
     async getMetrics () {
       this.stats = getPendingStats()
       try {
-        this.stats = await getLighthouseMetrics(this.url)
+        this.stats = await getLighthouseMetrics(global.location.href)
+        this.url = this.stats.data.crux.loadingExperience.initial_url
       } catch (errorStats) {
         this.stats = errorStats
+        this.url = ''
       }
     }
   }
