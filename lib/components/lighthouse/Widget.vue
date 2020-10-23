@@ -27,13 +27,6 @@ import { getLighthouseMetrics, getPendingStats } from '../../utils/lighthouse'
 
 export default {
   props: {
-    url: {
-      type: String,
-      default () {
-        return null
-      }
-    },
-
     statsMetric: {
       type: String,
       default () {
@@ -44,6 +37,7 @@ export default {
 
   data () {
     return {
+      url: global.location.href,
       stats: getPendingStats()
     }
   },
@@ -107,7 +101,7 @@ export default {
     async getMetrics () {
       this.stats = getPendingStats()
       try {
-        this.stats = await getLighthouseMetrics(this.url || global.location.href)
+        this.stats = await getLighthouseMetrics(this.url)
       } catch (errorStats) {
         this.stats = errorStats
       }

@@ -10,16 +10,17 @@
 
 <script>
 import InfoLayer from '@/components/InfoLayer'
-import GoogleLighthouse from 'lazy-resources/components/GoogleLighthouse'
 
+// import GoogleLighthouse from '@/components/components/GoogleLighthouse'
+// import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
+    GoogleLighthouse: () => import('lazy-resources/components/GoogleLighthouse'),
     OrganismPageHeader: () => import('@/components/organisms/PageHeader')
   },
-
   components: {
-    InfoLayer,
-    GoogleLighthouse
+    InfoLayer
+    // OrganismPageHeader
   },
 
   head () {
