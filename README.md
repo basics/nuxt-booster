@@ -284,6 +284,8 @@ OR operators can be defined by string or array.
 - [ ] add critical images as preload
 - [ ] merge fontTools into font classes
 - [ ] check: convert html scripts into dynamic imports -> better & stable load performance
+- [ ] rename package
+- [ ] add package logo
 
 ## TODOS
 
