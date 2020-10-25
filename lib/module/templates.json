@@ -1,5 +1,7 @@
 [
   "plugins/vFont.js",
+  "plugins/vFont/directive.js",
+  "plugins/vFont/mixin.js",
   "classes/Critical.js",
   "classes/Font.js",
   "classes/FontFamily.js",
