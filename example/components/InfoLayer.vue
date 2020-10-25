@@ -2,7 +2,7 @@
   <speedkit-layer class="info_layer">
     <div>
       <p>Your connection is too slow…</p>
-      <button class="info_layer__button speedkit_layer__button">
+      <button class="info_layer__button nuxt-speedkit__speedkit-layer__button">
         Anyway (OK)
       </button>
     </div>

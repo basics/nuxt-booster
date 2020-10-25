@@ -1,5 +1,6 @@
 <template>
   <img
+    class="nuxt-speedkit__custom-image"
     :loading="loading"
     @load="onLoad"
   >
@@ -28,12 +29,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-img {
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
-  object-fit: cover;
-}
-</style>

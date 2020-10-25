@@ -1,8 +1,8 @@
 <template>
   <only-ssr :disabled="ignoreNoSsr">
-    <div class="speedkit_layer">
+    <div class="nuxt-speedkit__speedkit-layer">
       <slot>
-        <button class="speedkit_layer__button">
+        <button class="nuxt-speedkit__speedkit-layer__button">
           OK
         </button>
       </slot>

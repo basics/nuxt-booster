@@ -1,6 +1,6 @@
 <template>
   <intersection-observer @enter="onEnter">
-    <iframe :src="lazySrc" v-bind="$attrs" class="lazy-iframe" loading="lazy" />
+    <iframe :src="lazySrc" v-bind="$attrs" class="nuxt-speedkit__lazy-iframe" loading="lazy" />
   </intersection-observer>
 </template>
 
@@ -34,7 +34,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-/* .lazy-iframe {} */
-</style>

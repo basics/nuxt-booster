@@ -1,5 +1,5 @@
 <template>
-  <image-container :loading="loading" @visible="onVisible">
+  <image-container :loading="loading" class="nuxt-speedkit__image" @visible="onVisible">
     <template>
       <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title}" @load="onLoad" />
       <custom-no-script v-if="!init">
@@ -101,7 +101,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-/* css */
-</style>

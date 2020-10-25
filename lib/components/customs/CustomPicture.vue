@@ -75,7 +75,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-/* css */
-</style>

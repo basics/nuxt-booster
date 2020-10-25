@@ -1,7 +1,7 @@
 <template>
   <a
     :href="reportUrl"
-    class="lighthouse"
+    class="nuxt-speedkit__lighthouse"
     target="_blank"
     :style="style"
     :class="{ready: stats.isReady()}"
@@ -112,88 +112,3 @@ export default {
 }
 
 </script>
-
-<style lang="postcss" scoped>
-.lighthouse {
-  --pi: 3.14159265358979;
-  --score: 0;
-
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  display: block;
-  width: 60px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  pointer-events: none;
-  background-color: white;
-
-  &.ready {
-    pointer-events: all;
-  }
-
-  & > svg {
-    display: block;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-
-    & circle {
-      fill: transparent;
-      stroke: var(--color-status);
-      stroke-width: 10;
-      transform: rotate(-90deg);
-      transform-origin: 50%;
-
-      &.pending {
-        stroke-dasharray: calc(1.35 * var(--pi) * 45);
-        stroke-dashoffset: calc(2 * var(--pi) * 45);
-        animation: rotating 1s linear infinite;
-      }
-
-      &.ready {
-        fill: var(--color-status);
-        fill-opacity: 0.1;
-        stroke-dasharray: calc(2 * var(--pi) * 45);
-        stroke-dashoffset: calc(2 * var(--pi) * 45);
-        animation: stroke var(--duration) ease-out forwards;
-      }
-    }
-
-    & line {
-      stroke: var(--color-status);
-      stroke-width: 10;
-    }
-
-    & text {
-      font-size: 32px;
-      fill: var(--color-status);
-    }
-  }
-
-  & span {
-    font-size: 12px;
-    text-decoration: underline;
-
-    & svg {
-      display: inline;
-      width: 12px;
-      height: 12px;
-      margin-left: 3px;
-    }
-  }
-}
-
-@keyframes stroke {
-  to {
-    stroke-dashoffset: var(--radian);
-  }
-}
-
-@keyframes rotating {
-  to {
-    transform: rotate(270deg);
-  }
-}
-</style>

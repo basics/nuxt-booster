@@ -1,5 +1,5 @@
 <template>
-  <div data-shaka-player-container>
+  <div data-shaka-player-container class="nuxt-speedkit__lazy-video">
     <video ref="video" data-shaka-player :autoplay="autoplay" :muted="isMuted" playsinline />
   </div>
 </template>
@@ -53,18 +53,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.shaka-video-container {
-  height: 100vh;
-
-  /* height: stretch; */
-}
-
-video {
-  display: block;
-  width: 100%;
-  object-fit: contain;
-  background-color: black;
-}
-</style>
