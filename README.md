@@ -280,6 +280,11 @@ OR operators can be defined by string or array.
 
 …
 
+## TODOS tasks the release
+- [ ] add critical images as preload
+- [ ] merge fontTools into font classes
+- [ ] check: convert html scripts into dynamic imports -> better & stable load performance
+
 ## TODOS
 
 - [ ] Complete readme
