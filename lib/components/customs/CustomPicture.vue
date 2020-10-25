@@ -1,5 +1,5 @@
 <template>
-  <picture>
+  <picture v-image-preload="sources">
     <source
       v-for="(source, index) in sources"
       :key="index"
