@@ -131,7 +131,11 @@
       border: 3px solid #ccc;
       border-top-color: #07d;
       border-radius: 50%;
-      animation: spinner 0.6s linear infinite;
+      animation-name: spinner;
+      animation-duration: 0.6s;
+      animation-timing-function: linear;
+      animation-delay: 0.35s;
+      animation-iteration-count: infinite;
       will-change: transform;
     }
   }
