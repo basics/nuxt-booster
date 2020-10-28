@@ -18,10 +18,6 @@ export default {
     }
   },
 
-  mounted () {
-    console.log('mounted')
-  },
-
   methods: {
     onLoad (e) {
       this.$emit('load', e.target)
