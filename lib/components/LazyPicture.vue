@@ -40,6 +40,13 @@ export default {
       }
     },
 
+    placeholderSources: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+
     alt: {
       type: String,
       default () {
@@ -81,7 +88,7 @@ export default {
       if (this.init) {
         return this.sources
       }
-      return null
+      return this.placeholderSources
     },
 
     hasSlot () {
