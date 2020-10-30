@@ -9,6 +9,17 @@
 
 # <span style="color: red;">⚠️⚠️⚠️ This Package is work in progress… ⚠️⚠️⚠️</span>
 
+Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
+All used components and resources are loaded on demand based on the viewport.
+
+Features:
+- automatic preloading critical font resources
+- dynamic viewport based loading of font resources (subselectors, media queries)
+- dynamic loading of images based on bandwidth
+
+Result:
+- delivery of the minimum required resources based on the current viewport
+
 [**Release Notes** 📖](./CHANGELOG.md)
 
 ## Browsers support
