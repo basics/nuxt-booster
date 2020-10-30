@@ -348,3 +348,5 @@ or look here
 
 [license-src]: https://img.shields.io/npm/l/lazy-resources.svg?style=flat-square
 [license-href]: https://npmjs.com/package/lazy-resources
+
+
