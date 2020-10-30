@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.7.0",
+  "version": "0.0.0",
   "description": "",
   "license": "MIT",
   "contributors": [
@@ -17,7 +17,6 @@
     "type": "git",
     "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
   },
-  "private": true,
   "files": [
     "lib"
   ],
