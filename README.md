@@ -361,5 +361,3 @@ or look here
 
 [license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-speedkit
-
-
