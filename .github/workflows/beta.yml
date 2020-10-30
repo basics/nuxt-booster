@@ -1,4 +1,4 @@
-name: Master
+name: Beta
 on:
   push:
     branches:
