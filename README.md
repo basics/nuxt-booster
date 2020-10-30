@@ -1,4 +1,4 @@
-# lazy-resources
+# nuxt-speedkit
 
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
@@ -18,22 +18,22 @@
 
 ## Setup
 
-1. Add `lazy-resources` dependency to your project.
+1. Add `nuxt-speedkit` dependency to your project.
 
 ```bash
-npm run add lazy-resources # or npm install lazy-resources
+npm run add nuxt-speedkit # or npm install nuxt-speedkit
 ```
 
-2. Add `lazy-resources` to the `modules` section of `nuxt.config.js`.
+2. Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`.
 
 ```js
 {
   modules: [
     // Simple usage
-    'lazy-resources',
+    'nuxt-speedkit',
 
     // With options
-    ['lazy-resources', { 
+    ['nuxt-speedkit', { 
         fonts: [{
           family: 'Font A',
           fallback: ['Arial', 'sans-serif'],
@@ -110,7 +110,7 @@ Important `critical` option is inherited on child nodes.
 
 When using `slot` and `v-font` on a component set directly with `critical`, the font must be set as `critical` separately via [isCritical](#iscritical).
 
-### LazyIframe [[code](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/LazyIframe.vue)]
+### LazyIframe [[code](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/master/lib/components/LazyIframe.vue)]
 
 Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
 
@@ -118,7 +118,7 @@ Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_i
 <lazy-iframe src="…" />
 ```
 
-### LazyImage [[code](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/LazyImage.vue)]
+### LazyImage [[code](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/master/lib/components/LazyImage.vue)]
 
 Use native attributes to configure [image](https://www.w3schools.com/tags/tag_img.asp) (eg. `<img>`).
 
@@ -129,7 +129,7 @@ Use native attributes to configure [image](https://www.w3schools.com/tags/tag_im
 <lazy-image src="…" />
 ```
 
-### LazyPicture [[code](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/LazyPicture.vue)]
+### LazyPicture [[code](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/master/lib/components/LazyPicture.vue)]
 
 Use native attributes to configure [picture](https://www.w3schools.com/tags/tag_picture.asp) (eg. `<picture>`).
 
@@ -326,10 +326,10 @@ OR operators can be defined by string or array.
 
 or look here
 
-- [Preview](https://grabarzundpartner.github.io/lazy-resources/)
-- [Report Client](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/client.html)
-- [Report Modern](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/modern.html)
-- [Report Server](https://grabarzundpartner.github.io/lazy-resources/reports/webpack/server.html)
+- [Preview](https://grabarzundpartner.github.io/nuxt-speedkit/)
+- [Report Client](https://grabarzundpartner.github.io/nuxt-speedkit/reports/webpack/client.html)
+- [Report Modern](https://grabarzundpartner.github.io/nuxt-speedkit/reports/webpack/modern.html)
+- [Report Server](https://grabarzundpartner.github.io/nuxt-speedkit/reports/webpack/server.html)
 
 ## License
 
@@ -343,10 +343,10 @@ or look here
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
 
-[github-workflow-master-src]: <https://github.com/GrabarzUndPartner/lazy-resources/workflows/Master/badge.svg?branch=master>
-[github-workflow-master-href]: <https://github.com/GrabarzUndPartner/lazy-resources/actions?query=workflow%3AMaster>
+[github-workflow-master-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Master/badge.svg?branch=master>
+[github-workflow-master-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMaster>
 
-[license-src]: https://img.shields.io/npm/l/lazy-resources.svg?style=flat-square
-[license-href]: https://npmjs.com/package/lazy-resources
+[license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
+[license-href]: https://npmjs.com/package/nuxt-speedkit
 
 

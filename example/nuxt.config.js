@@ -17,7 +17,7 @@ module.exports = {
   // mode: 'spa',
 
   env: {
-    GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/lazy-resources'
+    GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
   },
 
   components: ['~/components/auto-import/'],

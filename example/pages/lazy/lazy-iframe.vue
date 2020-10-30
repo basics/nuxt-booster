@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import LazyIframe from 'lazy-resources/components/LazyIframe'
+import LazyIframe from 'nuxt-speedkit/components/LazyIframe'
 import OrganismSpacer from '@/components/organisms/Spacer'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {

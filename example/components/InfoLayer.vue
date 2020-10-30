@@ -11,7 +11,7 @@
 
 <script>
 
-import SpeedkitLayer from 'lazy-resources/components/SpeedkitLayer'
+import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer'
 export default {
   components: {
     SpeedkitLayer

@@ -1,5 +1,5 @@
 {
-  "name": "lazy-resources",
+  "name": "nuxt-speedkit",
   "version": "1.7.0",
   "description": "",
   "license": "MIT",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:GrabarzUndPartner/lazy-resources.git"
+    "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
   },
   "private": true,
   "files": [

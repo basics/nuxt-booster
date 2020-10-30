@@ -58,8 +58,8 @@
 
 export default {
 
-  components: {
-    LazyPicture: () => import('lazy-resources/components/LazyPicture')
+  speedkitComponents: {
+    LazyPicture: () => import('nuxt-speedkit/components/LazyPicture')
   },
 
   data () {
