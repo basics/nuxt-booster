@@ -4,7 +4,7 @@
     <organism-page-header critical />
     <Nuxt />
     <info-layer />
-    <LazyGithubCorner />
+    <GithubCorner />
   </div>
 </template>
 
@@ -15,8 +15,8 @@ import InfoLayer from '@/components/InfoLayer'
 // import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
-    GoogleLighthouse: () => import('lazy-resources/components/GoogleLighthouse'),
-    OrganismPageHeader: () => import('@/components/organisms/PageHeader')
+    GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'lazy-resources/components/GoogleLighthouse'),
+    OrganismPageHeader: () => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
   },
   components: {
     InfoLayer

@@ -1,8 +1,8 @@
 [
-  "plugins/vImagePreload.js",
   "plugins/vFont.js",
   "plugins/vFont/directive.js",
   "plugins/vFont/mixin.js",
+  "plugins/vImagePreload.js",
   "classes/Critical.js",
   "classes/Font.js",
   "classes/FontFamily.js",

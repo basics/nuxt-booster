@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  speedkitComponents: {
+  components: {
     LighthouseWidget: () => import('./lighthouse/Widget.vue')
   },
 
