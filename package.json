@@ -22,7 +22,6 @@
   ],
   "main": "lib/module.js",
   "scripts": {
-    "prepublish": "rm -rf ./publish && mkdir ./publish && cp -r ./lib/* ./publish && cp ./readme.md ./publish/readme.md && cp ./package.json ./publish/package.json && cp ./LICENSE ./publish/LICENSE",
     "dev": "nuxt example",
     "build": "nuxt build --target static --config-file example/nuxt.config.js",
     "generate": "nuxt generate --config-file example/nuxt.config.js",
