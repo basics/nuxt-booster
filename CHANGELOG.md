@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-10-31)
+
+
+### Bug Fixes
+
+* **alias:** remove package alias ([56d6223](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/56d62237c3213a9d054c5d6398702b6f25bd5d5f))
+
 # 1.0.0-beta.1 (2020-10-30)
 
 
