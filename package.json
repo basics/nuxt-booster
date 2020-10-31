@@ -17,9 +17,6 @@
     "type": "git",
     "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
   },
-  "files": [
-    "lib"
-  ],
   "main": "lib/module.js",
   "scripts": {
     "postversion": "cp -r ./package.json ..",
