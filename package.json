@@ -22,7 +22,7 @@
   ],
   "main": "lib/module.js",
   "scripts": {
-    "postpublish": "cp -r ./publish/package.json .",
+    "postpublish": "cp -r ./package.json ..",
     "dev": "nuxt example",
     "build": "nuxt build --target static --config-file example/nuxt.config.js",
     "generate": "nuxt generate --config-file example/nuxt.config.js",
