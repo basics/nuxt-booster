@@ -21,7 +21,7 @@
 
 <script>
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
-import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit/lib/components/LazyPicture'
 export default {
   components: {
     OrganismPreviewContainer,

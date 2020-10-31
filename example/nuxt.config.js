@@ -1,5 +1,6 @@
 const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const pkg = require('../package.json')
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
 
@@ -27,25 +28,12 @@ module.exports = {
     host: getHost()
   },
 
-  // features: {
-  //   router: true, // not implemented
-  //   store: false,
-  //   layouts: true,
-  //   meta: true,
-  //   middleware: false,
-  //   transitions: true,
-  //   deprecations: false,
-  //   validate: false,
-  //   asyncData: true,
-  //   fetch: true,
-  //   clientOnline: false,
-  //   clientPrefetch: false,
-  //   clientUseUrl: false, // this is a bit of an odd one, but using URL should eg be ok for modern mode already
-  //   componentAliases: false,
-  //   componentClientOnly: false
-  // },
+  alias: {
+    [pkg.name]: resolve(__dirname, '../')
+  },
 
   build: {
+
     babel: {
       presets ({ isServer, isModern, isDev }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
@@ -114,10 +102,6 @@ module.exports = {
         palette: true
       }
     }]
-  ],
-
-  plugins: [
-    '@/plugins/lazyHydrate'
   ],
 
   modules: [

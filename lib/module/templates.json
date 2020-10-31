@@ -1,17 +1,5 @@
 [
   "plugins/vFont.js",
-  "plugins/vFont/directive.js",
-  "plugins/vFont/mixin.js",
   "plugins/vImagePreload.js",
-  "classes/Critical.js",
-  "classes/Font.js",
-  "classes/FontFamily.js",
-  "classes/FontList.js",
-  "classes/ImageList.js",
-  "speedkit.js",
-  "speedkitComponent.js",
-  "utils/cssSelector.js",
-  "utils/string.js",
-  "utils/base64.js",
-  "utils/performance.js"
+  "speedkit.js"
 ]

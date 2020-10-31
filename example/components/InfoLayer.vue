@@ -11,7 +11,7 @@
 
 <script>
 
-import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer'
+import SpeedkitLayer from 'nuxt-speedkit/lib/components/SpeedkitLayer'
 export default {
   components: {
     SpeedkitLayer

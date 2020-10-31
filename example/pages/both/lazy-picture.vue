@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit/lib/components/LazyPicture'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
