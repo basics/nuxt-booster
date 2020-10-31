@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import LazyPicture from 'nuxt-speedkit/lib/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
 export default {
   components: {
     LazyPicture

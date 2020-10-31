@@ -15,7 +15,7 @@ import InfoLayer from '@/components/InfoLayer'
 // import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
-    GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'nuxt-speedkit/lib/components/GoogleLighthouse'),
+    GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'),
     OrganismPageHeader: () => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
   },
   components: {

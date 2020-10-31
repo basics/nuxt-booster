@@ -29,7 +29,7 @@ module.exports = {
   },
 
   alias: {
-    [pkg.name]: resolve(__dirname, '../')
+    [pkg.name]: resolve(__dirname, '../lib')
   },
 
   build: {
