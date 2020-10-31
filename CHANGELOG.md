@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2020-10-31)
+
+
+### Bug Fixes
+
+* **package:** fix main file ([3740332](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3740332faa0914361277f21d9e6cd2c78a463f6d))
+
 # [1.0.0-beta.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2020-10-31)
 
 
