@@ -10,12 +10,6 @@
       }
     ],
     [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "rm -rf ./publish && mkdir ./publish && cp -r ./lib/* ./publish && cp ./README.md ./publish/README.md && cp ./package.json ./publish/package.json && cp ./LICENSE ./publish/LICENSE",
-      }
-    ],
-    [
       "@semantic-release/npm",
       {
         "pkgRoot": "./publish"
