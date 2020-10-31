@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2020-10-31)
+
+
+### Bug Fixes
+
+* **release:** generate release 9 ([71e4276](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/71e42762d5ce6686796e558ad0332dbdb108c83e))
+
 # [1.0.0-beta.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2020-10-31)
 
 
