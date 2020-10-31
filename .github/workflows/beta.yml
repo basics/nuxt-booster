@@ -56,3 +56,4 @@ jobs:
         run: |
           rm -rf ./publish && mkdir ./publish && cp -r ./lib/* ./publish && cp ./README.md ./publish/README.md && cp ./package.json ./publish/package.json && cp ./LICENSE ./publish/LICENSE
           npx -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-ado semantic-release --provider=github
+
