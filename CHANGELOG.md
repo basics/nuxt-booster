@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.12...v1.0.0-beta.13) (2020-10-31)
+
+
+### Bug Fixes
+
+* **package:** add index.js for package main for dev / prod import ([b7d98c6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b7d98c6eac64bae81ab9b1dcc039c0f5f71188b8))
+
 # [1.0.0-beta.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2020-10-31)
 
 
