@@ -12,7 +12,7 @@
     [
       "@semantic-release/exec",
       {
-        "verifyReleaseCmd": "echo '{\"version\": \"${nextRelease.version}\", \"branch\": \"${options.branch}\", \"date\": \"${Date.now()}\"}' > release.json"
+        "prepareCmd": "rm -rf ./publish && mkdir ./publish && cp -r ./lib/* ./publish && cp ./README.md ./publish/README.md && cp ./package.json ./publish/package.json && cp ./LICENSE ./publish/LICENSE",
       }
     ],
     [
