@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2020-10-31)
+
+
+### Features
+
+* **alias:** remove lib from imports ([c003e77](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c003e77dd39eaeddd110ab85c8d8e10b2a871441))
+
 # [1.0.0-beta.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2020-10-31)
 
 
