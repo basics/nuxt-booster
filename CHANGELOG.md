@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2020-10-31)
+
+
+### Bug Fixes
+
+* **transpile:** add module to nuxt build transpile ([20d0f26](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/20d0f26e7380f70c50a50e6a13f58544d65eba95))
+
 # [1.0.0-beta.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2020-10-31)
 
 
