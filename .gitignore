@@ -5,6 +5,7 @@ node_modules
 .nuxt
 .history
 .reports
+publish
 .vscode/*
 !.vscode/launch.json
 .DS_Store
@@ -17,4 +18,3 @@ stream/A
 stream/B
 stream/C
 stream/source
-reports
