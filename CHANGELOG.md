@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2020-10-31)
+
+
+### Bug Fixes
+
+* **release:** generate release 3 ([b8f5ea6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b8f5ea6e870f57cee9a9d5f6763acf0520ededc1))
+
 # [1.0.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2020-10-31)
 
 
