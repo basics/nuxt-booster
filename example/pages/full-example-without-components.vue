@@ -1,65 +1,76 @@
 <template>
   <div class="page-full-example-without-components">
     <!-- stage -->
-    <div class="component-stage">
-      <lazy-picture v-bind="stage.picture" />
-      <h1
-        v-font="[
-          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline').isCritical(),
-          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
-        ]"
-      >
-        <span class="headline">{{ stage.headline }}</span>
-        <span class="claim">{{ stage.claim }}</span>
-      </h1>
-    </div>
+    <speedkit mode="visible">
+      <div class="component-stage">
+        <lazy-picture v-bind="stage.picture" />
+        <h1
+          v-font="[
+            $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline').isCritical(),
+            $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
+          ]"
+        >
+          <span class="headline">{{ stage.headline }}</span>
+          <span class="claim">{{ stage.claim }}</span>
+        </h1>
+      </div>
+    </speedkit>
     <!-- text-a -->
-    <div
-      v-font="[
-        $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
-        $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i'),
-        $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b,strong'),
-        $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i b,i strong'),
-        $fonts.getFont('Comic Neue', 700, 'italic').addSelector('b i, strong i'),
-        $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i > b, i > strong')
-      ]"
-      class="component-text-font-a"
-      v-html="textA.text"
-    />
-    <!-- image-text -->
-    <div class="component-image-text">
-      <lazy-picture v-bind="imageTextA.picture" />
+    <speedkit mode="visible">
       <div
         v-font="[
           $fonts.getFont('Comic Neue', 400, 'normal'),
-          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2')]"
-        class="text"
-        v-html="imageTextA.text"
+          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
+          $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i'),
+          $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b,strong'),
+          $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i b,i strong'),
+          $fonts.getFont('Comic Neue', 700, 'italic').addSelector('b i, strong i'),
+          $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i > b, i > strong')
+        ]"
+        class="component-text-font-a"
+        v-html="textA.text"
       />
-    </div>
+    </speedkit>
+    <!-- image-text -->
+    <speedkit mode="visible">
+      <div class="component-image-text">
+        <lazy-picture v-bind="imageTextA.picture" />
+        <div
+          v-font="[
+            $fonts.getFont('Comic Neue', 400, 'normal'),
+            $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2')]"
+          class="text"
+          v-html="imageTextA.text"
+        />
+      </div>
+    </speedkit>
     <!-- text-b -->
-    <div
-      v-font="[
-        $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
-        $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('b'),
-        $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('i b'),
-        $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('b i')
-      ]"
-      class="component-text-font-b"
-      v-html="textB.text"
-    />
+    <speedkit mode="visible">
+      <div
+        v-font="[
+          $fonts.getFont('Comic Neue', 400, 'normal'),
+          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
+          $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i'),
+          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('b'),
+          $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('i b'),
+          $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('b i')
+        ]"
+        class="component-text-font-b"
+        v-html="textB.text"
+      />
+    </speedkit>
   </div>
 </template>
 
 <script>
+import Speedkit from 'nuxt-speedkit/abstracts/Speedkit'
+import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
 
 export default {
 
   components: {
-    LazyPicture: () => import('lazy-resources/components/LazyPicture')
+    Speedkit,
+    LazyPicture
   },
 
   data () {
@@ -144,6 +155,25 @@ export default {
     }
   }
 
+  & .component-image-text {
+    & >>> img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (min-width: 768px) {
+      display: flex;
+
+      & > * {
+        width: 50%;
+      }
+    }
+
+    & .text {
+      padding: 2%;
+    }
+  }
+
   & .component-stage {
     position: relative;
     height: 100vh;
@@ -205,25 +235,6 @@ export default {
         left: auto;
         width: 400px;
       }
-    }
-  }
-
-  & .component-image-text {
-    & >>> img {
-      width: 100%;
-      height: 100%;
-    }
-
-    @media (min-width: 768px) {
-      display: flex;
-
-      & > * {
-        width: 50%;
-      }
-    }
-
-    & .text {
-      padding: 2%;
     }
   }
 

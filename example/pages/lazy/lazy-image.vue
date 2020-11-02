@@ -1,23 +1,27 @@
 <template>
   <div>
     <organism-spacer />
-    <organism-preview-container>
-      <template>
-        <lazy-image v-bind="lazyImage" />
-      </template>
-      <template v-slot:title>
-        <p>LazyImage - SRCSET<br>Image Switch by >768px</p>
-      </template>
-    </organism-preview-container>
+    <speedkit mode="visible">
+      <organism-preview-container>
+        <template>
+          <lazy-image v-bind="lazyImage" />
+        </template>
+        <template v-slot:title>
+          <p>LazyImage - SRCSET<br>Image Switch by >768px</p>
+        </template>
+      </organism-preview-container>
+    </speedkit>
   </div>
 </template>
 
 <script>
-import LazyImage from 'lazy-resources/components/LazyImage'
+import Speedkit from 'nuxt-speedkit/abstracts/Speedkit'
+import LazyImage from 'nuxt-speedkit/components/LazyImage'
 import OrganismSpacer from '@/components/organisms/Spacer'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
+    Speedkit,
     OrganismSpacer,
     OrganismPreviewContainer,
     LazyImage

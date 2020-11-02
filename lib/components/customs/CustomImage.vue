@@ -1,24 +1,23 @@
 <template>
   <img
-    :loading="loading"
+    v-image-preload="preload"
+    class="nuxt-speedkit__custom-image"
+    loading="lazy"
+    crossorigin="anonymous"
     @load="onLoad"
   >
 </template>
 
 <script>
+
 export default {
-  computed: {
-    loading () {
-      if (this.isCritical) {
-        return 'eager'
-      } else {
-        return 'lazy'
+  props: {
+    preload: {
+      type: Object,
+      default () {
+        return null
       }
     }
-  },
-
-  mounted () {
-    console.log('mounted')
   },
 
   methods: {
@@ -28,12 +27,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-img {
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
-  object-fit: cover;
-}
-</style>

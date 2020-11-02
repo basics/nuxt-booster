@@ -84,8 +84,8 @@ jobs:
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
         env:
-          WEBSITE_HOST: 'https://grabarzundpartner.github.io/lazy-resources'
-          BASE_PATH: /lazy-resources/
+          WEBSITE_HOST: 'https://grabarzundpartner.github.io/nuxt-speedkit'
+          BASE_PATH: /nuxt-speedkit/
           DIST_PATH: dist
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master

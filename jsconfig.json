@@ -5,7 +5,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "lazy-resources/*": [
+      "nuxt-speedkit/*": [
         "lib/*"
       ],
       "@/*": [

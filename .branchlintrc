@@ -4,7 +4,8 @@
       "feature",
       "hotfix",
       "release",
-      "renovate"
+      "renovate",
+      "beta"
     ],
     "suggestions": {
       "features": "feature",

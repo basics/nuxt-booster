@@ -5,7 +5,7 @@
       :key="index"
       v-bind="source"
     >
-    <custom-image v-bind="{src, srcset, width, height, alt, title}" @load="onLoad" />
+    <custom-image v-bind="{src, srcset, width, height, alt, title, preload}" @load="onLoad" />
   </picture>
 </template>
 
@@ -68,6 +68,27 @@ export default {
     }
   },
 
+  computed: {
+    preload () {
+      return this.sources.reduce((result, item) => {
+        if (item.type === 'image/webp') {
+          result = Object.assign({ src: this.srcUrl }, item)
+        } else if ((!result || result.type !== 'image/webp')) {
+          result = Object.assign({ src: this.srcUrl }, item)
+        }
+        return result
+      }, null)
+    },
+
+    srcUrl () {
+      if (this.src !== null && !this.src.startsWith('data:image')) {
+        return this.src
+      } else {
+        return null
+      }
+    }
+  },
+
   methods: {
     onLoad (e) {
       this.$emit('load', e.target)
@@ -75,7 +96,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-/* css */
-</style>

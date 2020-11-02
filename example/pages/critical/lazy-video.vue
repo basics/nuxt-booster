@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import { resizeObserver } from 'lazy-resources/utils/viewport'
+import { resizeObserver } from 'nuxt-speedkit/utils/viewport'
 
-import LazyVideo from 'lazy-resources/components/LazyVideo'
+import LazyVideo from 'nuxt-speedkit/components/LazyVideo'
 export default {
   components: {
     LazyVideo

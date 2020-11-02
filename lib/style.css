@@ -1,0 +1,157 @@
+/* Components */
+
+.nuxt-speedkit__noscript {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nuxt-speedkit__custom-image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+.nuxt-speedkit__lighthouse {
+  --pi: 3.14159265358979;
+  --score: 0;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  pointer-events: none;
+  background-color: white;
+
+  &.ready {
+    pointer-events: all;
+  }
+
+  & > svg {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+
+    & circle {
+      fill: transparent;
+      stroke: var(--color-status);
+      stroke-width: 10;
+      transform: rotate(-90deg);
+      transform-origin: 50%;
+
+      &.pending {
+        stroke-dasharray: calc(1.35 * var(--pi) * 45);
+        stroke-dashoffset: calc(2 * var(--pi) * 45);
+        animation: nuxt-speedkit-lighthouse-rotating 1s linear infinite;
+      }
+
+      &.ready {
+        fill: var(--color-status);
+        fill-opacity: 0.1;
+        stroke-dasharray: calc(2 * var(--pi) * 45);
+        stroke-dashoffset: calc(2 * var(--pi) * 45);
+        animation: nuxt-speedkit-lighthouse-stroke var(--duration) ease-out forwards;
+      }
+    }
+
+    & line {
+      stroke: var(--color-status);
+      stroke-width: 10;
+    }
+
+    & text {
+      font-size: 32px;
+      fill: var(--color-status);
+    }
+  }
+
+  & span {
+    font-size: 12px;
+    text-decoration: underline;
+
+    & svg {
+      display: inline;
+      width: 12px;
+      height: 12px;
+      margin-left: 3px;
+    }
+  }
+}
+
+@keyframes nuxt-speedkit-lighthouse-stroke {
+  to {
+    stroke-dashoffset: var(--radian);
+  }
+}
+
+@keyframes nuxt-speedkit-lighthouse-stroke {
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+.nuxt-speedkit__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  & > span.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 10%;
+    transform: translate(-50%, -50%);
+
+    &::before {
+      box-sizing: border-box;
+      display: block;
+      padding-top: 100%;
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+      display: block;
+      content: '';
+      border: 3px solid #ccc;
+      border-top-color: #07d;
+      border-radius: 50%;
+      animation-name: spinner;
+      animation-duration: 0.6s;
+      animation-timing-function: linear;
+      animation-delay: 0.35s;
+      animation-iteration-count: infinite;
+      will-change: transform;
+    }
+  }
+}
+
+/* VIDEO */
+
+.nuxt-speedkit__lazy-video {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  background-color: black;
+}
+
+.shaka-video-container {
+  height: 100vh;
+
+  /* height: stretch; */
+}

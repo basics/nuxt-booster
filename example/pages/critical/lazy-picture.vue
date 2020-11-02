@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import LazyPicture from 'lazy-resources/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {

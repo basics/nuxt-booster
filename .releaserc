@@ -10,12 +10,11 @@
       }
     ],
     [
-      "@semantic-release/exec",
+      "@semantic-release/npm",
       {
-        "verifyReleaseCmd": "echo '{\"version\": \"${nextRelease.version}\", \"branch\": \"${options.branch}\", \"date\": \"${Date.now()}\"}' > release.json"
+        "pkgRoot": "./publish"
       }
     ],
-    "@semantic-release/npm",
     [
       "@semantic-release/git",
       {

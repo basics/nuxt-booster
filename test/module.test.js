@@ -24,20 +24,6 @@ describe('module', () => {
     await nuxt.close()
   })
 
-  // test('v-font (layout) (font-face, class, link (preload), element class)', async () => {
-  //   html = await getHTML()
-  //   dom = getDom(html)
-
-  //   // font face exists?
-  //   expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
-  //   // font class exists?
-  //   expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal')).not.toBe(-1)
-  //   // font link preload exists?
-  //   expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal"]')).not.toBeNull()
-  //   // element has font class?
-  //   expect(dom.querySelector('.overview-link span.font-comic-neue-400-normal')).not.toBeNull()
-  // })
-
   // /tests/v-font
 
   test('v-font (font assign simple) (font-face, class, link (preload), element class)', async () => {
@@ -198,8 +184,11 @@ describe('module', () => {
     html = await getHTML('tests/lazy-image')
     dom = getDom(html)
 
-    expect(dom.querySelector('#criticalContainer img[loading="eager"]')).not.toBeNull()
-    expect(dom.querySelector('#lazyContainer img[loading="lazy"]')).not.toBeNull()
+    const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
+    const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset
+
+    expect(dom.querySelector(`link[imagesrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
+    expect(dom.querySelector(`link[imagesrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
   })
 
   // /tests/lazy-picture
@@ -208,7 +197,10 @@ describe('module', () => {
     html = await getHTML('tests/lazy-picture')
     dom = getDom(html)
 
-    expect(dom.querySelector('#criticalContainer picture img[loading="eager"]')).not.toBeNull()
-    expect(dom.querySelector('#lazyContainer picture img[loading="lazy"]')).not.toBeNull()
+    const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
+    const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset
+
+    expect(dom.querySelector(`link[imagesrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
+    expect(dom.querySelector(`link[imagesrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
   })
 })

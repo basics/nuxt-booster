@@ -18,33 +18,21 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration'
-
 export default {
-  components: {
-    test0: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest'), { observerOptions: { rootMargin: '0px' } }),
-    test1: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest1'), { observerOptions: { rootMargin: '0px' } }),
-    test2: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest2'), { observerOptions: { rootMargin: '0px' } }),
-    test3: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest3'), { observerOptions: { rootMargin: '0px' } }),
-    test4: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest4'), { observerOptions: { rootMargin: '0px' } }),
-    test5: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest5'), { observerOptions: { rootMargin: '0px' } }),
-    test6: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest6'), { observerOptions: { rootMargin: '0px' } }),
-    test7: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest7'), { observerOptions: { rootMargin: '0px' } }),
-    test8: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest8'), { observerOptions: { rootMargin: '0px' } }),
-    test9: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest9'), { observerOptions: { rootMargin: '0px' } }),
-    test10: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest10'), { observerOptions: { rootMargin: '0px' } }),
-    test11: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest11'), { observerOptions: { rootMargin: '0px' } }),
-    test12: hydrateWhenVisible(() => import('@/components/atoms/HydrateTest12'), { observerOptions: { rootMargin: '0px' } })
-  },
-
-  data () {
-    return {
-
-    }
-  },
-
-  created () {
-
+  speedkitComponents: {
+    test0: () => import('@/components/atoms/HydrateTest'),
+    test1: () => import('@/components/atoms/HydrateTest1'),
+    test2: () => import('@/components/atoms/HydrateTest2'),
+    test3: () => import('@/components/atoms/HydrateTest3'),
+    test4: () => import('@/components/atoms/HydrateTest4'),
+    test5: () => import('@/components/atoms/HydrateTest5'),
+    test6: () => import('@/components/atoms/HydrateTest6'),
+    test7: () => import('@/components/atoms/HydrateTest7'),
+    test8: () => import('@/components/atoms/HydrateTest8'),
+    test9: () => import('@/components/atoms/HydrateTest9'),
+    test10: () => import('@/components/atoms/HydrateTest10'),
+    test11: () => import('@/components/atoms/HydrateTest11'),
+    test12: () => import('@/components/atoms/HydrateTest12')
   }
 }
 </script>

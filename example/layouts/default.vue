@@ -1,10 +1,10 @@
 <template>
   <div>
-    <!-- <google-lighthouse url="https://grabarzundpartner.de" /> -->
+    <google-lighthouse />
     <organism-page-header critical />
     <Nuxt />
     <info-layer />
-    <LazyGithubCorner />
+    <GithubCorner />
   </div>
 </template>
 
@@ -15,8 +15,8 @@ import InfoLayer from '@/components/InfoLayer'
 // import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
-    // GoogleLighthouse: () => import('lazy-resources/components/GoogleLighthouse'),
-    OrganismPageHeader: () => import('@/components/organisms/PageHeader')
+    GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'),
+    OrganismPageHeader: () => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
   },
   components: {
     InfoLayer
@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="postcss">
+
+@import '@/../lib/style.css';
 
 html {
   height: stretch;

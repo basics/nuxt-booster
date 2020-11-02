@@ -1,5 +1,5 @@
 <template>
-  <image-container :loading="loading" @visible="onVisible">
+  <image-container :loading="loading" class="nuxt-speedkit__lazy-picture" @visible="onVisible">
     <template>
       <custom-picture v-bind="{src: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
       <custom-no-script v-if="!init">
@@ -37,6 +37,13 @@ export default {
       type: [Array, String],
       default () {
         return null
+      }
+    },
+
+    placeholderSources: {
+      type: Array,
+      default () {
+        return []
       }
     },
 
@@ -81,7 +88,7 @@ export default {
       if (this.init) {
         return this.sources
       }
-      return null
+      return this.placeholderSources
     },
 
     hasSlot () {
@@ -103,7 +110,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" type="flow" scoped>
-/* css */
-</style>

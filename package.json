@@ -1,7 +1,7 @@
 {
-  "name": "lazy-resources",
-  "version": "1.7.0",
-  "description": "",
+  "name": "nuxt-speedkit",
+  "version": "1.0.0-beta.16",
+  "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
     {
@@ -15,14 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:GrabarzUndPartner/lazy-resources.git"
+    "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
   },
-  "private": true,
-  "files": [
-    "lib"
-  ],
-  "main": "lib/module.js",
+  "main": "index.js",
   "scripts": {
+    "postversion": "cp -r ./package.json ..",
     "dev": "nuxt example",
     "build": "nuxt build --target static --config-file example/nuxt.config.js",
     "generate": "nuxt generate --config-file example/nuxt.config.js",
@@ -30,8 +27,7 @@
     "test": "npm run lint && jest",
     "jest": "jest",
     "serve": "nuxt serve --config-file example/nuxt.config.js",
-    "start:generate": "npm run generate && npm run serve",
-    "express": "node ./tools/express-server.js"
+    "start:generate": "npm run generate && npm run serve"
   },
   "dependencies": {
     "@modified/shaka-player": "^3.0.0",
@@ -39,8 +35,7 @@
     "nuxt-i18n": "^6.15.4",
     "rxjs": "^6.6.3",
     "sort-media-queries": "^0.2.2",
-    "srcset": "^3.0.0",
-    "vue-lazy-hydration": "^1.0.0-beta.14"
+    "srcset": "^3.0.0"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.3.0",

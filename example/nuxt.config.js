@@ -1,8 +1,8 @@
 const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const pkg = require('../package.json')
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
-const pkg = require('../package')
 
 module.exports = {
   dev: isDev,
@@ -17,6 +17,10 @@ module.exports = {
   },
   // mode: 'spa',
 
+  env: {
+    GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
+  },
+
   components: ['~/components/auto-import/'],
 
   server: {
@@ -24,25 +28,12 @@ module.exports = {
     host: getHost()
   },
 
-  // features: {
-  //   router: true, // not implemented
-  //   store: false,
-  //   layouts: true,
-  //   meta: true,
-  //   middleware: false,
-  //   transitions: true,
-  //   deprecations: false,
-  //   validate: false,
-  //   asyncData: true,
-  //   fetch: true,
-  //   clientOnline: false,
-  //   clientPrefetch: false,
-  //   clientUseUrl: false, // this is a bit of an odd one, but using URL should eg be ok for modern mode already
-  //   componentAliases: false,
-  //   componentClientOnly: false
-  // },
+  alias: {
+    [pkg.name]: resolve(__dirname, '../lib')
+  },
 
   build: {
+
     babel: {
       presets ({ isServer, isModern, isDev }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
@@ -75,8 +66,6 @@ module.exports = {
     },
 
     extend (config) {
-      config.resolve.alias[pkg.name] = resolve(__dirname, '../lib')
-
       if (!isDev && !isTest) {
         config.plugins.push(new BundleAnalyzerPlugin({
           reportFilename: resolve(`.reports/webpack/${config.name}.html`),
@@ -115,14 +104,21 @@ module.exports = {
     }]
   ],
 
-  plugins: [
-    '@/plugins/lazyHydrate'
-  ],
-
   modules: [
     ['nuxt-i18n', {}],
     [
       resolve(__dirname, '..'), {
+        performance: {
+          device: {
+            hardwareConcurrency: { min: 2, max: 48 },
+            deviceMemory: { min: 2 }
+          },
+          timing: {
+            fcp: 500,
+            dcl: 800 // fallback if fcp is not available (safari)
+          },
+          lighthouseDetectionByUserAgent: false
+        },
         fonts: [{
           family: 'Quicksand',
           fallback: ['sans-serif'],

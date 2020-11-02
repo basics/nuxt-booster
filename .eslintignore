@@ -4,6 +4,8 @@ dist
 .nuxt
 coverage
 .reports
+publish
 
 # Plugin
 lib/plugin.js
+lib/entry.js

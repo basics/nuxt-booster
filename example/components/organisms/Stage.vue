@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import LazyPicture from 'lazy-resources/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
 export default {
   components: {
     LazyPicture
