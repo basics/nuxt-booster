@@ -116,7 +116,8 @@ module.exports = {
           timing: {
             fcp: 500,
             dcl: 800 // fallback if fcp is not available (safari)
-          }
+          },
+          lighthouseDetectionByUserAgent: true
         },
         fonts: [{
           family: 'Quicksand',
