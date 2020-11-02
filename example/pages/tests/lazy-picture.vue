@@ -1,16 +1,16 @@
 <template>
   <div>
-    <organism-preview-container id="criticalContainer" critical>
+    <organism-preview-container id="criticalContainer" :data-preload-srcset="criticalPicture.sources[0].srcset" critical>
       <template>
-        <lazy-picture v-bind="pictureCritical" />
+        <lazy-picture v-bind="criticalPicture" />
       </template>
       <template v-slot:title>
         <p>Critical - LazyPicture</p>
       </template>
     </organism-preview-container>
-    <organism-preview-container id="lazyContainer">
+    <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyPicture.sources[0].srcset">
       <template>
-        <lazy-picture v-bind="pictureLazy" />
+        <lazy-picture v-bind="lazyPicture" />
       </template>
       <template v-slot:title>
         <p>Lazy - LazyPicture</p>
@@ -34,7 +34,7 @@ export default {
     const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
 
     return {
-      pictureCritical: {
+      criticalPicture: {
         sources: [
           {
             srcset: criticalImageWebp.srcSet,
@@ -52,7 +52,7 @@ export default {
         title: 'Title Text',
         caption: null
       },
-      pictureLazy: {
+      lazyPicture: {
         sources: [
           {
             srcset: lazyImageWebp.srcSet,
