@@ -8,3 +8,4 @@ publish
 
 # Plugin
 lib/plugin.js
+lib/speedkit.js
