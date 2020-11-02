@@ -1,6 +1,6 @@
 # Project Changelog
 
-# [1.8.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.7.0...v1.8.0-beta.1) (2020-11-02)
+# 1.0.0-beta.15
 
 
 ### Bug Fixes
