@@ -1,5 +1,15 @@
 # Project Changelog
 
+# [1.0.0-beta.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2020-11-02)
+
+
+### Bug Fixes
+
+* **git:** remove unused tags, revert version ([06f7456](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/06f74566df7d9d4b2ebdcae77e8da9e9b6a5c496))
+* **lighthouse:** added optional lighthouse detection by user agent ([4c07981](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4c079819130556817fec99c3ec450f6d61715d27))
+* **lighthouse:** disabled user agent detection ([062762b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/062762b8dea7295d702d235a08211d1d6a1197fa))
+* **optimization:** refactored image preload & refactored performance metrics detection ([7d0d236](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7d0d236bb4ff07b077f674cdf26150798579de22))
+
 # 1.0.0-beta.15
 
 
