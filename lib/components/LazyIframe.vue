@@ -1,17 +1,9 @@
 <template>
-  <intersection-observer @enter="onEnter">
-    <iframe :src="lazySrc" v-bind="$attrs" class="nuxt-speedkit__lazy-iframe" loading="lazy" />
-  </intersection-observer>
+  <iframe :src="lazySrc" v-bind="$attrs" class="nuxt-speedkit__lazy-iframe" loading="lazy" />
 </template>
 
 <script>
-import IntersectionObserver from '../abstracts/IntersectionObserver'
-
 export default {
-  components: {
-    IntersectionObserver
-  },
-
   props: {
     src: {
       type: String,
@@ -27,10 +19,8 @@ export default {
     }
   },
 
-  methods: {
-    onEnter (e) {
-      this.lazySrc = this.src
-    }
+  mounted () {
+    this.lazySrc = this.src
   }
 }
 </script>
