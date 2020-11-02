@@ -1,19 +1,21 @@
 <template>
   <img
+    v-image-preload="preload"
     class="nuxt-speedkit__custom-image"
-    :loading="loading"
+    loading="lazy"
+    crossorigin="anonymous"
     @load="onLoad"
   >
 </template>
 
 <script>
+
 export default {
-  computed: {
-    loading () {
-      if (this.isCritical) {
-        return 'eager'
-      } else {
-        return 'lazy'
+  props: {
+    preload: {
+      type: Object,
+      default () {
+        return null
       }
     }
   },

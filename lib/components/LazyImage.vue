@@ -1,9 +1,9 @@
 <template>
   <image-container :loading="loading" class="nuxt-speedkit__image" @visible="onVisible">
     <template>
-      <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title}" @load="onLoad" />
+      <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title, preload}" @load="onLoad" />
       <custom-no-script v-if="!init">
-        <custom-image v-bind="{src: placeholder, srcset: srcset, width, height, alt, title}" />
+        <custom-image v-bind="{src: placeholder, srcset: srcset, width, height, alt, title, preload}" />
       </custom-no-script>
     </template>
     <template v-slot:caption>
@@ -76,6 +76,10 @@ export default {
   },
 
   computed: {
+    preload () {
+      return { srcset: this.srcset }
+    },
+
     imageSrcset () {
       if (this.init) {
         return this.srcset
