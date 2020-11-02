@@ -1,22 +1,15 @@
 <template>
-  <intersection-observer @enter="onEnter">
-    <figure class="nuxt-speedkit__image-container">
-      <slot />
-      <span v-show="loading" class="loading" />
-      <figcaption v-if="hasSlot">
-        <slot name="caption" />
-      </figcaption>
-    </figure>
-  </intersection-observer>
+  <figure class="nuxt-speedkit__image-container">
+    <slot />
+    <span v-show="loading" class="loading" />
+    <figcaption v-if="hasSlot">
+      <slot name="caption" />
+    </figcaption>
+  </figure>
 </template>
 
 <script>
-import IntersectionObserver from '../abstracts/IntersectionObserver'
-
 export default {
-  components: {
-    IntersectionObserver
-  },
 
   props: {
     loading: {
@@ -47,10 +40,8 @@ export default {
     }
   },
 
-  methods: {
-    onEnter () {
-      this.$emit('visible')
-    }
+  mounted () {
+    this.$emit('visible')
   }
 }
 </script>

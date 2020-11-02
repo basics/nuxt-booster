@@ -23,35 +23,39 @@
         <p>Critical - v-font with media</p>
       </template>
     </organism-preview-container>
-    <organism-preview-container>
-      <template>
-        <div>
-          <ul>
-            <li id="lazyFontAssignSimpleByMax479" v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic').addMedia('(max-width: 479px)')">
-              font assign simple by max 479px
-            </li>
-            <li id="lazyFontAssignSimpleBy480" v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal').addMedia('(min-width: 480px)')">
-              font assign simple by 480px
-            </li>
-            <li id="lazyFontAssignSimpleBy960" v-font="$fonts.getFont('Montserrat Alternates', 400, 'italic').addMedia('(min-width: 960px)')">
-              font assign simple by 960px
-            </li>
-            <li id="lazyFontBySingleSelectorBy1440" v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal').addMedia('(min-width: 1440px)').addSelector('b')">
-              font assign with <b>selector by 1440px</b>
-            </li>
-          </ul>
-        </div>
-      </template>
-      <template v-slot:title>
-        <p>Lazy - v-font with media</p>
-      </template>
-    </organism-preview-container>
+    <speedkit mode="visible">
+      <organism-preview-container>
+        <template>
+          <div>
+            <ul>
+              <li id="lazyFontAssignSimpleByMax479" v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic').addMedia('(max-width: 479px)')">
+                font assign simple by max 479px
+              </li>
+              <li id="lazyFontAssignSimpleBy480" v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal').addMedia('(min-width: 480px)')">
+                font assign simple by 480px
+              </li>
+              <li id="lazyFontAssignSimpleBy960" v-font="$fonts.getFont('Montserrat Alternates', 400, 'italic').addMedia('(min-width: 960px)')">
+                font assign simple by 960px
+              </li>
+              <li id="lazyFontBySingleSelectorBy1440" v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal').addMedia('(min-width: 1440px)').addSelector('b')">
+                font assign with <b>selector by 1440px</b>
+              </li>
+            </ul>
+          </div>
+        </template>
+        <template v-slot:title>
+          <p>Lazy - v-font with media</p>
+        </template>
+      </organism-preview-container>
+    </speedkit>
   </div>
 </template>
 <script>
+import Speedkit from 'nuxt-speedkit/abstracts/Speedkit'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
+    Speedkit,
     OrganismPreviewContainer
   }
 }
