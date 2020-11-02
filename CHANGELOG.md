@@ -1,5 +1,49 @@
 # Project Changelog
 
+# [1.8.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.7.0...v1.8.0-beta.1) (2020-11-02)
+
+
+### Bug Fixes
+
+* **alias:** remove package alias ([56d6223](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/56d62237c3213a9d054c5d6398702b6f25bd5d5f))
+* **base64:** cleanup ([6740767](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6740767ef8f1f8e54b7588cb203ad443496688a8))
+* **ci:** fix publish copy ([df7d918](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/df7d9183d6eb130c2eb9d2a7e7f7a448e715fc36))
+* **fonts:** restructured functions ([5ea9310](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5ea9310d109a0417c286bfb2682a4664cd6009f8))
+* **hooks:** rearranged resource hook ([ab9783f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ab9783fbcf195d9df8b6ffad45e3e2da3c33e0f6))
+* **imageList:** prevent exception by null values ([5456411](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/54564114029e8ce06222ff531042fa305dfeea91))
+* **lighthouse:** added optional lighthouse detection by user agent ([4c07981](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4c079819130556817fec99c3ec450f6d61715d27))
+* **lighthouse:** disabled user agent detection ([062762b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/062762b8dea7295d702d235a08211d1d6a1197fa))
+* **lighthouse:** fixed lighthouse loader ([d252891](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d252891d3be7f19b705669ae8b842d10a8725823))
+* **lighthouse:** update report url during browsing ([621ca58](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/621ca58595638d37584eb4fb489b62b8bed173c6))
+* **lighthouse:** url handling ([155dfe0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/155dfe07abaebdb286e5430184db7521dc812191))
+* **optimization:** refactored image preload & refactored performance metrics detection ([7d0d236](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7d0d236bb4ff07b077f674cdf26150798579de22))
+* **package:** add index.js for package main for dev / prod import ([b7d98c6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b7d98c6eac64bae81ab9b1dcc039c0f5f71188b8))
+* **package:** fix main file ([3740332](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3740332faa0914361277f21d9e6cd2c78a463f6d))
+* **preload:** preload only of page & app chunks ([a88fcdb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a88fcdbc288c9c978cb8db9ada25a44d95af0760))
+* **readme:** added release todos ([7c08175](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7c08175bb8713530c25585a57e611bf9db6386e8))
+* **readme:** added release todos ([62731d3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/62731d321e8232a1447857606b18fc3132568e8c))
+* **release:** generate release ([144170f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/144170f2a53fc6741f31404144ed7d5e4b61c17a))
+* **release:** generate release 2 ([3975fd6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3975fd646b21cbc592744449e04892f599b870b3))
+* **release:** generate release 3 ([b8f5ea6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b8f5ea6e870f57cee9a9d5f6763acf0520ededc1))
+* **release:** generate release 4 ([216a554](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/216a554ba2eb5b66fd3ca76772ab5f7c69a2a814))
+* **release:** generate release 5 (postpublish) ([bbbcf1c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bbbcf1ccd4c7b5af7844598071f744816a00a8c7))
+* **release:** generate release 6 ([741e242](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/741e2428b9589cf3ca4e6fc3a3f544ffba546e85))
+* **release:** generate release 7 ([c932fd4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c932fd4fff81b75c45cfccd7aa65631a81e273da))
+* **release:** generate release 8 ([df13334](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/df13334c4cc426ef53f29cf675903bb78a7e0594))
+* **release:** generate release 9 ([71e4276](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/71e42762d5ce6686796e558ad0332dbdb108c83e))
+* **rename:** renamed performance functions ([f0fbe5b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f0fbe5be3d9e254b660d708eb9a68548de5c63bc))
+* **restructuring:** restructured code + cleanup unnecessary stuff ([1d6d0d1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1d6d0d13a1dee5d9310e12790f31e68407878297))
+* **transpile:** add module to nuxt build transpile ([20d0f26](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/20d0f26e7380f70c50a50e6a13f58544d65eba95))
+* **v-font:** splitted up code ([1e2f971](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1e2f9716b6e8a15f535a7446715edc2e0a698cfc))
+
+
+### Features
+
+* **alias:** remove lib from imports ([c003e77](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c003e77dd39eaeddd110ab85c8d8e10b2a871441))
+* **image-preload:** add image-preload directive for image preloading ([b63bfb7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b63bfb7be204d7c653b6c63d01b075e18600aed1))
+* **image-preload:** implemented critical image preload for custom picture ([9e1ea36](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9e1ea368f035c2617762c7bf8409ca8c419f38fa))
+* **renaming:** renamed from lazy-resources to nuxt-speedkit ([45a78f6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/45a78f66d70d5d0f6edd92373ee70e8bbecf4d84))
+
 # [1.0.0-beta.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2020-10-31)
 
 
