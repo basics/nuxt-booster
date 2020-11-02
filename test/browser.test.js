@@ -171,7 +171,7 @@ describe('browser (puppeteer)', () => {
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
     })
-    await page.waitForSelector('#lazyContainer :not(noscript) > img[loading="lazy"][srcset]')
+    await page.waitForSelector('#lazyContainer :not(noscript) > img[srcset]')
   })
 
   // /tests/lazy-picture

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <organism-preview-container id="criticalContainer" critical>
+    <organism-preview-container id="criticalContainer" :data-preload-srcset="criticalImage.srcset" critical>
       <template>
         <lazy-image v-bind="criticalImage" />
       </template>
@@ -8,7 +8,7 @@
         <p>Critical - LazyImage</p>
       </template>
     </organism-preview-container>
-    <organism-preview-container id="lazyContainer">
+    <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
       <template>
         <lazy-image v-bind="lazyImage" />
       </template>

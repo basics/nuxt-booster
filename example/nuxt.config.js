@@ -108,6 +108,17 @@ module.exports = {
     ['nuxt-i18n', {}],
     [
       resolve(__dirname, '..'), {
+        performance: {
+          device: {
+            hardwareConcurrency: { min: 2, max: 48 },
+            deviceMemory: { min: 2 }
+          },
+          timing: {
+            fcp: 500,
+            dcl: 800 // fallback if fcp is not available (safari)
+          },
+          lighthouseDetectionByUserAgent: false
+        },
         fonts: [{
           family: 'Quicksand',
           fallback: ['sans-serif'],
