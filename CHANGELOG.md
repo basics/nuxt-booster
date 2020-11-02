@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [1.0.0-beta.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2020-11-02)
+
+
+### Bug Fixes
+
+* **options:** update default options; add intersectionobserver options ([4320a99](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4320a990e3935b6aea21f5a20fd81142d95525a7))
+* **speedkit:** add speedkit template wrapper ([0ae3d36](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0ae3d36ce00caee748d28689c349ac458b1886e7))
+
 # [1.0.0-beta.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2020-11-02)
 
 
