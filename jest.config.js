@@ -4,7 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     'lib/**/*.js',
     '!lib/plugin.js',
-    '!lib/speedkit.js'
+    '!lib/entry.js'
   ],
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/lib/$1',

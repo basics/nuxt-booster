@@ -71,7 +71,6 @@ export default {
   computed: {
     preload () {
       return this.sources.reduce((result, item) => {
-        console.log(item.type)
         if (item.type === 'image/webp') {
           result = Object.assign({ src: this.srcUrl }, item)
         } else if ((!result || result.type !== 'image/webp')) {
