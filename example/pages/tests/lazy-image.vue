@@ -8,26 +8,22 @@
         <p>Critical - LazyImage</p>
       </template>
     </organism-preview-container>
-    <speedkit mode="visible">
-      <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
-        <template>
-          <lazy-image v-bind="lazyImage" />
-        </template>
-        <template v-slot:title>
-          <p>Lazy - LazyImage</p>
-        </template>
-      </organism-preview-container>
-    </speedkit>
+    <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
+      <template>
+        <lazy-image v-bind="lazyImage" />
+      </template>
+      <template v-slot:title>
+        <p>Lazy - LazyImage</p>
+      </template>
+    </organism-preview-container>
   </div>
 </template>
 
 <script>
-import Speedkit from 'nuxt-speedkit/abstracts/Speedkit'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 import LazyImage from 'nuxt-speedkit/components/LazyImage'
 export default {
   components: {
-    Speedkit,
     OrganismPreviewContainer,
     LazyImage
   },

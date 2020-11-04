@@ -188,4 +188,34 @@ describe('browser (puppeteer)', () => {
 
     await page.waitForSelector('#lazyContainer :not(noscript) > picture source')
   })
+
+  // /tests/speedkit-function
+
+  test('speedkit-function', async () => {
+    await page.goto(await getUrl('/tests/speedkit-function'))
+
+    // test with IntersectionObserver
+
+    expect(await page.evaluate(() => document.querySelector('#testResolveByIntersectionObserver.speedkit-test--active'))).toBeFalsy()
+
+    await page.waitForSelector('#testResolveByIntersectionObserver.speedkit-test--active')
+
+    // test with name
+
+    expect(await page.evaluate(() => document.querySelector('#testResolveByName.speedkit-test--active'))).toBeFalsy()
+
+    page.evaluate(() => {
+      window.nuxtSpeedkitResolveComponents('resolve-components')
+    })
+    await page.waitForSelector('#testResolveByName.speedkit-test--active')
+
+    // test with event
+
+    expect(await page.evaluate(() => document.querySelector('#testResolveByEvent.speedkit-test--active'))).toBeFalsy()
+
+    page.evaluate(() => {
+      document.querySelector('#testResolveByEvent').click()
+    })
+    await page.waitForSelector('#testResolveByEvent.speedkit-test--active')
+  })
 })

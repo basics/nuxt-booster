@@ -86,6 +86,10 @@ export default {
           to: '/tests/lazy-image'
         },
         {
+          title: 'Test: Speedkit Function',
+          to: '/tests/speedkit-function'
+        },
+        {
           title: 'Test: Component Import (Critical by Prop)',
           to: '/tests/component-import/critical-prop'
         },

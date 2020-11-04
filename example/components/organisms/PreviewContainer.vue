@@ -60,6 +60,11 @@
       line-height: calc(44 / 32);
       text-align: center;
     }
+
+    & button {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 
   & .preview-container__preview {

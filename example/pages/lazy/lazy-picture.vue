@@ -1,27 +1,23 @@
 <template>
   <div>
     <organism-spacer />
-    <speedkit mode="visible">
-      <organism-preview-container>
-        <template>
-          <lazy-picture v-bind="lazyPicture" />
-        </template>
-        <template v-slot:title>
-          <p>LazyPicture<br>Source Switch by >768px</p>
-        </template>
-      </organism-preview-container>
-    </speedkit>
+    <organism-preview-container>
+      <template>
+        <lazy-picture v-bind="lazyPicture" />
+      </template>
+      <template v-slot:title>
+        <p>LazyPicture<br>Source Switch by >768px</p>
+      </template>
+    </organism-preview-container>
   </div>
 </template>
 
 <script>
-import Speedkit from 'nuxt-speedkit/abstracts/Speedkit'
 import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
 import OrganismSpacer from '@/components/organisms/Spacer'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
-    Speedkit,
     LazyPicture,
     OrganismSpacer,
     OrganismPreviewContainer
