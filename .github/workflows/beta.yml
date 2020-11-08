@@ -91,7 +91,7 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate --base=/example/ --website-host=https://nuxt-speedkit,grabarzundpartner.dev
+          npm run generate --base=/nuxt-speedkit/ --website-host=https://nuxt-speedkit,grabarzundpartner.dev
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
@@ -157,7 +157,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: exampleArtifact
-          path: public/example
+          path: public
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
