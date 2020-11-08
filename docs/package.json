@@ -1,0 +1,15 @@
+{
+  "name": "nuxt-soeedkit-docs",
+  "version": "1.0.0-beta.x",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content-theme-docs": "^0.7.2",
+    "nuxt-edge": "latest"
+  }
+}

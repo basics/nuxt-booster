@@ -1,0 +1,10 @@
+{
+  "title": "Nuxt Speedkit",
+  "url": "",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "GrabarzUndPartner/lazy-resources",
+  "twitter": "@nuxt_js"
+}
