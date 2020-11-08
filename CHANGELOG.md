@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2020-11-08)
+
+
+### Features
+
+* **docs:** add ci action for gppages ([120622b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/120622bed5728d9e1418e6560aaad7c52509c519))
+
 # [1.0.0-beta.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2020-11-08)
 
 
