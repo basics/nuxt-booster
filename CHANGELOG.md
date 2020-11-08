@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2020-11-08)
+
+
+### Bug Fixes
+
+* **ci:** fix cache action ([873c9fa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/873c9facd93b69655a7d24226a3f1a7cf5c30e54))
+
 # [1.0.0-beta.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2020-11-08)
 
 
