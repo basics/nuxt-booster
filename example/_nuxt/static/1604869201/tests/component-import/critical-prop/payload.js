@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tests/component-import/critical-prop", {data:[{}],fetch:[],mutations:void 0});
