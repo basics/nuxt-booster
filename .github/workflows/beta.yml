@@ -21,17 +21,26 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: cache node_modules
+      - name: cache node_modules (Example)
         uses: actions/cache@v2
         id: cache
         with:
           path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-      - name: Install Dependencies
+      - name: Install Dependencies (Example)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test
         run: npm run test
+      - name: cache node_modules (Docs)
+        uses: actions/cache@v2
+        id: cacheDocs
+        with:
+          path: docs/node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}
+      - name: Install Dependencies (Docs)
+        if: steps.cacheDocs.outputs.cache-hit != 'true'
+        run: cd docs && npm ci
 
   semantic-version:
     name: Semantic Release
