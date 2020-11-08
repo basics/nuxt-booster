@@ -57,3 +57,100 @@ jobs:
           rm -rf ./publish && mkdir ./publish && cp ./index.js ./publish/index.js && cp ./package.json ./publish/package.json && cp -r ./lib/* ./publish && cp ./README.md ./publish/README.md && cp ./LICENSE ./publish/LICENSE
           npx -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-ado semantic-release --provider=github
 
+
+  build-example:
+    name: Build (Example)
+    needs: install
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+      - name: cache node_modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: Build
+        run: |
+          npm run generate --base=/example/ --website-host=https://nuxt-speedkit,grabarzundpartner.dev
+          mkdir dist/reports dist/reports/webpack
+          cp -R reports/webpack/* dist/reports/webpack
+          touch dist/.nojekyll
+        env:
+          DIST_PATH: dist
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: exampleArtifact
+          path: dist
+
+
+  build-docs:
+    name: Build (Docs)
+    needs: install
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+      - name: cache node_modules
+        uses: actions/cache@v1
+        id: cacheDocs
+        with:
+          path: docs/node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}
+      - name: Build
+        run: |
+          cd ./docs
+          npm run generate --website-host=https://nuxt-speedkit,grabarzundpartner.dev
+          touch dist/.nojekyll
+        env:
+          DIST_PATH: dist
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: docsArtifact
+          path: docs/dist
+
+  deploy-ghpages:
+    name: Deploy (GH-Pages)
+    needs: [build-example, build-docs]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+    steps:
+      - name: Download Artifact (Docs)
+        uses: actions/download-artifact@master
+        with:
+          name: docsArtifact
+          path: public/docs
+      - name: Download Artifact (Example)
+        uses: actions/download-artifact@master
+        with:
+          name: exampleArtifact
+          path: public/example
+      - name: Deploy to GH-Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
