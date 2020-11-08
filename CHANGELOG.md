@@ -1,5 +1,17 @@
 # Project Changelog
 
+# [1.0.0-beta.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2020-11-08)
+
+
+### Bug Fixes
+
+* **entry:** disable entry by spa ([ad560e2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ad560e2e8ba0834afd7a576b4cdf424c0f4cb5c7))
+
+
+### Features
+
+* **docs:** add docs ([2b48022](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b480220c0fd0fa2ce4807e703328094ad1ef106))
+
 # [1.0.0-beta.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2020-11-02)
 
 
