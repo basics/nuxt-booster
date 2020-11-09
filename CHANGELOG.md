@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.21...v1.0.0-beta.22) (2020-11-09)
+
+
+### Bug Fixes
+
+* **safari:** fix load font with weight ([e85c1c7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e85c1c7e7b2bae8f0e980c9d8a0cde78f40f5186))
+
 # [1.0.0-beta.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2020-11-08)
 
 
