@@ -157,9 +157,9 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: exampleArtifact
-          path: public
+          path: public/docs/example
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public/docs/example
+          publish_dir: public
