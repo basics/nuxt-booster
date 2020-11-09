@@ -1,11 +1,11 @@
 <template>
   <picture>
     <source
-      v-for="(source, index) in sources"
+      v-for="(source, index) in preloadedSources"
       :key="index"
       v-bind="source"
     >
-    <custom-image v-bind="{src, srcset, width, height, alt, title, preload}" @load="onLoad" />
+    <custom-image v-bind="{src, srcset, preload, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
   </picture>
 </template>
 
@@ -39,6 +39,13 @@ export default {
       }
     },
 
+    preload: {
+      type: Object,
+      default () {
+        return null
+      }
+    },
+
     alt: {
       type: String,
       default () {
@@ -65,33 +72,41 @@ export default {
       default () {
         return null
       }
+    },
+
+    noScript: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    }
+  },
+
+  data () {
+    return {
+      preloaded: false
     }
   },
 
   computed: {
-    preload () {
-      return this.sources.reduce((result, item) => {
-        if (item.type === 'image/webp') {
-          result = Object.assign({ src: this.srcUrl }, item)
-        } else if ((!result || result.type !== 'image/webp')) {
-          result = Object.assign({ src: this.srcUrl }, item)
-        }
-        return result
-      }, null)
-    },
-
-    srcUrl () {
-      if (this.src !== null && !this.src.startsWith('data:image')) {
-        return this.src
+    preloadedSources () {
+      if (this.preloaded || this.noScript) {
+        return this.sources
       } else {
-        return null
+        return []
       }
     }
   },
 
   methods: {
     onLoad (e) {
-      this.$emit('load', e.target)
+      if (this.preloaded) {
+        this.$emit('load', e.target)
+      }
+    },
+
+    onPreload () {
+      this.preloaded = true
     }
   }
 }

@@ -1,9 +1,9 @@
 <template>
-  <image-container :loading="loading" class="nuxt-speedkit__lazy-picture" @visible="onVisible">
+  <image-container :loading="loading" class="nuxt-speedkit__lazy-picture">
     <template>
-      <custom-picture v-bind="{src: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
-      <custom-no-script v-if="!init">
-        <custom-picture v-bind="{ sources, width, height, alt, title}" />
+      <custom-picture v-bind="{src: placeholder, sources: sources, preload, width, height, alt, title}" @load="onLoad" />
+      <custom-no-script>
+        <custom-picture v-bind="{ sources, width, height, alt, title, noScript: true}" />
       </custom-no-script>
     </template>
     <template v-slot:caption>
@@ -84,11 +84,23 @@ export default {
   },
 
   computed: {
-    pictureSources () {
-      if (this.init) {
-        return this.sources
+    preload () {
+      return this.sources.reduce((result, item) => {
+        if (item.type === 'image/webp') {
+          result = Object.assign({ src: this.srcUrl }, item)
+        } else if ((!result || result.type !== 'image/webp')) {
+          result = Object.assign({ src: this.srcUrl }, item)
+        }
+        return result
+      }, null)
+    },
+
+    srcUrl () {
+      if (this.src !== null && !this.placeholder.startsWith('data:image')) {
+        return this.placeholder
+      } else {
+        return null
       }
-      return this.placeholderSources
     },
 
     hasSlot () {
@@ -96,14 +108,12 @@ export default {
     }
   },
 
+  mounted () {
+    this.loading = true
+  },
+
   methods: {
-
-    onVisible () {
-      this.loading = true
-      this.init = true
-    },
-
-    onLoad () {
+    onLoad (e) {
       this.loading = false
       this.$emit('load')
     }
