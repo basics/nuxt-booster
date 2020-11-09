@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
-
 export default {
 
   props: {
@@ -40,14 +38,6 @@ export default {
         this.init = value || this.init
       }
     }
-  },
-
-  mounted () {
-    registerIntersecting(this.$el, () => this.$emit('visible'))
-  },
-
-  destroyed () {
-    unregisterIntersecting(this.$el)
   }
 
 }

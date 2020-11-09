@@ -52,7 +52,7 @@ export default {
             rel: 'preload',
             as: 'image',
             crossorigin: 'anonymous',
-            callback: () => { console.log('resolve'); this.$emit('preload') },
+            callback: () => { this.$emit('preload') },
             imagesrcset: this.preload.srcset
           }
         ]
