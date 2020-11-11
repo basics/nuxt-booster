@@ -76,25 +76,32 @@ export default {
     }
   },
 
+  fetchOnServer: process.server,
+
+  async fetch () {
+    this.webpSupport = process.server || await isWebpSupported()
+  },
+
   data () {
     return {
-      init: false,
-      loading: false
+      loading: false,
+      webpSupport: false
     }
   },
 
   computed: {
     preload () {
-      return this.sources.reduce((result, item) => {
-        if (item.type === 'image/webp') {
+      const result = this.sources.reduce((result, item) => {
+        console.log('support', this.webpSupport)
+        if (item.type === 'image/webp' && this.webpSupport) {
           result = Object.assign({ src: this.srcUrl }, item)
-        } else if ((!result || result.type !== 'image/webp')) {
+        } else if ((!result || result.type !== 'image/webp') && item.type !== 'image/webp') {
           result = Object.assign({ src: this.srcUrl }, item)
         }
         return result
       }, null)
+      return result
     },
-
     srcUrl () {
       if (this.src !== null && !this.placeholder.startsWith('data:image')) {
         return this.placeholder
@@ -118,5 +125,14 @@ export default {
       this.$emit('load')
     }
   }
+}
+
+function isWebpSupported () {
+  return new Promise((resolve) => {
+    const img = new global.Image()
+    img.onload = () => resolve(true)
+    img.onerror = () => resolve(false)
+    img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA'
+  })
 }
 </script>

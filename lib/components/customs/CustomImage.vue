@@ -1,6 +1,5 @@
 <template>
   <img
-    v-image-preload="preload"
     class="nuxt-speedkit__custom-image"
     loading="lazy"
     crossorigin="anonymous"
@@ -23,7 +22,7 @@ export default {
 
   data () {
     return {
-      visible: false
+      visible: this.isCritical
     }
   },
 
@@ -44,18 +43,26 @@ export default {
   },
 
   head () {
-    if (this.preload && (this.visible || this.isCritical)) {
-      return {
-        link: [
-          {
-            hid: hashCode(this.preload.srcset),
-            rel: 'preload',
-            as: 'image',
-            crossorigin: 'anonymous',
-            callback: () => { this.$emit('preload') },
-            imagesrcset: this.preload.srcset
-          }
-        ]
+    if (this.preload && this.visible) {
+      if (process.server || elementSupportsAttribute('link', 'imageSrcset')) {
+        return {
+          link: [
+            {
+              hid: hashCode(this.preload.srcset),
+              rel: 'preload',
+              as: 'image',
+              crossorigin: 'anonymous',
+              callback: () => { this.$emit('preload') },
+              imagesrcset: this.preload.srcset
+            }
+          ]
+        }
+      } else {
+        const img = new Image()
+        img.onload = () => { this.$emit('preload') }
+        img.crossorigin = 'anonymous'
+        img.srcset = this.preload.srcset
+        return {}
       }
     } else {
       return {}
@@ -73,4 +80,17 @@ function hashCode (value) {
   }
   return hash
 }
+
+function elementSupportsAttribute (element, attribute) {
+  let test = {}
+  if (global.document) {
+    test = global.document.createElement(element)
+  }
+
+  if (attribute in test) {
+    return true
+  } else {
+    return false
+  }
+};
 </script>
