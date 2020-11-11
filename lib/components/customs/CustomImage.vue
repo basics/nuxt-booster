@@ -53,7 +53,7 @@ export default {
               as: 'image',
               crossorigin: 'anonymous',
               callback: () => { this.$emit('preload') },
-              imagesrcset: this.preload.srcset
+              imageSrcset: this.preload.srcset
             }
           ]
         }

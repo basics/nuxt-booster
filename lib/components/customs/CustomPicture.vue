@@ -5,7 +5,7 @@
       :key="index"
       v-bind="source"
     >
-    <custom-image v-bind="{src, srcset, preload, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+    <custom-image v-bind="{src, preload, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
   </picture>
 </template>
 
