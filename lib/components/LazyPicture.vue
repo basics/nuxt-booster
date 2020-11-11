@@ -1,7 +1,7 @@
 <template>
   <image-container :loading="loading" class="nuxt-speedkit__lazy-picture">
     <template>
-      <custom-picture v-bind="{src: placeholder, sources: sources, preload, width, height, alt, title}" @load="onLoad" />
+      <custom-picture v-bind="{src: placeholder, sources, preload, width, height, alt, title}" @load="onLoad" />
       <custom-no-script>
         <custom-picture v-bind="{ sources, width, height, alt, title, noScript: true}" />
       </custom-no-script>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { isWebpSupported } from '../utils/support'
 import ImageContainer from './ImageContainer'
 import CustomNoScript from './customs/CustomNoScript'
 import CustomPicture from './customs/CustomPicture'
@@ -124,14 +125,5 @@ export default {
       this.$emit('load')
     }
   }
-}
-
-function isWebpSupported () {
-  return new Promise((resolve) => {
-    const img = new global.Image()
-    img.onload = () => resolve(true)
-    img.onerror = () => resolve(false)
-    img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA'
-  })
 }
 </script>

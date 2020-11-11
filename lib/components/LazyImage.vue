@@ -1,9 +1,9 @@
 <template>
-  <image-container :loading="loading" class="nuxt-speedkit__image" @visible="onVisible">
+  <image-container :loading="loading" class="nuxt-speedkit__image">
     <template>
-      <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title, preload}" @load="onLoad" />
-      <custom-no-script v-if="!init">
-        <custom-image v-bind="{src: placeholder, srcset: srcset, width, height, alt, title, preload}" />
+      <custom-image v-bind="{src: placeholder, srcset: preloadedSrcset, preload, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+      <custom-no-script>
+        <custom-image v-bind="{srcset, width, height, alt, title, noScript: true}" />
       </custom-no-script>
     </template>
     <template v-slot:caption>
@@ -70,7 +70,7 @@ export default {
 
   data () {
     return {
-      init: false,
+      preloaded: false,
       loading: false
     }
   },
@@ -80,11 +80,12 @@ export default {
       return { srcset: this.srcset }
     },
 
-    imageSrcset () {
-      if (this.init) {
+    preloadedSrcset () {
+      if (this.preloaded || this.noScript) {
         return this.srcset
+      } else {
+        return []
       }
-      return null
     },
 
     hasSlot () {
@@ -92,15 +93,21 @@ export default {
     }
   },
 
+  mounted () {
+    this.loading = true
+  },
+
   methods: {
-    onVisible () {
-      this.loading = true
-      this.init = true
-    },
 
     onLoad () {
-      this.loading = false
-      this.$emit('load')
+      if (this.preloaded) {
+        this.loading = false
+        this.$emit('load')
+      }
+    },
+
+    onPreload () {
+      this.preloaded = true
     }
   }
 }
