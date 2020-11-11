@@ -39,14 +39,18 @@ export default {
         alt: 'Alt Text',
         title: 'Title Text',
         placeholder: criticalPlaceholder.preview,
-        srcset: criticalImage.srcSet
+        srcset: criticalImage.srcSet,
+        width: criticalImage.width,
+        height: criticalImage.height
       },
       lazyImage: {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
         placeholder: lazyPlaceholder.preview,
-        srcset: lazyImage.srcSet
+        srcset: lazyImage.srcSet,
+        width: lazyImage.width,
+        height: lazyImage.height
       }
     }
   }
