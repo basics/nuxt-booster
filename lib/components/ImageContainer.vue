@@ -20,25 +20,10 @@ export default {
     }
   },
 
-  data () {
-    return {
-      init: false
-    }
-  },
-
   computed: {
     hasSlot () {
       return this.$slots.caption
     }
-  },
-
-  watch: {
-    loading: {
-      handler (value) {
-        this.init = value || this.init
-      }
-    }
   }
-
 }
 </script>
