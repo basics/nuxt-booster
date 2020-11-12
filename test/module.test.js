@@ -187,8 +187,8 @@ describe('module', () => {
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
     const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset
 
-    expect(dom.querySelector(`link[imagesrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
-    expect(dom.querySelector(`link[imagesrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
   })
 
   // /tests/lazy-picture
@@ -200,7 +200,7 @@ describe('module', () => {
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
     const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset
 
-    expect(dom.querySelector(`link[imagesrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
-    expect(dom.querySelector(`link[imagesrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
   })
 })
