@@ -50,7 +50,7 @@ export default {
               type: 'image/jpeg'
             }
           ],
-          placeholder: lazyPlaceholder.preview,
+          placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(lazyPlaceholder),
           width: lazyImageJpeg.width,
           height: lazyImageJpeg.height,
           alt: 'Alt Text',
@@ -73,7 +73,7 @@ export default {
               type: 'image/jpeg'
             }
           ],
-          placeholder: criticalPlaceholder.preview,
+          placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
           width: criticalImageJpeg.width,
           height: criticalImageJpeg.height,
           alt: 'Alt Text',

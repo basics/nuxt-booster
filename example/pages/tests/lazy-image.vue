@@ -38,7 +38,7 @@ export default {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
-        placeholder: criticalPlaceholder.preview,
+        placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
         srcset: criticalImage.srcSet,
         width: criticalImage.width,
         height: criticalImage.height
@@ -47,7 +47,7 @@ export default {
         caption: null,
         alt: 'Alt Text',
         title: 'Title Text',
-        placeholder: lazyPlaceholder.preview,
+        placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(lazyPlaceholder),
         srcset: lazyImage.srcSet,
         width: lazyImage.width,
         height: lazyImage.height

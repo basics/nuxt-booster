@@ -1,9 +1,23 @@
 <template>
   <image-container :loading="loading" class="nuxt-speedkit__lazy-picture">
     <template>
-      <custom-picture v-bind="{src: placeholder, sources, preload, width, height, alt, title}" @load="onLoad" />
+      <picture>
+        <source
+          v-for="(source, index) in preloadedSources"
+          :key="index"
+          v-bind="source"
+        >
+        <custom-image v-bind="{src: placeholder.base64, preload: sources, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+      </picture>
       <custom-no-script>
-        <custom-picture v-bind="{ sources, width, height, alt, title, noScript: true}" />
+        <picture>
+          <source
+            v-for="(source, index) in sources"
+            :key="index"
+            v-bind="source"
+          >
+          <custom-image v-bind="{src: placeholder.url, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+        </picture>
       </custom-no-script>
     </template>
     <template v-slot:caption>
@@ -13,17 +27,16 @@
 </template>
 
 <script>
-import { isWebpSupported } from '../utils/support'
 import ImageContainer from './ImageContainer'
 import CustomNoScript from './customs/CustomNoScript'
-import CustomPicture from './customs/CustomPicture'
+import CustomImage from './customs/CustomImage'
 
 export default {
 
   components: {
     ImageContainer,
     CustomNoScript,
-    CustomPicture
+    CustomImage
   },
 
   props: {
@@ -35,16 +48,9 @@ export default {
     },
 
     placeholder: {
-      type: [Array, String],
+      type: Object,
       default () {
         return null
-      }
-    },
-
-    placeholderSources: {
-      type: Array,
-      default () {
-        return []
       }
     },
 
@@ -77,39 +83,15 @@ export default {
     }
   },
 
-  fetchOnServer: process.server,
-
-  async fetch () {
-    this.webpSupport = process.server || await isWebpSupported()
-  },
-
   data () {
     return {
+      preloadedSources: (this.noScript && this.sources) || [],
       loading: false,
       webpSupport: false
     }
   },
 
   computed: {
-    preload () {
-      const result = this.sources.reduce((result, item) => {
-        if (item.type === 'image/webp' && this.webpSupport) {
-          result = Object.assign({ src: this.srcUrl }, item)
-        } else if ((!result || result.type !== 'image/webp') && item.type !== 'image/webp') {
-          result = Object.assign({ src: this.srcUrl }, item)
-        }
-        return result
-      }, null)
-      return result
-    },
-    srcUrl () {
-      if (this.src !== null && !this.placeholder.startsWith('data:image')) {
-        return this.placeholder
-      } else {
-        return null
-      }
-    },
-
     hasSlot () {
       return this.$slots.caption
     }
@@ -123,6 +105,10 @@ export default {
     onLoad (e) {
       this.loading = false
       this.$emit('load')
+    },
+
+    onPreload () {
+      this.preloadedSources = this.sources
     }
   }
 }

@@ -9,20 +9,30 @@
 
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
+import { isWebpSupported } from '../../utils/support'
+import { preload } from '../../utils/preload'
 
 export default {
   props: {
     preload: {
-      type: Object,
+      type: Array,
       default () {
         return null
       }
     }
   },
 
+  fetchOnServer: process.server,
+
+  async fetch () {
+    this.webpSupport = process.server || await isWebpSupported()
+  },
+
   data () {
     return {
-      visible: this.isCritical
+      visible: this.isCritical,
+      preloaded: false,
+      webpSupport: false
     }
   },
 
@@ -38,59 +48,28 @@ export default {
 
   methods: {
     onLoad (e) {
-      this.$emit('load', e.target)
+      if (this.preloaded) {
+        this.$emit('load', e.target)
+      }
+    },
+
+    onPreload () {
+      this.preloaded = true
+      this.$emit('preload')
     }
   },
 
   head () {
     if (this.preload && this.visible) {
-      if (process.server || elementSupportsAttribute('link', 'imageSrcset')) {
-        return {
-          link: [
-            {
-              hid: hashCode(this.preload.srcset),
-              rel: 'preload',
-              as: 'image',
-              crossorigin: 'anonymous',
-              callback: () => { this.$emit('preload') },
-              imageSrcset: this.preload.srcset
-            }
-          ]
-        }
-      } else {
-        const img = new Image()
-        img.onload = () => { this.$emit('preload') }
-        img.crossorigin = 'anonymous'
-        img.srcset = this.preload.srcset
-        return {}
-      }
+      return preload(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload())
     } else {
       return {}
     }
   }
 }
 
-function hashCode (value) {
-  let hash = 0
-  if (value.length === 0) { return hash }
-  for (let i = 0; i < value.length; i++) {
-    const char = value.charCodeAt(i)
-    hash = ((hash << 5) - hash) + char
-    hash = hash & hash // Convert to 32bit integer
-  }
-  return hash
+function getPreloadSrcset (sources, webpSupport) {
+  return (webpSupport && sources.find(source => source.type === 'image/webp')) || sources.find(source => source.type !== 'image/webp')
 }
 
-function elementSupportsAttribute (element, attribute) {
-  let test = {}
-  if (global.document) {
-    test = global.document.createElement(element)
-  }
-
-  if (attribute in test) {
-    return true
-  } else {
-    return false
-  }
-};
 </script>
