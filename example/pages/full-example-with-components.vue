@@ -10,6 +10,7 @@
 <script>
 
 export default {
+
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),

@@ -16,23 +16,27 @@
 <script>
 import LazyImage from 'nuxt-speedkit/components/LazyImage'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+
 export default {
+
   components: {
     LazyImage,
     OrganismPreviewContainer
   },
-  data () {
+
+  asyncData () {
     const criticalImage = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
+    const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip')
 
     return {
       criticalImage: {
-        srcset: criticalImage.srcSet,
-        placeholder: criticalImage.placeholder,
-        width: criticalImage.width,
-        height: criticalImage.height,
         alt: 'Alt Text',
         title: 'Title Text',
-        caption: null
+        caption: null,
+        placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
+        srcset: criticalImage.srcSet,
+        width: criticalImage.width,
+        height: criticalImage.height
       }
     }
   }
