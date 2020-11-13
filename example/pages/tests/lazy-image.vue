@@ -27,7 +27,8 @@ export default {
     OrganismPreviewContainer,
     LazyImage
   },
-  data () {
+
+  asyncData () {
     const criticalImage = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
     const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip')
     const lazyImage = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
