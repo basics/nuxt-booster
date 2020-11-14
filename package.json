@@ -33,7 +33,6 @@
     "@modified/shaka-player": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
     "nuxt-i18n": "^6.15.4",
-    "promise-deferred": "^2.0.3",
     "rxjs": "^6.6.3",
     "sort-media-queries": "^0.2.2",
     "srcset": "^3.0.0"
