@@ -10,7 +10,7 @@
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
 import { isWebpSupported } from '../../utils/support'
-import { preload } from '../../utils/preload'
+import { preloadImage } from '../../utils/preload'
 
 export default {
   props: {
@@ -61,7 +61,7 @@ export default {
 
   head () {
     if (this.preload && this.visible) {
-      return preload(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload())
+      return preloadImage(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload())
     } else {
       return {}
     }
