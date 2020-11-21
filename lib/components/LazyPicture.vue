@@ -7,7 +7,7 @@
           :key="index"
           v-bind="source"
         >
-        <custom-image v-bind="{src: placeholder.base64, preload: sources, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+        <custom-image v-bind="{src: placeholder.base64, preload: sources, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
       </picture>
       <custom-no-script>
         <picture>
@@ -16,7 +16,7 @@
             :key="index"
             v-bind="source"
           >
-          <custom-image v-bind="{src: placeholder.url, width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+          <custom-image v-bind="{src: placeholder.url, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
         </picture>
       </custom-no-script>
     </template>
@@ -79,6 +79,13 @@ export default {
       type: Number,
       default () {
         return null
+      }
+    },
+
+    crossorigin: {
+      type: String,
+      default () {
+        return 'anonymous'
       }
     }
   },

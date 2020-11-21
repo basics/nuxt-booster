@@ -14,6 +14,7 @@ dist
 test/fixture
 video
 example/static/stream
+example/assets/proxy
 stream/A
 stream/B
 stream/C

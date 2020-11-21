@@ -2,7 +2,7 @@
   <img
     class="nuxt-speedkit__custom-image"
     loading="lazy"
-    crossorigin="anonymous"
+    :crossorigin="crossorigin"
     @load="onLoad"
   >
 </template>
@@ -18,6 +18,13 @@ export default {
       type: Array,
       default () {
         return null
+      }
+    },
+
+    crossorigin: {
+      type: String,
+      default () {
+        return 'anonymous'
       }
     }
   },
@@ -60,8 +67,8 @@ export default {
   },
 
   head () {
-    if (this.preload && this.visible) {
-      return preloadImage(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload())
+    if (this.preload && this.visible && this.preload && this.preload.length) {
+      return preloadImage(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload(), this.crossorigin)
     } else {
       return {}
     }
