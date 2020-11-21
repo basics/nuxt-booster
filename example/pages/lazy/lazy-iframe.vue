@@ -3,7 +3,7 @@
     <organism-spacer />
     <organism-preview-container>
       <template>
-        <lazy-iframe v-bind="iframeA" />
+        <lazy-youtube />
       </template>
       <template v-slot:title>
         <p>LazyIframe</p>
@@ -13,20 +13,18 @@
 </template>
 
 <script>
-import LazyIframe from 'nuxt-speedkit/components/LazyIframe'
+import LazyYoutube from 'nuxt-speedkit/components/LazyYoutube'
 import OrganismSpacer from '@/components/organisms/Spacer'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
     OrganismSpacer,
     OrganismPreviewContainer,
-    LazyIframe
+    LazyYoutube
   },
   data () {
     return {
-      iframeA: {
-        src: 'https://grabarzundpartner.de'
-      }
+
     }
   }
 }

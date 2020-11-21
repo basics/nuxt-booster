@@ -104,13 +104,6 @@ div {
     top: 0;
     width: 100%;
     height: 100%;
-
-    /* https://web.dev/iframe-lazy-loading/#iframe-specific-lazy-loading-behavior */
-    opacity: 0;
-
-    @nest .ready& {
-      opacity: 1;
-    }
   }
 
   & button {
@@ -128,7 +121,6 @@ div {
     text-transform: none;
     pointer-events: none;
     border: none;
-    opacity: 1;
     transition-duration: 350ms;
     transition-property: transform;
     appearance: button;
