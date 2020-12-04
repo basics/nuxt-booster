@@ -50,7 +50,7 @@ export default {
     placeholder: {
       type: Object,
       default () {
-        return null
+        return {}
       }
     },
 

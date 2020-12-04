@@ -2,12 +2,11 @@
   <div
     v-font="[
       $fonts.getFont('Comic Neue', 400, 'normal'),
-      $fonts.getFont('Comic Neue', 700, 'normal').addSelector('h2'),
-      $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i'),
-      $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b,strong'),
-      $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i b,i strong'),
-      $fonts.getFont('Comic Neue', 700, 'italic').addSelector('b i, strong i'),
-      $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i > b, i > strong')
+      $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'h2'}),
+      $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i'}),
+      $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'b,strong'}),
+      $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i b,i strong'}),
+      $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'i > b, i > strong'})
     ]"
     class="component-text-font-a"
     v-html="text"

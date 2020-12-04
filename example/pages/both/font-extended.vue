@@ -4,9 +4,9 @@
       <template>
         <article
           v-font="[
-            $fonts.getFont('Comic Neue', 400, 'normal').isCritical(),
-            $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b, strong').isCritical(),
-            $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i, em').isCritical()
+            $fonts.getFont('Comic Neue', 400, 'normal'),
+            $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'b, strong'}),
+            $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
           ]"
           v-html="contentA"
         />
@@ -20,8 +20,8 @@
         <article
           v-font="[
             $fonts.getFont('Montserrat Alternates', 400, 'normal'),
-            $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('b, strong'),
-            $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i, em')
+            $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'b, strong'}),
+            $fonts.getFont('Montserrat Alternates', 400, 'italic', {selector: 'i, em'})
           ]"
           v-html="contentA"
         />

@@ -3,7 +3,7 @@
     <div class="preview-container__preview">
       <slot name="default" />
     </div>
-    <div v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()" class="preview-container__info">
+    <div v-font="$fonts.getFont('Quicksand', 400, 'normal')" class="preview-container__info">
       <slot name="title">
         <p>Preview Info</p>
       </slot>

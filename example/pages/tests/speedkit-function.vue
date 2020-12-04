@@ -3,7 +3,7 @@
     <organism-preview-container critical>
       <template>
         <div
-          v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()"
+          v-font="$fonts.getFont('Quicksand', 400, 'normal')"
           class="wrapper"
         >
           <test-a id="testResolveByIntersectionObserver" title="Resolve by IntersectionObserver" />

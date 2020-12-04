@@ -4,19 +4,19 @@
       <template>
         <div>
           <ul>
-            <li id="criticalFontAssignSimple" v-font="$fonts.getFont('Comic Neue', 400, 'normal').isCritical()">
+            <li id="criticalFontAssignSimple" v-font="$fonts.getFont('Comic Neue', 400, 'normal')">
               font assign simple
             </li>
             <hr>
-            <li id="criticalFontAssignBySingleSelector" v-font="$fonts.getFont('Comic Neue', 700, 'normal').addSelector('strong').isCritical()">
+            <li id="criticalFontAssignBySingleSelector" v-font="$fonts.getFont('Comic Neue', 700, 'normal', {selector: 'strong'})">
               font assign by <strong>single selector</strong>
             </li>
             <li>
               <span
                 id="criticalFontAssignByMultipleVariances"
                 v-font="[
-                  $fonts.getFont('Comic Neue', 700, 'normal').addSelector('strong').isCritical(),
-                  $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i').isCritical()
+                  $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'strong'}),
+                  $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'i'})
                 ]"
               >font assign by <strong>multiple</strong> <i>variances</i></span>
             </li>
@@ -25,7 +25,7 @@
               <span
                 id="criticalFontAssignByMultipleSelectorsString"
                 v-font="[
-                  $fonts.getFont('Comic Neue', 700, 'normal').addSelector('strong, b').isCritical()
+                  $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'strong, b'})
                 ]"
               >font assign by <strong>multiple</strong> <b>selectors (String)</b></span>
             </li>
@@ -33,7 +33,7 @@
               <span
                 id="criticalFontAssignByMultipleSelectorsArray"
                 v-font="[
-                  $fonts.getFont('Comic Neue', 400, 'italic').addSelector(['i', 'em']).isCritical()
+                  $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
                 ]"
               >font assign by <i>multiple</i> <em>selectors (Array)</em></span>
             </li>
@@ -42,7 +42,7 @@
               <span
                 id="criticalFontAssignByDeepSelector"
                 v-font="[
-                  $fonts.getFont('Comic Neue', 700, 'italic').addSelector('strong > i').isCritical()
+                  $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'strong > i'})
                 ]"
               >font assign by <strong><i>deep</i></strong> selector</span>
             </li>
@@ -61,15 +61,15 @@
               Basic font assign
             </li>
             <hr>
-            <li id="lazyFontAssignBySingleSelector" v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('strong')">
+            <li id="lazyFontAssignBySingleSelector" v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'})">
               font assign by <strong>single selector</strong>
             </li>
             <li>
               <span
                 id="lazyFontAssignByMultipleVariances"
                 v-font="[
-                  $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('strong'),
-                  $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('i')
+                  $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'}),
+                  $fonts.getFont('Montserrat Alternates', 700, 'italic', {selector: 'i'})
                 ]"
               >font assign by <strong>multiple</strong> <i>variances</i></span>
             </li>
@@ -78,7 +78,7 @@
               <span
                 id="lazyFontAssignByMultipleSelectorsString"
                 v-font="[
-                  $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('strong, b')
+                  $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong, b'})
                 ]"
               >font assign by <strong>multiple</strong> <b>selectors (String)</b></span>
             </li>
@@ -86,7 +86,7 @@
               <span
                 id="lazyFontAssignByMultipleSelectorsArray"
                 v-font="[
-                  $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector(['i', 'em'])
+                  $fonts.getFont('Montserrat Alternates', 400, 'italic', {selector: 'i, em'})
                 ]"
               >font assign by <i>multiple</i> <em>selectors (Array)</em></span>
             </li>
@@ -95,7 +95,7 @@
               <span
                 id="lazyFontAssignByDeepSelector"
                 v-font="[
-                  $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('strong > i')
+                  $fonts.getFont('Montserrat Alternates', 700, 'italic', {selector: 'strong > i'})
                 ]"
               >font assign by <strong><i>deep</i> selector</strong></span>
             </li>

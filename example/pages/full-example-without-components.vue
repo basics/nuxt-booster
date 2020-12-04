@@ -5,8 +5,8 @@
       <lazy-picture v-bind="stage.picture" />
       <h1
         v-font="[
-          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline').isCritical(),
-          $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim').isCritical()
+          $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
+          $fonts.getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
         ]"
       >
         <span class="headline">{{ stage.headline }}</span>
@@ -17,12 +17,12 @@
     <div
       v-font="[
         $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
-        $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i'),
-        $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b,strong'),
-        $fonts.getFont('Comic Neue', 700, 'italic').addSelector('i b,i strong'),
-        $fonts.getFont('Comic Neue', 700, 'italic').addSelector('b i, strong i'),
-        $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i > b, i > strong')
+        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
+        $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i'}),
+        $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'b,strong'}),
+        $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'i b,i strong'}),
+        $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'b i, strong i'}),
+        $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i > b, i > strong'})
       ]"
       class="component-text-font-a"
       v-html="textA.text"
@@ -33,7 +33,7 @@
       <div
         v-font="[
           $fonts.getFont('Comic Neue', 400, 'normal'),
-          $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2')]"
+          $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
         class="text"
         v-html="imageTextA.text"
       />
@@ -42,11 +42,11 @@
     <div
       v-font="[
         $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
-        $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('b'),
-        $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('i b'),
-        $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('b i')
+        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
+        $fonts.getFont('Montserrat Alternates', 400, 'italic', {selector: 'i'}),
+        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'b'}),
+        $fonts.getFont('Montserrat Alternates', 700, 'italic', {selector: 'i b'}),
+        $fonts.getFont('Montserrat Alternates', 700, 'italic', {selector: 'b i'})
       ]"
       class="component-text-font-b"
       v-html="textB.text"
