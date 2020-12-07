@@ -140,18 +140,3 @@
     }
   }
 }
-
-/* VIDEO */
-
-.nuxt-speedkit__lazy-video {
-  display: block;
-  width: 100%;
-  object-fit: contain;
-  background-color: black;
-}
-
-.shaka-video-container {
-  height: 100vh;
-
-  /* height: stretch; */
-}
