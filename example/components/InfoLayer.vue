@@ -1,9 +1,10 @@
 <template>
   <speedkit-layer class="info_layer">
     <div>
-      <p>Your connection is too slow…</p>
-      <button class="info_layer__button nuxt-speedkit__speedkit-layer__button">
-        Anyway (OK)
+      <p>{{ text }}</p>
+      <!-- Set auto init for request load delay -->
+      <button onclick="window.__nuxtSpeedkitAutoInit__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
+        {{ buttonLabel }}
       </button>
     </div>
   </speedkit-layer>
@@ -15,6 +16,12 @@ import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer'
 export default {
   components: {
     SpeedkitLayer
+  },
+  data () {
+    return {
+      text: 'Your connection is too slow…',
+      buttonLabel: 'Anyway (OK)'
+    }
   }
 }
 </script>
