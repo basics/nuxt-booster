@@ -1,6 +1,6 @@
 const { join, resolve } = require('path')
 const { setup, loadConfig, get } = require('@nuxtjs/module-test-utils')
-const { getDom, getFontFaceSnippet, minifyHTML } = require('./utils')
+const { getDom, minifyHTML, getLinkPreloadHid } = require('./utils')
 
 describe('module', () => {
   let nuxt, html, dom
@@ -24,161 +24,124 @@ describe('module', () => {
     await nuxt.close()
   })
 
-  // /tests/v-font
+  // #region /tests/v-font
 
   test('v-font (font assign simple) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font')
     dom = getDom(html)
-
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-10e6588e]')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignSimple.font-comic-neue-400-normal')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'normal')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignSimple[data-f-10e6588e]')).not.toBeNull()
   })
 
   test('v-font (font assign by single selector) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 700))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-normal-c3ryb25n strong')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-4d3c52af] strong')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-normal"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignBySingleSelector.font-comic-neue-700-normal-c3ryb25n')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'normal')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignBySingleSelector[data-f-4d3c52af]')).not.toBeNull()
   })
 
   test('v-font (font assign by multiple variances) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 700))).not.toBe(-1)
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 700))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-normal-c3ryb25n strong')).not.toBe(-1)
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-italic-aq i')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-53c040b2] strong')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-53c040b2] i')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-normal"]')).not.toBeNull()
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-italic"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignByMultipleVariances.font-comic-neue-700-normal-c3ryb25n')).not.toBeNull()
-    expect(dom.querySelector('#criticalFontAssignByMultipleVariances.font-comic-neue-700-italic-aq')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'normal')}"]`)).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'italic')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignByMultipleVariances[data-f-53c040b2]')).not.toBeNull()
   })
 
-  test('v-font (font assign by multiple selectors (string)) (font-face, class, link (preload), element class)', async () => {
+  test('v-font (font assign by multiple selectors) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 700))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-normal-c3ryb25n strong')).not.toBe(-1)
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-normal-yg b')).not.toBe(-1)
-
+    expect(dom.head.innerHTML.indexOf('[data-f-729307df] i,[data-f-729307df] em')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-normal"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignByMultipleSelectorsString.font-comic-neue-700-normal-c3ryb25n')).not.toBeNull()
-    expect(dom.querySelector('#criticalFontAssignByMultipleSelectorsString.font-comic-neue-700-normal-yg')).not.toBeNull()
-  })
-
-  test('v-font (font assign by multiple selectors (array)) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font')
-    dom = getDom(html)
-
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 400))).not.toBe(-1)
-    // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-italic-aq i')).not.toBe(-1)
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-italic-zw0 em')).not.toBe(-1)
-
-    // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-400-italic"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignByMultipleSelectorsArray.font-comic-neue-400-italic-aq')).not.toBeNull()
-    expect(dom.querySelector('#criticalFontAssignByMultipleSelectorsArray.font-comic-neue-400-italic-zw0')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'italic')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignByMultipleSelectors[data-f-729307df]')).not.toBeNull()
   })
 
   test('v-font (font assign by deep selector) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 700))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-italic-c3ryb25nid4gaq strong>i')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-70c45035] strong>i')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-italic"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignByDeepSelector.font-comic-neue-700-italic-c3ryb25nid4gaq')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'italic')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignByDeepSelector[data-f-70c45035]')).not.toBeNull()
   })
 
-  // /tests/v-font-media
+  // #endregion
+
+  // #region /tests/v-font-media
 
   test('v-font (media) (font assign simple by max 479px) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font-media')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 700))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-italic-kg1hec13awr0adogndc5chgp')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-29e4a635]')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-italic-kg1hec13awr0adogndc5chgp"][media="(max-width: 479px)"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignSimpleByMax479.font-comic-neue-700-italic-kg1hec13awr0adogndc5chgp')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'italic', '(max-width: 479px)')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignSimpleByMax479[data-f-29e4a635]')).not.toBeNull()
   })
 
   test('v-font (media) (font assign simple by 480px) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font-media')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 400))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-normal-kg1pbi13awr0adogndgwchgp')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-27c3e1ae]')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-400-normal-kg1pbi13awr0adogndgwchgp"][media="(min-width: 480px)"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignSimpleBy480.font-comic-neue-400-normal-kg1pbi13awr0adogndgwchgp')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'normal', '(min-width: 480px)')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignSimpleBy480[data-f-27c3e1ae]')).not.toBeNull()
   })
 
   test('v-font (media) (font assign simple by 960px) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font-media')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'italic', 400))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-400-italic-kg1pbi13awr0adogotywchgp')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f--91b8358]')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-400-italic-kg1pbi13awr0adogotywchgp"][media="(min-width: 960px)"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontAssignSimpleBy960.font-comic-neue-400-italic-kg1pbi13awr0adogotywchgp')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'italic', '(min-width: 960px)')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontAssignSimpleBy960[data-f--91b8358]')).not.toBeNull()
   })
 
   test('v-font (media) (font assign with selector by 1440px) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML('tests/v-font-media')
     dom = getDom(html)
 
-    // font face exists?
-    expect(dom.head.innerHTML.indexOf(getFontFaceSnippet('Comic Neue', 'normal', 700))).not.toBe(-1)
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('.font-comic-neue-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')).not.toBe(-1)
+    expect(dom.head.innerHTML.indexOf('[data-f-278bcc24] b')).not.toBe(-1)
     // font link preload exists?
-    expect(dom.head.querySelector('link[hid="font-comic-neue-700-normal-kg1pbi13awr0adogmtq0mhb4kq"][media="(min-width: 1440px)"]')).not.toBeNull()
-    // element has font class?
-    expect(dom.querySelector('#criticalFontBySingleSelectorBy1440.font-comic-neue-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')).not.toBeNull()
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'normal', '(min-width: 1440px)')}"]`)).not.toBeNull()
+    // element has data attribute?
+    expect(dom.querySelector('#criticalFontBySingleSelectorBy1440[data-f-278bcc24]')).not.toBeNull()
   })
 
-  // /tests/lazy-image
+  // #endregion
+
+  // #region /tests/lazy-image
 
   test('lazy-image', async () => {
     html = await getHTML('tests/lazy-image')
@@ -187,11 +150,13 @@ describe('module', () => {
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
     const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset
 
-    expect(dom.querySelector(`link[imagesrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
-    expect(dom.querySelector(`link[imagesrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
   })
 
-  // /tests/lazy-picture
+  // #endregion
+
+  // #region /tests/lazy-picture
 
   test('lazy-picture', async () => {
     html = await getHTML('tests/lazy-picture')
@@ -200,7 +165,9 @@ describe('module', () => {
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
     const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset
 
-    expect(dom.querySelector(`link[imagesrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
-    expect(dom.querySelector(`link[imagesrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull()
+    expect(dom.querySelector(`link[imageSrcset="${lazySrcset}"][rel="preload"]`)).toBeNull()
   })
+
+  // #endregion
 })

@@ -1,17 +1,17 @@
 <template>
   <div>
     <organism-preview-container>
-      <template>
+      <template #default>
         <article
           v-font="[
-            $fonts.getFont('Comic Neue', 400, 'normal').isCritical(),
-            $fonts.getFont('Comic Neue', 700, 'normal').addSelector('b, strong').isCritical(),
-            $fonts.getFont('Comic Neue', 400, 'italic').addSelector('i, em').isCritical()
+            $fonts.getFont('Comic Neue', 400, 'normal'),
+            $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'b, strong'}),
+            $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
           ]"
           v-html="contentA"
         />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Critical<br>Font extended usage</p>
       </template>
     </organism-preview-container>

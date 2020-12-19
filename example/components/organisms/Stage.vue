@@ -3,8 +3,8 @@
     <lazy-picture v-bind="picture" />
     <h1
       v-font="[
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline'),
-        $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim')
+        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
+        $fonts.getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
       ]"
     >
       <span class="headline">{{ headline }}</span>

@@ -1,12 +1,26 @@
 <template>
-  <image-container :loading="loading" class="nuxt-speedkit__lazy-picture" @visible="onVisible">
-    <template>
-      <custom-picture v-bind="{src: placeholder, sources: pictureSources, width, height, alt, title}" @load="onLoad" />
-      <custom-no-script v-if="!init">
-        <custom-picture v-bind="{ sources, width, height, alt, title}" />
+  <image-container :loading="loading" class="nuxt-speedkit__lazy-picture">
+    <template #default>
+      <picture>
+        <source
+          v-for="(source, index) in preloadedSources"
+          :key="index"
+          v-bind="source"
+        >
+        <custom-image v-bind="{src: placeholder.base64, preload: sources, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
+      </picture>
+      <custom-no-script>
+        <picture>
+          <source
+            v-for="(source, index) in sources"
+            :key="index"
+            v-bind="source"
+          >
+          <custom-image v-bind="{src: placeholder.url, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
+        </picture>
       </custom-no-script>
     </template>
-    <template v-slot:caption>
+    <template #caption>
       <slot name="caption" />
     </template>
   </image-container>
@@ -15,14 +29,14 @@
 <script>
 import ImageContainer from './ImageContainer'
 import CustomNoScript from './customs/CustomNoScript'
-import CustomPicture from './customs/CustomPicture'
+import CustomImage from './customs/CustomImage'
 
 export default {
 
   components: {
     ImageContainer,
     CustomNoScript,
-    CustomPicture
+    CustomImage
   },
 
   props: {
@@ -34,16 +48,9 @@ export default {
     },
 
     placeholder: {
-      type: [Array, String],
+      type: Object,
       default () {
-        return null
-      }
-    },
-
-    placeholderSources: {
-      type: Array,
-      default () {
-        return []
+        return {}
       }
     },
 
@@ -73,39 +80,42 @@ export default {
       default () {
         return null
       }
+    },
+
+    crossorigin: {
+      type: String,
+      default () {
+        return 'anonymous'
+      }
     }
   },
 
   data () {
     return {
-      init: false,
-      loading: false
+      preloadedSources: (this.noScript && this.sources) || [],
+      loading: false,
+      webpSupport: false
     }
   },
 
   computed: {
-    pictureSources () {
-      if (this.init) {
-        return this.sources
-      }
-      return this.placeholderSources
-    },
-
     hasSlot () {
       return this.$slots.caption
     }
   },
 
+  mounted () {
+    this.loading = true
+  },
+
   methods: {
-
-    onVisible () {
-      this.loading = true
-      this.init = true
-    },
-
-    onLoad () {
+    onLoad (e) {
       this.loading = false
       this.$emit('load')
+    },
+
+    onPreload () {
+      this.preloadedSources = this.sources
     }
   }
 }

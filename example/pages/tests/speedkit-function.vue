@@ -1,9 +1,9 @@
 <template>
   <div>
     <organism-preview-container critical>
-      <template>
+      <template #default>
         <div
-          v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()"
+          v-font="$fonts.getFont('Quicksand', 400, 'normal')"
           class="wrapper"
         >
           <test-a id="testResolveByIntersectionObserver" title="Resolve by IntersectionObserver" />
@@ -11,7 +11,7 @@
           <test-c id="testResolveByEvent" title="Resolve by event &quot;click&quot;" />
         </div>
       </template>
-      <template v-slot:title>
+      <template #title>
         <div>
           <p>
             Speedkit-Function<br>Only Initial PageLoad

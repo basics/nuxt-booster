@@ -1,12 +1,12 @@
 <template>
-  <image-container :loading="loading" class="nuxt-speedkit__image" @visible="onVisible">
-    <template>
-      <custom-image v-bind="{src: placeholder, srcset: imageSrcset, width, height, alt, title, preload}" @load="onLoad" />
-      <custom-no-script v-if="!init">
-        <custom-image v-bind="{src: placeholder, srcset: srcset, width, height, alt, title, preload}" />
+  <image-container :loading="loading" class="nuxt-speedkit__image">
+    <template #default>
+      <custom-image v-bind="{src: placeholder.base64, srcset: preloadedSrcset, preload: [{srcset: srcset}], width, height, alt, title}" @load="onLoad" @preload="onPreload" />
+      <custom-no-script>
+        <custom-image v-bind="{src: placeholder.url, srcset, width, height, alt, title, noScript: true}" />
       </custom-no-script>
     </template>
-    <template v-slot:caption>
+    <template #caption>
       <slot name="caption" />
     </template>
   </image-container>
@@ -26,7 +26,7 @@ export default {
 
   props: {
     placeholder: {
-      type: String,
+      type: Object,
       default () {
         return null
       }
@@ -70,37 +70,29 @@ export default {
 
   data () {
     return {
-      init: false,
+      preloadedSrcset: (this.noScript && this.srcset) || [],
       loading: false
     }
   },
 
   computed: {
-    preload () {
-      return { srcset: this.srcset }
-    },
-
-    imageSrcset () {
-      if (this.init) {
-        return this.srcset
-      }
-      return null
-    },
-
     hasSlot () {
       return this.$slots.caption
     }
   },
 
-  methods: {
-    onVisible () {
-      this.loading = true
-      this.init = true
-    },
+  mounted () {
+    this.loading = true
+  },
 
+  methods: {
     onLoad () {
       this.loading = false
       this.$emit('load')
+    },
+
+    onPreload () {
+      this.preloadedSrcset = this.srcset
     }
   }
 }

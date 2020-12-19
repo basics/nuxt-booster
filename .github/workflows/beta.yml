@@ -66,7 +66,6 @@ jobs:
           rm -rf ./publish && mkdir ./publish && cp ./index.js ./publish/index.js && cp ./package.json ./publish/package.json && cp -r ./lib/* ./publish && cp ./README.md ./publish/README.md && cp ./LICENSE ./publish/LICENSE
           npx -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-ado semantic-release --provider=github
 
-
   build-example:
     name: Build (Example)
     needs: install
@@ -91,7 +90,7 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate --base=/example/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
+          npm run generate --build-analyze --base=/example/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
@@ -102,7 +101,6 @@ jobs:
         with:
           name: exampleArtifact
           path: dist
-
 
   build-docs:
     name: Build (Docs)

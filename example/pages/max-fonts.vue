@@ -1,23 +1,23 @@
 <template>
   <div>
     <organism-preview-container>
-      <template>
+      <template #default>
         <div>
           <div>
-            <p v-font="$fonts.getFont('Comic Neue', 300, 'normal').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 400, 'normal').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 700, 'normal').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 300, 'italic').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 400, 'italic').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 700, 'italic').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 400, 'italic').isCritical()" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic').isCritical()" v-html="content" />
+            <p v-font="$fonts.getFont('Comic Neue', 300, 'normal')" v-html="content" />
+            <p v-font="$fonts.getFont('Comic Neue', 400, 'normal')" v-html="content" />
+            <p v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="content" />
+            <p v-font="$fonts.getFont('Comic Neue', 300, 'italic')" v-html="content" />
+            <p v-font="$fonts.getFont('Comic Neue', 400, 'italic')" v-html="content" />
+            <p v-font="$fonts.getFont('Comic Neue', 700, 'italic')" v-html="content" />
+            <p v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal')" v-html="content" />
+            <p v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal')" v-html="content" />
+            <p v-font="$fonts.getFont('Montserrat Alternates', 400, 'italic')" v-html="content" />
+            <p v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic')" v-html="content" />
           </div>
         </div>
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Max Fonts</p>
       </template>
     </organism-preview-container>

@@ -1,8 +1,8 @@
 <template>
   <div
     v-font="[
-      $fonts.getFont('Quicksand', 400, 'normal').isCritical(),
-      $fonts.getFont('Quicksand', 700, 'normal').addSelector('h1, h2').isCritical()
+      $fonts.getFont('Quicksand', 400, 'normal'),
+      $fonts.getFont('Quicksand', 700, 'normal', {selector: 'h1, h2'})
     ]"
     class="page-index"
   >

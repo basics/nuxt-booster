@@ -2,10 +2,10 @@
   <div>
     <organism-spacer />
     <organism-preview-container>
-      <template>
+      <template #default>
         <article v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal')" v-html="contentA" />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Font basic usage</p>
       </template>
     </organism-preview-container>

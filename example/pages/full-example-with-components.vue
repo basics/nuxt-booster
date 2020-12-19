@@ -1,7 +1,8 @@
 <template>
   <div class="page-full-example-with-components">
-    <component-stage v-bind="stage" />
-    <component-text-a v-bind="textA" />
+    <component-stage v-bind="stage" @load:font="onLoadFont" />
+    <ComponentLazyYoutube :id="String('cLKvbhfVBUU')" v-bind="youtubePlayer" />
+    <component-text-a v-bind="textA" @load:font="onLoadFont" />
     <component-text-image v-bind="imageTextA" />
     <component-text-b v-bind="textB" />
   </div>
@@ -10,30 +11,80 @@
 <script>
 
 export default {
+
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
+    ComponentLazyYoutube: () => import('nuxt-speedkit/components/LazyYoutube'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextImage: () => import('@/components/organisms/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
   },
 
-  data () {
+  asyncData () {
     const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
     const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip')
 
     const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
-    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip')
+    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?lqip')
 
     return {
       contentA: '<p>This is a basic test with single font variant.</p>',
 
-      textA: {
-        text: '<h2>Text Headline</h2><p>Aliqua odit <b>anim vehicula</b> varius eget feugiat beatae. <i><b>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</b></i>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
+      stage: {
+        critical: true,
+        headline: 'Stage Headline',
+        claim: 'Stage Claim',
+        picture: {
+          sources: [
+            {
+              srcset: criticalImageWebp.srcSet,
+              type: 'image/webp'
+            },
+            {
+              srcset: criticalImageJpeg.srcSet,
+              type: 'image/jpeg'
+            }
+          ],
+          placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
+          width: criticalImageJpeg.width,
+          height: criticalImageJpeg.height,
+          alt: 'Alt Text',
+          title: 'Title Text',
+          caption: null
+        }
+      },
+      youtubePlayer: {
+        poster: Object.assign({
+          alt: 'Alt Text',
+          title: 'Title Text',
+          caption: null
+        }, require('@/assets/youtube/id/cLKvbhfVBUU'))
       },
 
-      textB: {
+      videoPlayer: {
+        poster: {
+          sources: [
+            {
+              srcset: criticalImageWebp.srcSet,
+              type: 'image/webp'
+            },
+            {
+              srcset: criticalImageJpeg.srcSet,
+              type: 'image/jpeg'
+            }
+          ],
+          placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
+          width: criticalImageJpeg.width,
+          height: criticalImageJpeg.height,
+          alt: 'Alt Text',
+          title: 'Title Text',
+          caption: null
+        }
+      },
+
+      textA: {
         text: '<h2>Text Headline</h2><p>Aliqua odit <b>anim vehicula</b> varius eget feugiat beatae. <i><b>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</b></i>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
       },
 
@@ -50,7 +101,7 @@ export default {
               type: 'image/jpeg'
             }
           ],
-          placeholder: lazyPlaceholder.preview,
+          placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(lazyPlaceholder),
           width: lazyImageJpeg.width,
           height: lazyImageJpeg.height,
           alt: 'Alt Text',
@@ -58,29 +109,16 @@ export default {
           caption: null
         }
       },
-      stage: {
-        critical: true,
-        headline: 'Stage Headline',
-        claim: 'Stage Claim',
-        picture: {
-          sources: [
-            {
-              srcset: criticalImageWebp.srcSet,
-              type: 'image/webp'
-            },
-            {
-              srcset: criticalImageJpeg.srcSet,
-              type: 'image/jpeg'
-            }
-          ],
-          placeholder: criticalPlaceholder.preview,
-          width: criticalImageJpeg.width,
-          height: criticalImageJpeg.height,
-          alt: 'Alt Text',
-          title: 'Title Text',
-          caption: null
-        }
+
+      textB: {
+        text: '<h2>Text Headline</h2><p>Aliqua odit <b>anim vehicula</b> varius eget feugiat beatae. <i><b>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</b></i>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
       }
+    }
+  },
+
+  methods: {
+    onLoadFont (fonts) {
+      console.log('page: font loaded', fonts)
     }
   }
 }
@@ -91,7 +129,7 @@ export default {
   font-size: calc(20 / 16 * 1em);
 
   & > * {
-    margin: 40px 0;
+    margin: 25px 0;
 
     &:first-child {
       margin-top: 0;

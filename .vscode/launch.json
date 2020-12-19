@@ -14,7 +14,9 @@
       "args": [
         "generate",
         "--config-file",
-        "example/nuxt.config.js"
+        "example/nuxt.config.js",
+        "--target",
+        "static"
       ]
     },
     {

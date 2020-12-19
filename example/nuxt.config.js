@@ -2,20 +2,15 @@ const { resolve } = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const pkg = require('../package.json')
 const isDev = process.env.NODE_ENV === 'development'
-const isTest = process.env.NODE_ENV === 'test'
 
 module.exports = {
   dev: isDev,
-  target: 'static',
+  target: hasTargetStatic() ? 'static' : null,
   modern: isDev ? false : 'client',
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  loading: {
-    color: 'blue',
-    height: '5px'
-  },
-  // mode: 'spa',
+  // ssr: false,
 
   env: {
     GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
@@ -66,7 +61,7 @@ module.exports = {
     },
 
     extend (config) {
-      if (!isDev && !isTest) {
+      if (hasBuildAnalyze()) {
         config.plugins.push(new BundleAnalyzerPlugin({
           reportFilename: resolve(`.reports/webpack/${config.name}.html`),
           statsFilename: resolve(`.reports/webpack/stats/${config.name}.json`),
@@ -82,11 +77,13 @@ module.exports = {
   },
 
   generate: {
+    crawler: false,
     dir: getDistPath()
   },
 
   router: {
-    base: getBasePath()
+    base: getBasePath(),
+    trailingSlash: false
   },
 
   buildModules: [
@@ -105,7 +102,6 @@ module.exports = {
   ],
 
   modules: [
-    ['nuxt-i18n', {}],
     [
       resolve(__dirname, '..'), {
         performance: {
@@ -241,4 +237,12 @@ function getPort () {
 
 function getDistPath () {
   return process.env.npm_config_dist || process.env.DIST_PATH || 'dist'
+}
+
+function hasBuildAnalyze () {
+  return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE
+}
+
+function hasTargetStatic () {
+  return (process.argv.indexOf('--target') && process.argv[process.argv.indexOf('--target') + 1] === 'static') || process.env.npm_config_target_static || process.env.TARGET_STATIC
 }

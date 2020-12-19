@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom'
+import { toHashHex } from '../lib/utils/string'
 const fs = require('fs')
 const rimraf = require('rimraf')
 
@@ -9,7 +10,16 @@ export function getDom (html) {
 }
 
 export function getFontFaceSnippet (family = 'Comic Neue', style = 'italic', weight = 300) {
-  return `@font-face{font-family:'${family}';font-style:${style};font-weight:${weight};`
+  return ['      @font-face {',
+    `        font-family: '${family}';`,
+    `        font-style: ${style};`,
+    `        font-weight: ${weight};`].join('\n')
+
+  // return `@font-face{font-family:'${family}';font-style:${style};font-weight:${weight};`
+}
+
+export function getLinkPreloadHid (family, weight = 400, style = 'normal', media = 'all') {
+  return toHashHex(`${family}-${weight}-${style}-${media}`.toLowerCase())
 }
 
 // See https://nuxtjs.org/api/configuration-build/#htmlminify

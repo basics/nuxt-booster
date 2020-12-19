@@ -1,10 +1,10 @@
 <template>
   <div>
     <organism-preview-container critical>
-      <template>
-        <lazy-iframe v-bind="iframeA" />
+      <template #default>
+        <lazy-youtube />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Critical<br>LazyIframe</p>
       </template>
     </organism-preview-container>
@@ -12,18 +12,16 @@
 </template>
 
 <script>
-import LazyIframe from 'nuxt-speedkit/components/LazyIframe'
+import LazyYoutube from 'nuxt-speedkit/components/LazyYoutube'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
-    LazyIframe,
+    LazyYoutube,
     OrganismPreviewContainer
   },
   data () {
     return {
-      iframeA: {
-        src: 'https://grabarzundpartner.de'
-      }
+
     }
   }
 }

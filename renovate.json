@@ -4,5 +4,6 @@
   ],
   "baseBranches": [
     "beta"
-  ]
+  ],
+  "rangeStrategy": "pin"
 }
