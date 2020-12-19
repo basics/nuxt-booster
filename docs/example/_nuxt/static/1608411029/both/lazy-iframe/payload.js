@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/both/lazy-iframe", (function(a,b){return {data:[{}],fetch:{"data-v-c1feaf180":{visible:a,preloaded:a,webpSupport:b,fontCollection:[]},"data-v-c1feaf181":{visible:a,preloaded:a,webpSupport:b,fontCollection:[]}},mutations:void 0}}(false,true)));

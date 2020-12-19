@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/lazy/lazy-picture", {data:[{}],fetch:{},mutations:void 0});

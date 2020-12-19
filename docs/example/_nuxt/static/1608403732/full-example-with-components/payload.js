@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/full-example-with-components", {data:[{}],fetch:{},mutations:void 0});
