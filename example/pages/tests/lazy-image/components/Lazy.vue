@@ -1,14 +1,6 @@
 <template>
   <div>
-    <organism-preview-container id="criticalContainer" critical>
-      <template>
-        <lazy-image v-bind="criticalImage" />
-      </template>
-      <template v-slot:title>
-        <p>Critical - LazyImage</p>
-      </template>
-    </organism-preview-container>
-    <organism-preview-container id="lazyContainer">
+    <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
       <template>
         <lazy-image v-bind="lazyImage" />
       </template>
@@ -28,22 +20,11 @@ export default {
     LazyImage
   },
 
-  asyncData () {
-    const criticalImage = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
-    const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip')
+  data () {
     const lazyImage = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
     const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip')
 
     return {
-      criticalImage: {
-        caption: null,
-        alt: 'Alt Text',
-        title: 'Title Text',
-        placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
-        srcset: criticalImage.srcSet,
-        width: criticalImage.width,
-        height: criticalImage.height
-      },
       lazyImage: {
         caption: null,
         alt: 'Alt Text',
