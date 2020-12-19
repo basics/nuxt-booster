@@ -7,3 +7,4 @@ coverage
 
 # Files
 **/*.js
+lib/css/fonts.css

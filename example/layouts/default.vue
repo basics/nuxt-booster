@@ -40,8 +40,6 @@ export default {
 
 <style lang="postcss">
 
-@import '@/../lib/style.css';
-
 html {
   height: stretch;
 }
@@ -75,4 +73,5 @@ body {
     font-size: 16px;
   }
 }
+
 </style>

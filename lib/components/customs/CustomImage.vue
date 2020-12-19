@@ -80,3 +80,12 @@ function getPreloadSrcset (sources, webpSupport) {
 }
 
 </script>
+
+<style scoped>
+  .nuxt-speedkit__custom-image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+  }
+</style>
