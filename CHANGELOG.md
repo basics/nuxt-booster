@@ -1,5 +1,41 @@
 # Project Changelog
 
+# [1.0.0-beta.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2020-12-19)
+
+
+### Bug Fixes
+
+* **cleanup:** cleanup ([d84ea20](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d84ea206550bd391761935fcaeda750879003247))
+* **css:** add font-face css; remove normalize and add css to components ([3ac9060](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3ac906004117f3d36c6e917d0acf9b031a901303))
+* **custom:** bugfix ([8e95711](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8e957110427e7b6b674e392b1b2219d5dffa0a71))
+* **deferred:** implemented own small version ([5122a5a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5122a5ae4f8654fc66a2d329c10c982fd58071a6))
+* **font:** fixed multi v-font declarations in one component ([5e62137](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5e62137779a026e05e530f7ab0d8064b5103b9e0))
+* **font:** integrated font collection ([049964f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/049964f12fe7c1484aa9862ae0e83e96fdaabab2))
+* **font:** simplify the hids; fix directive vnode attrs ([a64dd6d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a64dd6d1abdc3adad0ebbcf47f7efeb34be59779))
+* **image-container:** removed intersection observer ([f886112](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f8861125272306d170f0feb2791060d36ed43674))
+* **image-preload:** refactored ([f5905fd](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f5905fd4d5f7294474301e4d1655c05d34803dcf))
+* **info-layer:** add auto init ([e3c381a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e3c381ab81217d75e617e05c439c9b740dfa456c))
+* **lazy-image:** added width & height to example implementation ([3f95ca3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3f95ca33956529d47c9d583d9e3515d8452a3e3d))
+* **lazy-youtube:** removed lazy-iframe references ([51072de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/51072de11ddf93776d816e96a4756ee13848c4b6))
+* **nuxt:** downgrade 2.14.7 ([d9a14e9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d9a14e91531507fd68bf783e72e014fb6e49b9e2))
+* **package-lock:** updated ([0bc5552](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0bc5552521ae33895cadd27234548b6eff67f763))
+* **picture:** cleanup ([3ae8e1f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3ae8e1f94c0b832c316722ed261971528aacf183))
+* **preload:** fixed simultaneously preload of the same image by deferred cache ([4224e62](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4224e622cbcb2d3953f437a858d7627086245926))
+* **preload-image:** cleanup and refactored ([8f610b9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8f610b96a88ec54937b1ed2808448586407c6c92))
+* **tests:** fixed test - imagesrcset ([9681bde](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9681bde27372f2c1e1a9af5f73c79dbc92061516))
+* **tests-pages:** prepare test pages ([3543dab](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3543dab4600dc36c1ad9e2501d405d4643d90279))
+* **util:** removed unused util file ([05e2b73](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/05e2b7385e4c0570adba12d17df838063f5398b9))
+* **video:** removed stream player ([40b3c6d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/40b3c6d1658cdef697bb8eb098c7f95bb0e55bbe))
+* **webp-fallback:** added webp detection ([330831d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/330831db7004216b929c3a8fc79399c793a7f27e))
+
+
+### Features
+
+* **font:** refactored font handling ([a86a34e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a86a34e5d8961fc246408e3a38a07954cfa4d8a8))
+* **preload-image:** support preload imagesrcset in picture ([71e44f5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/71e44f54b4d51ec574d2c388a04e3364d2e36aad))
+* **responsive-svg:** added responsive svg draft ([8050569](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8050569007681dc6556f0acc968be2676fee3dea))
+* **youtube:** added lazy iframe implementation ([630368c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/630368c9684500c00c25583b3e311bac17c492c1))
+
 # [1.0.0-beta.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.21...v1.0.0-beta.22) (2020-11-09)
 
 
