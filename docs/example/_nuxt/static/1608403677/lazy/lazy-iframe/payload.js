@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/lazy/lazy-iframe", {data:[{}],fetch:{},mutations:void 0});
