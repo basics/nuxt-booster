@@ -1,12 +1,12 @@
 <template>
   <div>
     <organism-preview-container id="criticalContainer" critical>
-      <template>
+      <template #default>
         <div>
           <component-text-a v-bind="textA" />
         </div>
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Critical - Critical (Parent)</p>
       </template>
     </organism-preview-container>

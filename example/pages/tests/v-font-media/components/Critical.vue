@@ -1,6 +1,6 @@
 <template>
   <organism-preview-container>
-    <template>
+    <template #default>
       <div>
         <ul>
           <li id="criticalFontAssignSimpleByMax479" v-font="$fonts.getFont('Comic Neue', 700, 'italic', {media: '(max-width: 479px)'})">
@@ -18,7 +18,7 @@
         </ul>
       </div>
     </template>
-    <template v-slot:title>
+    <template #title>
       <p>Critical - v-font with media</p>
     </template>
   </organism-preview-container>

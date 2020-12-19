@@ -1,6 +1,6 @@
 <template>
   <organism-preview-container>
-    <template>
+    <template #default>
       <div>
         <ul>
           <li id="lazyFontAssignSimple" v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal')">
@@ -40,7 +40,7 @@
         </ul>
       </div>
     </template>
-    <template v-slot:title>
+    <template #title>
       <p>Lazy - v-font</p>
     </template>
   </organism-preview-container>

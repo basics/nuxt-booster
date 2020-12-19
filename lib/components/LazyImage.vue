@@ -1,12 +1,12 @@
 <template>
   <image-container :loading="loading" class="nuxt-speedkit__image">
-    <template>
+    <template #default>
       <custom-image v-bind="{src: placeholder.base64, srcset: preloadedSrcset, preload: [{srcset: srcset}], width, height, alt, title}" @load="onLoad" @preload="onPreload" />
       <custom-no-script>
         <custom-image v-bind="{src: placeholder.url, srcset, width, height, alt, title, noScript: true}" />
       </custom-no-script>
     </template>
-    <template v-slot:caption>
+    <template #caption>
       <slot name="caption" />
     </template>
   </image-container>

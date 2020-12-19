@@ -31,15 +31,23 @@ export default {
 
   fetchOnServer: process.server,
 
-  async fetch () {
-    this.webpSupport = process.server || await isWebpSupported()
-  },
-
   data () {
     return {
       visible: this.isCritical,
       preloaded: false,
       webpSupport: false
+    }
+  },
+
+  async fetch () {
+    this.webpSupport = process.server || await isWebpSupported()
+  },
+
+  head () {
+    if (this.preload && this.visible && this.preload && this.preload.length) {
+      return preloadImage(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload(), this.crossorigin)
+    } else {
+      return {}
     }
   },
 
@@ -63,14 +71,6 @@ export default {
     onPreload () {
       this.preloaded = true
       this.$emit('preload')
-    }
-  },
-
-  head () {
-    if (this.preload && this.visible && this.preload && this.preload.length) {
-      return preloadImage(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload(), this.crossorigin)
-    } else {
-      return {}
     }
   }
 }

@@ -2,10 +2,10 @@
   <div>
     <organism-spacer />
     <organism-preview-container>
-      <template>
+      <template #default>
         <lazy-image v-bind="lazyImage" />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>LazyImage - SRCSET<br>Image Switch by >768px</p>
       </template>
     </organism-preview-container>

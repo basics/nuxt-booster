@@ -2,10 +2,10 @@
   <div>
     <organism-spacer />
     <organism-preview-container>
-      <template>
+      <template #default>
         <lazy-youtube />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>LazyIframe</p>
       </template>
     </organism-preview-container>

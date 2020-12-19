@@ -1,10 +1,10 @@
 <template>
   <div>
     <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
-      <template>
+      <template #default>
         <lazy-image v-bind="lazyImage" />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Lazy - LazyImage</p>
       </template>
     </organism-preview-container>

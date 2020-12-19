@@ -1,10 +1,10 @@
 <template>
   <div>
     <organism-preview-container critical>
-      <template v-slot:default>
+      <template #default>
         <lazy-image v-bind="criticalImage" />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>
           Critical<br>LazyImage - SRCSET<br>Image Switch by >480 &amp; >768px
         </p>

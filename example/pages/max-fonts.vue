@@ -1,7 +1,7 @@
 <template>
   <div>
     <organism-preview-container>
-      <template>
+      <template #default>
         <div>
           <div>
             <p v-font="$fonts.getFont('Comic Neue', 300, 'normal')" v-html="content" />
@@ -17,7 +17,7 @@
           </div>
         </div>
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Max Fonts</p>
       </template>
     </organism-preview-container>

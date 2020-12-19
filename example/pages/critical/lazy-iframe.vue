@@ -1,10 +1,10 @@
 <template>
   <div>
     <organism-preview-container critical>
-      <template>
+      <template #default>
         <lazy-youtube />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Critical<br>LazyIframe</p>
       </template>
     </organism-preview-container>

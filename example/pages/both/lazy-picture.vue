@@ -1,18 +1,18 @@
 <template>
   <div>
     <organism-preview-container critical>
-      <template>
+      <template #default>
         <lazy-picture v-bind="criticalPicture" />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Critical<br>LazyPicture<br>Source Switch by >768px</p>
       </template>
     </organism-preview-container>
     <organism-preview-container>
-      <template>
+      <template #default>
         <lazy-picture v-bind="lazyPicture" />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>LazyPicture<br>Source Switch by >768px</p>
       </template>
     </organism-preview-container>

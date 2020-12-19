@@ -1,7 +1,7 @@
 <template>
   <div>
     <organism-preview-container>
-      <template>
+      <template #default>
         <article
           v-font="[
             $fonts.getFont('Comic Neue', 400, 'normal'),
@@ -11,12 +11,12 @@
           v-html="contentA"
         />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Critical<br>Font extended usage</p>
       </template>
     </organism-preview-container>
     <organism-preview-container>
-      <template>
+      <template #default>
         <article
           v-font="[
             $fonts.getFont('Montserrat Alternates', 400, 'normal'),
@@ -26,7 +26,7 @@
           v-html="contentA"
         />
       </template>
-      <template v-slot:title>
+      <template #title>
         <p>Font extended usage</p>
       </template>
     </organism-preview-container>

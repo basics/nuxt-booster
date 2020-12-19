@@ -1,6 +1,6 @@
 <template>
   <image-container :loading="loading" class="nuxt-speedkit__lazy-picture">
-    <template>
+    <template #default>
       <picture>
         <source
           v-for="(source, index) in preloadedSources"
@@ -20,7 +20,7 @@
         </picture>
       </custom-no-script>
     </template>
-    <template v-slot:caption>
+    <template #caption>
       <slot name="caption" />
     </template>
   </image-container>
