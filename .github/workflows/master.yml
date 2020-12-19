@@ -79,12 +79,12 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate
+          npm run generate --build-analyze
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
         env:
-          WEBSITE_HOST: 'https://grabarzundpartner.github.io/nuxt-speedkit'
+          WEBSITE_HOST: "https://grabarzundpartner.github.io/nuxt-speedkit"
           BASE_PATH: /nuxt-speedkit/
           DIST_PATH: dist
       - name: Archive Production Artifact

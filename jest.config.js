@@ -19,7 +19,7 @@ module.exports = {
   testPathIgnorePatterns: [
     'fixture'
     // 'generate.test.js',
-    // 'module.test.js'
+    // 'module.test.js',
     // 'browser.test.js'
   ]
 }
