@@ -59,7 +59,7 @@ export default {
       links: [
         {
           title: 'Full Example With Components',
-          to: '/full-example-with-components'
+          to: '/full-example-with-components/'
         },
         {
           title: 'Full Example Without Components',
