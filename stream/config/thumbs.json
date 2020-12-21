@@ -1,7 +1,0 @@
-{
-    "source": "./source/video/landscape.mp4",
-    "tiles": {
-        "num": 100,
-        "size": "128x72"
-    }
-}
