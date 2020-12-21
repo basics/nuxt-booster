@@ -82,8 +82,7 @@ module.exports = {
   },
 
   router: {
-    base: getBasePath(),
-    trailingSlash: true
+    base: getBasePath()
   },
 
   buildModules: [
