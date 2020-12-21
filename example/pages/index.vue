@@ -1,59 +1,44 @@
 <template>
   <div
-    v-font="[
-      $fonts.getFont('Quicksand', 400, 'normal'),
-      $fonts.getFont('Quicksand', 700, 'normal', {selector: 'h1, h2'})
-    ]"
     class="page-index"
   >
-    <h1>
+    <headline tag="h1" critical>
       Preview
-    </h1>
+    </headline>
     <nav>
-      <ul>
-        <li v-for="(link, index) in links" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
-            {{ link.title }}
-          </nuxt-link>
-        </li>
-      </ul>
+      <link-list :items="links" critical />
     </nav>
-    <h2>Critical</h2>
+    <headline tag="h2" critical>
+      Critical
+    </headline>
     <nav>
-      <ul>
-        <li v-for="(link, index) in criticalLinks" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
-            {{ link.title }}
-          </nuxt-link>
-        </li>
-      </ul>
+      <link-list :items="criticalLinks" critical />
     </nav>
-    <h2>Lazy</h2>
+    <headline tag="h2" critical>
+      Lazy
+    </headline>
     <nav>
-      <ul>
-        <li v-for="(link, index) in lazyLinks" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
-            {{ link.title }}
-          </nuxt-link>
-        </li>
-      </ul>
+      <link-list :items="lazyLinks" critical />
     </nav>
-    <h2>Both</h2>
+    <headline tag="h2" critical>
+      Both
+    </headline>
     <nav>
-      <ul>
-        <li v-for="(link, index) in bothLinks" :key="index">
-          <nuxt-link :to="link.to" :title="link.title">
-            {{ link.title }}
-          </nuxt-link>
-        </li>
-      </ul>
+      <link-list :items="bothLinks" critical />
     </nav>
   </div>
 </template>
 
 <script>
 
+import Headline from '@/components/atoms/Headline'
+import LinkList from '@/components/molecules/LinkList'
+
 export default {
+  components: {
+    Headline,
+    LinkList
+  },
   data () {
     return {
       links: [
@@ -178,21 +163,6 @@ export default {
 
   & nav {
     text-align: center;
-  }
-
-  & ul {
-    padding: 0;
-    list-style: none;
-
-    & li {
-      margin: calc(10 / 16 * 1em) 0;
-    }
-  }
-
-  & a {
-    font-size: 1em;
-    color: currentColor;
-    text-decoration: none;
   }
 }
 
