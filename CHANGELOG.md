@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2021-01-03)
+
+
+### Bug Fixes
+
+* **deps:** fix deps ([b599611](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b599611db7d47eff894374c4f02411777be3544d))
+
 # [1.0.0-beta.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2021-01-03)
 
 
