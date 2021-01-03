@@ -6,6 +6,6 @@ coverage
 .reports
 publish
 
-# Plugin
 lib/plugin.js
 lib/entry.js
+lib/components/SpeedkitLayer.vue

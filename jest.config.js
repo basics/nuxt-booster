@@ -4,7 +4,8 @@ module.exports = {
   collectCoverageFrom: [
     'lib/**/*.js',
     '!lib/plugin.js',
-    '!lib/entry.js'
+    '!lib/entry.js',
+    '!lib/components/SpeedkitLayer.vue'
   ],
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/lib/$1',
@@ -19,7 +20,7 @@ module.exports = {
   testPathIgnorePatterns: [
     'fixture'
     // 'generate.test.js',
-    // 'module.test.js',
+    // 'module.test.js'
     // 'browser.test.js'
   ]
 }

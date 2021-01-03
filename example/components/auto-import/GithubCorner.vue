@@ -23,6 +23,10 @@ export default {
 
 <style lang="postcss">
 .atom-github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+
   &:hover {
     & .octo-arm { animation: octocat-wave 560ms ease-in-out; }
   }

@@ -34,7 +34,7 @@ module.exports = {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app-edge'),
+            require.resolve('@nuxt/babel-preset-app'),
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3 },
@@ -88,7 +88,7 @@ module.exports = {
   buildModules: [
     ['@aceforth/nuxt-optimized-images', {
       optimizeImages: true,
-      optimizeImagesInDev: true,
+      optimizeImagesInDev: false,
       sqip: {
         numberOfPrimitives: 20,
         blur: 0,
@@ -103,6 +103,7 @@ module.exports = {
   modules: [
     [
       resolve(__dirname, '..'), {
+        ignorePerformance: false,
         performance: {
           device: {
             hardwareConcurrency: { min: 2, max: 48 },
