@@ -36,7 +36,7 @@ describe('browser (puppeteer)', () => {
   // #region /tests/v-font
 
   test('v-font (font assign simple) (element class)', async () => {
-    await page.goto(await getUrl('/tests/v-font'))
+    await page.goto(await getUrl('/tests/v-font/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple[data-f-56bf77ce]').classList.contains('.font-active'))).toBeFalsy()
@@ -48,7 +48,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (font assign by single selector) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+    await page.goto(await getUrl('/tests/v-font/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector[data-f-3ce46a67]').classList.contains('.font-active'))).toBeFalsy()
@@ -60,7 +60,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (font assign by multiple variances) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+    await page.goto(await getUrl('/tests/v-font/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances[data-f-493af80d]').classList.contains('.font-active'))).toBeFalsy()
@@ -72,7 +72,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (font assign by multiple selectors) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+    await page.goto(await getUrl('/tests/v-font/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectors[data-f-12e4c67a]').classList.contains('.font-active'))).toBeFalsy()
@@ -84,7 +84,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (font assign by deep selector) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+    await page.goto(await getUrl('/tests/v-font/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector[data-f-619085c8]').classList.contains('.font-active'))).toBeFalsy()
@@ -112,7 +112,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (media) (font assign simple by 480px) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+    await page.goto(await getUrl('/tests/v-font-media/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480[data-f-4ceb1f12]').classList.contains('.font-active'))).toBeFalsy()
@@ -124,7 +124,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (media) (font assign simple by 960px) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+    await page.goto(await getUrl('/tests/v-font-media/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960[data-f-1c63300d]').classList.contains('.font-active'))).toBeFalsy()
@@ -136,7 +136,7 @@ describe('browser (puppeteer)', () => {
 
   test('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+    await page.goto(await getUrl('/tests/v-font-media/'))
 
     // element has no font class?
     expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-f-4ada246c]').classList.contains('.font-active'))).toBeFalsy()
@@ -152,7 +152,7 @@ describe('browser (puppeteer)', () => {
 
   test('lazy-image', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/lazy-image'))
+    await page.goto(await getUrl('/tests/lazy-image/'))
 
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
@@ -166,7 +166,7 @@ describe('browser (puppeteer)', () => {
 
   test('lazy-picture', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/lazy-picture'))
+    await page.goto(await getUrl('/tests/lazy-picture/'))
 
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
@@ -182,7 +182,7 @@ describe('browser (puppeteer)', () => {
   // #region /tests/speedkit-function
 
   test('speedkit-function', async () => {
-    await page.goto(await getUrl('/tests/speedkit-function'))
+    await page.goto(await getUrl('/tests/speedkit-function/'))
 
     // test with IntersectionObserver
 
@@ -195,7 +195,7 @@ describe('browser (puppeteer)', () => {
     expect(await page.evaluate(() => document.querySelector('#testResolveByName.speedkit-test--active'))).toBeFalsy()
 
     page.evaluate(() => {
-      window.nuxtSpeedkitResolveComponents('resolve-components')
+      window.__NUXT_SPEEDKIT_RESOLVE_COMPONENTS__('resolve-components')
     })
     await page.waitForSelector('#testResolveByName.speedkit-test--active')
 

@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <organism-preview-container id="criticalContainer" :data-preload-srcset="criticalPicture.sources[0].srcset">
-      <template #default>
-        <lazy-picture v-bind="criticalPicture" />
-      </template>
-      <template #title>
-        <p>Critical - LazyPicture</p>
-      </template>
-    </organism-preview-container>
-  </div>
+  <organism-preview-container id="criticalContainer" :data-preload-srcset="criticalPicture.sources[0].srcset">
+    <template #default>
+      <lazy-picture v-bind="criticalPicture" />
+    </template>
+    <template #title>
+      <p>Critical - LazyPicture</p>
+    </template>
+  </organism-preview-container>
 </template>
 
 <script>
 
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
-import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit-components/LazyPicture'
 
 export default {
 

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { btoa } from '../utils/base64'
+import { btoa } from 'nuxt-speedkit/utils/base64'
 
 export default {
   data () {
