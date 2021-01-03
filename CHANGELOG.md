@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2020-12-21)
+
+
+### Bug Fixes
+
+* **routes:** added trailing slash to config ([b4ad553](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b4ad5531171840a8c112e3b1175b5cb2266c9883))
+
 # [1.0.0-beta.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2020-12-19)
 
 
