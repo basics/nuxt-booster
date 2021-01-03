@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tests/speedkit-function", {data:[{}],fetch:[],mutations:void 0});
