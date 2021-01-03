@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [1.0.0-beta.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2021-01-03)
+
+
+### Bug Fixes
+
+* **pages:** fix data ([22cbbf1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/22cbbf1ade61c7f086cfc3e1112c3b21e571bc7f))
+* **tests:** update tests with components ([ec78c70](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ec78c70976eef87729d6d0c626ff696d897e4e76))
+
 # [1.0.0-beta.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2020-12-21)
 
 
