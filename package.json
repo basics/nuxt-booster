@@ -33,7 +33,8 @@
     "dynamic-class-list": "1.1.0",
     "rxjs": "6.6.3",
     "youtube-player": "5.5.2",
-    "require-alias": "1.0.5"
+    "require-alias": "1.0.5",
+    "webpack-virtual-modules": "0.4.1"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "1.4.0",
@@ -66,7 +67,6 @@
     "stylelint-config-recess-order": "2.3.0",
     "stylelint-config-standard": "20.0.0",
     "webp-loader": "0.6.0",
-    "webpack-bundle-analyzer": "4.3.0",
-    "webpack-virtual-modules": "0.4.1"
+    "webpack-bundle-analyzer": "4.3.0"
   }
 }
