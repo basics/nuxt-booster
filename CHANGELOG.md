@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [1.0.0-beta.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2021-01-04)
+
+
+### Bug Fixes
+
+* **deps:** add used deps and remove unused deps ([2bd2b8e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2bd2b8ea28fe7d09d2348aba863486fa057c8db1))
+* **deps:** move dep from dev to prod ([f687195](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f68719501f7d88e27f09b175bed61fd2c8cb84b4))
+
 # [1.0.0-beta.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2021-01-04)
 
 
