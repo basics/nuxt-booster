@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2021-01-04)
+
+
+### Bug Fixes
+
+* **options:** set false as default value for ignorePerformance ([2a8441c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2a8441cca279d2efc343e87d5984b694540efe07))
+
 # [1.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2021-01-03)
 
 
