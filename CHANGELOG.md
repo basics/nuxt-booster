@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2021-01-05)
+
+
+### Bug Fixes
+
+* **placeholder:** fix empty placeholder undefined error ([1136ae8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1136ae8d1f57f52d2f39c899fea16d8a5934abb6))
+
 # [1.0.0-beta.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2021-01-04)
 
 
