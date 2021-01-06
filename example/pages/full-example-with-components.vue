@@ -12,14 +12,6 @@
 
 export default {
 
-  speedkitComponents: {
-    ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
-    ComponentLazyYoutube: () => import('nuxt-speedkit/components/LazyYoutube'),
-    ComponentTextA: () => import('@/components/organisms/TextFontA'),
-    ComponentTextImage: () => import('@/components/organisms/ImageText'),
-    ComponentTextB: () => import('@/components/organisms/TextFontB')
-  },
-
   asyncData () {
     const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
     const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
@@ -114,6 +106,13 @@ export default {
         text: '<h2>Text Headline</h2><p>Aliqua odit <b>anim vehicula</b> varius eget feugiat beatae. <i><b>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</b></i>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
       }
     }
+  },
+  speedkitComponents: {
+    ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
+    ComponentLazyYoutube: () => import('nuxt-speedkit-components/LazyYoutube'),
+    ComponentTextA: () => import('@/components/organisms/TextFontA'),
+    ComponentTextImage: () => import('@/components/organisms/ImageText'),
+    ComponentTextB: () => import('@/components/organisms/TextFontB')
   },
 
   methods: {

@@ -89,7 +89,7 @@ module.exports = {
   buildModules: [
     ['@aceforth/nuxt-optimized-images', {
       optimizeImages: true,
-      optimizeImagesInDev: true,
+      optimizeImagesInDev: false,
       sqip: {
         numberOfPrimitives: 20,
         blur: 0,
@@ -105,6 +105,7 @@ module.exports = {
     ['@nuxt/image', {}],
     [
       resolve(__dirname, '..'), {
+        ignorePerformance: false,
         performance: {
           device: {
             hardwareConcurrency: { min: 2, max: 48 },

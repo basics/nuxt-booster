@@ -1,6 +1,6 @@
 <template>
-  <only-ssr :disabled="ignoreNoSsr">
-    <div class="nuxt-speedkit__speedkit-layer">
+  <only-ssr :disabled="disabled">
+    <div class="nuxt-speedkit__speedkit-layer" v-if="!hide">
       <slot>
         <button class="nuxt-speedkit__speedkit-layer__button">
           OK
@@ -12,18 +12,26 @@
 
 <script>
 
-import OnlySsr from '../abstracts/OnlySsr'
+import OnlySsr from './OnlySsr'
 export default {
   name: 'SpeedkitInfoLayer',
 
   components: {
     OnlySsr
   },
-
   props: {
+    hide: {
+      type: Boolean,
+      default: <%= options.ignorePerformance %>
+    },
     ignoreNoSsr: {
       type: Boolean,
-      default: false
+      default: <%= options.ignorePerformance || false %>
+    }
+  },
+  computed: {
+    disabled () {
+      return this.ignoreNoSsr
     }
   }
 }

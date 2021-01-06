@@ -3,7 +3,7 @@
     <div>
       <p>{{ text }}</p>
       <!-- Set auto init for request load delay -->
-      <button onclick="window.__nuxtSpeedkitAutoInit__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
+      <button onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
         {{ buttonLabel }}
       </button>
     </div>
@@ -12,7 +12,7 @@
 
 <script>
 
-import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer'
+import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer'
 export default {
   components: {
     SpeedkitLayer

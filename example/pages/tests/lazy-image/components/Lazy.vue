@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
-      <template #default>
-        <lazy-image v-bind="lazyImage" />
-      </template>
-      <template #title>
-        <p>Lazy - LazyImage</p>
-      </template>
-    </organism-preview-container>
-  </div>
+  <organism-preview-container id="lazyContainer" :data-preload-srcset="lazyImage.srcset">
+    <template #default>
+      <lazy-image v-bind="lazyImage" />
+    </template>
+    <template #title>
+      <p>Lazy - LazyImage</p>
+    </template>
+  </organism-preview-container>
 </template>
 
 <script>
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
-import LazyImage from 'nuxt-speedkit/components/LazyImage'
+import LazyImage from 'nuxt-speedkit-components/LazyImage'
 export default {
   components: {
     OrganismPreviewContainer,

@@ -1,12 +1,16 @@
 <template>
-  <h1 v-font="$fonts.getFont('Comic Neue', 400, 'normal')" class="atom-headline">
-    {{ content }}
-  </h1>
+  <component :is="tag" v-font="$fonts.getFont('Quicksand', 700, 'normal')" class="atom-headline">
+    <slot>{{ content }}</slot>
+  </component>
 </template>
 
 <script>
 export default {
   props: {
+    tag: {
+      type: String,
+      default: 'h1'
+    },
     content: {
       type: String,
       default: 'Headline'

@@ -9,8 +9,8 @@
 
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
-import { isWebpSupported } from '../../utils/support'
-import { preloadImage } from '../../utils/preload'
+import { isWebpSupported } from 'nuxt-speedkit/utils/support'
+import { preloadImage } from 'nuxt-speedkit/utils/preload'
 
 export default {
   props: {

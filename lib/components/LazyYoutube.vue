@@ -45,10 +45,6 @@ export default {
     }
   },
 
-  mounted () {
-
-  },
-
   methods: {
     async onLoad (e) {
       await registerIntersectionObserver(this.$el)

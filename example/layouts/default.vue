@@ -11,8 +11,6 @@
 <script>
 import InfoLayer from '@/components/InfoLayer'
 
-// import GoogleLighthouse from '@/components/components/GoogleLighthouse'
-// import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
     GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'),
@@ -20,12 +18,11 @@ export default {
   },
   components: {
     InfoLayer
-    // OrganismPageHeader
   },
 
   head () {
     return {
-      title: this.$route.name,
+      title: `${this.$route.name} | nuxt-speedkit`,
       meta: [
         {
           hid: 'description',

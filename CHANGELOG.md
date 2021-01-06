@@ -1,5 +1,49 @@
 # Project Changelog
 
+# [1.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2021-01-05)
+
+
+### Bug Fixes
+
+* **placeholder:** fix empty placeholder undefined error ([1136ae8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1136ae8d1f57f52d2f39c899fea16d8a5934abb6))
+
+# [1.0.0-beta.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2021-01-04)
+
+
+### Bug Fixes
+
+* **deps:** add used deps and remove unused deps ([2bd2b8e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2bd2b8ea28fe7d09d2348aba863486fa057c8db1))
+* **deps:** move dep from dev to prod ([f687195](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f68719501f7d88e27f09b175bed61fd2c8cb84b4))
+
+# [1.0.0-beta.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2021-01-04)
+
+
+### Bug Fixes
+
+* **options:** set false as default value for ignorePerformance ([2a8441c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2a8441cca279d2efc343e87d5984b694540efe07))
+
+# [1.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2021-01-03)
+
+
+### Bug Fixes
+
+* **deps:** fix deps ([b599611](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b599611db7d47eff894374c4f02411777be3544d))
+
+# [1.0.0-beta.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2021-01-03)
+
+
+### Bug Fixes
+
+* **pages:** fix data ([22cbbf1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/22cbbf1ade61c7f086cfc3e1112c3b21e571bc7f))
+* **tests:** update tests with components ([ec78c70](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ec78c70976eef87729d6d0c626ff696d897e4e76))
+
+# [1.0.0-beta.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2020-12-21)
+
+
+### Bug Fixes
+
+* **routes:** added trailing slash to config ([b4ad553](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b4ad5531171840a8c112e3b1175b5cb2266c9883))
+
 # [1.0.0-beta.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2020-12-19)
 
 
