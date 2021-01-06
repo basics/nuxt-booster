@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2021-01-06)
+
+
+### Bug Fixes
+
+* **multi-font-files:** added support to register multi font files ([63b5a44](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/63b5a440b748f39bd0670bb151f1b3ca8263712c))
+
 # [1.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2021-01-05)
 
 
