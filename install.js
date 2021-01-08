@@ -21,7 +21,7 @@ if (isPackage) {
   // copy files to tmp dir
   files.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(tmpDir, file)))
 
-  // // delete all files in package
+  // delete all files in package
   fsExtra.readdirSync('.').forEach(file => fsExtra.removeSync(file))
 
   fsExtra.copySync(tmpDir, process.cwd())
