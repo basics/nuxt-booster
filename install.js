@@ -3,44 +3,48 @@ const path = require('path')
 const fs = require('fs')
 
 function install () {
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-'))
+  const isPackage = path.basename(path.join(process.cwd(), '../')) === 'node_modules'
 
-  // collect files for clean package
-  const libDir = './lib'
-  const files = [
-    './index.js',
-    './package.json',
-    './README.md',
-    './LICENSE'
+  if (isPackage) {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-'))
 
-  ].concat(fs.readdirSync(libDir).map(file => `./lib/${file}`))
+    // collect files for clean package
+    const libDir = './lib'
+    const files = [
+      './index.js',
+      './package.json',
+      './README.md',
+      './LICENSE'
 
-  // copy files to tmp dir
-  mkdir(path.join(tmpDir, libDir))
-  files.forEach((file) => {
-    const filename = file
-    const stat = fs.statSync(filename)
+    ].concat(fs.readdirSync(libDir).map(file => `./lib/${file}`))
 
-    if (stat.isDirectory()) {
-      copyDir(file, path.join(tmpDir, file))
-    } else {
-      fs.copyFileSync(file, path.join(tmpDir, file))
-    }
-  })
+    // copy files to tmp dir
+    mkdir(path.join(tmpDir, libDir))
+    files.forEach((file) => {
+      const filename = file
+      const stat = fs.statSync(filename)
 
-  // delete all files in package
-  fs.readdirSync('.').forEach((file) => {
-    const filename = file
-    const stat = fs.statSync(filename)
+      if (stat.isDirectory()) {
+        copyDir(file, path.join(tmpDir, file))
+      } else {
+        fs.copyFileSync(file, path.join(tmpDir, file))
+      }
+    })
 
-    if (stat.isDirectory()) {
-      rmdir(file)
-    } else {
-      fs.unlinkSync(file)
-    }
-  })
+    // delete all files in package
+    fs.readdirSync('.').forEach((file) => {
+      const filename = file
+      const stat = fs.statSync(filename)
 
-  copyDir(tmpDir, process.cwd())
+      if (stat.isDirectory()) {
+        rmdir(file)
+      } else {
+        fs.unlinkSync(file)
+      }
+    })
+
+    copyDir(tmpDir, process.cwd())
+  }
 }
 
 function mkdir (dir) {
