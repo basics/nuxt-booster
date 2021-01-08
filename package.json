@@ -19,6 +19,9 @@
   },
   "main": "index.js",
   "scripts": {
+    "prepare": "echo \"prepare\"",
+    "prepublish": "echo \"prepublish\"",
+    "preinstall": "echo \"preinstall\"",
     "postversion": "cp -r ./package.json ..",
     "dev": "nuxt example",
     "build": "nuxt build --config-file example/nuxt.config.js",
