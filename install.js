@@ -22,7 +22,7 @@ if (isPackage) {
   files.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(tmpDir, file)))
 
   // // delete all files in package
-  fsExtra.readdirSync('.').map(file => fsExtra.rmSync(file))
+  fsExtra.readdirSync('.').forEach(file => fsExtra.removeSync(file))
 
   fsExtra.copySync(tmpDir, process.cwd())
 }
