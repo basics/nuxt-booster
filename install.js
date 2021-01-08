@@ -55,7 +55,7 @@ function mkdir (dir) {
 };
 
 function rmdir (dir) {
-  if (path.existsSync(dir)) {
+  if (fs.existsSync(dir)) {
     const list = fs.readdirSync(dir)
     for (let i = 0; i < list.length; i++) {
       const filename = path.join(dir, list[i])
