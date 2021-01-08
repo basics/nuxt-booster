@@ -1,7 +1,8 @@
 const os = require('os')
 const path = require('path')
 const fs = require('fs')
-
+const fsExtra = require('fs-extra')
+console.log(fsExtra)
 function install () {
   const isPackage = path.basename(path.join(process.cwd(), '../')) === 'node_modules'
 
