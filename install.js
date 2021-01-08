@@ -19,7 +19,7 @@ if (isPackage) {
   ].concat(fsExtra.readdirSync(libDir).map(file => `./lib/${file}`))
 
   // copy files to tmp dir
-  files.forEach(file => fsExtra.copySync(file, path.join(tmpDir, file)))
+  files.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(tmpDir, file)))
 
   // // delete all files in package
   fsExtra.readdirSync('.').map(file => fsExtra.rmSync(file))
