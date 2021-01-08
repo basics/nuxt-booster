@@ -19,12 +19,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "prepack": "echo \"prepack\"",
-    "postpack": "echo \"postpack\"",
-    "prepare": "echo \"prepare\"",
-    "prepublish": "echo \"prepublish\"",
-    "preinstall": "echo \"preinstall\"",
-    "postinstall": "echo \"postinstall\"",
+    "postpack": "node ./install.js",
     "postversion": "cp -r ./package.json ..",
     "dev": "nuxt example",
     "build": "nuxt build --config-file example/nuxt.config.js",
