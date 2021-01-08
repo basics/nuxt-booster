@@ -32,10 +32,11 @@
   },
   "dependencies": {
     "dynamic-class-list": "1.1.0",
-    "rxjs": "6.6.3",
-    "youtube-player": "5.5.2",
+    "fs-extra": "^9.0.1",
     "require-alias": "1.0.5",
-    "webpack-virtual-modules": "0.4.1"
+    "rxjs": "6.6.3",
+    "webpack-virtual-modules": "0.4.1",
+    "youtube-player": "5.5.2"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "1.4.0",
