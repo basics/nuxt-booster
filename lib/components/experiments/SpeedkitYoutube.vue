@@ -2,7 +2,6 @@
   <div class="nuxt-speedkit_speedkit-youtube" :class="{ready: ready}">
     <div
       ref="youtube"
-      class="nuxt-speedkit__speedkit-iframe"
       loading="lazy"
       :width="poster.width"
       :height="poster.height"
