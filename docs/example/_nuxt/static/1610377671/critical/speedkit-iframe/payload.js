@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/critical/speedkit-iframe", {data:[{}],fetch:[],mutations:void 0});
