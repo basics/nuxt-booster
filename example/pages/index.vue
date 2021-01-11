@@ -26,6 +26,13 @@
     <nav>
       <link-list :items="bothLinks" critical />
     </nav>
+    <headline tag="h2" critical>
+      Experiments
+    </headline>
+    <nav>
+      <link-list :items="experimentsLinks" critical />
+    </nav>
+    <br>
   </div>
 </template>
 
@@ -39,7 +46,7 @@ export default {
     Headline,
     LinkList
   },
-  data () {
+  asyncData () {
     return {
       links: [
         {
@@ -101,8 +108,8 @@ export default {
           to: '/critical/speedkit-picture'
         },
         {
-          title: 'LazyIframe',
-          to: '/critical/lazy-iframe'
+          title: 'SpeedkitIframe',
+          to: '/critical/speedkit-iframe'
         }
       ],
       lazyLinks: [
@@ -123,8 +130,8 @@ export default {
           to: '/lazy/speedkit-picture'
         },
         {
-          title: 'LazyIframe',
-          to: '/lazy/lazy-iframe'
+          title: 'SpeedkitIframe',
+          to: '/lazy/speedkit-iframe'
         }
       ],
       bothLinks: [
@@ -145,10 +152,20 @@ export default {
           to: '/both/speedkit-picture'
         },
         {
-          title: 'LazyIframe',
-          to: '/both/lazy-iframe'
+          title: 'SpeedkitIframe',
+          to: '/both/speedkit-iframe'
         }
-      ]
+      ],
+      experimentsLinks: [
+        {
+          title: 'SpeedkitYoutube',
+          to: '/experiments/speedkit-youtube'
+        }]
+    }
+  },
+  data () {
+    return {
+      links: []
     }
   }
 }

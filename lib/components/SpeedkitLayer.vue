@@ -12,7 +12,7 @@
 
 <script>
 
-import OnlySsr from './OnlySsr'
+import OnlySsr from './abstracts/OnlySsr'
 export default {
   name: 'SpeedkitInfoLayer',
 

@@ -1,33 +1,26 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <div>
-        <speedkit-youtube v-bind="iframe" />
-      </div>
+      <speedkit-iframe v-bind="iframe" />
     </template>
     <template #title>
-      <p>LazyIframe</p>
+      <p>SpeedkitIframe</p>
     </template>
   </organism-preview-container>
 </template>
 
 <script>
-import SpeedkitYoutube from 'nuxt-speedkit-components/SpeedkitYoutube'
+import SpeedkitIframe from 'nuxt-speedkit-components/SpeedkitIframe'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
-    SpeedkitYoutube,
+    SpeedkitIframe,
     OrganismPreviewContainer
   },
   data () {
     return {
       iframe: {
-        id: 'cLKvbhfVBUU',
-        poster: Object.assign({
-          alt: 'Alt Text',
-          title: 'Title Text',
-          caption: null
-        }, require('@/assets/youtube/id/cLKvbhfVBUU'))
+        src: 'https://grabarzundpartner.de'
       }
     }
   }

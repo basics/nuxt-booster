@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
 import YoutubePlayer from 'youtube-player'
+import SpeedkitPicture from '../SpeedkitPicture'
 
 export default {
   components: {

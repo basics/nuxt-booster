@@ -210,4 +210,18 @@ describe('browser (puppeteer)', () => {
   })
 
   // #endregion
+
+  // #region /tests/speedkit-iframe
+
+  test('speedkit-iframe', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/speedkit-iframe/'))
+
+    page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight)
+    })
+    await page.waitForSelector('#lazyContainer iframe[src]')
+  })
+
+  // #endregion
 })

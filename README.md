@@ -127,12 +127,12 @@ Important `critical` option is inherited on child nodes.
 
 When using `slot` and `v-font` on a component set directly with `critical`, the font must be set as `critical` separately via [isCritical](#iscritical).
 
-### LazyIframe [[code](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/master/lib/components/LazyIframe.vue)]
+### SpeedkitIframe [[code](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/master/lib/components/SpeedkitIframe.vue)]
 
 Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
 
 ```html
-<lazy-iframe src="…" />
+<speedkit-iframe src="…" />
 ```
 
 ### LazyImage [[code](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/master/lib/components/LazyImage.vue)]
@@ -314,7 +314,7 @@ OR operators can be defined by string or array.
   - [x] v-font
   - [x] LazyImage
   - [x] LazyPicture
-  - [ ] LazyIframe
+  - [ ] SpeedkitIframe
   - [ ] LazyVideo
 - [ ] Clean Up!
   - [ ] Namings
