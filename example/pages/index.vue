@@ -63,12 +63,12 @@ export default {
           to: '/tests/v-font-media'
         },
         {
-          title: 'Test: LazyPicture',
-          to: '/tests/lazy-picture'
+          title: 'Test: SpeedkitPicture',
+          to: '/tests/speedkit-picture'
         },
         {
-          title: 'Test: LazyImage',
-          to: '/tests/lazy-image'
+          title: 'Test: SpeedkitImage',
+          to: '/tests/speedkit-image'
         },
         {
           title: 'Test: Speedkit Function',
@@ -93,12 +93,12 @@ export default {
           to: '/critical/font-extended'
         },
         {
-          title: 'LazyImage',
-          to: '/critical/lazy-image'
+          title: 'SpeedkitImage',
+          to: '/critical/speedkit-image'
         },
         {
-          title: 'LazyPicture',
-          to: '/critical/lazy-picture'
+          title: 'SpeedkitPicture',
+          to: '/critical/speedkit-picture'
         },
         {
           title: 'LazyIframe',
@@ -115,12 +115,12 @@ export default {
           to: '/lazy/font-extended'
         },
         {
-          title: 'LazyImage',
-          to: '/lazy/lazy-image'
+          title: 'SpeedkitImage',
+          to: '/lazy/speedkit-image'
         },
         {
-          title: 'LazyPicture',
-          to: '/lazy/lazy-picture'
+          title: 'SpeedkitPicture',
+          to: '/lazy/speedkit-picture'
         },
         {
           title: 'LazyIframe',
@@ -137,12 +137,12 @@ export default {
           to: '/both/font-extended'
         },
         {
-          title: 'LazyImage',
-          to: '/both/lazy-image'
+          title: 'SpeedkitImage',
+          to: '/both/speedkit-image'
         },
         {
-          title: 'LazyPicture',
-          to: '/both/lazy-picture'
+          title: 'SpeedkitPicture',
+          to: '/both/speedkit-picture'
         },
         {
           title: 'LazyIframe',

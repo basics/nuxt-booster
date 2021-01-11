@@ -141,10 +141,10 @@ describe('module', () => {
 
   // #endregion
 
-  // #region /tests/lazy-image
+  // #region /tests/speedkit-image
 
-  test('lazy-image', async () => {
-    html = await getHTML('tests/lazy-image')
+  test('speedkit-image', async () => {
+    html = await getHTML('tests/speedkit-image')
     dom = getDom(html)
 
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
@@ -156,10 +156,10 @@ describe('module', () => {
 
   // #endregion
 
-  // #region /tests/lazy-picture
+  // #region /tests/speedkit-picture
 
-  test('lazy-picture', async () => {
-    html = await getHTML('tests/lazy-picture')
+  test('speedkit-picture', async () => {
+    html = await getHTML('tests/speedkit-picture')
     dom = getDom(html)
 
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset

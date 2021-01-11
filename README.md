@@ -89,11 +89,11 @@ npm run add nuxt-speedkit # or npm install nuxt-speedkit
 
 ## Options
 
-| Property              | Type      | Description                                                                                                                               | Default |
-| --------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `fonts`               | `Array`   | List of included [fonts](#font-object).                                                                                                   | `[]`    |
-| `componentAutoImport` | `Boolean` | If set Component automatically import from module.                                                                                        | `[]`    |
-| `componentPrefix`     | `String`  | Defines a prefix for the module components, important for auto import (`componentAutoImport`). E.g.: `LazyPicture` -> `PrefixLazyPicture` | `[]`    |
+| Property              | Type      | Description                                                                                                                                   | Default |
+| --------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `fonts`               | `Array`   | List of included [fonts](#font-object).                                                                                                       | `[]`    |
+| `componentAutoImport` | `Boolean` | If set Component automatically import from module.                                                                                            | `[]`    |
+| `componentPrefix`     | `String`  | Defines a prefix for the module components, important for auto import (`componentAutoImport`). E.g.: `SpeedkitPicture` -> `PrefixLazyPicture` | `[]`    |
 
 
 ### Font Object
