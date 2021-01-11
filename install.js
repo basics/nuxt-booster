@@ -5,6 +5,7 @@ const fsExtra = require('fs-extra')
 const isPackage = path.basename(path.join(process.cwd(), '../')) === 'node_modules'
 
 if (isPackage) {
+  // remove unused files
   const ignoredFiles = [
     'index.js',
     'package.json',
@@ -20,8 +21,6 @@ if (isPackage) {
   const libFiles = fsExtra.readdirSync(libDir).map(file => path.resolve(libDir, file))
   libFiles.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(process.cwd(), path.relative(libDir, file))))
 
-  // // delete all files in package
-  // fsExtra.readdirSync('.').forEach(file => fsExtra.removeSync(file))
-
-  // fsExtra.copySync(tmpDir, process.cwd())
+  // remove lib dir
+  fsExtra.remove(libDir)
 }
