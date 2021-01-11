@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.33...v1.0.0-beta.34) (2021-01-11)
+
+
+### Bug Fixes
+
+* **github:** move cname file in root dir from dist ([679d7c6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/679d7c68c68af0858188e796621574817825a256))
+
 # [1.0.0-beta.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2021-01-11)
 
 
