@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import { hydrateNever } from 'vue-lazy-hydration'
+// import { hydrateNever } from 'vue-lazy-hydration'
 
 export default {
   components: {
-    CustomImage: hydrateNever(() => import('nuxt-speedkit/components/customs/CustomImage'))
+    // CustomImage: hydrateNever(() => import('nuxt-speedkit-components/customs/CustomImage'))
   },
 
   props: {

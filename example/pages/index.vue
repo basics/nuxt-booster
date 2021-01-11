@@ -164,6 +164,10 @@ export default {
         {
           title: 'SpeedkitYoutube',
           to: '/experiments/speedkit-youtube'
+        },
+        {
+          title: 'ExperimentalPicture',
+          to: '/experiments/experimental-picture'
         }]
     }
   },
