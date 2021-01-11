@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2021-01-11)
+
+
+### Bug Fixes
+
+* **renaming:** renamed lazy components to speedkit e.g. speedkit-picture ([0efb249](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0efb249fd9a76cd50afce5bcb07ceb3316eba56b))
+
 # [1.0.0-beta.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2021-01-11)
 
 
