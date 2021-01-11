@@ -1,6 +1,6 @@
 <template>
   <div class="component-image-text">
-    <lazy-picture v-bind="picture" />
+    <speedkit-picture v-bind="picture" />
     <div
       v-font="[
         $fonts.getFont('Comic Neue', 400, 'normal'),
@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import LazyPicture from 'nuxt-speedkit-components/LazyPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
 export default {
   components: {
-    LazyPicture
+    SpeedkitPicture
   },
   props: {
     picture: { type: Object, default () { return {} } },

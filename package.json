@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.0.0-beta.29",
+  "version": "1.0.0-beta.33",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -19,6 +19,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "postinstall": "node ./install.js",
     "postversion": "cp -r ./package.json ..",
     "dev": "nuxt example",
     "build": "nuxt build --config-file example/nuxt.config.js",
@@ -32,9 +33,10 @@
   "dependencies": {
     "@nuxt/image": "npm:@modified/image@0.0.4-beta1",
     "dynamic-class-list": "1.1.0",
+    "fs-extra": "9.0.1",
     "require-alias": "1.0.5",
     "rxjs": "6.6.3",
-    "vue-lazy-hydration": "^2.0.0-beta.4",
+    "vue-lazy-hydration": "2.0.0-beta.4",
     "webpack-virtual-modules": "0.4.1",
     "youtube-player": "5.5.2"
   },
@@ -50,7 +52,7 @@
     "babel-jest": "26.6.3",
     "core-js": "3.8.2",
     "eslint": "7.17.0",
-    "husky": "4.3.6",
+    "husky": "4.3.7",
     "imagemin-gifsicle": "7.0.0",
     "imagemin-mozjpeg": "9.0.0",
     "imagemin-pngquant": "9.0.1",

@@ -148,11 +148,11 @@ describe('browser (puppeteer)', () => {
 
   // #endregion
 
-  // #region /tests/lazy-image
+  // #region /tests/speedkit-image
 
-  test('lazy-image', async () => {
+  test('speedkit-image', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/lazy-image/'))
+    await page.goto(await getUrl('/tests/speedkit-image/'))
 
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
@@ -162,11 +162,11 @@ describe('browser (puppeteer)', () => {
 
   // #endregion
 
-  // #region /tests/lazy-picture
+  // #region /tests/speedkit-picture
 
-  test('lazy-picture', async () => {
+  test('speedkit-picture', async () => {
     await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/lazy-picture/'))
+    await page.goto(await getUrl('/tests/speedkit-picture/'))
 
     page.evaluate(() => {
       window.scrollBy(0, window.innerHeight)
@@ -207,6 +207,20 @@ describe('browser (puppeteer)', () => {
       document.querySelector('#testResolveByEvent').click()
     })
     await page.waitForSelector('#testResolveByEvent.speedkit-test--active')
+  })
+
+  // #endregion
+
+  // #region /tests/speedkit-iframe
+
+  test('speedkit-iframe', async () => {
+    await page.goto(await getUrl('/'))
+    await page.goto(await getUrl('/tests/speedkit-iframe/'))
+
+    page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight)
+    })
+    await page.waitForSelector('#lazyContainer iframe[src]')
   })
 
   // #endregion

@@ -1,5 +1,36 @@
 # Project Changelog
 
+# [1.0.0-beta.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2021-01-11)
+
+
+### Bug Fixes
+
+* **renaming:** renamed lazy components to speedkit e.g. speedkit-picture ([0efb249](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0efb249fd9a76cd50afce5bcb07ceb3316eba56b))
+
+# [1.0.0-beta.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2021-01-11)
+
+
+### Bug Fixes
+
+* **npm:** add ignore file ([b12f196](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b12f1969cf64c631c9bcdc30b6e8c83c600b9567))
+
+# [1.0.0-beta.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2021-01-11)
+
+
+### Bug Fixes
+
+* **install:** add lib exclude ([400d16d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/400d16d320b0c0e9906db96806a6e85a6df3e4b9))
+* **install:** fix file exlclude ([90fd991](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/90fd991265ba769d7c0ee3f0a541569b1d5623dc))
+* **npm:** fix publish ([5f4eb91](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5f4eb91c1ed1b30a42c713778489464a5f408d92))
+* **npm:** fix publish dir ([2c2f174](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2c2f1747770904575ccbd3c15e49d2172bcc2a25))
+
+# [1.0.0-beta.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2021-01-06)
+
+
+### Bug Fixes
+
+* **multi-font-files:** added support to register multi font files ([63b5a44](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/63b5a440b748f39bd0670bb151f1b3ca8263712c))
+
 # [1.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2021-01-05)
 
 

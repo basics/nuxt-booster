@@ -1,7 +1,7 @@
 <template>
   <div class="page-full-example-with-components">
     <component-stage v-bind="stage" @load:font="onLoadFont" />
-    <ComponentLazyYoutube :id="String('cLKvbhfVBUU')" v-bind="youtubePlayer" />
+    <ComponentSpeedkitYoutube :id="String('cLKvbhfVBUU')" v-bind="youtubePlayer" />
     <component-text-a v-bind="textA" @load:font="onLoadFont" />
     <component-text-image v-bind="imageTextA" />
     <component-text-b v-bind="textB" />
@@ -109,7 +109,7 @@ export default {
   },
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
-    ComponentLazyYoutube: () => import('nuxt-speedkit-components/LazyYoutube'),
+    ComponentSpeedkitYoutube: () => import('nuxt-speedkit-components/SpeedkitYoutube'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextImage: () => import('@/components/organisms/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
