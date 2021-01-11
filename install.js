@@ -8,7 +8,6 @@ if (isPackage) {
   const tmpDir = fsExtra.mkdtempSync(path.join(os.tmpdir(), 'publish-'))
 
   // collect files for clean package
-  const libDir = './lib'
   const files = [
     './index.js',
     './package.json',
@@ -16,10 +15,15 @@ if (isPackage) {
     './LICENSE',
     './node_modules'
 
-  ].concat(fsExtra.readdirSync(libDir).map(file => `./lib/../${file}`))
+  ]
 
   // copy files to tmp dir
   files.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(tmpDir, file)))
+
+  // exclude lib dir
+  const libDir = path.resolve(__dirname, './lib')
+  const libFiles = fsExtra.readdirSync(libDir).map(file => path.resolve(libDir, file))
+  libFiles.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(tmpDir, path.relative(libDir, file))))
 
   // delete all files in package
   fsExtra.readdirSync('.').forEach(file => fsExtra.removeSync(file))
