@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          rm -rf ./publish && mkdir ./publish && cp -r ./* ./publish
+          rm -rf ./publish && rsync -r --exclude publish ./* ./publish
           npx -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-ado semantic-release --provider=github
 
   build-example:
