@@ -78,6 +78,10 @@ export default {
           to: '/tests/speedkit-image'
         },
         {
+          title: 'Test: SpeedkitIframe',
+          to: '/tests/speedkit-iframe'
+        },
+        {
           title: 'Test: Speedkit Function',
           to: '/tests/speedkit-function'
         },
