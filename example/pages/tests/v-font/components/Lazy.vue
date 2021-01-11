@@ -4,7 +4,7 @@
       <div>
         <ul>
           <li id="lazyFontAssignSimple" v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal')">
-            Basic font assign
+            font assign simple
           </li>
           <hr>
           <li id="lazyFontAssignBySingleSelector" v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'})">

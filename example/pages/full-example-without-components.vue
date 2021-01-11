@@ -2,7 +2,7 @@
   <div class="page-full-example-without-components">
     <!-- stage -->
     <div class="component-stage">
-      <lazy-picture v-bind="stage.picture" />
+      <speedkit-picture v-bind="stage.picture" />
       <h1
         v-font="[
           $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
@@ -29,7 +29,7 @@
     />
     <!-- image-text -->
     <div class="component-image-text">
-      <lazy-picture v-bind="imageTextA.picture" />
+      <speedkit-picture v-bind="imageTextA.picture" />
       <div
         v-font="[
           $fonts.getFont('Comic Neue', 400, 'normal'),
@@ -55,12 +55,12 @@
 </template>
 
 <script>
-import LazyPicture from 'nuxt-speedkit-components/LazyPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
 
 export default {
 
   components: {
-    LazyPicture
+    SpeedkitPicture
   },
 
   asyncData () {

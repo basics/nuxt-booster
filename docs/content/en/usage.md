@@ -39,7 +39,7 @@ Setzen von `critical` als Attribut.
 
 ```html
 <template>
-  <lazy-image critical></lazy-image>
+  <speedkit-image critical></speedkit-image>
 </template>
 ```
 
@@ -97,10 +97,10 @@ Use `critical` to switch the component contained in the module or $getFont to `e
 
 ```html
 <!-- use default attribute -->
-<lazy-picture src="…" critical/>
+<speedkit-picture src="…" critical/>
 
 <!-- use boolean -->
-<lazy-picture src="…" :critical="true"/>
+<speedkit-picture src="…" :critical="true"/>
 ```
 
 **Single File Example**
