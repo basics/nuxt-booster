@@ -27,10 +27,10 @@
       <link-list :items="bothLinks" critical />
     </nav>
     <headline tag="h2" critical>
-      Experiments
+      Experimental
     </headline>
     <nav>
-      <link-list :items="experimentsLinks" critical />
+      <link-list :items="experimentalLinks" critical />
     </nav>
     <br>
   </div>
@@ -164,14 +164,14 @@ export default {
           to: '/both/speedkit-iframe'
         }
       ],
-      experimentsLinks: [
+      experimentalLinks: [
         {
           title: 'SpeedkitYoutube',
-          to: '/experiments/speedkit-youtube'
+          to: '/experimental/speedkit-youtube'
         },
         {
           title: 'ExperimentalPicture',
-          to: '/experiments/experimental-picture'
+          to: '/experimental/experimental-picture'
         }]
     }
   },
