@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.35](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.34...v1.0.0-beta.35) (2021-01-11)
+
+
+### Bug Fixes
+
+* **others:** rename experiments to experimental ([42eac49](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/42eac493434d0586abca20498585c7e6ad8f55f8))
+
 # [1.0.0-beta.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.33...v1.0.0-beta.34) (2021-01-11)
 
 
