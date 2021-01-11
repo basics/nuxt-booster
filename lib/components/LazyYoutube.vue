@@ -8,18 +8,18 @@
       :height="poster.height"
     />
     <button v-if="poster" :class="{playing: playing}">
-      <component-lazy-picture v-bind="poster" @load="onLoad" />
+      <lazy-picture v-bind="poster" @load="onLoad" />
     </button>
   </div>
 </template>
 
 <script>
-import ComponentLazyPicture from 'nuxt-speedkit/components/LazyPicture'
+import LazyPicture from 'nuxt-speedkit-components/LazyPicture'
 import YoutubePlayer from 'youtube-player'
 
 export default {
   components: {
-    ComponentLazyPicture
+    LazyPicture
   },
 
   props: {
