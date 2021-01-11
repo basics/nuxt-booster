@@ -1,6 +1,6 @@
 <template>
   <div class="page-full-example-with-components">
-    <component-experimental-stage :src="src" :critical="true" />
+    <component-experimental-stage :sources="sources" :critical="true" />
   </div>
 </template>
 
@@ -14,7 +14,10 @@ export default {
 
   asyncData () {
     return {
-      src: '/img/critical-2400.jpg'
+      sources: [
+        { src: '/img/critical-2400.jpg', sizes: ['299', '300:599', '600:899', '900:1199'] },
+        { src: '/img/lazy-2400.jpg', sizes: ['1200:1599', '1600:1899', '1900:1920'] }
+      ]
     }
   }
 }

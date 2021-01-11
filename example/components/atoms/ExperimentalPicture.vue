@@ -1,11 +1,13 @@
 <template>
   <picture>
-    <source
+    <!-- <source
       v-for="(source, index) in ipxSources"
       :key="index"
       v-bind="source"
     >
-    <custom-image v-bind="{src: ipxPlaceholder.placeholder, preload: ipxSources, width: ipxPlaceholder.width, height: ipxPlaceholder.height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
+    <custom-image v-bind="{src: ipxPlaceholder.placeholder, preload: ipxSources, width: ipxPlaceholder.width, height: ipxPlaceholder.height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" /> -->
+    <source v-for="(source, index) in placeholders" :key="index" :srcset="source.ref" :media="source.media">
+    <img>
   </picture>
 </template>
 
@@ -18,9 +20,11 @@ export default {
   },
 
   props: {
-    src: {
-      type: String,
-      default: null
+    sources: {
+      type: Array,
+      default () {
+        return []
+      }
     },
 
     sizes: {
@@ -52,7 +56,9 @@ export default {
 
   data () {
     return {
-      ipxPlaceholder: this.getPlaceholder(),
+      placeholders: Promise.all(this.sources.map(async (source) => {
+        await this.$img(source.src, { width: 30 })
+      })), // this.getPlaceholder(),
       preloadedSources: [],
       loading: false,
       webpSupport: false
@@ -62,7 +68,7 @@ export default {
   async fetch () {
     const result = await this.fetchMeta()
 
-    this.ipxPlaceholder = result
+    this.placeholders = result
     if (this.$nuxt.context.ssrContext && this.$nuxt.context.ssrContext.isGenerating) {
       // eslint-disable-next-line no-unused-expressions
       this.ipxSources
@@ -70,6 +76,10 @@ export default {
   },
 
   computed: {
+    src () {
+      return this.sources[0].src
+    },
+
     ipxSources () {
       return this.getSources()
     },
@@ -82,7 +92,7 @@ export default {
   watch: {
     async src () {
       const result = await this.fetchMeta()
-      this.ipxPlaceholder = result
+      this.placeholders = result
 
       // this.$img.$observer.remove(this.$el)
       // this.$img.$observer.add(this.$el, () => {})
@@ -112,9 +122,25 @@ export default {
 
     fetchMeta () {
       if (process.server) {
-        return this.$img.getMeta(this.src)
+        return Promise.all(this.sources.map(async (source) => {
+          return generateSVG(
+            await this.$img.getMeta(source.src),
+            this.$img.sizes(source.src, source.sizes.join(','))
+          )
+        })).then((result) => {
+          return result.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1)
+        })
       } else {
-        return this.getPlaceholder()
+        return Promise.all(this.sources.map(async (source) => {
+          const test = await this.$img(source.src, { width: 30 })
+          // console.log(await this.$img.getMeta(source.src))
+          return getPlaceholder(
+            test.url,
+            this.$img.sizes(source.src, source.sizes.join(','))
+          )
+        })).then((result) => {
+          return result.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1)
+        })
       }
     },
 
@@ -129,29 +155,6 @@ export default {
           type: `image/${sources[0].format}`
         }
       })
-    },
-
-    async getPlaceholder () {
-      const url = await this.$img(this.src, { width: 30 }).url
-      return new Promise((resolve) => {
-        if (process.client) {
-          const img = new global.Image()
-          img.onload = () => {
-            resolve({
-              placeholder: url,
-              width: img.width,
-              height: img.height
-            })
-          }
-          img.src = url
-        } else {
-          resolve({
-            placeholder: '',
-            width: 0,
-            height: 0
-          })
-        }
-      })
     }
   }
 
@@ -164,4 +167,52 @@ export default {
   //   }
   // }
 }
+
+function generateSVG ({ placeholder: src, width, height }, sizes) {
+  const size = sizes.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1).pop()
+  return Object.assign({ src, width, height }, {
+    media: size.media,
+    breakpoint: size.breakpoint,
+    ref: [
+      'data:image/svg+xml',
+      encodeURI(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"><image href="${src}" width="${width}" height="${height}"/></svg>
+      `.trim())
+    ].join(',')
+  })
+}
+
+function getPlaceholder (url, sizes) {
+  console.log(url)
+  const size = sizes.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1).pop()
+  return new Promise((resolve) => {
+    if (process.client) {
+      const img = new global.Image()
+      img.onload = () => {
+        resolve({
+          media: size.media,
+          breakpoint: size.breakpoint,
+          ref: url,
+          width: img.width,
+          height: img.height
+        })
+      }
+      img.src = url
+    } else {
+      resolve({
+        placeholder: '',
+        width: 0,
+        height: 0
+      })
+    }
+  })
+}
 </script>
+
+<style lang="postcss" scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

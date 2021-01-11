@@ -1,6 +1,6 @@
 <template>
   <div class="component-stage">
-    <experimental-picture :src="src" sizes="300,300:600,600:900" />
+    <experimental-picture :sources="sources" sizes="300,300:600,600:900" />
     <h1
       v-font="[
         $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
@@ -21,6 +21,7 @@ export default {
   },
 
   props: {
+    sources: { type: Array, default () { return [] } },
     src: { type: String, default: null },
     picture: { type: Object, default () { return {} } },
     headline: { type: String, default () { return 'Headline' } },
@@ -55,7 +56,7 @@ export default {
     }
   }
 
-  & >>> picture {
+  /* & >>> picture {
     &::before {
       display: block;
       padding-top: calc(9 / 16 * 100%);
@@ -70,7 +71,7 @@ export default {
       height: 100%;
       object-fit: cover;
     }
-  }
+  } */
 
   & h1 {
     position: absolute;
