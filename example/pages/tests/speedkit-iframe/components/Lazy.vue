@@ -1,5 +1,5 @@
 <template>
-  <organism-preview-container>
+  <organism-preview-container id="lazyContainer">
     <template #default>
       <speedkit-iframe v-bind="iframe" />
     </template>
