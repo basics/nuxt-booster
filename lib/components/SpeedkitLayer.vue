@@ -22,11 +22,11 @@ export default {
   props: {
     hide: {
       type: Boolean,
-      default: <%= options.ignorePerformance %>
+      default: process.env.NUXT_SPEEDKIT_IGNORE_PERFORMANCE
     },
     ignoreNoSsr: {
       type: Boolean,
-      default: <%= options.ignorePerformance || false %>
+      default: process.env.NUXT_SPEEDKIT_IGNORE_PERFORMANCE
     }
   },
   computed: {

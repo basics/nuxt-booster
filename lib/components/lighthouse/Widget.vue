@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { getLighthouseMetrics, getPendingStats } from '../../utils/lighthouse'
+import { getLighthouseMetrics, getPendingStats } from 'nuxt-speedkit/utils/lighthouse'
 
 export default {
   props: {

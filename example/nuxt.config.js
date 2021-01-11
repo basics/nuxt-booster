@@ -102,7 +102,6 @@ module.exports = {
   ],
 
   modules: [
-    ['@nuxt/image', {}],
     [
       resolve(__dirname, '..'), {
         ignorePerformance: false,

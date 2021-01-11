@@ -5,7 +5,8 @@ try {
   try {
     libModule = require('./lib/module')
   } catch (error) {
-    console.log(error)
+    // eslint-disable-next-line no-console
+    console.error(error)
   }
 }
 module.exports = libModule
