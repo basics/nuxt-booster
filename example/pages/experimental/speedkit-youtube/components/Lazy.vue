@@ -6,13 +6,13 @@
       </div>
     </template>
     <template #title>
-      <p>Critical<br>SpeedkitYoutube</p>
+      <p>SpeedkitYoutube</p>
     </template>
   </organism-preview-container>
 </template>
 
 <script>
-import SpeedkitYoutube from 'nuxt-speedkit-components/experiments/SpeedkitYoutube'
+import SpeedkitYoutube from 'nuxt-speedkit-components/experimental/SpeedkitYoutube'
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
 export default {
   components: {
@@ -22,12 +22,12 @@ export default {
   data () {
     return {
       iframe: {
-        id: 'cLKvbhfVBUU',
+        id: 'VBafwg16xpU',
         poster: Object.assign({
           alt: 'Alt Text',
           title: 'Title Text',
           caption: null
-        }, require('@/assets/youtube/id/cLKvbhfVBUU'))
+        }, require('@/assets/youtube/id/VBafwg16xpU'))
       }
     }
   }
