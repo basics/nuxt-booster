@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.0.0-beta.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2021-01-11)
+
+
+### Bug Fixes
+
+* **npm:** add ignore file ([b12f196](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b12f1969cf64c631c9bcdc30b6e8c83c600b9567))
+
 # [1.0.0-beta.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2021-01-11)
 
 
