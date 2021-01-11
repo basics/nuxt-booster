@@ -1,5 +1,15 @@
 # Project Changelog
 
+# [1.0.0-beta.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2021-01-11)
+
+
+### Bug Fixes
+
+* **install:** add lib exclude ([400d16d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/400d16d320b0c0e9906db96806a6e85a6df3e4b9))
+* **install:** fix file exlclude ([90fd991](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/90fd991265ba769d7c0ee3f0a541569b1d5623dc))
+* **npm:** fix publish ([5f4eb91](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5f4eb91c1ed1b30a42c713778489464a5f408d92))
+* **npm:** fix publish dir ([2c2f174](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2c2f1747770904575ccbd3c15e49d2172bcc2a25))
+
 # [1.0.0-beta.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2021-01-06)
 
 
