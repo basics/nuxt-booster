@@ -13,14 +13,14 @@ module.exports = {
     '^@@$': '<rootDir>',
     '^@/(.*)$': '<rootDir>/lib/$1'
   },
-  transformIgnorePatterns: ['/node_modules/(?!(nuxt-i18n)/)'],
+  transformIgnorePatterns: ['/node_modules/(?!(nuxt-i18n|@nuxt\\/image)/)'],
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
   testPathIgnorePatterns: [
-    'fixture'
+    'fixture',
     // 'generate.test.js',
-    // 'module.test.js'
-    // 'browser.test.js'
+    'module.test.js',
+    'browser.test.js'
   ]
 }
