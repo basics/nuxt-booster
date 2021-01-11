@@ -43,6 +43,10 @@ export default {
     return {
       links: [
         {
+          title: 'Picture',
+          to: '/picture/'
+        },
+        {
           title: 'Full Example With Components',
           to: '/full-example-with-components/'
         },
