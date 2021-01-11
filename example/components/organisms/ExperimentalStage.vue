@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experiments/ExperimentalPicture'
+import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture'
 export default {
   components: {
     ExperimentalPicture
