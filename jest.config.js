@@ -18,9 +18,9 @@ module.exports = {
     '^.+\\.js$': 'babel-jest'
   },
   testPathIgnorePatterns: [
-    'fixture',
+    'fixture'
     // 'generate.test.js',
-    'module.test.js',
-    'browser.test.js'
+    // 'module.test.js',
+    // 'browser.test.js'
   ]
 }
