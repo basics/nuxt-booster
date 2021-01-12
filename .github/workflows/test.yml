@@ -2,9 +2,9 @@ name: Test
 on:
   push:
     branches:
-      - 'feature/**'
-      - 'hotfix/**'
-      - 'renovate/**'
+      - "feature/**"
+      - "hotfix/**"
+      - "renovate/**"
 jobs:
   build:
     name: Test & Build
