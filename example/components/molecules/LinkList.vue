@@ -4,7 +4,7 @@
       v-for="(item, index) in items"
       :key="index"
       v-font="[
-        $fonts.getFont('Quicksand', 400, 'normal'),
+        $getFont('Quicksand', 400, 'normal'),
       ]"
     >
       <nuxt-link v-bind="item">

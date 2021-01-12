@@ -1,8 +1,8 @@
-name: Beta
+name: Main
 on:
   push:
     branches:
-      - beta
+      - main
 
 jobs:
   install:
@@ -127,7 +127,7 @@ jobs:
       - name: Build
         run: |
           cd ./docs
-          npm run generate --website-host=https://nuxt-speedkit,grabarzundpartner.dev
+          npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
           touch dist/.nojekyll
         env:
           DIST_PATH: dist

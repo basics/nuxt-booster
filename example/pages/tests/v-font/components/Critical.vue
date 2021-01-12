@@ -3,19 +3,19 @@
     <template #default>
       <div>
         <ul>
-          <li id="criticalFontAssignSimple" v-font="$fonts.getFont('Comic Neue', 400, 'normal')">
+          <li id="criticalFontAssignSimple" v-font="$getFont('Comic Neue', 400, 'normal')">
             font assign simple
           </li>
           <hr>
-          <li id="criticalFontAssignBySingleSelector" v-font="$fonts.getFont('Comic Neue', 700, 'normal', {selector: 'strong'})">
+          <li id="criticalFontAssignBySingleSelector" v-font="$getFont('Comic Neue', 700, 'normal', {selector: 'strong'})">
             font assign by <strong>single selector</strong>
           </li>
           <li>
             <span
               id="criticalFontAssignByMultipleVariances"
               v-font="[
-                $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'strong'}),
-                $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'i'})
+                $getFont('Comic Neue', 700, 'normal', {selector: 'strong'}),
+                $getFont('Comic Neue', 700, 'italic', {selector: 'i'})
               ]"
             >font assign by <strong>multiple</strong> <i>variances</i></span>
           </li>
@@ -24,7 +24,7 @@
             <span
               id="criticalFontAssignByMultipleSelectors"
               v-font="[
-                $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
+                $getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
               ]"
             >font assign by <i>multiple</i> <em>selectors</em></span>
           </li>
@@ -33,7 +33,7 @@
             <span
               id="criticalFontAssignByDeepSelector"
               v-font="[
-                $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'strong > i'})
+                $getFont('Comic Neue', 700, 'italic', {selector: 'strong > i'})
               ]"
             >font assign by <strong><i>deep</i></strong> selector</span>
           </li>

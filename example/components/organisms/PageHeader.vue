@@ -1,6 +1,6 @@
 <template>
   <header
-    v-font="$fonts.getFont('Quicksand', 400, 'normal')"
+    v-font="$getFont('Quicksand', 400, 'normal')"
     class="page-header"
   >
     <nuxt-link v-if="$route.path !== '/'" class="overview-link" to="/">

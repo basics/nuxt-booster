@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <article v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="content" />
+      <article v-font="$getFont('Comic Neue', 700, 'normal')" v-html="content" />
     </template>
     <template #title>
       <p>Critical<br>Font basic usage</p>
