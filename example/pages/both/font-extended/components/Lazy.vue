@@ -3,9 +3,9 @@
     <template #default>
       <article
         v-font="[
-          $fonts.getFont('Montserrat Alternates', 400, 'normal'),
-          $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'b, strong'}),
-          $fonts.getFont('Montserrat Alternates', 400, 'italic', {selector: 'i, em'})
+          $getFont('Montserrat Alternates', 400, 'normal'),
+          $getFont('Montserrat Alternates', 700, 'normal', {selector: 'b, strong'}),
+          $getFont('Montserrat Alternates', 400, 'italic', {selector: 'i, em'})
         ]"
         v-html="content"
       />
