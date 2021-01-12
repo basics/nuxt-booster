@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" v-font="$fonts.getFont('Quicksand', 700, 'normal')" class="atom-headline">
+  <component :is="tag" v-font="$getFont('Quicksand', 700, 'normal')" class="atom-headline">
     <slot>{{ content }}</slot>
   </component>
 </template>
