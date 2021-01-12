@@ -1,5 +1,5 @@
 ---
-title: Lazy Image
+title: SpeedkitImage
 description: ''
 position: 11
 category: Components

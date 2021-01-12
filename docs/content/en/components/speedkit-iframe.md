@@ -1,5 +1,5 @@
 ---
-title: Lazy Iframe
+title: SpeedkitIframe
 description: ''
 position: 12
 category: Components

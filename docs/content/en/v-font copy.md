@@ -1,45 +1,8 @@
 ---
-title: v-font
+title: "[ALT] v-font"
 description: ''
 position: 6
 category: Directives
----
-
-Um die in den Modul-Options definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
-
-Diese Direktive kann auf jeden Tag in einer Komponente definiert werden. 
-
-> **Wichtig:** Wenn die Eltern-Komponente der Directive `critical` ist, sind schriften Initial schon aktiv und werden als Preload geladen. Eignet sich für Initial schon enthaltene Headlines oder Texte.
-
-In der Directive `v-font` kann entweder ein einzlener WErt oder eine Liste definiert werden. Eine Definition einer Schrift findet über die Methode `$fonts.getFont` statt.
-
-```html[example]
-
-<!-- single definition -->
-<node v-font="$fonts.getFont()">
-
-<!-- multiple definitions -->
-<node v-font="[
-  $fonts.getFont(),
-  $fonts.getFont()
-]">
-
-```
-
-
-## $fonts.getFont
-
-
-**Parameters**
-
-| Property | Value                           | Default    |
-| -------- | ------------------------------- | ---------- |
-| family   | Font-Family (eg. `Custom Font`) | *required* |
-| weight   | Font-Weight (eg. `700`)         | `400`      |
-| style    | Font-Style (eg. `italic`)       | `normal`   |
-| options  | Other options for definition    | `normal`   |
-
-
 ---
 
 For using the `v-font` directive, you can use `$getFont` to register a font on the current node.  

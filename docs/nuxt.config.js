@@ -10,7 +10,8 @@ export default theme({
   },
 
   router: {
-    base: getBasePath()
+    base: getBasePath(),
+    trailingSlash: true
   }
 })
 

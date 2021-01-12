@@ -1,5 +1,5 @@
 ---
-title: SpeedkitPicture
+title: SpeedkitLayer
 description: ''
 position: 10
 category: Components

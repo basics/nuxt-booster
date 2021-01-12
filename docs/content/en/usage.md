@@ -3,119 +3,62 @@ title: Usage
 description: ''
 position: 4
 category: Guide
+components:
+  - "Directive zum anwenden von Fonts"
+  - Komponenten mit Lazy funktionialität
+
+
+
 ---
 
-Alle Komponenten und Schriften definierungen können Lazy oder Eager verwendet werden.
+Das Modul wird verwendet um die Performance der Website zu erhöhen. Dafür werden verschiedene Werkzeuge zur verfügung gestellt, die sich um das richtige laden der Resourcen (Bilder, Schriften) kümmern.
 
-Die unterscheidung für das Ladeverhalten wird über die Option `critical` definiert.
+Alle Komponenten und Schrift-Definitionen laufen initial alle im Lazy-Modus. Hier bei werden zumbeispiel Bilder und Schriften erst geladen wenn sie sich im Viewport befinden.
 
-Dies ermöglicht das gezielte definieren von Resourcen die initial beim laden der Seite geladen werden und Asynchron beim erreichen des jeweiligen Viewports.
+Für Fälle die sich initial im Viewport befinden, gibt es die Kritischen Komponenten.
 
-## Define Critical
+Eine Kritische Komponente stellt hier bei eine Kompoente da, die schon initial Sichtbar ist und somit Schriften und Bilder priorisiert geladen werden.
 
-### Componenten
+## Kritische Komponente
 
-Das setzen von `critical` in Komponenten ist in zwei Varianten verfügbar.
+Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponente zu erzeugen muss die Eigenschaft `critical` gesetzt werden. Wenn gesetzt, werden die enthaltenen Resources Priorisiert geladen (e.g. link preload)
 
-> Wichtig: Der zustand `critical` wird von der Eltern Komponente übernommen.
-
-
-#### Skeleton
-
-Setzen von `critical` im Skeleton.
-
-```html
-<template>…</template>
-<script>
-  export default {
-    critical: true
-  }
-</script>
+```html[Example]
+<component critical :critical="true" />
 ```
 
-#### Attribut
 
-Setzen von `critical` als Attribut.
+## Fonts
 
-```html
+Um die in der `nuxt.config` definierten Schriften zu verwenden, wird die Direktive [`v-font`](/v-font/) verwendet.
+
+```html[example]
+<component v-font="$fonts.getFont(…)" />
+```
+
+## Components
+
+Die im Modul enthaltenen Komponenten können über den Namespace `nuxt-speedkit-components` abgefragt werden.
+
+**Verfügbare Komponenten**
+
+- [SpeedkitPicture](/components/speedkit-picture/)
+- [SpeedkitImage](/components/speedkit-image/)
+- [SpeedkitIframe](/components/speedkit-iframe/)
+- [SpeedkitLayer](/components/speedkit-layer/)
+
+```html[example]
+
 <template>
-  <speedkit-image critical></speedkit-image>
-</template>
-```
-
-### Fonts
-
-Die Schriften können direkt oder über eine Komponente auf `critical` gesetzt werden.
-
-Wenn die aktuelle oder Eltern Komponente critical ist, wird dieser Zustand übernommen.
-
-Das direkt setzen von `critical` geschieht auf dem Font-Objekt, über die Methode `isCritical`.
-
-```html
-<template>
-  <span v-font="$font.getFont(…).isCritical()">Hello World</span>
-</template>
-```
-
-## Use Fonts
-
-Schrift zuweisung finden im Template der Componente statt. 
-
-> Nicht erlaubte CSS Eigenschaften im Style der Componente:
-> - font-family
-> - font-weight
-> - font-style
-
-Schriten werden mit der Directive `v-font` zugewiesen. Erstellt werden die Schriften mit `$fonts.getFont()`. Der Aufruf erzeugt eine neue Font-Definition.
-
-
-
-
-## Use Lazy Components
-
-
-The use of the components is default `lazy`.  
-`lazy` components are activated by [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).  
-If you use the attribute `critical`, the components switch to `eager`.
-
-It is recommended that you declare components visible in the initial viewport with `critical`.  
-Any Vue component can be set with the attribute `critical`. 
-
-Important `critical` option is inherited on child nodes.
-
-When using `slot` and `v-font` on a component set directly with `critical`, the font must be set as `critical` separately via [isCritical](#iscritical).
-
-
-
-### Critical Attribute & Option
-
-Use `critical` to switch the component contained in the module or $getFont to `eager`.
-
-#### Examples
-
-**Attribute**
-
-```html
-<!-- use default attribute -->
-<speedkit-picture src="…" critical/>
-
-<!-- use boolean -->
-<speedkit-picture src="…" :critical="true"/>
-```
-
-**Single File Example**
-
-```html
-<template>
-  <div>
-    <span v-font="$getFont(…)"></span>
-  </div>
+  <speedkit-picture>
 </template>
 
 <script>
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
 export default {
-  critical: true,
-  props: { … }
+  components: {
+    SpeedkitPicture
+  }
 }
 </script>
 ```
