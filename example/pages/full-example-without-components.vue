@@ -5,8 +5,8 @@
       <speedkit-picture v-bind="stage.picture" />
       <h1
         v-font="[
-          $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
-          $fonts.getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
+          $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
+          $getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
         ]"
       >
         <span class="headline">{{ stage.headline }}</span>
@@ -16,13 +16,13 @@
     <!-- text-a -->
     <div
       v-font="[
-        $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
-        $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i'}),
-        $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'b,strong'}),
-        $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'i b,i strong'}),
-        $fonts.getFont('Comic Neue', 700, 'italic', {selector: 'b i, strong i'}),
-        $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i > b, i > strong'})
+        $getFont('Comic Neue', 400, 'normal'),
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
+        $getFont('Comic Neue', 400, 'italic', {selector: 'i'}),
+        $getFont('Comic Neue', 700, 'normal', {selector: 'b,strong'}),
+        $getFont('Comic Neue', 700, 'italic', {selector: 'i b,i strong'}),
+        $getFont('Comic Neue', 700, 'italic', {selector: 'b i, strong i'}),
+        $getFont('Comic Neue', 400, 'italic', {selector: 'i > b, i > strong'})
       ]"
       class="component-text-font-a"
       v-html="textA.text"
@@ -32,8 +32,8 @@
       <speedkit-picture v-bind="imageTextA.picture" />
       <div
         v-font="[
-          $fonts.getFont('Comic Neue', 400, 'normal'),
-          $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+          $getFont('Comic Neue', 400, 'normal'),
+          $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
         class="text"
         v-html="imageTextA.text"
       />
@@ -41,12 +41,12 @@
     <!-- text-b -->
     <div
       v-font="[
-        $fonts.getFont('Comic Neue', 400, 'normal'),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
-        $fonts.getFont('Montserrat Alternates', 400, 'italic', {selector: 'i'}),
-        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: 'b'}),
-        $fonts.getFont('Montserrat Alternates', 700, 'italic', {selector: 'i b'}),
-        $fonts.getFont('Montserrat Alternates', 700, 'italic', {selector: 'b i'})
+        $getFont('Comic Neue', 400, 'normal'),
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
+        $getFont('Montserrat Alternates', 400, 'italic', {selector: 'i'}),
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'b'}),
+        $getFont('Montserrat Alternates', 700, 'italic', {selector: 'i b'}),
+        $getFont('Montserrat Alternates', 700, 'italic', {selector: 'b i'})
       ]"
       class="component-text-font-b"
       v-html="textB.text"

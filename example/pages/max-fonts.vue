@@ -4,16 +4,16 @@
       <template #default>
         <div>
           <div>
-            <p v-font="$fonts.getFont('Comic Neue', 300, 'normal')" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 400, 'normal')" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 700, 'normal')" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 300, 'italic')" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 400, 'italic')" v-html="content" />
-            <p v-font="$fonts.getFont('Comic Neue', 700, 'italic')" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 400, 'normal')" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal')" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 400, 'italic')" v-html="content" />
-            <p v-font="$fonts.getFont('Montserrat Alternates', 700, 'italic')" v-html="content" />
+            <p v-font="$getFont('Comic Neue', 300, 'normal')" v-html="content" />
+            <p v-font="$getFont('Comic Neue', 400, 'normal')" v-html="content" />
+            <p v-font="$getFont('Comic Neue', 700, 'normal')" v-html="content" />
+            <p v-font="$getFont('Comic Neue', 300, 'italic')" v-html="content" />
+            <p v-font="$getFont('Comic Neue', 400, 'italic')" v-html="content" />
+            <p v-font="$getFont('Comic Neue', 700, 'italic')" v-html="content" />
+            <p v-font="$getFont('Montserrat Alternates', 400, 'normal')" v-html="content" />
+            <p v-font="$getFont('Montserrat Alternates', 700, 'normal')" v-html="content" />
+            <p v-font="$getFont('Montserrat Alternates', 400, 'italic')" v-html="content" />
+            <p v-font="$getFont('Montserrat Alternates', 700, 'italic')" v-html="content" />
           </div>
         </div>
       </template>
