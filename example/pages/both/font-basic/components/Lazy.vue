@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <article v-font="$fonts.getFont('Montserrat Alternates', 700, 'normal')" v-html="content" />
+      <article v-font="$getFont('Montserrat Alternates', 700, 'normal')" v-html="content" />
     </template>
     <template #title>
       <p>Font basic usage</p>

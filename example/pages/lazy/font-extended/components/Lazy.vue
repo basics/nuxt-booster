@@ -3,9 +3,9 @@
     <template #default>
       <article
         v-font="[
-          $fonts.getFont('Comic Neue', 400, 'normal'),
-          $fonts.getFont('Comic Neue', 700, 'normal', {selector: 'b, strong'}),
-          $fonts.getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
+          $getFont('Comic Neue', 400, 'normal'),
+          $getFont('Comic Neue', 700, 'normal', {selector: 'b, strong'}),
+          $getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
         ]"
         v-html="content"
       />
