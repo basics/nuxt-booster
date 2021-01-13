@@ -2,7 +2,10 @@
   <only-ssr :disabled="disabled">
     <div class="nuxt-speedkit__speedkit-layer" v-if="!hide">
       <slot>
-        <button class="nuxt-speedkit__speedkit-layer__button">
+        <button
+          onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"
+          class="nuxt-speedkit__speedkit-layer__button"
+        >
           OK
         </button>
       </slot>
