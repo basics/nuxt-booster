@@ -14,7 +14,10 @@ describe('module', () => {
   beforeAll(async () => {
     const overrides = {
       modern: false,
-      buildDir
+      buildDir,
+      dir: {
+        pages: 'pages/tests'
+      }
     };
 
     ({ nuxt } = (await setup(loadConfig(__dirname, '../../example', overrides, { merge: true }))))
@@ -27,7 +30,7 @@ describe('module', () => {
   // #region /tests/v-font
 
   test('v-font (font assign simple) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font')
+    html = await getHTML('v-font')
     dom = getDom(html)
     // font class exists?
     expect(dom.head.innerHTML.indexOf('[data-f-10e6588e]')).not.toBe(-1)
@@ -38,7 +41,7 @@ describe('module', () => {
   })
 
   test('v-font (font assign by single selector) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font')
+    html = await getHTML('v-font')
     dom = getDom(html)
 
     // font class exists?
@@ -50,7 +53,7 @@ describe('module', () => {
   })
 
   test('v-font (font assign by multiple variances) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font')
+    html = await getHTML('v-font')
     dom = getDom(html)
 
     // font class exists?
@@ -64,7 +67,7 @@ describe('module', () => {
   })
 
   test('v-font (font assign by multiple selectors) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font')
+    html = await getHTML('v-font')
     dom = getDom(html)
 
     // font class exists?
@@ -76,7 +79,7 @@ describe('module', () => {
   })
 
   test('v-font (font assign by deep selector) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font')
+    html = await getHTML('v-font')
     dom = getDom(html)
 
     // font class exists?
@@ -92,7 +95,7 @@ describe('module', () => {
   // #region /tests/v-font-media
 
   test('v-font (media) (font assign simple by max 479px) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font-media')
+    html = await getHTML('v-font-media')
     dom = getDom(html)
 
     // font class exists?
@@ -104,7 +107,7 @@ describe('module', () => {
   })
 
   test('v-font (media) (font assign simple by 480px) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font-media')
+    html = await getHTML('v-font-media')
     dom = getDom(html)
 
     // font class exists?
@@ -116,7 +119,7 @@ describe('module', () => {
   })
 
   test('v-font (media) (font assign simple by 960px) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font-media')
+    html = await getHTML('v-font-media')
     dom = getDom(html)
 
     // font class exists?
@@ -128,7 +131,7 @@ describe('module', () => {
   })
 
   test('v-font (media) (font assign with selector by 1440px) (font-face, class, link (preload), element class)', async () => {
-    html = await getHTML('tests/v-font-media')
+    html = await getHTML('v-font-media')
     dom = getDom(html)
 
     // font class exists?
@@ -144,7 +147,7 @@ describe('module', () => {
   // #region /tests/speedkit-image
 
   test('speedkit-image', async () => {
-    html = await getHTML('tests/speedkit-image')
+    html = await getHTML('speedkit-image')
     dom = getDom(html)
 
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
@@ -159,7 +162,7 @@ describe('module', () => {
   // #region /tests/speedkit-picture
 
   test('speedkit-picture', async () => {
-    html = await getHTML('tests/speedkit-picture')
+    html = await getHTML('speedkit-picture')
     dom = getDom(html)
 
     const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset
