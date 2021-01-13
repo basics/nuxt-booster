@@ -1,10 +1,10 @@
 <template>
   <div class="component-stage">
-    <experimental-picture :sources="sources" sizes="300,300:600,600:900" />
+    <experimental-picture v-if="picture" v-bind="picture" />
     <h1
       v-font="[
-        $fonts.getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
-        $fonts.getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
+        $getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
       ]"
     >
       <span class="headline">{{ headline }}</span>
@@ -21,8 +21,6 @@ export default {
   },
 
   props: {
-    sources: { type: Array, default () { return [] } },
-    src: { type: String, default: null },
     picture: { type: Object, default () { return {} } },
     headline: { type: String, default () { return 'Headline' } },
     claim: { type: String, default () { return 'Claim' } }

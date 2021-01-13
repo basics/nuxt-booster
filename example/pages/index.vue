@@ -50,128 +50,136 @@ export default {
     return {
       links: [
         {
-          title: 'Picture',
-          to: '/picture/'
-        },
-        {
           title: 'Full Example With Components',
           to: '/full-example-with-components/'
         },
         {
           title: 'Full Example Without Components',
-          to: '/full-example-without-components'
+          to: '/full-example-without-components/'
         },
         {
           title: 'Max Fonts',
-          to: '/max-fonts'
+          to: '/max-fonts/'
         },
         {
           title: 'Test: v-font',
-          to: '/tests/v-font'
+          to: '/tests/v-font/'
         },
         {
           title: 'Test: v-font (media)',
-          to: '/tests/v-font-media'
+          to: '/tests/v-font-media/'
         },
         {
           title: 'Test: SpeedkitPicture',
-          to: '/tests/speedkit-picture'
+          to: '/tests/speedkit-picture/'
         },
         {
           title: 'Test: SpeedkitImage',
-          to: '/tests/speedkit-image'
+          to: '/tests/speedkit-image/'
         },
         {
           title: 'Test: SpeedkitIframe',
-          to: '/tests/speedkit-iframe'
+          to: '/tests/speedkit-iframe/'
         },
         {
           title: 'Test: Speedkit Function',
-          to: '/tests/speedkit-function'
+          to: '/tests/speedkit-function/'
         },
         {
           title: 'Test: Component Import (Critical by Prop)',
-          to: '/tests/component-import/critical-prop'
+          to: '/tests/component-import/critical-prop/'
         },
         {
           title: 'Test: Component Import (Critical by Parent)',
-          to: '/tests/component-import/critical-parent'
+          to: '/tests/component-import/critical-parent/'
         }
       ],
       criticalLinks: [
         {
           title: 'Font basic usage',
-          to: '/critical/font-basic'
+          to: '/critical/font-basic/'
         },
         {
           title: 'Font extended usage',
-          to: '/critical/font-extended'
+          to: '/critical/font-extended/'
         },
         {
           title: 'SpeedkitImage',
-          to: '/critical/speedkit-image'
+          to: '/critical/speedkit-image/'
         },
         {
           title: 'SpeedkitPicture',
-          to: '/critical/speedkit-picture'
+          to: '/critical/speedkit-picture/'
         },
         {
           title: 'SpeedkitIframe',
-          to: '/critical/speedkit-iframe'
+          to: '/critical/speedkit-iframe/'
         }
       ],
       lazyLinks: [
         {
           title: 'Font basic usage',
-          to: '/lazy/font-basic'
+          to: '/lazy/font-basic/'
         },
         {
           title: 'Font extended usage',
-          to: '/lazy/font-extended'
+          to: '/lazy/font-extended/'
         },
         {
           title: 'SpeedkitImage',
-          to: '/lazy/speedkit-image'
+          to: '/lazy/speedkit-image/'
         },
         {
           title: 'SpeedkitPicture',
-          to: '/lazy/speedkit-picture'
+          to: '/lazy/speedkit-picture/'
         },
         {
           title: 'SpeedkitIframe',
-          to: '/lazy/speedkit-iframe'
+          to: '/lazy/speedkit-iframe/'
         }
       ],
       bothLinks: [
         {
           title: 'Font basic usage',
-          to: '/both/font-basic'
+          to: '/both/font-basic/'
         },
         {
           title: 'Font extended usage',
-          to: '/both/font-extended'
+          to: '/both/font-extended/'
         },
         {
           title: 'SpeedkitImage',
-          to: '/both/speedkit-image'
+          to: '/both/speedkit-image/'
         },
         {
           title: 'SpeedkitPicture',
-          to: '/both/speedkit-picture'
+          to: '/both/speedkit-picture/'
         },
         {
           title: 'SpeedkitIframe',
-          to: '/both/speedkit-iframe'
+          to: '/both/speedkit-iframe/'
         }
       ],
       experimentalLinks: [
         {
-          title: 'SpeedkitYoutube',
-          to: '/experimental/speedkit-youtube'
+          title: 'Full Example With Components',
+          to: '/experimental/full-example-with-components/'
         },
         {
-          title: 'ExperimentalPicture',
-          to: '/experimental/experimental-picture'
+          title: 'SpeedkitYoutube',
+          to: '/experimental/speedkit-youtube/'
+        },
+        {
+          title: 'ExperimentalPicture (5 Pictures)',
+          to: '/experimental/experimental-picture/5/'
+        },
+        {
+          title: 'ExperimentalPicture (10 Pictures)',
+          to: '/experimental/experimental-picture/10/'
+        },
+        {
+          title: 'ExperimentalPicture (20 Pictures)',
+          to: '/experimental/experimental-picture/20/'
         }]
     }
   },

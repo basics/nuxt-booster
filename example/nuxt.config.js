@@ -77,7 +77,7 @@ module.exports = {
   },
 
   generate: {
-    crawler: false,
+    crawler: true,
     dir: getDistPath()
   },
 
