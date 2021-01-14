@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0...v1.0.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* **eslint:** updated eslint rule to force semicolons ([413f1c8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/413f1c827859954e2a9b347893a69dfac277b7ef))
+
 # 1.0.0 (2021-01-12)
 
 
