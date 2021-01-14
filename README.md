@@ -3,6 +3,7 @@
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![Master][github-workflow-main-src]][github-workflow-main-href]
+[![dependencies Status][dependencies-status-src]][dependencies-status-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
 [![npm version][npm-version-beta-src]][npm-version-beta-href]
@@ -362,6 +363,8 @@ or look here
 
 [github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
+[dependencies-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/status.svg>
+[dependencies-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit>
 
 [license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-speedkit
