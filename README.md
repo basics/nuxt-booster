@@ -361,7 +361,7 @@ or look here
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
 
 [github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
-[github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMaster>
+[github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
 
 [license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-speedkit
