@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: { OrganismPreviewContainer },
   data () {
     return {
       contentA: '<p>This is a <strong>Rich</strong><b>Text</b> with different <i>font</i> <em>variants</em>.</p>'
-    }
+    };
   }
-}
+};
 </script>

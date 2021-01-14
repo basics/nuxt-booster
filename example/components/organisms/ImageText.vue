@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture';
 export default {
   components: {
     SpeedkitPicture
   },
   props: {
-    picture: { type: Object, default () { return {} } },
-    text: { type: String, default () { return 'Headline' } }
+    picture: { type: Object, default () { return {}; } },
+    text: { type: String, default () { return 'Headline'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

@@ -8,6 +8,7 @@ module.exports = {
     '@nuxtjs'
   ],
   rules: {
+    semi: [2, 'always'],
     'vue/no-v-html': 'off',
     'vue/name-property-casing': [
       'error',
@@ -22,4 +23,4 @@ module.exports = {
       }
     ]
   }
-}
+};

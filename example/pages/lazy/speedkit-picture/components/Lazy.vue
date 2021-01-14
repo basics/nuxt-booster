@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture';
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
 
   components: {
@@ -20,9 +20,9 @@ export default {
   },
 
   data () {
-    const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
-    const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
-    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip')
+    const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp');
+    const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder');
+    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip');
 
     return {
       lazyPicture: {
@@ -43,7 +43,7 @@ export default {
         title: 'Title Text',
         caption: null
       }
-    }
+    };
   }
-}
+};
 </script>

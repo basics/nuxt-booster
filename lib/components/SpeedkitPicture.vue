@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import ImageContainer from './ImageContainer'
-import CustomNoScript from './customs/CustomNoScript'
-import CustomImage from './customs/CustomImage'
+import ImageContainer from './ImageContainer';
+import CustomNoScript from './customs/CustomNoScript';
+import CustomImage from './customs/CustomImage';
 
 export default {
 
@@ -43,49 +43,49 @@ export default {
     sources: {
       type: Array,
       default () {
-        return []
+        return [];
       }
     },
 
     placeholder: {
       type: Object,
       default () {
-        return {}
+        return {};
       }
     },
 
     alt: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
     title: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
     width: {
       type: Number,
       default () {
-        return null
+        return null;
       }
     },
 
     height: {
       type: Number,
       default () {
-        return null
+        return null;
       }
     },
 
     crossorigin: {
       type: String,
       default () {
-        return 'anonymous'
+        return 'anonymous';
       }
     }
   },
@@ -95,7 +95,7 @@ export default {
       preloadedSources: (this.noScript && this.sources) || [],
       loading: false,
       webpSupport: false
-    }
+    };
   },
 
   computed: {
@@ -103,26 +103,26 @@ export default {
       return Object.assign({
         base64: undefined,
         url: undefined
-      }, this.placeholder)
+      }, this.placeholder);
     },
     hasSlot () {
-      return this.$slots.caption
+      return this.$slots.caption;
     }
   },
 
   mounted () {
-    this.loading = true
+    this.loading = true;
   },
 
   methods: {
     onLoad (e) {
-      this.loading = false
-      this.$emit('load')
+      this.loading = false;
+      this.$emit('load');
     },
 
     onPreload () {
-      this.preloadedSources = this.sources
+      this.preloadedSources = this.sources;
     }
   }
-}
+};
 </script>

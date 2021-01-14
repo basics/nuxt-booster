@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import speedkit, { MODE, resolveComponents } from 'nuxt-speedkit/utils/speedkit'
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import speedkit, { MODE, resolveComponents } from 'nuxt-speedkit/utils/speedkit';
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
-import BaseButton from '@/components/atoms/BaseButton'
+import BaseButton from '@/components/atoms/BaseButton';
 
 export default {
   components: {
@@ -41,10 +41,10 @@ export default {
   },
   methods: {
     onClick () {
-      resolveComponents('resolve-components')
+      resolveComponents('resolve-components');
     }
   }
-}
+};
 
 </script>
 <style lang="postcss" scoped>

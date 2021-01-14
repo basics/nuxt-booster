@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {
     OrganismPreviewContainer
@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       content: '<p>This is a basic test with single font variant.</p>'
-    }
+    };
   }
-}
+};
 </script>

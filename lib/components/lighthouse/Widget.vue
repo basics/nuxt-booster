@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import { getLighthouseMetrics, getPendingStats } from 'nuxt-speedkit/utils/lighthouse'
+import { getLighthouseMetrics, getPendingStats } from 'nuxt-speedkit/utils/lighthouse';
 
 export default {
   props: {
     statsMetric: {
       type: String,
       default () {
-        return 'performance'
+        return 'performance';
       }
     }
   },
@@ -39,7 +39,7 @@ export default {
     return {
       url: '',
       stats: getPendingStats()
-    }
+    };
   },
 
   computed: {
@@ -48,7 +48,7 @@ export default {
         '--color-status': this.color,
         '--radian': this.radian * 45,
         '--duration': `${1000 / (Math.PI * 2) * this.radian}ms`
-      }
+      };
     },
 
     stateClasses () {
@@ -56,7 +56,7 @@ export default {
         pending: this.stats.isPending(),
         fail: this.stats.isFailed(),
         ready: this.stats.isReady()
-      }
+      };
     },
 
     title () {
@@ -65,50 +65,50 @@ export default {
         SEO: ${this.stats.getScoreOfMetric('seo') * 100}
         Accessibility: ${this.stats.getScoreOfMetric('accessibility') * 100}
         Best Practices: ${this.stats.getScoreOfMetric('best-practices') * 100}
-      `.trim().replace(/( )+/g, '$1')
+      `.trim().replace(/( )+/g, '$1');
     },
 
     score () {
-      return this.stats.getScoreOfMetric(this.statsMetric)
+      return this.stats.getScoreOfMetric(this.statsMetric);
     },
 
     radian () {
-      return 2 * Math.PI * (1 - this.score)
+      return 2 * Math.PI * (1 - this.score);
     },
 
     color () {
-      return this.stats.getStateColorByMetric(this.statsMetric)
+      return this.stats.getStateColorByMetric(this.statsMetric);
     },
 
     reportUrl () {
-      return `https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=${global.encodeURI(this.url)}`
+      return `https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=${global.encodeURI(this.url)}`;
     }
   },
 
   watch: {
     $route (to, from) {
       if ('lh' in this.$route.query) {
-        this.getMetrics()
+        this.getMetrics();
       }
     }
   },
 
   mounted () {
-    this.getMetrics()
+    this.getMetrics();
   },
 
   methods: {
     async getMetrics () {
-      this.stats = getPendingStats()
+      this.stats = getPendingStats();
       try {
-        this.stats = await getLighthouseMetrics(global.location.href)
-        this.url = this.stats.data.crux.loadingExperience.initial_url
+        this.stats = await getLighthouseMetrics(global.location.href);
+        this.url = this.stats.data.crux.loadingExperience.initial_url;
       } catch (errorStats) {
-        this.stats = errorStats
-        this.url = ''
+        this.stats = errorStats;
+        this.url = '';
       }
     }
   }
-}
+};
 
 </script>

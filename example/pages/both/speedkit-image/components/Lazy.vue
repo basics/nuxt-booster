@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SpeedkitImage from 'nuxt-speedkit-components/SpeedkitImage'
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import SpeedkitImage from 'nuxt-speedkit-components/SpeedkitImage';
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {
     OrganismPreviewContainer,
@@ -19,8 +19,8 @@ export default {
   },
 
   data () {
-    const lazyImage = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
-    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip')
+    const lazyImage = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp');
+    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip');
 
     return {
       lazyImage: {
@@ -32,7 +32,7 @@ export default {
         width: lazyImage.width,
         height: lazyImage.height
       }
-    }
+    };
   }
-}
+};
 </script>
