@@ -1,60 +1,60 @@
 <script>
-global.IntersectionObserver = global.IntersectionObserver || class { observe () {}; unobserve () {}}
+global.IntersectionObserver = global.IntersectionObserver || class { observe () {}; unobserve () {}};
 export default {
   abstract: true,
   props: {
     root: {
       type: global.HTMLElement,
       default () {
-        return null
+        return null;
       }
     },
     rootMargin: {
       type: String,
       default () {
-        return '0px'
+        return '0px';
       }
     },
     threshold: {
       type: Array,
       default () {
-        return [0]
+        return [0];
       }
     }
   },
   created () {
     if (!this.$attrs.critical || !this.$options.critical) {
-      const options = (({ root, rootMargin, threshold }) => ({ root, rootMargin, threshold }))(this)
-      this.observer = new IntersectionObserver(([e]) => this.onIntersect(e), options)
+      const options = (({ root, rootMargin, threshold }) => ({ root, rootMargin, threshold }))(this);
+      this.observer = new IntersectionObserver(([e]) => this.onIntersect(e), options);
     }
   },
   mounted () {
     if (this.observer) {
-      this.observer.observe(this.$el)
+      this.observer.observe(this.$el);
     }
   },
   destroyed () {
     if (this.observer) {
-      this.observer.disconnect()
+      this.observer.disconnect();
     }
   },
   methods: {
     onIntersect (e) {
       if (e.isIntersecting) {
-        this.observer.unobserve(this.$el)
-        this.triggerEnter()
+        this.observer.unobserve(this.$el);
+        this.triggerEnter();
       }
     },
     triggerEnter (e) {
-      this.$emit('enter', e)
+      this.$emit('enter', e);
     }
   },
   render () {
     try {
-      return this.$slots.default[0]
+      return this.$slots.default[0];
     } catch (e) {
-      throw new Error('IntersectionObserver.vue can only render one, and exactly one child component.')
+      throw new Error('IntersectionObserver.vue can only render one, and exactly one child component.');
     }
   }
-}
+};
 </script>

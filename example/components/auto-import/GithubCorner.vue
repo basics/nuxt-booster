@@ -17,7 +17,7 @@ export default {
       default: process.env.GITHUB_REPO_URL || 'https://your-url'
     }
   }
-}
+};
 
 </script>
 

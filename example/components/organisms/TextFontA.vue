@@ -21,7 +21,7 @@ export default {
       default: 'Text'
     }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

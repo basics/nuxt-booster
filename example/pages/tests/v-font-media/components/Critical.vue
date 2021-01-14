@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: { OrganismPreviewContainer }
-}
+};
 </script>

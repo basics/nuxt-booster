@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {
     OrganismPreviewContainer
@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       content: '<p>This is a <strong>RichText</strong> with different <i>font variants</i>.</p>'
-    }
+    };
   }
-}
+};
 </script>

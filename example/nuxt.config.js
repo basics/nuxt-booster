@@ -1,7 +1,7 @@
-const { resolve } = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const pkg = require('../package.json')
-const isDev = process.env.NODE_ENV === 'development'
+const { resolve } = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const pkg = require('../package.json');
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   dev: isDev,
@@ -45,7 +45,7 @@ module.exports = {
               bugfixes: true
             }
           ]
-        ]
+        ];
       }
     },
 
@@ -71,7 +71,7 @@ module.exports = {
           logLevel: 'info',
           defaultSizes: 'gzip',
           statsOptions: 'normal'
-        }))
+        }));
       }
     }
   },
@@ -285,28 +285,28 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   }
-}
+};
 
 function getBasePath () {
-  return process.env.npm_config_base || process.env.BASE_PATH || '/'
+  return process.env.npm_config_base || process.env.BASE_PATH || '/';
 }
 
 function getHost () {
-  return process.env.npm_config_host || process.env.HOST || 'localhost'
+  return process.env.npm_config_host || process.env.HOST || 'localhost';
 }
 
 function getPort () {
-  return process.env.npm_config_port || process.env.PORT || 3000
+  return process.env.npm_config_port || process.env.PORT || 3000;
 }
 
 function getDistPath () {
-  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist'
+  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
 }
 
 function hasBuildAnalyze () {
-  return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE
+  return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE;
 }
 
 function hasTargetStatic () {
-  return (process.argv.indexOf('--target') && process.argv[process.argv.indexOf('--target') + 1] === 'static') || process.env.npm_config_target_static || process.env.TARGET_STATIC
+  return (process.argv.indexOf('--target') && process.argv[process.argv.indexOf('--target') + 1] === 'static') || process.env.npm_config_target_static || process.env.TARGET_STATIC;
 }

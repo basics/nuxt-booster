@@ -1,4 +1,4 @@
-import theme from '@nuxt/content-theme-docs'
+import theme from '@nuxt/content-theme-docs';
 
 export default theme({
   server: {
@@ -12,16 +12,16 @@ export default theme({
   router: {
     base: getBasePath()
   }
-})
+});
 
 function getBasePath () {
-  return process.env.npm_config_base || process.env.BASE_PATH || '/'
+  return process.env.npm_config_base || process.env.BASE_PATH || '/';
 }
 
 function getDistPath () {
-  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist'
+  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
 }
 
 function getPort () {
-  return process.env.npm_config_port || process.env.PORT || 3000
+  return process.env.npm_config_port || process.env.PORT || 3000;
 }

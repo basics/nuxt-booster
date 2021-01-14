@@ -16,7 +16,7 @@ export default {
       default: 'Headline'
     }
   }
-}
+};
 </script>
 
 <style lang="postcss">

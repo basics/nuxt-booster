@@ -23,4 +23,4 @@ module.exports = {
     // 'module.test.js'
     // 'browser.test.js'
   ]
-}
+};

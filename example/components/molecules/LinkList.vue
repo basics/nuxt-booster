@@ -30,11 +30,11 @@ export default {
           {
             title: 'Link 3.'
           }
-        ]
+        ];
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>

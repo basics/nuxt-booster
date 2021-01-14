@@ -38,8 +38,8 @@
 
 <script>
 
-import Headline from '@/components/atoms/Headline'
-import LinkList from '@/components/molecules/LinkList'
+import Headline from '@/components/atoms/Headline';
+import LinkList from '@/components/molecules/LinkList';
 
 export default {
   components: {
@@ -165,14 +165,14 @@ export default {
           title: 'SpeedkitYoutube',
           to: '/experimental/speedkit-youtube'
         }]
-    }
+    };
   },
   data () {
     return {
       links: []
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">

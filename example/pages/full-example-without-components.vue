@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture';
 
 export default {
 
@@ -64,13 +64,13 @@ export default {
   },
 
   asyncData () {
-    const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
-    const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
-    const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip')
+    const criticalImageWebp = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp');
+    const criticalImageJpeg = require('@/assets/img/critical-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder');
+    const criticalPlaceholder = require('@/assets/img/critical-2400.jpg?sqip');
 
-    const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp')
-    const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder')
-    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip')
+    const lazyImageWebp = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder&format=webp');
+    const lazyImageJpeg = require('@/assets/img/lazy-2400.jpg?resize&sizes[]=480,sizes[]=768,sizes[]=960,sizes[]=1080,sizes[]=1200,sizes[]=1536,sizes[]=2160,sizes[]=2400&placeholder');
+    const lazyPlaceholder = require('@/assets/img/lazy-2400.jpg?sqip');
 
     return {
       contentA: '<p>This is a basic test with single font variant.</p>',
@@ -127,9 +127,9 @@ export default {
           caption: null
         }
       }
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>
