@@ -115,7 +115,7 @@ export default {
 
   methods: {
     onLoadFont (fonts) {
-      console.log('page: font loaded', fonts);
+      // console.log('page: font loaded', fonts);
     }
   }
 };
