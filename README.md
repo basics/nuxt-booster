@@ -361,7 +361,7 @@ or look here
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
 
-[github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/main/badge.svg?branch=main>
+[github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
 [dependencies-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/status.svg>
 [dependencies-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit>
