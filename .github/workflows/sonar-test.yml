@@ -29,7 +29,6 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectBaseDir: /
           args: >
             -Dsonar.organization=grabarzundpartner
             -Dsonar.projectKey=GrabarzUndPartner_nuxt-speedkit
