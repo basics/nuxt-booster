@@ -26,7 +26,7 @@ Features:
 - dynamic loading of images based on bandwidth
 
 Result:
-- delivery of the minimum required resources based on the current viewport
+- delivery of the minimum required resources based on the current viewport.
 
 [**Release Notes** 📖](./CHANGELOG.md)
 
