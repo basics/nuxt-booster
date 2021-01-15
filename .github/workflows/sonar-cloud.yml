@@ -54,10 +54,11 @@ jobs:
           args: >
             -Dsonar.organization=grabarzundpartner
             -Dsonar.projectKey=GrabarzUndPartner_nuxt-speedkit
-            -Dsonar.eslint.reportPaths=./eslint-report.json
+            -Dsonar.eslint.reportPaths=eslint-report.json
             -Dsonar.projectVersion=${{ steps.package-version.outputs.current-version}}
-            -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
-            -Dsonar.testExecutionReportPaths=./coverage/jest-report.xml
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.testExecutionReportPaths=coverage/jest-report.xml
+            -Dsonar.sources=.
             -Dsonar.tests=./test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
