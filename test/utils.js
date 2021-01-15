@@ -40,10 +40,12 @@ export function minifyHTML (html) {
 }
 
 export function makeDir (path) {
+  /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
   return fs.promises.mkdir(path);
 }
 export function deleteDir (path) {
   return new Promise((resolve) => {
+    /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
     if (fs.existsSync(path)) {
       rimraf(path, resolve);
     } else { resolve(); }

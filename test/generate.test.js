@@ -1,3 +1,4 @@
+/* eslint-disable no-secrets/no-secrets */
 import { resolve as fsResolve } from 'path';
 import { readFile } from 'fs';
 import {

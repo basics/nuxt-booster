@@ -1,3 +1,4 @@
+/* eslint-disable no-secrets/no-secrets */
 const { join, resolve } = require('path');
 const puppeteer = require('puppeteer');
 const { setup, loadConfig, generatePort } = require('@nuxtjs/module-test-utils');
