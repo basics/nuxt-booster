@@ -1,4 +1,4 @@
-name: Sonar-Test
+name: Sonar
 on:
   push:
     branches:
