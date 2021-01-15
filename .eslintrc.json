@@ -5,7 +5,7 @@
     "sourceType": "module"
   },
   "extends": [
-    "@nuxtjs",
+    "@nuxtjs/eslint-config",
     "plugin:security/recommended"
   ],
   "plugins": [
