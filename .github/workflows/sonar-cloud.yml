@@ -41,6 +41,10 @@ jobs:
       - name: Lint (Report Generate)
         run: npm run lint:report
 
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
@@ -48,6 +52,7 @@ jobs:
             -Dsonar.organization=grabarzundpartner
             -Dsonar.projectKey=GrabarzUndPartner_nuxt-speedkit
             -Dsonar.eslint.reportPaths=eslint-report.json
+            -Dsonar.projectVersion=${{ steps.package-version.outputs.current-version}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
