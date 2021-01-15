@@ -2,7 +2,11 @@ name: Sonar-Test
 on:
   push:
     branches:
+      - "main"
+      - "beta"
       - "feature/**"
+      - "hotfix/**"
+    
 jobs:
   build:
     name: Sonar
