@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.1...v1.0.2) (2021-01-14)
+
+
+### Bug Fixes
+
+* **security:** removed security issues ([6b7212d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6b7212d0cfd21b3f6e63c0a863e598bf161fa382))
+
 ## [1.0.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0...v1.0.1) (2021-01-14)
 
 
