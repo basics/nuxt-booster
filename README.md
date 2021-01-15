@@ -6,7 +6,7 @@
 [![dependencies status][dependencies-status-src]][dependencies-status-href]
 [![dev-dependencies status][dependencies-dev-status-src]][dependencies-dev-status-href]
 
-[![Codacy Badge][codacy-src]][codacy-href]
+[![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
 [![npm version][npm-version-beta-src]][npm-version-beta-href]
@@ -371,8 +371,8 @@ or look here
 [dependencies-dev-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/dev-status.svg>
 [dependencies-dev-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit?type=dev>
 
-[codacy-src]: <https://app.codacy.com/project/badge/Grade/dc450e6f95ab49c29562b8b3d8cbe19c>
-[codacy-href]: <https://www.codacy.com/gh/GrabarzUndPartner/nuxt-speedkit/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GrabarzUndPartner/nuxt-speedkit&amp;utm_campaign=Badge_Grade>
+[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=GrabarzUndPartner_nuxt-speedkit&metric=alert_status>
+[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=GrabarzUndPartner_nuxt-speedkit>
 
 [license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-speedkit
