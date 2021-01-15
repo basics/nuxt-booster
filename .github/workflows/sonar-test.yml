@@ -1,0 +1,34 @@
+name: Sonar-Test
+on:
+  push:
+    branches:
+      - "feature/**"
+jobs:
+  build:
+    name: Sonar
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        #os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: /
+          args: >
+            -Dsonar.organization=grabarzundpartner
+            -Dsonar.projectKey=GrabarzUndPartner_nuxt-speedkit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
