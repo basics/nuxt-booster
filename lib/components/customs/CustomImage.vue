@@ -2,6 +2,7 @@
   <img
     class="nuxt-speedkit__custom-image"
     loading="lazy"
+    :alt="alt"
     :crossorigin="crossorigin"
     @load="onLoad"
   >
@@ -14,6 +15,13 @@ import { preloadImage } from 'nuxt-speedkit/utils/preload';
 
 export default {
   props: {
+    alt: {
+      type: String,
+      default () {
+        return null;
+      }
+    },
+
     preload: {
       type: Array,
       default () {
