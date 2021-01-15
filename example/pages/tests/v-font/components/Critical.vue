@@ -26,7 +26,7 @@
               v-font="[
                 $getFont('Comic Neue', 400, 'italic', {selector: 'em, span'})
               ]"
-            >font assign by <i>multiple</i> <span>selectors</span></span>
+            >font assign by <em>multiple</em> <span>selectors</span></span>
           </li>
           <hr>
           <li>
