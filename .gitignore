@@ -13,6 +13,7 @@ coverage
 dist
 test/fixture
 eslint-report.json
+test-report.xml
 video
 example/static/stream
 example/assets/proxy

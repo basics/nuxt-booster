@@ -1,11 +1,17 @@
 module.exports = {
   testEnvironment: 'node',
+  testResultsProcessor: 'jest-sonar-reporter',
   collectCoverage: true,
+  moduleFileExtensions: ['js', 'json', 'vue'],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '/test/'
+  ],
   collectCoverageFrom: [
+    'lib/**/*.vue',
     'lib/**/*.js',
     '!lib/plugin.js',
-    '!lib/entry.js',
-    '!lib/components/SpeedkitLayer.vue'
+    '!lib/entry.js'
   ],
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/lib/$1',
@@ -15,7 +21,8 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/(?!(nuxt-i18n)/)'],
   transform: {
-    '^.+\\.js$': 'babel-jest'
+    '^.+\\.js$': 'babel-jest',
+    '^.+\\.vue$': 'vue-jest'
   },
   testPathIgnorePatterns: [
     'fixture'
