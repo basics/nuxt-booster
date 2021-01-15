@@ -14,17 +14,17 @@
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture';
 export default {
   components: {
     SpeedkitPicture
   },
   props: {
-    picture: { type: Object, default () { return {} } },
-    headline: { type: String, default () { return 'Headline' } },
-    claim: { type: String, default () { return 'Claim' } }
+    picture: { type: Object, default () { return {}; } },
+    headline: { type: String, default () { return 'Headline'; } },
+    claim: { type: String, default () { return 'Claim'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

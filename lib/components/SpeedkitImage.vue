@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import ImageContainer from './ImageContainer'
-import CustomNoScript from './customs/CustomNoScript'
-import CustomImage from './customs/CustomImage'
+import ImageContainer from './ImageContainer';
+import CustomNoScript from './customs/CustomNoScript';
+import CustomImage from './customs/CustomImage';
 
 export default {
   components: {
@@ -28,42 +28,42 @@ export default {
     placeholder: {
       type: Object,
       default () {
-        return null
+        return null;
       }
     },
 
     srcset: {
       type: String,
       default () {
-        return null
+        return null;
       }
     },
 
     alt: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
     title: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
     width: {
       type: Number,
       default () {
-        return null
+        return null;
       }
     },
 
     height: {
       type: Number,
       default () {
-        return null
+        return null;
       }
     }
   },
@@ -72,28 +72,28 @@ export default {
     return {
       preloadedSrcset: (this.noScript && this.srcset) || [],
       loading: false
-    }
+    };
   },
 
   computed: {
     hasSlot () {
-      return this.$slots.caption
+      return this.$slots.caption;
     }
   },
 
   mounted () {
-    this.loading = true
+    this.loading = true;
   },
 
   methods: {
     onLoad () {
-      this.loading = false
-      this.$emit('load')
+      this.loading = false;
+      this.$emit('load');
     },
 
     onPreload () {
-      this.preloadedSrcset = this.srcset
+      this.preloadedSrcset = this.srcset;
     }
   }
-}
+};
 </script>

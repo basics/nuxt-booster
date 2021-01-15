@@ -5,6 +5,7 @@ dist
 coverage
 .reports
 publish
+sw.js
 
 lib/plugin.js
 lib/entry.js

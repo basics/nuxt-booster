@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import YoutubePlayer from 'youtube-player'
-import SpeedkitPicture from '../SpeedkitPicture'
+import YoutubePlayer from 'youtube-player';
+import SpeedkitPicture from '../SpeedkitPicture';
 
 export default {
   components: {
@@ -25,14 +25,14 @@ export default {
     id: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
     poster: {
       type: Object,
       default () {
-        return {}
+        return {};
       }
     }
   },
@@ -41,13 +41,13 @@ export default {
     return {
       ready: false,
       playing: false
-    }
+    };
   },
 
   methods: {
     async onLoad (e) {
-      await registerIntersectionObserver(this.$el)
-      this.loadPlayer()
+      await registerIntersectionObserver(this.$el);
+      this.loadPlayer();
       // player.loadVideoById(this.id)
     },
 
@@ -56,34 +56,34 @@ export default {
         host: 'https://www.youtube-nocookie.com',
         videoId: this.id,
         playerVars: { playsinline: 1, modestbranding: 1 }
-      })
+      });
 
-      player.on('ready', (e) => { this.ready = true })
+      player.on('ready', (e) => { this.ready = true; });
       player.on('stateChange', (e) => {
         if (e.data === 1) {
-          this.playing = true
+          this.playing = true;
         }
-      })
+      });
     }
   }
-}
+};
 
 function registerIntersectionObserver (el) {
   return new Promise((resolve) => {
     const observer = new IntersectionObserver((changes) => {
       changes.forEach((change) => {
         if (typeof change.isVisible === 'undefined') {
-          change.isVisible = true
+          change.isVisible = true;
         }
         if (change.isVisible) {
-          observer.disconnect()
-          resolve()
+          observer.disconnect();
+          resolve();
         }
-      })
+      });
       // https://developers.google.com/web/updates/2019/02/intersectionobserver-v2
-    }, { threshold: [1], trackVisibility: true, delay: 350 })
-    observer.observe(el)
-  })
+    }, { threshold: [1], trackVisibility: true, delay: 350 });
+    observer.observe(el);
+  });
 }
 </script>
 

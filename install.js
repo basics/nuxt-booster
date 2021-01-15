@@ -1,8 +1,8 @@
 
-const path = require('path')
-const fsExtra = require('fs-extra')
+const path = require('path');
+const fsExtra = require('fs-extra');
 
-const isPackage = path.basename(path.join(process.cwd(), '../')) === 'node_modules'
+const isPackage = path.basename(path.join(process.cwd(), '../')) === 'node_modules';
 
 if (isPackage) {
   // remove unused files
@@ -13,14 +13,16 @@ if (isPackage) {
     'LICENSE',
     'node_modules',
     'lib'
-  ]
-  fsExtra.readdirSync('.').forEach(file => !ignoredFiles.includes(file) && fsExtra.removeSync(file))
+  ];
+  fsExtra.readdirSync('.').forEach(file => !ignoredFiles.includes(file) && fsExtra.removeSync(file));
 
   // // exclude lib dir
-  const libDir = path.resolve(__dirname, './lib')
-  const libFiles = fsExtra.readdirSync(libDir).map(file => path.resolve(libDir, file))
-  libFiles.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(process.cwd(), path.relative(libDir, file))))
+  const libDir = path.resolve(__dirname, './lib');
+  /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
+  const libFiles = fsExtra.readdirSync(libDir).map(file => path.resolve(libDir, file));
+  /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
+  libFiles.forEach(file => fsExtra.existsSync(file) && fsExtra.copySync(file, path.join(process.cwd(), path.relative(libDir, file))));
 
   // remove lib dir
-  fsExtra.remove(libDir)
+  fsExtra.remove(libDir);
 }
