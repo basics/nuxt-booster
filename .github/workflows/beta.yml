@@ -7,7 +7,6 @@ on:
 jobs:
   semantic-version:
     name: Semantic Release
-    needs: install
     runs-on: ${{ matrix.os }}
 
     strategy:
