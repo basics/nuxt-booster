@@ -41,6 +41,9 @@ jobs:
       - name: Lint (Report Generate)
         run: npm run lint:report
 
+      - name: Jest (Report Generate)
+        run: npm run jest
+
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
