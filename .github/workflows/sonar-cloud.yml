@@ -58,7 +58,7 @@ jobs:
             -Dsonar.projectVersion=${{ steps.package-version.outputs.current-version}}
             -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
             -Dsonar.testExecutionReportPaths=./coverage/jest-report.xml
-            -Dsonar.tests =./test
+            -Dsonar.tests=./test
             -Dsonar.test.inclusions=./test/*.test.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
