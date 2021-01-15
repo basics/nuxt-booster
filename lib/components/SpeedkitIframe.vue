@@ -1,6 +1,13 @@
 <template>
   <intersection-observer @enter="onEnter">
-    <iframe :src="lazySrc" v-bind="$attrs" class="nuxt-speedkit__speedkit-iframe" loading="lazy" @load="onLoad" />
+    <iframe
+      :src="lazySrc"
+      v-bind="$attrs"
+      class="nuxt-speedkit__speedkit-iframe"
+      loading="lazy"
+      :title="title"
+      @load="onLoad"
+    />
   </intersection-observer>
 </template>
 
@@ -13,6 +20,12 @@ export default {
   },
 
   props: {
+    title: {
+      type: String,
+      default () {
+        return null;
+      }
+    },
     src: {
       type: String,
       default () {

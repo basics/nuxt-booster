@@ -3,11 +3,9 @@
     v-font="[
       $getFont('Montserrat Alternates', 400, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
-      $getFont('Montserrat Alternates', 400, 'italic', {selector: 'i'}),
-      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'b,strong'}),
-      $getFont('Montserrat Alternates', 700, 'italic', {selector: 'i b,i strong'}),
-      $getFont('Montserrat Alternates', 700, 'italic', {selector: 'b i, strong i'}),
-      $getFont('Montserrat Alternates', 400, 'italic', {selector: 'i > b, i > strong'})
+      $getFont('Montserrat Alternates', 400, 'italic', {selector: 'em'}),
+      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'}),
+      $getFont('Montserrat Alternates', 700, 'italic', {selector: 'em strong, strong em'})
     ]"
     class="component-text-font-b"
     v-html="text"

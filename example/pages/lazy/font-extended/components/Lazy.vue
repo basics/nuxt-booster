@@ -4,8 +4,8 @@
       <article
         v-font="[
           $getFont('Comic Neue', 400, 'normal'),
-          $getFont('Comic Neue', 700, 'normal', {selector: 'b, strong'}),
-          $getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
+          $getFont('Comic Neue', 700, 'normal', {selector: 'strong'}),
+          $getFont('Comic Neue', 400, 'italic', {selector: 'em'})
         ]"
         v-html="content"
       />
@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      content: '<p>This is a <strong>RichText</strong> with different <i>font variants</i>.</p>'
+      content: '<p>This is a <strong>RichText</strong> with different <em>font variants</em>.</p>'
     };
   }
 };

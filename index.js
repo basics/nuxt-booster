@@ -1,7 +1,7 @@
 let libModule;
 try {
   libModule = require('./module');
-} catch (error) {
+} catch (err) {
   try {
     libModule = require('./lib/module');
   } catch (error) {
