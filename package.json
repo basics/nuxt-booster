@@ -25,6 +25,7 @@
     "build": "nuxt build --config-file example/nuxt.config.js",
     "generate": "nuxt generate --config-file example/nuxt.config.js --target static",
     "lint": "eslint --ext .js,.vue .",
+    "lint:report": "eslint --ext .js,.vue . -f json -o ./eslint-report.json",
     "test": "npm run lint && jest",
     "jest": "jest",
     "start": "nuxt start --config-file example/nuxt.config.js --target static",

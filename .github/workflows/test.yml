@@ -5,6 +5,9 @@ on:
       - "feature/**"
       - "hotfix/**"
       - "renovate/**"
+  pull_request:
+    types: [opened, synchronize, reopened]
+
 jobs:
   build:
     name: Test & Build
