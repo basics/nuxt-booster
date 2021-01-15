@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.2...v1.0.3) (2021-01-15)
+
+
+### Bug Fixes
+
+* **security:** updated eslint rules ([73d4470](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/73d447068af82720df6c7bc598e69f419b76eedf))
+
 ## [1.0.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.1...v1.0.2) (2021-01-14)
 
 
