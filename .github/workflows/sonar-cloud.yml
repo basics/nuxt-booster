@@ -57,7 +57,7 @@ jobs:
             -Dsonar.eslint.reportPaths=./eslint-report.json
             -Dsonar.projectVersion=${{ steps.package-version.outputs.current-version}}
             -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
-            -Dsonar.testExecutionReportPaths=./test-report.xml
+            -Dsonar.testExecutionReportPaths=./coverage/jest-report.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

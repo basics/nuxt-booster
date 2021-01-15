@@ -1,6 +1,8 @@
 module.exports = {
   testEnvironment: 'node',
-  testResultsProcessor: 'jest-sonar-reporter',
+  reporters: ['default', ['jest-sonar', {
+    outputName: 'jest-report.xml'
+  }]],
   collectCoverage: true,
   moduleFileExtensions: ['js', 'json', 'vue'],
   coveragePathIgnorePatterns: [
