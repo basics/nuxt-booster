@@ -1,3 +1,4 @@
+/* eslint-disable no-secrets/no-secrets */
 const { join, resolve } = require('path');
 const { setup, loadConfig, get } = require('@nuxtjs/module-test-utils');
 const { getDom, minifyHTML, getLinkPreloadHid } = require('./utils');
