@@ -1,10 +1,5 @@
 name: Test
 on:
-  push:
-    branches:
-      - "feature/**"
-      - "hotfix/**"
-      - "renovate/**"
   pull_request:
     types: [opened, synchronize, reopened]
 
