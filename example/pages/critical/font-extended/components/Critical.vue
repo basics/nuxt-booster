@@ -4,10 +4,10 @@
       <article
         v-font="[
           $getFont('Comic Neue', 400, 'normal'),
-          $getFont('Comic Neue', 700, 'normal', {selector: 'b, strong'}),
-          $getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
+          $getFont('Comic Neue', 700, 'normal', {selector: 'strong'}),
+          $getFont('Comic Neue', 400, 'italic', {selector: 'em'})
         ]"
-        v-html="contentA"
+        v-html="content"
       />
     </template>
     <template #title>
@@ -22,7 +22,7 @@ export default {
   components: { OrganismPreviewContainer },
   data () {
     return {
-      contentA: '<p>This is a <strong>Rich</strong><b>Text</b> with different <i>font</i> <em>variants</em>.</p>'
+      content: '<p>This is a <strong>RichText</strong> with different <em>font variants</em>.</p>'
     };
   }
 };

@@ -67,11 +67,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/v-font/'));
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances[data-f-493af80d]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances[data-f-1f925c6c]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-active[data-f-493af80d]');
+    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-active[data-f-1f925c6c]');
   });
 
   test('v-font (font assign by multiple selectors) (element class)', async () => {
@@ -79,11 +79,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/v-font/'));
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectors[data-f-12e4c67a]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectors[data-f-691980b2]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectors.font-active[data-f-12e4c67a]');
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectors.font-active[data-f-691980b2]');
   });
 
   test('v-font (font assign by deep selector) (element class)', async () => {
@@ -91,11 +91,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/v-font/'));
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector[data-f-619085c8]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector[data-f-26857299]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-active[data-f-619085c8]');
+    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-active[data-f-26857299]');
   });
 
   // #endregion
@@ -143,11 +143,11 @@ describe('browser (puppeteer)', () => {
     await page.goto(await getUrl('/v-font-media/'));
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-f-4ada246c]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-f-719faf96]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-f-4ada246c]');
+    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-f-719faf96]');
   });
 
   // #endregion

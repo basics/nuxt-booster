@@ -30,7 +30,7 @@ module.exports = {
   build: {
 
     babel: {
-      presets ({ isServer, isModern, isDev }) {
+      presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
