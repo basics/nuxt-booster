@@ -15,27 +15,27 @@
               id="criticalFontAssignByMultipleVariances"
               v-font="[
                 $getFont('Comic Neue', 700, 'normal', {selector: 'strong'}),
-                $getFont('Comic Neue', 700, 'italic', {selector: 'i'})
+                $getFont('Comic Neue', 400, 'italic', {selector: 'em'})
               ]"
-            >font assign by <strong>multiple</strong> <i>variances</i></span>
+            >font assign by <strong>multiple</strong> <em>variances</em></span>
           </li>
           <hr>
           <li>
             <span
               id="criticalFontAssignByMultipleSelectors"
               v-font="[
-                $getFont('Comic Neue', 400, 'italic', {selector: 'i, em'})
+                $getFont('Comic Neue', 400, 'italic', {selector: 'em, span'})
               ]"
-            >font assign by <i>multiple</i> <em>selectors</em></span>
+            >font assign by <em>multiple</em> <span>selectors</span></span>
           </li>
           <hr>
           <li>
             <span
               id="criticalFontAssignByDeepSelector"
               v-font="[
-                $getFont('Comic Neue', 700, 'italic', {selector: 'strong > i'})
+                $getFont('Comic Neue', 700, 'italic', {selector: 'strong > em'})
               ]"
-            >font assign by <strong><i>deep</i></strong> selector</span>
+            >font assign by <strong><em>deep</em></strong> selector</span>
           </li>
         </ul>
       </div>
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: { OrganismPreviewContainer }
-}
+};
 </script>

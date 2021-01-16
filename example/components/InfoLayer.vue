@@ -12,7 +12,7 @@
 
 <script>
 
-import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer'
+import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer';
 export default {
   components: {
     SpeedkitLayer
@@ -21,9 +21,9 @@ export default {
     return {
       text: 'Your connection is too slow…',
       buttonLabel: 'Anyway (OK)'
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">

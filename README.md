@@ -2,7 +2,11 @@
 
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
-[![Master][github-workflow-master-src]][github-workflow-master-href]
+[![main][github-workflow-main-src]][github-workflow-main-href]
+[![dependencies status][dependencies-status-src]][dependencies-status-href]
+[![dev-dependencies status][dependencies-dev-status-src]][dependencies-dev-status-href]
+
+[![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
 [![npm version][npm-version-beta-src]][npm-version-beta-href]
@@ -22,7 +26,7 @@ Features:
 - dynamic loading of images based on bandwidth
 
 Result:
-- delivery of the minimum required resources based on the current viewport
+- delivery of the minimum required resources based on the current viewport.
 
 
 [**Release Notes** 📖](./CHANGELOG.md)
@@ -100,8 +104,15 @@ or look here
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
 
-[github-workflow-master-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Master/badge.svg?branch=master>
-[github-workflow-master-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMaster>
+[github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
+[github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
+[dependencies-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/status.svg>
+[dependencies-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit>
+[dependencies-dev-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/dev-status.svg>
+[dependencies-dev-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit?type=dev>
+
+[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=GrabarzUndPartner_nuxt-speedkit&metric=alert_status>
+[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=GrabarzUndPartner_nuxt-speedkit>
 
 [license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-speedkit
