@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [1.0.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.4...v1.0.5) (2021-01-16)
+
+
+### Bug Fixes
+
+* **eslint:** ignore duplicated strings ([31cea75](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/31cea7520be4784b3891e4af4d727b38bbc8e5a7))
+* **sonar:** fixed code smell ([7cf0560](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7cf0560b32c4e7e0bc285f0e213652448789c22a))
+
 ## [1.0.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.3...v1.0.4) (2021-01-16)
 
 
