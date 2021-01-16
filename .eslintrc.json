@@ -6,7 +6,8 @@
   },
   "extends": [
     "@nuxtjs",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
+    "plugin:sonarjs/recommended"
   ],
   "plugins": [
     "no-secrets",

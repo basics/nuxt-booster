@@ -9,6 +9,11 @@
 
 <script>
 
+const imageTypes = {
+  webp: 'image/webp',
+  jpeg: 'image/jpeg'
+};
+
 export default {
 
   asyncData () {
@@ -31,25 +36,25 @@ export default {
           sources: [
             {
               srcset: criticalImageWebp.srcSet,
-              type: 'image/webp'
+              type: imageTypes.webp
             },
             {
               srcset: criticalImageJpeg.srcSet,
-              type: 'image/jpeg'
+              type: imageTypes.jpeg
             }
           ],
           placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
           width: criticalImageJpeg.width,
           height: criticalImageJpeg.height,
-          alt: 'Alt Text',
-          title: 'Title Text',
+          alt: 'Stage Alt Text',
+          title: 'Stage Title Text',
           caption: null
         }
       },
       youtubePlayer: {
         poster: Object.assign({
-          alt: 'Alt Text',
-          title: 'Title Text',
+          alt: 'Youtube Alt Text',
+          title: 'Youtube Title Text',
           caption: null
         }, require('@/assets/youtube/id/cLKvbhfVBUU'))
       },
@@ -59,18 +64,18 @@ export default {
           sources: [
             {
               srcset: criticalImageWebp.srcSet,
-              type: 'image/webp'
+              type: imageTypes.webp
             },
             {
               srcset: criticalImageJpeg.srcSet,
-              type: 'image/jpeg'
+              type: imageTypes.jpeg
             }
           ],
           placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(criticalPlaceholder),
           width: criticalImageJpeg.width,
           height: criticalImageJpeg.height,
-          alt: 'Alt Text',
-          title: 'Title Text',
+          alt: 'Video Player Alt Text',
+          title: 'Video Player Title Text',
           caption: null
         }
       },
@@ -85,18 +90,18 @@ export default {
           sources: [
             {
               srcset: lazyImageWebp.srcSet,
-              type: 'image/webp'
+              type: imageTypes.webp
             },
             {
               srcset: lazyImageJpeg.srcSet,
-              type: 'image/jpeg'
+              type: imageTypes.jpeg
             }
           ],
           placeholder: (({ src, preview }) => ({ url: src, base64: preview }))(lazyPlaceholder),
           width: lazyImageJpeg.width,
           height: lazyImageJpeg.height,
-          alt: 'Alt Text',
-          title: 'Title Text',
+          alt: 'Image Text A Alt Text',
+          title: 'Image Text A Title Text',
           caption: null
         }
       },
