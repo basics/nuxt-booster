@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.3...v1.0.4) (2021-01-16)
+
+
+### Bug Fixes
+
+* **lighthouse:** fixed object sink + added lost css ([2427ae4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2427ae47658a792c1940011afb97f8a8ca63ffb4))
+
 ## [1.0.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.2...v1.0.3) (2021-01-15)
 
 
