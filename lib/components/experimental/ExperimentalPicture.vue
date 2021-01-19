@@ -4,7 +4,7 @@
       <source
         v-for="(source, index) in imageSources"
         :key="index"
-        :srcset="source.ref || source.srcset || source.url"
+        :srcset="source.dataURI || source.srcset || source.url"
         :media="source.media"
         :sizes="source.sizes"
         :type="source.type"
