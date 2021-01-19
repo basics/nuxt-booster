@@ -23,8 +23,8 @@ export default {
         picture: {
           sizes: '300,300:600,600:900',
           sources: [
-            { src: 'https://dummyimage.com/1200x630/ffffff/000000.jpg', sizes: ['299', '300:599', '600:899', '900:1199'] },
-            { src: 'https://dummyimage.com/1920x1080/ffffff/000000.jpg', sizes: ['1200:1599', '1600:1899', '1900:1920'] }
+            { src: 'https://dummyimage.com/1200x630/ffffff/000000.jpg', sizes: '299,300:599,600:899,900:1199' },
+            { src: 'https://dummyimage.com/1920x1080/ffffff/000000.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
           ],
           alt: 'Alt Text',
           title: 'Title Text'
@@ -40,8 +40,8 @@ export default {
         picture: {
           sizes: '300,300:600,600:900',
           sources: [
-            { src: 'https://dummyimage.com/1200x630/000000/ffffff.jpg', sizes: ['299', '300:599', '600:899', '900:1199'] },
-            { src: 'https://dummyimage.com/1920x1080/000000/ffffff.jpg', sizes: ['1200:1599', '1600:1899', '1900:1920'] }
+            { src: 'https://dummyimage.com/1200x630/000000/ffffff.jpg', sizes: '299,300:599,600:899,900:1199' },
+            { src: 'https://dummyimage.com/1920x1080/000000/ffffff.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
           ],
           alt: 'Alt Text',
           title: 'Title Text'
@@ -64,7 +64,7 @@ export default {
 
 }
 
-function getImageTextComponents (count = 10) {
+function getImageTextComponents (count = 0) {
   const components = []
   for (let i = 0; i < count; i++) {
     const background = Array(3).fill((255 / count * i).toString(16)).join('')
@@ -73,8 +73,8 @@ function getImageTextComponents (count = 10) {
       picture: {
         sizes: '300,300:600,600:900',
         sources: [
-          { src: `https://dummyimage.com/1200x630/${background}/ffffff.jpg`, sizes: ['299', '300:599', '600:899', '900:1199'] },
-          { src: `https://dummyimage.com/1920x1080/${background}/ffffff.jpg`, sizes: ['1200:1599', '1600:1899', '1900:1920'] }
+          { src: `https://dummyimage.com/1200x630/${background}/ffffff.jpg`, sizes: '299,300:599,600:899,900:1199' },
+          { src: `https://dummyimage.com/1920x1080/${background}/ffffff.jpg`, sizes: '1200:1599,1600:1899,1900:1920' }
         ],
         alt: 'Alt Text',
         title: 'Title Text'

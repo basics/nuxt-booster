@@ -6,13 +6,21 @@
       v-bind="source"
     >
     <custom-image v-bind="{src: ipxPlaceholder.placeholder, preload: ipxSources, width: ipxPlaceholder.width, height: ipxPlaceholder.height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" /> -->
-    <source v-for="(source, index) in placeholders" :key="index" :srcset="source.ref" :media="source.media">
-    <img loading="lazy">
+    <!-- <source
+      :srcset="placeholders.map((placeholder) => {
+        return `${placeholder.ref} ${placeholder.width}w`.trim()
+      }).reverse().join()"
+      sizes="(max-width: 1200px) 1199px, 100vw"
+    > -->
+    <source v-for="(source, index) in preloadedSources" :key="index" :srcset="source.srcset" :sizes="source.sizes">
+    <source v-for="(source, index) in placeholders" :key="index" :srcset="source.ref || source.url" :media="source.media" :sizes="source.sizes">
+    <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
   </picture>
 </template>
 
 <script>
 // import { hydrateNever } from 'vue-lazy-hydration'
+import { createSVGPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder'
 
 export default {
   components: {
@@ -59,6 +67,7 @@ export default {
     }))
     return {
       placeholders: [],
+      resolvedSources: this.getSources(),
       preloadedSources: [],
       loading: false,
       webpSupport: false
@@ -66,50 +75,39 @@ export default {
   },
 
   async fetch () {
-    const result = await this.fetchMeta()
-
-    this.placeholders = result
+    this.placeholders = await this.fetchMeta()
     if (this.$nuxt.context.ssrContext && this.$nuxt.context.ssrContext.isGenerating) {
       // eslint-disable-next-line no-unused-expressions
-      this.ipxSources
+      this.getSources()
     }
   },
 
-  // head () {
-  //   if (!this.isCritical) {
-  //     return {
-  //       link: this.placeholders.map(({ media, src }) => {
-  //         return {
-  //           rel: 'prefetch',
-  //           media,
-  //           href: src,
-  //           callback: (e) => {
+  head () {
+    if (this.isCritical) {
+      return {
+        link:
+          getPreloadDescriptions([{
+            srcset: this.placeholders.map((placeholder) => {
+              return `${placeholder.url} ${placeholder.width}w`.trim()
+            })
+          }]).concat(getPreloadDescriptions(this.resolvedSources, (e) => {
+            console.log('ORIGINAL', e)
+            this.onPreload()
+          }))
+      }
+    } else if (process.client) {
+      return {
+        link: getPreloadDescriptions(this.resolvedSources, (e) => {
+          console.log('ORIGINAL', e)
+          this.onPreload()
+        })
 
-  //           }
-  //         }
-  //       })
-
-  //       // link: [{
-  //       //   rel: 'prefetch',
-  //       //   href: this.$img('ipx:/img/critical-2400.jpg', { width: 30, format: '' }).url
-
-  //     // }]
-  //     }
-  //   }
-  // },
+      }
+    }
+  },
 
   computed: {
-    src () {
-      return this.sources[0].src
-    },
 
-    ipxSources () {
-      return this.getSources()
-    },
-
-    hasSlot () {
-      return this.$slots.caption
-    }
   },
 
   async created () {
@@ -131,42 +129,33 @@ export default {
     },
 
     onPreload () {
-      this.preloadedSources = this.ipxSources
+      this.placeholders = []
+      this.preloadedSources = this.resolvedSources
     },
 
     fetchMeta () {
-      const critical = this.isCritical
-
       if (process.server) {
-        return Promise.all(this.sources.map(async (source) => {
-          const meta = await this.$img.getMeta(source.src)
-          const { url } = await this.$img(source.src, { width: 30 })
-          meta.src = url
-
-          return generateSVG(
-            meta,
-            this.$img.sizes(source.src, source.sizes.join(',')),
-            critical && meta.placeholder
-          )
-        })).then((result) => {
-          return result.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1)
-        })
+        return createSVGPlaceholder(this.sources, (source) => {
+          return Promise.all([
+            this.$img(source.src, { width: 30 }),
+            this.$img.sizes(source.src, source.sizes),
+            this.$img.getMeta(source.src)
+          ])
+        }, this.isCritical)
       } else {
-        return Promise.all(this.sources.map(async (source) => {
-          return getPlaceholder(
-            (await this.$img(source.src, { width: 30 })).url,
-            this.$img.sizes(source.src, source.sizes.join(','))
-          )
-        })).then((result) => {
-          return result.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1)
+        return createURLPlaceholder(this.sources, (source) => {
+          return Promise.all([
+            this.$img(source.src, { width: 30 }),
+            this.$img.sizes(source.src, source.sizes)
+          ])
         })
       }
     },
 
     getSources () {
       return [
-        this.$img.sizes(this.src, this.sizes, { format: 'webp' }),
-        this.$img.sizes(this.src, this.sizes, { format: 'jpeg' })
+        this.sources.map(source => this.$img.sizes(source.src, source.sizes, { format: 'webp' })).flat()
+        // this.sources.map(source => this.$img.sizes(source.src, source.sizes.join(','), { format: 'jpeg' })).flat()
       ].map((sources) => {
         return {
           srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
@@ -178,48 +167,15 @@ export default {
   }
 }
 
-function generateSVG ({ width, height, src }, sizes, placeholder) {
-  const size = sizes.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1).pop()
-
-  let image = ''
-  if (placeholder) {
-    image = `<image href="${placeholder}" width="${width}" height="${height}"/>`
-  }
-
-  return Object.assign({ src, width, height }, {
-    media: size.media,
-    breakpoint: size.breakpoint,
-    ref: [
-      'data:image/svg+xml',
-      encodeURI(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}">${image}</svg>
-      `.trim())
-    ].join(',')
-  })
-}
-
-function getPlaceholder (url, sizes) {
-  const size = sizes.sort((a, b) => a.breakpoint < b.breakpoint ? 1 : -1).pop()
-  return new Promise((resolve) => {
-    if (process.client) {
-      const img = new global.Image()
-      img.onload = () => {
-        resolve({
-          media: size.media,
-          breakpoint: size.breakpoint,
-          ref: url,
-          src: url,
-          width: img.width,
-          height: img.height
-        })
-      }
-      img.src = url
-    } else {
-      resolve({
-        placeholder: '',
-        width: 0,
-        height: 0
-      })
+function getPreloadDescriptions (sources, callback = () => {}) {
+  return sources.map((source) => {
+    return {
+      rel: 'preload',
+      as: 'image',
+      crossorigin: 'anonymous',
+      imageSrcset: source.srcset,
+      imageSizes: source.sizes,
+      callback
     }
   })
 }

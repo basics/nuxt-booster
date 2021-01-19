@@ -172,15 +172,16 @@ export default {
         {
           title: 'ExperimentalPicture (5 Pictures)',
           to: '/experimental/experimental-picture/5/'
-        },
-        {
-          title: 'ExperimentalPicture (10 Pictures)',
-          to: '/experimental/experimental-picture/10/'
-        },
-        {
-          title: 'ExperimentalPicture (20 Pictures)',
-          to: '/experimental/experimental-picture/20/'
-        }]
+        }
+        // {
+        //   title: 'ExperimentalPicture (10 Pictures)',
+        //   to: '/experimental/experimental-picture/10/'
+        // },
+        // {
+        //   title: 'ExperimentalPicture (20 Pictures)',
+        //   to: '/experimental/experimental-picture/20/'
+        // }
+      ]
     }
   },
   data () {

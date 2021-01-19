@@ -28,8 +28,8 @@ function getComponents (count = 5) {
       picture: {
         sizes: '300,300:600,600:900',
         sources: [
-          { src: `https://dummyimage.com/1200x630/${background}/${color}.jpg`, sizes: ['299', '300:599', '600:899', '900:1199'] },
-          { src: `https://dummyimage.com/1920x1080/${background}/${color}.jpg`, sizes: ['1200:1599', '1600:1899', '1900:1920'] }
+          { src: `https://dummyimage.com/630x1200/${background}/${color}.jpg`, sizes: '299,300:599,600:899,900:1199' },
+          { src: `https://dummyimage.com/1920x1080/${background}/${color}.jpg`, sizes: '1200:1599,1600:1899,1900:1920' }
         ]
       }
     })
