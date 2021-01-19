@@ -123,18 +123,18 @@ export default {
 
     fetchMeta () {
       if (process.server) {
-        return createSVGPlaceholder(this.sources, (source) => {
+        return createSVGPlaceholder(this.sources, ({ src, sizes }) => {
           return Promise.all([
-            this.$img(source.src, { width: 30 }),
-            this.$img.sizes(source.src, source.sizes),
-            this.$img.getMeta(source.src)
+            this.$img(src, { width: 30 }),
+            this.$img.sizes(src, sizes),
+            this.$img.getMeta(src)
           ])
         }, this.isCritical)
       } else {
-        return createURLPlaceholder(this.sources, (source) => {
+        return createURLPlaceholder(this.sources, ({ src, sizes }) => {
           return Promise.all([
-            this.$img(source.src, { width: 30 }),
-            this.$img.sizes(source.src, source.sizes)
+            this.$img(src, { width: 30 }),
+            this.$img.sizes(src, sizes)
           ])
         })
       }
@@ -142,24 +142,28 @@ export default {
 
     getSources () {
       return ['webp', 'jpeg'].map((format) => {
-        return this.sources.map(source => this.$img.sizes(source.src, source.sizes, { format })).flat()
+        return this.sources.map(({ src, sizes }) => this.$img.sizes(src, sizes, { format })).flat()
       }).map((sources) => {
         return {
           srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
           sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
-          type: getMimeType(sources[0].format)
+          type: getMimeType(sources[0])
         }
       })
     }
   }
 }
 
-function getMimeType (format) {
+function getMimeType ({ format }) {
   return `image/${format}`
 }
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
-  return sources.filter(source => source.type !== getMimeType('webp') || (source.type === getMimeType('webp') && webpSupport))
+  return sources.filter(source => !isWebp(source) || (isWebp(source) && webpSupport))
+}
+
+function isWebp ({ type }) {
+  return type === getMimeType('webp')
 }
 </script>
 
