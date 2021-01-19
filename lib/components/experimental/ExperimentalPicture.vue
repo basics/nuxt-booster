@@ -1,7 +1,6 @@
 <template>
   <figure>
     <picture>
-      <!-- <source v-for="(source, index) in preloadedSources" :key="index" :srcset="source.srcset" :sizes="source.sizes"> -->
       <source v-for="(source, index) in imageSources" :key="index" :srcset="source.ref || source.srcset || source.url" :media="source.media" :sizes="source.sizes">
       <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
     </picture>
@@ -52,10 +51,6 @@ export default {
     }
   },
   data () {
-    // TODO: wird auch gebraucht wenn sourcen von außen gewechselt werden?
-    // Promise.all(this.sources.map(async (source) => {
-    //   await this.$img(source.src, { width: 30 })
-    // }))
     return {
       visible: false,
       imageSources: [],
@@ -67,10 +62,6 @@ export default {
 
   async fetch () {
     this.imageSources = await this.fetchMeta()
-    // if (this.$nuxt.context.ssrContext && this.$nuxt.context.ssrContext.isGenerating) {
-    //   // eslint-disable-next-line no-unused-expressions
-    //   this.getSources()
-    // }
   },
 
   head () {
@@ -87,10 +78,6 @@ export default {
     }
   },
 
-  async created () {
-    // this.imageSources = await this.fetchMeta()
-  },
-
   mounted () {
     registerIntersecting(this.$el, () => {
       this.visible = true
@@ -103,7 +90,6 @@ export default {
 
   methods: {
     onPreload () {
-      // this.imageSources = []
       this.imageSources = this.resolvedSources
 
       this.$emit('load')
