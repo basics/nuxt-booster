@@ -1,26 +1,17 @@
 <template>
-  <picture>
-    <!-- <source
-      v-for="(source, index) in ipxSources"
-      :key="index"
-      v-bind="source"
-    >
-    <custom-image v-bind="{src: ipxPlaceholder.placeholder, preload: ipxSources, width: ipxPlaceholder.width, height: ipxPlaceholder.height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" /> -->
-    <!-- <source
-      :srcset="placeholders.map((placeholder) => {
-        return `${placeholder.ref} ${placeholder.width}w`.trim()
-      }).reverse().join()"
-      sizes="(max-width: 1200px) 1199px, 100vw"
-    > -->
-    <source v-for="(source, index) in preloadedSources" :key="index" :srcset="source.srcset" :sizes="source.sizes">
-    <source v-for="(source, index) in placeholders" :key="index" :srcset="source.ref || source.url" :media="source.media" :sizes="source.sizes">
-    <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
-  </picture>
+  <figure>
+    <picture>
+      <!-- <source v-for="(source, index) in preloadedSources" :key="index" :srcset="source.srcset" :sizes="source.sizes"> -->
+      <source v-for="(source, index) in imageSources" :key="index" :srcset="source.ref || source.srcset || source.url" :media="source.media" :sizes="source.sizes">
+      <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
+    </picture>
+  </figure>
 </template>
 
 <script>
 // import { hydrateNever } from 'vue-lazy-hydration'
 import { createSVGPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder'
+import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
 
 export default {
   components: {
@@ -62,75 +53,60 @@ export default {
   },
   data () {
     // TODO: wird auch gebraucht wenn sourcen von außen gewechselt werden?
-    Promise.all(this.sources.map(async (source) => {
-      await this.$img(source.src, { width: 30 })
-    }))
+    // Promise.all(this.sources.map(async (source) => {
+    //   await this.$img(source.src, { width: 30 })
+    // }))
     return {
-      placeholders: [],
+      visible: false,
+      imageSources: [],
       resolvedSources: this.getSources(),
-      preloadedSources: [],
       loading: false,
       webpSupport: false
     }
   },
 
   async fetch () {
-    this.placeholders = await this.fetchMeta()
-    if (this.$nuxt.context.ssrContext && this.$nuxt.context.ssrContext.isGenerating) {
-      // eslint-disable-next-line no-unused-expressions
-      this.getSources()
-    }
+    this.imageSources = await this.fetchMeta()
+    // if (this.$nuxt.context.ssrContext && this.$nuxt.context.ssrContext.isGenerating) {
+    //   // eslint-disable-next-line no-unused-expressions
+    //   this.getSources()
+    // }
   },
 
   head () {
-    if (this.isCritical) {
+    if (this.isCritical || (process.client & this.visible)) {
       return {
-        link:
-          getPreloadDescriptions([{
-            srcset: this.placeholders.map((placeholder) => {
-              return `${placeholder.url} ${placeholder.width}w`.trim()
-            })
-          }]).concat(getPreloadDescriptions(this.resolvedSources, (e) => {
-            console.log('ORIGINAL', e)
-            this.onPreload()
-          }))
-      }
-    } else if (process.client) {
-      return {
-        link: getPreloadDescriptions(this.resolvedSources, (e) => {
-          console.log('ORIGINAL', e)
-          this.onPreload()
-        })
-
+        link: getPreloadDescriptions(this.resolvedSources, this.onPreload)
       }
     }
   },
 
-  computed: {
-
+  watch: {
+    async sources () {
+      this.imageSources = await this.fetchMeta()
+    }
   },
 
   async created () {
-    this.placeholders = await this.fetchMeta()
-    // this.ipxPlaceholder.placeholder = this.getPlaceholder()
-
-    // // placeholder
-    // this.$img.getMeta(this.src).then(e => console.log('HURZ', e))
+    // this.imageSources = await this.fetchMeta()
   },
 
   mounted () {
-    this.loading = true
+    registerIntersecting(this.$el, () => {
+      this.visible = true
+    })
+  },
+
+  destroyed () {
+    unregisterIntersecting(this.$el)
   },
 
   methods: {
-    onLoad (e) {
-      this.loading = false
-      this.$emit('load')
-    },
-
     onPreload () {
-      this.placeholders = []
-      this.preloadedSources = this.resolvedSources
+      // this.imageSources = []
+      this.imageSources = this.resolvedSources
+
+      this.$emit('load')
     },
 
     fetchMeta () {
@@ -182,9 +158,20 @@ function getPreloadDescriptions (sources, callback = () => {}) {
 </script>
 
 <style lang="postcss" scoped>
-img {
+figure {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: inherit;
+  margin: 0;
+
+  & picture {
+    display: block;
+    height: inherit;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 </style>
