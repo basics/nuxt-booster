@@ -1,20 +1,41 @@
 <template>
   <figure>
     <picture>
-      <source v-for="(source, index) in imageSources" :key="index" :srcset="source.ref || source.srcset || source.url" :media="source.media" :sizes="source.sizes">
+      <source
+        v-for="(source, index) in imageSources"
+        :key="index"
+        :srcset="source.ref || source.srcset || source.url"
+        :media="source.media"
+        :sizes="source.sizes"
+        :type="source.type"
+      >
       <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
     </picture>
+    <custom-no-script>
+      <picture>
+        <source
+          v-for="(source, index) in resolvedSources"
+          :key="index"
+          :srcset="source.srcset"
+          :media="source.media"
+          :sizes="source.sizes"
+          :type="source.type"
+        >
+        <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
+      </picture>
+    </custom-no-script>
   </figure>
 </template>
 
 <script>
-// import { hydrateNever } from 'vue-lazy-hydration'
 import { createSVGPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder'
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
+import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript'
+import { isWebpSupported, isPreloadSupported } from 'nuxt-speedkit/utils/support'
 
 export default {
   components: {
-    // CustomImage: hydrateNever(() => import('nuxt-speedkit-components/customs/CustomImage'))
+    CustomNoScript
   },
 
   props: {
@@ -55,19 +76,23 @@ export default {
       visible: false,
       imageSources: [],
       resolvedSources: this.getSources(),
-      loading: false,
       webpSupport: false
     }
   },
 
   async fetch () {
     this.imageSources = await this.fetchMeta()
+    this.webpSupport = process.server || await isWebpSupported()
   },
 
   head () {
     if (this.isCritical || (process.client & this.visible)) {
-      return {
-        link: getPreloadDescriptions(this.resolvedSources, this.onPreload)
+      if (isPreloadSupported()) {
+        return {
+          link: getPreloadDescriptions(this.resolvedSources, this.onPreload, this.webpSupport)
+        }
+      } else {
+        this.onPreload()
       }
     }
   },
@@ -91,7 +116,6 @@ export default {
   methods: {
     onPreload () {
       this.imageSources = this.resolvedSources
-
       this.$emit('load')
     },
 
@@ -116,8 +140,8 @@ export default {
 
     getSources () {
       return [
-        this.sources.map(source => this.$img.sizes(source.src, source.sizes, { format: 'webp' })).flat()
-        // this.sources.map(source => this.$img.sizes(source.src, source.sizes.join(','), { format: 'jpeg' })).flat()
+        this.sources.map(source => this.$img.sizes(source.src, source.sizes, { format: 'webp' })).flat(),
+        this.sources.map(source => this.$img.sizes(source.src, source.sizes, { format: 'jpeg' })).flat()
       ].map((sources) => {
         return {
           srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
@@ -129,17 +153,22 @@ export default {
   }
 }
 
-function getPreloadDescriptions (sources, callback = () => {}) {
-  return sources.map((source) => {
-    return {
-      rel: 'preload',
-      as: 'image',
-      crossorigin: 'anonymous',
-      imageSrcset: source.srcset,
-      imageSizes: source.sizes,
-      callback
+function getPreloadDescriptions (sources, callback = () => {}, webpSupport) {
+  const [source] = sources.reduce((result, source) => {
+    if (source.type !== 'image/webp' || (source.type === 'image/webp' && webpSupport)) {
+      result.push(source)
     }
-  })
+    return result
+  }, [])
+
+  return [{
+    rel: 'preload',
+    as: 'image',
+    crossorigin: 'anonymous',
+    imageSrcset: source.srcset,
+    imageSizes: source.sizes,
+    callback
+  }]
 }
 </script>
 
