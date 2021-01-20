@@ -24,6 +24,9 @@
         <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
       </picture>
     </custom-no-script>
+    <figcaption v-if="hasSlot">
+      <slot name="caption" />
+    </figcaption>
   </figure>
 </template>
 
@@ -72,11 +75,13 @@ export default {
       }
     }
   },
+
   data () {
     return {
       visible: false,
       imageSources: [],
       resolvedSources: this.getSources(),
+      loading: true,
       webpSupport: false
     }
   },
@@ -99,6 +104,12 @@ export default {
     }
   },
 
+  computed: {
+    hasSlot () {
+      return this.$slots.caption
+    }
+  },
+
   watch: {
     async sources () {
       this.imageSources = await this.fetchMeta()
@@ -118,6 +129,7 @@ export default {
   methods: {
     onPreload () {
       this.imageSources = this.resolvedSources
+      this.loading = false
       this.$emit('load')
     },
 
