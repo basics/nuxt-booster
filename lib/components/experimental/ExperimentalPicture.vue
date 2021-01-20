@@ -153,15 +153,15 @@ export default {
     },
 
     getSources () {
-      return getFormats(this.sources).map((format) => {
-        return this.sources.map(({ src, sizes }) => this.$img.sizes(src, sizes, { format })).flat()
-      }).map((sources) => {
-        return {
-          srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-          sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
-          type: getMimeType(sources[0].format)
-        }
-      })
+      return getFormats(this.sources)
+        .map(format => this.sources.map(({ src, sizes }) => this.$img.sizes(src, sizes, { format })).flat())
+        .map((sources) => {
+          return {
+            srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+            sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
+            type: getMimeType(sources[0].format)
+          }
+        })
     }
   }
 }
