@@ -153,7 +153,7 @@ export default {
     },
 
     getSources () {
-      return ['webp', 'jpeg'].map((format) => {
+      return getFormats(this.sources).map((format) => {
         return this.sources.map(({ src, sizes }) => this.$img.sizes(src, sizes, { format })).flat()
       }).map((sources) => {
         return {
@@ -166,8 +166,26 @@ export default {
   }
 }
 
+function getFormats (sources) {
+  return [...new Set(['webp']
+    .concat(sources.map(source => source.src.match(/\.(?<id>png|jpe?g)/i).groups.id))
+    .map((format) => {
+      if (format === 'jpeg') {
+        return 'jpg'
+      }
+      return format
+    })
+  )]
+}
+
+const mimeTypes = {
+  webp: 'image/webp',
+  jpg: 'image/jpeg',
+  png: 'image/png'
+}
+
 function getMimeType ({ format }) {
-  return `image/${format}`
+  return mimeTypes[String(format)]
 }
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
