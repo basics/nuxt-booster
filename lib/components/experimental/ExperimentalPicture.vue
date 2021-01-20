@@ -159,7 +159,7 @@ export default {
         return {
           srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
           sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
-          type: getMimeType(sources[0])
+          type: getMimeType(sources[0].format)
         }
       })
     }
@@ -184,7 +184,7 @@ const mimeTypes = {
   png: 'image/png'
 }
 
-function getMimeType ({ format }) {
+function getMimeType (format) {
   return mimeTypes[String(format)]
 }
 
