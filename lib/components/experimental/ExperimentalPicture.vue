@@ -34,7 +34,7 @@
 import { createSVGPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder'
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
 import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript'
-import { isWebpSupported, isPreloadSupported } from 'nuxt-speedkit/utils/support'
+import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support'
 import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preloadNew'
 
 export default {
@@ -48,11 +48,6 @@ export default {
       default () {
         return []
       }
-    },
-
-    sizes: {
-      type: String,
-      default: null
     },
 
     alt: {
@@ -81,19 +76,19 @@ export default {
       visible: false,
       imageSources: [],
       resolvedSources: this.getSources(),
-      loading: true,
-      webpSupport: false
+      loading: true
     }
   },
 
   async fetch () {
     this.imageSources = await this.fetchMeta()
-    this.webpSupport = process.server || await isWebpSupported()
   },
 
   head () {
     if (this.isCritical || (process.client & this.visible)) {
-      const [source] = filterBySupportedMimeTypes(this.resolvedSources, this.webpSupport)
+      const sources = filterBySupportedMimeTypes(this.resolvedSources, webpSupport)
+      const [source] = sources
+
       if (isPreloadSupported()) {
         return {
           link: [getPreloadDescription(source, this.crossorigin, this.onPreload)]
@@ -167,14 +162,15 @@ export default {
 }
 
 function getFormats (sources) {
-  return [...new Set(['webp']
-    .concat(sources.map(source => source.src.match(/\.(?<id>png|jpe?g)/i).groups.id))
-    .map((format) => {
-      if (format === 'jpeg') {
-        return 'jpg'
-      }
-      return format
-    })
+  return [...new Set(
+    ['webp']
+      .concat(sources.map(source => source.src.match(/\.(?<ext>png|jpe?g)/i).groups.ext))
+      .map((format) => {
+        if (format === 'jpeg') {
+          return 'jpg'
+        }
+        return format
+      })
   )]
 }
 
@@ -189,7 +185,9 @@ function getMimeType (format) {
 }
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
-  return sources.filter(source => !isWebp(source) || (isWebp(source) && webpSupport))
+  return sources.filter((source) => {
+    return !isWebp(source) || (isWebp(source) && webpSupport)
+  })
 }
 
 function isWebp ({ type }) {

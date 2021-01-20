@@ -9,7 +9,7 @@
 
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
-import { isWebpSupported } from 'nuxt-speedkit/utils/support'
+import { webpSupport } from 'nuxt-speedkit/utils/support'
 import { preloadImage } from 'nuxt-speedkit/utils/preload'
 
 export default {
@@ -34,18 +34,13 @@ export default {
   data () {
     return {
       visible: this.isCritical,
-      preloaded: false,
-      webpSupport: false
+      preloaded: false
     }
-  },
-
-  async fetch () {
-    this.webpSupport = process.server || await isWebpSupported()
   },
 
   head () {
     if (this.preload && this.visible && this.preload && this.preload.length) {
-      return preloadImage(getPreloadSrcset(this.preload, this.webpSupport), () => this.onPreload(), this.crossorigin)
+      return preloadImage(getPreloadSrcset(this.preload, webpSupport), () => this.onPreload(), this.crossorigin)
     } else {
       return {}
     }

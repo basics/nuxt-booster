@@ -2,6 +2,7 @@
   <div class="page-full-example-with-components">
     <component-stage v-bind="stage" />
     <component-text-a v-bind="textA" />
+    <component-experimental-youtube v-bind="youtube" />
     <component-text-image v-bind="imageTextA" />
     <component-text-b v-bind="textB" />
 
@@ -35,6 +36,10 @@ export default {
         text: '<h2>Text Headline</h2><p>Aliqua odit <b>anim vehicula</b> varius eget feugiat beatae. <i><b>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</b></i>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
       },
 
+      youtube: {
+        id: 'cLKvbhfVBUU'
+      },
+
       imageTextA: {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
@@ -58,6 +63,7 @@ export default {
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
+    ComponentExperimentalYoutube: () => import('nuxt-speedkit/components/experimental/ExperimentalYoutube'),
     ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
   }
