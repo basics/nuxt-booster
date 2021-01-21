@@ -11,9 +11,12 @@
 </template>
 
 <script>
+import { hydrateWhenVisible } from 'vue-lazy-hydration'
 
 export default {
-
+  components: {
+    ComponentExperimentalYoutube: hydrateWhenVisible(() => import('nuxt-speedkit/components/experimental/ExperimentalYoutube'))
+  },
   asyncData () {
     return {
       contentA: '<p>This is a basic test with single font variant.</p>',
@@ -60,10 +63,10 @@ export default {
       imageTextList: getImageTextComponents()
     }
   },
+
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
-    ComponentExperimentalYoutube: () => import('nuxt-speedkit/components/experimental/ExperimentalYoutube'),
     ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
   }

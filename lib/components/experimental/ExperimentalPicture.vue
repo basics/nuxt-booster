@@ -9,7 +9,7 @@
         :sizes="source.sizes"
         :type="source.type"
       >
-      <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
+      <img :class="{ready: !loading}" loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
     </picture>
     <custom-no-script>
       <picture>
@@ -208,7 +208,14 @@ figure {
     & img {
       width: 100%;
       height: 100%;
+      filter: blur(10px);
+      transition-duration: 350ms;
+      transition-property: filter;
       object-fit: cover;
+
+      &.ready {
+        filter: blur(0);
+      }
     }
   }
 }

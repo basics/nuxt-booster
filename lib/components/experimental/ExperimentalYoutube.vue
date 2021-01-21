@@ -6,9 +6,8 @@
       width="640"
       height="320"
     />
-    <button :class="{playing: playing}">
-      <experimental-picture :sources="sources" @load="onLoad" />
-    </button>
+
+    <experimental-picture :sources="sources" class="poster" :class="{playing: playing}" @load="onLoad" />
   </div>
 </template>
 
@@ -35,11 +34,16 @@ export default {
 
   data () {
     return {
-      sources: [{
-        src: `https://img.youtube.com/vi/${this.id}/maxresdefault.jpg`, sizes: this.sizes
-      }],
       ready: false,
       playing: false
+    }
+  },
+
+  computed: {
+    sources () {
+      return [{
+        src: `https://img.youtube.com/vi/${this.id}/maxresdefault.jpg`, sizes: this.sizes
+      }]
     }
   },
 
@@ -47,7 +51,6 @@ export default {
     async onLoad (e) {
       await registerIntersectionObserver(this.$el)
       this.loadPlayer()
-      // player.loadVideoById(this.id)
     },
 
     loadPlayer (el, id) {
@@ -100,24 +103,8 @@ div {
     height: 100%;
   }
 
-  & button {
+  & .poster {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    text-transform: none;
-    pointer-events: none;
-    border: none;
-    transition-duration: 350ms;
-    transition-property: transform;
-    appearance: button;
 
     @nest .ready& {
       mask-image: radial-gradient(50px at center, transparent 75%, black 100%);
