@@ -11,17 +11,38 @@ components:
 
 ---
 
-Das Modul wird verwendet um die Performance der Website zu erhöhen. Dafür werden verschiedene Werkzeuge zur verfügung gestellt, die sich um das richtige laden der Resourcen (Bilder, Schriften) kümmern.
 
-Alle Komponenten und Schrift-Definitionen laufen initial alle im Lazy-Modus. Hier bei werden zumbeispiel Bilder und Schriften erst geladen wenn sie sich im Viewport befinden.
+`nuxt-speedkit` benutzt du um die Performance der Website zu erhöhen.  
+Dafür werden verschiedene Werkzeuge zur verfügung gestellt, die dir beim laden der Resourcen (Bilder, Schriften) und Komponenten helfen.
 
-Für Fälle die sich initial im Viewport befinden, gibt es die Kritischen Komponenten.
+Geholfen wird bei:
 
-Eine Kritische Komponente stellt hier bei eine Kompoente da, die schon initial Sichtbar ist und somit Schriften und Bilder priorisiert geladen werden.
+1. Beschleunigen des initialen Seiten-Loads.
+2. Ressourcen sparende Komponente. (e.g. Lazy load bei Bilder)
+3. Laden und verwenden von WebFonts.
+
+Primär dient dieses Modul zum überprüfen ob ein Benutzer mit einer Schlechten Verbindung oder nicht ausreichender Hardware zugreift.
+
+Falls dieser Fall eintritt (e.g. Lighhous / Pagespeed Insight), wird das ausführen des Javascript blockiert, dies veringert den initial Seiten Load. 
+
+Im Anschluss kann der Benutzer über eine Interaktion (e.g. Button-Click) das Javascript scharfschalten und die Seite verwenden. (Alle benötigten Scripte werden wurden als Preload schon geladen.)
+
+
+
+
+Mit den mitgelieferten Komponenten (e.g. `SpeedkitPicture`) und dem Einsatz der Directive `v-font`, wird das laden der Bilder und Schriften ausgesteuert.
+
+Das Laden der Resourcen geschieht erst beim erreichen des sichtbaren Viewport.
+
+Für den Fall das sich eine Komponenten Initial schon im Viewpoert befindet, muss diese als [Kritischen Komponenten](/usage/#kritische-komponente) definiert werden.
+
+
 
 ## Kritische Komponente
 
-Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponente zu erzeugen muss die Eigenschaft `critical` gesetzt werden. Wenn gesetzt, werden die enthaltenen Resources Priorisiert geladen (e.g. link preload)
+Eine Kritische Komponente, ist eine Kompoente die schon initial Sichtbar ist und somit Schriften und Bilder priorisiert geladen werden.
+
+Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponente zu erzeugen muss die Eigenschaft `critical` gesetzt werden. Wenn gesetzt, werden die enthaltenen Resources Priorisiert geladen (e.g. `<link rel="preload" …`)
 
 ```html[Example]
 <component critical :critical="true" />
@@ -30,24 +51,46 @@ Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponent
 
 ## Fonts
 
-Um die in der `nuxt.config` definierten Schriften zu verwenden, wird die Direktive [`v-font`](/v-font/) verwendet.
+Um die in der `nuxt.config` definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
 
-```html[example]
+Siehe mehr unter [v-font](/v-font/).
+
+```html[Example]
 <component v-font="$fonts.getFont(…)" />
 ```
 
 ## Components
+### Einbindung von Komponenten
 
-Die im Modul enthaltenen Komponenten können über den Namespace `nuxt-speedkit-components` abgefragt werden.
+Für das einbinden von Komponenten in einer Seite wird analog zur Eigenschaft `components`, `speedkitComponents` angeboten. Mit dieser Eigenschaft werden Komponenten automatisch Lazy behandelt und erst aktiviert wenn diese im Viewport sind.
 
-**Verfügbare Komponenten**
+<alert>
+Import muss Funktional sein. (e.g. <code>() => import('…')</code>`)
+</alert>
+
+```js[Example]
+{
+  speedkitComponents: {
+    Stage: () => import('@/components/organisms/Stage'),
+  }
+}
+```
+
+Alle Komponenten werden mit einem `rootMargin` beschrieben. Dieser kann mit der [Option `lazyOffset.components`](/options/#components) angepasst werden. 
+
+
+### Modul Komponenten
+
+
+Die Modul Komponenten können über den Namespace `nuxt-speedkit-components` importiert werden.
+
 
 - [SpeedkitPicture](/components/speedkit-picture/)
 - [SpeedkitImage](/components/speedkit-image/)
 - [SpeedkitIframe](/components/speedkit-iframe/)
 - [SpeedkitLayer](/components/speedkit-layer/)
 
-```html[example]
+```html[Example]
 
 <template>
   <speedkit-picture>
