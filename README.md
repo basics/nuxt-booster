@@ -5,9 +5,6 @@
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
-[![dependencies status][dependencies-status-src]][dependencies-status-href]
-[![dev-dependencies status][dependencies-dev-status-src]][dependencies-dev-status-href]
-
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
