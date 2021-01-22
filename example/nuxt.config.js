@@ -117,6 +117,13 @@ module.exports = {
           },
           lighthouseDetectionByUserAgent: false
         },
+        browserSupport: {
+          chrome: '>=86',
+          firefox: '>=83',
+          opera: '>=71',
+          safari: '>=12.4',
+          edge: '>=87'
+        },
         fonts: [{
           family: 'Quicksand',
           locals: ['Quicksand'],
