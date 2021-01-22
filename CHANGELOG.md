@@ -1,5 +1,83 @@
 # Project Changelog
 
+## [1.0.11-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.10...v1.0.11-beta.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* **sematic-release:** force release ([3033700](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3033700dd8aeee08f0916aeed78b37f7d2d6f718))
+
+## [1.0.10-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.10-beta.1...v1.0.10-beta.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **sematic-release:** force release ([3033700](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3033700dd8aeee08f0916aeed78b37f7d2d6f718))
+
+## [1.0.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.9...v1.0.10) (2021-01-22)
+
+
+### Bug Fixes
+
+* **sematic-release:** revert main settings for npm publish ([709569e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/709569ed28fc1ac2dfc3801fc0609e85ed2cec67))
+
+## [1.0.10-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.9...v1.0.10-beta.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* **sematic-release:** revert main settings for npm publish ([709569e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/709569ed28fc1ac2dfc3801fc0609e85ed2cec67))
+
+## [1.0.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.8...v1.0.9) (2021-01-22)
+
+
+### Bug Fixes
+
+* **semantic-release:** set debug ([499271a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/499271a98c904456c4811b43d630cbf0276ba252))
+
+
+## [1.0.9-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.8...v1.0.9-beta.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* **semantic-release:** set debug ([499271a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/499271a98c904456c4811b43d630cbf0276ba252))
+
+## [1.0.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7...v1.0.8) (2021-01-22)
+
+
+### Bug Fixes
+
+* **release:** fix branch settings 1 ([994958b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
+
+## [1.0.8-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.8-beta.1...v1.0.8-beta.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **semantic-release:** set debug ([499271a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/499271a98c904456c4811b43d630cbf0276ba252))
+
+## [1.0.8-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7...v1.0.8-beta.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* **release:** fix branch settings 1 ([994958b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
+
+## [1.0.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.6...v1.0.7) (2021-01-22)
+
+
+### Bug Fixes
+
+* **speedkit:** replace speedkit function with vue-lazy-hydration ([78bfbce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/78bfbcecf6081598b1b5295629d73598781e1201))
+
+## [1.0.7-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7-beta.1...v1.0.7-beta.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **release:** fix branch settings 1 ([994958b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
+
 ## [1.0.7-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.6...v1.0.7-beta.1) (2021-01-22)
 
 
