@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.10...v1.0.11) (2021-01-22)
+
+
+### Bug Fixes
+
+* **sematic-release:** force release ([3033700](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3033700dd8aeee08f0916aeed78b37f7d2d6f718))
+
 ## [1.0.11-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.10...v1.0.11-beta.1) (2021-01-22)
 
 
