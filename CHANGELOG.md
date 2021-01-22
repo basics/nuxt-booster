@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [1.0.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.5...v1.0.6) (2021-01-22)
+
+
+### Bug Fixes
+
+* **font:** fix font-weight safari ([0403352](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0403352e34c004d8267639fcec0ef86454e22181))
+* **font:** fix weight normalize ([4b8ee08](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4b8ee081f5df9f967ed1e09dfd0d178395eb202a))
+* **font:** weight normalize both values ([214bec4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/214bec4993909face7bb9612b1ccb3d9644ae168))
+
 ## [1.0.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.4...v1.0.5) (2021-01-16)
 
 
