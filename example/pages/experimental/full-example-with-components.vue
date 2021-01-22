@@ -41,6 +41,7 @@ export default {
       },
 
       youtube: {
+        sizes: '299,300:599,600:899,900:1199,1200:1280',
         id: 'cLKvbhfVBUU'
       },
 

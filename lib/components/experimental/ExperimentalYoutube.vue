@@ -28,7 +28,7 @@ export default {
 
     sizes: {
       type: String,
-      default: '299,300:599,600:899,900:1199,1200:1599,1600:1899,1900:1920'
+      default: '1280'
     }
   },
 
@@ -105,6 +105,7 @@ div {
 
   & .poster {
     position: relative;
+    pointer-events: none;
 
     @nest .ready& {
       mask-image: radial-gradient(50px at center, transparent 75%, black 100%);

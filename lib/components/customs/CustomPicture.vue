@@ -56,6 +56,7 @@ picture {
   height: inherit;
 
   & img {
+    display: block;
     width: 100%;
     height: 100%;
     filter: blur(0);
