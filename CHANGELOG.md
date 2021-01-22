@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.6...v1.0.7) (2021-01-22)
+
+
+### Bug Fixes
+
+* **speedkit:** replace speedkit function with vue-lazy-hydration ([78bfbce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/78bfbcecf6081598b1b5295629d73598781e1201))
+
 ## [1.0.7-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7-beta.1...v1.0.7-beta.2) (2021-01-22)
 
 
