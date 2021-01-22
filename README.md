@@ -1,3 +1,4 @@
+![nuxt-speedkit][logo]
 # nuxt-speedkit
 
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
@@ -357,7 +358,7 @@ or look here
 [MIT License](./LICENSE)
 
 <!-- Badges -->
-
+[logo]: <https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727>
 [grabarz-partner-module-src]: <https://img.shields.io/badge/Grabarz%20&%20Partner-Module-d19700>
 [grabarz-partner-href]: <https://grabarzundpartner.de>
 
