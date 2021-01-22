@@ -1,11 +1,25 @@
 # Project Changelog
 
+## [1.0.8-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7...v1.0.8-beta.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* **release:** fix branch settings 1 ([994958b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
+
 ## [1.0.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.6...v1.0.7) (2021-01-22)
 
 
 ### Bug Fixes
 
 * **speedkit:** replace speedkit function with vue-lazy-hydration ([78bfbce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/78bfbcecf6081598b1b5295629d73598781e1201))
+
+## [1.0.7-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7-beta.1...v1.0.7-beta.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **release:** fix branch settings 1 ([994958b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
 
 ## [1.0.7-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.6...v1.0.7-beta.1) (2021-01-22)
 
