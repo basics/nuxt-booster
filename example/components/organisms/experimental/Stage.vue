@@ -14,18 +14,18 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture'
+import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture';
 export default {
   components: {
     ExperimentalPicture
   },
 
   props: {
-    picture: { type: Object, default () { return {} } },
-    headline: { type: String, default () { return 'Headline' } },
-    claim: { type: String, default () { return 'Claim' } }
+    picture: { type: Object, default () { return {}; } },
+    headline: { type: String, default () { return 'Headline'; } },
+    claim: { type: String, default () { return 'Claim'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

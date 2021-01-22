@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit/components/experimental/ExperimentalPicture'
-import YoutubePlayer from 'youtube-player'
+import ExperimentalPicture from 'nuxt-speedkit/components/experimental/ExperimentalPicture';
+import YoutubePlayer from 'youtube-player';
 
 export default {
   components: {
@@ -36,21 +36,21 @@ export default {
     return {
       ready: false,
       playing: false
-    }
+    };
   },
 
   computed: {
     sources () {
       return [{
         src: `https://img.youtube.com/vi/${this.id}/maxresdefault.jpg`, sizes: this.sizes
-      }]
+      }];
     }
   },
 
   methods: {
     async onLoad (e) {
-      await registerIntersectionObserver(this.$el)
-      this.loadPlayer()
+      await registerIntersectionObserver(this.$el);
+      this.loadPlayer();
     },
 
     loadPlayer (el, id) {
@@ -58,34 +58,34 @@ export default {
         host: 'https://www.youtube-nocookie.com',
         videoId: this.id,
         playerVars: { playsinline: 1, modestbranding: 1 }
-      })
+      });
 
-      player.on('ready', (e) => { this.ready = true })
+      player.on('ready', (e) => { this.ready = true; });
       player.on('stateChange', (e) => {
         if (e.data === 1) {
-          this.playing = true
+          this.playing = true;
         }
-      })
+      });
     }
   }
-}
+};
 
 function registerIntersectionObserver (el) {
   return new Promise((resolve) => {
     const observer = new IntersectionObserver((changes) => {
       changes.forEach((change) => {
         if (typeof change.isVisible === 'undefined') {
-          change.isVisible = true
+          change.isVisible = true;
         }
         if (change.isVisible) {
-          observer.disconnect()
-          resolve()
+          observer.disconnect();
+          resolve();
         }
-      })
+      });
       // https://developers.google.com/web/updates/2019/02/intersectionobserver-v2
-    }, { threshold: [1], trackVisibility: true, delay: 350 })
-    observer.observe(el)
-  })
+    }, { threshold: [1], trackVisibility: true, delay: 350 });
+    observer.observe(el);
+  });
 }
 </script>
 

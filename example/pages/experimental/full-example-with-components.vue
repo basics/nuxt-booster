@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration'
+import { hydrateWhenVisible } from 'vue-lazy-hydration';
 
 export default {
   components: {
@@ -62,7 +62,7 @@ export default {
       },
 
       imageTextList: getImageTextComponents()
-    }
+    };
   },
 
   speedkitComponents: {
@@ -70,12 +70,12 @@ export default {
     ComponentTextB: () => import('@/components/organisms/TextFontB')
   }
 
-}
+};
 
 function getImageTextComponents (count = 0) {
-  const components = []
+  const components = [];
   for (let i = 0; i < count; i++) {
-    const background = Array(3).fill((255 / count * i).toString(16)).join('')
+    const background = Array(3).fill((255 / count * i).toString(16)).join('');
     components.push({
       text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
       picture: {
@@ -86,9 +86,9 @@ function getImageTextComponents (count = 0) {
         alt: 'Alt Text',
         title: 'Title Text'
       }
-    })
+    });
   }
-  return components
+  return components;
 }
 
 </script>

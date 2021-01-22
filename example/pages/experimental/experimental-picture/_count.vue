@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration'
+import { hydrateWhenVisible } from 'vue-lazy-hydration';
 
 export default {
   components: {
@@ -14,15 +14,15 @@ export default {
   asyncData ({ route }) {
     return {
       components: getComponents(Number(route.params.count) || 1)
-    }
+    };
   }
-}
+};
 
 function getComponents (count = 5) {
-  const components = []
+  const components = [];
   for (let i = 0; i < count; i++) {
-    const background = Array(3).fill(Math.round((255 / count * i)).toString(16)).join('')
-    const color = Array(3).fill(Math.round(255 - (255 / count * i)).toString(16)).join('')
+    const background = Array(3).fill(Math.round((255 / count * i)).toString(16)).join('');
+    const color = Array(3).fill(Math.round(255 - (255 / count * i)).toString(16)).join('');
 
     components.push({
       picture: {
@@ -31,9 +31,9 @@ function getComponents (count = 5) {
           { src: `https://dummyimage.com/1920x1080/${background}/${color}.jpg`, sizes: '1200:1599,1600:1899,1900:1920' }
         ]
       }
-    })
+    });
   }
-  return components
+  return components;
 }
 
 </script>

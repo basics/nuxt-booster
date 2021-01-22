@@ -153,23 +153,20 @@ export default {
         {
           headline: 'Experimental',
           links: [
-        {
-          title: 'Full Example With Components',
-          to: '/experimental/full-example-with-components/'
-        },
-        {
-          title: 'SpeedkitYoutube',
-          to: '/experimental/speedkit-youtube/'
-        },
-        {
-          title: 'ExperimentalPicture (5 Pictures)',
-          to: '/experimental/experimental-picture/5/'
-        }
+            {
+              title: 'Full Example With Components',
+              to: '/experimental/full-example-with-components/'
+            },
+            {
+              title: 'SpeedkitYoutube',
+              to: '/experimental/speedkit-youtube/'
+            },
+            {
+              title: 'ExperimentalPicture (5 Pictures)',
+              to: '/experimental/experimental-picture/5/'
+            }
           ]
         }
-
-
-
 
       ]
     };

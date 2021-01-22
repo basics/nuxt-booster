@@ -18,27 +18,27 @@ export default {
     sources: {
       type: Array,
       default () {
-        return []
+        return [];
       }
     },
 
     alt: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
     title: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
     crossorigin: {
       type: String,
       default () {
-        return 'anonymous'
+        return 'anonymous';
       }
     },
 
@@ -47,7 +47,7 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

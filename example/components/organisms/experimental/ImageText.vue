@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture'
+import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture';
 export default {
   components: {
     ExperimentalPicture
   },
   props: {
-    picture: { type: Object, default () { return {} } },
-    text: { type: String, default () { return 'Headline' } }
+    picture: { type: Object, default () { return {}; } },
+    text: { type: String, default () { return 'Headline'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>
