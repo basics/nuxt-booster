@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.0.6",
+  "version": "1.0.7-beta.1",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -36,6 +36,7 @@
     "fs-extra": "9.0.1",
     "require-alias": "1.0.5",
     "rxjs": "6.6.3",
+    "vue-lazy-hydration": "^2.0.0-beta.4",
     "webpack-virtual-modules": "0.4.1",
     "youtube-player": "5.5.2"
   },
