@@ -17,6 +17,10 @@
     "type": "git",
     "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
   "main": "index.js",
   "scripts": {
     "postinstall": "node ./install.js",
@@ -36,6 +40,7 @@
     "fs-extra": "9.0.1",
     "require-alias": "1.0.5",
     "rxjs": "6.6.3",
+    "vue-lazy-hydration": "^2.0.0-beta.4",
     "webpack-virtual-modules": "0.4.1",
     "youtube-player": "5.5.2"
   },
