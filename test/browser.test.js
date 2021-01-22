@@ -183,38 +183,6 @@ describe('browser (puppeteer)', () => {
 
   // #endregion
 
-  // #region /tests/speedkit-function
-
-  test('speedkit-function', async () => {
-    await page.goto(await getUrl('/speedkit-function/'));
-
-    // test with IntersectionObserver
-
-    expect(await page.evaluate(() => document.querySelector('#testResolveByIntersectionObserver.speedkit-test--active'))).toBeFalsy();
-
-    await page.waitForSelector('#testResolveByIntersectionObserver.speedkit-test--active');
-
-    // test with name
-
-    expect(await page.evaluate(() => document.querySelector('#testResolveByName.speedkit-test--active'))).toBeFalsy();
-
-    page.evaluate(() => {
-      window.__NUXT_SPEEDKIT_RESOLVE_COMPONENTS__('resolve-components');
-    });
-    await page.waitForSelector('#testResolveByName.speedkit-test--active');
-
-    // test with event
-
-    expect(await page.evaluate(() => document.querySelector('#testResolveByEvent.speedkit-test--active'))).toBeFalsy();
-
-    page.evaluate(() => {
-      document.querySelector('#testResolveByEvent').click();
-    });
-    await page.waitForSelector('#testResolveByEvent.speedkit-test--active');
-  });
-
-  // #endregion
-
   // #region /tests/speedkit-iframe
 
   test('speedkit-iframe', async () => {
