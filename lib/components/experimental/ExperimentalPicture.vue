@@ -1,28 +1,8 @@
 <template>
   <figure>
-    <picture>
-      <source
-        v-for="(source, index) in imageSources"
-        :key="index"
-        :srcset="source.dataURI || source.srcset || source.url"
-        :media="source.media"
-        :sizes="source.sizes"
-        :type="source.type"
-      >
-      <img :class="{ready: !loading}" loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
-    </picture>
+    <custom-picture :sources="imageSources" :alt="alt" :title="title" :crossorigin="crossorigin" :in-progress="inProgress" />
     <custom-no-script>
-      <picture>
-        <source
-          v-for="(source, index) in resolvedSources"
-          :key="index"
-          :srcset="source.srcset"
-          :media="source.media"
-          :sizes="source.sizes"
-          :type="source.type"
-        >
-        <img loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
-      </picture>
+      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
     </custom-no-script>
     <figcaption v-if="hasSlot">
       <slot name="caption" />
@@ -33,12 +13,14 @@
 <script>
 import { createSVGPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder'
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver'
+import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture'
 import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript'
 import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support'
 import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preloadNew'
 
 export default {
   components: {
+    CustomPicture,
     CustomNoScript
   },
 
@@ -76,7 +58,7 @@ export default {
       visible: false,
       imageSources: [],
       resolvedSources: this.getSources(),
-      loading: true
+      inProgress: true
     }
   },
 
@@ -124,7 +106,7 @@ export default {
   methods: {
     onPreload () {
       this.imageSources = this.resolvedSources
-      this.loading = false
+      this.inProgress = false
       this.$emit('load')
     },
 
@@ -200,23 +182,5 @@ figure {
   width: 100%;
   height: inherit;
   margin: 0;
-
-  & picture {
-    display: block;
-    height: inherit;
-
-    & img {
-      width: 100%;
-      height: 100%;
-      filter: blur(10px);
-      transition-duration: 350ms;
-      transition-property: filter;
-      object-fit: cover;
-
-      &.ready {
-        filter: blur(0);
-      }
-    }
-  }
 }
 </style>

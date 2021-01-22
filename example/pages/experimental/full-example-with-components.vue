@@ -15,7 +15,9 @@ import { hydrateWhenVisible } from 'vue-lazy-hydration'
 
 export default {
   components: {
-    ComponentExperimentalYoutube: hydrateWhenVisible(() => import('nuxt-speedkit/components/experimental/ExperimentalYoutube'))
+    ComponentStage: hydrateWhenVisible(() => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage')),
+    ComponentExperimentalYoutube: hydrateWhenVisible(() => import('nuxt-speedkit/components/experimental/ExperimentalYoutube')),
+    ComponentTextImage: hydrateWhenVisible(() => import('@/components/organisms/experimental/ImageText'))
   },
   asyncData () {
     return {
@@ -25,7 +27,6 @@ export default {
         headline: 'Stage Headline',
         claim: 'Stage Claim',
         picture: {
-          sizes: '300,300:600,600:900',
           sources: [
             { src: 'https://dummyimage.com/1200x630/ffffff/000000.jpg', sizes: '299,300:599,600:899,900:1199' },
             { src: 'https://dummyimage.com/1920x1080/ffffff/000000.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
@@ -46,7 +47,6 @@ export default {
       imageTextA: {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
-          sizes: '300,300:600,600:900',
           sources: [
             { src: 'https://dummyimage.com/1200x630/000000/ffffff.jpg', sizes: '299,300:599,600:899,900:1199' },
             { src: 'https://dummyimage.com/1920x1080/000000/ffffff.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
@@ -65,9 +65,7 @@ export default {
   },
 
   speedkitComponents: {
-    ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
-    ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
   }
 
@@ -80,7 +78,6 @@ function getImageTextComponents (count = 0) {
     components.push({
       text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
       picture: {
-        sizes: '300,300:600,600:900',
         sources: [
           { src: `https://dummyimage.com/1200x630/${background}/ffffff.jpg`, sizes: '299,300:599,600:899,900:1199' },
           { src: `https://dummyimage.com/1920x1080/${background}/ffffff.jpg`, sizes: '1200:1599,1600:1899,1900:1920' }
