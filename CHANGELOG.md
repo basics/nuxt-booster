@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.9...v1.0.10) (2021-01-22)
+
+
+### Bug Fixes
+
+* **sematic-release:** revert main settings for npm publish ([709569e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/709569ed28fc1ac2dfc3801fc0609e85ed2cec67))
+
 ## [1.0.10-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.9...v1.0.10-beta.1) (2021-01-22)
 
 
