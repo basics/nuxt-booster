@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import InfoLayer from '@/components/InfoLayer'
+import InfoLayer from '@/components/InfoLayer';
 
 export default {
   speedkitComponents: {
@@ -30,9 +30,9 @@ export default {
           content: `${this.$route.name} - description`
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">

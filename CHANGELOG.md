@@ -1,5 +1,50 @@
 # Project Changelog
 
+## [1.0.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.5...v1.0.6) (2021-01-22)
+
+
+### Bug Fixes
+
+* **font:** fix font-weight safari ([0403352](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0403352e34c004d8267639fcec0ef86454e22181))
+* **font:** fix weight normalize ([4b8ee08](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4b8ee081f5df9f967ed1e09dfd0d178395eb202a))
+* **font:** weight normalize both values ([214bec4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/214bec4993909face7bb9612b1ccb3d9644ae168))
+
+## [1.0.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.4...v1.0.5) (2021-01-16)
+
+
+### Bug Fixes
+
+* **eslint:** ignore duplicated strings ([31cea75](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/31cea7520be4784b3891e4af4d727b38bbc8e5a7))
+* **sonar:** fixed code smell ([7cf0560](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7cf0560b32c4e7e0bc285f0e213652448789c22a))
+
+## [1.0.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.3...v1.0.4) (2021-01-16)
+
+
+### Bug Fixes
+
+* **lighthouse:** fixed object sink + added lost css ([2427ae4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2427ae47658a792c1940011afb97f8a8ca63ffb4))
+
+## [1.0.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.2...v1.0.3) (2021-01-15)
+
+
+### Bug Fixes
+
+* **security:** updated eslint rules ([73d4470](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/73d447068af82720df6c7bc598e69f419b76eedf))
+
+## [1.0.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.1...v1.0.2) (2021-01-14)
+
+
+### Bug Fixes
+
+* **security:** removed security issues ([6b7212d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6b7212d0cfd21b3f6e63c0a863e598bf161fa382))
+
+## [1.0.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.0...v1.0.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* **eslint:** updated eslint rule to force semicolons ([413f1c8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/413f1c827859954e2a9b347893a69dfac277b7ef))
+
 # 1.0.0 (2021-01-12)
 
 

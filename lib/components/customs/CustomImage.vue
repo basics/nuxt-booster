@@ -2,6 +2,7 @@
   <img
     class="nuxt-speedkit__custom-image"
     loading="lazy"
+    :alt="alt"
     :crossorigin="crossorigin"
     @load="onLoad"
   >
@@ -14,17 +15,24 @@ import { preloadImage } from 'nuxt-speedkit/utils/preload'
 
 export default {
   props: {
+    alt: {
+      type: String,
+      default () {
+        return null;
+      }
+    },
+
     preload: {
       type: Array,
       default () {
-        return null
+        return null;
       }
     },
 
     crossorigin: {
       type: String,
       default () {
-        return 'anonymous'
+        return 'anonymous';
       }
     }
   },
@@ -42,36 +50,36 @@ export default {
     if (this.preload && this.visible && this.preload && this.preload.length) {
       return preloadImage(getPreloadSrcset(this.preload, webpSupport), () => this.onPreload(), this.crossorigin)
     } else {
-      return {}
+      return {};
     }
   },
 
   mounted () {
     registerIntersecting(this.$el, () => {
-      this.visible = true
-    })
+      this.visible = true;
+    });
   },
 
   destroyed () {
-    unregisterIntersecting(this.$el)
+    unregisterIntersecting(this.$el);
   },
 
   methods: {
     onLoad (e) {
       if (this.preloaded) {
-        this.$emit('load', e.target)
+        this.$emit('load', e.target);
       }
     },
 
     onPreload () {
-      this.preloaded = true
-      this.$emit('preload')
+      this.preloaded = true;
+      this.$emit('preload');
     }
   }
-}
+};
 
 function getPreloadSrcset (sources, webpSupport) {
-  return (webpSupport && sources.find(source => source.type === 'image/webp')) || sources.find(source => source.type !== 'image/webp')
+  return (webpSupport && sources.find(source => source.type === 'image/webp')) || sources.find(source => source.type !== 'image/webp');
 }
 
 </script>

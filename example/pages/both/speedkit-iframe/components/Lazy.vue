@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SpeedkitIframe from 'nuxt-speedkit-components/SpeedkitIframe'
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import SpeedkitIframe from 'nuxt-speedkit-components/SpeedkitIframe';
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {
     SpeedkitIframe,
@@ -22,7 +22,7 @@ export default {
       iframe: {
         src: 'https://grabarzundpartner.de'
       }
-    }
+    };
   }
-}
+};
 </script>

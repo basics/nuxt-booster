@@ -12,8 +12,8 @@
           <li id="lazyFontAssignSimpleBy960" v-font="$getFont('Montserrat Alternates', 400, 'italic', {media: '(min-width: 960px)'})">
             font assign simple by 960px
           </li>
-          <li id="lazyFontBySingleSelectorBy1440" v-font="$getFont('Montserrat Alternates', 700, 'normal', {selector: 'b', media: '(min-width: 1440px)'})">
-            font assign with <b>selector by 1440px</b>
+          <li id="lazyFontBySingleSelectorBy1440" v-font="$getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong', media: '(min-width: 1440px)'})">
+            font assign with <strong>selector by 1440px</strong>
           </li>
         </ul>
       </div>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: { OrganismPreviewContainer }
-}
+};
 </script>

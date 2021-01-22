@@ -11,7 +11,7 @@ export default {
   components: {
 
   }
-}
+};
 </script>
 
 <style lang="postcss">

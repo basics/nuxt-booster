@@ -15,27 +15,27 @@
               id="lazyFontAssignByMultipleVariances"
               v-font="[
                 $getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'}),
-                $getFont('Montserrat Alternates', 700, 'italic', {selector: 'i'})
+                $getFont('Montserrat Alternates', 400, 'italic', {selector: 'em'})
               ]"
-            >font assign by <strong>multiple</strong> <i>variances</i></span>
+            >font assign by <strong>multiple</strong> <em>variances</em></span>
           </li>
           <hr>
           <li>
             <span
               id="lazyFontAssignByMultipleSelectors"
               v-font="[
-                $getFont('Montserrat Alternates', 400, 'italic', {selector: 'i, em'})
+                $getFont('Montserrat Alternates', 400, 'italic', {selector: 'em, span'})
               ]"
-            >font assign by <i>multiple</i> <em>selectors</em></span>
+            >font assign by <em>multiple</em> <span>selectors</span></span>
           </li>
           <hr>
           <li>
             <span
               id="lazyFontAssignByDeepSelector"
               v-font="[
-                $getFont('Montserrat Alternates', 700, 'italic', {selector: 'strong > i'})
+                $getFont('Montserrat Alternates', 700, 'italic', {selector: 'strong > em'})
               ]"
-            >font assign by <strong><i>deep</i> selector</strong></span>
+            >font assign by <strong><em>deep</em> selector</strong></span>
           </li>
         </ul>
       </div>
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: { OrganismPreviewContainer }
-}
+};
 </script>

@@ -15,17 +15,17 @@ export default {
     loading: {
       type: Boolean,
       default () {
-        return false
+        return false;
       }
     }
   },
 
   computed: {
     hasSlot () {
-      return this.$slots.caption
+      return this.$slots.caption;
     }
   }
-}
+};
 </script>
 
 <style scoped>
