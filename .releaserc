@@ -7,7 +7,7 @@
     {
       "name": "main",
       "channel": "latest",
-      "prerelease": false
+      "release": true
     },
     {
       "name": "beta",

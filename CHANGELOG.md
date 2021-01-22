@@ -1,11 +1,25 @@
 # Project Changelog
 
+## [1.0.9-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.8...v1.0.9-beta.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* **semantic-release:** set debug ([499271a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/499271a98c904456c4811b43d630cbf0276ba252))
+
 ## [1.0.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7...v1.0.8) (2021-01-22)
 
 
 ### Bug Fixes
 
 * **release:** fix branch settings 1 ([994958b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
+
+## [1.0.8-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.8-beta.1...v1.0.8-beta.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **semantic-release:** set debug ([499271a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/499271a98c904456c4811b43d630cbf0276ba252))
 
 ## [1.0.8-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.7...v1.0.8-beta.1) (2021-01-22)
 
