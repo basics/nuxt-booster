@@ -2,6 +2,18 @@
   <speedkit-layer class="info_layer">
     <div>
       <p>{{ text }}</p>
+      <ul>
+        <custom-no-script><li>disabled javascript</li></custom-no-script>
+        <li id="nuxt-speedkit__unsupported-browser">
+          outdated browser
+        </li>
+        <li id="nuxt-speedkit__outdated-device">
+          outdated device
+        </li>
+        <li id="nuxt-speedkit__slow-connection">
+          slow connection
+        </li>
+      </ul>
       <!-- Set auto init for request load delay -->
       <button onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
         {{ buttonLabel }}
@@ -12,15 +24,18 @@
 
 <script>
 
-import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer'
+import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer'
+import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript'
+
 export default {
   components: {
-    SpeedkitLayer
+    SpeedkitLayer,
+    CustomNoScript
   },
   data () {
     return {
-      text: 'Your connection is too slow…',
-      buttonLabel: 'Anyway (OK)'
+      text: 'Sorry, but you will have a limited user experience due to a ...',
+      buttonLabel: 'OK'
     }
   }
 }
@@ -60,6 +75,15 @@ export default {
       color: #2f495e;
       background-color: #fff;
       box-shadow: 0 0 calc(10 / 16 * 1em) rgba(0, 0, 0, 0.6);
+    }
+
+    & ul {
+      padding: 0;
+      margin: 0;
+
+      & > li {
+        display: none;
+      }
     }
   }
 }
