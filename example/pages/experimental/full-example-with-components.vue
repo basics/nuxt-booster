@@ -11,14 +11,7 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration';
-
 export default {
-  components: {
-    ComponentStage: hydrateWhenVisible(() => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage')),
-    ComponentExperimentalYoutube: hydrateWhenVisible(() => import('nuxt-speedkit/components/experimental/ExperimentalYoutube')),
-    ComponentTextImage: hydrateWhenVisible(() => import('@/components/organisms/experimental/ImageText'))
-  },
   asyncData () {
     return {
       contentA: '<p>This is a basic test with single font variant.</p>',
@@ -66,6 +59,9 @@ export default {
   },
 
   speedkitComponents: {
+    ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage'),
+    ComponentExperimentalYoutube: () => import('nuxt-speedkit/components/experimental/ExperimentalYoutube'),
+    ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
   }

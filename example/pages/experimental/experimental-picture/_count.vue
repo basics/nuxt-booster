@@ -8,8 +8,8 @@
 import { hydrateWhenVisible } from 'vue-lazy-hydration';
 
 export default {
-  components: {
-    ComponentExperimentalStage: hydrateWhenVisible(() => import('@/components/organisms/experimental/Stage'))
+  speedkitComponents: {
+    ComponentExperimentalStage: () => import('@/components/organisms/experimental/Stage')
   },
   asyncData ({ route }) {
     return {
