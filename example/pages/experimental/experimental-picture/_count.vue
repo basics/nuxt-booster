@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration';
-
 export default {
   speedkitComponents: {
     ComponentExperimentalStage: () => import('@/components/organisms/experimental/Stage')
