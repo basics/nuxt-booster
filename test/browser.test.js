@@ -152,20 +152,6 @@ describe('browser (puppeteer)', () => {
 
   // #endregion
 
-  // #region /tests/speedkit-image
-
-  test('speedkit-image', async () => {
-    await page.goto(await getUrl('/'));
-    await page.goto(await getUrl('/speedkit-image/'));
-
-    page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight);
-    });
-    await page.waitForSelector('#lazyContainer :not(noscript) > img[srcset]');
-  });
-
-  // #endregion
-
   // #region /tests/speedkit-picture
 
   test('speedkit-picture', async () => {

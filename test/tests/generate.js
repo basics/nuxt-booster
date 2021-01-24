@@ -124,21 +124,6 @@ export default function (getHTML) {
 
   // #endregion
 
-  // #region /tests/speedkit-image
-
-  test('speedkit-image', async () => {
-    html = await getHTML('speedkit-image');
-    dom = getDom(html);
-
-    const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset;
-    const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset;
-
-    expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull();
-    expect(dom.querySelector(`link[imageSrcset="${lazySrcset}"][rel="preload"]`)).toBeNull();
-  });
-
-  // #endregion
-
   // #region /tests/speedkit-picture
 
   test('speedkit-picture', async () => {
