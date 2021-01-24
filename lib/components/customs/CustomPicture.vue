@@ -1,7 +1,7 @@
 <template>
   <picture>
     <source
-      v-for="(source, index) in sources"
+      v-for="(source, index) in imageSources"
       :key="index"
       :srcset="source.dataURI || source.srcset || source.url"
       :media="source.media"
@@ -13,9 +13,21 @@
 </template>
 
 <script>
+import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
+import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
+import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preloadNew';
+import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
+
 export default {
   props: {
     sources: {
+      type: Array,
+      default () {
+        return [];
+      }
+    },
+
+    preload: {
       type: Array,
       default () {
         return [];
@@ -40,14 +52,60 @@ export default {
       default () {
         return 'anonymous';
       }
-    },
+    }
+  },
 
-    inProgress: {
-      type: Boolean,
-      default: false
+  data () {
+    return {
+      imageSources: this.sources,
+      inProgress: true,
+      visible: false
+    };
+  },
+
+  head () {
+    if (this.preload.length && (this.isCritical || (process.client & this.visible))) {
+      const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
+      const [source] = sources;
+
+      if (isPreloadSupported()) {
+        return {
+          link: [getPreloadDescription(source, this.crossorigin, this.onPreload)]
+        };
+      } else {
+        doPreloadFallback(source, this.crossorigin, this.onPreload);
+      }
+    }
+  },
+
+  mounted () {
+    registerIntersecting(this.$el, () => {
+      this.visible = true;
+    });
+  },
+
+  destroyed () {
+    unregisterIntersecting(this.$el);
+  },
+
+  methods: {
+    onPreload () {
+      this.imageSources = this.preload;
+      this.inProgress = false;
+      this.$emit('load');
     }
   }
 };
+
+function filterBySupportedMimeTypes (sources, webpSupport) {
+  return sources.filter((source) => {
+    return !isWebp(source) || (isWebp(source) && webpSupport);
+  });
+}
+
+function isWebp ({ type }) {
+  return type === getMimeTypeByFormat('webp');
+}
 </script>
 
 <style lang="postcss" scoped>
