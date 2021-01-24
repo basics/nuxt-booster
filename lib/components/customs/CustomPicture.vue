@@ -78,6 +78,12 @@ export default {
     }
   },
 
+  watch: {
+    sources () {
+      this.imageSources = this.sources;
+    }
+  },
+
   mounted () {
     registerIntersecting(this.$el, () => {
       this.visible = true;
