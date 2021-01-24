@@ -112,8 +112,8 @@ module.exports = {
             deviceMemory: { min: 2 }
           },
           timing: {
-            fcp: 500,
-            dcl: 800 // fallback if fcp is not available (safari)
+            fcp: 800,
+            dcl: 1500 // fallback if fcp is not available (safari)
           },
           lighthouseDetectionByUserAgent: false
         },

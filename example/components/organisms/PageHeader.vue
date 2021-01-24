@@ -6,8 +6,19 @@
     <nuxt-link v-if="$route.path !== '/'" class="overview-link" to="/">
       <span>&larr; Back</span>
     </nuxt-link>
+    <organism-menu />
   </header>
 </template>
+
+<script>
+import OrganismMenu from '@/components/organisms/Menu'
+
+export default {
+  components: {
+    OrganismMenu
+  }
+}
+</script>
 
 <style scoped>
 .page-header {

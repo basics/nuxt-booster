@@ -1,30 +1,38 @@
 <template>
-  <speedkit-layer class="info_layer">
-    <div>
-      <p>{{ text }}</p>
-      <ul>
-        <custom-no-script><li>disabled javascript</li></custom-no-script>
-        <li id="nuxt-speedkit__unsupported-browser">
-          outdated browser
-        </li>
-        <li id="nuxt-speedkit__outdated-device">
-          outdated device
-        </li>
-        <li id="nuxt-speedkit__slow-connection">
-          slow connection
-        </li>
-      </ul>
-      <!-- Set auto init for request load delay -->
-      <button onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
-        {{ buttonLabel }}
-      </button>
+  <speedkit-layer>
+    <div class="info_layer">
+      <div>
+        <p>{{ text }}</p>
+        <ul>
+          <custom-no-script><li>disabled javascript</li></custom-no-script>
+          <li id="nuxt-speedkit__unsupported-browser">
+            outdated browser
+          </li>
+          <li id="nuxt-speedkit__outdated-device">
+            outdated device
+          </li>
+          <li id="nuxt-speedkit__slow-connection">
+            slow connection
+          </li>
+        </ul>
+        <button>
+          <label for="close">
+            No
+          </label>
+        </button>
+
+        <!-- Set auto init for request load delay -->
+        <button onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
+          {{ buttonLabel }}
+        </button>
+      </div>
     </div>
   </speedkit-layer>
 </template>
 
 <script>
 
-import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer'
+import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer'
 import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript'
 
 export default {
