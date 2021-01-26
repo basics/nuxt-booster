@@ -1,5 +1,5 @@
 <template>
-  <div class="page-experimental-picture">
+  <div class="page-speedkit-picture">
     <div v-for="({text}, index) in components" :key="index" v-html="text" />
   </div>
 </template>
@@ -26,7 +26,7 @@ function getComponents (count = 1) {
 </script>
 
 <style lang="postcss" scoped>
-.page-experimental-picture {
+.page-speedkit-picture {
   font-size: calc(20 / 16 * 1em);
 
   & > * {

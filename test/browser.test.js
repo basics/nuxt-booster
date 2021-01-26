@@ -162,9 +162,9 @@ describe('browser (puppeteer)', () => {
       window.scrollBy(0, window.innerHeight);
     });
 
-    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[srcset^="data:image"]'))).not.toBeFalsy();
 
-    await page.waitForSelector('#lazyContainer :not(noscript) > picture source');
+    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[srcset^="/img/image-test-2/jpg/414.jpg 414w"]');
   });
 
   // #endregion

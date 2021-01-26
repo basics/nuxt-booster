@@ -41,6 +41,7 @@
     justify-content: center;
     width: 100vw;
     height: 50vh;
+    overflow: hidden;
 
     @media (orientation: landscape) {
       width: 50vw;

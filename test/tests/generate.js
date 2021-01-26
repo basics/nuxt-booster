@@ -130,11 +130,9 @@ export default function (getHTML) {
     html = await getHTML('speedkit-picture');
     dom = getDom(html);
 
-    const criticalSrcset = dom.querySelector('#criticalContainer').dataset.preloadSrcset;
-    const lazySrcset = dom.querySelector('#lazyContainer').dataset.preloadSrcset;
-
+    const criticalSrcset = dom.querySelector('link[data-hid="-ffa5a9a"][rel="preload"]').getAttribute('imageSrcset');
     expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull();
-    expect(dom.querySelector(`link[imageSrcset="${lazySrcset}"][rel="preload"]`)).toBeNull();
+    expect(dom.querySelector('link[data-hid="-677d4228"][rel="preload"]')).toBeNull();
   });
 
   // #endregion

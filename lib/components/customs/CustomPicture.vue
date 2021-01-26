@@ -17,6 +17,9 @@ import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/util
 import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
 import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preloadNew';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
+import Deferred from 'nuxt-speedkit/classes/Deferred';
+
+const preloadCache = new Map();
 
 export default {
   props: {
@@ -64,18 +67,24 @@ export default {
   },
 
   head () {
+    let data = {};
     if (this.preload.length && (this.isCritical || (process.client & this.visible))) {
       const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
       const [source] = sources;
-
-      if (isPreloadSupported()) {
-        return {
-          link: [getPreloadDescription(source, this.crossorigin, this.onPreload)]
-        };
-      } else {
-        doPreloadFallback(source, this.crossorigin, this.onPreload);
+      if (!preloadCache.has(source.srcset)) {
+        const { resolve, promise } = new Deferred();
+        preloadCache.set(source.srcset, promise);
+        if (isPreloadSupported()) {
+          data = {
+            link: [getPreloadDescription(source, this.crossorigin, resolve)]
+          };
+        } else {
+          doPreloadFallback(source, this.crossorigin, resolve);
+        }
       }
+      preloadCache.get(source.srcset).then(this.onPreload);
     }
+    return data;
   },
 
   watch: {
@@ -99,6 +108,7 @@ export default {
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
+      console.log('onPreload');
     }
   }
 };

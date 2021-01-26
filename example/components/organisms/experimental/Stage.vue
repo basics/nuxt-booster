@@ -1,6 +1,6 @@
 <template>
   <div class="component-stage">
-    <experimental-picture v-if="picture" v-bind="picture" />
+    <speedkit-picture v-if="picture" v-bind="picture" />
     <h1
       v-font="[
         $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture';
+import SpeedkitPicture from 'nuxt-speedkit-components/experimental/SpeedkitPicture';
 export default {
   components: {
-    ExperimentalPicture
+    SpeedkitPicture
   },
 
   props: {

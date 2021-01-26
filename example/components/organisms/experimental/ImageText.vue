@@ -1,6 +1,6 @@
 <template>
   <div class="component-image-text">
-    <experimental-picture v-bind="picture" />
+    <speedkit-picture v-bind="picture" />
     <div
       v-font="[
         $getFont('Comic Neue', 400, 'normal'),
@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture';
+import SpeedkitPicture from 'nuxt-speedkit-components/experimental/SpeedkitPicture';
 export default {
   components: {
-    ExperimentalPicture
+    SpeedkitPicture
   },
   props: {
     picture: { type: Object, default () { return {}; } },

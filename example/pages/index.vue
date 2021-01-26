@@ -34,10 +34,6 @@ export default {
               to: '/full-example-with-components/'
             },
             {
-              title: 'Full Example Without Components',
-              to: '/full-example-without-components'
-            },
-            {
               title: 'Max Fonts',
               to: '/max-fonts'
             }
@@ -84,8 +80,8 @@ export default {
               to: '/experimental/speedkit-youtube/'
             },
             {
-              title: 'ExperimentalPicture (5 Pictures)',
-              to: '/experimental/experimental-picture/5/'
+              title: 'SpeedkitPicture (5 Pictures)',
+              to: '/experimental/speedkit-picture/5/'
             }
           ]
         }

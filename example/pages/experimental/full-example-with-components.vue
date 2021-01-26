@@ -2,7 +2,7 @@
   <div class="page-full-example-with-components">
     <component-stage v-bind="stage" />
     <component-text-a v-bind="textA" />
-    <component-experimental-youtube v-bind="youtube" />
+    <component-speedkit-youtube v-bind="youtube" />
     <component-text-image v-bind="imageTextA" />
     <component-text-b v-bind="textB" />
 
@@ -60,7 +60,7 @@ export default {
 
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/experimental/Stage'),
-    ComponentExperimentalYoutube: () => import('nuxt-speedkit/components/experimental/ExperimentalYoutube'),
+    ComponentSpeedkitYoutube: () => import('nuxt-speedkit/components/experimental/SpeedkitYoutube'),
     ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
     ComponentTextB: () => import('@/components/organisms/TextFontB')
