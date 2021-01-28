@@ -15,9 +15,8 @@
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
 import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
-import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preloadNew';
+import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preload';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
-import Deferred from 'nuxt-speedkit/classes/Deferred';
 
 const preloadCache = new Map();
 
@@ -71,18 +70,21 @@ export default {
     if (this.preload.length && (this.isCritical || (process.client & this.visible))) {
       const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
       const [source] = sources;
+      const callback = () => doCallback(source.srcset);
+
       if (!preloadCache.has(source.srcset)) {
-        const { resolve, promise } = new Deferred();
-        preloadCache.set(source.srcset, promise);
-        if (isPreloadSupported()) {
-          data = {
-            link: [getPreloadDescription(source, this.crossorigin, resolve)]
-          };
-        } else {
-          doPreloadFallback(source, this.crossorigin, resolve);
-        }
+        preloadCache.set(source.srcset, [this.onPreload]);
+      } else {
+        preloadCache.set(source.srcset, preloadCache.get(source.srcset).concat([this.onPreload]));
       }
-      preloadCache.get(source.srcset).then(this.onPreload);
+
+      if (isPreloadSupported()) {
+        data = {
+          link: [getPreloadDescription(source, this.crossorigin, callback)]
+        };
+      } else {
+        doPreloadFallback(source, this.crossorigin, callback);
+      }
     }
     return data;
   },
@@ -108,10 +110,13 @@ export default {
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
-      console.log('onPreload');
     }
   }
 };
+
+function doCallback (srcset) {
+  preloadCache.get(srcset).forEach(callback => callback());
+}
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
   return sources.filter((source) => {
