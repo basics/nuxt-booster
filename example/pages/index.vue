@@ -32,10 +32,6 @@ export default {
             {
               title: 'Full Example With Components',
               to: '/full-example-with-components/'
-            },
-            {
-              title: 'Max Fonts',
-              to: '/max-fonts'
             }
           ]
         },
