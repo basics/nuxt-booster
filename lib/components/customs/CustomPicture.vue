@@ -17,6 +17,8 @@ import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/util
 import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
 import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preload';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
+import Deferred from 'nuxt-speedkit/classes/Deferred';
+import { toHashHex } from 'nuxt-speedkit/utils/string';
 
 const preloadCache = new Map();
 
@@ -70,28 +72,31 @@ export default {
     if (this.preload.length && (this.isCritical || (process.client & this.visible))) {
       const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
       const [source] = sources;
-      const callback = () => doCallback(source.srcset);
 
-      if (!preloadCache.has(source.srcset)) {
-        preloadCache.set(source.srcset, [this.onPreload]);
-      } else {
-        preloadCache.set(source.srcset, preloadCache.get(source.srcset).concat([this.onPreload]));
-      }
+      if (!preloadCache.has(toHashHex(source.srcset))) {
+        const deferred = new Deferred();
+        preloadCache.set(toHashHex(source.srcset), deferred.promise);
 
-      if (isPreloadSupported()) {
-        data = {
-          link: [getPreloadDescription(source, this.crossorigin, callback)]
-        };
-      } else {
-        doPreloadFallback(source, this.crossorigin, callback);
+        if (isPreloadSupported()) {
+          data = {
+            link: [getPreloadDescription(source, this.crossorigin, deferred.resolve)]
+          };
+        } else {
+          doPreloadFallback(source, this.crossorigin, deferred.resolve);
+        }
       }
+      preloadCache.get(toHashHex(source.srcset)).then(() => {
+        this.onPreload();
+      });
     }
     return data;
   },
 
   watch: {
     sources () {
-      this.imageSources = this.sources;
+      if (!this.imageSources.length) {
+        this.imageSources = this.sources;
+      }
     }
   },
 
@@ -113,10 +118,6 @@ export default {
     }
   }
 };
-
-function doCallback (srcset) {
-  preloadCache.get(srcset).forEach(callback => callback());
-}
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
   return sources.filter((source) => {
