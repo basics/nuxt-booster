@@ -73,8 +73,8 @@ export default {
     return {
       noscript: [
         {
-          vmid: 'noscript-speedkit-picture',
-          innerHTML: '<style type="text/css">.nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: blur(0); }</style>'
+          hid: 'noscript-speedkit-picture',
+          innerHTML: '<style type="text/css">.nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: none; }</style>'
         }
       ],
       __dangerouslyDisableSanitizers: ['noscript']

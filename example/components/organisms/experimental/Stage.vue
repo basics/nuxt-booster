@@ -54,23 +54,6 @@ export default {
     }
   }
 
-  /* & >>> picture {
-    &::before {
-      display: block;
-      padding-top: calc(9 / 16 * 100%);
-      content: "";
-    }
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  } */
-
   & h1 {
     position: absolute;
     bottom: 0;
