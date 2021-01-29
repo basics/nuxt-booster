@@ -55,6 +55,10 @@ export default {
               to: '/tests/speedkit-picture'
             },
             {
+              title: 'SpeedkitYoutube',
+              to: '/tests/speedkit-youtube/'
+            },
+            {
               title: 'SpeedkitIframe',
               to: '/tests/speedkit-iframe'
             },
