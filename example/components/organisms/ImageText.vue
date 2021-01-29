@@ -1,15 +1,15 @@
 <template>
-  <div class="component-image-text" :class="{['component-image-text--right']: alignRight}">
+  <div
+    v-font="[
+      $getFont('Comic Neue', 400, 'normal'),
+      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+    class="component-image-text"
+    :class="{['component-image-text--right']: alignRight}"
+  >
     <div class="image">
       <speedkit-picture v-bind="picture" />
     </div>
-    <div
-      v-font="[
-        $getFont('Comic Neue', 400, 'normal'),
-        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
-      class="text"
-      v-html="text"
-    />
+    <div class="text" v-html="text" />
   </div>
 </template>
 

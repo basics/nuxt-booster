@@ -1,13 +1,12 @@
 <template>
-  <div class="component-image-text">
+  <div
+    v-font="[
+      $getFont('Comic Neue', 400, 'normal'),
+      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+    class="component-image-text"
+  >
     <speedkit-picture v-bind="picture" />
-    <div
-      v-font="[
-        $getFont('Comic Neue', 400, 'normal'),
-        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
-      class="text"
-      v-html="text"
-    />
+    <div class="text" v-html="text" />
   </div>
 </template>
 
