@@ -15,14 +15,14 @@
             slow connection
           </li>
         </ul>
-        <button>
+        <button id="nuxt-speedkit__button__init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;" class="info_layer__button">
           <label for="close">
             No
           </label>
         </button>
 
         <!-- Set auto init for request load delay -->
-        <button onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" class="info_layer__button nuxt-speedkit__speedkit-layer__button">
+        <button id="nuxt-speedkit__button__init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" class="info_layer__button">
           {{ buttonLabel }}
         </button>
       </div>
