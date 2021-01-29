@@ -3,10 +3,7 @@
     v-font="$getFont('Quicksand', 400, 'normal')"
     class="page-header"
   >
-    <nuxt-link v-if="$route.path !== '/'" class="overview-link" to="/">
-      <span>&larr; Back</span>
-    </nuxt-link>
-    <organism-menu />
+    <organism-menu v-bind="menu" />
   </header>
 </template>
 
@@ -16,6 +13,16 @@ import OrganismMenu from '@/components/organisms/Menu';
 export default {
   components: {
     OrganismMenu
+  },
+  props: {
+    menu: {
+      type: Object,
+      default () {
+        return {
+          lists: []
+        };
+      }
+    }
   }
 };
 </script>

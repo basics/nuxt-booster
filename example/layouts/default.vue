@@ -1,9 +1,9 @@
 <template>
   <div>
     <google-lighthouse />
-    <organism-page-header critical />
     <Nuxt />
     <info-layer />
+    <organism-page-header v-bind="pageHeader" critical />
     <GithubCorner />
   </div>
 </template>
@@ -18,6 +18,77 @@ export default {
   },
   components: {
     InfoLayer
+  },
+
+  data () {
+    return {
+      pageHeader: {
+        menu: {
+
+          lists: [
+            {
+              links: [
+                {
+                  title: 'Home',
+                  to: '/'
+                }
+              ]
+            },
+            {
+              headline: 'Test',
+              links: [
+                {
+                  title: 'v-font',
+                  to: '/tests/v-font'
+                },
+                {
+                  title: 'v-font (media)',
+                  to: '/tests/v-font-media'
+                },
+                {
+                  title: 'SpeedkitPicture',
+                  to: '/tests/speedkit-picture'
+                },
+                {
+                  title: 'SpeedkitYoutube',
+                  to: '/tests/speedkit-youtube/'
+                },
+                {
+                  title: 'SpeedkitIframe',
+                  to: '/tests/speedkit-iframe'
+                },
+                {
+                  title: 'Component Import (Critical by Prop)',
+                  to: '/tests/component-import/critical-prop'
+                },
+                {
+                  title: 'Component Import (Critical by Parent)',
+                  to: '/tests/component-import/critical-parent'
+                }
+              ]
+            },
+            {
+              headline: 'Experimental',
+              links: [
+                {
+                  title: 'Home',
+                  to: '/experimental/'
+                },
+                {
+                  title: 'SpeedkitYoutube',
+                  to: '/experimental/speedkit-youtube/'
+                },
+                {
+                  title: 'SpeedkitPicture (5 Pictures)',
+                  to: '/experimental/speedkit-picture/5/'
+                }
+              ]
+            }
+
+          ]
+        }
+      }
+    };
   },
 
   head () {
