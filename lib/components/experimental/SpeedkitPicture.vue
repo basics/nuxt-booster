@@ -1,5 +1,8 @@
 <template>
   <figure class="nuxt-speedkit__experimental__speedkit-picture">
+    <custom-no-script>
+      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
+    </custom-no-script>
     <custom-picture
       :sources="placeholders"
       :preload="resolvedSources"
@@ -8,9 +11,7 @@
       :crossorigin="crossorigin"
       v-on="$listeners"
     />
-    <custom-no-script>
-      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
-    </custom-no-script>
+
     <figcaption v-if="hasSlot">
       <slot name="caption" />
     </figcaption>
@@ -70,6 +71,18 @@ export default {
     this.placeholders = await this.fetchMeta();
   },
 
+  head () {
+    return {
+      noscript: [
+        {
+          vmid: 'noscript-speedkit-picture',
+          innerHTML: '<style type="text/css">.nuxt-speedkit__experimental__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__experimental__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: blur(0); }</style>'
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['noscript']
+    };
+  },
+
   computed: {
     hasSlot () {
       return this.$slots.caption;
@@ -120,6 +133,7 @@ export default {
 function getFormats (sources) {
   return [...new Set(
     ['webp']
+      // eslint-disable-next-line security/detect-unsafe-regex
       .concat(sources.map(source => source.src.match(/\.(?<ext>png|jpe?g)/i).groups.ext))
       .map((format) => {
         if (format === 'jpeg') {

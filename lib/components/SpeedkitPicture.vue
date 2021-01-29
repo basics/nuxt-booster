@@ -1,5 +1,8 @@
 <template>
   <figure class="nuxt-speedkit__speedkit-picture">
+    <custom-no-script>
+      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
+    </custom-no-script>
     <custom-picture
       :sources="placeholders"
       :preload="resolvedSources"
@@ -8,9 +11,6 @@
       :crossorigin="crossorigin"
       v-on="$listeners"
     />
-    <custom-no-script>
-      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
-    </custom-no-script>
     <figcaption v-if="hasSlot">
       <slot name="caption" />
     </figcaption>
@@ -67,6 +67,18 @@ export default {
 
   async fetch () {
     this.placeholders = await this.fetchMeta();
+  },
+
+  head () {
+    return {
+      noscript: [
+        {
+          vmid: 'noscript-speedkit-picture',
+          innerHTML: '<style type="text/css">.nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: blur(0); }</style>'
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['noscript']
+    };
   },
 
   computed: {
