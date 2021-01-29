@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import AtomBaseButton from '@/components/atoms/BaseButton'
+import AtomBaseButton from '@/components/atoms/BaseButton';
 
 export default {
   components: {
     AtomBaseButton
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

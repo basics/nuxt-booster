@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import OrganismMenu from '@/components/organisms/Menu'
+import OrganismMenu from '@/components/organisms/Menu';
 
 export default {
   components: {
     OrganismMenu
   }
-}
+};
 </script>
 
 <style scoped>
