@@ -1,128 +1,120 @@
 <template>
-  <image-container :loading="loading" class="nuxt-speedkit__speedkit-picture">
-    <template #default>
-      <picture>
-        <source
-          v-for="(source, index) in preloadedSources"
-          :key="index"
-          v-bind="source"
-        >
-        <custom-image v-bind="{src: preparedPlaceholder.base64, preload: sources, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
-      </picture>
-      <custom-no-script>
-        <picture>
-          <source
-            v-for="(source, index) in sources"
-            :key="index"
-            v-bind="source"
-          >
-          <custom-image v-bind="{src: preparedPlaceholder.url, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
-        </picture>
-      </custom-no-script>
-    </template>
-    <template #caption>
+  <figure class="nuxt-speedkit__speedkit-picture">
+    <custom-no-script>
+      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
+    </custom-no-script>
+    <custom-picture
+      :sources="placeholders"
+      :preload="resolvedSources"
+      :alt="alt"
+      :title="title"
+      :crossorigin="crossorigin"
+      v-on="$listeners"
+    />
+    <figcaption v-if="hasSlot">
       <slot name="caption" />
-    </template>
-  </image-container>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
-import ImageContainer from './ImageContainer'
-import CustomNoScript from './customs/CustomNoScript'
-import CustomImage from './customs/CustomImage'
+import { createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder';
+
+import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture';
+import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
+import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 
 export default {
-
   components: {
-    ImageContainer,
-    CustomNoScript,
-    CustomImage
+    CustomPicture,
+    CustomNoScript
   },
 
   props: {
     sources: {
       type: Array,
       default () {
-        return []
-      }
-    },
-
-    placeholder: {
-      type: Object,
-      default () {
-        return {}
+        return [];
       }
     },
 
     alt: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
-
     title: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
-
-    width: {
-      type: Number,
-      default () {
-        return null
-      }
-    },
-
-    height: {
-      type: Number,
-      default () {
-        return null
-      }
-    },
-
     crossorigin: {
       type: String,
       default () {
-        return 'anonymous'
+        return 'anonymous';
       }
     }
   },
 
   data () {
     return {
-      preloadedSources: (this.noScript && this.sources) || [],
-      loading: false,
-      webpSupport: false
-    }
+      placeholders: [],
+      resolvedSources: this.getSources()
+    };
+  },
+
+  async fetch () {
+    this.placeholders = await this.fetchMeta();
+  },
+
+  head () {
+    return {
+      noscript: [
+        {
+          hid: 'noscript-speedkit-picture',
+          innerHTML: '<style type="text/css">.nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: none; }</style>'
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['noscript']
+    };
   },
 
   computed: {
-    preparedPlaceholder () {
-      return Object.assign({
-        base64: undefined,
-        url: undefined
-      }, this.placeholder)
-    },
     hasSlot () {
-      return this.$slots.caption
+      return this.$slots.caption;
     }
-  },
-
-  mounted () {
-    this.loading = true
   },
 
   methods: {
-    onLoad (e) {
-      this.loading = false
-      this.$emit('load')
+    fetchMeta () {
+      return createURLPlaceholder(this.sources, ({ sizes, placeholder }) => {
+        return [
+          { url: placeholder.url },
+          sizes
+        ];
+      });
     },
-
-    onPreload () {
-      this.preloadedSources = this.sources
+    getSources () {
+      return this.sources.map(({ media, sizes }) => {
+        return {
+          media,
+          srcset: sizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+          sizes: sizes.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
+          type: getMimeTypeByFormat(sizes[0].format)
+        };
+      });
     }
   }
-}
+};
+
 </script>
+
+<style lang="postcss" scoped>
+.nuxt-speedkit__speedkit-picture {
+  width: 100%;
+  height: inherit;
+  margin: 0;
+}
+</style>

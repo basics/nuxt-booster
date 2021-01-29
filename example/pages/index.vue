@@ -2,44 +2,20 @@
   <div
     class="page-index"
   >
-    <headline tag="h1" critical>
-      Preview
-    </headline>
-    <nav>
-      <link-list :items="links" critical />
-    </nav>
-    <headline tag="h2" critical>
-      Critical
-    </headline>
-    <nav>
-      <link-list :items="criticalLinks" critical />
-    </nav>
-    <headline tag="h2" critical>
-      Lazy
-    </headline>
-    <nav>
-      <link-list :items="lazyLinks" critical />
-    </nav>
-    <headline tag="h2" critical>
-      Both
-    </headline>
-    <nav>
-      <link-list :items="bothLinks" critical />
-    </nav>
-    <headline tag="h2" critical>
-      Experimental
-    </headline>
-    <nav>
-      <link-list :items="experimentalLinks" critical />
-    </nav>
+    <div v-for="({headline, links}, index) in lists" :key="index">
+      <headline tag="h1" critical :content="headline" />
+      <nav :aria-label="headline">
+        <link-list :items="links" critical />
+      </nav>
+    </div>
     <br>
   </div>
 </template>
 
 <script>
 
-import Headline from '@/components/atoms/Headline'
-import LinkList from '@/components/molecules/LinkList'
+import Headline from '@/components/atoms/Headline';
+import LinkList from '@/components/molecules/LinkList';
 
 export default {
   components: {
@@ -48,148 +24,77 @@ export default {
   },
   asyncData () {
     return {
-      links: [
+
+      lists: [
         {
-          title: 'Full Example With Components',
-          to: '/full-example-with-components/'
+          headline: 'Preview',
+          links: [
+            {
+              title: 'Full Example With Components',
+              to: '/full-example-with-components/'
+            }
+          ]
         },
         {
-          title: 'Full Example Without Components',
-          to: '/full-example-without-components/'
+          headline: 'Test',
+          links: [
+            {
+              title: 'v-font',
+              to: '/tests/v-font'
+            },
+            {
+              title: 'v-font (media)',
+              to: '/tests/v-font-media'
+            },
+            {
+              title: 'SpeedkitPicture',
+              to: '/tests/speedkit-picture'
+            },
+            {
+              title: 'SpeedkitYoutube',
+              to: '/tests/speedkit-youtube/'
+            },
+            {
+              title: 'SpeedkitIframe',
+              to: '/tests/speedkit-iframe'
+            },
+            {
+              title: 'Component Import (Critical by Prop)',
+              to: '/tests/component-import/critical-prop'
+            },
+            {
+              title: 'Component Import (Critical by Parent)',
+              to: '/tests/component-import/critical-parent'
+            }
+          ]
         },
         {
-          title: 'Max Fonts',
-          to: '/max-fonts/'
-        },
-        {
-          title: 'Test: v-font',
-          to: '/tests/v-font/'
-        },
-        {
-          title: 'Test: v-font (media)',
-          to: '/tests/v-font-media/'
-        },
-        {
-          title: 'Test: SpeedkitPicture',
-          to: '/tests/speedkit-picture/'
-        },
-        {
-          title: 'Test: SpeedkitImage',
-          to: '/tests/speedkit-image/'
-        },
-        {
-          title: 'Test: SpeedkitIframe',
-          to: '/tests/speedkit-iframe/'
-        },
-        {
-          title: 'Test: Speedkit Function',
-          to: '/tests/speedkit-function/'
-        },
-        {
-          title: 'Test: Component Import (Critical by Prop)',
-          to: '/tests/component-import/critical-prop/'
-        },
-        {
-          title: 'Test: Component Import (Critical by Parent)',
-          to: '/tests/component-import/critical-parent/'
+          headline: 'Experimental',
+          links: [
+            {
+              title: 'Full Example With Components',
+              to: '/experimental/full-example-with-components/'
+            },
+            {
+              title: 'SpeedkitYoutube',
+              to: '/experimental/speedkit-youtube/'
+            },
+            {
+              title: 'SpeedkitPicture (5 Pictures)',
+              to: '/experimental/speedkit-picture/5/'
+            }
+          ]
         }
-      ],
-      criticalLinks: [
-        {
-          title: 'Font basic usage',
-          to: '/critical/font-basic/'
-        },
-        {
-          title: 'Font extended usage',
-          to: '/critical/font-extended/'
-        },
-        {
-          title: 'SpeedkitImage',
-          to: '/critical/speedkit-image/'
-        },
-        {
-          title: 'SpeedkitPicture',
-          to: '/critical/speedkit-picture/'
-        },
-        {
-          title: 'SpeedkitIframe',
-          to: '/critical/speedkit-iframe/'
-        }
-      ],
-      lazyLinks: [
-        {
-          title: 'Font basic usage',
-          to: '/lazy/font-basic/'
-        },
-        {
-          title: 'Font extended usage',
-          to: '/lazy/font-extended/'
-        },
-        {
-          title: 'SpeedkitImage',
-          to: '/lazy/speedkit-image/'
-        },
-        {
-          title: 'SpeedkitPicture',
-          to: '/lazy/speedkit-picture/'
-        },
-        {
-          title: 'SpeedkitIframe',
-          to: '/lazy/speedkit-iframe/'
-        }
-      ],
-      bothLinks: [
-        {
-          title: 'Font basic usage',
-          to: '/both/font-basic/'
-        },
-        {
-          title: 'Font extended usage',
-          to: '/both/font-extended/'
-        },
-        {
-          title: 'SpeedkitImage',
-          to: '/both/speedkit-image/'
-        },
-        {
-          title: 'SpeedkitPicture',
-          to: '/both/speedkit-picture/'
-        },
-        {
-          title: 'SpeedkitIframe',
-          to: '/both/speedkit-iframe/'
-        }
-      ],
-      experimentalLinks: [
-        {
-          title: 'Full Example With Components',
-          to: '/experimental/full-example-with-components/'
-        },
-        {
-          title: 'SpeedkitYoutube',
-          to: '/experimental/speedkit-youtube/'
-        },
-        {
-          title: 'ExperimentalPicture (5 Pictures)',
-          to: '/experimental/experimental-picture/5/'
-        }
-        // {
-        //   title: 'ExperimentalPicture (10 Pictures)',
-        //   to: '/experimental/experimental-picture/10/'
-        // },
-        // {
-        //   title: 'ExperimentalPicture (20 Pictures)',
-        //   to: '/experimental/experimental-picture/20/'
-        // }
+
       ]
-    }
+    };
   },
   data () {
     return {
-      links: []
-    }
+      lists: []
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">

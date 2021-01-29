@@ -2,7 +2,7 @@
   <organism-preview-container>
     <template #default>
       <div>
-        <speedkit-youtube v-bind="iframe" />
+        <speedkit-youtube v-bind="youtube" />
       </div>
     </template>
     <template #title>
@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import SpeedkitYoutube from 'nuxt-speedkit-components/experimental/SpeedkitYoutube'
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer'
+import SpeedkitYoutube from 'nuxt-speedkit-components/experimental/SpeedkitYoutube';
+import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {
     SpeedkitYoutube,
@@ -21,15 +21,10 @@ export default {
   },
   data () {
     return {
-      iframe: {
-        id: 'VBafwg16xpU',
-        poster: Object.assign({
-          alt: 'Alt Text',
-          title: 'Title Text',
-          caption: null
-        }, require('@/assets/youtube/id/VBafwg16xpU'))
+      youtube: {
+        id: 'cLKvbhfVBUU'
       }
-    }
+    };
   }
-}
+};
 </script>

@@ -17,12 +17,12 @@ export default {
   data () {
     return {
       active: false
-    }
+    };
   },
   mounted () {
-    this.active = true
+    this.active = true;
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

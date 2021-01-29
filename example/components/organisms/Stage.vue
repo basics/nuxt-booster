@@ -14,17 +14,17 @@
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture';
 export default {
   components: {
     SpeedkitPicture
   },
   props: {
-    picture: { type: Object, default () { return {} } },
-    headline: { type: String, default () { return 'Headline' } },
-    claim: { type: String, default () { return 'Claim' } }
+    picture: { type: Object, default () { return {}; } },
+    headline: { type: String, default () { return 'Headline'; } },
+    claim: { type: String, default () { return 'Claim'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>
@@ -50,23 +50,6 @@ export default {
     @media (min-width: 768px) {
       font-size: 40px;
       line-height: 80px;
-    }
-  }
-
-  & >>> picture {
-    &::before {
-      display: block;
-      padding-top: calc(9 / 16 * 100%);
-      content: "";
-    }
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 

@@ -32,8 +32,8 @@
 
 <script>
 
-import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer'
-import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript'
+import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer';
+import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
 
 export default {
   components: {
@@ -44,9 +44,9 @@ export default {
     return {
       text: 'Sorry, but you will have a limited user experience due to a ...',
       buttonLabel: 'OK'
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">

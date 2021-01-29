@@ -1,8 +1,22 @@
 {
   "branches": [
-    "main",
+    "+([0-9])?(.{+([0-9]),x}).x",
     "master",
-    "next"
+    "next",
+    "next-major",
+    {
+      "name": "main",
+      "channel": "latest",
+      "prerelease": false
+    },
+    {
+      "name": "beta",
+      "prerelease": true
+    },
+    {
+      "name": "alpha",
+      "prerelease": true
+    }
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",

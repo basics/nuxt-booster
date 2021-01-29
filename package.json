@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.0.0",
+  "version": "1.0.11-beta.1",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -25,6 +25,7 @@
     "build": "nuxt build --config-file example/nuxt.config.js",
     "generate": "nuxt generate --config-file example/nuxt.config.js --target static",
     "lint": "eslint --ext .js,.vue .",
+    "lint:report": "eslint --ext .js,.vue -f json-relative -o ./eslint-report.json .",
     "test": "npm run lint && jest",
     "jest": "jest",
     "start": "nuxt start --config-file example/nuxt.config.js --target static",
@@ -53,6 +54,12 @@
     "babel-jest": "26.6.3",
     "core-js": "3.8.2",
     "eslint": "7.17.0",
+    "eslint-formatter-json-relative": "0.1.0",
+    "eslint-plugin-no-secrets": "0.6.8",
+    "eslint-plugin-scanjs-rules": "0.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "eslint-plugin-xss": "0.1.10",
     "husky": "4.3.7",
     "imagemin-gifsicle": "7.0.0",
     "imagemin-mozjpeg": "9.0.0",

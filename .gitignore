@@ -12,6 +12,7 @@ publish
 coverage
 dist
 test/fixture
+eslint-report.json
 video
 example/static/stream
 example/assets/proxy

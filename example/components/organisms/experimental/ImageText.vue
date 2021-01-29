@@ -1,27 +1,26 @@
 <template>
-  <div class="component-image-text">
-    <experimental-picture v-bind="picture" />
-    <div
-      v-font="[
-        $getFont('Comic Neue', 400, 'normal'),
-        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
-      class="text"
-      v-html="text"
-    />
+  <div
+    v-font="[
+      $getFont('Comic Neue', 400, 'normal'),
+      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+    class="component-image-text"
+  >
+    <speedkit-picture v-bind="picture" />
+    <div class="text" v-html="text" />
   </div>
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/experimental/SpeedkitPicture';
 export default {
   components: {
-    ExperimentalPicture
+    SpeedkitPicture
   },
   props: {
-    picture: { type: Object, default () { return {} } },
-    text: { type: String, default () { return 'Headline' } }
+    picture: { type: Object, default () { return {}; } },
+    text: { type: String, default () { return 'Headline'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

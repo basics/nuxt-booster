@@ -1,6 +1,6 @@
 <template>
   <div class="component-stage">
-    <experimental-picture v-if="picture" v-bind="picture" />
+    <speedkit-picture v-if="picture" v-bind="picture" />
     <h1
       v-font="[
         $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
@@ -14,18 +14,18 @@
 </template>
 
 <script>
-import ExperimentalPicture from 'nuxt-speedkit-components/experimental/ExperimentalPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/experimental/SpeedkitPicture';
 export default {
   components: {
-    ExperimentalPicture
+    SpeedkitPicture
   },
 
   props: {
-    picture: { type: Object, default () { return {} } },
-    headline: { type: String, default () { return 'Headline' } },
-    claim: { type: String, default () { return 'Claim' } }
+    picture: { type: Object, default () { return {}; } },
+    headline: { type: String, default () { return 'Headline'; } },
+    claim: { type: String, default () { return 'Claim'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>
@@ -53,23 +53,6 @@ export default {
       line-height: 80px;
     }
   }
-
-  /* & >>> picture {
-    &::before {
-      display: block;
-      padding-top: calc(9 / 16 * 100%);
-      content: "";
-    }
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  } */
 
   & h1 {
     position: absolute;
