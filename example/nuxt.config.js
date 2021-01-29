@@ -87,19 +87,7 @@ module.exports = {
   },
 
   buildModules: [
-    '@nuxt/image',
-    ['@aceforth/nuxt-optimized-images', {
-      optimizeImages: true,
-      optimizeImagesInDev: false,
-      sqip: {
-        numberOfPrimitives: 20,
-        blur: 0,
-        mode: 1
-      },
-      lqip: {
-        palette: true
-      }
-    }]
+    '@nuxt/image'
   ],
 
   modules: [
