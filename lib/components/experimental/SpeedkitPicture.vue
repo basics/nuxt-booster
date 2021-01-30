@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { createSVGPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder';
+import { createPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder';
 
 import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture';
 import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
@@ -98,7 +98,7 @@ export default {
   methods: {
     async fetchMeta () {
       if (process.server) {
-        return await createSVGPlaceholder(this.sources, ({ src, sizes }) => {
+        return await createPlaceholder(this.sources, ({ src, sizes }) => {
           return Promise.all([
             this.$img(src, { width: 30 }),
             this.$img.sizes(src, sizes),
