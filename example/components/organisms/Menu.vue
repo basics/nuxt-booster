@@ -2,7 +2,7 @@
   <div class="menu">
     <input id="menu-control" v-model="open" type="checkbox" name="menu-control">
     <div class="menu__content" aria-label="Menu">
-      <div>
+      <div @click="onClick">
         <div>
           <nav v-for="({headline, links}, index) in lists" :key="index">
             <headline
@@ -62,21 +62,29 @@ export default {
       }
     }
   },
+
   data () {
     return {
       open: false
     };
   },
+
   watch: {
     open (value) {
       document.documentElement.classList.toggle('js--menu-open', value);
     }
   },
-  mounted () {
-    this.$router.afterEach((to, from) => {
+
+  methods: {
+    onClick () {
       this.open = false;
-    });
+    }
   }
+  // mounted () {
+  //   this.$router.afterEach((to, from) => {
+  //     this.open = false;
+  //   });
+  // }
 };
 </script>
 
