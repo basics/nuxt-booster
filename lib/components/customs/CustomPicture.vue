@@ -15,12 +15,12 @@
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
 import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
-import { getPreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preload';
+import { getImagePreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preload';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
-import Deferred from 'nuxt-speedkit/classes/Deferred';
+import Cache from 'nuxt-speedkit/classes/Cache';
 import { toHashHex } from 'nuxt-speedkit/utils/string';
 
-const preloadCache = new Map();
+const preloadCache = new Cache();
 
 export default {
   props: {
@@ -73,21 +73,15 @@ export default {
       const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
       const [source] = sources;
 
-      if (!preloadCache.has(toHashHex(source.srcset))) {
-        const deferred = new Deferred();
-        preloadCache.set(toHashHex(source.srcset), deferred.promise);
-
+      preloadCache.getPromise(toHashHex(source.srcset), (resolve, reject) => {
         if (isPreloadSupported()) {
           data = {
-            link: [getPreloadDescription(source, this.crossorigin, deferred.resolve)]
+            link: [getImagePreloadDescription(source, this.crossorigin, resolve)]
           };
         } else {
-          doPreloadFallback(source, this.crossorigin, deferred.resolve);
+          doPreloadFallback(source, this.crossorigin, resolve);
         }
-      }
-      preloadCache.get(toHashHex(source.srcset)).then(() => {
-        this.onPreload();
-      });
+      }).then(() => this.onPreload());
     }
     return data;
   },
