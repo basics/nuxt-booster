@@ -24,6 +24,7 @@ import { createPlaceholder, createURLPlaceholder } from 'nuxt-speedkit/utils/pla
 import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture';
 import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
+import { getStyleDescription } from 'nuxt-speedkit/utils/description';
 
 export default {
   components: {
@@ -74,10 +75,7 @@ export default {
   head () {
     return {
       noscript: [
-        {
-          hid: 'noscript-speedkit-picture',
-          innerHTML: '<style type="text/css">.nuxt-speedkit__experimental__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__experimental__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: none; }</style>'
-        }
+        getStyleDescription('.nuxt-speedkit__experimental__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__experimental__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: none; }', true)
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     };

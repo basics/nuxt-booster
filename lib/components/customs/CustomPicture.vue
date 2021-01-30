@@ -15,7 +15,7 @@
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
 import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
-import { getImagePreloadDescription, doPreloadFallback } from 'nuxt-speedkit/utils/preload';
+import { getImagePreloadDescription } from 'nuxt-speedkit/utils/description';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 import Cache from 'nuxt-speedkit/classes/Cache';
 import { toHashHex } from 'nuxt-speedkit/utils/string';
@@ -112,6 +112,14 @@ export default {
     }
   }
 };
+
+function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
+  const img = new Image();
+  img.onload = callback;
+  img.crossorigin = crossorigin;
+  img.sizes = sizes;
+  img.srcset = srcset;
+}
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
   return sources.filter((source) => {
