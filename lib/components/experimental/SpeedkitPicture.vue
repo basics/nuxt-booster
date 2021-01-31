@@ -128,11 +128,16 @@ export default {
   }
 };
 
+function extname (value) {
+  // eslint-disable-next-line security/detect-unsafe-regex
+  const matches = value.match(/\.(?<ext>png|jpe?g)/i);
+  return matches && matches.groups.ext;
+}
+
 function getFormats (sources) {
   return [...new Set(
     ['webp']
-      // eslint-disable-next-line security/detect-unsafe-regex
-      .concat(sources.map(source => source.src.match(/\.(?<ext>png|jpe?g)/i).groups.ext))
+      .concat(sources.map(source => extname(source.src) || 'jpg'))
       .map((format) => {
         if (format === 'jpeg') {
           return 'jpg';

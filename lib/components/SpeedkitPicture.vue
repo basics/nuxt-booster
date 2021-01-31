@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import { createURLPlaceholder } from 'nuxt-speedkit/utils/placeholder';
-
+import { createURLPlaceholderSync } from 'nuxt-speedkit/utils/placeholder';
 import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture';
 import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
@@ -61,13 +60,9 @@ export default {
 
   data () {
     return {
-      placeholders: [],
+      placeholders: this.fetchMeta(),
       resolvedSources: this.getSources()
     };
-  },
-
-  async fetch () {
-    this.placeholders = await this.fetchMeta();
   },
 
   head () {
@@ -87,7 +82,7 @@ export default {
 
   methods: {
     fetchMeta () {
-      return createURLPlaceholder(this.sources, ({ sizes, placeholder }) => {
+      return createURLPlaceholderSync(this.sources, ({ sizes, placeholder }) => {
         return [
           { url: placeholder.url },
           sizes
@@ -95,17 +90,27 @@ export default {
       });
     },
     getSources () {
-      return this.sources.map(({ media, sizes }) => {
-        return {
-          media,
-          srcset: sizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-          sizes: sizes.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
-          type: getMimeTypeByFormat(sizes[0].format)
-        };
-      });
+      return this.sources.reduce((result, { media, sizes }) => {
+        const formats = getFormats(sizes);
+        result.push(...formats.map((format) => {
+          const filteredSizes = sizes.filter(size => size.format === format);
+          return {
+            media,
+            srcset: filteredSizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+            sizes: filteredSizes.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
+            type: getMimeTypeByFormat(format)
+          };
+        }));
+        return result;
+      }, []);
     }
   }
 };
+
+function getFormats (sizes) {
+  return Array.from(new Set(sizes.map(size => size.format.replace('jpeg', 'jpg'))))
+    .sort((a, b) => a === 'webp' && !b !== 'webp' ? -1 : 1);
+}
 
 </script>
 
