@@ -10,10 +10,9 @@
               tag="span"
               class="menu__headline"
               type="menu"
-              critical
               :content="headline"
             />
-            <link-list :items="links" critical aria-label="Menu" />
+            <link-list :items="links" aria-label="Menu" />
           </nav>
         </div>
       </div>

@@ -1,9 +1,6 @@
 <template>
-  <header
-    v-font="$getFont('Quicksand', 400, 'normal')"
-    class="page-header"
-  >
-    <organism-menu v-bind="menu" />
+  <header class="page-header">
+    <organism-menu v-bind="menu" critical />
   </header>
 </template>
 

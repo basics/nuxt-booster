@@ -1,10 +1,10 @@
 <template>
   <div>
-    <google-lighthouse />
+    <organism-page-header v-bind="pageHeader" />
     <Nuxt />
     <info-layer />
-    <organism-page-header v-bind="pageHeader" critical />
     <GithubCorner />
+    <google-lighthouse />
   </div>
 </template>
 

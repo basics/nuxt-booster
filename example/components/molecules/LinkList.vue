@@ -1,11 +1,12 @@
 <template>
-  <ul>
+  <ul
+    v-font="[
+      $getFont('Quicksand', 400, 'normal'),
+    ]"
+  >
     <li
       v-for="(item, index) in items"
       :key="index"
-      v-font="[
-        $getFont('Quicksand', 400, 'normal'),
-      ]"
     >
       <nuxt-link v-bind="item">
         <span>&raquo;</span> {{ item.title }}
