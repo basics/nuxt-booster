@@ -5,6 +5,9 @@
     },
     {
       "path": "docs"
+    },
+    {
+      "path": "node_modules/@nuxt/image"
     }
   ],
   "settings": {

@@ -1,11 +1,10 @@
 # nuxt-speedkit
 
+![nuxt-speedkit][logo]
+
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
-[![dependencies status][dependencies-status-src]][dependencies-status-href]
-[![dev-dependencies status][dependencies-dev-status-src]][dependencies-dev-status-href]
-
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
@@ -97,7 +96,7 @@ or look here
 [MIT License](./LICENSE)
 
 <!-- Badges -->
-
+[logo]: https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727 "nuxt-speedkit"
 [grabarz-partner-module-src]: <https://img.shields.io/badge/Grabarz%20&%20Partner-Module-d19700>
 [grabarz-partner-href]: <https://grabarzundpartner.de>
 
@@ -124,4 +123,5 @@ or look here
 
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-speedkit.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/nuxt-speedkit
+
 

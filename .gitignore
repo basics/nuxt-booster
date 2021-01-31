@@ -11,7 +11,7 @@ publish
 .DS_Store
 coverage
 dist
-test/fixture
+test/.*
 eslint-report.json
 video
 example/static/stream

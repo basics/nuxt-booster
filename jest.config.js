@@ -13,14 +13,21 @@ module.exports = {
     '^@@$': '<rootDir>',
     '^@/(.*)$': '<rootDir>/lib/$1'
   },
-  transformIgnorePatterns: ['/node_modules/(?!(nuxt-i18n)/)'],
+  transformIgnorePatterns: [`/node_modules/(?!${['@nuxt/image']})`],
   transform: {
-    '^.+\\.js$': 'babel-jest'
+    '\\.(js|ts)$': [
+      'babel-jest',
+      {
+        presets: [
+          ['@babel/preset-env', { targets: { node: 'current' } }],
+          '@babel/preset-typescript'
+        ],
+        plugins: ['@babel/plugin-transform-runtime']
+      }
+    ]
   },
   testPathIgnorePatterns: [
-    'fixture'
     // 'generate.test.js',
-    // 'module.test.js'
     // 'browser.test.js'
   ]
 };
