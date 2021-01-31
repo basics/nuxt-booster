@@ -34,7 +34,7 @@ module.exports = {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'),
+            require.resolve('@nuxt/babel-preset-app-edge'),
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3 },
