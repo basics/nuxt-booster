@@ -40,15 +40,14 @@ export default {
   },
 
   props: {
-    autoplay: {
-      type: Boolean,
-      default: true
-    },
     id: {
       type: String,
-      default: ''
+      required: true
     },
-
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
     poster: {
       type: Object,
       default () {
