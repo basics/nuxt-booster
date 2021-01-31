@@ -1,14 +1,15 @@
 <template>
-  <ul>
+  <ul
+    v-font="[
+      $getFont('Quicksand', 400, 'normal'),
+    ]"
+  >
     <li
       v-for="(item, index) in items"
       :key="index"
-      v-font="[
-        $getFont('Quicksand', 400, 'normal'),
-      ]"
     >
       <nuxt-link v-bind="item">
-        {{ item.title }}
+        <span>&raquo;</span> {{ item.title }}
       </nuxt-link>
     </li>
   </ul>
@@ -37,18 +38,39 @@ export default {
 };
 </script>
 
-<style scoped>
-  ul {
-    padding: 0;
-    list-style: none;
-  }
+<style scoped lang="postcss">
+ul {
+  padding: 0;
+  list-style: none;
+}
 
-  li {
-    margin: calc(10 / 16 * 1em) 0;
-  }
+li {
+  margin: calc(10 / 16 * 1em) 0;
+}
 
-  a {
-    color: currentColor;
-    text-decoration: none;
+& span {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 1.2em;
+  opacity: 0.5;
+  transition: opacity 0.2s linear, transform 0.2s linear;
+}
+
+a {
+  position: relative;
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  opacity: 0.8;
+
+  &:hover,
+  &.nuxt-link-exact-active {
+    opacity: 1;
+
+    & span {
+      opacity: 1;
+      transform: translateX(5px);
+    }
   }
+}
 </style>

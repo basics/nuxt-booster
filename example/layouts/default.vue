@@ -1,10 +1,10 @@
 <template>
   <div>
-    <google-lighthouse />
-    <organism-page-header critical />
+    <organism-page-header v-bind="pageHeader" />
     <Nuxt />
     <info-layer />
     <GithubCorner />
+    <google-lighthouse />
   </div>
 </template>
 
@@ -18,6 +18,69 @@ export default {
   },
   components: {
     InfoLayer
+  },
+
+  data () {
+    return {
+      pageHeader: {
+        menu: {
+
+          lists: [
+            {
+              links: [
+                {
+                  title: 'Home',
+                  to: '/'
+                }
+              ]
+            },
+            {
+              headline: 'Test',
+              links: [
+                {
+                  title: 'v-font',
+                  to: '/tests/v-font'
+                },
+                {
+                  title: 'v-font (media)',
+                  to: '/tests/v-font-media'
+                },
+                {
+                  title: 'SpeedkitPicture',
+                  to: '/tests/speedkit-picture'
+                },
+                {
+                  title: 'SpeedkitYoutube',
+                  to: '/tests/speedkit-youtube/'
+                },
+                {
+                  title: 'SpeedkitIframe',
+                  to: '/tests/speedkit-iframe'
+                }
+              ]
+            },
+            {
+              headline: 'Experimental',
+              links: [
+                {
+                  title: 'Home',
+                  to: '/experimental/'
+                },
+                {
+                  title: 'SpeedkitYoutube',
+                  to: '/experimental/speedkit-youtube/'
+                },
+                {
+                  title: 'SpeedkitPicture (5 Pictures)',
+                  to: '/experimental/speedkit-picture/5/'
+                }
+              ]
+            }
+
+          ]
+        }
+      }
+    };
   },
 
   head () {

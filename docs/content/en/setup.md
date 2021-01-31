@@ -9,26 +9,26 @@ Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossa
 
 ## Installation
 
-Add `@nuxtjs/xxx` dependency to your project:
+Add `@nuxtjs/nuxt-speedkit` dependency to your project:
 
 <code-group>
   <code-block label="Yarn" active>
 
   ```bash
-  yarn add @nuxtjs/xxx
+  yarn add @nuxtjs/nuxt-speedkit
   ```
 
   </code-block>
   <code-block label="NPM">
 
   ```bash
-  npm install @nuxtjs/xxx
+  npm install @nuxtjs/nuxt-speedkit
   ```
 
   </code-block>
 </code-group>
 
-Then, add `@nuxtjs/xxx` to the `modules` section of `nuxt.config.js`:
+Then, add `@nuxtjs/nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 
 ```js[nuxt.config.js]
 {
@@ -39,63 +39,34 @@ Then, add `@nuxtjs/xxx` to the `modules` section of `nuxt.config.js`:
     ['nuxt-speedkit', { 
         fonts: [{
           family: 'Font A',
+          locals: ['Font A'],
           fallback: ['Arial', 'sans-serif'],
           variance: [
             {
               style: 'normal',
-              weight: 300,
-              src: '@/assets/fonts/font-a-300'
-            }, {
-              style: 'italic',
-              weight: 300,
-              src: '@/assets/fonts/font-a-300Italic'
-            }, {
-              style: 'normal',
               weight: 400,
-              src: '@/assets/fonts/font-a-regular'
+              sources: [
+                { src: '@/assets/fonts/font-a-regular.woff', type:'woff' },
+                { src: '@/assets/fonts/font-a-regular.woff2', type:'woff2' }
+              ]
             }, {
               style: 'italic',
               weight: 400,
-              src: '@/assets/fonts/font-a-regularItalic'
+              sources: [
+                { src: '@/assets/fonts/font-a-regularItalic.woff', type:'woff' },
+                { src: '@/assets/fonts/font-a-regularItalic.woff2', type:'woff2' }
+              ]
             }, {
               style: 'normal',
               weight: 700,
-              src: '@/assets/fonts/font-a-700'
-            }, {
-              style: 'italic',
-              weight: 700,
-              src: '@/assets/fonts/font-a-700Italic'
+              sources: [
+                { src: '@/assets/fonts/font-a-700.woff', type:'woff' },
+                { src: '@/assets/fonts/font-a-700.woff2', type:'woff2' }
+              ]
             }
           ]
         }]
      }]
 }
 ```
-
-## Module Options
-
-| Property              | Type      | Description                                                                                                                                       | Default |
-| --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `fonts`               | `Array`   | List of included [fonts](#font-object).                                                                                                           | `[]`    |
-| `componentAutoImport` | `Boolean` | If set Component automatically import from module.                                                                                                | `[]`    |
-| `componentPrefix`     | `String`  | Defines a prefix for the module components, important for auto import (`componentAutoImport`). E.g.: `SpeedkitPicture` -> `PrefixSpeedkitPicture` | `[]`    |
-
-
-### Font Object
-
-| Property   | Type     | Description                                     | Default     |
-| ---------- | -------- | ----------------------------------------------- | ----------- |
-| `family`   | `String` | Font-Family Name                                | `undefined` |
-| `fallback` | `Array`  | Fallback fonts e.g. `['Arial', 'sans-serif']`   | `undefined` |
-| `variance` | `Array`  | List of [font variances](#font-variance-object) | `[]`        |
-
-
-### Font Variance Object
-
-| Property | Type     | Description                                            | Default     |
-| -------- | -------- | ------------------------------------------------------ | ----------- |
-| `style`  | `String` | CSS-Prop. `font-style`                                 | `undefined` |
-| `weight` | `String` | CSS-Prop. `font-weight`                                | `undefined` |
-| `src`    | `String` | File Path without extension. `require` path available. | `[]`        |
-
-
+See [module options](/options/).

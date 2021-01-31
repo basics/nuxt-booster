@@ -34,7 +34,7 @@ module.exports = {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'),
+            require.resolve('@nuxt/babel-preset-app-edge'),
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3 },
@@ -77,7 +77,7 @@ module.exports = {
   },
 
   generate: {
-    crawler: false,
+    crawler: true,
     dir: getDistPath()
   },
 
@@ -87,34 +87,31 @@ module.exports = {
   },
 
   buildModules: [
-    ['@aceforth/nuxt-optimized-images', {
-      optimizeImages: true,
-      optimizeImagesInDev: false,
-      sqip: {
-        numberOfPrimitives: 20,
-        blur: 0,
-        mode: 1
-      },
-      lqip: {
-        palette: true
-      }
-    }]
+    '@nuxt/image'
   ],
 
   modules: [
     [
       resolve(__dirname, '..'), {
         ignorePerformance: false,
+        // crossorigin: 'anonymous',
         performance: {
           device: {
             hardwareConcurrency: { min: 2, max: 48 },
             deviceMemory: { min: 2 }
           },
           timing: {
-            fcp: 500,
-            dcl: 800 // fallback if fcp is not available (safari)
+            fcp: 800,
+            dcl: 1500 // fallback if fcp is not available (safari)
           },
           lighthouseDetectionByUserAgent: false
+        },
+        browserSupport: {
+          chrome: '>=86',
+          firefox: '>=83',
+          opera: '>=71',
+          safari: '>=12.4',
+          edge: '>=87'
         },
         fonts: [{
           family: 'Quicksand',

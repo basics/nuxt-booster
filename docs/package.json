@@ -1,6 +1,22 @@
 {
-  "name": "nuxt-soeedkit-docs",
+  "name": "nuxt-speedkit-docs",
   "version": "1.0.0-beta.x",
+  "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Stephan Gerbeth",
+      "email": "stephan.gerbeth@gmail.com"
+    },
+    {
+      "name": "Thorn-Welf Walli",
+      "email": "lammpee@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -9,7 +25,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content-theme-docs": "0.8.2",
+    "@nuxt/content-theme-docs": "0.9.0",
     "nuxt-edge": "latest"
   }
 }
