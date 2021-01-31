@@ -94,6 +94,7 @@ module.exports = {
     [
       resolve(__dirname, '..'), {
         ignorePerformance: false,
+        // crossorigin: 'anonymous',
         performance: {
           device: {
             hardwareConcurrency: { min: 2, max: 48 },

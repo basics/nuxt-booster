@@ -56,7 +56,7 @@ export default {
     crossorigin: {
       type: String,
       default () {
-        return 'anonymous';
+        return this.$crossorigin;
       }
     }
   },
