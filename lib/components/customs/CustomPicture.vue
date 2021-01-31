@@ -1,5 +1,5 @@
 <template>
-  <picture>
+  <picture :style="style">
     <source
       v-for="(source, index) in imageSources"
       :key="index"
@@ -8,7 +8,14 @@
       :sizes="source.sizes"
       :type="source.type"
     >
-    <img :class="{'in-progress': inProgress}" loading="lazy" :alt="alt" :title="title" :crossorigin="crossorigin">
+    <img
+      ref="image"
+      :class="{'in-progress': inProgress}"
+      loading="lazy"
+      :alt="alt"
+      :title="title"
+      :crossorigin="crossorigin"
+    >
   </picture>
 </template>
 
@@ -63,7 +70,8 @@ export default {
     return {
       imageSources: this.sources,
       inProgress: true,
-      visible: false
+      visible: false,
+      style: {}
     };
   },
 
@@ -81,7 +89,7 @@ export default {
         } else {
           doPreloadFallback(source, this.crossorigin, resolve);
         }
-      }).then(() => this.onPreload());
+      }).then(e => this.onPreload(e));
     }
     return data;
   },
@@ -105,7 +113,8 @@ export default {
   },
 
   methods: {
-    onPreload () {
+    onPreload (e) {
+      this.style.backgroundImage = `url(${this.$refs.image.currentSrc})`;
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
@@ -136,6 +145,8 @@ function isWebp ({ type }) {
 picture {
   display: block;
   height: inherit;
+  overflow: hidden;
+  background-size: cover;
 
   & img {
     display: block;
@@ -144,8 +155,8 @@ picture {
     filter: blur(0);
     transition-duration: 350ms;
     transition-property: filter, transform;
-    object-fit: cover;
     transform: scale(1);
+    object-fit: cover;
 
     &.in-progress {
       filter: blur(10px);
