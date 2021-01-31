@@ -56,14 +56,6 @@ export default {
                 {
                   title: 'SpeedkitIframe',
                   to: '/tests/speedkit-iframe'
-                },
-                {
-                  title: 'Component Import (Critical by Prop)',
-                  to: '/tests/component-import/critical-prop'
-                },
-                {
-                  title: 'Component Import (Critical by Parent)',
-                  to: '/tests/component-import/critical-parent'
                 }
               ]
             },
