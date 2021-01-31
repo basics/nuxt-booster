@@ -33,16 +33,14 @@
   },
   "dependencies": {
     "@nuxt/image": "npm:@modified/image@0.0.4-beta4",
-    "@nuxtjs/module-test-utils": "^1.6.3",
     "bowser": "2.11.0",
     "dynamic-class-list": "1.1.0",
-    "esm": "3.2.25",
     "fs-extra": "9.1.0",
-    "playwright": "^1.8.0",
     "vue-lazy-hydration": "2.0.0-beta.4",
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
+    "playwright": "^1.8.0",
     "@babel/core": "7.12.10",
     "@babel/preset-env": "7.12.11",
     "@babel/preset-typescript": "^7.12.7",
@@ -65,7 +63,6 @@
     "lost": "8.3.1",
     "nuxt-edge": "latest",
     "postcss-nesting": "7.0.1",
-    "puppeteer": "5.5.0",
     "stylelint": "13.9.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "2.3.0",
