@@ -143,11 +143,13 @@ picture {
     height: 100%;
     filter: blur(0);
     transition-duration: 350ms;
-    transition-property: filter;
+    transition-property: filter, transform;
     object-fit: cover;
+    transform: scale(1);
 
     &.in-progress {
       filter: blur(10px);
+      transform: scale(1.1);
     }
   }
 }
