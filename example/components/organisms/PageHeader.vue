@@ -1,6 +1,6 @@
 <template>
   <header class="page-header">
-    <organism-menu v-bind="menu" critical />
+    <organism-menu v-bind="menu" />
   </header>
 </template>
 
