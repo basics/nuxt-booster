@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tests/v-font-media", {data:[{}],fetch:{},mutations:void 0});

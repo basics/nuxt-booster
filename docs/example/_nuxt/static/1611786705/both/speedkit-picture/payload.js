@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/both/speedkit-picture", (function(a,b){return {data:[{}],fetch:[{visible:a,preloaded:b,webpSupport:a,fontCollection:[]},{visible:a,preloaded:b,webpSupport:a,fontCollection:[]},{visible:b,preloaded:b,webpSupport:a,fontCollection:[]},{visible:b,preloaded:b,webpSupport:a,fontCollection:[]}],mutations:void 0}}(true,false)));
