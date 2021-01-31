@@ -1,5 +1,67 @@
 # Project Changelog
 
+# [1.1.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.11...v1.1.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* **browser:** configurable browser matrix by nuxt.config ([d89cd21](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d89cd219605094ce38686fa1b61f70c29a6fbd7a))
+* **cleanup:** code cleanup (useless normalized-style-inject) and refactored functions (cache, preloads) ([5a7b8e0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5a7b8e02898843286344e92e8ac14ad1d1d064f2))
+* **cleanup:** remove unused deps & code cleanup ([cc5943a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cc5943ae0987b9fcd6ec2858edddeaa3b48bcfa6))
+* **components:** fix import path ([39f6371](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/39f63713f983cd041cec91421bd03cb93c768121))
+* **crossorigin:** default crossorigin defined by nuxt.config ([4ebba80](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4ebba807682d5547191201ab9fdc4c06838fcb8d))
+* **description:** removed crossorigin fallback ([4ecf887](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4ecf887843b0b0349df11441a3eea258c560fe5b))
+* **examples:** add more examples ([4c1b8c0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4c1b8c09cf49517e698aa99839d0a69c72c941b5))
+* **head:** centralized head description generator ([d7933e6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d7933e6a6b55476a1bfd88d652b4b2d3350e77c1))
+* **header:** removed critical flag ([9369417](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/93694170c6f8879b2f0e04420e4e0e8b0395c4c5))
+* **info-layer:** added font load if the user declined the full experience ([c58e7c8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c58e7c860e884acc1fbefd424343f254f96a8fc6))
+* **info-layer:** fixed click in blurred background of opened menu ([fbd9f28](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/fbd9f285aad32dd231ef59e44e1e7350574978a4))
+* **info-layer:** supported browsers are configurable by nuxt.config ([3ea7469](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3ea7469b67b359a3a6dc6aa2578474f5e3e18096))
+* **init:** initial base picture ([65c9eb9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/65c9eb9e4357f66d9fc1c656bd913e8a23de4b3b))
+* **layer:** js free layer functions ([d168397](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d168397aa1b0a5a9de9e420da1976d594f102be4))
+* **lazy-hydrate:** removed fallback initialization ([b3ee8ee](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b3ee8eef0e0d91f03fa57e23a855588e52769e33))
+* **lazy-hydrate:** removed fallback initialization ([9c04c0f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9c04c0f02fb18c4c0a8bff30aea2d1e610d12e18))
+* **link-preload:** fix safari ([862453a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/862453a5df4f3707295a534b89a6725fa08a3fdf))
+* **mixin:** simplification of head description ([be51b8c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/be51b8c488b644add10d2173865aed0b94af3d9f))
+* **picture:** added figcaption ([23c2479](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/23c24793d42f2e1bcd2372dce685b3df0fbbdc06))
+* **picture:** added png support ([33a1d76](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/33a1d7657d3ac55b8795dd4f914d8503960cd04a))
+* **picture:** bug fix mimeTypes ([afb742a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/afb742ac53803d7b6492601a1cc0f14f38c3dbb5))
+* **picture:** cleanup ([c373f73](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c373f73f5058095a5a72ea5ab1572716be55b417))
+* **picture:** cleanup ([8e2cc32](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8e2cc32e504530adaad45f4b30aaded9d6ceab80))
+* **picture:** cleanup & restructuring ([e1c8ba7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e1c8ba7721926172009d326e8e95e5cc38f931c0))
+* **picture:** cleanup & restructuring ([760b45b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/760b45bcff8f688a71e3e046be90b6196d178301))
+* **picture:** cleanup & restructuring ([1a430c7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1a430c7b5c5b5c6bc2f391d06729158b47544024))
+* **picture:** feature detection - webp-/preload-support and added noscript block ([9afcfd0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9afcfd072ed57851b18a6ddb191ffae91b38fdab))
+* **picture:** fixed noscript fallback ([1fb4e2b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1fb4e2bfc4df31617de863309cc0ed7b9b22d4af))
+* **picture:** fixed preload cache - make it sync ([6bafcd8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6bafcd8c6dda4bd0a495597bfa8d274db5bd0b8d))
+* **picture:** fixed preload on page change ([73e0ce6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/73e0ce6d786d65893d472caffbeb58c3d6e027b2))
+* **picture:** optimized blur ([e2eaaa6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e2eaaa62871c6fdfe8fa090cb2b9b85a86341649))
+* **picture:** placeholder first draft ([b6402ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b6402ced18f760e9f4999d484e5a02a12687a94f))
+* **picture:** refactored custom-picture and experimental-picture ([370cfb4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/370cfb4ae519ca068e5bac1e6dfc8ec4437ab7ad))
+* **picture:** removed uneccessary css and added hids to noscript head option ([d531aa3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d531aa3d8203d6380f1dd41011da7b7be653c753))
+* **picture:** separated custom picture template to use the same template in lazy-picture and experimental picture ([6cbffd2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6cbffd2b0be547e8609b370f0aea42c49eca4701))
+* **picture:** small fixes ([7bc89dc](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7bc89dc8d109b90c1fa8beac840f74e257acfd8a))
+* **picture:** updated draft - working preloads and dom updates ([2cc2d86](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2cc2d869ebe14114c93e2fd719aac8e8162ea4ec))
+* **picture:** updated placeholder mapping by page change ([d10effa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d10effa4194680375af62d921bf9d362b55c8472))
+* **placeholder:** correct placeholder transition ([e564573](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e564573a3084c9792fa0b30e8e8b81c5b9c267b8))
+* **placeholder:** first draft ([40a46af](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/40a46aff2f2e2b1e0426a766b617a92daf05c936))
+* **placeholder:** removed SVG wrapper ([2e4a85f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2e4a85f794eed600c91465e1b90c3f424d67429b))
+* **readme:** update readme ([b35eb5b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b35eb5b2a05e86bdac3b3ebbac69119e3fe2990f))
+* **speedkit-pictiure:** remove async from default speedkit-picture ([ab5d66c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ab5d66c0cae2323d349c34f868c706168f83fef8))
+* **speedkit-picture:** add speedkit-picture without nuxt-image ([4e2e8e5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4e2e8e5af41d745b78ce7611cee657bcbe2c99a4))
+* **v-font:** add class font-active correctly ([823fe86](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/823fe860efc1001046dbea4045fc0601e1cb680a))
+* **v-font:** optimized directive ([0e78199](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0e78199d3322e8eb048c2ce4f9c36fbe94de65ef))
+* **v-font:** performance update ([de3fdef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/de3fdefd749fa8acef4504137d9b68788148af4f))
+* **v-font:** use el instead of vnode.elm ([7bb4fa1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7bb4fa101e6a827967f73cb498ff7fd088d0f82c))
+* **youtube:** correct loading of poster image and added blur animation ([7b98807](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7b988078416532f6d60acea4a879c31a031f66b1))
+
+
+### Features
+
+* **font:** noscript font declaration ([69d2c7a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/69d2c7ad70f7e6b957ccf0e58bab2abf0d7cb669))
+* **info-layer:** added detailed info about unsupported browser, slow connection, outdated device or disabled javascript ([acecd50](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/acecd5097a9deb253bc1e81dab8fd449fb6c9d25))
+* **youtube:** works with nuxt-image ([a91c665](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a91c66595357cd72e26e1df216bf30559a8b44a2))
+
 # [1.1.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.0-beta.1...v1.1.0-beta.2) (2021-01-31)
 
 
