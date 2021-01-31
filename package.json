@@ -5,12 +5,12 @@
   "license": "MIT",
   "contributors": [
     {
-      "name": "Thorn-Welf Walli",
-      "email": "lammpee@gmail.com"
-    },
-    {
       "name": "Stephan Gerbeth",
       "email": "stephan.gerbeth@gmail.com"
+    },
+    {
+      "name": "Thorn-Welf Walli",
+      "email": "lammpee@gmail.com"
     }
   ],
   "repository": {
