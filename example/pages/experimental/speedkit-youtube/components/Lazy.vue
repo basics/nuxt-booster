@@ -2,7 +2,7 @@
   <organism-preview-container>
     <template #default>
       <div>
-        <speedkit-youtube v-bind="iframe" />
+        <speedkit-youtube v-bind="youtube" />
       </div>
     </template>
     <template #title>
@@ -21,13 +21,8 @@ export default {
   },
   data () {
     return {
-      iframe: {
-        id: 'VBafwg16xpU',
-        poster: Object.assign({
-          alt: 'Alt Text',
-          title: 'Title Text',
-          caption: null
-        }, require('@/assets/youtube/id/VBafwg16xpU'))
+      youtube: {
+        id: 'cLKvbhfVBUU'
       }
     };
   }

@@ -20,11 +20,21 @@ export default {
       default () {
         return [0];
       }
+    },
+    trackVisibility: {
+      type: Boolean,
+      default () {
+        return false;
+      }
+    },
+    delay: {
+      type: Number,
+      default: 0
     }
   },
   created () {
     if (!this.$attrs.critical || !this.$options.critical) {
-      const options = (({ root, rootMargin, threshold }) => ({ root, rootMargin, threshold }))(this);
+      const options = (({ root, rootMargin, threshold, trackVisibility, delay }) => ({ root, rootMargin, threshold, trackVisibility, delay }))(this);
       this.observer = new IntersectionObserver(([e]) => this.onIntersect(e), options);
     }
   },
