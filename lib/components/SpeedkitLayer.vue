@@ -3,7 +3,10 @@
     <div class="nuxt-speedkit__speedkit-layer" v-if="!hide">
       <input name="close" id="close" type="checkbox">
       <slot>
-        <button class="nuxt-speedkit__speedkit-layer__button">
+        <button
+          onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"
+          class="nuxt-speedkit__speedkit-layer__button"
+        >
           OK
         </button>
       </slot>

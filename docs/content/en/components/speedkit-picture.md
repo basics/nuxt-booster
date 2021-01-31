@@ -1,11 +1,11 @@
 ---
-title: Lazy Picture
+title: SpeedkitPicture
 description: ''
 position: 10
 category: Components
 ---
 
-[view source](https://github.com/GrabarzUndPartner/lazy-resources/blob/master/lib/components/SpeedkitPicture.vue)
+[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)
 
 Use native attributes to configure [picture](https://www.w3schools.com/tags/tag_picture.asp) (eg. `<picture>`).
 

@@ -5,24 +5,33 @@ position: 6
 category: Directives
 ---
 
-For using the `v-font` directive, you can use `$getFont` to register a font on the current node.  
-By multiple Fonts Variants you can set a array.
+Um die in den Modul-Options definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
 
-**Single Variance**
-```html 
-<node v-font="$getFont(…)">…
+Diese Direktive kann auf jeden Tag in einer Komponente definiert werden. 
+
+<alert>
+Wenn die Eltern-Komponente der Directive <code>critical</code> ist, sind Schriften initial aktiv und werden als Preload geladen.<br>
+Eignet sich für Initial schon enthaltene Headlines oder Texte.
+</alert>
+
+In der Directive `v-font` kann entweder ein einzlener WErt oder eine Liste definiert werden. Eine Definition einer Schrift findet über die Methode `$fonts.getFont` statt.
+
+```html[example]
+
+<!-- single definition -->
+<node v-font="$fonts.getFont()">
+
+<!-- multiple definitions -->
+<node v-font="[
+  $fonts.getFont(),
+  $fonts.getFont()
+]">
+
 ```
 
-**Multiple Variance**
-```html 
-<node v-font="[$getFont(…).bySelector('b,strong'), $getFont(…).bySelector('i')]">…
-```
 
-When registering the font with $getFont, a font object is returned.  
-This can be used to restrict the font to selectors (`bySelector`) or set as critical (`isCritical`).
+## $fonts.getFont
 
-
-### $getFont (family, weight = 400, style = 'normal')
 
 **Parameters**
 
@@ -31,56 +40,43 @@ This can be used to restrict the font to selectors (`bySelector`) or set as crit
 | family   | Font-Family (eg. `Custom Font`) | *required* |
 | weight   | Font-Weight (eg. `700`)         | `400`      |
 | style    | Font-Style (eg. `italic`)       | `normal`   |
+| options  | Other options for definition    | `normal`   |
 
 
-`$getFont` returns a `FontObject`, with these can be used for other operations.
+### options
+
+| Property   | Type     | Description                                      | Default     |
+| ---------- | -------- | ------------------------------------------------ | ----------- |
+| `media`    | `String` | CSS Media Query (e.g. `(min-width: 768px)`)      | `undefined` |
+| `selector` | `String` | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |
 
 
-### `FontObject` Methods
+<alert>
+<code>link</code> Tag is not supported orientation media query. e.g. <code>(orientation: portrait)</code>.
+This has an effect on prefetches and preloads.
+</alert>
 
-#### isCritical()
-
-**Return:** `FontObject`
-
-Sets the font as critical. Use critical for Font, that you see in the initial viewport.  
-Other fonts load by lazyload, when show in viewport.
-
-```html 
-<node v-font="$getFont(…).isCritical()">…
+```js[example]
+{
+  media: '(min-width: 768px)',
+  selector: 'element, .elm, .elm:before'
+}
 ```
 
-#### addMedia(...media)
+## Examples
 
-> ⚠️ Font preload not supported orientation media query. e.g. `(orientation: portrait)`
+### Basic Usage
 
-Font load and show by current CSS Media Query.
-
-Ideal for Viewport optimized font load.
-
-```html 
-<node v-font="$getFont(…).isCritical().addMedia('(min-width: 992px)')">…
+```vue[Example]
+<h1 v-font="$getFont('Font Family', 700)">Headline</h1>
 ```
+### Advanced Usage
 
-
-#### bySelector(selector)
-
-> ⚠️ Order must be respected when using selectors. [CSS Specificity ](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
-
-**Return:** `FontObject`
-
-Defines css selectors to which the font should be applied. 
-
-```html 
-<node v-font="$getFont(…).bySelector('strong')">…
+```vue[Example]
+<article v-font="[
+  $getFont('Font Family A'),
+  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong' }),
+  $getFont('Font Family B', 400, 'normal', { media: '(min-width: 768px)' }),
+  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' }),
+]">…</article>
 ```
-
-OR operators can be defined by string or array.
-
-```html 
-<!-- String -->
-<node v-font="$getFont(…).bySelector('strong,i')">…
-
-<!-- Array -->
-<node v-font="$getFont(…).bySelector('strong', 'i')">…
-```
-

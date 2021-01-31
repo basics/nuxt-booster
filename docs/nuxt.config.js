@@ -5,12 +5,17 @@ export default theme({
     port: getPort()
   },
 
+  content: {
+    liveEdit: false
+  },
+
   generate: {
     dir: getDistPath()
   },
 
   router: {
-    base: getBasePath()
+    base: getBasePath(),
+    trailingSlash: true
   }
 });
 
