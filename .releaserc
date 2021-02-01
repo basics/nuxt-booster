@@ -2,7 +2,11 @@
   "branches": [
     "+([0-9])?(.{+([0-9]),x}).x",
     "master",
-    "main",
+    {
+      "name": "main",
+      "channel": "latest",
+      "prerelease": false
+    },
     "next",
     "next-major",
     {

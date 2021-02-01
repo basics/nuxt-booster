@@ -1,11 +1,19 @@
 # Project Changelog
 
-## [1.1.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.1...v1.1.2) (2021-02-01)
+## [1.1.3-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.2...v1.1.3-beta.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **release:** revert config for latest npm ([5bc51aa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
+
+## [1.1.2-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.1...v1.1.2-beta.1) (2021-02-01)
 
 
 ### Bug Fixes
 
 * **release:** force fix ([00e3f64](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/00e3f64fa9179d806b12ff7a4abc077bed9c430f))
+* **release:** revert config for latest npm ([5bc51aa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
 
 ## [1.1.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.0...v1.1.1) (2021-02-01)
 
