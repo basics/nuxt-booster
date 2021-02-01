@@ -4,7 +4,7 @@
       <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
     </custom-no-script>
     <custom-picture
-      :sources="placeholders"
+      :sources="resolvedPlacholders"
       :preload="resolvedSources"
       :alt="alt"
       :title="title"
@@ -18,11 +18,10 @@
 </template>
 
 <script>
-import { createURLPlaceholderSync } from 'nuxt-speedkit/utils/placeholder';
-import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture';
-import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 import { getStyleDescription } from 'nuxt-speedkit/utils/description';
+import CustomPicture from './customs/CustomPicture';
+import CustomNoScript from './customs/CustomNoScript';
 
 export default {
   components: {
@@ -32,6 +31,13 @@ export default {
 
   props: {
     sources: {
+      type: Array,
+      default () {
+        return [];
+      }
+    },
+
+    placeholders: {
       type: Array,
       default () {
         return [];
@@ -60,7 +66,7 @@ export default {
 
   data () {
     return {
-      placeholders: this.fetchMeta(),
+      resolvedPlacholders: this.getPlaceholders(),
       resolvedSources: this.getSources()
     };
   },
@@ -81,36 +87,27 @@ export default {
   },
 
   methods: {
-    fetchMeta () {
-      return createURLPlaceholderSync(this.sources, ({ sizes, placeholder }) => {
-        return [
-          { url: placeholder.url },
-          sizes
-        ];
+    getPlaceholders () {
+      return this.placeholders.map(({ media, url, format }) => {
+        return {
+          media,
+          url,
+          type: getMimeTypeByFormat(format)
+        };
       });
     },
     getSources () {
-      return this.sources.reduce((result, { media, sizes }) => {
-        const formats = getFormats(sizes);
-        result.push(...formats.map((format) => {
-          const filteredSizes = sizes.filter(size => size.format === format);
-          return {
-            media,
-            srcset: filteredSizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-            sizes: filteredSizes.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
-            type: getMimeTypeByFormat(format)
-          };
-        }));
-        return result;
-      }, []);
+      return this.sources.map(({ sizes, format, media }) => {
+        return {
+          media,
+          srcset: sizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+          sizes: sizes.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).reverse().join(', '),
+          type: getMimeTypeByFormat(format)
+        };
+      });
     }
   }
 };
-
-function getFormats (sizes) {
-  return Array.from(new Set(sizes.map(size => size.format.replace('jpeg', 'jpg'))))
-    .sort((a, b) => a === 'webp' && !b !== 'webp' ? -1 : 1);
-}
 
 </script>
 

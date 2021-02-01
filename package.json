@@ -1,16 +1,16 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.1.0-beta.1",
+  "version": "1.1.4",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
     {
-      "name": "Thorn-Welf Walli",
-      "email": "lammpee@gmail.com"
-    },
-    {
       "name": "Stephan Gerbeth",
       "email": "stephan.gerbeth@gmail.com"
+    },
+    {
+      "name": "Thorn-Welf Walli",
+      "email": "lammpee@gmail.com"
     }
   ],
   "repository": {
