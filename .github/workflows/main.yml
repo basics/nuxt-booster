@@ -21,17 +21,17 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v2
-      # - name: cache node_modules (Example)
-      #   uses: actions/cache@v2
-      #   id: cache
-      #   with:
-      #     path: node_modules
-      #     key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: cache node_modules (Example)
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Install Dependencies (Example)
-        # if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      # - name: Install Dependency (playwright)
-      #   run: npm i playwright --no-save
       # - name: setup playwright
       #   uses: microsoft/playwright-github-action@v1
       - name: Test
@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v2
         id: cacheDocs
         with:
-          path: node_modules
+          path: docs/node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
       - name: Install Dependencies (Docs)
         if: steps.cacheDocs.outputs.cache-hit != 'true'
@@ -86,12 +86,14 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v2
-      # - name: cache node_modules
-      #   uses: actions/cache@v2
-      #   id: cache
-      #   with:
-      #     path: node_modules
-      #     key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: cache node_modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
           npm run generate --build-analyze --base=/example/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
@@ -122,11 +124,11 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: cache node_modules
+      - name: cache docs/node_modules
         uses: actions/cache@v2
         id: cacheDocs
         with:
-          path: node_modules
+          path: docs/node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
       - name: Build
         run: |
