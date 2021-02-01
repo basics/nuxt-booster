@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.5...v1.1.6) (2021-02-01)
+
+
+### Bug Fixes
+
+* **ci:** remove github config ([13d3e0f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/13d3e0fb06a3c2226dc2c3ebcb2eaa8aa907aac0))
+
 ## [1.1.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.4...v1.1.5) (2021-02-01)
 
 
