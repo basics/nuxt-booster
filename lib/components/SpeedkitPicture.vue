@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import CustomPicture from 'nuxt-speedkit/components/customs/CustomPicture';
-import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 import { getStyleDescription } from 'nuxt-speedkit/utils/description';
+import CustomPicture from './customs/CustomPicture';
+import CustomNoScript from './customs/CustomNoScript';
 
 export default {
   components: {
