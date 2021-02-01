@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.3...v1.1.4) (2021-02-01)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** fix imports ([c1443d6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c1443d693840c0dfb236042c8acc196cbd7dbfc4))
+
 ## [1.1.4-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.3...v1.1.4-beta.1) (2021-02-01)
 
 
