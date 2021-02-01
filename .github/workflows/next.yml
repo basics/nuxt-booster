@@ -1,0 +1,29 @@
+name: Next
+on:
+  push:
+    branches:
+      - next
+
+jobs:
+  semantic-version:
+    name: Semantic Release
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Versioning
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          rm -rf ./publish && rsync -r --exclude publish ./* ./publish
+          npx -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-github semantic-release --provider=github --debug=true
