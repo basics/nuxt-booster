@@ -25,22 +25,20 @@ jobs:
         uses: actions/cache@v2
         id: cache
         with:
-          path: |
-            node_modules
-            '~/.cache/ms-playwright/'
+          path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Install Dependencies (Example)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: setup playwright
+        uses: microsoft/playwright-github-action@v1
       - name: Test
         run: npm run test
       - name: cache node_modules (Docs)
         uses: actions/cache@v2
         id: cacheDocs
         with:
-          path: |
-            docs/node_modules
-            '~/.cache/ms-playwright/'
+          path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}
       - name: Install Dependencies (Docs)
         if: steps.cacheDocs.outputs.cache-hit != 'true'
@@ -90,9 +88,7 @@ jobs:
         uses: actions/cache@v2
         id: cache
         with:
-          path: |
-            node_modules
-            '~/.cache/ms-playwright/'
+          path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
@@ -128,9 +124,7 @@ jobs:
         uses: actions/cache@v2
         id: cacheDocs
         with:
-          path: |
-            docs/node_modules
-            '~/.cache/ms-playwright/'
+          path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}
       - name: Build
         run: |
