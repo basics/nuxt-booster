@@ -62,7 +62,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Versioning
         env:
-          GH_TOKEN: ${{ secrets.CUSTOM_GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
