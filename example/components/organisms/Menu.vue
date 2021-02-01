@@ -94,6 +94,10 @@ html.js--menu-open {
 .menu {
   color: black;
 
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+  }
+
   & .menu__toggle {
     position: absolute;
     top: calc(20 / 16 * 1em);
@@ -106,8 +110,13 @@ html.js--menu-open {
     }
 
     & path {
+      fill: #333;
       transition: opacity 0.2s linear, transform 0.2s linear;
       transform-origin: center;
+
+      @media (prefers-color-scheme: dark) {
+        fill: #fff;
+      }
     }
   }
 
@@ -150,6 +159,10 @@ html.js--menu-open {
     display: block;
     font-size: calc(18 / 16 * 1em);
     color: #333;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgb(255 255 255 / 80%);
+    }
   }
 
   & .menu-button {
@@ -189,6 +202,10 @@ html.js--menu-open {
         background: rgba(255, 255, 255, 0.5);
         transition: transform 0.2s  ease-in;
         transform: translateX(-100%);
+
+        @media (prefers-color-scheme: dark) {
+          background: rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
