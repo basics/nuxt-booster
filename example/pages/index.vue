@@ -129,10 +129,10 @@ export default {
           placeholders: [
             {
               media: '(min-width: 576px)',
-              url: '/img/image-content-2/jpg/placeholder_landscape.jpg'
+              url: require('static/img/image-content-2/jpg/placeholder_landscape.jpg')
             },
             {
-              url: '/img/image-content-2/jpg/placeholder_portrait.jpg'
+              url: require('static/img/image-content-2jpg/placeholder_portrait.jpg')
             }
           ],
           sources: [
@@ -187,10 +187,10 @@ export default {
           placeholders: [
             {
               media: '(min-width: 576px)',
-              url: '/img/image-content-3/jpg/placeholder_landscape.jpg'
+              url: require('static/img/image-content-3/jpg/placeholder_landscape.jpg')
             },
             {
-              url: '/img/image-content-3/jpg/placeholder_portrait.jpg'
+              url: require('static/img/image-content-3/jpg/placeholder_portrait.jpg')
             }
           ],
           sources: [
