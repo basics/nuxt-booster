@@ -30,8 +30,11 @@ jobs:
       - name: Install Dependencies (Example)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: setup playwright
-        uses: microsoft/playwright-github-action@v1
+      - name: Install Dependency (playwright)
+        run: npm i playwright --no-save
+
+      # - name: setup playwright
+      #   uses: microsoft/playwright-github-action@v1
       - name: Test
         run: npm run test
       - name: cache node_modules (Docs)
