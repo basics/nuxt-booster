@@ -1,6 +1,5 @@
 module.exports = {
-  testEnvironment: 'node',
-  collectCoverage: true,
+  preset: '@nuxt/test-utils',
   collectCoverageFrom: [
     'lib/**/*.js',
     '!lib/plugin.js',
@@ -14,18 +13,6 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/lib/$1'
   },
   transformIgnorePatterns: [`/node_modules/(?!${['@nuxt/image']})`],
-  transform: {
-    '\\.(js|ts)$': [
-      'babel-jest',
-      {
-        presets: [
-          ['@babel/preset-env', { targets: { node: 'current' } }],
-          '@babel/preset-typescript'
-        ],
-        plugins: ['@babel/plugin-transform-runtime']
-      }
-    ]
-  },
   testPathIgnorePatterns: [
     // 'generate.test.js',
     // 'browser.test.js'
