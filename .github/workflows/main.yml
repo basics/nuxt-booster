@@ -41,7 +41,7 @@ jobs:
         id: cacheDocs
         with:
           path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
       - name: Install Dependencies (Docs)
         if: steps.cacheDocs.outputs.cache-hit != 'true'
         run: cd docs && npm ci
@@ -86,12 +86,12 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: cache node_modules
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      # - name: cache node_modules
+      #   uses: actions/cache@v2
+      #   id: cache
+      #   with:
+      #     path: node_modules
+      #     key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
           npm run generate --build-analyze --base=/example/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
@@ -127,7 +127,7 @@ jobs:
         id: cacheDocs
         with:
           path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
       - name: Build
         run: |
           cd ./docs
