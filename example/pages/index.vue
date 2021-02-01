@@ -97,22 +97,22 @@ export default {
               format: 'webp',
               sizes: [
                 // webp
-                { width: 414, media: '', url: '/img/youtube/webp/414.webp', format: 'webp' },
-                { width: 576, media: '(min-width: 576px)', url: '/img/youtube/webp/576.webp', format: 'webp' },
-                { width: 768, media: '(min-width: 768px)', url: '/img/youtube/webp/768.webp', format: 'webp' },
-                { width: 1024, media: '(min-width: 1024px)', url: '/img/youtube/webp/1024.webp', format: 'webp' },
-                { width: 1280, media: '(min-width: 1200px)', url: '/img/youtube/webp/1280.webp', format: 'webp' }
+                { width: 414, media: '', url: '/img/youtube/webp/414.webp' },
+                { width: 576, media: '(min-width: 576px)', url: '/img/youtube/webp/576.webp' },
+                { width: 768, media: '(min-width: 768px)', url: '/img/youtube/webp/768.webp' },
+                { width: 1024, media: '(min-width: 1024px)', url: '/img/youtube/webp/1024.webp' },
+                { width: 1280, media: '(min-width: 1200px)', url: '/img/youtube/webp/1280.webp' }
               ]
             },
             {
               format: 'jpg',
               sizes: [
                 // jpg
-                { width: 414, media: '', url: '/img/youtube/jpg/414.jpg', format: 'jpg' },
-                { width: 576, media: '(min-width: 576px)', url: '/img/youtube/jpg//576.jpg', format: 'jpg' },
-                { width: 768, media: '(min-width: 768px)', url: '/img/youtube/jpg//768.jpg', format: 'jpg' },
-                { width: 1024, media: '(min-width: 1024px)', url: '/img/youtube/jpg//1024.jpg', format: 'jpg' },
-                { width: 1280, media: '(min-width: 1200px)', url: '/img/youtube/jpg//1280.jpg', format: 'jpg' }
+                { width: 414, media: '', url: '/img/youtube/jpg/414.jpg' },
+                { width: 576, media: '(min-width: 576px)', url: '/img/youtube/jpg//576.jpg' },
+                { width: 768, media: '(min-width: 768px)', url: '/img/youtube/jpg//768.jpg' },
+                { width: 1024, media: '(min-width: 1024px)', url: '/img/youtube/jpg//1024.jpg' },
+                { width: 1280, media: '(min-width: 1200px)', url: '/img/youtube/jpg//1280.jpg' }
               ]
             }
           ]
@@ -141,12 +141,12 @@ export default {
               format: 'webp',
               sizes: [
                 // webp
-                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-2/webp/576.webp'), format: 'webp' },
-                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-2/webp/768.webp'), format: 'webp' },
-                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-2/webp/1024.webp'), format: 'webp' },
-                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-2/webp/1280.webp'), format: 'webp' },
-                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-2/webp/1680.webp'), format: 'webp' },
-                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-2/webp/1920.webp'), format: 'webp' }
+                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-2/webp/576.webp') },
+                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-2/webp/768.webp') },
+                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-2/webp/1024.webp') },
+                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-2/webp/1280.webp') },
+                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-2/webp/1680.webp') },
+                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-2/webp/1920.webp') }
               ]
             },
             {
@@ -154,26 +154,26 @@ export default {
               format: 'jpg',
               sizes: [
                 // jpg
-                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-2/jpg/576.jpg'), format: 'jpg' },
-                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-2/jpg/768.jpg'), format: 'jpg' },
-                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-2/jpg/1024.jpg'), format: 'jpg' },
-                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-2/jpg/1280.jpg'), format: 'jpg' },
-                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-2/jpg/1680.jpg'), format: 'jpg' },
-                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-2/jpg/1920.jpg'), format: 'jpg' }
+                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-2/jpg/576.jpg') },
+                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-2/jpg/768.jpg') },
+                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-2/jpg/1024.jpg') },
+                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-2/jpg/1280.jpg') },
+                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-2/jpg/1680.jpg') },
+                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-2/jpg/1920.jpg') }
               ]
             },
             {
               format: 'webp',
               sizes: [
                 // webp
-                { width: 414, media: 'all', url: require('static/img/image-content-2/webp/414.webp'), format: 'webp' }
+                { width: 414, media: 'all', url: require('static/img/image-content-2/webp/414.webp') }
               ]
             },
             {
               format: 'jpg',
               sizes: [
                 // jpg
-                { width: 414, media: 'all', url: require('static/img/image-content-2/jpg/414.jpg'), format: 'jpg' }
+                { width: 414, media: 'all', url: require('static/img/image-content-2/jpg/414.jpg') }
               ]
             }
           ]
@@ -199,12 +199,12 @@ export default {
               format: 'webp',
               sizes: [
                 // webp
-                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-3/webp/576.webp'), format: 'webp' },
-                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-3/webp/768.webp'), format: 'webp' },
-                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-3/webp/1024.webp'), format: 'webp' },
-                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-3/webp/1280.webp'), format: 'webp' },
-                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-3/webp/1680.webp'), format: 'webp' },
-                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-3/webp/1920.webp'), format: 'webp' }
+                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-3/webp/576.webp') },
+                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-3/webp/768.webp') },
+                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-3/webp/1024.webp') },
+                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-3/webp/1280.webp') },
+                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-3/webp/1680.webp') },
+                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-3/webp/1920.webp') }
               ]
             },
             {
@@ -212,26 +212,26 @@ export default {
               format: 'jpg',
               sizes: [
                 // jpg
-                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-3/jpg/576.jpg'), format: 'jpg' },
-                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-3/jpg/768.jpg'), format: 'jpg' },
-                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-3/jpg/1024.jpg'), format: 'jpg' },
-                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-3/jpg/1280.jpg'), format: 'jpg' },
-                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-3/jpg/1680.jpg'), format: 'jpg' },
-                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-3/jpg/1920.jpg'), format: 'jpg' }
+                { width: 576, media: '(min-width: 576px)', url: require('static/img/image-content-3/jpg/576.jpg') },
+                { width: 768, media: '(min-width: 768px)', url: require('static/img/image-content-3/jpg/768.jpg') },
+                { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-content-3/jpg/1024.jpg') },
+                { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-content-3/jpg/1280.jpg') },
+                { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-content-3/jpg/1680.jpg') },
+                { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-content-3/jpg/1920.jpg') }
               ]
             },
             {
               format: 'webp',
               sizes: [
                 // webp
-                { width: 414, media: 'all', url: require('static/img/image-content-3/webp/414.webp'), format: 'webp' }
+                { width: 414, media: 'all', url: require('static/img/image-content-3/webp/414.webp') }
               ]
             },
             {
               format: 'jpg',
               sizes: [
                 // jpg
-                { width: 414, media: 'all', url: require('static/img/image-content-3/jpg/414.jpg'), format: 'jpg' }
+                { width: 414, media: 'all', url: require('static/img/image-content-3/jpg/414.jpg') }
               ]
             }
           ]
