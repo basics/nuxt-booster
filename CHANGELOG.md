@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.0...v1.1.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** add placeholder property; fix speedkit-youtube ([4a145ea](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4a145ea20ff02e73fd2bd6495b7f81c0a6c7953b))
+
 # [1.1.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.11...v1.1.0) (2021-01-31)
 
 
