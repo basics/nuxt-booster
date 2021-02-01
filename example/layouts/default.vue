@@ -109,12 +109,12 @@ body {
   min-height: stretch;
   margin: 0;
   font-size: calc(16 / 320 * 100vw);
-  color: #2f495e;
+  color: #000;
   background-color: #fff;
 
   @media (prefers-color-scheme: dark) {
-    color: #f5f7fa;
-    background-color: #2c3e50;
+    color: #fff;
+    background-color: #333;
   }
 
   @media (min-width: 375px) {
