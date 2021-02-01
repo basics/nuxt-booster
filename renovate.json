@@ -3,7 +3,7 @@
     "@nuxtjs"
   ],
   "baseBranches": [
-    "beta"
+    "next"
   ],
   "rangeStrategy": "pin"
 }
