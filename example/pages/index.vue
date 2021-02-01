@@ -132,7 +132,7 @@ export default {
               url: require('static/img/image-content-2/jpg/placeholder_landscape.jpg')
             },
             {
-              url: require('static/img/image-content-2jpg/placeholder_portrait.jpg')
+              url: require('static/img/image-content-2/jpg/placeholder_portrait.jpg')
             }
           ],
           sources: [
