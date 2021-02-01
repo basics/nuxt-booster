@@ -149,9 +149,8 @@ describe('generate', () => {
     html = await getHTML(join(distDir, 'speedkit-picture'));
     dom = getDom(html);
 
-    const criticalSrcset = dom.querySelector('link[data-hid="-619e5c8"][rel="preload"]').getAttribute('imageSrcset');
+    const criticalSrcset = dom.querySelector('link[rel="preload"][imageSrcset]').getAttribute('imageSrcset');
     expect(dom.querySelector(`link[imageSrcset="${criticalSrcset}"][rel="preload"]`)).not.toBeNull();
-    expect(dom.querySelector('link[data-hid="5c967411"][rel="preload"]')).toBeNull();
   });
 
   // #endregion

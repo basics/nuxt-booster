@@ -135,13 +135,11 @@ describe('browser', () => {
   it('speedkit-picture', async () => {
     const page = await createPage('/speedkit-picture/');
 
-    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[srcset^="/img/image-test-2/jpg/414.jpg 414w"]'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]'))).toBeFalsy();
 
-    await page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight);
-    });
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
 
-    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[srcset^="/img/image-test-2/jpg/414.jpg 414w"]', {
+    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]', {
       state: 'attached'
     });
   });

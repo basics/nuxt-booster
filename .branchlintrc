@@ -5,7 +5,8 @@
       "hotfix",
       "release",
       "renovate",
-      "beta"
+      "beta",
+      "next"
     ],
     "suggestions": {
       "features": "feature",
