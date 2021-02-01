@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [1.1.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.4...v1.1.5) (2021-02-01)
+
+
+### Bug Fixes
+
+* **ci:** remove custom gh-token ([2e8c5c2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2e8c5c217845eab33192bae00e814e6cf8d686bd))
+* **pages:** remove tinyurls; improve dark mode ([3259594](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/32595946299d0d9b87e111dda92cdc42f65be896))
+* **release:** change gh-token ([a136812](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a13681252e7b912c84f91e165b02a94fd1661851))
+
 ## [1.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.3...v1.1.4) (2021-02-01)
 
 
