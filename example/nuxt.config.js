@@ -96,6 +96,7 @@ module.exports = {
     [
       resolve(__dirname, '..'), {
         ignorePerformance: false,
+        ignoreBrowserSupport: false,
         // crossorigin: 'anonymous',
         performance: {
           device: {
