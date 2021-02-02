@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [1.1.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.9...v1.1.10) (2021-02-02)
+
+
+### Bug Fixes
+
+* **browserslist:** removed custom read of browserslist ([7e86fba](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7e86fba6e45cb143192b8841f375c742091e78d8))
+* **custom-picture:** added forgotten amp ([10ca987](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/10ca987b78539ff23730d173417828b9b155347e))
+* **picture:** removed code smell indicators ([e9ff74a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e9ff74a5581ccf2c59d289df20b70ac6bf50c163))
+
 ## [1.1.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.8...v1.1.9) (2021-02-02)
 
 
