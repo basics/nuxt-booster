@@ -10,7 +10,6 @@ module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  // ssr: false,
 
   env: {
     GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
@@ -28,7 +27,6 @@ module.exports = {
   },
 
   build: {
-
     babel: {
       presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
@@ -37,12 +35,16 @@ module.exports = {
             require.resolve('@nuxt/babel-preset-app-edge'),
             {
               buildTarget: isServer ? 'server' : 'client',
-              corejs: { version: 3 },
+              corejs: { version: 3, proposals: true },
               useBuiltIns: isModern ? 'entry' : 'usage',
               forceAllTransforms: !isDev && !isModern && !isServer,
               shippedProposals: true,
               loose: true,
-              bugfixes: true
+              bugfixes: true,
+              polyfills: [
+                'es.promise',
+                'es.symbol'
+              ]
             }
           ]
         ];
@@ -102,16 +104,9 @@ module.exports = {
           },
           timing: {
             fcp: 800,
-            dcl: 1500 // fallback if fcp is not available (safari)
+            dcl: 1200 // fallback if fcp is not available (safari)
           },
           lighthouseDetectionByUserAgent: false
-        },
-        browserSupport: {
-          chrome: '>=86',
-          firefox: '>=83',
-          opera: '>=71',
-          safari: '>=12.4',
-          edge: '>=87'
         },
         fonts: [{
           family: 'Quicksand',
@@ -161,15 +156,6 @@ module.exports = {
           fallback: ['Arial', 'sans-serif'],
           variances: [
             {
-              // options: {
-              //   style: 'normal',
-              //   weight: 300,
-              //   stretch: '',
-              //   variant: '',
-              //   featureSettings: '',
-              //   variationSettings: '',
-              //   unicodeRange: ''
-              // },
               style: 'normal',
               weight: 300,
               sources: [

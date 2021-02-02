@@ -61,7 +61,7 @@ export default {
   opacity: 0;
   animation-name: fade-in;
   animation-duration: 0.2s;
-  animation-delay: 0.5s;
+  animation-delay: 3s;
   backdrop-filter: blur(calc(7 / 16 * 1em));
   animation-fill-mode: forwards;
 
@@ -73,7 +73,7 @@ export default {
     text-align: center;
     background-color: #2c3e50;
     box-shadow: 0 0 calc(10 / 16 * 1em) rgba(255, 255, 255, 0.6);
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     animation-name: fall-down;
     animation-duration: 0.2s;
     animation-delay: 0.5s;
