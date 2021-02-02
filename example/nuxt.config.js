@@ -28,7 +28,6 @@ module.exports = {
   },
 
   build: {
-
     babel: {
       presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
@@ -36,13 +35,18 @@ module.exports = {
           [
             require.resolve('@nuxt/babel-preset-app-edge'),
             {
+              targets: { browsers: pkg.browserslist },
               buildTarget: isServer ? 'server' : 'client',
-              corejs: { version: 3 },
+              corejs: { version: 3, proposals: true },
               useBuiltIns: isModern ? 'entry' : 'usage',
               forceAllTransforms: !isDev && !isModern && !isServer,
               shippedProposals: true,
               loose: true,
-              bugfixes: true
+              bugfixes: true,
+              polyfills: [
+                'es.promise',
+                'es.symbol'
+              ]
             }
           ]
         ];
@@ -105,13 +109,6 @@ module.exports = {
             dcl: 1500 // fallback if fcp is not available (safari)
           },
           lighthouseDetectionByUserAgent: false
-        },
-        browserSupport: {
-          chrome: '>=86',
-          firefox: '>=83',
-          opera: '>=71',
-          safari: '>=12.4',
-          edge: '>=87'
         },
         fonts: [{
           family: 'Quicksand',

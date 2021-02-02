@@ -17,6 +17,11 @@
     "type": "git",
     "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
   },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "maintained node versions"
+  ],
   "main": "index.js",
   "scripts": {
     "postinstall": "node ./install.js",
@@ -34,6 +39,7 @@
   "dependencies": {
     "@nuxt/image": "npm:@modified/image@0.0.4-beta4",
     "bowser": "2.11.0",
+    "browserslist-useragent-regexp": "^2.1.1",
     "dynamic-class-list": "1.1.0",
     "fs-extra": "9.1.0",
     "vue-lazy-hydration": "2.0.0-beta.4",
