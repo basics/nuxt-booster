@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.6...v1.1.7) (2021-02-02)
+
+
+### Bug Fixes
+
+* **fonts:** fix font check ([3461777](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/346177722ed5e05f283dece18d7a3231d65b5649))
+
 ## [1.1.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.5...v1.1.6) (2021-02-01)
 
 
