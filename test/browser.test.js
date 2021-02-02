@@ -3,8 +3,8 @@
 import { createPage, setupTest } from '@nuxt/test-utils';
 const { join, resolve } = require('path');
 
-describe('browser', () => {
-  const testDir = resolve(__dirname, '.browser');
+describe('browser (Chrome)', () => {
+  const testDir = resolve(__dirname, '.browser-chromium');
   const buildDir = join(testDir, '.nuxt');
 
   setupTest({
@@ -23,6 +23,33 @@ describe('browser', () => {
     }
   });
 
+  tests();
+});
+
+describe('browser (Firefox)', () => {
+  const testDir = resolve(__dirname, '.browser-firefox');
+  const buildDir = join(testDir, '.nuxt');
+
+  setupTest({
+    browser: true,
+    browserOptions: {
+      type: 'firefox'
+    },
+    fixture: '../example',
+    config: {
+      fullstatic: true,
+      modern: false,
+      buildDir,
+      dir: {
+        pages: 'pages/tests'
+      }
+    }
+  });
+
+  tests();
+});
+
+function tests () {
   // #region /tests/v-font
 
   it('v-font (font assign simple) (element class)', async () => {
@@ -135,13 +162,11 @@ describe('browser', () => {
   it('speedkit-picture', async () => {
     const page = await createPage('/speedkit-picture/');
 
-    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[srcset^="/img/image-test-2/jpg/414.jpg 414w"]'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]'))).toBeFalsy();
 
-    await page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight);
-    });
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
 
-    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[srcset^="/img/image-test-2/jpg/414.jpg 414w"]', {
+    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]', {
       state: 'attached'
     });
   });
@@ -160,5 +185,4 @@ describe('browser', () => {
   });
 
   // #endregion
-})
-;
+}

@@ -1,5 +1,57 @@
 # Project Changelog
 
+## [1.1.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.4...v1.1.5) (2021-02-01)
+
+
+### Bug Fixes
+
+* **ci:** remove custom gh-token ([2e8c5c2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2e8c5c217845eab33192bae00e814e6cf8d686bd))
+* **pages:** remove tinyurls; improve dark mode ([3259594](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/32595946299d0d9b87e111dda92cdc42f65be896))
+* **release:** change gh-token ([a136812](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a13681252e7b912c84f91e165b02a94fd1661851))
+
+## [1.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.3...v1.1.4) (2021-02-01)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** fix imports ([c1443d6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c1443d693840c0dfb236042c8acc196cbd7dbfc4))
+
+## [1.1.4-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.3...v1.1.4-beta.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** fix imports ([c1443d6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c1443d693840c0dfb236042c8acc196cbd7dbfc4))
+
+## [1.1.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.2...v1.1.3) (2021-02-01)
+
+
+### Bug Fixes
+
+* **release:** revert config for latest npm ([5bc51aa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
+
+## [1.1.3-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.2...v1.1.3-beta.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **release:** revert config for latest npm ([5bc51aa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
+
+## [1.1.2-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.1...v1.1.2-beta.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **release:** force fix ([00e3f64](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/00e3f64fa9179d806b12ff7a4abc077bed9c430f))
+* **release:** revert config for latest npm ([5bc51aa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
+
+## [1.1.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.0...v1.1.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** add placeholder property; fix speedkit-youtube ([4a145ea](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4a145ea20ff02e73fd2bd6495b7f81c0a6c7953b))
+
 # [1.1.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.0.11...v1.1.0) (2021-01-31)
 
 
