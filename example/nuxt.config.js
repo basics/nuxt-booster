@@ -34,7 +34,6 @@ module.exports = {
           [
             require.resolve('@nuxt/babel-preset-app-edge'),
             {
-              targets: { browsers: pkg.browserslist },
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3, proposals: true },
               useBuiltIns: isModern ? 'entry' : 'usage',
@@ -105,7 +104,7 @@ module.exports = {
           },
           timing: {
             fcp: 800,
-            dcl: 1500 // fallback if fcp is not available (safari)
+            dcl: 1200 // fallback if fcp is not available (safari)
           },
           lighthouseDetectionByUserAgent: false
         },
