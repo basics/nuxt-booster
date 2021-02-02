@@ -10,7 +10,6 @@ module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  // ssr: false,
 
   env: {
     GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
@@ -158,15 +157,6 @@ module.exports = {
           fallback: ['Arial', 'sans-serif'],
           variances: [
             {
-              // options: {
-              //   style: 'normal',
-              //   weight: 300,
-              //   stretch: '',
-              //   variant: '',
-              //   featureSettings: '',
-              //   variationSettings: '',
-              //   unicodeRange: ''
-              // },
               style: 'normal',
               weight: 300,
               sources: [
