@@ -1,5 +1,18 @@
 # Project Changelog
 
+## [1.1.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.7...v1.1.8) (2021-02-02)
+
+
+### Bug Fixes
+
+* **browser-support:** changed detection - use browserslist instead of bowser ([a86a2de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a86a2de6adc90b6a7325fabb00fb1d5864f554d8))
+* **browserslist:** removed from babel config ([b946cd9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b946cd9d8d7ba7790753956269a63850fc6ce8f0))
+* **info-layer:** cleanup ([72ad9de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/72ad9de8b45479802e0095807f934ca05a9d2d74))
+* **info-layer:** speed up fade-in by fast connection type and unsupported browser detection ([ad9ff14](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ad9ff14e8d189a3f69824202159701c9ab898ca4))
+* **menu:** added mounted method ([d163118](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d163118efd5e77b5a5d8827cab625e7ab07666e9))
+* **nuxt.config:** cleanup ([0132ebb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0132ebbbdd55a7c897949cb4c8649fbcfdc62e0b))
+* **supported-browser:** fixed regex serialization ([e576d65](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e576d654163a8c583c88ca7caa3242c389366b8b))
+
 ## [1.1.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.6...v1.1.7) (2021-02-02)
 
 
