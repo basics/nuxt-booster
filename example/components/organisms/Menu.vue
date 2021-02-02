@@ -100,9 +100,16 @@ html.js--menu-open {
 
   & .menu__toggle {
     position: absolute;
-    top: calc(20 / 16 * 1em);
-    left: calc(20 / 16 * 1em);
+    top: calc(10 / 16 * 1em);
+    left: calc(10 / 16 * 1em);
+    padding: calc(10 / 16 * 1em);
     cursor: pointer;
+    background: rgb(255 255 255 / 40%);
+    transition: background 0.2s linear;
+
+    @media (prefers-color-scheme: dark) {
+      background: rgb(0 0 0 / 40%);
+    }
 
     & svg {
       display: block;
@@ -121,6 +128,8 @@ html.js--menu-open {
   }
 
   & input:checked ~ .menu__toggle {
+    background: transparent;
+
     & #open {
       & path {
         opacity: 0;
