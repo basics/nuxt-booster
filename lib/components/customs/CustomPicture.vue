@@ -123,11 +123,13 @@ export default {
 };
 
 function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
-  const img = new Image();
-  img.onload = callback;
-  img.crossorigin = crossorigin;
-  img.sizes = sizes;
-  img.srcset = srcset;
+  if (!process.server) {
+    const img = new global.Image();
+    img.onload = callback;
+    img.crossorigin = crossorigin;
+    img.sizes = sizes;
+    img.srcset = srcset;
+  }
 }
 
 function filterBySupportedMimeTypes (sources, webpSupport) {
