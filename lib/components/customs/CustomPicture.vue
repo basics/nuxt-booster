@@ -77,7 +77,7 @@ export default {
 
   head () {
     let data = {};
-    if (this.preload.length && (this.isCritical || (process.client & this.visible))) {
+    if (this.preload.length && (this.isCritical || (process.client && this.visible))) {
       const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
       const [source] = sources;
 
