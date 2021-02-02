@@ -73,12 +73,13 @@ export default {
     open (value) {
       document.documentElement.classList.toggle('js--menu-open', value);
     }
+  },
+
+  mounted () {
+    this.$router.afterEach((to, from) => {
+      this.open = false;
+    });
   }
-  // mounted () {
-  //   this.$router.afterEach((to, from) => {
-  //     this.open = false;
-  //   });
-  // }
 
 };
 </script>
