@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.8...v1.1.9) (2021-02-02)
+
+
+### Bug Fixes
+
+* **browserlist:** fix pkg file for browserlist ([1fa27c6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1fa27c66c682f0401ee38faa5b93b74984a9bee0))
+
 ## [1.1.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.7...v1.1.8) (2021-02-02)
 
 
