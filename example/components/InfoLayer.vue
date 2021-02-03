@@ -1,11 +1,9 @@
 <template>
   <speedkit-layer class="info_layer">
-    <template #default>
+    <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
       </p>
-    </template>
-    <template #reasons>
       <ul v-font="$getFont('Quicksand', 700, 'normal')" class="info_layer__reasons">
         <custom-no-script><li>disabled javascript</li></custom-no-script>
         <li id="nuxt-speedkit__unsupported-browser">
@@ -18,8 +16,6 @@
           slow connection
         </li>
       </ul>
-    </template>
-    <template #controls>
       <div class="info_layer__buttons">
         <custom-no-script>
           <base-button id="nuxt-speedkit__button__init-nojs">
@@ -35,7 +31,7 @@
         </base-button>
         <base-button id="nuxt-speedkit__button__init-app" label="Yes" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" />
       </div>
-    </template>
+    </div>
   </speedkit-layer>
 </template>
 

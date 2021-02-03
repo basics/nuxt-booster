@@ -3,38 +3,30 @@
     <div id="nuxt-speedkit__speedkit-layer" v-if="!hide">
       <input name="close" id="nuxt-speedkit__speedkit-layer__close" type="checkbox">
       <div id="nuxt-speedkit__speedkit-layer__content">
-        <div>
-          <!-- Using slot default for description text -->
-          <slot>
+        <slot>
+          <div>
+
             <p>Sorry, but you will have a limited user experience due to a…</p>
-          </slot>
 
-          <!-- Using slot reasons for for the specific reasons -->
-          <slot name="reasons">
-              <ul style=" padding: 0; list-style: none;">
+            <ul style=" padding: 0; list-style: none;">
+              <!-- Displayed when javascript no active. -->
+              <custom-no-script>
+                <li>disabled javascript</li>
+              </custom-no-script>
 
-                <!-- Displayed when javascript no active. -->
-                <custom-no-script>
-                  <li>disabled javascript</li>
-                </custom-no-script>
-
-                <!-- Displayed when browser does not support. -->
-                <li id="nuxt-speedkit__unsupported-browser">
-                  outdated browser
-                </li>
-                <!-- Displayed when user hardware is not sufficient. -->
-                <li id="nuxt-speedkit__outdated-device">
-                  outdated device
-                </li>
-                <!-- Displayed when connection is too slow. -->
-                <li id="nuxt-speedkit__slow-connection">
-                  slow connection
-                </li>
-              </ul>
-          </slot>
-
-          <!-- Using slot controls for buttons -->
-          <slot name="controls">
+              <!-- Displayed when browser does not support. -->
+              <li id="nuxt-speedkit__unsupported-browser">
+                outdated browser
+              </li>
+              <!-- Displayed when user hardware is not sufficient. -->
+              <li id="nuxt-speedkit__outdated-device">
+                outdated device
+              </li>
+              <!-- Displayed when connection is too slow. -->
+              <li id="nuxt-speedkit__slow-connection">
+                slow connection
+              </li>
+            </ul>
 
             <!-- Button to hide the layer with no javascript -->
             <custom-no-script>
@@ -57,8 +49,8 @@
               Yes
             </button>
 
-          </slot>
-        </div>
+          </div>
+        </slot>
       </div>
     </div>
   </only-ssr>
