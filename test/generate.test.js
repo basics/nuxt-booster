@@ -32,11 +32,11 @@ describe('generate', () => {
     html = await getHTML(join(distDir, 'v-font'));
     dom = getDom(html);
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-10e6588e"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-192c3f64"]')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'normal')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'normal')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignSimple[data-font="-10e6588e"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignSimple[data-font="-192c3f64"]')).not.toBeNull();
   });
 
   it('v-font (font assign by single selector) (font-face, class, link (preload), element class)', async () => {
@@ -44,11 +44,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-4d3c52af"] strong')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-646c2866"] strong')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'normal')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'normal')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignBySingleSelector[data-font="-4d3c52af"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignBySingleSelector[data-font="-646c2866"]')).not.toBeNull();
   });
 
   it('v-font (font assign by multiple variances) (font-face, class, link (preload), element class)', async () => {
@@ -56,13 +56,13 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="--d854631"] strong')).not.toBe(-1);
-    expect(dom.head.innerHTML.indexOf('[data-font="--d854631"] em')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-2842d182"] strong')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-2842d182"] em')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'normal')}"]`)).not.toBeNull();
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'italic')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'normal')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'italic')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignByMultipleVariances[data-font="--d854631"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignByMultipleVariances[data-font="-2842d182"]')).not.toBeNull();
   });
 
   it('v-font (font assign by multiple selectors) (font-face, class, link (preload), element class)', async () => {
@@ -70,11 +70,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-24b17869"] em')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-2a653439"] em')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'italic')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'italic')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignByMultipleSelectors[data-font="-24b17869"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignByMultipleSelectors[data-font="-2a653439"]')).not.toBeNull();
   });
 
   it('v-font (font assign by deep selector) (font-face, class, link (preload), element class)', async () => {
@@ -82,11 +82,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-773bc17a"] strong>em')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-28fdf168"] strong>em')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'italic')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'italic')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignByDeepSelector[data-font="-773bc17a"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignByDeepSelector[data-font="-28fdf168"]')).not.toBeNull();
   });
 
   // #endregion
@@ -98,11 +98,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-29e4a635"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-10b9db85"]')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'italic', '(max-width: 479px)')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'italic', '(max-width: 479px)')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignSimpleByMax479[data-font="-29e4a635"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignSimpleByMax479[data-font="-10b9db85"]')).not.toBeNull();
   });
 
   it('v-font (media) (font assign simple by 480px) (font-face, class, link (preload), element class)', async () => {
@@ -110,11 +110,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-27c3e1ae"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-2eb28766"]')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'normal', '(min-width: 480px)')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'normal', '(min-width: 480px)')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignSimpleBy480[data-font="-27c3e1ae"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignSimpleBy480[data-font="-2eb28766"]')).not.toBeNull();
   });
 
   it('v-font (media) (font assign simple by 960px) (font-face, class, link (preload), element class)', async () => {
@@ -122,11 +122,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="--91b8358"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-3297baf7"]')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 400, 'italic', '(min-width: 960px)')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'italic', '(min-width: 960px)')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontAssignSimpleBy960[data-font="--91b8358"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontAssignSimpleBy960[data-font="-3297baf7"]')).not.toBeNull();
   });
 
   it('v-font (media) (font assign with selector by 1440px) (font-face, class, link (preload), element class)', async () => {
@@ -134,11 +134,11 @@ describe('generate', () => {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-42ea1f4e"] strong')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="--63445b1"] strong')).not.toBe(-1);
     // font link preload exists?
-    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Comic Neue', 700, 'normal', '(min-width: 1440px)')}"]`)).not.toBeNull();
+    expect(dom.head.querySelector(`link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'normal', '(min-width: 1440px)')}"]`)).not.toBeNull();
     // element has data attribute?
-    expect(dom.querySelector('#criticalFontBySingleSelectorBy1440[data-font="-42ea1f4e"]')).not.toBeNull();
+    expect(dom.querySelector('#criticalFontBySingleSelectorBy1440[data-font="--63445b1"]')).not.toBeNull();
   });
 
   // #endregion

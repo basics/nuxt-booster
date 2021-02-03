@@ -10,7 +10,7 @@ export function getDom (html) {
   return new JSDOM(html).window.document;
 }
 
-export function getFontFaceSnippet (family = 'Comic Neue', style = 'italic', weight = 300) {
+export function getFontFaceSnippet (family = 'Merriweather', style = 'italic', weight = 300) {
   return ['      @font-face {',
     `        font-family: '${family}';`,
     `        font-style: ${style};`,

@@ -152,51 +152,51 @@ module.exports = {
             }
           ]
         }, {
-          family: 'Comic Neue',
-          locals: ['Comic Neue', 'Comic-Neue'],
-          fallback: ['Arial', 'sans-serif'],
+          family: 'Merriweather',
+          locals: ['Merriweather'],
+          fallback: ['Georgia', 'sans-serif'],
           variances: [
             {
               style: 'normal',
               weight: 300,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff2', type: 'woff2' }
               ]
             }, {
               style: 'italic',
               weight: 300,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff2', type: 'woff2' }
               ]
             }, {
               style: 'normal',
               weight: 400,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff2', type: 'woff2' }
               ]
             }, {
               style: 'italic',
               weight: 400,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff2', type: 'woff2' }
               ]
             }, {
               style: 'normal',
               weight: 700,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff2', type: 'woff2' }
               ]
             }, {
               style: 'italic',
               weight: 700,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff2', type: 'woff2' }
               ]
             }
           ]

@@ -1,7 +1,7 @@
 <template>
   <div
     v-font="[
-      $getFont('Comic Neue', 400, 'normal'),
+      $getFont('Merriweather', 300, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
     class="component-image-text"
     :class="{['component-image-text--right']: alignRight}"

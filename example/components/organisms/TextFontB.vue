@@ -1,9 +1,9 @@
 <template>
   <div
     v-font="[
-      $getFont('Montserrat Alternates', 400, 'normal'),
+      $getFont('Montserrat Alternates', 300, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
-      $getFont('Montserrat Alternates', 400, 'italic', {selector: 'em'}),
+      $getFont('Montserrat Alternates', 300, 'italic', {selector: 'em'}),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'}),
       $getFont('Montserrat Alternates', 700, 'italic', {selector: 'em strong, strong em'})
     ]"
