@@ -6,11 +6,10 @@
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
-[![beta][github-workflow-beta-src]][github-workflow-beta-href]
+[![develop][github-workflow-develop-src]][github-workflow-develop-href]
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
-[![npm version][npm-version-beta-src]][npm-version-beta-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 
 [![Renovate - Status][renovate-status-src]][renovate-status-href]
@@ -73,8 +72,8 @@ or look here
 
 [github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
-[github-workflow-beta-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Beta/badge.svg?branch=beta>
-[github-workflow-beta-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ABeta>
+[github-workflow-develop-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=develop>
+[github-workflow-develop-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
 [dependencies-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/status.svg>
 [dependencies-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit>
 [dependencies-dev-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/dev-status.svg>
@@ -87,9 +86,7 @@ or look here
 [license-href]: https://npmjs.com/package/nuxt-speedkit
 
 [npm-version-latest-src]: https://img.shields.io/npm/v/nuxt-speedkit/latest.svg?
-[npm-version-beta-src]: https://img.shields.io/npm/v/nuxt-speedkit/beta.svg?style=flat-square
 [npm-version-latest-href]: https://npmjs.com/package/nuxt-speedkit/v/latest
-[npm-version-beta-href]: https://npmjs.com/package/nuxt-speedkit/v/beta
 
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-speedkit.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/nuxt-speedkit

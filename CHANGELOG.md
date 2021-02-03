@@ -1,5 +1,64 @@
 # Project Changelog
 
+## [1.1.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.10...v1.1.11) (2021-02-03)
+
+
+### Bug Fixes
+
+* **head:** adapted merge strategy from data ([54d2abb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/54d2abb6db04daca3ac483e4f81cffa59d9d7dbd))
+
+## [1.1.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.9...v1.1.10) (2021-02-02)
+
+
+### Bug Fixes
+
+* **browserslist:** removed custom read of browserslist ([7e86fba](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7e86fba6e45cb143192b8841f375c742091e78d8))
+* **custom-picture:** added forgotten amp ([10ca987](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/10ca987b78539ff23730d173417828b9b155347e))
+* **picture:** removed code smell indicators ([e9ff74a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e9ff74a5581ccf2c59d289df20b70ac6bf50c163))
+
+## [1.1.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.8...v1.1.9) (2021-02-02)
+
+
+### Bug Fixes
+
+* **browserlist:** fix pkg file for browserlist ([1fa27c6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1fa27c66c682f0401ee38faa5b93b74984a9bee0))
+
+## [1.1.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.7...v1.1.8) (2021-02-02)
+
+
+### Bug Fixes
+
+* **browser-support:** changed detection - use browserslist instead of bowser ([a86a2de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a86a2de6adc90b6a7325fabb00fb1d5864f554d8))
+* **browserslist:** removed from babel config ([b946cd9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b946cd9d8d7ba7790753956269a63850fc6ce8f0))
+* **info-layer:** cleanup ([72ad9de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/72ad9de8b45479802e0095807f934ca05a9d2d74))
+* **info-layer:** speed up fade-in by fast connection type and unsupported browser detection ([ad9ff14](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ad9ff14e8d189a3f69824202159701c9ab898ca4))
+* **menu:** added mounted method ([d163118](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d163118efd5e77b5a5d8827cab625e7ab07666e9))
+* **nuxt.config:** cleanup ([0132ebb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0132ebbbdd55a7c897949cb4c8649fbcfdc62e0b))
+* **supported-browser:** fixed regex serialization ([e576d65](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e576d654163a8c583c88ca7caa3242c389366b8b))
+
+## [1.1.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.6...v1.1.7) (2021-02-02)
+
+
+### Bug Fixes
+
+* **fonts:** fix font check ([3461777](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/346177722ed5e05f283dece18d7a3231d65b5649))
+
+## [1.1.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.5...v1.1.6) (2021-02-01)
+
+
+### Bug Fixes
+
+* **ci:** remove github config ([13d3e0f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/13d3e0fb06a3c2226dc2c3ebcb2eaa8aa907aac0))
+
+## [1.1.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.4...v1.1.5) (2021-02-01)
+
+
+### Bug Fixes
+
+* **ci:** remove custom gh-token ([2e8c5c2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2e8c5c217845eab33192bae00e814e6cf8d686bd))
+* **pages:** remove tinyurls; improve dark mode ([3259594](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/32595946299d0d9b87e111dda92cdc42f65be896))
+* **release:** change gh-token ([a136812](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a13681252e7b912c84f91e165b02a94fd1661851))
+
 ## [1.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.3...v1.1.4) (2021-02-01)
 
 

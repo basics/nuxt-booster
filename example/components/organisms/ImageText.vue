@@ -1,7 +1,7 @@
 <template>
   <div
     v-font="[
-      $getFont('Comic Neue', 400, 'normal'),
+      $getFont('Merriweather', 300, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
     class="component-image-text"
     :class="{['component-image-text--right']: alignRight}"
@@ -51,7 +51,11 @@ export default {
     & > * {
       width: 80%;
       margin: 0 auto;
-      box-shadow: 0 0 25px 0 rgb(255 255 255 / 40%);
+      box-shadow: 0 0 25px 0 rgb(0 0 0 / 40%);
+
+      @media (prefers-color-scheme: dark) {
+        box-shadow: 0 0 25px 0 rgb(255 255 255 / 40%);
+      }
     }
   }
 

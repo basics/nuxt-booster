@@ -32,8 +32,6 @@ jobs:
       - name: Install Dependencies (Example)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      # - name: setup playwright
-      #   uses: microsoft/playwright-github-action@v1
       - name: Test
         run: npm run test
       - name: cache node_modules (Docs)
@@ -64,6 +62,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Versioning
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |

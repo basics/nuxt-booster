@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.1.4",
+  "version": "1.1.11",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
+    "url": "https://github.com/GrabarzUndPartner/nuxt-speedkit"
   },
   "main": "index.js",
   "scripts": {
@@ -34,15 +34,18 @@
   "dependencies": {
     "@nuxt/image": "npm:@modified/image@0.0.4-beta4",
     "bowser": "2.11.0",
+    "browserslist-useragent-regexp": "2.1.1",
+    "defu": "^3.2.2",
     "dynamic-class-list": "1.1.0",
     "fs-extra": "9.1.0",
+    "serialize-to-js": "3.1.1",
     "vue-lazy-hydration": "2.0.0-beta.4",
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/preset-env": "7.12.11",
-    "@babel/preset-typescript": "7.12.7",
+    "@babel/core": "7.12.13",
+    "@babel/preset-env": "7.12.13",
+    "@babel/preset-typescript": "7.12.13",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@nuxt/test-utils": "0.1.2",
@@ -63,7 +66,7 @@
     "nuxt-edge": "latest",
     "@nuxtjs/eslint-module": "3.0.2",
     "@nuxtjs/stylelint-module": "4.0.0",
-    "playwright": "^1.8.0",
+    "playwright": "1.8.0",
     "postcss-nesting": "7.0.1",
     "stylelint": "13.9.0",
     "stylelint-config-lost": "0.0.3",

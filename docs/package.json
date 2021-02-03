@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:GrabarzUndPartner/nuxt-speedkit.git"
+    "url": "https://github.com/GrabarzUndPartner/nuxt-speedkit"
   },
   "private": true,
   "scripts": {

@@ -1,5 +1,5 @@
 <template>
-  <div class="page-full-example-with-components">
+  <div class="page-index">
     <component-stage v-bind="stage" />
     <component-text-a v-bind="textA" />
     <component-text-image v-bind="imageTextA" />
@@ -129,10 +129,10 @@ export default {
           placeholders: [
             {
               media: '(min-width: 576px)',
-              url: '/img/image-content-2/jpg/placeholder_landscape.jpg'
+              url: require('static/img/image-content-2/jpg/placeholder_landscape.jpg')
             },
             {
-              url: '/img/image-content-2/jpg/placeholder_portrait.jpg'
+              url: require('static/img/image-content-2/jpg/placeholder_portrait.jpg')
             }
           ],
           sources: [
@@ -187,10 +187,10 @@ export default {
           placeholders: [
             {
               media: '(min-width: 576px)',
-              url: '/img/image-content-3/jpg/placeholder_landscape.jpg'
+              url: require('static/img/image-content-3/jpg/placeholder_landscape.jpg')
             },
             {
-              url: '/img/image-content-3/jpg/placeholder_portrait.jpg'
+              url: require('static/img/image-content-3/jpg/placeholder_portrait.jpg')
             }
           ],
           sources: [
@@ -260,13 +260,12 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.page-full-example-with-components {
-  padding: 25px 0;
+.page-index {
+  padding: calc(25 / 16 * 1em) 0;
   padding-top: 0;
-  font-size: calc(20 / 16 * 1em);
 
   & > * {
-    margin: 25px 0;
+    margin: calc(25 / 16 * 1em) 0;
 
     &:first-child {
       margin-top: 0;

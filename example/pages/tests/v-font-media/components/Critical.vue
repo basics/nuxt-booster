@@ -3,16 +3,16 @@
     <template #default>
       <div>
         <ul>
-          <li id="criticalFontAssignSimpleByMax479" v-font="$getFont('Comic Neue', 700, 'italic', {media: '(max-width: 479px)'})">
+          <li id="criticalFontAssignSimpleByMax479" v-font="$getFont('Merriweather', 700, 'italic', {media: '(max-width: 479px)'})">
             font assign simple by max 479px
           </li>
-          <li id="criticalFontAssignSimpleBy480" v-font="$getFont('Comic Neue', 400, 'normal', {media: '(min-width: 480px)'})">
+          <li id="criticalFontAssignSimpleBy480" v-font="$getFont('Merriweather', 400, 'normal', {media: '(min-width: 480px)'})">
             font assign simple by 480px
           </li>
-          <li id="criticalFontAssignSimpleBy960" v-font="$getFont('Comic Neue', 400, 'italic', {media: '(min-width: 960px)'})">
+          <li id="criticalFontAssignSimpleBy960" v-font="$getFont('Merriweather', 400, 'italic', {media: '(min-width: 960px)'})">
             font assign simple by 960px
           </li>
-          <li id="criticalFontBySingleSelectorBy1440" v-font="$getFont('Comic Neue', 700, 'normal', {selector: 'strong', media: '(min-width: 1440px)'})">
+          <li id="criticalFontBySingleSelectorBy1440" v-font="$getFont('Merriweather', 700, 'normal', {selector: 'strong', media: '(min-width: 1440px)'})">
             font assign with <strong>selector by 1440px</strong>
           </li>
         </ul>

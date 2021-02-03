@@ -10,7 +10,6 @@ module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  // ssr: false,
 
   env: {
     GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
@@ -28,7 +27,6 @@ module.exports = {
   },
 
   build: {
-
     babel: {
       presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
@@ -37,12 +35,16 @@ module.exports = {
             require.resolve('@nuxt/babel-preset-app-edge'),
             {
               buildTarget: isServer ? 'server' : 'client',
-              corejs: { version: 3 },
+              corejs: { version: 3, proposals: true },
               useBuiltIns: isModern ? 'entry' : 'usage',
               forceAllTransforms: !isDev && !isModern && !isServer,
               shippedProposals: true,
               loose: true,
-              bugfixes: true
+              bugfixes: true,
+              polyfills: [
+                'es.promise',
+                'es.symbol'
+              ]
             }
           ]
         ];
@@ -95,7 +97,10 @@ module.exports = {
   modules: [
     [
       resolve(__dirname, '..'), {
-        ignorePerformance: false,
+        detection: {
+          performance: true,
+          browserSupport: true
+        },
         // crossorigin: 'anonymous',
         performance: {
           device: {
@@ -104,16 +109,9 @@ module.exports = {
           },
           timing: {
             fcp: 800,
-            dcl: 1500 // fallback if fcp is not available (safari)
+            dcl: 1200 // fallback if fcp is not available (safari)
           },
           lighthouseDetectionByUserAgent: false
-        },
-        browserSupport: {
-          chrome: '>=86',
-          firefox: '>=83',
-          opera: '>=71',
-          safari: '>=12.4',
-          edge: '>=87'
         },
         fonts: [{
           family: 'Quicksand',
@@ -158,60 +156,51 @@ module.exports = {
             }
           ]
         }, {
-          family: 'Comic Neue',
-          locals: ['Comic Neue', 'Comic-Neue'],
-          fallback: ['Arial', 'sans-serif'],
+          family: 'Merriweather',
+          locals: ['Merriweather'],
+          fallback: ['Georgia', 'sans-serif'],
           variances: [
             {
-              // options: {
-              //   style: 'normal',
-              //   weight: 300,
-              //   stretch: '',
-              //   variant: '',
-              //   featureSettings: '',
-              //   variationSettings: '',
-              //   unicodeRange: ''
-              // },
               style: 'normal',
               weight: 300,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff2', type: 'woff2' }
               ]
             }, {
               style: 'italic',
               weight: 300,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff2', type: 'woff2' }
               ]
             }, {
               style: 'normal',
               weight: 400,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff2', type: 'woff2' }
               ]
             }, {
               style: 'italic',
               weight: 400,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff2', type: 'woff2' }
               ]
             }, {
               style: 'normal',
               weight: 700,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff2', type: 'woff2' }
               ]
             }, {
               style: 'italic',
               weight: 700,
               sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff2', type: 'woff2' }
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff', type: 'woff' },
+                { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff2', type: 'woff2' }
               ]
             }
           ]

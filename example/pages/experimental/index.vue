@@ -1,5 +1,5 @@
 <template>
-  <div class="page-full-example-with-components">
+  <div class="page-experimentel-index">
     <component-stage v-bind="stage" />
     <component-text-a v-bind="textA" />
     <component-text-image v-bind="imageTextA" />
@@ -25,9 +25,9 @@ export default {
         picture: {
           sources: [
             // https://i.picsum.photos/id/1084/4579/3271.jpg?hmac=YblMazviSugJVfZsFPaFI_Vp6lBeQin62qpm8rxHruo
-            { src: 'https://tinyurl.com/y6hp9sb4', sizes: '299,300:599,600:899,900:1199' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/jpg/1920.jpg', sizes: '299,300:599,600:899,900:1199' },
             // https://i.picsum.photos/id/1084/4579/3271.jpg?hmac=YblMazviSugJVfZsFPaFI_Vp6lBeQin62qpm8rxHruo
-            { src: 'https://tinyurl.com/y6hp9sb4', sizes: '1200:1599,1600:1899,1900:1920' }
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/jpg/1920.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
           ]
         }
       },
@@ -45,9 +45,9 @@ export default {
         picture: {
           sources: [
             // https://i.picsum.photos/id/2/5616/3744.jpg?hmac=l1XcSPFigtRLcO2F6Li-t17EIeylkWH94Oowb4vzApk
-            { src: 'https://tinyurl.com/y67alhbs', sizes: '414' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-2/jpg/1920.jpg', sizes: '414' },
             // https://i.picsum.photos/id/2/5616/3744.jpg?hmac=l1XcSPFigtRLcO2F6Li-t17EIeylkWH94Oowb4vzApk
-            { src: 'https://tinyurl.com/y67alhbs', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' }
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-2/jpg/1920.jpg', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' }
           ]
         }
       },
@@ -58,9 +58,9 @@ export default {
         picture: {
           sources: [
             // https://i.picsum.photos/id/1062/5092/3395.jpg?hmac=o9m7qeU51uOLfXvepXcTrk2ZPiSBJEkiiOp-Qvxja-k
-            { src: 'https://tinyurl.com/yxr48egv', sizes: '414' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-3/jpg/1920.jpg', sizes: '414' },
             // https://i.picsum.photos/id/1062/5092/3395.jpg?hmac=o9m7qeU51uOLfXvepXcTrk2ZPiSBJEkiiOp-Qvxja-k
-            { src: 'https://tinyurl.com/yxr48egv', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' }
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-3/jpg/1920.jpg', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' }
           ]
         }
       },
@@ -76,24 +76,18 @@ export default {
     ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB'),
     ComponentSpeedkitYoutube: () => import('nuxt-speedkit/components/experimental/SpeedkitYoutube')
-  },
-
-  methods: {
-    onLoadFont (fonts) {
-      // console.log('page: font loaded', fonts);
-    }
   }
+
 };
 </script>
 
 <style lang="postcss" scoped>
-.page-full-example-with-components {
-  padding: 25px 0;
+.page-experimentel-index {
+  padding: calc(25 / 16 * 1em) 0;
   padding-top: 0;
-  font-size: calc(20 / 16 * 1em);
 
   & > * {
-    margin: 25px 0;
+    margin: calc(25 / 16 * 1em) 0;
 
     &:first-child {
       margin-top: 0;

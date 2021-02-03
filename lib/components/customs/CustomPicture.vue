@@ -77,8 +77,8 @@ export default {
 
   head () {
     let data = {};
-    if (this.preload.length && (this.isCritical || (process.client & this.visible))) {
-      const sources = filterBySupportedMimeTypes(this.preload, webpSupport);
+    if (this.preload.length && (this.isCritical || (process.client && this.visible))) {
+      const sources = filterBySupportedMimeTypes(this.preload);
       const [source] = sources;
 
       preloadCache.getPromise(toHashHex(source.srcset), (resolve, reject) => {
@@ -123,14 +123,16 @@ export default {
 };
 
 function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
-  const img = new Image();
-  img.onload = callback;
-  img.crossorigin = crossorigin;
-  img.sizes = sizes;
-  img.srcset = srcset;
+  if (!process.server) {
+    const img = new global.Image();
+    img.onload = callback;
+    img.crossorigin = crossorigin;
+    img.sizes = sizes;
+    img.srcset = srcset;
+  }
 }
 
-function filterBySupportedMimeTypes (sources, webpSupport) {
+function filterBySupportedMimeTypes (sources) {
   return sources.filter((source) => {
     return !isWebp(source) || (isWebp(source) && webpSupport);
   });

@@ -1,11 +1,14 @@
 <template>
   <div
     v-font="[
-      $getFont('Comic Neue', 400, 'normal'),
+      $getFont('Merriweather', 300, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
     class="component-image-text"
+    :class="{['component-image-text--right']: alignRight}"
   >
-    <speedkit-picture v-bind="picture" />
+    <div class="image">
+      <speedkit-picture v-bind="picture" />
+    </div>
     <div class="text" v-html="text" />
   </div>
 </template>
@@ -17,6 +20,7 @@ export default {
     SpeedkitPicture
   },
   props: {
+    alignRight: { type: Boolean, default () { return false; } },
     picture: { type: Object, default () { return {}; } },
     text: { type: String, default () { return 'Headline'; } }
   }
@@ -32,6 +36,7 @@ export default {
 
   @media (min-width: 768px) {
     display: flex;
+    align-items: center;
 
     & > * {
       width: 50%;
@@ -40,6 +45,30 @@ export default {
 
   & .text {
     padding: 2%;
+  }
+
+  & .image {
+    & > * {
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 25px 0 rgb(0 0 0 / 40%);
+
+      @media (prefers-color-scheme: dark) {
+        box-shadow: 0 0 25px 0 rgb(255 255 255 / 40%);
+      }
+    }
+  }
+
+  &.component-image-text--right {
+    & > * {
+      &:nth-child(1) {
+        order: 2;
+      }
+
+      &:nth-child(2) {
+        order: 1;
+      }
+    }
   }
 }
 </style>

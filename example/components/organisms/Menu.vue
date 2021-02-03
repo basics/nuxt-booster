@@ -73,17 +73,21 @@ export default {
     open (value) {
       document.documentElement.classList.toggle('js--menu-open', value);
     }
+  },
+
+  mounted () {
+    this.$router.afterEach((to, from) => {
+      this.open = false;
+    });
   }
-  // mounted () {
-  //   this.$router.afterEach((to, from) => {
-  //     this.open = false;
-  //   });
-  // }
 
 };
 </script>
 
 <style lang="postcss">
+
+/* stylelint-disable no-descending-specificity */
+
 html.js--menu-open {
   overflow: hidden;
 }
@@ -94,11 +98,23 @@ html.js--menu-open {
 .menu {
   color: black;
 
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+  }
+
   & .menu__toggle {
     position: absolute;
-    top: calc(20 / 16 * 1em);
-    left: calc(20 / 16 * 1em);
+    top: calc(10 / 16 * 1em);
+    left: calc(10 / 16 * 1em);
+    padding: calc(10 / 16 * 1em);
     cursor: pointer;
+    background: rgb(255 255 255 / 40%);
+    outline: none;
+    transition: background 0.2s linear;
+
+    @media (prefers-color-scheme: dark) {
+      background: rgb(0 0 0 / 40%);
+    }
 
     & svg {
       display: block;
@@ -106,12 +122,52 @@ html.js--menu-open {
     }
 
     & path {
+      fill: #333;
       transition: opacity 0.2s linear, transform 0.2s linear;
       transform-origin: center;
+
+      @media (prefers-color-scheme: dark) {
+        fill: #fff;
+      }
+    }
+
+    & #close {
+      & path:nth-child(1),
+      & path:nth-child(2) {
+        transform: rotate(0deg);
+      }
+    }
+
+    &:hover {
+      & #open {
+        & path {
+          opacity: 0.6;
+        }
+
+        & path:nth-child(1) {
+          transform: translateY(-4%);
+        }
+
+        & path:nth-child(2) {
+          transform: translateY(4%);
+        }
+      }
+
+      & #close {
+        & path:nth-child(1) {
+          transform: rotate(15deg);
+        }
+
+        & path:nth-child(2) {
+          transform: rotate(-15deg);
+        }
+      }
     }
   }
 
   & input:checked ~ .menu__toggle {
+    background: transparent;
+
     & #open {
       & path {
         opacity: 0;
@@ -135,6 +191,32 @@ html.js--menu-open {
         transform: rotate(-45deg);
       }
     }
+
+    &:hover {
+      & #open {
+        & path {
+          opacity: 0.2;
+        }
+
+        & path:nth-child(1) {
+          transform: translateY(-8%);
+        }
+
+        & path:nth-child(2) {
+          transform: translateY(8%);
+        }
+      }
+
+      & #close {
+        & path:nth-child(1) {
+          transform: rotate(30deg);
+        }
+
+        & path:nth-child(2) {
+          transform: rotate(-30deg);
+        }
+      }
+    }
   }
 
   & .menu__title {
@@ -150,6 +232,10 @@ html.js--menu-open {
     display: block;
     font-size: calc(18 / 16 * 1em);
     color: #333;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgb(255 255 255 / 80%);
+    }
   }
 
   & .menu-button {
@@ -189,6 +275,10 @@ html.js--menu-open {
         background: rgba(255, 255, 255, 0.5);
         transition: transform 0.2s  ease-in;
         transform: translateX(-100%);
+
+        @media (prefers-color-scheme: dark) {
+          background: rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
@@ -209,4 +299,6 @@ html.js--menu-open {
     }
   }
 }
+/* stylelint-enable no-descending-specificity */
+
 </style>
