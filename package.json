@@ -34,7 +34,7 @@
   "dependencies": {
     "@nuxt/image": "npm:@modified/image@0.0.4-beta4",
     "bowser": "2.11.0",
-    "browserslist-useragent-regexp": "2.1.1",
+    "browserslist-useragent-regexp": "3.0.0",
     "defu": "3.2.2",
     "dynamic-class-list": "1.1.0",
     "fs-extra": "9.1.0",
