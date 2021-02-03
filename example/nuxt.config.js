@@ -89,6 +89,8 @@ module.exports = {
   },
 
   buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
     '@nuxt/image'
   ],
 
