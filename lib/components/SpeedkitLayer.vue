@@ -2,7 +2,7 @@
   <only-ssr :disabled="disabled">
     <div id="nuxt-speedkit__speedkit-layer" v-if="!hide">
       <input name="close" id="nuxt-speedkit__speedkit-layer__close" type="checkbox">
-      <div>
+      <div id="nuxt-speedkit__speedkit-layer__content">
         <div>
           <!-- Using slot default for description text -->
           <slot>

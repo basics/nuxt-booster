@@ -70,7 +70,7 @@ export default {
 
 <style lang="postcss" scoped>
 .info_layer {
-  & >>> > div {
+  & >>> #nuxt-speedkit__speedkit-layer__content {
     position: fixed;
     top: 0;
     left: 0;
