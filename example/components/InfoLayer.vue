@@ -4,7 +4,7 @@
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
       </p>
-      <ul v-font="$getFont('Quicksand', 700, 'normal')" class="info_layer__reasons">
+      <ul v-font="$getFont('Quicksand', 700, 'normal')">
         <custom-no-script><li>disabled javascript</li></custom-no-script>
         <li id="nuxt-speedkit__unsupported-browser">
           outdated browser
@@ -81,10 +81,6 @@ export default {
     backdrop-filter: blur(calc(7 / 16 * 1em));
     animation-fill-mode: forwards;
 
-    @nest .nuxt-speedkit__speedkit-layer--visible & {
-      animation-delay: initial;
-    }
-
     & > div {
       padding: 10px;
       color: #fff;
@@ -96,6 +92,12 @@ export default {
       animation-duration: 0.2s;
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
+    }
+  }
+
+  &.nuxt-speedkit__speedkit-layer--visible {
+    & >>> #nuxt-speedkit__speedkit-layer__content {
+      animation-delay: initial;
     }
   }
 }
