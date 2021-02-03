@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.10...v1.1.11) (2021-02-03)
+
+
+### Bug Fixes
+
+* **head:** adapted merge strategy from data ([54d2abb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/54d2abb6db04daca3ac483e4f81cffa59d9d7dbd))
+
 ## [1.1.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.9...v1.1.10) (2021-02-02)
 
 
