@@ -2,7 +2,7 @@
   <div>
     <organism-page-header v-bind="pageHeader" />
     <Nuxt />
-    <info-layer />
+    <info-layer critical />
     <GithubCorner />
     <google-lighthouse />
   </div>
