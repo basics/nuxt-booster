@@ -76,13 +76,8 @@ export default {
     ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB'),
     ComponentSpeedkitYoutube: () => import('nuxt-speedkit/components/experimental/SpeedkitYoutube')
-  },
-
-  methods: {
-    onLoadFont (fonts) {
-      // console.log('page: font loaded', fonts);
-    }
   }
+
 };
 </script>
 

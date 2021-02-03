@@ -85,6 +85,9 @@ export default {
 </script>
 
 <style lang="postcss">
+
+/* stylelint-disable no-descending-specificity */
+
 html.js--menu-open {
   overflow: hidden;
 }
@@ -106,6 +109,7 @@ html.js--menu-open {
     padding: calc(10 / 16 * 1em);
     cursor: pointer;
     background: rgb(255 255 255 / 40%);
+    outline: none;
     transition: background 0.2s linear;
 
     @media (prefers-color-scheme: dark) {
@@ -124,6 +128,39 @@ html.js--menu-open {
 
       @media (prefers-color-scheme: dark) {
         fill: #fff;
+      }
+    }
+
+    & #close {
+      & path:nth-child(1),
+      & path:nth-child(2) {
+        transform: rotate(0deg);
+      }
+    }
+
+    &:hover {
+      & #open {
+        & path {
+          opacity: 0.6;
+        }
+
+        & path:nth-child(1) {
+          transform: translateY(-4%);
+        }
+
+        & path:nth-child(2) {
+          transform: translateY(4%);
+        }
+      }
+
+      & #close {
+        & path:nth-child(1) {
+          transform: rotate(15deg);
+        }
+
+        & path:nth-child(2) {
+          transform: rotate(-15deg);
+        }
       }
     }
   }
@@ -152,6 +189,32 @@ html.js--menu-open {
 
       & path:nth-child(2) {
         transform: rotate(-45deg);
+      }
+    }
+
+    &:hover {
+      & #open {
+        & path {
+          opacity: 0.2;
+        }
+
+        & path:nth-child(1) {
+          transform: translateY(-8%);
+        }
+
+        & path:nth-child(2) {
+          transform: translateY(8%);
+        }
+      }
+
+      & #close {
+        & path:nth-child(1) {
+          transform: rotate(30deg);
+        }
+
+        & path:nth-child(2) {
+          transform: rotate(-30deg);
+        }
       }
     }
   }
@@ -236,4 +299,6 @@ html.js--menu-open {
     }
   }
 }
+/* stylelint-enable no-descending-specificity */
+
 </style>
