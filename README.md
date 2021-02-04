@@ -1,7 +1,7 @@
+![nuxt-speedkit][logo]
+
 # nuxt-speedkit
 
-![nuxt-speedkit][logo]
----
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
