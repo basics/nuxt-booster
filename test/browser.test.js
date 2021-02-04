@@ -3,6 +3,9 @@
 import { createPage, setupTest } from '@nuxt/test-utils';
 const { join, resolve } = require('path');
 
+// eslint-disable-next-line scanjs-rules/call_setTimeout
+jest.setTimeout(10000);
+
 describe('browser (Chrome)', () => {
   const testDir = resolve(__dirname, '.browser-chromium');
   const buildDir = join(testDir, '.nuxt');
