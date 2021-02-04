@@ -5,16 +5,29 @@ position: 3
 category: Guide
 ---
 
-## `ignorePerformance`
 
-Wenn gesetzt wird die im Modul enthaltenen Performance überprüfung deaktiviert.
 
-<alert>Der `SpeedkitLayer` wird automatisch deaktiviert.</alert>
+## `crossorigin`
 
-See page [Performance](/performance/)
+Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin aus der [Render Konfiguration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin) übernommen.
 
-- Default: `false`
+- Default: `nuxt.options.render.crossorigin || 'anonymous'`
 
+## `detection`
+
+Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des `SpeedkitLayer` vorgenommen werden soll.
+
+- [performance](#)
+- [browserSupport](#)
+
+```json[Default]
+{
+  performance: true,
+  browserSupport: true
+}
+```
+
+<alert>Der `SpeedkitLayer` muss im Layout vorhanden sein.</alert>
 ## `performance`
 
 Konfiguration für die im Module enthaltene Performance überprüfung.

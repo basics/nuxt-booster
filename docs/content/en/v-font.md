@@ -5,42 +5,43 @@ position: 6
 category: Directives
 ---
 
-Um die in den Modul-Options definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
+Für die verwendung der Modul definierten Schriften, wird die Direktive `v-font` verwendet.
 
 Diese Direktive kann auf jeden Tag in einer Komponente definiert werden. 
 
 <alert>
-Wenn die Eltern-Komponente der Directive <code>critical</code> ist, sind Schriften initial aktiv und werden als Preload geladen.<br>
-Eignet sich für Initial schon enthaltene Headlines oder Texte.
+Wenn die Eltern-Komponente <code>critical</code> ist, werden die Schriften priorisiert geladen und sind initial Aktiv.<br>
+Eignet sich für initial im Viewport sichtbare Komponenten.
 </alert>
 
-In der Directive `v-font` kann entweder ein einzlener WErt oder eine Liste definiert werden. Eine Definition einer Schrift findet über die Methode `$fonts.getFont` statt.
+In der Directive `v-font` kann entweder ein einzlener Font oder eine Liste definiert werden. Eine Definition einer Schrift findet über die Methode `$getFont` statt.
 
 ```html[example]
 
 <!-- single definition -->
-<node v-font="$fonts.getFont()">
+<node v-font="$getFont(…)">
 
 <!-- multiple definitions -->
 <node v-font="[
-  $fonts.getFont(),
-  $fonts.getFont()
+  $getFont(…),
+  $getFont(…)
 ]">
 
 ```
 
+## Methods
+### `$getFont`
 
-## $fonts.getFont
-
+`$getFont` wird als Plugin eingebunden und ist über jeden Komponenten-Scope abrufbar. 
 
 **Parameters**
 
-| Property | Value                           | Default    |
-| -------- | ------------------------------- | ---------- |
-| family   | Font-Family (eg. `Custom Font`) | *required* |
-| weight   | Font-Weight (eg. `700`)         | `400`      |
-| style    | Font-Style (eg. `italic`)       | `normal`   |
-| options  | Other options for definition    | `normal`   |
+| Property | Value                           | Default     |
+| -------- | ------------------------------- | ----------- |
+| family   | Font-Family (eg. `Custom Font`) | *required*  |
+| weight   | Font-Weight (eg. `700`)         | `400`       |
+| style    | Font-Style (eg. `italic`)       | `normal`    |
+| options  | Other options for definition    | `undefined` |
 
 
 ### options
@@ -77,6 +78,6 @@ This has an effect on prefetches and preloads.
   $getFont('Font Family A'),
   $getFont('Font Family B', 700, 'normal', { selector: 'b, strong' }),
   $getFont('Font Family B', 400, 'normal', { media: '(min-width: 768px)' }),
-  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' }),
+  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' })
 ]">…</article>
 ```
