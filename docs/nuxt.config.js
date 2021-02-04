@@ -1,6 +1,11 @@
 import theme from '@nuxt/content-theme-docs';
 
 export default theme({
+  docs: {
+    primaryColor: '#E83162'
+  },
+  loading: { color: '#E83162' },
+
   server: {
     port: getPort()
   },

@@ -5,6 +5,6 @@
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "GrabarzUndPartner/lazy-resources",
+  "github": "GrabarzUndPartner/nuxt-speedkit",
   "twitter": "@nuxt_js"
 }
