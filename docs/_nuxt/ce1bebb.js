@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{163:function(e,t,o){"use strict";o.r(t),t.default={search:{placeholder:'Doorzoek de documentatie (Druk op "/")'},toc:{title:"Op deze pagina"},article:{github:"Bewerk deze pagina op GitHub",updatedAt:"Geüpdatet op"}}}}]);
