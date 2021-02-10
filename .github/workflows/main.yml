@@ -33,8 +33,6 @@ jobs:
       - name: Install Dependencies (Example)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Test
-        run: npm run test
       - name: cache node_modules (Docs)
         uses: actions/cache@v2
         id: cacheDocs
@@ -72,7 +70,7 @@ jobs:
 
   build-example:
     name: Build (Example)
-    needs: install
+    needs: semantic-version
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -111,7 +109,7 @@ jobs:
 
   build-docs:
     name: Build (Docs)
-    needs: install
+    needs: semantic-version
     runs-on: ${{ matrix.os }}
 
     strategy:
