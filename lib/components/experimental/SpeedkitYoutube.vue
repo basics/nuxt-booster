@@ -67,6 +67,12 @@ export default {
     }
   },
 
+  mounted () {
+    this.playerReady.promise.then(() => {
+      this.$emit('ready');
+    });
+  },
+
   methods: {
 
     async onClick () {
@@ -75,6 +81,7 @@ export default {
     },
 
     async onEnter () {
+      this.$emit('enter');
       this.deferred.resolve();
       if (this.autoplay) {
         await this.play();
@@ -83,6 +90,7 @@ export default {
 
     async play () {
       this.loading = true;
+      this.$emit('loading');
       await this.playerReady.promise;
       this.player.playVideo();
     },
@@ -103,6 +111,7 @@ export default {
         if (e.data === 1) {
           this.loading = false;
           this.playing = true;
+          this.$emit('playing');
         }
       });
     }

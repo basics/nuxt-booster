@@ -103,8 +103,9 @@ export default {
   },
 
   mounted () {
-    registerIntersecting(this.$el, () => {
+    registerIntersecting(this.$el, (e) => {
       this.visible = true;
+      this.$emit('enter', e);
     });
   },
 
