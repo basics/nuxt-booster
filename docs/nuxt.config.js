@@ -20,8 +20,7 @@ export default withDocus({
   },
 
   router: {
-    base: getBasePath(),
-    trailingSlash: true
+    base: getBasePath()
   }
 });
 
