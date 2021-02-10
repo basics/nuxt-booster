@@ -4,7 +4,7 @@
     <h1
       v-font="[
         $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
-        $getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
+        $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
       ]"
     >
       <span class="headline">{{ headline }}</span>

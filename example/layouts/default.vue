@@ -2,7 +2,7 @@
   <div>
     <organism-page-header v-bind="pageHeader" />
     <Nuxt />
-    <info-layer />
+    <info-layer critical />
     <GithubCorner />
     <google-lighthouse />
   </div>
@@ -39,15 +39,15 @@ export default {
               links: [
                 {
                   title: 'v-font',
-                  to: '/tests/v-font'
+                  to: '/tests/v-font/'
                 },
                 {
                   title: 'v-font (media)',
-                  to: '/tests/v-font-media'
+                  to: '/tests/v-font-media/'
                 },
                 {
                   title: 'SpeedkitPicture',
-                  to: '/tests/speedkit-picture'
+                  to: '/tests/speedkit-picture/'
                 },
                 {
                   title: 'SpeedkitYoutube',
@@ -55,7 +55,7 @@ export default {
                 },
                 {
                   title: 'SpeedkitIframe',
-                  to: '/tests/speedkit-iframe'
+                  to: '/tests/speedkit-iframe/'
                 }
               ]
             },

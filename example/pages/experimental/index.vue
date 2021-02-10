@@ -1,5 +1,5 @@
 <template>
-  <div class="page-full-example-with-components">
+  <div class="page-experimentel-index">
     <component-stage v-bind="stage" />
     <component-text-a v-bind="textA" />
     <component-text-image v-bind="imageTextA" />
@@ -76,24 +76,18 @@ export default {
     ComponentTextImage: () => import('@/components/organisms/experimental/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB'),
     ComponentSpeedkitYoutube: () => import('nuxt-speedkit/components/experimental/SpeedkitYoutube')
-  },
-
-  methods: {
-    onLoadFont (fonts) {
-      // console.log('page: font loaded', fonts);
-    }
   }
+
 };
 </script>
 
 <style lang="postcss" scoped>
-.page-full-example-with-components {
-  padding: 25px 0;
+.page-experimentel-index {
+  padding: calc(25 / 16 * 1em) 0;
   padding-top: 0;
-  font-size: calc(20 / 16 * 1em);
 
   & > * {
-    margin: 25px 0;
+    margin: calc(25 / 16 * 1em) 0;
 
     &:first-child {
       margin-top: 0;

@@ -5,42 +5,43 @@ position: 6
 category: Directives
 ---
 
-Um die in den Modul-Options definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
+Die in den Module Optionen definierten Schriften, werden mit der Direktive `v-font` verwendet. 
 
-Diese Direktive kann auf jeden Tag in einer Komponente definiert werden. 
 
 <alert>
-Wenn die Eltern-Komponente der Directive <code>critical</code> ist, sind Schriften initial aktiv und werden als Preload geladen.<br>
-Eignet sich für Initial schon enthaltene Headlines oder Texte.
+Wenn die Eltern-Komponente <code>critical</code> ist, werden die Schriften priorisiert geladen und sind initial aktiv.<br>
+Eignet sich für Komponenten die sich initial im Viewport befinden.
 </alert>
 
-In der Directive `v-font` kann entweder ein einzlener WErt oder eine Liste definiert werden. Eine Definition einer Schrift findet über die Methode `$fonts.getFont` statt.
+In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), enthaltene Methode `$getFont` die jeweilige Schrift definiert.
+
+Schriften werden mit `family`, `weight` und `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
 
 ```html[example]
 
 <!-- single definition -->
-<node v-font="$fonts.getFont()">
+<node v-font="$getFont(…)">
 
 <!-- multiple definitions -->
 <node v-font="[
-  $fonts.getFont(),
-  $fonts.getFont()
+  $getFont(…),
+  $getFont(…)
 ]">
 
 ```
 
+## `$getFont`
 
-## $fonts.getFont
+`$getFont` wird als Plugin eingebunden und ist über jeden Komponenten-Scope abrufbar. 
 
+Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
 
-**Parameters**
-
-| Property | Value                           | Default    |
-| -------- | ------------------------------- | ---------- |
-| family   | Font-Family (eg. `Custom Font`) | *required* |
-| weight   | Font-Weight (eg. `700`)         | `400`      |
-| style    | Font-Style (eg. `italic`)       | `normal`   |
-| options  | Other options for definition    | `normal`   |
+| Property | Value                                         | Default     |
+| -------- | --------------------------------------------- | ----------- |
+| family   | Font-Family (eg. `Custom Font`)               | *required*  |
+| weight   | Font-Weight (eg. `700`)                       | `400`       |
+| style    | Font-Style (eg. `italic`)                     | `normal`    |
+| options  | Media & Selector Options [see more](#options) | `undefined` |
 
 
 ### options
@@ -51,7 +52,7 @@ In der Directive `v-font` kann entweder ein einzlener WErt oder eine Liste defin
 | `selector` | `String` | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |
 
 
-<alert>
+<alert type="danger">
 <code>link</code> Tag is not supported orientation media query. e.g. <code>(orientation: portrait)</code>.
 This has an effect on prefetches and preloads.
 </alert>
@@ -61,6 +62,28 @@ This has an effect on prefetches and preloads.
   media: '(min-width: 768px)',
   selector: 'element, .elm, .elm:before'
 }
+```
+
+## Best Practice
+
+### Platzierung
+
+Setze den `v-font` immer auf ein Child-Tag der Komponente.
+
+```vue[Bad]
+<template>
+  <div v-font="$getFont('Font Family A')">
+    <span>…</span>
+  </div>
+</template>
+```
+
+```vue[Good]
+<template>
+  <div>
+    <span v-font="$getFont('Font Family A')">…</span>
+  </div>
+</template>
 ```
 
 ## Examples
@@ -77,6 +100,6 @@ This has an effect on prefetches and preloads.
   $getFont('Font Family A'),
   $getFont('Font Family B', 700, 'normal', { selector: 'b, strong' }),
   $getFont('Font Family B', 400, 'normal', { media: '(min-width: 768px)' }),
-  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' }),
+  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' })
 ]">…</article>
 ```

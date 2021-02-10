@@ -41,7 +41,7 @@ export default {
               { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-test-1/webp/1024.webp') },
               { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-test-1/webp/1280.webp') },
               { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-test-1/webp/1680.webp') },
-              { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-test-1/webp/1920.webp') }
+              { width: 1920, media: '(min-width: 1900px)', url: require('static/img/image-test-1/webp/1920.webp') }
             ]
           },
           {
@@ -53,7 +53,7 @@ export default {
               { width: 1024, media: '(min-width: 1024px)', url: require('static/img/image-test-1/jpg/1024.jpg') },
               { width: 1280, media: '(min-width: 1200px)', url: require('static/img/image-test-1/jpg/1280.jpg') },
               { width: 1680, media: '(min-width: 1600px)', url: require('static/img/image-test-1/jpg/1680.jpg') },
-              { width: 1920, media: '(min-width: 1900)', url: require('static/img/image-test-1/jpg/1920.jpg') }
+              { width: 1920, media: '(min-width: 1900px)', url: require('static/img/image-test-1/jpg/1920.jpg') }
             ]
           }
         ]
