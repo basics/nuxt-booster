@@ -1,5 +1,16 @@
 # Project Changelog
 
+## [1.1.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.11...v1.1.12) (2021-02-10)
+
+
+### Bug Fixes
+
+* **crossorigin:** fix default crossorigin ([73d1f05](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/73d1f05734eb89dfaba572d09ea273cf686c1b52))
+* **entry:** fix init without speedkit-layer ([8f2c7d5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8f2c7d511cec8d0b8177dd7d2c4ddb0ef5df04b0))
+* **events:** add events for iframe and picture ([9859e61](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9859e612fa315e4d75acf6e0b3406221111b130b))
+* **speedkit-layer:** improve speedkit-layer template ([d9e4335](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d9e4335186418ee787e1a127356463d3c381e9e4))
+* **speedkit-layer:** remove slots ([1298f4e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1298f4edc22633a3abdc967d4f5dfc2255786f47))
+
 ## [1.1.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.10...v1.1.11) (2021-02-03)
 
 

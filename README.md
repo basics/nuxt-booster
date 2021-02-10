@@ -1,4 +1,3 @@
-
 ![nuxt-speedkit][logo]
 
 # nuxt-speedkit
