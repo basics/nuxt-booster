@@ -135,6 +135,7 @@ jobs:
           npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
           touch dist/.nojekyll
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIST_PATH: dist
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
