@@ -25,7 +25,8 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content-theme-docs": "0.10.1",
-    "nuxt-edge": "latest"
+    "docus": "0.0.7",
+    "nuxt": "2.14.12",
+    "tailwindcss": "^2.0.3"
   }
 }

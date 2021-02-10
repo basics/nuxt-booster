@@ -1,10 +1,11 @@
-import theme from '@nuxt/content-theme-docs';
+import { withDocus } from 'docus';
 
-export default theme({
-  docs: {
-    primaryColor: '#E83162'
+export default withDocus({
+  docus: {
+    colors: {
+      primary: '#E83162'
+    }
   },
-  loading: { color: '#E83162' },
 
   server: {
     port: getPort()
