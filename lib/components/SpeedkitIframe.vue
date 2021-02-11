@@ -4,7 +4,7 @@
       :src="lazySrc"
       v-bind="$attrs"
       class="nuxt-speedkit__speedkit-iframe"
-      loading="lazy"
+      :loading="loading"
       :title="title"
       @load="onLoad"
     />
@@ -20,17 +20,17 @@ export default {
   },
 
   props: {
+    loading: {
+      type: String,
+      default: 'lazy'
+    },
     title: {
       type: String,
-      default () {
-        return null;
-      }
+      default: null
     },
     src: {
       type: String,
-      default () {
-        return null;
-      }
+      default: null
     }
   },
 

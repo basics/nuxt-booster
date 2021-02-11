@@ -10,10 +10,9 @@ module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  // ssr: false,
 
   env: {
-    GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
+    GITHUB_REPO_URL: pkg.repository.url
   },
 
   components: ['~/components/auto-import/'],
@@ -28,21 +27,24 @@ module.exports = {
   },
 
   build: {
-
     babel: {
       presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'),
+            require.resolve('@nuxt/babel-preset-app-edge'),
             {
               buildTarget: isServer ? 'server' : 'client',
-              corejs: { version: 3 },
+              corejs: { version: 3, proposals: true },
               useBuiltIns: isModern ? 'entry' : 'usage',
               forceAllTransforms: !isDev && !isModern && !isServer,
               shippedProposals: true,
               loose: true,
-              bugfixes: true
+              bugfixes: true,
+              polyfills: [
+                'es.promise',
+                'es.symbol'
+              ]
             }
           ]
         ];
@@ -77,7 +79,7 @@ module.exports = {
   },
 
   generate: {
-    crawler: false,
+    crawler: true,
     dir: getDistPath()
   },
 
@@ -87,187 +89,172 @@ module.exports = {
   },
 
   buildModules: [
-    ['@aceforth/nuxt-optimized-images', {
-      optimizeImages: true,
-      optimizeImagesInDev: false,
-      sqip: {
-        numberOfPrimitives: 20,
-        blur: 0,
-        mode: 1
-      },
-      lqip: {
-        palette: true
-      }
-    }]
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
+    '@nuxt/image'
   ],
 
+  speedkit: {
+    detection: {
+      performance: true,
+      browserSupport: true
+    },
+    performance: {
+      device: {
+        hardwareConcurrency: { min: 2, max: 48 },
+        deviceMemory: { min: 2 }
+      },
+      timing: {
+        fcp: 800,
+        dcl: 1200 // fallback if fcp is not available (safari)
+      },
+      lighthouseDetectionByUserAgent: false
+    },
+    fonts: [{
+      family: 'Quicksand',
+      locals: ['Quicksand'],
+      fallback: ['sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 500,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 600,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff2', type: 'woff2' }
+          ]
+        }
+      ]
+    }, {
+      family: 'Merriweather',
+      locals: ['Merriweather'],
+      fallback: ['Georgia', 'sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff2', type: 'woff2' }
+          ]
+        }
+      ]
+    }, {
+      family: 'Montserrat Alternates',
+      locals: ['Montserrat Alternates', 'Montserrat-Alternates'],
+      fallback: ['sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff2', type: 'woff2' }
+          ]
+        }
+      ]
+    }]
+  },
+
   modules: [
-    [
-      resolve(__dirname, '..'), {
-        ignorePerformance: false,
-        performance: {
-          device: {
-            hardwareConcurrency: { min: 2, max: 48 },
-            deviceMemory: { min: 2 }
-          },
-          timing: {
-            fcp: 500,
-            dcl: 800 // fallback if fcp is not available (safari)
-          },
-          lighthouseDetectionByUserAgent: false
-        },
-        fonts: [{
-          family: 'Quicksand',
-          locals: ['Quicksand'],
-          fallback: ['sans-serif'],
-          variances: [
-            {
-              style: 'normal',
-              weight: 300,
-              sources: [
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff', type: 'woff' },
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff', type: 'woff' },
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 500,
-              sources: [
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff', type: 'woff' },
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 600,
-              sources: [
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff', type: 'woff' },
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 700,
-              sources: [
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff', type: 'woff' },
-                { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff2', type: 'woff2' }
-              ]
-            }
-          ]
-        }, {
-          family: 'Comic Neue',
-          locals: ['Comic Neue', 'Comic-Neue'],
-          fallback: ['Arial', 'sans-serif'],
-          variances: [
-            {
-              // options: {
-              //   style: 'normal',
-              //   weight: 300,
-              //   stretch: '',
-              //   variant: '',
-              //   featureSettings: '',
-              //   variationSettings: '',
-              //   unicodeRange: ''
-              // },
-              style: 'normal',
-              weight: 300,
-              sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'italic',
-              weight: 300,
-              sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'italic',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 700,
-              sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'italic',
-              weight: 700,
-              sources: [
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff2', type: 'woff2' }
-              ]
-            }
-          ]
-        }, {
-          family: 'Montserrat Alternates',
-          locals: ['Montserrat Alternates', 'Montserrat-Alternates'],
-          fallback: ['sans-serif'],
-          variances: [
-            {
-              style: 'normal',
-              weight: 300,
-              sources: [
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff', type: 'woff' },
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'italic',
-              weight: 300,
-              sources: [
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff', type: 'woff' },
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'italic',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'normal',
-              weight: 700,
-              sources: [
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff', type: 'woff' },
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff2', type: 'woff2' }
-              ]
-            }, {
-              style: 'italic',
-              weight: 700,
-              sources: [
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff', type: 'woff' },
-                { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff2', type: 'woff2' }
-              ]
-            }
-          ]
-        }]
-      }
-    ]
+    resolve(__dirname, '..') // nuxt-speedkit
   ],
 
   head: {

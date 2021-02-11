@@ -1,7 +1,8 @@
+import { resolve as fsResolve } from 'path';
+import fs, { readFile } from 'fs';
 import { JSDOM } from 'jsdom';
+import rimraf from 'rimraf';
 import { toHashHex } from '../lib/utils/string';
-const fs = require('fs');
-const rimraf = require('rimraf');
 
 const minify = require('html-minifier').minify;
 
@@ -9,7 +10,7 @@ export function getDom (html) {
   return new JSDOM(html).window.document;
 }
 
-export function getFontFaceSnippet (family = 'Comic Neue', style = 'italic', weight = 300) {
+export function getFontFaceSnippet (family = 'Merriweather', style = 'italic', weight = 300) {
   return ['      @font-face {',
     `        font-family: '${family}';`,
     `        font-style: ${style};`,
@@ -50,4 +51,11 @@ export function deleteDir (path) {
       rimraf(path, resolve);
     } else { resolve(); }
   });
+}
+
+export function getHTML (path = '') {
+  return new Promise(resolve => readFile(fsResolve(path, 'index.html'), 'utf-8', (err, data) => {
+    if (err) { throw err; }
+    resolve(data);
+  }));
 }

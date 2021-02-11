@@ -4,7 +4,7 @@
     <h1
       v-font="[
         $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
-        $getFont('Comic Neue', 300, 'italic', {selector: '.claim'})
+        $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
       ]"
     >
       <span class="headline">{{ headline }}</span>
@@ -50,23 +50,6 @@ export default {
     @media (min-width: 768px) {
       font-size: 40px;
       line-height: 80px;
-    }
-  }
-
-  & >>> picture {
-    &::before {
-      display: block;
-      padding-top: calc(9 / 16 * 100%);
-      content: "";
-    }
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 

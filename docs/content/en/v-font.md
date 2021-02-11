@@ -5,82 +5,135 @@ position: 6
 category: Directives
 ---
 
-For using the `v-font` directive, you can use `$getFont` to register a font on the current node.  
-By multiple Fonts Variants you can set a array.
+Die in den Module Optionen definierten Schriften, werden mit der Direktive `v-font` verwendet. 
 
-**Single Variance**
-```html 
-<node v-font="$getFont(…)">…
-```
+In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), enthaltene Methode `$getFont` die jeweilige Schrift abgerufen.
 
-**Multiple Variance**
-```html 
-<node v-font="[$getFont(…).bySelector('b,strong'), $getFont(…).bySelector('i')]">…
-```
+ Für Multiple Schriften, kann eine Liste (`Array`) übergeben werden.
 
-When registering the font with $getFont, a font object is returned.  
-This can be used to restrict the font to selectors (`bySelector`) or set as critical (`isCritical`).
+```html
 
+<!-- single definition -->
+<node v-font="$getFont(…)">
 
-### $getFont (family, weight = 400, style = 'normal')
-
-**Parameters**
-
-| Property | Value                           | Default    |
-| -------- | ------------------------------- | ---------- |
-| family   | Font-Family (eg. `Custom Font`) | *required* |
-| weight   | Font-Weight (eg. `700`)         | `400`      |
-| style    | Font-Style (eg. `italic`)       | `normal`   |
-
-
-`$getFont` returns a `FontObject`, with these can be used for other operations.
-
-
-### `FontObject` Methods
-
-#### isCritical()
-
-**Return:** `FontObject`
-
-Sets the font as critical. Use critical for Font, that you see in the initial viewport.  
-Other fonts load by lazyload, when show in viewport.
-
-```html 
-<node v-font="$getFont(…).isCritical()">…
-```
-
-#### addMedia(...media)
-
-> ⚠️ Font preload not supported orientation media query. e.g. `(orientation: portrait)`
-
-Font load and show by current CSS Media Query.
-
-Ideal for Viewport optimized font load.
-
-```html 
-<node v-font="$getFont(…).isCritical().addMedia('(min-width: 992px)')">…
+<!-- multiple definitions -->
+<node v-font="[
+  $getFont(…),
+  $getFont(…)
+]">
 ```
 
 
-#### bySelector(selector)
+Schriften werden anhand der `family`, `weight` und dem `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
 
-> ⚠️ Order must be respected when using selectors. [CSS Specificity ](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+Normalerweise schaltet die Direktive die Schriften erst bei erreichen des Viewports aktiv.  
+Es empfiehlt sich, bei schon initial im Viewport enthaltenen Komponenten die verwendung der Eigenschaft `critical`.
 
-**Return:** `FontObject`
+Bei <nuxt-link to="/usage#kritische-komponente">Kritische Komponente</nuxt-link> werden die Schriften vorgeladen und sind initial aktiv.
+## `$getFont`
 
-Defines css selectors to which the font should be applied. 
+`$getFont` wird als Plugin eingebunden und ist über jeden Komponenten-Scope abrufbar. 
 
-```html 
-<node v-font="$getFont(…).bySelector('strong')">…
+Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
+
+| Key       | Type               | Requried | Description                                                                   | Default     |
+| --------- | ------------------ | -------- | ----------------------------------------------------------------------------- | ----------- |
+| `family`  | `String`           | yes      | Font-Family e.g. `Custom Font`                                                |             |
+| `weight`  | `String`, `Number` |          | Font-Style e.g. `normal`, `italic`                                            | `400`       |
+| `style`   | `String`           |          | Font-Weight e.g. `400`, `normal`                                              | `normal`    |
+| `options` | `Object`           |          | Media & Selector Options <nuxt-link to="/v-font#options">see more</nuxt-link> | `undefined` |
+
+
+### options
+
+| Key        | Type     | Requried | Description                                      | Default     |
+| ---------- | -------- | -------- | ------------------------------------------------ | ----------- |
+| `media`    | `String` |          | CSS Media Query (e.g. `(min-width: 768px)`)      | `undefined` |
+| `selector` | `String` |          | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |
+
+
+<alert type="danger">
+<code>link</code> Tag is not supported orientation media query. e.g. <code>(orientation: portrait)</code>.
+This has an effect on prefetches and preloads.
+</alert>
+
+```js
+{
+  media: '(min-width: 768px)',
+  selector: 'element, .elm, .elm:before'
+}
 ```
 
-OR operators can be defined by string or array.
+## Best Practice
 
-```html 
-<!-- String -->
-<node v-font="$getFont(…).bySelector('strong,i')">…
+### Platzierung
 
-<!-- Array -->
-<node v-font="$getFont(…).bySelector('strong', 'i')">…
+Setze den `v-font` immer auf ein Child-Tag der Komponente.
+
+**<span style="color: red;">Bad</span>**
+```html
+<template>
+  <div v-font="$getFont('Font Family A')">
+    <span>…</span>
+  </div>
+</template>
 ```
 
+**<span style="color: green;">Good</span>**
+```html
+<template>
+  <div>
+    <span v-font="$getFont('Font Family A')">…</span>
+  </div>
+</template>
+```
+### Never use with `v-html` or `v-text`
+
+Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
+
+**<span style="color: red;">Bad</span>**
+```html
+<template>
+  <div>
+    <div v-font="$getFont('Font Family A')" v-html="…">…</div>
+  </div>
+</template>
+```
+
+**<span style="color: green;">Good</span>**
+```html
+<template>
+  <div>
+    <div v-font="$getFont('Font Family A')">
+      <div v-html="…" />
+    </div>
+  </div>
+</template>
+```
+
+## Examples
+
+### Basic Usage
+
+```html
+<h1 v-font="$getFont('Font Family', 700)">Headline</h1>
+```
+### Advanced Usage
+
+```js
+[
+  
+  // Font wird auf alles angewendet
+  $getFont('Font Family A'),
+
+  // Font wird auf `b` und `strong` Tags angwendet
+  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong' }),
+
+  // Font erscheint erst ab Viewport `>768px`
+  $getFont('Font Family B', 400, 'normal', { media: '(min-width: 768px)' }),
+
+  // Font wird auf `b` und `strong` Tags angwendet und erscheint erst ab Viewport `>768px`
+  $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' })
+
+]
+```

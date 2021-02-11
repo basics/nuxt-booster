@@ -26,7 +26,10 @@ jobs:
         uses: actions/cache@v2
         id: cache
         with:
-          path: node_modules
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Install Dependencies

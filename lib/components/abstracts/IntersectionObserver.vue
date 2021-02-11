@@ -5,26 +5,30 @@ export default {
   props: {
     root: {
       type: global.HTMLElement,
-      default () {
-        return null;
-      }
+      default: null
     },
     rootMargin: {
       type: String,
-      default () {
-        return '0px';
-      }
+      default: '0px'
     },
     threshold: {
       type: Array,
       default () {
         return [0];
       }
+    },
+    trackVisibility: {
+      type: Boolean,
+      default: false
+    },
+    delay: {
+      type: Number,
+      default: 0
     }
   },
   created () {
     if (!this.$attrs.critical || !this.$options.critical) {
-      const options = (({ root, rootMargin, threshold }) => ({ root, rootMargin, threshold }))(this);
+      const options = (({ root, rootMargin, threshold, trackVisibility, delay }) => ({ root, rootMargin, threshold, trackVisibility, delay }))(this);
       this.observer = new IntersectionObserver(([e]) => this.onIntersect(e), options);
     }
   },

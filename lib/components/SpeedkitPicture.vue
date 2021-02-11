@@ -1,42 +1,32 @@
 <template>
-  <image-container :loading="loading" class="nuxt-speedkit__speedkit-picture">
-    <template #default>
-      <picture>
-        <source
-          v-for="(source, index) in preloadedSources"
-          :key="index"
-          v-bind="source"
-        >
-        <custom-image v-bind="{src: preparedPlaceholder.base64, preload: sources, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
-      </picture>
-      <custom-no-script>
-        <picture>
-          <source
-            v-for="(source, index) in sources"
-            :key="index"
-            v-bind="source"
-          >
-          <custom-image v-bind="{src: preparedPlaceholder.url, width, height, alt, title, crossorigin}" @load="onLoad" @preload="onPreload" />
-        </picture>
-      </custom-no-script>
-    </template>
-    <template #caption>
+  <figure class="nuxt-speedkit__speedkit-picture">
+    <custom-no-script>
+      <custom-picture :sources="resolvedSources" :alt="alt" :title="title" :crossorigin="crossorigin" />
+    </custom-no-script>
+    <custom-picture
+      :sources="resolvedPlacholders"
+      :preload="resolvedSources"
+      :alt="alt"
+      :title="title"
+      :crossorigin="crossorigin"
+      v-on="$listeners"
+    />
+    <figcaption v-if="hasSlot">
       <slot name="caption" />
-    </template>
-  </image-container>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
-import ImageContainer from './ImageContainer';
+import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
+import { getStyleDescription } from 'nuxt-speedkit/utils/description';
+import CustomPicture from './customs/CustomPicture';
 import CustomNoScript from './customs/CustomNoScript';
-import CustomImage from './customs/CustomImage';
 
 export default {
-
   components: {
-    ImageContainer,
-    CustomNoScript,
-    CustomImage
+    CustomPicture,
+    CustomNoScript
   },
 
   props: {
@@ -47,82 +37,80 @@ export default {
       }
     },
 
-    placeholder: {
-      type: Object,
+    placeholders: {
+      type: Array,
       default () {
-        return {};
+        return [];
       }
     },
 
     alt: {
       type: String,
-      default () {
-        return '';
-      }
+      default: null
     },
-
     title: {
       type: String,
-      default () {
-        return '';
-      }
+      default: null
     },
-
-    width: {
-      type: Number,
-      default () {
-        return null;
-      }
-    },
-
-    height: {
-      type: Number,
-      default () {
-        return null;
-      }
-    },
-
     crossorigin: {
       type: String,
       default () {
-        return 'anonymous';
+        return this.$crossorigin;
       }
     }
   },
 
   data () {
     return {
-      preloadedSources: (this.noScript && this.sources) || [],
-      loading: false,
-      webpSupport: false
+      resolvedPlacholders: this.getPlaceholders(),
+      resolvedSources: this.getSources()
+    };
+  },
+
+  head () {
+    return {
+      noscript: [
+        getStyleDescription('.nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript + picture { display:none; } .nuxt-speedkit__speedkit-picture > noscript.nuxt-speedkit__noscript > picture > img { filter: none; }', true)
+      ],
+      __dangerouslyDisableSanitizers: ['noscript']
     };
   },
 
   computed: {
-    preparedPlaceholder () {
-      return Object.assign({
-        base64: undefined,
-        url: undefined
-      }, this.placeholder);
-    },
     hasSlot () {
       return this.$slots.caption;
     }
   },
 
-  mounted () {
-    this.loading = true;
-  },
-
   methods: {
-    onLoad (e) {
-      this.loading = false;
-      this.$emit('load');
+    getPlaceholders () {
+      return this.placeholders.map(({ media, url, format }) => {
+        return {
+          media,
+          url,
+          type: getMimeTypeByFormat(format)
+        };
+      });
     },
-
-    onPreload () {
-      this.preloadedSources = this.sources;
+    getSources () {
+      return this.sources.map(({ sizes, format, media }) => {
+        return {
+          media,
+          srcset: sizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+          sizes: sizes.map(({ width, media: breakpoint }) => breakpoint ? `${breakpoint} ${width}px` : `${width}px`).reverse().join(', '),
+          type: getMimeTypeByFormat(format)
+        };
+      });
     }
   }
 };
+
 </script>
+
+<style lang="postcss" scoped>
+.nuxt-speedkit__speedkit-picture {
+  width: 100%;
+  height: inherit;
+  margin: 0;
+}
+</style>

@@ -6,7 +6,8 @@
   },
   "extends": [
     "@nuxtjs",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
+    "plugin:sonarjs/recommended"
   ],
   "plugins": [
     "no-secrets",
@@ -69,6 +70,7 @@
         "registeredComponentsOnly": true,
         "ignores": []
       }
-    ]
+    ],
+    "sonarjs/no-duplicate-string": 0
   }
 }

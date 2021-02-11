@@ -11,8 +11,9 @@ results:
 - delivery of the minimum required resources based on the current viewport
 ---
 
-<img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
-<img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/>
+<!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
+<img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/> -->
+<img src="/nsk-image-rgb.png" width="1280" height="640" alt=""/>
 
 [Module]() for [NuxtJS](https://nuxtjs.org).
 

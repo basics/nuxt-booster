@@ -1,10 +1,9 @@
 {
   "title": "Nuxt Speedkit",
-  "url": "",
+  "url": "https://nuxt-speedkit.grabarzundpartner.dev/",
   "logo": {
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "GrabarzUndPartner/lazy-resources",
-  "twitter": "@nuxt_js"
+  "github": "GrabarzUndPartner/nuxt-speedkit"
 }

@@ -1,9 +1,8 @@
 module.exports = {
-  testEnvironment: 'node',
+  preset: '@nuxt/test-utils',
   reporters: ['default', ['jest-sonar', {
     outputName: 'jest-report.xml'
   }]],
-  collectCoverage: true,
   moduleFileExtensions: ['js', 'json', 'vue'],
   coveragePathIgnorePatterns: [
     '/node_modules/',
@@ -21,15 +20,13 @@ module.exports = {
     '^@@$': '<rootDir>',
     '^@/(.*)$': '<rootDir>/lib/$1'
   },
-  transformIgnorePatterns: ['/node_modules/(?!(nuxt-i18n)/)'],
+  transformIgnorePatterns: ['/node_modules/(?!(@nuxt/image|nuxt-i18n)/)'],
   transform: {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.vue$': 'vue-jest'
   },
   testPathIgnorePatterns: [
-    'fixture'
     // 'generate.test.js',
-    // 'module.test.js'
     // 'browser.test.js'
   ]
 };
