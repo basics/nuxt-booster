@@ -85,10 +85,10 @@ Alle Komponenten werden mit einem `rootMargin` beschrieben. Dieser kann mit der 
 Die Modul Komponenten können über den Namespace `nuxt-speedkit-components` importiert werden.
 
 
-- [SpeedkitPicture](/components/speedkit-picture/)
-- [SpeedkitImage](/components/speedkit-image/)
-- [SpeedkitIframe](/components/speedkit-iframe/)
 - [SpeedkitLayer](/components/speedkit-layer/)
+- [SpeedkitPicture](/components/speedkit-picture/)
+- [SpeedkitIframe](/components/speedkit-iframe/)
+- [SpeedkitYoutube](/components/speedkit-youtube/)
 
 ```html[Example]
 

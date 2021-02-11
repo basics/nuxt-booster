@@ -33,14 +33,14 @@
               </label>
             </button>
 
-            <!-- Button for use without without javascript and with fonts -->
+            <!-- Button for use without javascript and with fonts -->
             <button id="nuxt-speedkit__button__init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
               <label for="nuxt-speedkit__speedkit-layer__close">
                 Apply with Fonts
               </label>
             </button>
 
-            <!-- Button for activate javascript by bad connection -->
+            <!-- Button for activate javascript by bad connection or browser support -->
             <button id="nuxt-speedkit__button__init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
               Apply with all Features
             </button>

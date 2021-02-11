@@ -20,7 +20,9 @@ Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin 
 - [performance](#)
 - [browserSupport](#)
 
-```json[Default]
+**Default Values**
+
+```js
 {
   performance: true,
   browserSupport: true
@@ -36,7 +38,9 @@ Diese dient zum Definieren der minimalen Hardware Anforderung und Verbindungs-Ge
 
 Eine überprüfung auf Lighthouse kann optional hinzugeschaltet werden.
 
-```js[Default]
+**Default Values**
+
+```js
 {
   device: {
     hardwareConcurrency: { min: 2, max: 48 },
@@ -56,7 +60,9 @@ Beschreibt die Hardware-Anforderungen die ein Benutzer erfüllen muss. Dazu geh�
 
 Gesezt wird der min/max Bereich für [`hardwareConcurrency`](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorConcurrentHardware/hardwareConcurrency) und [`deviceMemory`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory).
 
-```js[Default]
+**Default Values**
+
+```js
 {
   hardwareConcurrency: { min: 2, max: 48 },
   deviceMemory: { min: 2 }
@@ -71,7 +77,9 @@ Alle werte werden in `ms` gesetzt und beschreiben den Maximum.
 
 More Information to [`fcp` (First contentful paint)](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint)
 
-```js[Default]
+**Default Values**
+
+```js
 {
   fcp: 800,
   dcl: 1200 // fallback if fcp is not available (safari)
@@ -125,12 +133,12 @@ Beschreibt eine Font-Family mit all ihren Varianten.
 }]
 ```
 
-| Key         | Type     | Description                                                                         | default    |
-| ----------- | -------- | ----------------------------------------------------------------------------------- | ---------- |
-| `family`    | `String` | Name der Schriftarten Familie.                                                      | `required` |
-| `locals`    | `Array`  | System-Schriftnamen der angegebenen Familie.                                        | `required` |
-| `fallback`  | `Array`  | Fallback Schriftarten Familien. e.g. `font-family: 'Font A', 'Arial', 'sans-serif'` | `required` |
-| `variances` | `Array`  | Enthält die Varianten einer Font-Family. (e.g. Bold, Italic)                        | `required` |
+| Key         | Type     | Required | Description                                                                         |
+| ----------- | -------- | -------- | ----------------------------------------------------------------------------------- |
+| `family`    | `String` | yes      | Name der Schriftarten Familie.                                                      |
+| `locals`    | `Array`  | yes      | System-Schriftnamen der angegebenen Familie.                                        |
+| `fallback`  | `Array`  | yes      | Fallback Schriftarten Familien. e.g. `font-family: 'Font A', 'Arial', 'sans-serif'` |
+| `variances` | `Array`  | yes      | Enthält die Varianten einer Font-Family. (e.g. Bold, Italic)                        |
 
 <alert type="warning">Look for similarity in fonts to system fonts for perfect swap and reduction of layout shifts.</alert>
 ### Font-Variance
@@ -151,11 +159,11 @@ Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/
 ```
 
 
-| Key       | Type                 | Description                                            | default    |
-| --------- | -------------------- | ------------------------------------------------------ | ---------- |
-| `style`   | String               | `font-style` des FontFaces. e.g. `normal`, `italic`    | `required` |
-| `weight`  | `String` or `Number` | `font-weight` des FontFaces. e.g. `400`, `normal`      | `required` |
-| `sources` | `Array`              | Liste aller der Variante zugeordneten Schrift-Dateien. | `required` |
+| Key       | Type                 | Required | Description                                            |
+| --------- | -------------------- | -------- | ------------------------------------------------------ |
+| `style`   | `String`             | yes      | `font-style` des FontFaces. e.g. `normal`, `italic`    |
+| `weight`  | `String` or `Number` | yes      | `font-weight` des FontFaces. e.g. `400`, `normal`      |
+| `sources` | `Array`              | yes      | Liste aller der Variante zugeordneten Schrift-Dateien. |
 
 #### `sources`
 
@@ -187,8 +195,9 @@ Defines a prefix for the module components, important for auto import (`componen
 
 Option für den `IntersectionObserver`, die im Modul verbaut sind.
 
+**Default Values**
 
-```js[Default]
+```js
 {
   // rootMargin for speedkitComponents components
   component: '0%',
@@ -199,7 +208,7 @@ Option für den `IntersectionObserver`, die im Modul verbaut sind.
 
 ### `asset`
 
-Beschreibt den `rootMargin` für den `IntersectionObserver` von `v-font`, `SpeedkitPicture` und `SpeedkitImage`.
+Beschreibt den `rootMargin` für den `IntersectionObserver` von `v-font` und `SpeedkitPicture`.
 
 ### `components`
 

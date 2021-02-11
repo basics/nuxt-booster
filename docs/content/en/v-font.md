@@ -37,20 +37,20 @@ Mehr unter [Kritische Komponente](/usage#kritische-komponente).
 
 Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
 
-| Property | Value                                         | Default     |
-| -------- | --------------------------------------------- | ----------- |
-| family   | Font-Family (eg. `Custom Font`)               | *required*  |
-| weight   | Font-Weight (eg. `700`)                       | `400`       |
-| style    | Font-Style (eg. `italic`)                     | `normal`    |
-| options  | Media & Selector Options [see more](#options) | `undefined` |
+| Property  | Type               | Requried | Description                                   | Default     |
+| --------- | ------------------ | -------- | --------------------------------------------- | ----------- |
+| `family`  | `String`           | yes      | Font-Family e.g. `Custom Font`                |             |
+| `weight`  | `String`, `Number` |          | Font-Style e.g. `normal`, `italic`            | `400`       |
+| `style`   | `String`           |          | Font-Weight e.g. `400`, `normal`              | `normal`    |
+| `options` | `Object`           |          | Media & Selector Options [see more](#options) | `undefined` |
 
 
 ### options
 
-| Property   | Type     | Description                                      | Default     |
-| ---------- | -------- | ------------------------------------------------ | ----------- |
-| `media`    | `String` | CSS Media Query (e.g. `(min-width: 768px)`)      | `undefined` |
-| `selector` | `String` | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |
+| Property   | Type     | Requried | Description                                      | Default     |
+| ---------- | -------- | -------- | ------------------------------------------------ | ----------- |
+| `media`    | `String` |          | CSS Media Query (e.g. `(min-width: 768px)`)      | `undefined` |
+| `selector` | `String` |          | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |
 
 
 <alert type="danger">
@@ -58,7 +58,7 @@ Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
 This has an effect on prefetches and preloads.
 </alert>
 
-```js[example]
+```js
 {
   media: '(min-width: 768px)',
   selector: 'element, .elm, .elm:before'
@@ -71,7 +71,8 @@ This has an effect on prefetches and preloads.
 
 Setze den `v-font` immer auf ein Child-Tag der Komponente.
 
-```vue[Bad]
+**<span style="color: red;">Bad</span>**
+```vue
 <template>
   <div v-font="$getFont('Font Family A')">
     <span>…</span>
@@ -79,10 +80,34 @@ Setze den `v-font` immer auf ein Child-Tag der Komponente.
 </template>
 ```
 
-```vue[Good]
+**<span style="color: green;">Good</span>**
+```vue
 <template>
   <div>
     <span v-font="$getFont('Font Family A')">…</span>
+  </div>
+</template>
+```
+### Never use with `v-html` or `v-text`
+
+Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
+
+**<span style="color: red;">Bad</span>**
+```vue
+<template>
+  <div>
+    <div v-font="$getFont('Font Family A')" v-html="…">…</div>
+  </div>
+</template>
+```
+
+**<span style="color: green;">Good</span>**
+```vue
+<template>
+  <div>
+    <div v-font="$getFont('Font Family A')">
+      <div v-html="…" />
+    </div>
   </div>
 </template>
 ```
