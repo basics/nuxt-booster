@@ -5,8 +5,6 @@ position: 3
 category: Guide
 ---
 
-
-
 ## `crossorigin`
 
 Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin aus der [Render Konfiguration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin) übernommen.
@@ -17,7 +15,7 @@ Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin 
 
 Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des `SpeedkitLayer` vorgenommen werden soll.
 
-- [performance](#)
+- <nuxt-link to="#">performance</nuxt-link>
 - [browserSupport](#)
 
 **Default values**
@@ -213,3 +211,65 @@ Beschreibt den `rootMargin` für den `IntersectionObserver` von `v-font` und `Sp
 ### `components`
 
 Beschreibt den `rootMargin` für die benutzung von `speedkitComponents`.
+
+## Example Configuration
+
+```js
+{ 
+  detection: {
+    performance: true,
+    browserSupport: true
+  },
+  performance: {
+    device: {
+      hardwareConcurrency: { min: 2, max: 48 },
+      deviceMemory: { min: 2 }
+    },
+    timing: {
+      fcp: 800,
+      dcl: 1200 // fallback if fcp is not available (safari)
+    },
+    lighthouseDetectionByUserAgent: false
+  },
+  fonts: [{
+    family: 'Font A',
+    locals: ['Font A'],
+    fallback: ['Arial', 'sans-serif'],
+    variance: [
+      {
+        style: 'normal',
+        weight: 400,
+        sources: [
+          { src: '@/assets/fonts/font-a-regular.woff', type:'woff' },
+          { src: '@/assets/fonts/font-a-regular.woff2', type:'woff2' }
+        ]
+      }, {
+        style: 'italic',
+        weight: 400,
+        sources: [
+          { src: '@/assets/fonts/font-a-regularItalic.woff', type:'woff' },
+          { src: '@/assets/fonts/font-a-regularItalic.woff2', type:'woff2' }
+        ]
+      }, {
+        style: 'normal',
+        weight: 700,
+        sources: [
+          { src: '@/assets/fonts/font-a-700.woff', type:'woff' },
+          { src: '@/assets/fonts/font-a-700.woff2', type:'woff2' }
+        ]
+      }
+    ]
+  }]
+
+  componentAutoImport: false,
+  componentPrefix: undefined,
+
+  /**
+   * IntersectionObserver rootMargin for Compoennts and Assets
+   */
+  lazyOffset: {
+    component: '0%',
+    asset: '0%'
+  }
+}
+```

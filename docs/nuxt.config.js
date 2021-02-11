@@ -1,10 +1,19 @@
 import { withDocus } from 'docus';
+import nuxtSpeedkitPkg from '../package.json';
 
 export default withDocus({
   docus: {
     colors: {
       primary: '#E83162',
       code: '#E83162'
+    }
+  },
+
+  pwa: {
+    meta: {
+      name: nuxtSpeedkitPkg.name,
+      description: nuxtSpeedkitPkg.description,
+      theme_color: '#E83162'
     }
   },
 

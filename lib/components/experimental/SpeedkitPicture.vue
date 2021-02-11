@@ -42,15 +42,11 @@ export default {
 
     alt: {
       type: String,
-      default () {
-        return '';
-      }
+      default: null
     },
     title: {
       type: String,
-      default () {
-        return '';
-      }
+      default: null
     },
 
     crossorigin: {

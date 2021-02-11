@@ -5,15 +5,11 @@ export default {
   props: {
     root: {
       type: global.HTMLElement,
-      default () {
-        return null;
-      }
+      default: null
     },
     rootMargin: {
       type: String,
-      default () {
-        return '0px';
-      }
+      default: '0px'
     },
     threshold: {
       type: Array,
@@ -23,9 +19,7 @@ export default {
     },
     trackVisibility: {
       type: Boolean,
-      default () {
-        return false;
-      }
+      default: false
     },
     delay: {
       type: Number,
