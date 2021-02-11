@@ -12,7 +12,7 @@ module.exports = {
   srcDir: __dirname,
 
   env: {
-    GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
+    GITHUB_REPO_URL: pkg.repository.url
   },
 
   components: ['~/components/auto-import/'],
@@ -99,7 +99,6 @@ module.exports = {
       performance: true,
       browserSupport: true
     },
-    // crossorigin: 'anonymous',
     performance: {
       device: {
         hardwareConcurrency: { min: 2, max: 48 },
