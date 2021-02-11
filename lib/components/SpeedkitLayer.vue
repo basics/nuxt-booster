@@ -5,48 +5,44 @@
       <div id="nuxt-speedkit__speedkit-layer__content">
         <slot>
           <div>
-
             <p>Sorry, but you will have a limited user experience due to a…</p>
 
-            <ul style=" padding: 0; list-style: none;">
+            <ul style="padding: 0; list-style: none;">
               <!-- Displayed when javascript is disabled. -->
-              <custom-no-script>
-                <li>disabled javascript</li>
-              </custom-no-script>
-
+              <li id="nuxt-speedkit__message__nojs">
+                disabled javascript
+              </li>
               <!-- Displayed when browser does not support. -->
-              <li id="nuxt-speedkit__unsupported-browser">
+              <li id="nuxt-speedkit__message__unsupported-browser">
                 outdated browser
               </li>
               <!-- Displayed when user hardware is not sufficient. -->
-              <li id="nuxt-speedkit__outdated-device">
+              <li id="nuxt-speedkit__message__outdated-device">
                 outdated device
               </li>
               <!-- Displayed when connection is too slow. -->
-              <li id="nuxt-speedkit__slow-connection">
+              <li id="nuxt-speedkit__message__slow-connection">
                 slow connection
               </li>
             </ul>
 
             <!-- Button to hide the layer with no javascript -->
-            <custom-no-script>
-              <button id="nuxt-speedkit__button__init-nojs" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
-                <label for="nuxt-speedkit__speedkit-layer__close">
-                  OK
-                </label>
-              </button>
-            </custom-no-script>
+            <button id="nuxt-speedkit__button__init-nojs">
+              <label for="nuxt-speedkit__speedkit-layer__close">
+                Apply without js
+              </label>
+            </button>
 
             <!-- Button for use without without javascript and with fonts -->
             <button id="nuxt-speedkit__button__init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
               <label for="nuxt-speedkit__speedkit-layer__close">
-                No
+                Apply with Fonts
               </label>
             </button>
 
             <!-- Button for activate javascript by bad connection -->
             <button id="nuxt-speedkit__button__init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
-              Yes
+              Apply with all Features
             </button>
 
           </div>
@@ -58,22 +54,19 @@
 
 <script>
 import { getStyleDescription } from 'nuxt-speedkit/utils/description';
-import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
-
 import OnlySsr from './abstracts/OnlySsr'
 export default {
   name: 'SpeedkitLayer',
 
   components: {
-    OnlySsr,
-    CustomNoScript
+    OnlySsr
   },
 
 
   head () {
     return {
       noscript: [
-        getStyleDescription('#nuxt-speedkit__speedkit-layer noscript.nuxt-speedkit__noscript ~ button { display:none; }', true)
+        getStyleDescription('#nuxt-speedkit__speedkit-layer button:not(#nuxt-speedkit__button__init-nojs) { display: none !important; } #nuxt-speedkit__message__nojs, #nuxt-speedkit__button__init-nojs { display: initial !important; }', true)
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     };
@@ -96,15 +89,23 @@ export default {
   }
 }
 
-#nuxt-speedkit__unsupported-browser {
+#nuxt-speedkit__button__init-nojs {
   display: none;
 }
 
-#nuxt-speedkit__outdated-device {
+#nuxt-speedkit__message__nojs {
   display: none;
 }
 
-#nuxt-speedkit__slow-connection {
+#nuxt-speedkit__message__unsupported-browser {
+  display: none;
+}
+
+#nuxt-speedkit__message__outdated-device {
+  display: none;
+}
+
+#nuxt-speedkit__message__slow-connection {
   display: none;
 }
 </style>
