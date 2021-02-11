@@ -16,7 +16,7 @@ Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin 
 Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des `SpeedkitLayer` vorgenommen werden soll.
 
 - <nuxt-link to="#">performance</nuxt-link>
-- [browserSupport](#)
+- <nuxt-link to="#">browserSupport</nuxt-link>
 
 **Default values**
 
@@ -179,7 +179,7 @@ Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/
 
 Wenn gesetzt, werden alle unter `nuxt-speedkit-components` enthaltenen Komponenten global registriert.
 
-Somit muss kein explizierter `import` mehr stattfinden.
+Siehe [@nuxt/components](https://github.com/nuxt/components)
 
 - Default: `false`
 
@@ -227,7 +227,7 @@ Beschreibt den `rootMargin` für die benutzung von `speedkitComponents`.
     },
     timing: {
       fcp: 800,
-      dcl: 1200 // fallback if fcp is not available (safari)
+      dcl: 1200
     },
     lighthouseDetectionByUserAgent: false
   },

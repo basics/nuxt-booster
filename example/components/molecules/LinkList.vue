@@ -9,7 +9,7 @@
       :key="index"
     >
       <nuxt-link v-bind="item">
-        <span>&raquo;</span> {{ item.title }}
+        {{ item.title }}
       </nuxt-link>
     </li>
   </ul>
@@ -48,29 +48,21 @@ li {
   margin: calc(10 / 16 * 1em) 0;
 }
 
-& span {
-  display: inline-block;
-  margin-right: 5px;
-  font-size: 1.2em;
-  opacity: 0.5;
-  transition: opacity 0.2s linear, transform 0.2s linear;
-}
-
 a {
   position: relative;
   display: block;
+  padding: calc(5 / 16 * 1em) calc(10 / 16 * 1em);
   color: currentColor;
   text-decoration: none;
+  border-radius: calc(3 / 16 * 1em);
+  outline: none;
   opacity: 0.8;
+  transition: opacity 0.2s linear, background 0.2s linear;
 
   &:hover,
   &.nuxt-link-exact-active {
+    background: rgb(255 255 255 / 40%);
     opacity: 1;
-
-    & span {
-      opacity: 1;
-      transform: translateX(5px);
-    }
   }
 }
 </style>

@@ -8,15 +8,13 @@ features:
 
 ---
 
-
 [view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)
-
 
 ```html
 <speedkit-iframe src="…" />
 ```
 
-Das `SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements und bringt folgende Features mit:
+`SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements.
 
 ## Features
 

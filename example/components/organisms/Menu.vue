@@ -230,6 +230,7 @@ html.js--menu-open {
 
   & .menu__headline {
     display: block;
+    margin-left: calc(10 / 16 * 1em);
     font-size: calc(18 / 16 * 1em);
     color: #333;
 
