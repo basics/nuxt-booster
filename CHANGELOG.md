@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [1.1.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.12...v1.1.13) (2021-02-11)
+
+
+### Bug Fixes
+
+* **speedkit-layer:** remove no-script tags, replace with id and noscript css ([64137a7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/64137a74b53312dbcb2bf647382b93b731fc7cd1))
+* **speedkit-layer:** remove unused props ([9fa27d5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9fa27d53a85202c0c17264b3101058e90e12ce46))
+
 ## [1.1.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.11...v1.1.12) (2021-02-10)
 
 
