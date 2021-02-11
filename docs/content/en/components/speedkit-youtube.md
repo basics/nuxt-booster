@@ -16,7 +16,7 @@ features:
 
 `SpeedkitYoutube` wird verwendet für das einfache einbinden eines Youtube Videos.
 
-**Features:**
+## Features
 
 <list :items="features"></list>
 
@@ -56,7 +56,7 @@ Als Konfiguration wird das <nuxt-link to="/components/speedkit-picture/">Speedki
 
 ## Events
 
-```vue[example]
+```html
 <speedkit-picture 
   @ready="console.log('Ready!')" 
   @loading="console.log('Video Loading!')" 

@@ -19,6 +19,8 @@ features:
 
 Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und bringt folgende Features mit:
 
+## Features
+
 <list :items="features"></list>
 
 ## Properties
@@ -37,7 +39,7 @@ Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und
 ### `sources`
 
 
-```js[example]
+```js
 [
   {
     media: '(min-width: 768px)',
@@ -71,7 +73,7 @@ Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und
 
 #### source
 
-```js[example]
+```js
 {
   media: '(min-width: 768px)',
   format: 'webp',
@@ -103,16 +105,16 @@ Bechreibt die Attribute `srcset` und `sizes` einer Picture `source`.
 `url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
 `media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
 
-| Property | Value                                       | Default     |
-| -------- | ------------------------------------------- | ----------- |
-| width    | Viewport width as `Number` (e.g. `768`)     | `undefined` |
-| media    | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
-| url      | Path to the ressource                       | *required*  |
+| Property | Required | Value                                       | Default     |
+| -------- | -------- | ------------------------------------------- | ----------- |
+| `url`    | yes      | Path to the ressource                       |             |
+| `width`  |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
+| `media`  |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
 
 - Default: `[]`
 ### `placeholders`
 
-```js[example]
+```js
 [
   {
     media: '(min-width: 576px)',
@@ -145,7 +147,7 @@ Image CrossOrigin.
 
 ## Events
 
-```vue[example]
+```htnk
 <speedkit-picture 
   @load="console.log('Loaded!')" 
   @enter="console.log('Viewport!')" 

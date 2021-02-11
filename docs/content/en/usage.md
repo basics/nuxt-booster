@@ -44,7 +44,7 @@ Eine Kritische Komponente, ist eine Kompoente die schon initial Sichtbar ist und
 
 Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponente zu erzeugen muss die Eigenschaft `critical` gesetzt werden. Wenn gesetzt, werden die enthaltenen Resources Priorisiert geladen (e.g. `<link rel="preload" …`)
 
-```html[Example]
+```html
 <component critical :critical="true" />
 ```
 
@@ -55,7 +55,7 @@ Um die in der `nuxt.config` definierten Schriften zu verwenden, wird die Direkti
 
 Siehe mehr unter [v-font](/v-font/).
 
-```html[Example]
+```html
 <component v-font="$fonts.getFont(…)" />
 ```
 
@@ -68,7 +68,7 @@ Für das einbinden von Komponenten in einer Seite wird analog zur Eigenschaft `c
 Import muss Funktional sein. (e.g. <code>() => import('…')</code>`)
 </alert>
 
-```js[Example]
+```js
 {
   speedkitComponents: {
     Stage: () => import('@/components/organisms/Stage'),
@@ -90,7 +90,7 @@ Die Modul Komponenten können über den Namespace `nuxt-speedkit-components` imp
 - [SpeedkitIframe](/components/speedkit-iframe/)
 - [SpeedkitYoutube](/components/speedkit-youtube/)
 
-```html[Example]
+```html
 
 <template>
   <speedkit-picture>

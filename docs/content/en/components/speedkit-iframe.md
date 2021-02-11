@@ -18,6 +18,8 @@ features:
 
 Das `SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements und bringt folgende Features mit:
 
+## Features
+
 <list :items="features"></list>
 
 ## Properties
@@ -25,7 +27,7 @@ Das `SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements und b
 Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
 ## Events
 
-```vue[example]
+```html
 <speedkit-iframe 
   @load="console.log('Loaded!')" 
   @enter="console.log('Viewport!')" 

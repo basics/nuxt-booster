@@ -11,7 +11,7 @@ In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), ent
 
  Für Multiple Schriften, kann eine Liste (`Array`) übergeben werden.
 
-```html[example]
+```html
 
 <!-- single definition -->
 <node v-font="$getFont(…)">
@@ -21,16 +21,15 @@ In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), ent
   $getFont(…),
   $getFont(…)
 ]">
-
 ```
 
 
-Schriften werden mit `family`, `weight` und `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
+Schriften werden anhand der `family`, `weight` und dem `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
 
-Normalerweise schaltet die direktive die Schriften erst bei erreichen des Viewports aktiv, es empfiehlt sich für initial im Viewport enthaltenen Komponenten die verwendung der Eigenschaft `critical`.  
-Mehr unter [Kritische Komponente](/usage#kritische-komponente).
+Normalerweise schaltet die Direktive die Schriften erst bei erreichen des Viewports aktiv.  
+Es empfiehlt sich, bei schon initial im Viewport enthaltenen Komponenten die verwendung der Eigenschaft `critical`.
 
-
+Bei [Kritische Komponente](/usage#kritische-komponente) werden die Schriften vorgeladen und sind initial aktiv.
 ## `$getFont`
 
 `$getFont` wird als Plugin eingebunden und ist über jeden Komponenten-Scope abrufbar. 
@@ -72,7 +71,7 @@ This has an effect on prefetches and preloads.
 Setze den `v-font` immer auf ein Child-Tag der Komponente.
 
 **<span style="color: red;">Bad</span>**
-```vue
+```html
 <template>
   <div v-font="$getFont('Font Family A')">
     <span>…</span>
@@ -81,7 +80,7 @@ Setze den `v-font` immer auf ein Child-Tag der Komponente.
 ```
 
 **<span style="color: green;">Good</span>**
-```vue
+```html
 <template>
   <div>
     <span v-font="$getFont('Font Family A')">…</span>
@@ -93,7 +92,7 @@ Setze den `v-font` immer auf ein Child-Tag der Komponente.
 Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
 
 **<span style="color: red;">Bad</span>**
-```vue
+```html
 <template>
   <div>
     <div v-font="$getFont('Font Family A')" v-html="…">…</div>
@@ -102,7 +101,7 @@ Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
 ```
 
 **<span style="color: green;">Good</span>**
-```vue
+```html
 <template>
   <div>
     <div v-font="$getFont('Font Family A')">
@@ -116,13 +115,13 @@ Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
 
 ### Basic Usage
 
-```vue[Example]
+```html
 <h1 v-font="$getFont('Font Family', 700)">Headline</h1>
 ```
 ### Advanced Usage
 
-```vue[Example]
-<article v-font="[
+```js
+[
   
   // Font wird auf alles angewendet
   $getFont('Font Family A'),
@@ -136,5 +135,5 @@ Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
   // Font wird auf `b` und `strong` Tags angwendet und erscheint erst ab Viewport `>768px`
   $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' })
 
-]">…</article>
+]
 ```
