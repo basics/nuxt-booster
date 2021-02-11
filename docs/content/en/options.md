@@ -3,6 +3,7 @@ title: Options
 description: ''
 position: 3
 category: Guide
+
 ---
 
 ## `crossorigin`
@@ -182,6 +183,20 @@ Wenn gesetzt, werden alle unter `nuxt-speedkit-components` enthaltenen Komponent
 Siehe [@nuxt/components](https://github.com/nuxt/components)
 
 - Default: `false`
+
+### Available components
+
+
+| Global Name                    | Import Path                                               |
+| ------------------------------ | --------------------------------------------------------- |
+| `SpeedkitIframe`               | `nuxt-speedkit-components/SpeedkitIframe`                 |
+| `SpeedkitLayer`                | `nuxt-speedkit-components/SpeedkitLayer`                  |
+| `SpeedkitPicture`              | `nuxt-speedkit-components/SpeedkitPicture`                |
+| `SpeedkitYoutube`              | `nuxt-speedkit-components/SpeedkitYoutube`                |
+| `AbstractIntersectionObserver` | `nuxt-speedkit-components/abstracts/IntersectionObserver` |
+| `AbstractOnlySsr`              | `nuxt-speedkit-components/abstracts/OnlySsr`              |
+| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit-components/experimental/SpeedkitPicture`   |
+| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit-components/experimental/SpeedkitYoutube`   |
 
 ## `componentPrefix`
 

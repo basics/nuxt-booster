@@ -10,6 +10,11 @@ export default withDocus({
   },
 
   pwa: {
+    manifest: {
+      name: nuxtSpeedkitPkg.name,
+      description: nuxtSpeedkitPkg.description,
+      short_name: nuxtSpeedkitPkg.name
+    },
     meta: {
       name: nuxtSpeedkitPkg.name,
       description: nuxtSpeedkitPkg.description,

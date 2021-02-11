@@ -6,7 +6,7 @@ category: Components
 
 features:
   - Lazy Load Integration
-  - Platzhalter für multiple Bildverhältnisse
+  - Placeholder for multiple image ratios
 
 ---
 
@@ -143,7 +143,7 @@ Image Title.
 
 Image CrossOrigin. 
 
-[MDN - HTMLElement.title](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/crossOrigin)
+[MDN - HTMLImageElement.crossOrigin](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/crossOrigin)
 
 ## Events
 
