@@ -5,25 +5,25 @@
         Sorry, but you will have a limited user experience due to a…
       </p>
       <ul v-font="$getFont('Quicksand', 700, 'normal')">
-        <custom-no-script><li>disabled javascript</li></custom-no-script>
-        <li id="nuxt-speedkit__unsupported-browser">
+        <li id="nuxt-speedkit__message__nojs">
+          disabled javascript
+        </li>
+        <li id="nuxt-speedkit__message__unsupported-browser">
           outdated browser
         </li>
-        <li id="nuxt-speedkit__outdated-device">
+        <li id="nuxt-speedkit__message__outdated-device">
           outdated device
         </li>
-        <li id="nuxt-speedkit__slow-connection">
+        <li id="nuxt-speedkit__message__slow-connection">
           slow connection
         </li>
       </ul>
       <div class="info_layer__buttons">
-        <custom-no-script>
-          <base-button id="nuxt-speedkit__button__init-nojs">
-            <label for="nuxt-speedkit__speedkit-layer__close">
-              OK
-            </label>
-          </base-button>
-        </custom-no-script>
+        <base-button id="nuxt-speedkit__button__init-nojs">
+          <label for="nuxt-speedkit__speedkit-layer__close">
+            OK
+          </label>
+        </base-button>
         <base-button id="nuxt-speedkit__button__init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
           <label for="nuxt-speedkit__speedkit-layer__close">
             No
@@ -39,14 +39,12 @@
 
 import BaseButton from '@/components/atoms/BaseButton';
 import SpeedkitLayer from 'nuxt-speedkit-components/SpeedkitLayer';
-import CustomNoScript from 'nuxt-speedkit/components/customs/CustomNoScript';
 import { getStyleDescription } from 'nuxt-speedkit/utils/description';
 
 export default {
   components: {
     BaseButton,
-    SpeedkitLayer,
-    CustomNoScript
+    SpeedkitLayer
   },
   data () {
     return {
