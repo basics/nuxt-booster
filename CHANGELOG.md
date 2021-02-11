@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.13...v1.1.14) (2021-02-11)
+
+
+### Bug Fixes
+
+* **module:** add module options for nuxt.config option speedkit ([a65ae35](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a65ae359858c396b45b98d4a4ea34e6fe4762060))
+
 ## [1.1.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.12...v1.1.13) (2021-02-11)
 
 
