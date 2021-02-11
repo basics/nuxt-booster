@@ -5,6 +5,5 @@
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "GrabarzUndPartner/nuxt-speedkit",
-  "twitter": "@nuxt_js"
+  "github": "GrabarzUndPartner/nuxt-speedkit"
 }

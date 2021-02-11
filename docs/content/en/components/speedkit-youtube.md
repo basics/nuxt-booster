@@ -20,7 +20,7 @@ features:
 
 <list :items="features"></list>
 
-## Options
+## Properties
 
 
 ```js

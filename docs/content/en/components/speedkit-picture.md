@@ -21,7 +21,7 @@ Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und
 
 <list :items="features"></list>
 
-## Options
+## Properties
 
 ```js
 {

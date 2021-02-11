@@ -20,7 +20,7 @@ Das `SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements und b
 
 <list :items="features"></list>
 
-## Options
+## Properties
 
 Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
 ## Events
