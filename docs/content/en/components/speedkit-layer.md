@@ -23,7 +23,7 @@ Der SpeedkitLayer wird verwendet, als Hinweis für den Benutzer wenn folgende Er
 
 Wenn der SpeedkitLayer verbaut ist, wird das Initialisieren der App gesteuert. Heißt wenn eines der Ereignisse eintritt, wird das ausführen der App, erst wieder über eine Benutzer-Interaktion gestartet.
 
-Platziert wird der Layer einmalig im Layout der Seite. Dieser dient als Wrapper und muss anhand des [Default Templates](#) befüllt werden, [siehe Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
+Platziert wird der Layer einmalig im Layout der Seite. Dieser dient als Wrapper und muss anhand des [Default Templates](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue) befüllt werden, [siehe Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
 
 Der Inhalt besteht aus Mitteilungen und Buttons, die im jeweiligen Ereignis eingeblendet werden.
 
@@ -32,7 +32,7 @@ Mitteilungen und Buttons werden mit einer ID definiert, diese sind default per C
 - e.g. `nuxt-speedkit__message__unsupported-browser` für Mitteilung
 - e.g. `nuxt-speedkit__button__init-app` für Button
 
-<alert>Für die Schließmechanik des Layers, [siehe Hide Layer](/components/speedkit-layer#hide-layer).</alert>
+<alert>Für die Schließmechanik des Layers, siehe <nuxt-link to="/components/speedkit-layer#hide-layer">Hide Layer</nuxt-link>.</alert>
 
 
 ## Mitteilungen
@@ -64,7 +64,7 @@ Je nach Ereignis, muss der Benutzer dort seine Wahl treffen.
 ### `nuxt-speedkit__button__init-nojs`
 
 Sichtbar bei deaktivierten Javascript, wird benötigt damit der User den Layer ausblenden kann.  
-Benötigt die [Hide Layer](/components/speedkit-layer#hide-layer) implementation.
+Benötigt die <nuxt-link to="/components/speedkit-layer#hide-layer">Hide Layer</nuxt-link> implementation.
 
 ### `nuxt-speedkit__button__init-font`
 

@@ -29,24 +29,24 @@ Schriften werden anhand der `family`, `weight` und dem `style` angegeben und kö
 Normalerweise schaltet die Direktive die Schriften erst bei erreichen des Viewports aktiv.  
 Es empfiehlt sich, bei schon initial im Viewport enthaltenen Komponenten die verwendung der Eigenschaft `critical`.
 
-Bei [Kritische Komponente](/usage#kritische-komponente) werden die Schriften vorgeladen und sind initial aktiv.
+Bei <nuxt-link to="/usage#kritische-komponente">Kritische Komponente</nuxt-link> werden die Schriften vorgeladen und sind initial aktiv.
 ## `$getFont`
 
 `$getFont` wird als Plugin eingebunden und ist über jeden Komponenten-Scope abrufbar. 
 
 Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
 
-| Property  | Type               | Requried | Description                                   | Default     |
-| --------- | ------------------ | -------- | --------------------------------------------- | ----------- |
-| `family`  | `String`           | yes      | Font-Family e.g. `Custom Font`                |             |
-| `weight`  | `String`, `Number` |          | Font-Style e.g. `normal`, `italic`            | `400`       |
-| `style`   | `String`           |          | Font-Weight e.g. `400`, `normal`              | `normal`    |
-| `options` | `Object`           |          | Media & Selector Options [see more](#options) | `undefined` |
+| Key       | Type               | Requried | Description                                                                   | Default     |
+| --------- | ------------------ | -------- | ----------------------------------------------------------------------------- | ----------- |
+| `family`  | `String`           | yes      | Font-Family e.g. `Custom Font`                                                |             |
+| `weight`  | `String`, `Number` |          | Font-Style e.g. `normal`, `italic`                                            | `400`       |
+| `style`   | `String`           |          | Font-Weight e.g. `400`, `normal`                                              | `normal`    |
+| `options` | `Object`           |          | Media & Selector Options <nuxt-link to="/v-font#options">see more</nuxt-link> | `undefined` |
 
 
 ### options
 
-| Property   | Type     | Requried | Description                                      | Default     |
+| Key        | Type     | Requried | Description                                      | Default     |
 | ---------- | -------- | -------- | ------------------------------------------------ | ----------- |
 | `media`    | `String` |          | CSS Media Query (e.g. `(min-width: 768px)`)      | `undefined` |
 | `selector` | `String` |          | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |

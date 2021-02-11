@@ -34,7 +34,7 @@ Mit den mitgelieferten Komponenten (e.g. `SpeedkitPicture`) und dem Einsatz der 
 
 Das Laden der Resourcen geschieht erst beim erreichen des sichtbaren Viewport.
 
-Für den Fall das sich eine Komponenten Initial schon im Viewpoert befindet, muss diese als [Kritischen Komponenten](/usage/#kritische-komponente) definiert werden.
+Für den Fall das sich eine Komponenten Initial schon im Viewpoert befindet, muss diese als <nuxt-link to="/usage#kritische-komponente">Kritische Komponente</nuxt-link> definiert werden.
 
 
 
@@ -53,7 +53,7 @@ Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponent
 
 Um die in der `nuxt.config` definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
 
-Siehe mehr unter [v-font](/v-font/).
+Mehr unter <nuxt-link to="/v-font">v-font</nuxt-link>.
 
 ```html
 <component v-font="$fonts.getFont(…)" />
@@ -76,7 +76,7 @@ Import muss Funktional sein. (e.g. <code>() => import('…')</code>`)
 }
 ```
 
-Alle Komponenten werden mit einem `rootMargin` beschrieben. Dieser kann mit der [Option `lazyOffset.components`](/options/#components) angepasst werden. 
+Alle Komponenten werden mit einem `rootMargin` beschrieben. Dieser kann mit der <nuxt-link to="/options#components">Option `lazyOffset.components`</nuxt-link> angepasst werden. 
 
 
 ### Modul Komponenten
@@ -85,10 +85,10 @@ Alle Komponenten werden mit einem `rootMargin` beschrieben. Dieser kann mit der 
 Die Modul Komponenten können über den Namespace `nuxt-speedkit-components` importiert werden.
 
 
-- [SpeedkitLayer](/components/speedkit-layer/)
-- [SpeedkitPicture](/components/speedkit-picture/)
-- [SpeedkitIframe](/components/speedkit-iframe/)
-- [SpeedkitYoutube](/components/speedkit-youtube/)
+- <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link>
+- <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link>
+- <nuxt-link to="/components/speedkit-iframe">SpeedkitIframe</nuxt-link>
+- <nuxt-link to="/components/speedkit-youtube">SpeedkitYoutube</nuxt-link>
 
 ```html
 
