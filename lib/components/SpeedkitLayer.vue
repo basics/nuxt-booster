@@ -1,6 +1,6 @@
 <template>
-  <only-ssr :disabled="disabled">
-    <div id="nuxt-speedkit__speedkit-layer" v-if="!hide">
+  <only-ssr>
+    <div id="nuxt-speedkit__speedkit-layer">
       <input name="close" id="nuxt-speedkit__speedkit-layer__close" type="checkbox">
       <div id="nuxt-speedkit__speedkit-layer__content">
         <slot>
@@ -9,7 +9,7 @@
             <p>Sorry, but you will have a limited user experience due to a…</p>
 
             <ul style=" padding: 0; list-style: none;">
-              <!-- Displayed when javascript no active. -->
+              <!-- Displayed when javascript is disabled. -->
               <custom-no-script>
                 <li>disabled javascript</li>
               </custom-no-script>
@@ -77,23 +77,8 @@ export default {
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     };
-  },
-
-  props: {
-    hide: {
-      type: Boolean,
-      default: false
-    },
-    ignoreNoSsr: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    disabled () {
-      return this.ignoreNoSsr
-    }
   }
+
 }
 </script>
 
