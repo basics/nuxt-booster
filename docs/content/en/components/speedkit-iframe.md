@@ -32,11 +32,11 @@ Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_i
 />
 ```
 
-### load
+### `load`
 
 Tritt ein wenn Iframe fertig geladen hat.
 
-### enter
+### `enter`
 
 Tritt ein wenn Komponente sich im Viewport befindet.
 

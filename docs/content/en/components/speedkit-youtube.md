@@ -31,20 +31,20 @@ features:
 }
 ```
 
-### id
+### `id`
 
 <badge>required</badge>
 
 Id eines Youtube Videos.
 
 
-### autoplay
+### `autoplay`
 
 Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
 
 - Default: `false`
 
-### poster
+### `poster`
 
 <badge>required</badge>
 
@@ -65,19 +65,19 @@ Als Konfiguration wird das <nuxt-link to="/components/speedkit-picture/">Speedki
 />
 ```
 
-### ready
+### `ready`
 
 Tritt ein wenn Youtube-Api komplett geladen ist.
 
-### loading
+### `loading`
 
 Tritt ein wenn Video angefangen wird zu laden.
 
-### playing
+### `playing`
 
 Tritt ein wenn Video fertiggeladen ist und abspielt.
 
-### enter
+### `enter`
 
 Tritt ein wenn Komponente sich im Viewport befindet.
 

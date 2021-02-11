@@ -34,7 +34,7 @@ Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und
 ```
 
 
-### sources
+### `sources`
 
 
 ```js[example]
@@ -81,8 +81,9 @@ Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und
   ]
 }
 ```
+<br>
 
-##### media
+##### `media`
 
 CSS Media Query e.g. `(min-width: 768px)`
 
@@ -90,13 +91,13 @@ CSS Media Query e.g. `(min-width: 768px)`
 
 - Default: `undefined`
 
-##### format
+##### `format`
 
 Bildformat der angebenen Ressource. e.g. `webp`, `jpg`, …
 
 - Default: `undefined`
 
-##### sizes
+##### `sizes`
 
 Bechreibt die Attribute `srcset` und `sizes` einer Picture `source`.  
 `url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
@@ -109,7 +110,7 @@ Bechreibt die Attribute `srcset` und `sizes` einer Picture `source`.
 | url      | Path to the ressource                       | *required*  |
 
 - Default: `[]`
-### placeholders
+### `placeholders`
 
 ```js[example]
 [
@@ -124,19 +125,19 @@ Bechreibt die Attribute `srcset` und `sizes` einer Picture `source`.
   }
 ]
 ```
-### alt
+### `alt`
 
 Image alternative Text. 
 
 [MDN - HTMLImageElement.alt](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt)
 
-### title
+### `title`
 
 Image Title. 
 
 [MDN - HTMLElement.title](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/title)
 
-### crossorigin
+### `crossorigin`
 
 Image CrossOrigin. 
 
@@ -151,11 +152,11 @@ Image CrossOrigin.
 />
 ```
 
-### load
+### `load`
 
 Tritt ein wenn Bild Resource komplett geladen wurde.
 
-### enter
+### `enter`
 
 Tritt ein wenn Komponente sich im Viewport befindet.
 

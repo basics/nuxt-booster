@@ -125,26 +125,14 @@ Beschreibt eine Font-Family mit all ihren Varianten.
 }]
 ```
 
-#### `family` <badge>required</badge>
+| Key         | Type     | Description                                                                         | default    |
+| ----------- | -------- | ----------------------------------------------------------------------------------- | ---------- |
+| `family`    | `String` | Name der Schriftarten Familie.                                                      | `required` |
+| `locals`    | `Array`  | System-Schriftnamen der angegebenen Familie.                                        | `required` |
+| `fallback`  | `Array`  | Fallback Schriftarten Familien. e.g. `font-family: 'Font A', 'Arial', 'sans-serif'` | `required` |
+| `variances` | `Array`  | Enthält die Varianten einer Font-Family. (e.g. Bold, Italic)                        | `required` |
 
-Name der Schriftarten Familie.
-
-#### `locals`
-
-System-Schriftnamen der angegebenen Familie.
-
-#### `fallback` <badge>required</badge>
-
-Fallback Schriftarten Familien.
-
-e.g. `font-family: 'Font A', 'Arial', 'sans-serif'`
-
-<alert>Look for similarity in fonts to system fonts for perfect swap and reduction of layout shifts.</alert>
-
-#### `variances` <badge>required</badge>
-
-Enthält die Varianten einer Font-Family. (e.g. Bold, Italic)
-
+<alert type="warning">Look for similarity in fonts to system fonts for perfect swap and reduction of layout shifts.</alert>
 ### Font-Variance
 
 Eine Font-Variance beschreibt eine Ausprägung einer Font-Family und dient zum erzeugen des `FontFace`.
@@ -161,16 +149,15 @@ Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/
   ]
 }
 ```
-#### `style` <badge>required</badge>
 
-`font-style` des FontFaces.
 
-#### `weight` <badge>required</badge>
+| Key       | Type                 | Description                                            | default    |
+| --------- | -------------------- | ------------------------------------------------------ | ---------- |
+| `style`   | String               | `font-style` des FontFaces. e.g. `normal`, `italic`    | `required` |
+| `weight`  | `String` or `Number` | `font-weight` des FontFaces. e.g. `400`, `normal`      | `required` |
+| `sources` | `Array`              | Liste aller der Variante zugeordneten Schrift-Dateien. | `required` |
 
-`font-weight` des FontFaces.
-#### `sources` <badge>required</badge>
-
-Liste aller der Variante zugeordneten Schrift-Dateien.
+#### `sources`
 
 <alert>Es wird die erste Source anhand der Sortierung (`['embedded-opentype', 'woff2', 'woff', 'truetype', 'svg']`) als Preload verwendet.</alert>
 
@@ -182,7 +169,7 @@ Liste aller der Variante zugeordneten Schrift-Dateien.
 ]
 ```
 
-## componentAutoImport
+## `componentAutoImport`
 
 Wenn gesetzt, werden alle unter `nuxt-speedkit-components` enthaltenen Komponenten global registriert.
 
@@ -190,13 +177,13 @@ Somit muss kein explizierter `import` mehr stattfinden.
 
 - Default: `false`
 
-## componentPrefix
+## `componentPrefix`
 
 Defines a prefix for the module components, important for auto import (`componentAutoImport`). e.g. `SpeedkitPicture` => `PrefixSpeedkitPicture`
 
 - Default: `''`
 
-## lazyOffset
+## `lazyOffset`
 
 Option für den `IntersectionObserver`, die im Modul verbaut sind.
 
