@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.14...v1.1.15) (2021-02-11)
+
+
+### Bug Fixes
+
+* **components:** fix auto import for abstracts and experimental ([4be8bb6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4be8bb65108d87afecf11afc9a9926ea8df64bdc))
+
 ## [1.1.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.13...v1.1.14) (2021-02-11)
 
 
