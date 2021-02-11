@@ -3,7 +3,8 @@ import { withDocus } from 'docus';
 export default withDocus({
   docus: {
     colors: {
-      primary: '#E83162'
+      primary: '#E83162',
+      code: '#E83162'
     }
   },
 

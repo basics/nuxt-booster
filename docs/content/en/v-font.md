@@ -7,15 +7,9 @@ category: Directives
 
 Die in den Module Optionen definierten Schriften, werden mit der Direktive `v-font` verwendet. 
 
+In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), enthaltene Methode `$getFont` die jeweilige Schrift abgerufen.
 
-<alert>
-Wenn die Eltern-Komponente <code>critical</code> ist, werden die Schriften priorisiert geladen und sind initial aktiv.<br>
-Eignet sich für Komponenten die sich initial im Viewport befinden.
-</alert>
-
-In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), enthaltene Methode `$getFont` die jeweilige Schrift definiert.
-
-Schriften werden mit `family`, `weight` und `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
+ Für Multiple Schriften, kann eine Liste (`Array`) übergeben werden.
 
 ```html[example]
 
@@ -29,6 +23,13 @@ Schriften werden mit `family`, `weight` und `style` angegeben und können über 
 ]">
 
 ```
+
+
+Schriften werden mit `family`, `weight` und `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
+
+Normalerweise schaltet die direktive die Schriften erst bei erreichen des Viewports aktiv, es empfiehlt sich für initial im Viewport enthaltenen Komponenten die verwendung der Eigenschaft `critical`.  
+Mehr unter [Kritische Komponente](/usage#kritische-komponente).
+
 
 ## `$getFont`
 
@@ -97,9 +98,18 @@ Setze den `v-font` immer auf ein Child-Tag der Komponente.
 
 ```vue[Example]
 <article v-font="[
+  
+  // Font wird auf alles angewendet
   $getFont('Font Family A'),
+
+  // Font wird auf `b` und `strong` Tags angwendet
   $getFont('Font Family B', 700, 'normal', { selector: 'b, strong' }),
+
+  // Font erscheint erst ab Viewport `>768px`
   $getFont('Font Family B', 400, 'normal', { media: '(min-width: 768px)' }),
+
+  // Font wird auf `b` und `strong` Tags angwendet und erscheint erst ab Viewport `>768px`
   $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' })
+
 ]">…</article>
 ```
