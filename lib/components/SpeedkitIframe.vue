@@ -5,6 +5,7 @@
       v-bind="$attrs"
       class="nuxt-speedkit__speedkit-iframe"
       :loading="loading"
+      :title="title"
       @load="onLoad"
     />
   </intersection-observer>
@@ -21,15 +22,15 @@ export default {
   props: {
     loading: {
       type: String,
-      default () {
-        return 'lazy';
-      }
+      default: 'lazy'
+    },
+    title: {
+      type: String,
+      default: null
     },
     src: {
       type: String,
-      default () {
-        return null;
-      }
+      default: null
     }
   },
 

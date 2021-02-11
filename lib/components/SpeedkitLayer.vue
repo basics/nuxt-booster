@@ -62,7 +62,6 @@ export default {
     OnlySsr
   },
 
-
   head () {
     return {
       noscript: [

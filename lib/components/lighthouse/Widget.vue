@@ -29,9 +29,7 @@ export default {
   props: {
     statsMetric: {
       type: String,
-      default () {
-        return 'performance';
-      }
+      default: 'performance'
     }
   },
 
