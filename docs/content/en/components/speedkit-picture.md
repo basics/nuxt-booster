@@ -17,7 +17,7 @@ features:
 <speedkit-picture src="…" />
 ```
 
-Das `SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements und bringt folgende Features mit:
+`SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements.
 
 ## Features
 

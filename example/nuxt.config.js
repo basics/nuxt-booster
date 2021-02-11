@@ -255,9 +255,7 @@ module.exports = {
   },
 
   modules: [
-    [
-      resolve(__dirname, '..')
-    ]
+    resolve(__dirname, '..') // nuxt-speedkit
   ],
 
   head: {
