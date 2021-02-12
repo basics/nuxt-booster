@@ -87,13 +87,44 @@ features:
 <br>
 
 
-| Key      | Type     | Required | Value                                                          | Default |
-| -------- | -------- | -------- | -------------------------------------------------------------- | ------- |
-| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Learn more](#size) | `[]`    |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …     |         |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                      |         |
+| Key      | Type     | Required | Value                                                                        | Default |
+| -------- | -------- | -------- | ---------------------------------------------------------------------------- | ------- |
+| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Mehr zu Size definierung](#size) | `[]`    |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …                   |         |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                    |         |
 
 <alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
+
+
+#### Size
+- Type: `Object`
+
+```js
+{ 
+  width: 768, 
+  media: '(min-width: 768px)', 
+  url: '768.webp' 
+}
+```
+ 
+`url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
+`media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
+
+| Key     | Required | Value                                       | Default     |
+| ------- | -------- | ------------------------------------------- | ----------- |
+| `url`   | yes      | Path to the ressource                       |             |
+| `width` |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
+| `media` |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
+
+**Example**
+
+```js
+[
+  { width: 768, media: '(min-width: 768px)', url: '768.webp' },
+  { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
+]
+```
+
 
 ### `placeholders`
 - Type: `Array`
@@ -159,35 +190,3 @@ Tritt ein wenn Bild Resource komplett geladen wurde.
 ### `enter`
 
 Tritt ein wenn Komponente den Viewport erreicht hat.
-
-
-## Define Source
-
-### Size
-- Type: `Object`
-
-```js
-{ 
-  width: 768, 
-  media: '(min-width: 768px)', 
-  url: '768.webp' 
-}
-```
- 
-`url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
-`media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
-
-| Key     | Required | Value                                       | Default     |
-| ------- | -------- | ------------------------------------------- | ----------- |
-| `url`   | yes      | Path to the ressource                       |             |
-| `width` |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
-| `media` |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
-
-**Example**
-
-```js
-[
-  { width: 768, media: '(min-width: 768px)', url: '768.webp' },
-  { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
-]
-```
