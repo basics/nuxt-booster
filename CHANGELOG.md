@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.15...v1.1.16) (2021-02-12)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** replace reverse with sort for sizes ([61a7691](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/61a7691cd00035d1e291ef5ccec2176601cf7262))
+
 ## [1.1.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.14...v1.1.15) (2021-02-11)
 
 
