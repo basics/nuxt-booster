@@ -46,10 +46,10 @@ Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
 
 ### options
 
-| Key        | Type     | Requried | Description                                      | Default     |
-| ---------- | -------- | -------- | ------------------------------------------------ | ----------- |
-| `media`    | `String` |          | CSS Media Query (e.g. `(min-width: 768px)`)      | `undefined` |
-| `selector` | `String` |          | CSS Selector (e.g. `element, .elm, .elm:before`) | `undefined` |
+| Key        | Type     | Requried | Description                                    | Default     |
+| ---------- | -------- | -------- | ---------------------------------------------- | ----------- |
+| `media`    | `String` |          | CSS Media Query e.g. `(min-width: 768px)`      | `undefined` |
+| `selector` | `String` |          | CSS Selector e.g. `element, .elm, .elm:before` | `undefined` |
 
 
 <alert type="danger">
