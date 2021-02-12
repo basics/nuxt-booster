@@ -87,11 +87,11 @@ features:
 <br>
 
 
-| Key      | Type     | Required | Value                                                                        | Default |
-| -------- | -------- | -------- | ---------------------------------------------------------------------------- | ------- |
-| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Mehr zu Size definierung](#size) | `[]`    |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …                   |         |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                    |         |
+| Key      | Type     | Required | Value                                                                                                    | Default |
+| -------- | -------- | -------- | -------------------------------------------------------------------------------------------------------- | ------- |
+| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Mehr zu Size definierung](/components/speedkit-picture#size) | `[]`    |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …                                               |         |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                                                |         |
 
 <alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
 
@@ -176,7 +176,7 @@ Image CrossOrigin.
 
 ## Events
 
-```htnk
+```html
 <speedkit-picture 
   @load="console.log('Loaded!')" 
   @enter="console.log('Viewport!')" 
