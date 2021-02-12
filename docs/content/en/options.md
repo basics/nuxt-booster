@@ -161,18 +161,14 @@ Eine Font-Variance beschreibt eine Ausprägung einer Font-Family und dient zum e
 
 Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/docs/Web/CSS/font-style) und [`weight`](https://developer.mozilla.org/de/docs/Web/CSS/font-weight).
 
-
-
-| Key       | Type                 | Required | Description                                            |
-| --------- | -------------------- | -------- | ------------------------------------------------------ |
-| `style`   | `String`             | yes      | `font-style` des FontFaces. e.g. `normal`, `italic`    |
-| `weight`  | `String` or `Number` | yes      | `font-weight` des FontFaces. e.g. `400`, `normal`      |
-| `sources` | `Array`              | yes      | Liste aller der Variante zugeordneten Schrift-Dateien. |
+| Key       | Type                 | Required | Description                                                                        |
+| --------- | -------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `style`   | `String`             | yes      | `font-style` des FontFaces. e.g. `normal`, `italic`                                |
+| `weight`  | `String` or `Number` | yes      | `font-weight` des FontFaces. e.g. `400`, `normal`                                  |
+| `sources` | `Array`              | yes      | Liste aller der Variante zugeordneten Schrift-Dateien. [Siehe `sources`](#sources) |
 
 #### `sources`
-
-<alert>Es wird die erste Source anhand der Sortierung (`['embedded-opentype', 'woff2', 'woff', 'truetype', 'svg']`) als Preload verwendet.</alert>
-
+- Type: `Array`
 
 ```js
 [
@@ -180,6 +176,17 @@ Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/
   { src: '@/assets/fonts/font-a-regular.woff2', type:'woff2' }
 ]
 ```
+
+Liste alle verfügbaren Font Dateien einer Font-Family Variance.
+
+
+| Key    | Type     | Required | Value                                                        |
+| ------ | -------- | -------- | ------------------------------------------------------------ |
+| `src`  | `String` | yes      | Pfad zum Font Datei, die Verwendung von Aliases ist möglich. |
+| `type` | `String` | yes      | Dateiformat der angebenen Datei. e.g. `woff`, `woff2`, …     |
+
+<alert type="warning">Es wird die erste Source anhand der Sortierung (`['embedded-opentype', 'woff2', 'woff', 'truetype', 'svg']`) als Preload verwendet.</alert>
+
 
 ## `componentAutoImport`
 - Type: `Boolean`
@@ -225,10 +232,10 @@ Defines a prefix for the module components, important for auto import (`componen
 
 Option für den `IntersectionObserver`, die im Modul verbaut sind.
 
- | Key         | Type     | Required | Description                                                                                    | Default |
- | ----------- | -------- | -------- | ---------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | Beschreibt den `rootMargin` für die benutzung von `speedkitComponents`.                        | `'0%'`  |
- | `asset`     | `String` | yes      | Beschreibt den `rootMargin` für den `IntersectionObserver` von `v-font` und `SpeedkitPicture`. | `'0%'`  |
+ | Key         | Type     | Required | Description                                                                                                        | Default |
+ | ----------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+ | `component` | `String` | yes      | `rootMargin` angabe für die Benutzung von `speedkitComponents` und dem aktiv schalten der Komponenten im Viewport. | `'0%'`  |
+ | `asset`     | `String` | yes      | `rootMargin` angabe für den `IntersectionObserver` von `v-font` und `SpeedkitPicture`.                             | `'0%'`  |
 
 ## Example Configuration
 

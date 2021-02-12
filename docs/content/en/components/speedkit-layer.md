@@ -90,10 +90,14 @@ Diese werden benötigt, wenn der Benutzer schon reagiert hat bevor das initiale 
 
 
 ### `__NUXT_SPEEDKIT_FONT_INIT__`
+- Type: `Boolean`
+  - Default: `false`
 
 Wird gesetzt wenn nur Schriften angezeigt werden.
 
 ### `__NUXT_SPEEDKIT_AUTO_INIT__`
+- Type: `Boolean`
+  - Default: `false`
 
 Wird gesetzt wenn App initialisiert wird.
 
