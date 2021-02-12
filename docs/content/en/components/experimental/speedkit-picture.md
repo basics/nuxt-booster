@@ -43,10 +43,13 @@ Für die generiung der Bilder, wird die `@nuxt/image` API verwendet. [Learn more
 
 Liste der im Picture enthaltenen Sourcen.
 
+<alert type="warning">Kein Support für wechselnde  Viewport abhängige Bildverhältnisse.  
+Wird nur Bildgrößen anpassung per `srcset` unterstützt. [Learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#attr-srcset)</alert>
+
 ```js
 [
   { src: 'portrait.jpg', sizes: '299,300:599,600:899,900:1199' },
-  { src: 'landscape.jpg', media: '(min-width: 1200px)', sizes: '1200:1599,1600:1899,1900:1920' }
+  { src: 'landscape.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
 ]
 ```
 
@@ -54,7 +57,6 @@ Liste der im Picture enthaltenen Sourcen.
 | ------- | -------- | -------- | --------------------------------------------------------------------------------------------- |
 | `src`   | `String` | yes      | Url zum Bild                                                                                  |
 | `sizes` | `String` | yes      | Komma Separatierte angabe von Ziel Bildgrößen mit angabe des Viewports. e.g. `Width:MinWidth` |
-| `media` | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                                     |
 
 
 #### 
@@ -83,7 +85,7 @@ Image CrossOrigin.
 
 ## Events
 
-```htnk
+```html
 <speedkit-picture 
   @load="console.log('Loaded!')" 
   @enter="console.log('Viewport!')" 
