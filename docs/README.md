@@ -1,4 +1,4 @@
-# lazy-resources-docs
+# nuxt-speedkit-docs
 
 ## Setup
 

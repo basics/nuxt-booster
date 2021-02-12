@@ -213,7 +213,7 @@ Defines a prefix for the module components, important for auto import (`componen
 
 ## `lazyOffset`
 - Type: `Object`
-  - 
+
 ```js
 {
   // rootMargin for speedkitComponents components

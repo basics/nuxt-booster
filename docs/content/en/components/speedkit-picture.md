@@ -37,7 +37,7 @@ features:
 
 
 ### `sources`
-
+- Type: `Array`
 
 ```js
 [
@@ -72,6 +72,7 @@ features:
 ```
 
 #### source
+- Type: `Object`
 
 ```js
 {
@@ -85,34 +86,17 @@ features:
 ```
 <br>
 
-##### `media`
 
-CSS Media Query e.g. `(min-width: 768px)`
+| Key      | Type     | Required | Value                                                          | Default |
+| -------- | -------- | -------- | -------------------------------------------------------------- | ------- |
+| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Learn more](#size) | `[]`    |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …     |         |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                      |         |
 
-<alert>Kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
+<alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
 
-- Default: `undefined`
-
-##### `format`
-
-Bildformat der angebenen Ressource. e.g. `webp`, `jpg`, …
-
-- Default: `undefined`
-
-##### `sizes`
-
-Bechreibt die Attribute `srcset` und `sizes` einer Picture `source`.  
-`url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
-`media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
-
-| Key     | Required | Value                                       | Default     |
-| ------- | -------- | ------------------------------------------- | ----------- |
-| `url`   | yes      | Path to the ressource                       |             |
-| `width` |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
-| `media` |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
-
-- Default: `[]`
 ### `placeholders`
+- Type: `Array`
 
 ```js
 [
@@ -127,19 +111,33 @@ Bechreibt die Attribute `srcset` und `sizes` einer Picture `source`.
   }
 ]
 ```
+
+Beschreibt die Platzhalter, diese werden angezeigt solange keine Resourcen geladen wurden.
+
+
+| Key      | Type     | Required | Value                                                      |
+| -------- | -------- | -------- | ---------------------------------------------------------- |
+| `url`    | `String` | yes      | Url oder Base64 von einem Bild                             |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, … |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                  |
+
 ### `alt`
+- Type: `String`
 
 Image alternative Text. 
 
 [MDN - HTMLImageElement.alt](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt)
 
 ### `title`
+- Type: `String`
 
 Image Title. 
 
 [MDN - HTMLElement.title](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/title)
 
 ### `crossorigin`
+- Type: `String`
+  - default: `anonymus`
 
 Image CrossOrigin. 
 
@@ -160,5 +158,36 @@ Tritt ein wenn Bild Resource komplett geladen wurde.
 
 ### `enter`
 
-Tritt ein wenn Komponente sich im Viewport befindet.
+Tritt ein wenn Komponente den Viewport erreicht hat.
 
+
+## Define Source
+
+### Size
+- Type: `Object`
+
+```js
+{ 
+  width: 768, 
+  media: '(min-width: 768px)', 
+  url: '768.webp' 
+}
+```
+ 
+`url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
+`media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
+
+| Key     | Required | Value                                       | Default     |
+| ------- | -------- | ------------------------------------------- | ----------- |
+| `url`   | yes      | Path to the ressource                       |             |
+| `width` |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
+| `media` |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
+
+**Example**
+
+```js
+[
+  { width: 768, media: '(min-width: 768px)', url: '768.webp' },
+  { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
+]
+```

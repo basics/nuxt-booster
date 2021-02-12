@@ -38,5 +38,5 @@ Tritt ein wenn Iframe fertig geladen hat.
 
 ### `enter`
 
-Tritt ein wenn Komponente sich im Viewport befindet.
+Tritt ein wenn Komponente den Viewport erreicht hat.
 

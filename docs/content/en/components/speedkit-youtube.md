@@ -32,27 +32,25 @@ features:
 ```
 
 ### `id`
+- Type: `String`
+  - <badge>required</badge>
 
-<badge>required</badge>
-
-Id eines Youtube Videos.
-
+Legt die Youtube-ID fest.
 
 ### `autoplay`
+- Type: `Boolean`
+  - Default: `false`
 
 Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
 
-- Default: `false`
-
 ### `poster`
-
-<badge>required</badge>
+- Type: `Object`
+  - <badge>required</badge>
 
 Poster wird angezeigt solange Player nicht abspielt.
 
-Als Konfiguration wird das <nuxt-link to="/components/speedkit-picture/">SpeedkitPicture</nuxt-link> verwendet.
+Als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
 
-- Default: `undefined`
 
 ## Events
 
@@ -79,7 +77,7 @@ Tritt ein wenn Video fertiggeladen ist und abspielt.
 
 ### `enter`
 
-Tritt ein wenn Komponente sich im Viewport befindet.
+Tritt ein wenn Komponente den Viewport erreicht hat.
 
 
 
