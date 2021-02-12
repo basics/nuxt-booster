@@ -11,7 +11,8 @@ category: Guide
   - Default: `nuxt.options.render.crossorigin || 'anonymous'`
   - String values: `anonymous`, `use-credentials` or `''` [learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
-Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin aus der [Render Konfiguration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin) übernommen.
+Legt den `crossorigin` der Link Preloads fest.  
+Als Standardwert wird der `crossorigin` aus der [Render Konfiguration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin) übernommen.
 
 ## `detection`
 - Type: `Object`
@@ -22,14 +23,29 @@ Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin 
   browserSupport: true
 }
 ```
-Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des `SpeedkitLayer` vorgenommen werden soll.
+Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des [`SpeedkitLayer`](/components/speedkit-layer) vorgenommen werden soll.
 ### `performance`
 - Type: `Boolean`
   - Default: `true`
 
+Überprüfung ob die Anforderungen der Option [`performance`](/options#performance-1), beim Benutzer zutreffen.
+
+Wenn aktiviert und Benutzer hat nicht die Anforderungen, wird der [`SpeedkitLayer`](/components/speedkit-layer) falls vorhanden eingeblendet.
+
 ### `browserSupport`
 - Type: `Boolean`
   - Default: `true`
+
+Überprüft ob der Benutzer einen aktuellen Browser verwendet. 
+
+Wenn Browser nicht supported ist, wird der [`SpeedkitLayer`](/components/speedkit-layer) falls vorhanden eingeblendet. 
+
+Für die Überprüfung wird [`Browserslist`](https://github.com/browserslist/browserslist) verwendet.
+
+Die `Browserslist` Konfiguration wird automatisch übernommen.
+
+[More about `Browserslist`](https://github.com/browserslist/browserslist)
+
 ## `performance`
 - Type: `Object`
 
@@ -201,22 +217,24 @@ Wenn gesetzt, werden alle unter `nuxt-speedkit-components` enthaltenen Komponent
 ### Available components
 
 
-| Global Name                    | Import Path                                               |
-| ------------------------------ | --------------------------------------------------------- |
-| `SpeedkitIframe`               | `nuxt-speedkit-components/SpeedkitIframe`                 |
-| `SpeedkitLayer`                | `nuxt-speedkit-components/SpeedkitLayer`                  |
-| `SpeedkitPicture`              | `nuxt-speedkit-components/SpeedkitPicture`                |
-| `SpeedkitYoutube`              | `nuxt-speedkit-components/SpeedkitYoutube`                |
-| `AbstractIntersectionObserver` | `nuxt-speedkit-components/abstracts/IntersectionObserver` |
-| `AbstractOnlySsr`              | `nuxt-speedkit-components/abstracts/OnlySsr`              |
-| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit-components/experimental/SpeedkitPicture`   |
-| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit-components/experimental/SpeedkitYoutube`   |
+| Global Name                    | Import Path                                               |                                                                                                                          |
+| ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `SpeedkitIframe`               | `nuxt-speedkit-components/SpeedkitIframe`                 | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)                 |
+| `SpeedkitLayer`                | `nuxt-speedkit-components/SpeedkitLayer`                  | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)                  |
+| `SpeedkitPicture`              | `nuxt-speedkit-components/SpeedkitPicture`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)                |
+| `SpeedkitYoutube`              | `nuxt-speedkit-components/SpeedkitYoutube`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)                |
+| `AbstractIntersectionObserver` | `nuxt-speedkit-components/abstracts/IntersectionObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/IntersectionObserver.vue) |
+| `AbstractOnlySsr`              | `nuxt-speedkit-components/abstracts/OnlySsr`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)              |
+| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit-components/experimental/SpeedkitPicture`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)   |
+| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit-components/experimental/SpeedkitYoutube`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitYoutube.vue)   |
 
 ## `componentPrefix`
 - Type: `String`
   - Default: `undefined`
 
-Defines a prefix for the module components, important for auto import (`componentAutoImport`). e.g. `SpeedkitPicture` => `PrefixSpeedkitPicture`
+Defines a prefix for the module components, important for auto import e.g. option `componentAutoImport`. 
+
+**Example:** `SpeedkitPicture` => `PrefixSpeedkitPicture`
 
 ## `lazyOffset`
 - Type: `Object`
@@ -230,12 +248,12 @@ Defines a prefix for the module components, important for auto import (`componen
 }
 ```
 
-Option für den `IntersectionObserver`, die im Modul verbaut sind.
+Option für den [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), die im Modul verbaut sind.
 
- | Key         | Type     | Required | Description                                                                                                        | Default |
- | ----------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
- | `component` | `String` | yes      | `rootMargin` angabe für die Benutzung von `speedkitComponents` und dem aktiv schalten der Komponenten im Viewport. | `'0%'`  |
- | `asset`     | `String` | yes      | `rootMargin` angabe für den `IntersectionObserver` von `v-font` und `SpeedkitPicture`.                             | `'0%'`  |
+ | Key         | Type     | Required | Description                                                                                                                                                                                                                                              | Default |
+ | ----------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) Angabe für die Benutzung von `speedkitComponents` und dem aktiv schalten der Komponenten im Viewport.                                                   | `0%`    |
+ | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) Angabe für den [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) von `v-font` und `SpeedkitPicture`. | `0%`    |
 
 ## Example Configuration
 

@@ -1,7 +1,7 @@
 ---
 title: SpeedkitLayer
 description: ''
-position: 10
+position: 30
 category: Components
 
 events:
@@ -9,6 +9,9 @@ events:
   - browser does not support
   - user hardware is not sufficient
   - connection is too slow
+
+hideLayerFeatures:
+  - Schließmechanik benötigt kein Javascript.
 
 
 ---
@@ -23,7 +26,8 @@ Der SpeedkitLayer wird verwendet, als Hinweis für den Benutzer wenn folgende Er
 
 Wenn der SpeedkitLayer verbaut ist, wird das Initialisieren der App gesteuert. Heißt wenn eines der Ereignisse eintritt, wird das ausführen der App, erst wieder über eine Benutzer-Interaktion gestartet.
 
-Platziert wird der Layer einmalig im Layout der Seite. Dieser dient als Wrapper und muss anhand des [Default Templates](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue) befüllt werden, [siehe Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
+Platziert wird der Layer einmalig im Layout der Seite.  
+Dieser dient als Wrapper und muss anhand des [Default Templates](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue) befüllt werden, [siehe Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
 
 Der Inhalt besteht aus Mitteilungen und Buttons, die im jeweiligen Ereignis eingeblendet werden.
 
@@ -35,7 +39,7 @@ Mitteilungen und Buttons werden mit einer ID definiert, diese sind default per C
 <alert>Für die Schließmechanik des Layers, siehe <nuxt-link to="/components/speedkit-layer#hide-layer">Hide Layer</nuxt-link>.</alert>
 
 
-## Mitteilungen
+## Messages
 
 Die Mitteilungen sind Elemente (Container), diese werden in den jeweiligen Ereignissen eingeblendet.
 
@@ -79,7 +83,7 @@ Dient zum aktiveren aller Features. Die initialisierung des Javascripts wird ges
 
 Sichtbar bei Unsupported-Browser und nicht ausreichender Hardware.
 
-Besitzt ein auf ID registrierten `click` Handler.
+Besitzt ein auf die ID registrierten `click` Handler.
 ## Force App initialization or Font load
 
 Für die Fälle Unsupported-Browser und nicht ausreichender Hardware, muss mit der ID auch ein `onclick` Event gesetzt werden.
@@ -118,17 +122,17 @@ Wird gesetzt wenn App initialisiert wird.
 
 ## Hide Layer
 
-Der Layer kann über ein `for` Attribute mit der ID `nuxt-speedkit__speedkit-layer__close` geschlossen werden.
-
 ```html
 <label for="nuxt-speedkit__speedkit-layer__close">
   Close Layer
 </label>
 ```
 
----
+Der Layer kann über ein `for` Attribute mit der ID `nuxt-speedkit__speedkit-layer__close` geschlossen werden.
 
-## Example
+<list :items="hideLayerFeatures"></list>
+
+## Template
 
 ```html
 <speedkit-layer>
@@ -177,4 +181,3 @@ Der Layer kann über ein `for` Attribute mit der ID `nuxt-speedkit__speedkit-lay
   </div>
 </speedkit-layer>
 ```
-

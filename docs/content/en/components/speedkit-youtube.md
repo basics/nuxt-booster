@@ -1,7 +1,7 @@
 ---
 title: SpeedkitYoutube
 description: ''
-position: 13
+position: 33
 category: Components
 features:
   - Lazy Load Integration
@@ -44,12 +44,12 @@ Legt die Youtube-ID fest.
 Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
 
 ### `poster`
-- Type: `Object`
+- Type: `Object` als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
   - <badge>required</badge>
 
 Poster wird angezeigt solange Player nicht abspielt.
 
-Als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
+
 
 
 ## Events

@@ -1,7 +1,7 @@
 ---
 title: SpeedkitPicture
 description: ''
-position: 11
+position: 31
 category: Components
 
 features:
@@ -34,7 +34,6 @@ features:
   crossorigin: 'anonymous'
 }
 ```
-
 
 ### `sources`
 - Type: `Array`

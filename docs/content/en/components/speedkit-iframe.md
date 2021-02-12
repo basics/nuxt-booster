@@ -1,7 +1,7 @@
 ---
 title: SpeedkitIframe
 description: ''
-position: 12
+position: 35
 category: Components
 features:
   - Lazy Load Integration
