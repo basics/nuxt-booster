@@ -7,37 +7,31 @@ category: Guide
 ---
 
 ## `crossorigin`
+- Type: `String`
+  - Default: `nuxt.options.render.crossorigin || 'anonymous'`
+  - String values: `anonymous`, `use-credentials` or `''` [learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
 Legt den `crossorigin` der Link Preloads fest. Als Default wird der crossorigin aus der [Render Konfiguration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin) übernommen.
 
-- Default: `nuxt.options.render.crossorigin || 'anonymous'`
-
 ## `detection`
-
-Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des `SpeedkitLayer` vorgenommen werden soll.
-
-- <nuxt-link to="#">performance</nuxt-link>
-- <nuxt-link to="#">browserSupport</nuxt-link>
-
-**Default values**
-
+- Type: `Object`
+  
 ```js
 {
   performance: true,
   browserSupport: true
 }
 ```
+Über die Detektion Optionen kann definiert werden, welche überprüfung beim verwenden des `SpeedkitLayer` vorgenommen werden soll.
+### `performance`
+- Type: `Boolean`
+  - Default: `true`
 
-<alert>Der `SpeedkitLayer` muss im Layout vorhanden sein.</alert>
+### `browserSupport`
+- Type: `Boolean`
+  - Default: `true`
 ## `performance`
-
-Konfiguration für die im Module enthaltene Performance überprüfung.
-
-Diese dient zum Definieren der minimalen Hardware Anforderung und Verbindungs-Geschwindigkeits (überprüfung anhand des `fcp`) der Benutzer.
-
-Eine überprüfung auf Lighthouse kann optional hinzugeschaltet werden.
-
-**Default values**
+- Type: `Object`
 
 ```js
 {
@@ -53,13 +47,14 @@ Eine überprüfung auf Lighthouse kann optional hinzugeschaltet werden.
 }
 ```
 
+Konfiguration für die im Module enthaltene Performance überprüfung.
+
+Diese dient zum Definieren der minimalen Hardware Anforderung und Verbindungs-Geschwindigkeits (überprüfung anhand des `fcp`) der Benutzer.
+
+Eine überprüfung auf Lighthouse kann optional hinzugeschaltet werden.
+
 ### `device`
-
-Beschreibt die Hardware-Anforderungen die ein Benutzer erfüllen muss. Dazu gehört Prozessor Anzahl (`hardwareConcurrency`) und Arbeitsspeicher (`deviceMemory`)
-
-Gesezt wird der min/max Bereich für [`hardwareConcurrency`](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorConcurrentHardware/hardwareConcurrency) und [`deviceMemory`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory).
-
-**Default values**
+- Type: `Object`
 
 ```js
 {
@@ -68,15 +63,16 @@ Gesezt wird der min/max Bereich für [`hardwareConcurrency`](https://developer.m
 }
 ```
 
+Beschreibt die Hardware-Anforderungen die ein Benutzer erfüllen muss.
+
+ | Key                   | Type      | Required | Description                      | Default               |
+ | --------------------- | --------- | -------- | -------------------------------- | --------------------- |
+ | `hardwareConcurrency` | `Boolean` | yes      | Min/Max Anzahl an Prozessoren    | `{ min: 2, max: 48 }` |
+ | `deviceMemory`        | `Boolean` | yes      | Mindestgröße vom Arbeitsspeicher | `{ min: 2 }`          |
+
+
 ### `timing`
-
-Beschreibt die Lade-Geschwindigkeit des Benutzers. Die Geschwindigkeit wird anhand des `fcp` ermittelt. Alternativ wird der `dcl` verwendet wenn der abruf von `fcp` nicht möglich ist.
-
-Alle werte werden in `ms` gesetzt und beschreiben den Maximum.
-
-More Information to [`fcp` (First contentful paint)](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint)
-
-**Default values**
+- Type: `Object`
 
 ```js
 {
@@ -85,43 +81,48 @@ More Information to [`fcp` (First contentful paint)](https://developer.mozilla.o
 }
 ```
 
+Beschreibt die Lade-Geschwindigkeit des Benutzers. Die Geschwindigkeit wird anhand des `fcp` ermittelt. Alternativ wird der `dcl` verwendet wenn der abruf von `fcp` nicht möglich ist.
+
+Alle werte werden in `ms` gesetzt und beschreiben den Maximum.
+
+
+ | Key   | Type     | Required | Description                                                                                                                 | Default |
+ | ----- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | `fcp` | `Number` | yes      | Max. First contentful paint duration [learn More](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) | `800`   |
+ | `dcl` | `Number` | yes      | Max. Dom content load duration                                                                                              | `1200`  |
+
 
 ### `lighthouseDetectionByUserAgent`
+- Type: `Boolean`
+  - Default: `false`
 
 Fallback to detect lighthouse user agent when the other ressources like the hardware detect don't work anymore.
 
-- Default: `false`
-
-
-
-
 ## `fonts`
+- Type: `Array`
 
+```js
+[
+  {
+    family: 'Font A',
+    locals: ['Font A'],
+    fallback: ['Arial', 'sans-serif'],
+    variance: […]
+  },
+  {
+    family: 'Font B',
+    locals: ['Font B'],
+    fallback: ['Arial', 'sans-serif'],
+    variance: […]
+  }
+]
+```
 Liste aller im Projekt enthaltenen Font-Families.  
 Diese sind die Vorlage für die im Projekt enthaltenen `FontFace` definitionen.
 
-```js
-{
-  fonts: [
-    {
-      family: 'Font A',
-      locals: ['Font A'],
-      fallback: ['Arial', 'sans-serif'],
-      variance: […]
-    },
-    {
-      family: 'Font B',
-      locals: ['Font B'],
-      fallback: ['Arial', 'sans-serif'],
-      variance: […]
-    }
-  ]
-}
-```
 
 ### Font-Family
-
-Beschreibt eine Font-Family mit all ihren Varianten.
+- Type: `Object`
 
 ```js
 {
@@ -132,6 +133,8 @@ Beschreibt eine Font-Family mit all ihren Varianten.
 }
 ```
 
+Beschreibt eine Font-Family mit all ihren Varianten.
+
 | Key         | Type     | Required | Description                                                                         |
 | ----------- | -------- | -------- | ----------------------------------------------------------------------------------- |
 | `family`    | `String` | yes      | Name der Schriftarten Familie.                                                      |
@@ -141,10 +144,7 @@ Beschreibt eine Font-Family mit all ihren Varianten.
 
 <alert type="warning">Look for similarity in fonts to system fonts for perfect swap and reduction of layout shifts.</alert>
 ### Font-Variance
-
-Eine Font-Variance beschreibt eine Ausprägung einer Font-Family und dient zum erzeugen des `FontFace`.
-
-Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/docs/Web/CSS/font-style) und [`weight`](https://developer.mozilla.org/de/docs/Web/CSS/font-weight).
+- Type: `Object`
 
 ```js
 {
@@ -156,6 +156,11 @@ Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/
   ]
 }
 ```
+
+Eine Font-Variance beschreibt eine Ausprägung einer Font-Family und dient zum erzeugen des `FontFace`.
+
+Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/docs/Web/CSS/font-style) und [`weight`](https://developer.mozilla.org/de/docs/Web/CSS/font-weight).
+
 
 
 | Key       | Type                 | Required | Description                                            |
@@ -177,12 +182,14 @@ Font-Variancen unterscheiden sich im [`style`](https://developer.mozilla.org/de/
 ```
 
 ## `componentAutoImport`
+- Type: `Boolean`
+  - Default: `false`
 
 Wenn gesetzt, werden alle unter `nuxt-speedkit-components` enthaltenen Komponenten global registriert.
 
-Siehe [@nuxt/components](https://github.com/nuxt/components)
+[Learn more @nuxt/components](https://github.com/nuxt/components)
 
-- Default: `false`
+
 
 ### Available components
 
@@ -199,16 +206,13 @@ Siehe [@nuxt/components](https://github.com/nuxt/components)
 | `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit-components/experimental/SpeedkitYoutube`   |
 
 ## `componentPrefix`
+- Type: `String`
+  - Default: `undefined`
 
 Defines a prefix for the module components, important for auto import (`componentAutoImport`). e.g. `SpeedkitPicture` => `PrefixSpeedkitPicture`
 
-- Default: `undefined`
-
 ## `lazyOffset`
-
-Option für den `IntersectionObserver`, die im Modul verbaut sind.
-
-**Default values**
+- Type: `Object`
 
 ```js
 {
@@ -219,13 +223,12 @@ Option für den `IntersectionObserver`, die im Modul verbaut sind.
 }
 ```
 
-### `asset`
+Option für den `IntersectionObserver`, die im Modul verbaut sind.
 
-Beschreibt den `rootMargin` für den `IntersectionObserver` von `v-font` und `SpeedkitPicture`.
-
-### `components`
-
-Beschreibt den `rootMargin` für die benutzung von `speedkitComponents`.
+ | Key         | Type     | Required | Description                                                                                    | Default |
+ | ----------- | -------- | -------- | ---------------------------------------------------------------------------------------------- | ------- |
+ | `component` | `String` | yes      | Beschreibt den `rootMargin` für die benutzung von `speedkitComponents`.                        | `'0%'`  |
+ | `asset`     | `String` | yes      | Beschreibt den `rootMargin` für den `IntersectionObserver` von `v-font` und `SpeedkitPicture`. | `'0%'`  |
 
 ## Example Configuration
 

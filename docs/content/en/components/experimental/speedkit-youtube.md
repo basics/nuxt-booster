@@ -35,17 +35,16 @@ features:
 ```
 
 ### `id`
+- Type: `String`
+  - <badge>required</badge>
 
-<badge>required</badge>
-
-Id eines Youtube Videos.
-
+Legt die Youtube-ID fest.
 
 ### `autoplay`
+- Type: `Boolean`
+  - Default: `false`
 
 Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
-
-- Default: `false`
 
 ## Events
 
@@ -72,7 +71,7 @@ Tritt ein wenn Video fertiggeladen ist und abspielt.
 
 ### `enter`
 
-Tritt ein wenn Komponente sich im Viewport befindet.
+Tritt ein wenn Komponente den Viewport erreicht hat.
 
 
 
