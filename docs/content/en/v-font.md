@@ -5,7 +5,8 @@ position: 6
 category: Directives
 ---
 
-Die in den Module Optionen definierten Schriften, werden mit der Direktive `v-font` verwendet. 
+
+Die in den Module Optionen definierten Schriften (`fonts` [Learn more](/options#fonts)), werden mit der Direktive `v-font` verwendet. 
 
 In der Directive `v-font` wird über die im Komponenten Scope (e.g. `this`), enthaltene Methode `$getFont` die jeweilige Schrift abgerufen.
 
