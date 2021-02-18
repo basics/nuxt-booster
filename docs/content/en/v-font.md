@@ -68,26 +68,6 @@ This has an effect on prefetches and preloads.
 ## Best Practice
 
 ### Platzierung
-
-Setze den `v-font` immer auf ein Child-Tag der Komponente.
-
-**<span style="color: red;">Bad</span>**
-```html
-<template>
-  <div v-font="$getFont('Font Family A')">
-    <span>…</span>
-  </div>
-</template>
-```
-
-**<span style="color: green;">Good</span>**
-```html
-<template>
-  <div>
-    <span v-font="$getFont('Font Family A')">…</span>
-  </div>
-</template>
-```
 ### Never use with `v-html` or `v-text`
 
 Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
