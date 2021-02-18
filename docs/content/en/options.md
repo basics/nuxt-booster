@@ -123,13 +123,13 @@ Fallback to detect lighthouse user agent when the other ressources like the hard
     family: 'Font A',
     locals: ['Font A'],
     fallback: ['Arial', 'sans-serif'],
-    variance: […]
+    variances: […]
   },
   {
     family: 'Font B',
     locals: ['Font B'],
     fallback: ['Arial', 'sans-serif'],
-    variance: […]
+    variances: […]
   }
 ]
 ```
@@ -145,7 +145,7 @@ Diese sind die Vorlage für die im Projekt enthaltenen `FontFace` definitionen.
   family: 'Font A',
   locals: ['Font A'],
   fallback: ['Arial', 'sans-serif'],
-  variance: […]
+  variances: […]
 }
 ```
 
@@ -278,7 +278,7 @@ Option für den [`IntersectionObserver`](https://developer.mozilla.org/en-US/doc
     family: 'Font A',
     locals: ['Font A'],
     fallback: ['Arial', 'sans-serif'],
-    variance: [
+    variances: [
       {
         style: 'normal',
         weight: 400,
