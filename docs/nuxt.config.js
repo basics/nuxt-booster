@@ -2,6 +2,11 @@ import { withDocus } from 'docus';
 import nuxtSpeedkitPkg from '../package.json';
 
 export default withDocus({
+
+  env: {
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN
+  },
+
   docus: {
     colors: {
       primary: '#E83162',
@@ -32,16 +37,9 @@ export default withDocus({
 
   generate: {
     dir: getDistPath()
-  },
-
-  router: {
-    base: getBasePath()
   }
-});
 
-function getBasePath () {
-  return process.env.npm_config_base || process.env.BASE_PATH || '/';
-}
+});
 
 function getDistPath () {
   return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
