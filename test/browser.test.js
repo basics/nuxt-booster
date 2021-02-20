@@ -1,13 +1,13 @@
 /* eslint-disable no-secrets/no-secrets */
 
+import { join, resolve } from 'path';
 import { createPage, setupTest } from '@nuxt/test-utils';
-const { join, resolve } = require('path');
 
 // eslint-disable-next-line scanjs-rules/call_setTimeout
 jest.setTimeout(20000);
 
 describe('browser (Chrome)', () => {
-  const testDir = resolve(__dirname, '.browser-chromium');
+  const testDir = resolve(__dirname, '.browser-chrome');
   const buildDir = join(testDir, '.nuxt');
 
   setupTest({
