@@ -5,5 +5,9 @@
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "GrabarzUndPartner/nuxt-speedkit"
+  "github": {
+    "repo": "GrabarzUndPartner/nuxt-speedkit",
+    "branch": "main",
+    "dir": "docs"
+  }
 }

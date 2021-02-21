@@ -1,5 +1,34 @@
 # Project Changelog
 
+## [1.1.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.15...v1.1.16) (2021-02-12)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** replace reverse with sort for sizes ([61a7691](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/61a7691cd00035d1e291ef5ccec2176601cf7262))
+
+## [1.1.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.14...v1.1.15) (2021-02-11)
+
+
+### Bug Fixes
+
+* **components:** fix auto import for abstracts and experimental ([4be8bb6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4be8bb65108d87afecf11afc9a9926ea8df64bdc))
+
+## [1.1.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.13...v1.1.14) (2021-02-11)
+
+
+### Bug Fixes
+
+* **module:** add module options for nuxt.config option speedkit ([a65ae35](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a65ae359858c396b45b98d4a4ea34e6fe4762060))
+
+## [1.1.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.12...v1.1.13) (2021-02-11)
+
+
+### Bug Fixes
+
+* **speedkit-layer:** remove no-script tags, replace with id and noscript css ([64137a7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/64137a74b53312dbcb2bf647382b93b731fc7cd1))
+* **speedkit-layer:** remove unused props ([9fa27d5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9fa27d53a85202c0c17264b3101058e90e12ce46))
+
 ## [1.1.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.11...v1.1.12) (2021-02-10)
 
 
