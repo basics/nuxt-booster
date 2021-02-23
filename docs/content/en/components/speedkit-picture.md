@@ -52,8 +52,9 @@ features:
     media: '(min-width: 768px)',
     format: 'jpg',
     sizes: [
-      { width: 768, media: '(min-width: 768px)', url:'768.jpg' },
+      { width: 768, media: '(min-width: 768px)', url: '768.jpg' },
       { width: 1024, media: '(min-width: 1024px)', url: '1024.jpg' }
+    ]
   },
   {
     format: 'webp',

@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.17...v1.1.18) (2021-02-23)
+
+
+### Bug Fixes
+
+* **deps:** update nuxt ([1a232bb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1a232bb6c5591919542bc6542d8f09ebef3cc9f2))
+
 ## [1.1.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.16...v1.1.17) (2021-02-22)
 
 
