@@ -44,7 +44,7 @@
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
-    "nuxt": "2.15.1",
+    "nuxt": "2.15.2",
     "@babel/core": "7.12.17",
     "@babel/preset-env": "7.12.17",
     "@babel/preset-typescript": "7.12.17",
