@@ -1,10 +1,10 @@
 module.exports = {
-  testEnvironment: 'node',
-  collectCoverage: true,
+  preset: '@nuxt/test-utils',
   collectCoverageFrom: [
     'lib/**/*.js',
     '!lib/plugin.js',
-    '!lib/entry.js'
+    '!lib/entry.js',
+    '!lib/components/SpeedkitLayer.vue'
   ],
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/lib/$1',
@@ -12,14 +12,9 @@ module.exports = {
     '^@@$': '<rootDir>',
     '^@/(.*)$': '<rootDir>/lib/$1'
   },
-  transformIgnorePatterns: ['/node_modules/(?!(nuxt-i18n)/)'],
-  transform: {
-    '^.+\\.js$': 'babel-jest'
-  },
+  transformIgnorePatterns: [`/node_modules/(?!${['@nuxt/image']})`],
   testPathIgnorePatterns: [
-    'fixture'
     // 'generate.test.js',
-    // 'module.test.js'
     // 'browser.test.js'
   ]
-}
+};

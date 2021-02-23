@@ -3,7 +3,7 @@
     <div class="preview-container__preview">
       <slot name="default" />
     </div>
-    <div v-font="$fonts.getFont('Quicksand', 400, 'normal').isCritical()" class="preview-container__info">
+    <div v-font="$getFont('Quicksand', 400, 'normal')" class="preview-container__info">
       <slot name="title">
         <p>Preview Info</p>
       </slot>
@@ -39,8 +39,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 50vh;
+    overflow: hidden;
 
     @media (orientation: landscape) {
       width: 50vw;
@@ -72,12 +73,10 @@
 
     --bg-opacity: 1;
 
-    background-color: #edf2f7;
-    background-color: rgba(237, 242, 247, var(--bg-opacity));
+    background-color: rgb(0 0 0 / 40%);
 
     @media (prefers-color-scheme: dark) {
-      background-color: #2d3748;
-      background-color: rgba(45, 55, 72, var(--bg-opacity));
+      background-color: rgb(255 255 255 / 40%);
     }
 
     & > article {

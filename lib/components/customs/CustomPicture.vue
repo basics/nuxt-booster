@@ -1,98 +1,170 @@
 <template>
-  <picture>
+  <picture :style="style">
     <source
-      v-for="(source, index) in sources"
+      v-for="(source, index) in imageSources"
       :key="index"
-      v-bind="source"
+      :srcset="source.dataURI || source.srcset || source.url"
+      :media="source.media"
+      :sizes="source.sizes"
+      :type="source.type"
     >
-    <custom-image v-bind="{src, srcset, width, height, alt, title, preload}" @load="onLoad" />
+    <img
+      ref="image"
+      :class="{'in-progress': inProgress}"
+      loading="lazy"
+      :alt="alt"
+      :title="title"
+      :crossorigin="crossorigin"
+    >
   </picture>
 </template>
 
 <script>
-import CustomImage from './CustomImage'
+import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
+import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
+import { getImagePreloadDescription } from 'nuxt-speedkit/utils/description';
+import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
+import Cache from 'nuxt-speedkit/classes/Cache';
+import { toHashHex } from 'nuxt-speedkit/utils/string';
+
+const preloadCache = new Cache();
 
 export default {
-  components: {
-    CustomImage
-  },
-
   props: {
-    src: {
-      type: String,
-      default () {
-        return null
-      }
-    },
-
-    srcset: {
-      type: String,
-      default () {
-        return null
-      }
-    },
-
     sources: {
       type: Array,
       default () {
-        return null
+        return [];
+      }
+    },
+
+    preload: {
+      type: Array,
+      default () {
+        return [];
       }
     },
 
     alt: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
-
     title: {
       type: String,
       default () {
-        return ''
+        return '';
       }
     },
 
-    width: {
-      type: Number,
+    crossorigin: {
+      type: String,
       default () {
-        return null
-      }
-    },
-
-    height: {
-      type: Number,
-      default () {
-        return null
+        return this.$crossorigin;
       }
     }
   },
 
-  computed: {
-    preload () {
-      return this.sources.reduce((result, item) => {
-        if (item.type === 'image/webp') {
-          result = Object.assign({ src: this.srcUrl }, item)
-        } else if ((!result || result.type !== 'image/webp')) {
-          result = Object.assign({ src: this.srcUrl }, item)
-        }
-        return result
-      }, null)
-    },
+  data () {
+    return {
+      imageSources: this.sources,
+      inProgress: true,
+      visible: false,
+      style: {}
+    };
+  },
 
-    srcUrl () {
-      if (this.src !== null && !this.src.startsWith('data:image')) {
-        return this.src
-      } else {
-        return null
+  head () {
+    let data = {};
+    if (this.preload.length && (this.isCritical || (process.client && this.visible))) {
+      const sources = filterBySupportedMimeTypes(this.preload);
+      const [source] = sources;
+
+      preloadCache.getPromise(toHashHex(source.srcset), (resolve, reject) => {
+        if (isPreloadSupported()) {
+          data = {
+            link: [getImagePreloadDescription(source, this.crossorigin, resolve)]
+          };
+        } else {
+          doPreloadFallback(source, this.crossorigin, resolve);
+        }
+      }).then(e => this.onPreload(e));
+    }
+    return data;
+  },
+
+  watch: {
+    sources () {
+      if (!this.imageSources.length) {
+        this.imageSources = this.sources;
       }
     }
+  },
+
+  mounted () {
+    registerIntersecting(this.$el, (e) => {
+      this.visible = true;
+      this.$emit('enter', e);
+    });
+  },
+
+  destroyed () {
+    unregisterIntersecting(this.$el);
   },
 
   methods: {
-    onLoad (e) {
-      this.$emit('load', e.target)
+    onPreload (e) {
+      this.style.backgroundImage = `url(${this.$refs.image.currentSrc})`;
+      this.imageSources = this.preload;
+      this.inProgress = false;
+      this.$emit('load');
+    }
+  }
+};
+
+function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
+  if (!process.server) {
+    const img = new global.Image();
+    img.onload = callback;
+    img.crossorigin = crossorigin;
+    img.sizes = sizes;
+    img.srcset = srcset;
+  }
+}
+
+function filterBySupportedMimeTypes (sources) {
+  return sources.filter((source) => {
+    return !isWebp(source) || (isWebp(source) && webpSupport);
+  });
+}
+
+function isWebp ({ type }) {
+  return type === getMimeTypeByFormat('webp');
+}
+</script>
+
+<style lang="postcss" scoped>
+picture {
+  display: block;
+  height: inherit;
+  overflow: hidden;
+  background-size: cover;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: blur(0);
+    transition-duration: 350ms;
+    transition-property: filter, transform;
+    transform: scale(1);
+    object-fit: cover;
+
+    &.in-progress {
+      filter: blur(10px);
+      transform: scale(1.1);
     }
   }
 }
-</script>
+</style>

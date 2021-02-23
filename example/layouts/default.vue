@@ -1,18 +1,16 @@
 <template>
   <div>
-    <google-lighthouse />
-    <organism-page-header critical />
+    <organism-page-header v-bind="pageHeader" />
     <Nuxt />
-    <info-layer />
+    <info-layer critical />
     <GithubCorner />
+    <google-lighthouse />
   </div>
 </template>
 
 <script>
-import InfoLayer from '@/components/InfoLayer'
+import InfoLayer from '@/components/InfoLayer';
 
-// import GoogleLighthouse from '@/components/components/GoogleLighthouse'
-// import OrganismPageHeader from '@/components/organisms/PageHeader'
 export default {
   speedkitComponents: {
     GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'),
@@ -20,12 +18,74 @@ export default {
   },
   components: {
     InfoLayer
-    // OrganismPageHeader
+  },
+
+  data () {
+    return {
+      pageHeader: {
+        menu: {
+
+          lists: [
+            {
+              links: [
+                {
+                  title: 'Home',
+                  to: '/'
+                }
+              ]
+            },
+            {
+              headline: 'Test',
+              links: [
+                {
+                  title: 'v-font',
+                  to: '/tests/v-font/'
+                },
+                {
+                  title: 'v-font (media)',
+                  to: '/tests/v-font-media/'
+                },
+                {
+                  title: 'SpeedkitPicture',
+                  to: '/tests/speedkit-picture/'
+                },
+                {
+                  title: 'SpeedkitYoutube',
+                  to: '/tests/speedkit-youtube/'
+                },
+                {
+                  title: 'SpeedkitIframe',
+                  to: '/tests/speedkit-iframe/'
+                }
+              ]
+            },
+            {
+              headline: 'Experimental',
+              links: [
+                {
+                  title: 'Home',
+                  to: '/experimental/'
+                },
+                {
+                  title: 'SpeedkitYoutube',
+                  to: '/experimental/speedkit-youtube/'
+                },
+                {
+                  title: 'SpeedkitPicture (5 Pictures)',
+                  to: '/experimental/speedkit-picture/5/'
+                }
+              ]
+            }
+
+          ]
+        }
+      }
+    };
   },
 
   head () {
     return {
-      title: this.$route.name,
+      title: `${this.$route.name} | nuxt-speedkit`,
       meta: [
         {
           hid: 'description',
@@ -33,14 +93,12 @@ export default {
           content: `${this.$route.name} - description`
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="postcss">
-
-@import '@/../lib/style.css';
 
 html {
   height: stretch;
@@ -51,12 +109,12 @@ body {
   min-height: stretch;
   margin: 0;
   font-size: calc(16 / 320 * 100vw);
-  color: #2f495e;
+  color: #000;
   background-color: #fff;
 
   @media (prefers-color-scheme: dark) {
-    color: #f5f7fa;
-    background-color: #2c3e50;
+    color: #fff;
+    background-color: #333;
   }
 
   @media (min-width: 375px) {
@@ -75,4 +133,5 @@ body {
     font-size: 16px;
   }
 }
+
 </style>

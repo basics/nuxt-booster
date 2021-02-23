@@ -1,5 +1,5 @@
 <template>
-  <div v-font="$fonts.getFont('Comic Neue', 300, 'italic')" class="layout-two-columns">
+  <div v-font="$getFont('Merriweather', 300, 'italic')" class="layout-two-columns">
     <div><slot name="left" /></div>
     <div><slot name="right" /></div>
   </div>
@@ -11,7 +11,7 @@ export default {
   components: {
 
   }
-}
+};
 </script>
 
 <style lang="postcss">

@@ -1,10 +1,10 @@
 <template>
   <div class="component-stage">
-    <lazy-picture v-bind="picture" />
+    <speedkit-picture v-bind="picture" />
     <h1
       v-font="[
-        $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('.headline'),
-        $fonts.getFont('Comic Neue', 300, 'italic').addSelector('.claim')
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
+        $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
       ]"
     >
       <span class="headline">{{ headline }}</span>
@@ -14,17 +14,17 @@
 </template>
 
 <script>
-import LazyPicture from 'nuxt-speedkit/components/LazyPicture'
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture';
 export default {
   components: {
-    LazyPicture
+    SpeedkitPicture
   },
   props: {
-    picture: { type: Object, default () { return {} } },
-    headline: { type: String, default () { return 'Headline' } },
-    claim: { type: String, default () { return 'Claim' } }
+    picture: { type: Object, default () { return {}; } },
+    headline: { type: String, default () { return 'Headline'; } },
+    claim: { type: String, default () { return 'Claim'; } }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>
@@ -50,23 +50,6 @@ export default {
     @media (min-width: 768px) {
       font-size: 40px;
       line-height: 80px;
-    }
-  }
-
-  & >>> picture {
-    &::before {
-      display: block;
-      padding-top: calc(9 / 16 * 100%);
-      content: "";
-    }
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 

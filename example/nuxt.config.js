@@ -1,24 +1,18 @@
-const { resolve } = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const pkg = require('../package.json')
-const isDev = process.env.NODE_ENV === 'development'
-const isTest = process.env.NODE_ENV === 'test'
+const { resolve } = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const pkg = require('../package.json');
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   dev: isDev,
-  target: 'static',
+  target: hasTargetStatic() ? 'static' : null,
   modern: isDev ? false : 'client',
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  loading: {
-    color: 'blue',
-    height: '5px'
-  },
-  // mode: 'spa',
 
   env: {
-    GITHUB_REPO_URL: process.env.GITHUB_REPO_URL || 'https://github.com/GrabarzUndPartner/nuxt-speedkit'
+    GITHUB_REPO_URL: pkg.repository.url
   },
 
   components: ['~/components/auto-import/'],
@@ -33,24 +27,27 @@ module.exports = {
   },
 
   build: {
-
     babel: {
-      presets ({ isServer, isModern, isDev }) {
+      presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app-edge'),
+            require.resolve('@nuxt/babel-preset-app'),
             {
               buildTarget: isServer ? 'server' : 'client',
-              corejs: { version: 3 },
+              corejs: { version: 3, proposals: true },
               useBuiltIns: isModern ? 'entry' : 'usage',
               forceAllTransforms: !isDev && !isModern && !isServer,
               shippedProposals: true,
               loose: true,
-              bugfixes: true
+              bugfixes: true,
+              polyfills: [
+                'es.promise',
+                'es.symbol'
+              ]
             }
           ]
-        ]
+        ];
       }
     },
 
@@ -66,7 +63,7 @@ module.exports = {
     },
 
     extend (config) {
-      if (!isDev && !isTest) {
+      if (hasBuildAnalyze()) {
         config.plugins.push(new BundleAnalyzerPlugin({
           reportFilename: resolve(`.reports/webpack/${config.name}.html`),
           statsFilename: resolve(`.reports/webpack/stats/${config.name}.json`),
@@ -76,138 +73,188 @@ module.exports = {
           logLevel: 'info',
           defaultSizes: 'gzip',
           statsOptions: 'normal'
-        }))
+        }));
       }
     }
   },
 
   generate: {
+    crawler: true,
     dir: getDistPath()
   },
 
   router: {
-    base: getBasePath()
+    base: getBasePath(),
+    trailingSlash: undefined
   },
 
   buildModules: [
-    ['@aceforth/nuxt-optimized-images', {
-      optimizeImages: true,
-      optimizeImagesInDev: true,
-      sqip: {
-        numberOfPrimitives: 20,
-        blur: 0,
-        mode: 1
-      },
-      lqip: {
-        palette: true
-      }
-    }]
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
+    '@nuxt/image'
   ],
 
+  speedkit: {
+    detection: {
+      performance: true,
+      browserSupport: true
+    },
+    performance: {
+      device: {
+        hardwareConcurrency: { min: 2, max: 48 },
+        deviceMemory: { min: 2 }
+      },
+      timing: {
+        fcp: 800,
+        dcl: 1200 // fallback if fcp is not available (safari)
+      },
+      lighthouseDetectionByUserAgent: false
+    },
+    fonts: [{
+      family: 'Quicksand',
+      locals: ['Quicksand'],
+      fallback: ['sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 500,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 600,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff', type: 'woff' },
+            { src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff2', type: 'woff2' }
+          ]
+        }
+      ]
+    }, {
+      family: 'Merriweather',
+      locals: ['Merriweather'],
+      fallback: ['Georgia', 'sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-300italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-regular.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/merriweather-v22-latin/merriweather-v22-latin-700italic.woff2', type: 'woff2' }
+          ]
+        }
+      ]
+    }, {
+      family: 'Montserrat Alternates',
+      locals: ['Montserrat Alternates', 'Montserrat-Alternates'],
+      fallback: ['sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 300,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff2', type: 'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff', type: 'woff' },
+            { src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff2', type: 'woff2' }
+          ]
+        }
+      ]
+    }]
+  },
+
   modules: [
-    ['nuxt-i18n', {}],
-    [
-      resolve(__dirname, '..'), {
-        performance: {
-          device: {
-            hardwareConcurrency: { min: 2, max: 48 },
-            deviceMemory: { min: 2 }
-          },
-          timing: {
-            fcp: 500,
-            dcl: 800 // fallback if fcp is not available (safari)
-          },
-          lighthouseDetectionByUserAgent: false
-        },
-        fonts: [{
-          family: 'Quicksand',
-          fallback: ['sans-serif'],
-          variances: [
-            {
-              style: 'normal',
-              weight: 300,
-              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-300.woff2'
-            }, {
-              style: 'normal',
-              weight: 400,
-              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-regular.woff2'
-            }, {
-              style: 'normal',
-              weight: 500,
-              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-500.woff2'
-            }, {
-              style: 'normal',
-              weight: 600,
-              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-600.woff2'
-            }, {
-              style: 'normal',
-              weight: 700,
-              src: '@/assets/fonts/quicksand-v21-latin/quicksand-v21-latin-700.woff2'
-            }
-          ]
-        }, {
-          family: 'Comic Neue',
-          fallback: ['Arial', 'sans-serif'],
-          variances: [
-            {
-              style: 'normal',
-              weight: 300,
-              src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300.woff2'
-            }, {
-              style: 'italic',
-              weight: 300,
-              src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-300italic.woff2'
-            }, {
-              style: 'normal',
-              weight: 400,
-              src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-regular.woff2'
-            }, {
-              style: 'italic',
-              weight: 400,
-              src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-italic.woff2'
-            }, {
-              style: 'normal',
-              weight: 700,
-              src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700.woff2'
-            }, {
-              style: 'italic',
-              weight: 700,
-              src: '@/assets/fonts/comic-neue-v1-latin/comic-neue-v1-latin-700italic.woff2'
-            }
-          ]
-        }, {
-          family: 'Montserrat Alternates',
-          fallback: ['sans-serif'],
-          variances: [
-            {
-              style: 'normal',
-              weight: 300,
-              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300.woff2'
-            }, {
-              style: 'italic',
-              weight: 300,
-              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-300italic.woff2'
-            }, {
-              style: 'normal',
-              weight: 400,
-              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-regular.woff2'
-            }, {
-              style: 'italic',
-              weight: 400,
-              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-italic.woff2'
-            }, {
-              style: 'normal',
-              weight: 700,
-              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700.woff2'
-            }, {
-              style: 'italic',
-              weight: 700,
-              src: '@/assets/fonts/montserrat-alternates-v12-latin/montserrat-alternates-v12-latin-700italic.woff2'
-            }
-          ]
-        }]
-      }
-    ]
+    resolve(__dirname, '..') // nuxt-speedkit
   ],
 
   head: {
@@ -225,20 +272,28 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   }
-}
+};
 
 function getBasePath () {
-  return process.env.npm_config_base || process.env.BASE_PATH || '/'
+  return process.env.npm_config_base || process.env.BASE_PATH || '/';
 }
 
 function getHost () {
-  return process.env.npm_config_host || process.env.HOST || 'localhost'
+  return process.env.npm_config_host || process.env.HOST || 'localhost';
 }
 
 function getPort () {
-  return process.env.npm_config_port || process.env.PORT || 3000
+  return process.env.npm_config_port || process.env.PORT || 3000;
 }
 
 function getDistPath () {
-  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist'
+  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
+}
+
+function hasBuildAnalyze () {
+  return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE;
+}
+
+function hasTargetStatic () {
+  return (process.argv.indexOf('--target') && process.argv[process.argv.indexOf('--target') + 1] === 'static') || process.env.npm_config_target_static || process.env.TARGET_STATIC;
 }

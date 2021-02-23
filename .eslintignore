@@ -5,7 +5,8 @@ dist
 coverage
 .reports
 publish
+sw.js
 
-# Plugin
 lib/plugin.js
 lib/entry.js
+lib/components/SpeedkitLayer.vue

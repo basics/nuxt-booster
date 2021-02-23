@@ -3,6 +3,7 @@ node_modules
 .idea
 *.log*
 .nuxt
+.eslintcache
 .history
 .reports
 publish
@@ -11,9 +12,11 @@ publish
 .DS_Store
 coverage
 dist
-test/fixture
+test/.*
+eslint-report.json
 video
 example/static/stream
+example/assets/proxy
 stream/A
 stream/B
 stream/C

@@ -1,221 +1,191 @@
-const { join, resolve } = require('path')
-const puppeteer = require('puppeteer')
-const { setup, loadConfig, generatePort } = require('@nuxtjs/module-test-utils')
+/* eslint-disable no-secrets/no-secrets */
 
-describe('browser (puppeteer)', () => {
-  let nuxt,
-    browser, page
-  const fixtureDir = resolve(__dirname, 'fixture', 'browser')
-  const buildDir = join(fixtureDir, '.nuxt')
+import { join, resolve } from 'path';
+import { createPage, setupTest } from '@nuxt/test-utils';
 
-  beforeAll(async () => {
-    const overrides = {
+// eslint-disable-next-line scanjs-rules/call_setTimeout
+jest.setTimeout(20000);
+
+describe('browser (Chrome)', () => {
+  const testDir = resolve(__dirname, '.browser-chrome');
+  const buildDir = join(testDir, '.nuxt');
+
+  setupTest({
+    browser: true,
+    browserOptions: {
+      type: 'chromium'
+    },
+    fixture: '../example',
+    config: {
+      fullstatic: true,
       modern: false,
-      buildDir
-    };
+      buildDir,
+      dir: {
+        pages: 'pages/tests'
+      }
+    }
+  });
 
-    ({ nuxt } = (await setup(loadConfig(__dirname, '../../example', overrides, { merge: true }))))
+  tests();
+});
 
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-    await page.setViewport({
-      width: 1200,
-      height: 800
-    })
-  }, 120000)
+describe('browser (Firefox)', () => {
+  const testDir = resolve(__dirname, '.browser-firefox');
+  const buildDir = join(testDir, '.nuxt');
 
-  afterAll(async () => {
-    await browser.close()
-    await nuxt.close()
-  })
+  setupTest({
+    browser: true,
+    browserOptions: {
+      type: 'firefox'
+    },
+    fixture: '../example',
+    config: {
+      fullstatic: true,
+      modern: false,
+      buildDir,
+      dir: {
+        pages: 'pages/tests'
+      }
+    }
+  });
 
-  async function getUrl (path) {
-    return `http://localhost:${await generatePort()}${path}`
-  }
+  tests();
+});
 
-  // /tests/v-font
+function tests () {
+  // #region /tests/v-font
 
-  test('v-font (font assign simple) (element class)', async () => {
-    await page.goto(await getUrl('/tests/v-font'))
-
-    // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple').classList.contains('font-lobster-two-400-normal'))).toBeFalsy()
-    // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
-    // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimple.font-montserrat-alternates-400-normal')
-  })
-
-  test('v-font (font assign by single selector) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
-
-    // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector').classList.contains('.font-montserrat-alternates-700-normal-c3ryb25n'))).toBeFalsy()
-    // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
-    // element has font class?
-    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-montserrat-alternates-700-normal-c3ryb25n')
-  })
-
-  test('v-font (font assign by multiple variances) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+  it('v-font (font assign simple) (element class)', async () => {
+    const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-montserrat-alternates-700-normal-c3ryb25n'))).toBeFalsy()
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances').classList.contains('.font-montserrat-alternates-700-italic-aq'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple[data-font="-56bf77ce"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-montserrat-alternates-700-normal-c3ryb25n')
-    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-montserrat-alternates-700-italic-aq')
-  })
+    await page.waitForSelector('#lazyFontAssignSimple.font-active[data-font="-56bf77ce"]');
+  });
 
-  test('v-font (font assign by multiple selectors (string)) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+  it('v-font (font assign by single selector) (element class)', async () => {
+    const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-montserrat-alternates-700-normal-c3ryb25n'))).toBeFalsy()
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsString').classList.contains('.font-montserrat-alternates-700-normal-yg'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector[data-font="-3ce46a67"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-montserrat-alternates-700-normal-c3ryb25n')
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsString.font-montserrat-alternates-700-normal-yg')
-  })
+    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-active[data-font="-3ce46a67"]');
+  });
 
-  test('v-font (font assign by multiple selectors (array)) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+  it('v-font (font assign by multiple variances) (element class)', async () => {
+    const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-montserrat-alternates-400-italic-aq'))).toBeFalsy()
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectorsArray').classList.contains('.font-montserrat-alternates-400-italic-zw0'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances[data-font="-1f925c6c"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-montserrat-alternates-400-italic-aq')
-    await page.waitForSelector('#lazyFontAssignByMultipleSelectorsArray.font-montserrat-alternates-400-italic-zw0')
-  })
+    await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-active[data-font="-1f925c6c"]');
+  });
 
-  test('v-font (font assign by deep selector) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font'))
+  it('v-font (font assign by multiple selectors) (element class)', async () => {
+    const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector').classList.contains('.font-montserrat-alternates-700-italic-c3ryb25nid4gaq'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectors[data-font="-691980b2"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-montserrat-alternates-700-italic-c3ryb25nid4gaq')
-  })
+    await page.waitForSelector('#lazyFontAssignByMultipleSelectors.font-active[data-font="-691980b2"]');
+  });
 
-  // /tests/v-font-media
-
-  test('v-font (media) (font assign simple by max 479px) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+  it('v-font (font assign by deep selector) (element class)', async () => {
+    const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479').classList.contains('.font-montserrat-alternates-700-italic-kg1hec13awr0adogndc5chgp'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector[data-font="-26857299"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-montserrat-alternates-700-italic-kg1hec13awr0adogndc5chgp')
-  })
+    await page.waitForSelector('#lazyFontAssignByDeepSelector.font-active[data-font="-26857299"]');
+  });
 
-  test('v-font (media) (font assign simple by 480px) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+  // #endregion
+
+  // #region /tests/v-font-media
+
+  it('v-font (media) (font assign simple by max 479px) (element class)', async () => {
+    const page = await createPage('/v-font-media');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480').classList.contains('.font-montserrat-alternates-400-normal-kg1pbi13awr0adogndgwchgp'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479[data-font="--cb5eade"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleBy480.font-montserrat-alternates-400-normal-kg1pbi13awr0adogndgwchgp')
-  })
+    await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-active[data-font="--cb5eade"]');
+  });
 
-  test('v-font (media) (font assign simple by 960px) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+  it('v-font (media) (font assign simple by 480px) (element class)', async () => {
+    const page = await createPage('/v-font-media/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960').classList.contains('.font-montserrat-alternates-400-italic-kg1pbi13awr0adogotywchgp'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480[data-font="-4ceb1f12"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleBy960.font-montserrat-alternates-400-italic-kg1pbi13awr0adogotywchgp')
-  })
+    await page.waitForSelector('#lazyFontAssignSimpleBy480.font-active[data-font="-4ceb1f12"]');
+  });
 
-  test('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/v-font-media'))
+  it('v-font (media) (font assign simple by 960px) (element class)', async () => {
+    const page = await createPage('/v-font-media/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440').classList.contains('.font-montserrat-alternates-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i'))).toBeFalsy()
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960[data-font="-1c63300d"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight))
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-montserrat-alternates-700-normal-kg1pbi13awr0adogmtq0mhb4ks1i')
-  })
+    await page.waitForSelector('#lazyFontAssignSimpleBy960.font-active[data-font="-1c63300d"]');
+  });
 
-  // /tests/lazy-image
+  it('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
+    const page = await createPage('/v-font-media/');
 
-  test('lazy-image', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/lazy-image'))
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-font="-719faf96"]').classList.contains('.font-active'))).toBeFalsy();
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+    // element has font class?
+    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-font="-719faf96"]');
+  });
 
-    page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight)
-    })
-    await page.waitForSelector('#lazyContainer :not(noscript) > img[srcset]')
-  })
+  // #endregion
 
-  // /tests/lazy-picture
+  // #region /tests/speedkit-picture
 
-  test('lazy-picture', async () => {
-    await page.goto(await getUrl('/'))
-    await page.goto(await getUrl('/tests/lazy-picture'))
+  it('speedkit-picture', async () => {
+    const page = await createPage('/speedkit-picture/');
 
-    page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight)
-    })
+    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]'))).toBeFalsy();
 
-    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source'))).toBeFalsy()
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
 
-    await page.waitForSelector('#lazyContainer :not(noscript) > picture source')
-  })
+    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]', {
+      state: 'attached'
+    });
+  });
 
-  // /tests/speedkit-function
+  // #endregion
 
-  test('speedkit-function', async () => {
-    await page.goto(await getUrl('/tests/speedkit-function'))
+  // #region /tests/speedkit-iframe
 
-    // test with IntersectionObserver
+  it('speedkit-iframe', async () => {
+    const page = await createPage('/speedkit-iframe/');
 
-    expect(await page.evaluate(() => document.querySelector('#testResolveByIntersectionObserver.speedkit-test--active'))).toBeFalsy()
+    await page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight);
+    });
+    await page.waitForSelector('#lazyContainer iframe[src]');
+  });
 
-    await page.waitForSelector('#testResolveByIntersectionObserver.speedkit-test--active')
-
-    // test with name
-
-    expect(await page.evaluate(() => document.querySelector('#testResolveByName.speedkit-test--active'))).toBeFalsy()
-
-    page.evaluate(() => {
-      window.nuxtSpeedkitResolveComponents('resolve-components')
-    })
-    await page.waitForSelector('#testResolveByName.speedkit-test--active')
-
-    // test with event
-
-    expect(await page.evaluate(() => document.querySelector('#testResolveByEvent.speedkit-test--active'))).toBeFalsy()
-
-    page.evaluate(() => {
-      document.querySelector('#testResolveByEvent').click()
-    })
-    await page.waitForSelector('#testResolveByEvent.speedkit-test--active')
-  })
-})
+  // #endregion
+}

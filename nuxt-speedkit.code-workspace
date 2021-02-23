@@ -27,6 +27,7 @@
       "html"
     ],
     "files.exclude": {
+      "docs/": true,
       ".nuxt/": false,
       ".scannerwork/": true,
       "dist/": false,

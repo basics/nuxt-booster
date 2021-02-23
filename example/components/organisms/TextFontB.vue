@@ -1,13 +1,11 @@
 <template>
   <div
     v-font="[
-      $fonts.getFont('Montserrat Alternates', 400, 'normal'),
-      $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('h2'),
-      $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i'),
-      $fonts.getFont('Montserrat Alternates', 700, 'normal').addSelector('b,strong'),
-      $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('i b,i strong'),
-      $fonts.getFont('Montserrat Alternates', 700, 'italic').addSelector('b i, strong i'),
-      $fonts.getFont('Montserrat Alternates', 400, 'italic').addSelector('i > b, i > strong')
+      $getFont('Montserrat Alternates', 300, 'normal'),
+      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'}),
+      $getFont('Montserrat Alternates', 300, 'italic', {selector: 'em'}),
+      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'strong'}),
+      $getFont('Montserrat Alternates', 700, 'italic', {selector: 'em strong, strong em'})
     ]"
     class="component-text-font-b"
     v-html="text"
@@ -22,7 +20,7 @@ export default {
       default: 'Text'
     }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>

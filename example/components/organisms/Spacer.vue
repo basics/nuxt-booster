@@ -15,7 +15,7 @@ export default {
       default: 'Scroll down'
     }
   }
-}
+};
 </script>
 
 <style lang="postcss">
