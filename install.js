@@ -1,5 +1,7 @@
 
 const path = require('path');
+// eslint-disable-next-line security/detect-child-process
+const { exec } = require('child_process');
 const fsExtra = require('fs-extra');
 
 const isPackage = path.basename(path.join(process.cwd(), '../')) === 'node_modules';
@@ -25,4 +27,17 @@ if (isPackage) {
 
   // remove lib dir
   fsExtra.remove(libDir);
+} else {
+  const commands = [
+    'node node_modules/.bin/husky install'
+  ];
+  exec(commands.join('&&'), (error, stdout, stderr) => {
+    if (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return;
+    }
+    // eslint-disable-next-line no-console
+    console.log(stdout);
+  });
 }
