@@ -39,12 +39,12 @@
     "defu": "3.2.2",
     "dynamic-class-list": "1.1.0",
     "fs-extra": "9.1.0",
-    "nuxt": "2.15.1",
     "serialize-to-js": "3.1.1",
     "vue-lazy-hydration": "2.0.0-beta.4",
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
+    "nuxt": "2.15.1",
     "@babel/core": "7.12.17",
     "@babel/preset-env": "7.12.17",
     "@babel/preset-typescript": "7.12.17",
