@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.16...v1.1.17) (2021-02-22)
+
+
+### Bug Fixes
+
+* **npm:** force publish ([c3727e2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c3727e2ef67032337d8528d5ffe68db679fc4b90))
+
 ## [1.1.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.15...v1.1.16) (2021-02-12)
 
 
