@@ -25,7 +25,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "docus": "0.0.8",
+    "docus": "0.0.9",
     "nuxt": "2.15.2",
     "tailwindcss": "2.0.3"
   }
