@@ -41,4 +41,68 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 }
 ```
 
+## Example Configuration
+
+```js
+{
+  speedkit: {
+    detection: {
+      performance: true,
+      browserSupport: true
+    },
+    performance: {
+      device: {
+        hardwareConcurrency: { min: 2, max: 48 },
+        deviceMemory: { min: 2 }
+      },
+      timing: {
+        fcp: 800,
+        dcl: 1200
+      },
+      lighthouseDetectionByUserAgent: false
+    },
+    fonts: [{
+      family: 'Font A',
+      locals: ['Font A'],
+      fallback: ['Arial', 'sans-serif'],
+      variances: [
+        {
+          style: 'normal',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/font-a-regular.woff', type:'woff' },
+            { src: '@/assets/fonts/font-a-regular.woff2', type:'woff2' }
+          ]
+        }, {
+          style: 'italic',
+          weight: 400,
+          sources: [
+            { src: '@/assets/fonts/font-a-regularItalic.woff', type:'woff' },
+            { src: '@/assets/fonts/font-a-regularItalic.woff2', type:'woff2' }
+          ]
+        }, {
+          style: 'normal',
+          weight: 700,
+          sources: [
+            { src: '@/assets/fonts/font-a-700.woff', type:'woff' },
+            { src: '@/assets/fonts/font-a-700.woff2', type:'woff2' }
+          ]
+        }
+      ]
+    }]
+
+    componentAutoImport: false,
+    componentPrefix: undefined,
+
+    /**
+     * IntersectionObserver rootMargin for Compoennts and Assets
+     */
+    lazyOffset: {
+      component: '0%',
+      asset: '0%'
+    }
+  }
+}
+```
+
 See <nuxt-link to="/options">module options</nuxt-link>.

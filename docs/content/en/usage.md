@@ -53,7 +53,7 @@ Until now, the components available in the page were always declared via the att
 Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#components">nuxt.config</nuxt-link>.
 
 <alert type="warning">
-Although the attribute "speedkitComponents" can be filled in every component, we recommend its explicit use only in pages. The use within components can only make sense in explicit special cases. Here we recommend the general use of static imports.
+Although the attribute "speedkitComponents" can be filled in every component, we recommend its explicit use only in pages and layout. The use within components can only make sense in explicit special cases. Here we recommend the general use of static imports.
 </alert>
 
 ## speedkit components
