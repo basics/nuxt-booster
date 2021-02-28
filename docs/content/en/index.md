@@ -28,9 +28,9 @@ results:
 Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
 
 In order to achieve a performance score of 100/100, only the resources that are necessary in the current viewport may be loaded. Concepts already exist for the loading of javascript components and images.
-However, there is not yet a practicable concept for loading fonts. This module provides a holistic approach to dynamically load all necessary resources, including fonts, based on the current viewport.
+However, there is not yet a practicable concept for loading fonts dynamically. This module provides a holistic approach to load all necessary resources on demand, including fonts, based on the current viewport.
 
-This module implements the lazy-hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) and embeds [nuxt/image](https://github.com/nuxt/image).
+This module implements the lazy-hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) and embeds a [modified version](https://github.com/StephanGerbeth/image) of [nuxt/image](https://github.com/nuxt/image).
 
 ## Features
 
