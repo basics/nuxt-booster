@@ -12,20 +12,26 @@ components:
 ---
 
 
-`nuxt-speedkit` benutzt du um die Performance der Website zu erhöhen.  
-Dafür werden verschiedene Werkzeuge zur verfügung gestellt, die dir beim laden der Resourcen (Bilder, Schriften) und Komponenten helfen.
+'nuxt-speedkit' is used to increase the initial loading performance of the website.  
+For this purpose, various tools are provided that optimise the loading and initialisation of resources (images, fonts) and components automatically and on demand.
 
-Geholfen wird bei:
+This has the following impact:
+- Reduced initial download of the web page
+  1. only the critical viewport resources will be loaded
+  2. all other resources will be loaded on demand, e.g. when scrolling.
+- Reduction of metrics 
+  1. FCP
+  2. TTI
+  3. TBT
 
-1. Beschleunigen des initialen Seiten-Loads.
-2. Ressourcen sparende Komponente. (e.g. Lazy load bei Bilder)
-3. Laden und verwenden von WebFonts.
+The module recognises the critical resources (images, fonts, Javascript) for the initial load and preloads them when the page is called up directly. However, if an impairment of the UX is detected during the initialisation phase due to the following factors:
+  1. no Javascript enabled
+  2. reduced bandwidth
+  3. weak hardware
+  4. unsupported browser
 
-Primär dient dieses Modul zum überprüfen ob ein Benutzer mit einer Schlechten Verbindung oder nicht ausreichender Hardware zugreift.
+the further initialisation process is paused and the user is given the decision whether to load the website completely (incl. Javascript) or to have only the static content (HTML, CSS, images and fonts) displayed. Through this loading behaviour, a correspondingly high performance score can be achieved even with a low bandwidth, as specified by the lighthouse test, for example. For the user, on the other hand, it becomes transparent why there may be delays in the display of complex components or static resources in the further course of the website visit.
 
-Falls dieser Fall eintritt (e.g. Lighhous / Pagespeed Insight), wird das ausführen des Javascript blockiert, dies veringert den initial Seiten Load. 
-
-Im Anschluss kann der Benutzer über eine Interaktion (e.g. Button-Click) das Javascript scharfschalten und die Seite verwenden. (Alle benötigten Scripte werden wurden als Preload schon geladen.)
 
 
 
