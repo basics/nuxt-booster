@@ -1,5 +1,5 @@
 ---
-title: Conecpt
+title: Concept
 description: ''
 position: 3
 
@@ -35,15 +35,9 @@ This has the following impact:
 
 The module recognises the critical resources (images, fonts, Javascript) for the initial load and preloads them when the page is called up directly. However, if an impairment of the UX is detected during the initialisation phase due to the following factors:
 
-<list type="info" :items="reductionofTimingMetrics"></list>
+<list type="info" :items="factors"></list>
 
 the further initialisation process is paused and the user is given the decision whether to load the website completely (incl. Javascript) or to have only the static content (HTML, CSS, images and fonts) displayed. Through this loading behaviour, a correspondingly high performance score can be achieved even with a low bandwidth, as specified by the lighthouse test, for example. For the user, on the other hand, it becomes transparent why there may be delays in the display of complex components or static resources in the further course of the website visit.
 
 For this reason, this module can only be used with NuxtJS, as this requires static HTML in order to continue to display the full content to the user despite uninitialised Javascript.
-
-The following tools are provided for this purpose:
-
-## critical flag
-
-In the current version, the critical flag must be set manually on the components. Automation would be conceivable in the future. However, according to current knowledge, this would have a massive impact on deployment times when using Puppeteer or similar tools. We are still collecting ideas here. If you know of a more efficient way, please send us a feature request.
 
