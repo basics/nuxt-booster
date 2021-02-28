@@ -2,15 +2,14 @@
 title: Introduction
 description: ''
 position: 1
-category: ''
 features:
-- dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
-- optional loading prevention of resources at low bandwidth or weak hardware
-- prevents the loading of unnecessary resources (including components) that are outside the current viewport.
-- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
+  - dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
+  - optional loading prevention of resources at low bandwidth or weak hardware
+  - prevents the loading of unnecessary resources (including components) that are outside the current viewport.
+  - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
 results:
-- delivery of the minimum required resources based on the current viewport
-- if you use the tools as specified we can guarantee a lighthouse performance score of 100/100
+  - delivery of the minimum required resources based on the current viewport
+  - if you use the tools as specified we can guarantee a lighthouse performance score of 100/100
 ---
 
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
@@ -29,11 +28,11 @@ This module implements the lazy-hydration concept of [Markus Oberlehner](https:/
 
 ## Features
 
-<list :items="features"></list>
+<list type="success" :items="features"></list>
 
 ## Results
 
-<list :items="results"></list>
+<list type="success" :items="results"></list>
 
 <!-- <p class="flex items-center">Enjoy light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
 
