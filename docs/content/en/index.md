@@ -4,11 +4,18 @@ description: ''
 position: 1
 category: ''
 features:
-- automatic preloading critical font resources
-- dynamic viewport based loading of font resources (subselectors, media queries)
-- dynamic loading of images based on bandwidth
+- dynamic loading of viewport based page resources
+  - fonts (subselectors, media queries)
+  - components
+  - pictures
+- optional loading prevention of resources at
+  - low bandwidth
+  - weak hardware
+- prevents the loading of unnecessary resources (including components) that are outside the current viewport.
+- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
 results:
 - delivery of the minimum required resources based on the current viewport
+- we can guarantee a lighthouse performance score of 100/100
 ---
 
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
@@ -18,8 +25,12 @@ results:
 [Module]() for [NuxtJS](https://nuxtjs.org).
 
 
-Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
-All used components and resources are loaded on demand based on the viewport.
+Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
+
+In order to achieve a performance score of 100/100, only the resources that are necessary in the current viewport may be loaded. Concepts already exist for the loading of javascript components and images.
+However, there is not yet a practicable concept for loading fonts. This module provides a holistic approach to dynamically load all necessary resources, including fonts, based on the current viewport.
+
+This module implements the lazy-hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) and embeds [nuxt/image](https://github.com/nuxt/image).
 
 ## Features
 
