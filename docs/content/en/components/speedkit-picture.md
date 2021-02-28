@@ -4,24 +4,48 @@ description: ''
 position: 31
 category: Components
 
-features:
-  - Lazy Load Integration
-  - Placeholder for multiple image ratios
 
 ---
 
 [view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)
 
+Das `SpeedkitPicture` wird verwendet für die Einbindung von Viewport abhängigen Bild-Resourcen unter verwendung eines intergrierten Lazy Loads.
 
+Es ist dafür ausgelegt Viewport abhängige Bildverhältnisse und Platzhalter zu verwenden und ermöglicht ideale übergänge beim erreichen des Viewports mit dem umschalten von Platzhalter zu original Resource.
+
+Durch die verwendung von Lazy Load wird das gezielte laden der Resourcen beachtet.  
+Somit wird der Anwender ein reibungsloses Erlebnis haben.
+
+## Critical
+
+Unter verwendung der Eigenschaft `critical` auf der Komponente oder einer Eltern-Komponente, werden die Resourcen initial priorisiert geladen und angezeigt.
+
+<alert type="warning">lazy load of resources is by critical disabled.</alert>
+
+
+
+
+## Usage
 ```html
-<speedkit-picture src="…" />
+<template>
+  <speedkit-picture v-bind="speedkitPicture" />
+</template>
+
+<script>
+
+import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+
+export default {
+  components: {
+    SpeedkitPicture
+  },
+  data: {
+    speedkitPicture: { … }
+  }
+}
+
+</script>
 ```
-
-`SpeedkitPicture` ersetzt den Einsatz eines nativen `<picture>` Elements.
-
-## Features
-
-<list :items="features"></list>
 
 ## Properties
 
@@ -37,6 +61,8 @@ features:
 
 ### `sources`
 - Type: `Array`
+
+Beinhaltet Resourcen die abängig vom Viewport angezeigt werden sollen.
 
 ```js
 [
@@ -74,6 +100,22 @@ features:
 #### source
 - Type: `Object`
 
+Legt eine Resource fest die abängig vom Viewport angezeigt werden soll.   
+
+Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je nach Viewport anzeigen zu lassen.
+`sizes` dient zum aussteuern der Bildgrößen für den jeweiligen Viewport.
+
+
+| Key      | Type     | Required | Value                                                                                                    | Default |
+| -------- | -------- | -------- | -------------------------------------------------------------------------------------------------------- | ------- |
+| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Mehr zu Size definierung](/components/speedkit-picture#size) | `[]`    |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …                                               |         |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                                                |         |
+
+
+<alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
+
+
 ```js
 {
   media: '(min-width: 768px)',
@@ -84,17 +126,6 @@ features:
   ]
 }
 ```
-<br>
-
-
-| Key      | Type     | Required | Value                                                                                                    | Default |
-| -------- | -------- | -------- | -------------------------------------------------------------------------------------------------------- | ------- |
-| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Mehr zu Size definierung](/components/speedkit-picture#size) | `[]`    |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …                                               |         |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                                                |         |
-
-<alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
-
 
 #### Size
 - Type: `Object`
@@ -129,6 +160,16 @@ features:
 ### `placeholders`
 - Type: `Array`
 
+Beschreibt die Platzhalter, diese werden angezeigt solange keine Resourcen geladen wurden.
+
+Es ist möglich über `media`, passend zu unterschiedlichen Bildverhältnissen aus `sources`, passende Platzhalter zu definieren.
+
+| Key      | Type     | Required | Value                                                      |
+| -------- | -------- | -------- | ---------------------------------------------------------- |
+| `url`    | `String` | yes      | Url oder Base64 von einem Bild                             |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, … |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                  |
+
 ```js
 [
   {
@@ -142,15 +183,6 @@ features:
   }
 ]
 ```
-
-Beschreibt die Platzhalter, diese werden angezeigt solange keine Resourcen geladen wurden.
-
-
-| Key      | Type     | Required | Value                                                      |
-| -------- | -------- | -------- | ---------------------------------------------------------- |
-| `url`    | `String` | yes      | Url oder Base64 von einem Bild                             |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, … |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                  |
 
 ### `alt`
 - Type: `String`
