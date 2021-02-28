@@ -34,7 +34,11 @@ the further initialisation process is paused and the user is given the decision 
 
 For this reason, this module can only be used with NuxtJS, as this requires static HTML in order to continue to display the full content to the user despite uninitialised Javascript.
 
+The following tools are provided for this purpose:
 
+# critical flag
+
+In the current version, the critical flag must be set manually on the components. Automation would be conceivable in the future. However, according to current knowledge, this would have a massive impact on deployment times when using Puppeteer or similar tools. We are still collecting ideas here. If you know of a more efficient variant, please send us a feature request.
 
 
 
