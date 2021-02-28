@@ -4,13 +4,8 @@ description: ''
 position: 1
 category: ''
 features:
-- dynamic loading of viewport based page resources
-  - fonts (subselectors, media queries)
-  - components
-  - pictures
-- optional loading prevention of resources at
-  - low bandwidth
-  - weak hardware
+- dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
+- optional loading prevention of resources at low bandwidth or weak hardware
 - prevents the loading of unnecessary resources (including components) that are outside the current viewport.
 - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
 results:

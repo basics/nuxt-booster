@@ -19,7 +19,7 @@ This has the following impact:
 - Reduced initial download of the web page
   1. only the critical viewport resources will be loaded
   2. all other resources will be loaded on demand, e.g. when scrolling.
-- Reduction of metrics 
+- Reduction of timing metrics 
   1. FCP
   2. TTI
   3. TBT
@@ -38,7 +38,7 @@ The following tools are provided for this purpose:
 
 # critical flag
 
-In the current version, the critical flag must be set manually on the components. Automation would be conceivable in the future. However, according to current knowledge, this would have a massive impact on deployment times when using Puppeteer or similar tools. We are still collecting ideas here. If you know of a more efficient variant, please send us a feature request.
+In the current version, the critical flag must be set manually on the components. Automation would be conceivable in the future. However, according to current knowledge, this would have a massive impact on deployment times when using Puppeteer or similar tools. We are still collecting ideas here. If you know of a more efficient way, please send us a feature request.
 
 
 
