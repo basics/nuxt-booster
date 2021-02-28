@@ -18,7 +18,10 @@ features:
 <speedkit-picture src="…" />
 ```
 
-`SpeedkitPicture` ersetzt den Einsatz eines `NuxtPicture` aus dem Module `@nuxt/image`.
+Das experimentelle `SpeedkitPicture` baut auf der Lazy Load Mechanik des [`SpeedkitPicture`](/components/speedkit-picture) auf, beinhaltet aber als Feature die Verwendung von `@nuxt/image` zum automatischen generieren der Abformate für die angebenen Resourcen.  
+Die Unterscheidung zwischen der Experimentelle Variante liegt in der definierung der Resourcen.
+
+<alert type="warning">**Wichtig:** Es entfällt die möglichkeit Viewport abhängige Bildverhältnisse zu verwenden.</alert>
 
 Für die generiung der Bilder, wird die `@nuxt/image` API verwendet. [Learn more](https://image.nuxtjs.org/)
 
