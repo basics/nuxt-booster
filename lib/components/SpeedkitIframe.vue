@@ -1,5 +1,5 @@
 <template>
-  <intersection-observer @enter="onEnter">
+  <intersection-observer track-visibility @enter="onEnter">
     <iframe
       :src="lazySrc"
       v-bind="$attrs"

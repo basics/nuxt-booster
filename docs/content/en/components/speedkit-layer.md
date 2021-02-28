@@ -4,11 +4,6 @@ description: ''
 position: 30
 category: Components
 
-events:
-  - javascript is disabled
-  - browser does not support
-  - user hardware is not sufficient
-  - connection is too slow
 
 hideLayerFeatures:
   - Schließmechanik benötigt kein Javascript.
@@ -20,11 +15,33 @@ hideLayerFeatures:
 
 Der SpeedkitLayer wird verwendet, als Hinweis für den Benutzer wenn folgende Ereignisse eintreten:
 
-<list :items="events" type="info"></list>
 
+1. **Javascript deaktiviert**
+
+    Javascript ist im Browser des Benutzers deaktiviert.
+
+2. **Browser wird nicht unterstützt**
+
+    Tritt ein wenn der Browser vom Benutzer nicht in der im Projekt vorhandenen `browserslist` enthalten ist.
+
+    > More about browser support, look option `browserSupport` in [module options](/options#browsersupport)
+
+3. **Ungeeignete Hardware**
+
+    Tritt ein wenn Benutzer Hardware nicht ausreicht. Dieses wird entschieden anhand der Anzahl der CPUs (`hardwareConcurrency`) und größe des RAMs (`deviceMemory`).
+
+    > Die schwellenwerte (Maximum) des `hardwareConcurrency` und `deviceMemory`, werden in den [Module Optionen](/options#performance) definiert. 
+
+4. **Geringe Verbindungsgeschwindigkeit**
+
+    Tritt ein Verbindungsgeschwindigkeit des Benutzers nicht ausreicht, dies wird ermittelt über die Dauer des `FCP`, falls dieser nicht vorhanden ist (e.g. `Safari`), wird als Fallback der `DCL` verwendet. 
+
+    > Die schwellenwerte (Maximum) des `FCP` und `DCL`, werden in den [Module Optionen](/options#performance) definiert. 
+
+    [Learn more in Concept.](/concept)
 ## Usage
 
-Wenn der SpeedkitLayer verbaut ist, wird das Initialisieren der App gesteuert. Heißt wenn eines der Ereignisse eintritt, wird das ausführen der App, erst wieder über eine Benutzer-Interaktion gestartet.
+Wenn der SpeedkitLayer verbaut ist, wird das Initialisieren der App gesteuert. Heißt wenn eines der Ereignisse eintritt, wird das initiale ausführen der App pausiert, erst über eine Benutzer-Interaktion wird diese wieder gestartet.
 
 Platziert wird der Layer einmalig im Layout der Seite.
 Dieser dient als Wrapper und muss anhand des [Template](/components/speedkit-layer#template) befüllt werden, [siehe Beispiel Komponente](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
@@ -54,7 +71,7 @@ Die Mitteilungen sind Elemente (Container), diese werden in den jeweiligen Ereig
 Benutzer Browser wird von der [`Browserslist`](/options#browsersupport) nicht unterstützt.
 ### `nuxt-speedkit__message__outdated-device`
 
-Benutzer Hardware (Prozessoranzal & Arbeitsspeicher) sind nicht ausreichend.
+Benutzer Hardware (Anzahl Prozessor & Arbeitsspeicher) sind nicht ausreichend.
 ### `nuxt-speedkit__message__slow-connection`
 
 Verbindungsgeschwindigkeit ist zu niedrig.
@@ -70,18 +87,37 @@ Benötigt die <nuxt-link to="/components/speedkit-layer#hide-layer">Hide Layer</
 
 ### `nuxt-speedkit__button__init-font`
 
+Besitzt ein auf die `id` registrierten `click` Handler.
+
 Wird eingesetzt um dem Benutzer die Möglichkeit zu bieten nur mit aktivierten Schriften die Seite zu besuchen. Weitere initialisierung des Javascript und laden der Bilder wird unterbunden.
 
-Sichtbar bei Unsupported-Browser und nicht ausreichender Hardware.
+Sichtbar bei Unsupported-Browser, nicht ausreichender Hardware oder geringer Verbindungsgeschwindigkeit.
+
+Es wird empfohlen ein Inline-Event zu registrieren. [Learn more](/components/speedkit-layer#force-app-initialization-or-font-load)
+
+```html
+<button
+  id="nuxt-speedkit__button__init-font"
+  onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;"
+  >…</button>
+```
+
+### `nuxt-speedkit__button__init-app`
 
 Besitzt ein auf die `id` registrierten `click` Handler.
-### `nuxt-speedkit__button__init-app`
 
 Dient zum aktiveren aller Features. Die initialisierung des Javascripts wird gestartet, Bilder werden geladen.
 
-Sichtbar bei Unsupported-Browser und nicht ausreichender Hardware.
+Sichtbar bei Unsupported-Browser, nicht ausreichender Hardware oder geringer Verbindungsgeschwindigkeit.
 
-Besitzt ein auf die `id` registrierten `click` Handler.
+Es wird empfohlen ein Inline-Event zu registrieren. [Learn more](/components/speedkit-layer#force-app-initialization-or-font-load)
+
+```html
+<button
+  id="nuxt-speedkit__button__init-app"
+  onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"
+  >…</button>
+```
 ## Force App initialization or Font load
 
 Für die Fälle Unsupported-Browser und nicht ausreichender Hardware, muss mit der `id` auch ein `onclick` Event gesetzt werden.
@@ -95,28 +131,19 @@ Diese werden benötigt, wenn der Benutzer schon reagiert hat bevor das initiale 
 - Type: `Boolean`
   - Default: `false`
 
-Wird gesetzt wenn nur Schriften angezeigt werden.
+Wenn gesetzt, werden nur die Schriften initialisiert.
+
+Kann per Inline-Event auf einen `click` gesetzt werden.  
+e.g. `onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;"`
 
 ### `__NUXT_SPEEDKIT_AUTO_INIT__`
 - Type: `Boolean`
   - Default: `false`
 
-Wird gesetzt wenn App initialisiert wird.
+Wenn gesetzt, wird nach vollständigen laden des Javascript initialisierung weitergeführt.
 
-
-```html
-<!-- Button for use without javascript and with fonts -->
-<button
-  id="nuxt-speedkit__button__init-font"
-  onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;"
-  >…</button>
-
-<!-- Button for activate javascript by bad connection or browser support -->
-<button
-  id="nuxt-speedkit__button__init-app"
-  onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"
-  >…</button>
-```
+Kann per Inline-Event auf einen `click` gesetzt werden.  
+e.g. `onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"`
 
 ## Hide Layer
 
