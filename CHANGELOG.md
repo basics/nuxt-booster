@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.18...v1.1.19) (2021-02-28)
+
+
+### Bug Fixes
+
+* **directive:** add font-active via classlist in inserted and update ([eba5d3d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/eba5d3d1591eb4ff8fc2582c6d8b186ed6e24da5))
+
 ## [1.1.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.17...v1.1.18) (2021-02-23)
 
 
