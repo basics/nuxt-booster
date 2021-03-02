@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.19...v1.1.20) (2021-03-02)
+
+
+### Bug Fixes
+
+* **browser-detection:** var for checking if browser is supported ([0ce7fed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0ce7fed0b23446ae167ede168afbdd44c9da9b23))
+
 ## [1.1.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.18...v1.1.19) (2021-02-28)
 
 
