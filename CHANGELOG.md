@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.20...v1.1.21) (2021-03-02)
+
+
+### Bug Fixes
+
+* **plugin:** fix missing import ([0382e40](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0382e40b09dc24c8cf85d1d4775a13c0cef7a810))
+
 ## [1.1.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.19...v1.1.20) (2021-03-02)
 
 
