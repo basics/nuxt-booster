@@ -3,26 +3,57 @@ title: SpeedkitIframe
 description: ''
 position: 35
 category: Components
-features:
-  - Lazy Load Integration
+
+primaryList:
+  - Ruckler (Kurzzeitig einfrieren der Seite)
+  - Verzögertes laden von Resourcen (Bilder, Fonts)
+  - Unnötig erzeugter Traffic
+secondaryList:
+  - Iframe laden ist reaktiv.
+  - Es werden keine Resourcen beim laden blockiert.
+  - Traffic wird erst erzeugt, wenn Iframe sichtbar.
 
 ---
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)
+`SpeedkitIframe`, Iframe & IntersectionObserver in one.
 
-```html
-<speedkit-iframe src="…" />
-```
+## Exkurs
 
-`SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements.
+Iframes neigen dazu, im speziellen Fall beim initialen PageLoad, durch das massive laden von Resourcen einer anderer Quelle, den Aufbau und Initialisierung der eigentlichen Seite zu stören. 
 
-## Features
+Für den Benutzer ist dies ist inbesondere spürbar durch:
 
-<list :items="features"></list>
+<list :items="primaryList" type="warning"></list>
+
+## Solution
+
+Um diese Punkte zu lösen, sollte bei der Verwendung darauf geachtet werden, das die Initialisierung des Iframes nachgelagert geschieht.
+Dies kann zum Beispiel über einen [IntersectionObserver](#) realisiert werden. Dieser ist dafür zuständig die Source auf dem Iframe zu setzen, sobald dieser den Sichtbarenbereich erreicht.
+
+**Somit können folgende Bedingungen erfüllt werden:**
+
+<list :items="secondaryList" type="success"></list>
+
+
+Die oben erwähnte Strategie bringt das `SpeedkitIframe` mit, arbeiten lässt es sich wie mit einem normalen [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+Der enthaltene [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) wird über die Eigenachaft `intersectionObserver` konfiguriert. 
 
 ## Properties
 
-Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
+```html
+<speedkit-iframe src="…" :intersection-observer="…" />
+```
+
+Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+
+### `intersectionObserver`
+- Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
+  - Default: `{ trackVisibility: true, delay: 350 }`
+
+Legt die Optionen vom enthaltenen IntersectionObserver fest.  
+
+For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about option `trackVisibility` from IntersectionObserver.
+
 ## Events
 
 ```html
