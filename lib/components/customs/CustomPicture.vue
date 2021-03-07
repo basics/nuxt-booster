@@ -78,9 +78,7 @@ export default {
   head () {
     let data = {};
     if (this.preload.length && (this.isCritical || (process.client && this.visible))) {
-      const sources = filterBySupportedMimeTypes(this.preload);
-      const [source] = sources;
-
+      const [source] = this.getPreloadSources();
       preloadCache.getPromise(toHashHex(source.srcset), (resolve, reject) => {
         if (isPreloadSupported()) {
           data = {
@@ -119,6 +117,22 @@ export default {
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
+    },
+    getPreloadSources () {
+      const sources = filterBySupportedMimeTypes(this.preload);
+      const formats = Array.from(new Set(sources.map(({ type }) => type)));
+      return formats.map((type) => {
+        const { srcset, sizes } = sources.filter(source => (source.type === type)).reduce((result, source) => {
+          result.srcset.push(source.srcset);
+          result.sizes.push(source.sizes);
+          return result;
+        }, { srcset: [], sizes: [] });
+        return {
+          srcset: srcset.join(', '),
+          sizes: sizes.join(', '),
+          type
+        };
+      });
     }
   }
 };

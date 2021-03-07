@@ -110,14 +110,17 @@ export default {
     },
 
     getSources () {
-      const formats = getFormats(this.sources)
-        .map(format => this.sources.map(({ src, sizes }) => this.$img.sizes(src, sizes, { format })).flat());
-
-      return formats.map(sources => ({
-        srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-        sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).sort((a, b) => a.width > b.width ? 1 : -1).join(', '),
-        type: getMimeTypeByFormat(sources[0].format)
-      }));
+      return getFormats(this.sources).map((format) => {
+        return this.sources.map(source => [source.media, source]).map(([media, { src, sizes }]) => {
+          const sources = this.$img.sizes(src, sizes, { format });
+          return {
+            media,
+            srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+            sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).sort((a, b) => a.width > b.width ? 1 : -1).join(', '),
+            type: getMimeTypeByFormat(sources[0].format)
+          };
+        });
+      }).flat();
     }
   }
 };
@@ -129,7 +132,7 @@ function extname (value) {
 }
 
 function getFormats (sources) {
-  return [...new Set(
+  return Array.from(new Set(
     ['webp']
       .concat(sources.map(source => extname(source.src) || 'jpg'))
       .map((format) => {
@@ -138,7 +141,7 @@ function getFormats (sources) {
         }
         return format;
       })
-  )];
+  ));
 }
 </script>
 
