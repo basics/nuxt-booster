@@ -94,11 +94,11 @@ export default {
     },
     getSources () {
       return this.sources.map(({ sizes, format, media }) => {
-        const sortedSizez = sizes.sort((a, b) => a.width > b.width ? -1 : 1);
+        const sortedSizes = sizes.sort((a, b) => a.width > b.width ? -1 : 1);
         return {
           media,
-          srcset: sortedSizez.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-          sizes: sortedSizez.map(({ width, media: breakpoint }) => breakpoint ? `${breakpoint} ${width}px` : `${width}px`).join(', '),
+          srcset: sortedSizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+          sizes: sortedSizes.map(({ width, media: breakpoint }) => breakpoint ? `${breakpoint} ${width}px` : `${width}px`).join(', '),
           type: getMimeTypeByFormat(format)
         };
       });
