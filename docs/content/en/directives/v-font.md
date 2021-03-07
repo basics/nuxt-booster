@@ -9,7 +9,7 @@ Fonts are the great mystery on the Internet. For more complex designs it is not 
 
 This is really a performance problem. If you look for solutions, you like to hear
 
-- don't use WebFonts that have to be reloaded
+- don't use WebFonts that have to be loaded
 - use another optimized font
 - reduce the number of used fonts
 - embed the fonts via Base64
