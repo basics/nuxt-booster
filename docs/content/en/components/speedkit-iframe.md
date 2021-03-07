@@ -21,14 +21,14 @@ secondaryList:
 
 Iframes neigen dazu, im speziellen Fall beim initialen PageLoad, durch das massive laden von Resourcen einer anderer Quelle, den Aufbau und Initialisierung der eigentlichen Seite zu stören. 
 
-Für den Benutzer ist dies ist inbesondere spürbar durch:
+**Für den Benutzer ist dies ist inbesondere spürbar durch:**
 
 <list :items="primaryList" type="warning"></list>
 
 ## Solution
 
 Um diese Punkte zu lösen, sollte bei der Verwendung darauf geachtet werden, das die Initialisierung des Iframes nachgelagert geschieht.
-Dies kann zum Beispiel über einen [IntersectionObserver](#) realisiert werden. Dieser ist dafür zuständig die Source auf dem Iframe zu setzen, sobald dieser den Sichtbarenbereich erreicht.
+Dies kann zum Beispiel über einen [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) realisiert werden. Dieser ist dafür zuständig die Source auf dem Iframe zu setzen, sobald dieser den Sichtbarenbereich erreicht.
 
 **Somit können folgende Bedingungen erfüllt werden:**
 
@@ -50,9 +50,9 @@ Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_ifra
 - Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
   - Default: `{ trackVisibility: true, delay: 350 }`
 
-Legt die Optionen vom enthaltenen IntersectionObserver fest.  
+Legt die Optionen vom enthaltenen [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) fest.  
 
-For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about option `trackVisibility` from IntersectionObserver.
+For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about option `trackVisibility` from [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
 
 ## Events
 
