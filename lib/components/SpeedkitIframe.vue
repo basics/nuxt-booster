@@ -1,5 +1,9 @@
 <template>
-  <intersection-observer track-visibility @enter="onEnter">
+  <intersection-observer
+    :track-visibility="intersectionTrackVisibility"
+    :delay="intersectionDelay"
+    @enter="onEnter"
+  >
     <iframe
       :src="lazySrc"
       v-bind="$attrs"
@@ -31,6 +35,14 @@ export default {
     src: {
       type: String,
       default: null
+    },
+    intersectionTrackVisibility: {
+      type: Boolean,
+      default: false
+    },
+    intersectionDelay: {
+      type: Number,
+      default: 350
     }
   },
 
