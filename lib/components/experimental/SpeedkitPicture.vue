@@ -113,10 +113,11 @@ export default {
       return getFormats(this.sources).map((format) => {
         return this.sources.map(source => [source.media, source]).map(([media, { src, sizes }]) => {
           const sources = this.$img.sizes(src, sizes, { format });
+          const sortedSources = sources.sort((a, b) => a.width > b.width ? -1 : 1);
           return {
             media,
-            srcset: sources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-            sizes: sources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).sort((a, b) => a.width > b.width ? 1 : -1).join(', '),
+            srcset: sortedSources.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+            sizes: sortedSources.map(({ width, media }) => media ? `${media} ${width}px` : `${width}px`).join(', '),
             type: getMimeTypeByFormat(sources[0].format)
           };
         });
