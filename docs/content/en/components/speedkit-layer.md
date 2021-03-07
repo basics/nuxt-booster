@@ -11,6 +11,34 @@ hideLayerFeatures:
 
 ---
 
+The loading behavior of webpages based on nuxtjs is designed in such a way that all necessary Javascript resources are preloaded and directly initialized with the initial load of the page. However, this behavior creates a negative impact on the Lighthouse Performance Score (TTI) for larger pages that have an increased initial load of additional resources, such as fonts, images, plugins, modules (nuxt-i18n, ...). 
+
+## Excursus
+
+The Lighthouse Test is not a tool to make a general statement about the quality of a website programming. Lighthouse rather tries to map a metric for the usability of a page from the user's point of view. This includes accessibility, best practices, SEO and of course performance. 
+
+This last point is often misinterpreted by developers. If you want to implement features that increase usability for the user (interactions/more complex animations, ...), this will always have an impact on performance in the Lighthouse Test for larger website projects, as the corresponding Javascript must be loaded for this. Finally, Lighthouse does also not rate the design, but the accessibility (size of click areas, etc.) of a website.
+You should therefore not ask yourself the following question: "How can I fully optimize my JavaScript to achieve a Lighthouse score of 100/100?". You have to ask yourself much more the question: "What is especially important to a user with low bandwidth or weak hardware on my site?".
+
+The answer to this is relatively simple: the site must first and foremost work and you must be able to get to the information you need quickly.
+
+No more and no less.
+
+The user doesn't need any fancy slider animations and parallax effects that can only be implemented with certain libraries. Or a softload mechanism to get to more pages in a more elegant and animated way, but which initially needs an increased amount of javascript logic. All he wants is that information is retrievable reasonably fast and he can click through the presence. Among other things, he doesn't need full retina images, which simply take a long time to load with 3G.
+
+## Solution
+
+For this reason, we pause the initialization of the javascript in the following cases:
+
+- reduced bandwidth
+- weak hardware
+- unsupported browser
+ 
+In these cases, a layer will be displayed that allows the user to decide whether he wants to initialize the full experience and download further resources despite the physical impairment or whether he wants to visit the website with a reduced UX (without Javascript).
+The layer is also displayed with a corresponding message when Javascript is deactivated.
+
+## Usage
+
 [view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)
 
 Der SpeedkitLayer wird verwendet, als Hinweis für den Benutzer wenn folgende Ereignisse eintreten:

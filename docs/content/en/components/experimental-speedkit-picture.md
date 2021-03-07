@@ -5,29 +5,35 @@ position: 32
 category: Components
 
 features:
-  - Lazy Load Integration
-  - Platzhalter für multiple Bildverhältnisse
+  - generation of multiple image resolutions (srcset)
+  - breakpoint-based differentiation of multiple image resolutions and ratios (srcset + media-rule)
+  - generation of breakpoint-based placeholders (different ratios e.g. for mobile portrait and landscape)
+  - optimized preloading of critical image resources
+  - lazy load of non-critical image resources
+  - base path support
+  - lazy hydration support
+  - load and optimize remote images from custom domains
+  - full SEO support
 
 ---
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)
+`SpeedkitPicture` is based on the module "@nuxt/image@0.2.0". However, we have created a separate Vue component for it, because at the time of the implementation of the module the component `NuxtPicture` and the API for generating the images were not yet completely finished, or this module did not yet completely cover our use-case. We hope that with the final completion of [`@nuxt/image`](https://image.nuxtjs.org/) we will be able to remove our component `SpeedkitPicture` and can use `@nuxt/image` & `NuxtPicture` with full functionality.
 
-<alert type="warning">Experimental Komponente. `nuxt-speedkit-components/experimental/SpeedkitPicture`</alert>
+<alert type="warning">This is an experimental component that we will offer until `@nuxt/image` is fully feature-complete released. This also means that we will accept bug reports for the `SpeedkitPicture` component. However, we will not fix bugs that are present in the generator of `@nuxt/image`.</alert>
+
+## Features
+
+With the current implementation of `SpeedkitPicture` we can cover the following functionality:
+
+<list :items="features"></list>
+
+## Usage
+
+[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)
 
 ```html
 <speedkit-picture src="…" />
 ```
-
-Das experimentelle `SpeedkitPicture` baut auf der Lazy Load Mechanik des [`SpeedkitPicture`](/components/speedkit-picture) auf, beinhaltet aber als Feature die Verwendung von `@nuxt/image` zum automatischen generieren der Abformate für die angebenen Resourcen.  
-Die Unterscheidung zwischen der Experimentelle Variante liegt in der definierung der Resourcen.
-
-<alert type="warning">**Wichtig:** Es entfällt die möglichkeit Viewport abhängige Bildverhältnisse zu verwenden.</alert>
-
-Für die generiung der Bilder, wird die `@nuxt/image` API verwendet. [Learn more](https://image.nuxtjs.org/)
-
-## Features
-
-<list :items="features"></list>
 
 ## Properties
 
@@ -46,8 +52,6 @@ Für die generiung der Bilder, wird die `@nuxt/image` API verwendet. [Learn more
 
 Liste der im Picture enthaltenen Sourcen.
 
-<alert type="warning">Kein Support für wechselnde  Viewport abhängige Bildverhältnisse.  
-Wird nur Bildgrößen anpassung per `srcset` unterstützt. [Learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#attr-srcset)</alert>
 
 ```js
 [
