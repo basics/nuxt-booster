@@ -13,7 +13,7 @@ Es unterscheiden sich nur die Angaben der Ressourcen, alle weiteren [Features](/
 
 Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle **Sourcen** (`sources`) und **Platzhalter** (`placeholders`) angeben werden.
 
-Beispiele für das Setzen der Ressourcen, findest du hier [hier](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue).
+Beispiele für das Setzen der Ressourcen, findest du [hier](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue).
 
 ## Beware
 
@@ -168,7 +168,7 @@ Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind
 ```js
 [
   {
-    media: '(min-width: 576px)',
+    media: '(min-width: 768px)',
     format: 'jpg',
     url: 'landscape.jpg' // base64 or url
   },
@@ -224,3 +224,54 @@ Tritt ein wenn Bild Resource komplett geladen wurde.
 
 Tritt ein wenn Komponente den Viewport erreicht hat.
 
+## Example
+
+```js
+
+{
+  placeholders: [
+    {
+      media: '(min-width: 768px)',
+      format: 'jpg',
+      url: 'data:image/jpeg;base64,…' // landscape
+    },
+    {
+      format: 'jpg',
+      url: 'data:image/jpeg;base64,…' // portrait
+    }
+  ],
+  sources: [
+    {
+      media: '(min-width: 768px)',
+      format: 'webp',
+      sizes: [
+        { width: 768, media: '(min-width: 768px)', url: '768.webp' },
+        { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
+      ]
+    },
+    {
+      media: '(min-width: 768px)',
+      format: 'jpg',
+      sizes: [
+        { width: 768, media: '(min-width: 768px)', url: '768.jpg' },
+        { width: 1024, media: '(min-width: 1024px)', url: '1024.jpg' }
+      ]
+    },
+    {
+      format: 'webp',
+      sizes: [
+        { width: 414, media: 'all', url: '414.webp' }
+      ]
+    },
+    {
+      format: 'jpg',
+      sizes: [
+        { width: 414, media: 'all', url: '414.jpg' }
+      ]
+    }
+  ],
+  title: 'Picture Title',
+  alt: 'Picture Alt',
+}
+
+```
