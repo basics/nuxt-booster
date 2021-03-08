@@ -61,6 +61,14 @@ Liste der im Picture enthaltenen Sourcen.
 
 #### 
 
+### `critical`
+- Type: `Boolean`
+  -  Default: `$parent.isCritical`
+
+Set component as critical component. 
+
+[Learn more about critical components](/usage#critical-prop-for-critical-components)
+
 ### `alt`
 - Type: `String`
 

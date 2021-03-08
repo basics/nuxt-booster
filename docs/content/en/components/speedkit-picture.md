@@ -181,9 +181,11 @@ Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind
 
 ### `critical`
 - Type: `Boolean`
+  -  Default: `$parent.isCritical`
 
-Set component as critical component. [Learn more](#)
+Set component as critical component. 
 
+[Learn more about critical components](/usage#critical-prop-for-critical-components)
 
 ### `alt`
 - Type: `String`
