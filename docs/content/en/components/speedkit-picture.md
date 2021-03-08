@@ -1,51 +1,43 @@
 ---
 title: SpeedkitPicture
 description: ''
-position: 31
+position: 32
 category: Components
-
-
 ---
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)
+Verwende das `SpeedkitPicture` anstatt dem [`ExperimentalSpeedkitPicture`](http://localhost:3000/components/experimental-speedkit-picture), wenn du keine [`@nuxt/image`](https://image.nuxtjs.org/) Integration verwendest.
 
-Das `SpeedkitPicture` wird verwendet für die Einbindung von Viewport abhängigen Bild-Resourcen unter verwendung eines intergrierten Lazy Loads.
+Es unterscheiden sich nur die Angaben der Ressourcen, alle weiteren [Features](/components/experimental-speedkit-picture#features) von [`ExperimentalSpeedkitPicture`](/components/experimental-speedkit-picture) bleiben bestehen.
 
-Es ist dafür ausgelegt Viewport abhängige Bildverhältnisse und Platzhalter zu verwenden und ermöglicht ideale übergänge beim erreichen des Viewports mit dem umschalten von Platzhalter zu original Resource.
+## Requirement
 
-Durch die verwendung von Lazy Load wird das gezielte laden der Resourcen beachtet.  
-Somit wird der Anwender ein reibungsloses Erlebnis haben.
+Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle **Sourcen** (`sources`) und **Platzhalter** (`placeholders`) angeben werden.
 
-## Critical
+Beispiele für das Setzen der Ressourcen, findest du hier [hier](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue).
 
-Unter verwendung der Eigenschaft `critical` auf der Komponente oder einer Eltern-Komponente, werden die Resourcen initial priorisiert geladen und angezeigt.
+## Beware
 
-<alert type="warning">lazy load of resources is by critical disabled.</alert>
+### Platzhalter
 
+Der Platzhalter sollte per **Base64** angeben werden und eine **Breite** von `30px` haben.
 
-
-
-## Usage
-```html
-<template>
-  <speedkit-picture v-bind="speedkitPicture" />
-</template>
-
-<script>
-
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
-
-export default {
-  components: {
-    SpeedkitPicture
-  },
-  data: {
-    speedkitPicture: { … }
-  }
+```js
+{
+  placeholders: [
+    {
+      url: 'data:image/jpeg;base64,…'
+    }
+  ]
 }
-
-</script>
 ```
+
+### Sourcen
+
+Denke an die Optimierung der Ressourcen!
+
+- Verwende wenn möglich `webp`, analog zu den vorhandenen `jpg` Dateien
+- Wende Optimierungen an, zum Beipiel per [Module `nuxt-optimized-images`](https://github.com/juliomrqz/nuxt-optimized-images) oder einem externen [Dienst TinyJPG](https://tinyjpg.com/).
+
 
 ## Properties
 
@@ -62,7 +54,7 @@ export default {
 ### `sources`
 - Type: `Array`
 
-Beinhaltet Resourcen die abängig vom Viewport angezeigt werden sollen.
+Beinhaltet Ressourcen die abängig vom Viewport angezeigt werden sollen.
 
 ```js
 [
@@ -160,9 +152,12 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 ### `placeholders`
 - Type: `Array`
 
-Beschreibt die Platzhalter, diese werden angezeigt solange keine Resourcen geladen wurden.
+Beschreibt die Platzhalter, diese werden angezeigt solange keine Ressourcen geladen wurden.
 
-Es ist möglich über `media`, passend zu unterschiedlichen Bildverhältnissen aus `sources`, passende Platzhalter zu definieren.
+Es ist möglich über `media`, zu unterschiedlichen Bildverhältnissen aus `sources`, passende Platzhalter zu definieren.
+
+Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind. 
+
 
 | Key      | Type     | Required | Value                                                      |
 | -------- | -------- | -------- | ---------------------------------------------------------- |
@@ -183,6 +178,12 @@ Es ist möglich über `media`, passend zu unterschiedlichen Bildverhältnissen a
   }
 ]
 ```
+
+### `critical`
+- Type: `Boolean`
+
+Set component as critical component. [Learn more](#)
+
 
 ### `alt`
 - Type: `String`
@@ -222,3 +223,4 @@ Tritt ein wenn Bild Resource komplett geladen wurde.
 ### `enter`
 
 Tritt ein wenn Komponente den Viewport erreicht hat.
+

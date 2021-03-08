@@ -1,5 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+export PATH=/usr/local/bin:$PATH # Important for sourcetree osx
 
 npx branch-name-lint .branchlintrc

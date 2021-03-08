@@ -1,7 +1,7 @@
 ---
 title: SpeedkitPicture (Experimental)
 description: ''
-position: 32
+position: 31
 category: Components
 
 features:
@@ -27,14 +27,6 @@ With the current implementation of `SpeedkitPicture` we can cover the following 
 
 <list :items="features"></list>
 
-## Usage
-
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)
-
-```html
-<speedkit-picture src="…" />
-```
-
 ## Properties
 
 ```js
@@ -55,13 +47,14 @@ Liste der im Picture enthaltenen Sourcen.
 
 ```js
 [
-  { src: 'portrait.jpg', sizes: '299,300:599,600:899,900:1199' },
-  { src: 'landscape.jpg', sizes: '1200:1599,1600:1899,1900:1920' }
+  { media: '(min-width: 1200px;)', src: 'landscape.jpg', sizes: '1200:1599,1600:1899,1900:1920' },
+  { src: 'portrait.jpg', sizes: '299,300:599,600:899,900:1199' }
 ]
 ```
 
 | Key     | Type     | Required | Value                                                                                         |
 | ------- | -------- | -------- | --------------------------------------------------------------------------------------------- |
+| `media` | `String` |          | CSS Media Query e.g. `(min-width: 768px)`. Usage for different aspect ratios for viewports.   |
 | `src`   | `String` | yes      | Url zum Bild                                                                                  |
 | `sizes` | `String` | yes      | Komma Separatierte angabe von Ziel Bildgrößen mit angabe des Viewports. e.g. `Width:MinWidth` |
 
