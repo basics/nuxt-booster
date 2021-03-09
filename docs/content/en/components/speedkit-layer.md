@@ -4,6 +4,10 @@ description: ''
 position: 30
 category: Components
 
+solutions:
+  - reduced bandwidth
+  - weak hardware
+  - unsupported browser
 
 hideLayerFeatures:
   - Schließmechanik benötigt kein Javascript.
@@ -30,9 +34,7 @@ The user doesn't need any fancy slider animations and parallax effects that can 
 
 For this reason, we pause the initialization of the javascript in the following cases:
 
-- reduced bandwidth
-- weak hardware
-- unsupported browser
+<list :items="solutions" type="info"></list>
  
 In these cases, a layer will be displayed that allows the user to decide whether he wants to initialize the full experience and download further resources despite the physical impairment or whether he wants to visit the website with a reduced UX (without Javascript).
 The layer is also displayed with a corresponding message when Javascript is deactivated.

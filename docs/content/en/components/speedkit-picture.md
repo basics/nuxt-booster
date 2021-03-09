@@ -13,7 +13,7 @@ Es unterscheiden sich nur die Angaben der Ressourcen, alle weiteren [Features](/
 
 Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle **Sourcen** (`sources`) und **Platzhalter** (`placeholders`) angeben werden.
 
-Beispiele für das Setzen der Ressourcen, findest du [hier](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue).
+Beispiele für das Definieren der Ressourcen, findest du im [Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue) des Moduls.
 
 ## Beware
 
@@ -89,13 +89,10 @@ Beinhaltet Ressourcen die abängig vom Viewport angezeigt werden sollen.
 ]
 ```
 
-#### source
-- Type: `Object`
-
-Legt eine Resource fest die abängig vom Viewport angezeigt werden soll.   
+Jedes Source in der Liste beschreibt ein Dateiformat mit seinen Viewport abhängigen Bildgrößen.
 
 Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je nach Viewport anzeigen zu lassen.
-`sizes` dient zum aussteuern der Bildgrößen für den jeweiligen Viewport.
+`sizes` dient zum definieren der Viewport abhängigen Bildgrößen.
 
 
 | Key      | Type     | Required | Value                                                                                                    | Default |
@@ -119,9 +116,6 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 }
 ```
 
-#### Size
-- Type: `Object`
-
 ```js
 { 
   width: 768, 
@@ -130,6 +124,13 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 }
 ```
  
+Das Size Objekt in `sizes` beschreibt die unterschiedlichen Bildgrößen für die jeweiligen Breakpoints.
+
+Aus der gesamt `sizes` Liste wird am ende ein `srcset` & `sizes` generiert.
+
+Mehr zu  [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset) & [`HTMLImageElement.sizes`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
+
+
 `url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
 `media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
 
@@ -152,11 +153,11 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 ### `placeholders`
 - Type: `Array`
 
-Beschreibt die Platzhalter, diese werden angezeigt solange keine Ressourcen geladen wurden.
+Beschreibt die Platzhalter die angezeigt werden, solange keine Ressourcen geladen wurden.
 
-Es ist möglich über `media`, zu unterschiedlichen Bildverhältnissen aus `sources`, passende Platzhalter zu definieren.
+Es ist möglich über die Eigenschaft `media`, unterschiedliche Bildverhältnisse für die Platzhalter zu definieren.
 
-Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind. 
+<alert type="warning">Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind. </alert>
 
 
 | Key      | Type     | Required | Value                                                      |
@@ -211,20 +212,7 @@ Image CrossOrigin.
 
 ## Events
 
-```html
-<speedkit-picture 
-  @load="console.log('Loaded!')" 
-  @enter="console.log('Viewport!')" 
-/>
-```
-
-### `load`
-
-Tritt ein wenn Bild Resource komplett geladen wurde.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
+Mehr zu Events unter [`ExperimentalSpeedkitPicture` (Events)](/components/experimental-speedkit-picture#events).
 
 ## Example
 

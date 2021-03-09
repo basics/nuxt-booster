@@ -9,7 +9,9 @@ features:
 
 Verwende das `SpeedkitYoutube` anstatt dem [`ExperimentalSpeedkitYoutube`](http://localhost:3000/components/experimental-speedkit-youtube), wenn du keine [`@nuxt/image`](https://image.nuxtjs.org/) Integration verwendest.
 
-Es unterscheidet sich nur die Angaben des Poster `poster`, dieses wurde durch das `SpeedkitPicture` ersetzt, alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`ExperimentalSpeedkitYoutube`](/components/experimental-speedkit-youtube) bleiben bestehen.
+## Requirement
+
+Es unterscheidet sich nur die Angaben des Poster [`poster`](/components/speedkit-youtube#poster), dieses wurde durch das `SpeedkitPicture` ersetzt, alle weiteren [Features](/components/experimental-speedkit-youtube#features) aus dem [`ExperimentalSpeedkitYoutube`](/components/experimental-speedkit-youtube) bleiben bestehen.
 ## Properties
 
 
@@ -39,35 +41,6 @@ Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automat
 
 Poster wird angezeigt solange Player nicht abspielt.
 
-
-
-
 ## Events
 
-```html
-<speedkit-picture 
-  @ready="console.log('Ready!')" 
-  @loading="console.log('Video Loading!')" 
-  @playing="console.log('Video Playing!')" 
-  @enter="console.log('Viewport!')" 
-/>
-```
-
-### `ready`
-
-Tritt ein wenn Youtube-Api komplett geladen ist.
-
-### `loading`
-
-Tritt ein wenn Video angefangen wird zu laden.
-
-### `playing`
-
-Tritt ein wenn Video fertiggeladen ist und abspielt.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
-
-
-
+Mehr zu Events unter [`ExperimentalSpeedkitYoutube` (Events)](/components/experimental-speedkit-youtube#events).

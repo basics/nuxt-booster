@@ -3,13 +3,6 @@ import nuxtSpeedkitPkg from '../package.json';
 
 export default withDocus({
 
-  docus: {
-    colors: {
-      primary: '#E83162',
-      code: '#E83162'
-    }
-  },
-
   pwa: {
     manifest: {
       name: nuxtSpeedkitPkg.name,
