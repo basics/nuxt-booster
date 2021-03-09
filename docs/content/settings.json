@@ -9,7 +9,7 @@
     "repo": "GrabarzUndPartner/nuxt-speedkit",
     "branch": "main",
     "dir": "docs",
-    "release": false
+    "releases": false
   },
   "colors": {
     "primary": "#E83162",
