@@ -37,7 +37,7 @@ export default {
         More: [
           {
             icon: 'IconExternalLink',
-            url: 'https: //nuxt-speedkit.grabarzundpartner.dev/example',
+            url: 'https://nuxt-speedkit.grabarzundpartner.dev/example',
             title: 'Live Example',
             target: '_blank'
           }

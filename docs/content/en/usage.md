@@ -25,7 +25,7 @@ In the current version, the critical flag must be set manually on the components
 
 ## font declaration
 
-The integration of fonts is component-based directly in the Vue template. All fonts, which have been declared in 'nuxt.config', can be assigned directly to the corresponding HTML element or component. In addition, subselectors and media queries can be defined, which enable viewport-based declarations or rich-text declarations. 
+The integration of fonts is component-based directly in the Vue template. All fonts, which have been declared in `nuxt.config`, can be assigned directly to the corresponding HTML element or component. In addition, subselectors and media queries can be defined, which enable viewport-based declarations or rich-text declarations. 
 The cool thing about this is that it saves the additional declaration in the CSS. You no longer have to keep the template and the CSS with its corresponding selectors for fonts in sync. Yeah! This is extremely helpful, especially when it comes to theming.
 
 ```html
