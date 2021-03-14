@@ -6,36 +6,29 @@ category: Components
 features:
   - Lazy Load Integration
 ---
+> Please note the privacy policy when using. [Google Youtube-Api](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
-Da das [`ExperimentalSpeedkitYoutube`](http://localhost:3000/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
+Da das [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
 
-Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`ExperimentalSpeedkitYoutube`](/components/experimental-speedkit-youtube) deckungsgleich.
+Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) deckungsgleich.
 
 ## Usage
 
 
 ## Properties
 
-
 ```js
 {
-  id: 'XXXXXXX',
+  id: 'youtube-id',
   autoplay: false,
-  poster: { … }
+  host: 'https://www.youtube-nocookie.com',
+  config: { … }
 }
 ```
 
-### `id`
-- Type: `String`
-  - <badge>required</badge>
+Alle Eigenschaften bis auf `poster` sind mit dem `SpeedkitYoutube` identisch.
 
-Legt die Youtube-ID fest.
-
-### `autoplay`
-- Type: `Boolean`
-  - Default: `false`
-
-Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
+Learn more about [`SpeedkitYoutube` - Properties](/components/speedkit-youtube#properties).
 
 ### `poster`
 - Type: `Object` als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
@@ -45,4 +38,4 @@ Poster wird angezeigt solange Player nicht abspielt.
 
 ## Events
 
-Mehr zu Events unter [`ExperimentalSpeedkitYoutube` (Events)](/components/experimental-speedkit-youtube#events).
+Mehr zu Events unter [`SpeedkitYoutube` (Experimental) - Events](/components/experimental-speedkit-youtube#events).

@@ -47,6 +47,20 @@ export default {
     autoplay: {
       type: Boolean,
       default: false
+    },
+    sizes: {
+      type: String,
+      default: null
+    },
+    host: {
+      type: String,
+      default: 'https://www.youtube-nocookie.com'
+    },
+    config: {
+      type: Object,
+      default () {
+        return { playsinline: 1, modestbranding: 1 };
+      }
     }
   },
   data () {
@@ -102,9 +116,9 @@ export default {
 
     loadPlayer () {
       this.player = YoutubePlayer(this.$refs.youtube, {
-        host: 'https://www.youtube-nocookie.com',
+        host: this.host,
         videoId: this.id,
-        playerVars: { playsinline: 1, modestbranding: 1 }
+        playerVars: this.config
       });
       this.player.on('ready', () => { this.playerReady.resolve(); });
       this.player.on('stateChange', (e) => {

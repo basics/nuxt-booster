@@ -28,9 +28,38 @@ With the current implementation of `SpeedkitPicture` we can cover the following 
 
 ## Usage
 
-Das SpeedkitPictureExperimental verwendet man um vollautomatisiert unterschiedliche Bildgrößen und/oder Bildverhältnisse für verschiedene Viewports zu generieren und darzustellen.
+Das `SpeedkitPicture` (Experimental) verwendet man um vollautomatisiert unterschiedliche Bildgrößen und/oder Bildverhältnisse für verschiedene Viewports zu generieren und darzustellen.
 
 Die angegebenen Ressourcen können per absolutem Pfad (static folder) oder vollständiger URL angegeben werden. [`nuxt/image`](https://image.nuxtjs.org/) downloaded vollautomatisiert die Ressourcen und legt die generierten und optimierten renditions im destination Ordner ab.
+
+### Example
+
+```vue
+<template>
+  <div>
+    <speedkit-picture v-bind="image" />
+  </div>
+</template>
+
+<script>
+import SpeedkitPicture from 'nuxt-speedkit-component/experimental/SpeedkitPicture';
+export default {
+  components: { SpeedkitPicture },
+  data () {
+    return {
+      image: {
+        sources: [
+          { src: 'landscape.jpg', sizes: '576:576,1024:1024,1280:1280,1680:1680,1920:1920' },
+          { src: 'portrait.jpg', sizes: '414,768:768' }
+        ],
+        title: 'Image Title',
+        alt: 'Image Alt'
+      }
+    };
+  }
+};
+</script>
+```
 
 ## Properties
 
@@ -115,18 +144,3 @@ Tritt ein wenn Bild Resource komplett geladen wurde.
 ### `enter`
 
 Tritt ein wenn Komponente den Viewport erreicht hat.
-
-## Example
-
-```js
-
-{
-  sources: [
-    { src: 'landscape.jpg', sizes: '576:576,1024:1024,1280:1280,1680:1680,1920:1920' },
-    { src: 'portrait.jpg', sizes: '414,768:768' }
-  ],
-  title: 'Picture Title',
-  alt: 'Picture Alt',
-}
-
-```
