@@ -3,7 +3,6 @@ title: SpeedkitPicture (Experimental)
 description: ''
 position: 31
 category: Components
-
 features:
   - generation of multiple image resolutions (srcset)
   - breakpoint-based differentiation of multiple image resolutions and ratios (srcset + media-rule)
@@ -17,15 +16,22 @@ features:
 
 ---
 
-`SpeedkitPicture` is based on the module "@nuxt/image@0.2.0". However, we have created a separate Vue component for it, because at the time of the implementation of the module the component `NuxtPicture` and the API for generating the images were not yet completely finished, or this module did not yet completely cover our use-case. We hope that with the final completion of [`@nuxt/image`](https://image.nuxtjs.org/) we will be able to remove our component `SpeedkitPicture` and can use `@nuxt/image` & `NuxtPicture` with full functionality.
+`SpeedkitPicture` is based on the module `@nuxt/image@0.2.0`. However, we have created a separate Vue component for it, because at the time of the implementation of the module the component `NuxtPicture` and the API for generating the images were not yet completely finished, or this module did not yet completely cover our use-case. We hope that with the final completion of [`@nuxt/image`](https://image.nuxtjs.org/) we will be able to remove our component `SpeedkitPicture` and can use `@nuxt/image` & `NuxtPicture` with full functionality.
 
-<alert type="warning">This is an experimental component that we will offer until `@nuxt/image` is fully feature-complete released. This also means that we will accept bug reports for the `SpeedkitPicture` component. However, we will not fix bugs that are present in the generator of `@nuxt/image`.</alert>
+<alert type="warning">This is an experimental component that we will offer until [`nuxt/image`](https://image.nuxtjs.org/) is fully feature-complete released. This also means that we will accept bug reports for the `SpeedkitPicture` component. However, we will not fix bugs that are present in the generator of `@nuxt/image`.</alert>
 
 ## Features
 
 With the current implementation of `SpeedkitPicture` we can cover the following functionality:
 
 <list :items="features"></list>
+
+## Usage
+
+Das SpeedkitPicture verwndest du um verschiedene Bildgrößen und/oder Bildverhältnisse in verschiedenen Viewports darzustellen.
+
+Für das definieren werden original Ressourcen verwendet, hier muss keine optimierung beachtet werden, gesamte optimierung findet über [`nuxt/image`](https://image.nuxtjs.org/) statt.
+
 
 ## Properties
 
@@ -38,27 +44,30 @@ With the current implementation of `SpeedkitPicture` we can cover the following 
 }
 ```
 
-
 ### `sources`
 - Type: `Array`
 
-Liste der im Picture enthaltenen Sourcen.
+Liste der verwendeten Ressourcen.
 
+<alert><strong>Beachte:</strong> Wenn mehr als eine Ressource enthalten ist, wird die kleinste Breite aus der Property `sizes` als Bedingung für die Source genommen e.g. `(min-width: 992px)`.
+Dies ermöglicht Viewport abhängige Bildverhältnisse.</alert>
+
+Informationen zu Eigenschaft `src` findest du unter [hier](https://image.nuxtjs.org/components/nuxt-img#src).
+
+Eigenschaft `sizes` beschreibt die Bildgrößen in der die Ressource angezeigt werden soll. Bildgrößen sind Kommaseparatiert und beschreiben die Bildbreite und deren abhängige Viewportbreite e.g. `ImageWidth:MinWidth`.
+
+Im folgenden Beispiel werden zwei unterschiedliche Bildverhältnisse verwendet.
+
+- `landscape.jpg` wird bei einem Viewport von `992px` mit einer Bildgröße von `1024px` angewendet.  
+- `portrait.jpg` wird unterhalb von `992px` angewendet und hat zwei Viewport abhängige Bildgrößen, bei `(min-width: 768px)` die Breite `768px` und alles darunter die Breite `414px`.
 
 ```js
 [
-  { media: '(min-width: 1200px;)', src: 'landscape.jpg', sizes: '1200:1599,1600:1899,1900:1920' },
-  { src: 'portrait.jpg', sizes: '299,300:599,600:899,900:1199' }
+  
+  { src: 'landscape.jpg', sizes: '992:1024' },
+  { src: 'portrait.jpg', sizes: '414,768:768' }
 ]
 ```
-
-| Key     | Type     | Required | Value                                                                                         |
-| ------- | -------- | -------- | --------------------------------------------------------------------------------------------- |
-| `media` | `String` |          | CSS Media Query e.g. `(min-width: 768px)`. Usage for different aspect ratios for viewports.   |
-| `src`   | `String` | yes      | Url zum Bild                                                                                  |
-| `sizes` | `String` | yes      | Komma Separatierte angabe von Ziel Bildgrößen mit angabe des Viewports. e.g. `Width:MinWidth` |
-
-
 #### 
 
 ### `critical`
@@ -108,3 +117,17 @@ Tritt ein wenn Bild Resource komplett geladen wurde.
 
 Tritt ein wenn Komponente den Viewport erreicht hat.
 
+## Example
+
+```js
+
+{
+  sources: [
+    { src: 'landscape.jpg', sizes: '576:576,1024:1024,1280:1280,1680:1680,1920:1920' },
+    { src: 'portrait.jpg', sizes: '414,768:768' }
+  ],
+  title: 'Picture Title',
+  alt: 'Picture Alt',
+}
+
+```

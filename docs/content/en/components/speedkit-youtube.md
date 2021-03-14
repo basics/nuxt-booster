@@ -9,7 +9,7 @@ features:
 
 Verwende das `SpeedkitYoutube` anstatt dem [`ExperimentalSpeedkitYoutube`](http://localhost:3000/components/experimental-speedkit-youtube), wenn du keine [`@nuxt/image`](https://image.nuxtjs.org/) Integration verwendest.
 
-## Requirement
+## Usage
 
 Es unterscheidet sich nur die Angaben des Poster [`poster`](/components/speedkit-youtube#poster), dieses wurde durch das `SpeedkitPicture` ersetzt, alle weiteren [Features](/components/experimental-speedkit-youtube#features) aus dem [`ExperimentalSpeedkitYoutube`](/components/experimental-speedkit-youtube) bleiben bestehen.
 ## Properties

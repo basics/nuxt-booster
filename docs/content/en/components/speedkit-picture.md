@@ -9,35 +9,15 @@ Verwende das `SpeedkitPicture` anstatt dem [`ExperimentalSpeedkitPicture`](http:
 
 Es unterscheiden sich nur die Angaben der Ressourcen, alle weiteren [Features](/components/experimental-speedkit-picture#features) von [`ExperimentalSpeedkitPicture`](/components/experimental-speedkit-picture) bleiben bestehen.
 
-## Requirement
+## Usage
 
 Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle **Sourcen** (`sources`) und **Platzhalter** (`placeholders`) angeben werden.
 
 Beispiele für das Definieren der Ressourcen, findest du im [Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue) des Moduls.
 
-## Important
-
-### Platzhalter
-
-Der Platzhalter sollte per **Base64** angeben werden und eine **Breite** von `30px` haben.
-
-```js
-{
-  placeholders: [
-    {
-      url: 'data:image/jpeg;base64,…'
-    }
-  ]
-}
-```
-
-### Sourcen
-
-Denke an die Optimierung der Ressourcen!
-
-- Verwende wenn möglich `webp`, analog zu den vorhandenen `jpg` Dateien
-- Wende Optimierungen an, zum Beipiel per [Module `nuxt-optimized-images`](https://github.com/juliomrqz/nuxt-optimized-images) oder einem externen [Dienst TinyJPG](https://tinyjpg.com/).
-
+<alert>
+<strong>Denke an die Optimierung der Bilder!</strong><br> Verwende wenn möglich das Format <code>webp</code>, analog zu den vorhandenen <code>jpg</code> Dateien und achte auf eine Bildoptimierung.
+</alert>
 
 ## Properties
 
@@ -148,7 +128,6 @@ Mehr zu  [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/We
   { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
 ]
 ```
-
 
 ### `placeholders`
 - Type: `Array`
