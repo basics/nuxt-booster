@@ -15,7 +15,7 @@ Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle 
 
 Beispiele für das Definieren der Ressourcen, findest du im [Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue) des Moduls.
 
-## Beware
+## Important
 
 ### Platzhalter
 

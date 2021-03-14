@@ -42,7 +42,7 @@ The layer is also displayed with a corresponding message when Javascript is deac
 [Learn more in Concept.](/concept)
 ## Usage
 
-Wenn der SpeedkitLayer verbaut ist, wird das Initialisieren der App gesteuert. Heißt wenn eines der Ereignisse eintritt, wird das initiale ausführen der App pausiert, erst über eine Benutzer-Interaktion wird diese wieder gestartet.
+Ist der SpeedkitLayer implementiert, erfolgt automatisch die Überwachung der Javascript-Initialisierung. Tritt eines der oben beschriebenen Ereignisse ein, wird der Ablauf pausiert und erst nach einer Benutzer-Interaktion im Layer entsprechend fortgesetzt bzw. abgebrochen.
 
 Platziert wird der Layer einmalig im Layout der Seite.
 Dieser dient als Wrapper und muss anhand des [Template](/components/speedkit-layer#template) befüllt werden, [siehe Beispiel Komponente](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
