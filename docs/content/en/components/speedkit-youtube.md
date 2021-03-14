@@ -7,11 +7,13 @@ features:
   - Lazy Load Integration
 ---
 
-Verwende das `SpeedkitYoutube` anstatt dem [`ExperimentalSpeedkitYoutube`](http://localhost:3000/components/experimental-speedkit-youtube), wenn du keine [`@nuxt/image`](https://image.nuxtjs.org/) Integration verwendest.
+Da das [`ExperimentalSpeedkitYoutube`](http://localhost:3000/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
+
+Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`ExperimentalSpeedkitYoutube`](/components/experimental-speedkit-youtube) deckungsgleich.
 
 ## Usage
 
-Es unterscheidet sich nur die Angaben des Poster [`poster`](/components/speedkit-youtube#poster), dieses wurde durch das `SpeedkitPicture` ersetzt, alle weiteren [Features](/components/experimental-speedkit-youtube#features) aus dem [`ExperimentalSpeedkitYoutube`](/components/experimental-speedkit-youtube) bleiben bestehen.
+
 ## Properties
 
 

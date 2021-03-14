@@ -28,10 +28,9 @@ With the current implementation of `SpeedkitPicture` we can cover the following 
 
 ## Usage
 
-Das SpeedkitPicture verwndest du um verschiedene Bildgrößen und/oder Bildverhältnisse in verschiedenen Viewports darzustellen.
+Das SpeedkitPictureExperimental verwendet man um vollautomatisiert unterschiedliche Bildgrößen und/oder Bildverhältnisse für verschiedene Viewports zu generieren und darzustellen.
 
-Für das definieren werden original Ressourcen verwendet, hier muss keine optimierung beachtet werden, gesamte optimierung findet über [`nuxt/image`](https://image.nuxtjs.org/) statt.
-
+Die angegebenen Ressourcen können per absolutem Pfad (static folder) oder vollständiger URL angegeben werden. [`nuxt/image`](https://image.nuxtjs.org/) downloaded vollautomatisiert die Ressourcen und legt die generierten und optimierten renditions im destination Ordner ab.
 
 ## Properties
 

@@ -5,9 +5,9 @@ position: 32
 category: Components
 ---
 
-Verwende das `SpeedkitPicture` anstatt dem [`ExperimentalSpeedkitPicture`](http://localhost:3000/components/experimental-speedkit-picture), wenn du keine [`@nuxt/image`](https://image.nuxtjs.org/) Integration verwendest.
+Da das [`ExperimentalSpeedkitPicture`](http://localhost:3000/components/experimental-speedkit-picture) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitPicture` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
 
-Es unterscheiden sich nur die Angaben der Ressourcen, alle weiteren [Features](/components/experimental-speedkit-picture#features) von [`ExperimentalSpeedkitPicture`](/components/experimental-speedkit-picture) bleiben bestehen.
+Bis auf die manuelle Ressourcendefinition sind alle weiteren [Features](/components/experimental-speedkit-picture#features) von [`ExperimentalSpeedkitPicture`](/components/experimental-speedkit-picture) deckungsgleich.
 
 ## Usage
 
