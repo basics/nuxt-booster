@@ -93,12 +93,15 @@ export default {
       });
     },
     getSources () {
-      return this.sources.map(({ sizes, format, media }) => ({
-        media,
-        srcset: sizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
-        sizes: sizes.map(({ width, media: breakpoint }) => breakpoint ? `${breakpoint} ${width}px` : `${width}px`).sort((a, b) => a.width > b.width ? 1 : -1).join(', '),
-        type: getMimeTypeByFormat(format)
-      }));
+      return this.sources.map(({ sizes, format, media }) => {
+        const sortedSizes = sizes.sort((a, b) => a.width > b.width ? -1 : 1);
+        return {
+          media,
+          srcset: sortedSizes.map(({ width, url }) => width ? `${url} ${width}w` : url).join(', '),
+          sizes: sortedSizes.map(({ width, media: breakpoint }) => breakpoint ? `${breakpoint} ${width}px` : `${width}px`).join(', '),
+          type: getMimeTypeByFormat(format)
+        };
+      });
     }
   }
 };

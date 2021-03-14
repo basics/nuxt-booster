@@ -1,68 +1,99 @@
 ---
 title: SpeedkitPicture
 description: ''
-position: 31
+position: 32
 category: Components
-
-
 ---
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)
+Da das [`SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitPicture` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
 
-Das `SpeedkitPicture` wird verwendet für die Einbindung von Viewport abhängigen Bild-Resourcen unter verwendung eines intergrierten Lazy Loads.
-
-Es ist dafür ausgelegt Viewport abhängige Bildverhältnisse und Platzhalter zu verwenden und ermöglicht ideale übergänge beim erreichen des Viewports mit dem umschalten von Platzhalter zu original Resource.
-
-Durch die verwendung von Lazy Load wird das gezielte laden der Resourcen beachtet.  
-Somit wird der Anwender ein reibungsloses Erlebnis haben.
-
-## Critical
-
-Unter verwendung der Eigenschaft `critical` auf der Komponente oder einer Eltern-Komponente, werden die Resourcen initial priorisiert geladen und angezeigt.
-
-<alert type="warning">lazy load of resources is by critical disabled.</alert>
-
-
-
+Bis auf die manuelle Ressourcendefinition sind alle weiteren [Features](/components/experimental-speedkit-picture#features) von [`SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture) deckungsgleich.
 
 ## Usage
-```html
+
+Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle **Sourcen** (`sources`) und **Platzhalter** (`placeholders`) angeben werden.
+
+Beispiele für das Definieren der Ressourcen, findest du im [Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue) des Moduls.
+
+<alert>**Denke an die Optimierung der Bilder!**<br> Verwende wenn möglich das Format `webp`, analog zu den vorhandenen `jpg` Dateien und achte auf eine Bildoptimierung.
+</alert>
+
+### Example
+
+```vue
 <template>
-  <speedkit-picture v-bind="speedkitPicture" />
+  <div>
+    <speedkit-picture v-bind="image" />
+  </div>
 </template>
 
 <script>
-
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
-
+import SpeedkitPicture from 'nuxt-speedkit-component/SpeedkitPicture';
 export default {
-  components: {
-    SpeedkitPicture
-  },
-  data: {
-    speedkitPicture: { … }
+  components: { SpeedkitPicture },
+  data () {
+    return {
+      image: {
+        placeholders: [
+          {
+            media: '(min-width: 768px)',
+            format: 'jpg',
+            url: 'data:image/jpeg;base64,…' // landscape
+          },
+          {
+            format: 'jpg',
+            url: 'data:image/jpeg;base64,…' // portrait
+          }
+        ],
+        sources: [
+          {
+            media: '(min-width: 768px)',
+            format: 'webp',
+            sizes: [
+              { width: 768, media: '(min-width: 768px)', url: '768.webp' },
+              { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
+            ]
+          },
+          {
+            media: '(min-width: 768px)',
+            format: 'jpg',
+            sizes: [
+              { width: 768, media: '(min-width: 768px)', url: '768.jpg' },
+              { width: 1024, media: '(min-width: 1024px)', url: '1024.jpg' }
+            ]
+          },
+          {
+            format: 'webp',
+            sizes: [
+              { width: 414, media: 'all', url: '414.webp' }
+            ]
+          },
+          {
+            format: 'jpg',
+            sizes: [
+              { width: 414, media: 'all', url: '414.jpg' }
+            ]
+          }
+        ],
+        alt: 'Image Alt',
+        title: 'Image Title',
+        crossorigin: 'anonymous'
+      }
+    };
   }
-}
-
+};
 </script>
 ```
-
 ## Properties
 
-```js
-{
-  placeholders: […],
-  sources: […],
-  alt: 'Image Alt',
-  title: 'Image Title',
-  crossorigin: 'anonymous'
-}
-```
+Alle Eigenschaften bis auf [`sources`](/components/speedkit-picture#sources) und [`placeholders`](/components/speedkit-picture#placeholders) sind mit dem `SpeedkitPicture` (Experimental) identisch.
+
+Learn more about [`ExperimentalSpeedkitPicture` - Properties](/components/experimental-speedkit-picture#properties).
 
 ### `sources`
 - Type: `Array`
 
-Beinhaltet Resourcen die abängig vom Viewport angezeigt werden sollen.
+Beinhaltet Ressourcen die abängig vom Viewport angezeigt werden sollen.
 
 ```js
 [
@@ -97,20 +128,17 @@ Beinhaltet Resourcen die abängig vom Viewport angezeigt werden sollen.
 ]
 ```
 
-#### source
-- Type: `Object`
-
-Legt eine Resource fest die abängig vom Viewport angezeigt werden soll.   
+Jedes Source in der Liste beschreibt ein Dateiformat mit seinen Viewport abhängigen Bildgrößen.
 
 Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je nach Viewport anzeigen zu lassen.
-`sizes` dient zum aussteuern der Bildgrößen für den jeweiligen Viewport.
+`sizes` dient zum definieren der Viewport abhängigen Bildgrößen.
 
 
-| Key      | Type     | Required | Value                                                                                                    | Default |
-| -------- | -------- | -------- | -------------------------------------------------------------------------------------------------------- | ------- |
-| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten. [Mehr zu Size definierung](/components/speedkit-picture#size) | `[]`    |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, …                                               |         |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                                                                |         |
+| Key      | Type     | Required | Value                                                      | Default |
+| -------- | -------- | -------- | ---------------------------------------------------------- | ------- |
+| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten.                 | `[]`    |
+| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, … |         |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                  |         |
 
 
 <alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
@@ -127,9 +155,6 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 }
 ```
 
-#### Size
-- Type: `Object`
-
 ```js
 { 
   width: 768, 
@@ -138,14 +163,23 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 }
 ```
  
+Das Size Objekt in `sizes` beschreibt die unterschiedlichen Bildgrößen für die jeweiligen Breakpoints.
+
+Aus der gesamt `sizes` Liste wird am ende ein `srcset` & `sizes` generiert.
+
+Mehr zu  [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset) & [`HTMLImageElement.sizes`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
+
+
 `url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
 `media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
 
 | Key     | Required | Value                                       | Default     |
 | ------- | -------- | ------------------------------------------- | ----------- |
-| `url`   | yes      | Path to the ressource                       |             |
+| `url`   | yes      | Absolute Path to the ressource.             |             |
 | `width` |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
 | `media` |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
+
+<alert>**Important:** `url` Angabe ist absolut. Wenn ein Alias verwendet wird (e.g. `@/assets/img/image.jpg`), muss der Pfad per `require` aufgelöst werden (e.g. `url: require('@/assets/img/image.jpg')`)</alert>
 
 **Example**
 
@@ -156,13 +190,15 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
 ]
 ```
 
-
 ### `placeholders`
 - Type: `Array`
 
-Beschreibt die Platzhalter, diese werden angezeigt solange keine Resourcen geladen wurden.
+Beschreibt die Platzhalter die angezeigt werden, solange keine Ressourcen geladen wurden.
 
-Es ist möglich über `media`, passend zu unterschiedlichen Bildverhältnissen aus `sources`, passende Platzhalter zu definieren.
+Es ist möglich über die Eigenschaft `media`, unterschiedliche Bildverhältnisse für die Platzhalter zu definieren.
+
+<alert type="warning">Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind. </alert>
+
 
 | Key      | Type     | Required | Value                                                      |
 | -------- | -------- | -------- | ---------------------------------------------------------- |
@@ -173,7 +209,7 @@ Es ist möglich über `media`, passend zu unterschiedlichen Bildverhältnissen a
 ```js
 [
   {
-    media: '(min-width: 576px)',
+    media: '(min-width: 768px)',
     format: 'jpg',
     url: 'landscape.jpg' // base64 or url
   },
@@ -184,41 +220,6 @@ Es ist möglich über `media`, passend zu unterschiedlichen Bildverhältnissen a
 ]
 ```
 
-### `alt`
-- Type: `String`
-
-Image alternative Text. 
-
-[MDN - HTMLImageElement.alt](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt)
-
-### `title`
-- Type: `String`
-
-Image Title. 
-
-[MDN - HTMLElement.title](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/title)
-
-### `crossorigin`
-- Type: `String`
-  - default: `anonymus`
-
-Image CrossOrigin. 
-
-[MDN - HTMLImageElement.crossOrigin](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/crossOrigin)
-
 ## Events
 
-```html
-<speedkit-picture 
-  @load="console.log('Loaded!')" 
-  @enter="console.log('Viewport!')" 
-/>
-```
-
-### `load`
-
-Tritt ein wenn Bild Resource komplett geladen wurde.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
+Mehr zu Events unter [`SpeedkitPicture` (Experimental) - Events](/components/experimental-speedkit-picture#events).

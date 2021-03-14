@@ -1,47 +1,34 @@
 ---
 title: SpeedkitYoutube
 description: ''
-position: 33
+position: 34
 category: Components
 features:
   - Lazy Load Integration
 ---
+> Please note the privacy policy when using. [Google Youtube-Api](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)
+Da das [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
 
+Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) deckungsgleich.
 
-```html
-<speedkit-youtube id="…" />
-```
+## Usage
 
-`SpeedkitYoutube` wird verwendet für das einfache einbinden eines Youtube Videos.
-
-## Features
-
-<list :items="features"></list>
 
 ## Properties
 
-
 ```js
 {
-  id: 'XXXXXXX',
+  id: 'youtube-id',
   autoplay: false,
-  poster: { … }
+  host: 'https://www.youtube-nocookie.com',
+  config: { … }
 }
 ```
 
-### `id`
-- Type: `String`
-  - <badge>required</badge>
+Alle Eigenschaften bis auf `poster` sind mit dem `SpeedkitYoutube` identisch.
 
-Legt die Youtube-ID fest.
-
-### `autoplay`
-- Type: `Boolean`
-  - Default: `false`
-
-Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
+Learn more about [`SpeedkitYoutube` - Properties](/components/speedkit-youtube#properties).
 
 ### `poster`
 - Type: `Object` als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
@@ -49,35 +36,6 @@ Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automat
 
 Poster wird angezeigt solange Player nicht abspielt.
 
-
-
-
 ## Events
 
-```html
-<speedkit-picture 
-  @ready="console.log('Ready!')" 
-  @loading="console.log('Video Loading!')" 
-  @playing="console.log('Video Playing!')" 
-  @enter="console.log('Viewport!')" 
-/>
-```
-
-### `ready`
-
-Tritt ein wenn Youtube-Api komplett geladen ist.
-
-### `loading`
-
-Tritt ein wenn Video angefangen wird zu laden.
-
-### `playing`
-
-Tritt ein wenn Video fertiggeladen ist und abspielt.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
-
-
-
+Mehr zu Events unter [`SpeedkitYoutube` (Experimental) - Events](/components/experimental-speedkit-youtube#events).

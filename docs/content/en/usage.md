@@ -25,7 +25,7 @@ In the current version, the critical flag must be set manually on the components
 
 ## font declaration
 
-The integration of fonts is component-based directly in the Vue template. All fonts, which have been declared in 'nuxt.config', can be assigned directly to the corresponding HTML element or component. In addition, subselectors and media queries can be defined, which enable viewport-based declarations or rich-text declarations. 
+The integration of fonts is component-based directly in the Vue template. All fonts, which have been declared in `nuxt.config`, can be assigned directly to the corresponding HTML element or component. In addition, subselectors and media queries can be defined, which enable viewport-based declarations or rich-text declarations. 
 The cool thing about this is that it saves the additional declaration in the CSS. You no longer have to keep the template and the CSS with its corresponding selectors for fonts in sync. Yeah! This is extremely helpful, especially when it comes to theming.
 
 ```html
@@ -40,7 +40,7 @@ Fonts are no longer declared via CSS with the help of this module. They may even
 
 ## import components
 
-Until now, the components available in the page were always declared via the attribute "components". The import was done statically ("import component from '@/component';") or dynamically (import('@/component')). nuxt-speedkit provides a new attribute named "speedkitComponents" that only allows dynamic imports. This ensures that only the components visible in the viewport are executed on initial load and the remaining components outside the viewport are executed on demand. In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
+Until now, the components available in the page were always declared via the attribute `components`. The import was done statically (`import component from '@/component';`) or dynamically (`import('@/component')`). `nuxt-speedkit` provides a new attribute named `speedkitComponents` that only allows dynamic imports. This ensures that only the components visible in the viewport are executed on initial load and the remaining components outside the viewport are executed on demand. In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ```js
 {
@@ -58,7 +58,7 @@ Although the attribute "speedkitComponents" can be filled in every component, we
 
 ## speedkit components
 
-In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace 'nuxt-speedkit-components'.
+In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
 
 - <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link>
 - <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link>
@@ -71,7 +71,7 @@ In order to be able to load further static resources such as pictures, iFrames o
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture'
 export default {
   components: {
     SpeedkitPicture

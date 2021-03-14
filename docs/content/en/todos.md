@@ -9,8 +9,5 @@ category: 'Others'
 
 ### SpeedkitYoutube
 
-- add options for Youtube-Api Player
+- Add `options` property for Youtube-Api Player
 
-### SpeedkitPicture (Experimental)
-
-- fix missing media for ratios

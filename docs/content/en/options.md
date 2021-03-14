@@ -188,7 +188,7 @@ List of all available font files of a font family variation.
 - Type: `Boolean`
   - Default: `false`
 
-With this attribute all components that can be found under `nuxt-speedkit-components` can be registered globally.
+With this attribute all components that can be found under `nuxt-speedkit/components` can be registered globally.
 [Learn more @nuxt/components](https://github.com/nuxt/components)
 
 ### Available components
@@ -196,14 +196,14 @@ With this attribute all components that can be found under `nuxt-speedkit-compon
 
 | Global Name                    | Import Path                                               |                                                                                                                          |
 | ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `SpeedkitIframe`               | `nuxt-speedkit-components/SpeedkitIframe`                 | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)                 |
-| `SpeedkitLayer`                | `nuxt-speedkit-components/SpeedkitLayer`                  | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)                  |
-| `SpeedkitPicture`              | `nuxt-speedkit-components/SpeedkitPicture`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)                |
-| `SpeedkitYoutube`              | `nuxt-speedkit-components/SpeedkitYoutube`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)                |
-| `AbstractIntersectionObserver` | `nuxt-speedkit-components/abstracts/IntersectionObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/IntersectionObserver.vue) |
-| `AbstractOnlySsr`              | `nuxt-speedkit-components/abstracts/OnlySsr`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)              |
-| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit-components/experimental/SpeedkitPicture`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)   |
-| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit-components/experimental/SpeedkitYoutube`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitYoutube.vue)   |
+| `SpeedkitIframe`               | `nuxt-speedkit/components/SpeedkitIframe`                 | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)                 |
+| `SpeedkitLayer`                | `nuxt-speedkit/components/SpeedkitLayer`                  | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)                  |
+| `SpeedkitPicture`              | `nuxt-speedkit/components/SpeedkitPicture`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)                |
+| `SpeedkitYoutube`              | `nuxt-speedkit/components/SpeedkitYoutube`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)                |
+| `AbstractIntersectionObserver` | `nuxt-speedkit/components/abstracts/IntersectionObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/IntersectionObserver.vue) |
+| `AbstractOnlySsr`              | `nuxt-speedkit/components/abstracts/OnlySsr`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)              |
+| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit/components/experimental/SpeedkitPicture`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)   |
+| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit/components/experimental/SpeedkitYoutube`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitYoutube.vue)   |
 
 ## `componentPrefix`
 - Type: `String`
