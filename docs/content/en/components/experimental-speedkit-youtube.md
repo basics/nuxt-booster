@@ -5,7 +5,7 @@ position: 33
 category: Components
 ---
 
-> Please note the privacy policy when using. [Google Youtube-API`](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
+> Please note the privacy policy when using. [Google Youtube-API](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
 We have integrated `SpeedkitYoutube` (Experimental) as an example to show how iFrame content must be integrated in a performance-optimized manner.
 For this purpose, a separate IntersectionObserver has been implemented, which detects a longer dwell time of the component in the viewport. The iFrame is initialized only after a positive detection. This prevents immense data from having to be loaded when simply scrolling through the page.
@@ -22,31 +22,39 @@ Für das Poster wird das `SpeedkitPicture` (Experimental) verwendet, die generie
 
 [Learn more about `SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture)
 
-
 ### Example
 
 ```vue
 <template>
   <div>
-    <speedkit-youtube v-bind="image" />
+    <speedkit-youtube v-bind="youtube" @playing="onPlaying"  />
   </div>
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-component/experimental/SpeedkitPicture';
+import SpeedkitPicture from 'nuxt-speedkit-component/experimental/SpeedkitYoutube';
 export default {
   components: { SpeedkitPicture },
   data () {
     return {
-      image: {
-        sources: [
-          { src: 'landscape.jpg', sizes: '576:576,1024:1024,1280:1280,1680:1680,1920:1920' },
-          { src: 'portrait.jpg', sizes: '414,768:768' }
-        ],
-        title: 'Image Title',
-        alt: 'Image Alt'
+      youtube: {
+        id: 'youtube-id',
+        host: 'https://www.youtube-nocookie.com',
+        config: { … },
+        poster: {
+          sources: [
+            { src: 'poster.jpg', sizes: '414,768:768,576:576,1024:1024,1280:1280,1680:1680,1920:1920' },
+          ],
+          title: 'Image Title',
+          alt: 'Image Alt'
+        }
       }
     };
+  },
+  methods: {
+    onPlaying () {
+      console.log('Youtube Player playing!');
+    }
   }
 };
 </script>
@@ -109,21 +117,9 @@ Setzt die Youtube-Player Konfiguration.
 />
 ```
 
-### `ready`
-
-Tritt ein wenn Youtube-Api komplett geladen ist.
-
-### `loading`
-
-Tritt ein wenn Video angefangen wird zu laden.
-
-### `playing`
-
-Tritt ein wenn Video fertiggeladen ist und abspielt.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
-
-
-
+| Name      | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `ready`   | Tritt ein wenn Youtube-Api komplett geladen ist.     |
+| `loading` | Tritt ein wenn Video angefangen wird zu laden.       |
+| `playing` | Tritt ein wenn Video fertiggeladen ist und abspielt. |
+| `enter`   | Tritt ein wenn Komponente den Viewport erreicht hat. |

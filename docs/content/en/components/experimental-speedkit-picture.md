@@ -137,10 +137,9 @@ Image CrossOrigin.
 />
 ```
 
-### `load`
-
-Tritt ein wenn Bild Resource komplett geladen wurde.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
+| Name    | Description                                          |
+| ------- | ---------------------------------------------------- |
+| `load`  | Tritt ein wenn Bild Resource komplett geladen wurde. |
+| `enter` | Tritt ein wenn Komponente den Viewport erreicht hat. |
+| ``      |                                                      |
+| ``      |                                                      |

@@ -6,15 +6,72 @@ category: Components
 features:
   - Lazy Load Integration
 ---
-> Please note the privacy policy when using. [Google Youtube-Api](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
+> Please note the privacy policy when using. [Google Youtube-API](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
 Da das [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
 
 Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) deckungsgleich.
 
 ## Usage
+Das `SpeedkitYoutube` unterscheidet sich in der Verwendung zum [`SpeedkitYoutube` (Experimental)](#) nur in der definierung des Posters. Es muss in der Eigenschaft `poster`, ein `SpeedkitPicture` zusätzlich definiert werden.
 
+[Learn more about `SpeedkitPicture`](/components/speedkit-picture)
 
+### Example
+
+```vue
+<template>
+  <div>
+    <speedkit-youtube v-bind="youtube" @playing="onPlaying" />
+  </div>
+</template>
+
+<script>
+import SpeedkitYoutube from 'nuxt-speedkit-component/SpeedkitYoutube';
+export default {
+  components: { SpeedkitYoutube },
+  data () {
+    return {
+      youtube: {
+        id: 'youtube-id',
+        host: 'https://www.youtube-nocookie.com',
+        config: { … },
+        poster: {
+          alt: 'Youtube Alt Text',
+          title: 'Youtube Title Text',
+          sources: [
+            {
+              placeholder: {
+                url: 'data:image/jpeg;base64,…'
+              },
+              sizes: [
+                // jpg
+                { width: 414, url: 'poster-414.jpg', format: 'jpg' },
+                { width: 576, media: '(min-width: 576px)', url: 'poster-576.jpg', format: 'jpg' },
+                { width: 768, media: '(min-width: 768px)', url: 'poster-768.jpg', format: 'jpg' },
+                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.jpg', format: 'jpg' },
+                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.jpg', format: 'jpg' },
+                // webp
+                { width: 414, url: 'poster-414.webp', format: 'webp' },
+                { width: 576, media: '(min-width: 576px)', url: 'poster-576.webp', format: 'webp' },
+                { width: 768, media: '(min-width: 768px)', url: 'poster-768.webp', format: 'webp' },
+                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.webp', format: 'webp' },
+                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.webp', format: 'webp' }
+              ]
+            }
+          ]
+        }
+      }
+    };
+  },
+  methods: {
+    onPlaying () {
+      console.log('Youtube Player playing!');
+    }
+  }
+};
+</script>
+```
 ## Properties
 
 ```js
@@ -28,7 +85,7 @@ Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Fe
 
 Alle Eigenschaften bis auf `poster` sind mit dem `SpeedkitYoutube` identisch.
 
-Learn more about [`SpeedkitYoutube` - Properties](/components/speedkit-youtube#properties).
+Learn more about [`SpeedkitYoutube` (Experimental) - Properties](/components/experimental-speedkit-youtube#events).
 
 ### `poster`
 - Type: `Object` als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.

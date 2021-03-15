@@ -38,14 +38,36 @@ Dies kann zum Beispiel über einen [IntersectionObserver](https://developer.mozi
 Die oben erwähnte Strategie bringt das `SpeedkitIframe` mit, arbeiten lässt es sich wie mit einem normalen [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 Der enthaltene [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) wird über die Eigenachaft `intersectionObserver` konfiguriert. 
 
-## Properties
+## Usage
 
-```html
-<speedkit-iframe src="…" :intersection-observer="…" />
+Das `SpeedkitIframe` wird verwendet wie ein normales [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+
+### Example
+```vue
+<template>
+  <speedkit-iframe v-bind="iframe" @load="onIFrameLoaded" />
+</template>
+
+<script>
+  export default {
+    data: {
+      iframe: {
+       src: '…',
+       intersectionObserver: { trackVisibility: true, delay: 350 }
+      }
+    },
+    methods: {
+      onIFrameLoaded (){
+        console.log('iframe loaded!');
+      }
+    }
+  };
+</script>
 ```
 
-Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+## Properties
 
+> Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 ### `intersectionObserver`
 - Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
   - Default: `{ trackVisibility: true, delay: 350 }`
@@ -59,15 +81,11 @@ For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about
 ```html
 <speedkit-iframe 
   @load="console.log('Loaded!')" 
-  @enter="console.log('Viewport!')" 
+  @enter="console.log('Enter Viewport!')" 
 />
 ```
 
-### `load`
-
-Tritt ein wenn Iframe fertig geladen hat.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
-
+| Name    | Description                                          |
+| ------- | ---------------------------------------------------- |
+| `load`  | Tritt ein wenn Iframe fertig geladen hat.            |
+| `enter` | Tritt ein wenn Komponente den Viewport erreicht hat. |
