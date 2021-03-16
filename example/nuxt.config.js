@@ -88,10 +88,12 @@ module.exports = {
     trailingSlash: undefined
   },
 
+  // nuxt/image options https://image.nuxtjs.org/setup#configure
+  image: {},
+
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module',
-    '@nuxt/image'
+    '@nuxtjs/stylelint-module'
   ],
 
   speedkit: {
