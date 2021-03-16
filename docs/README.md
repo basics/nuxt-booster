@@ -1,4 +1,4 @@
-# nuxt-speedkit-docs
+# Nuxt Speedkit Docs
 
 ## Setup
 
