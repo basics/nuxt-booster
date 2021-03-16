@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/releases", {data:[{releases:[]}],fetch:{},mutations:void 0});

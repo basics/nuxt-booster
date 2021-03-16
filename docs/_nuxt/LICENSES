@@ -1,12 +1,16 @@
 /*!
- * clipboard.js v2.0.6
- * https://clipboardjs.com/
- * 
- * Licensed MIT © Zeno Rocha
+ * vuex v3.6.2
+ * (c) 2021 Evan You
+ * @license MIT
  */
 
 
-/*! @docsearch/js 1.0.0-alpha.28 (UNRELEASED 0a58769) | MIT License | © Algolia, Inc. and contributors | https://github.com/francoischalifour/autocomplete.js */
+/*!
+ * clipboard.js v2.0.7
+ * https://clipboardjs.com/
+ *
+ * Licensed MIT © Zeno Rocha
+ */
 
 
 /*!
@@ -49,8 +53,5 @@
  * MIT Licensed
  */
 
-/*!
- * vuex v3.6.2
- * (c) 2021 Evan You
- * @license MIT
- */
+
+/*! @docsearch/js 1.0.0-alpha.28 (UNRELEASED 0a58769) | MIT License | © Algolia, Inc. and contributors | https://github.com/francoischalifour/autocomplete.js */
