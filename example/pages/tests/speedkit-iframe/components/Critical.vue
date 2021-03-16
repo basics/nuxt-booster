@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import SpeedkitIframe from 'nuxt-speedkit-components/SpeedkitIframe';
+import SpeedkitIframe from 'nuxt-speedkit/components/SpeedkitIframe';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {

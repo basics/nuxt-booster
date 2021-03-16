@@ -35,7 +35,7 @@
               v-font="[
                 $getFont('Montserrat Alternates', 700, 'italic', {selector: 'strong > em'})
               ]"
-            >font assign by <strong><em>deep</em> selector</strong></span>
+            >font assign by <strong><em>deep</em></strong> selector</span>
           </li>
         </ul>
       </div>

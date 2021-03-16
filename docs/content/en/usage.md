@@ -1,72 +1,46 @@
 ---
 title: Usage
 description: ''
-position: 4
+position: 12
 category: Guide
 components:
   - "Directive zum anwenden von Fonts"
   - Komponenten mit Lazy funktionialität
 
-
-
 ---
 
+The following tools are provided to optimize your webpage:
 
-`nuxt-speedkit` benutzt du um die Performance der Website zu erhöhen.  
-Dafür werden verschiedene Werkzeuge zur verfügung gestellt, die dir beim laden der Resourcen (Bilder, Schriften) und Komponenten helfen.
+## critical prop for critical components
 
-Geholfen wird bei:
-
-1. Beschleunigen des initialen Seiten-Loads.
-2. Ressourcen sparende Komponente. (e.g. Lazy load bei Bilder)
-3. Laden und verwenden von WebFonts.
-
-Primär dient dieses Modul zum überprüfen ob ein Benutzer mit einer Schlechten Verbindung oder nicht ausreichender Hardware zugreift.
-
-Falls dieser Fall eintritt (e.g. Lighhous / Pagespeed Insight), wird das ausführen des Javascript blockiert, dies veringert den initial Seiten Load. 
-
-Im Anschluss kann der Benutzer über eine Interaktion (e.g. Button-Click) das Javascript scharfschalten und die Seite verwenden. (Alle benötigten Scripte werden wurden als Preload schon geladen.)
-
-
-
-
-Mit den mitgelieferten Komponenten (e.g. `SpeedkitPicture`) und dem Einsatz der Directive `v-font`, wird das laden der Bilder und Schriften ausgesteuert.
-
-Das Laden der Resourcen geschieht erst beim erreichen des sichtbaren Viewport.
-
-Für den Fall das sich eine Komponenten Initial schon im Viewpoert befindet, muss diese als <nuxt-link to="/usage#kritische-komponente">Kritische Komponente</nuxt-link> definiert werden.
-
-
-
-## Kritische Komponente
-
-Eine Kritische Komponente, ist eine Kompoente die schon initial Sichtbar ist und somit Schriften und Bilder priorisiert geladen werden.
-
-Alle Komponenten können Kritische Komponenten sein. Um eine kritische komponente zu erzeugen muss die Eigenschaft `critical` gesetzt werden. Wenn gesetzt, werden die enthaltenen Resources Priorisiert geladen (e.g. `<link rel="preload" …`)
+A critical component is visible in the viewport when the web page is initially loaded. This can be communicated to the automated background process via a critical prop. The flag is passed on to all child components. This means that only the main component (organism) must be provided with it. With the help of this flag, the corresponding static resources (images & fonts) are also declared as preload tags in the page head. All other components and their associated resources, that do not have a positive critical prop, are lazy loaded on demand.
 
 ```html
-<component critical :critical="true" />
+<component :critical="true" />
 ```
 
+<alert type="info">
+In the current version, the critical flag must be set manually on the components. Automation would be conceivable in the future. However, according to current knowledge, this would have a massive impact on deployment times when using Puppeteer or similar tools. We are still collecting ideas here. If you know of a more efficient way, please send us a feature request.
+</alert>
 
-## Fonts
+## font declaration
 
-Um die in der `nuxt.config` definierten Schriften zu verwenden, wird die Direktive `v-font` verwendet.
-
-Mehr unter <nuxt-link to="/v-font">v-font</nuxt-link>.
+The integration of fonts is component-based directly in the Vue template. All fonts, which have been declared in `nuxt.config`, can be assigned directly to the corresponding HTML element or component. In addition, subselectors and media queries can be defined, which enable viewport-based declarations or rich-text declarations. 
+The cool thing about this is that it saves the additional declaration in the CSS. You no longer have to keep the template and the CSS with its corresponding selectors for fonts in sync. Yeah! This is extremely helpful, especially when it comes to theming.
 
 ```html
 <component v-font="$fonts.getFont(…)" />
 ```
 
-## Components
-### Einbindung von Komponenten
+More: <nuxt-link to="/v-font">v-font</nuxt-link>.
 
-Für das einbinden von Komponenten in einer Seite wird analog zur Eigenschaft `components`, `speedkitComponents` angeboten. Mit dieser Eigenschaft werden Komponenten automatisch Lazy behandelt und erst aktiviert wenn diese im Viewport sind.
-
-<alert>
-Import muss Funktional sein. (e.g. <code>() => import('…')</code>`)
+<alert type="warning">
+Fonts are no longer declared via CSS with the help of this module. They may even no longer be explicitly defined via CSS, as otherwise the loading behaviour would be negatively affected in the worst case.
 </alert>
+
+## import components
+
+Until now, the components available in the page were always declared via the attribute `components`. The import was done statically (`import component from '@/component';`) or dynamically (`import('@/component')`). `nuxt-speedkit` provides a new attribute named `speedkitComponents` that only allows dynamic imports. This ensures that only the components visible in the viewport are executed on initial load and the remaining components outside the viewport are executed on demand. In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ```js
 {
@@ -76,14 +50,15 @@ Import muss Funktional sein. (e.g. <code>() => import('…')</code>`)
 }
 ```
 
-Alle Komponenten werden mit einem `rootMargin` beschrieben. Dieser kann mit der <nuxt-link to="/options#components">Option `lazyOffset.components`</nuxt-link> angepasst werden. 
+Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#components">nuxt.config</nuxt-link>.
 
+<alert type="warning">
+Although the attribute "speedkitComponents" can be filled in every component, we recommend its explicit use only in pages and layout. The use within components can only make sense in explicit special cases. Here we recommend the general use of static imports.
+</alert>
 
-### Modul Komponenten
+## speedkit components
 
-
-Die Modul Komponenten können über den Namespace `nuxt-speedkit-components` importiert werden.
-
+In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
 
 - <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link>
 - <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link>
@@ -91,13 +66,12 @@ Die Modul Komponenten können über den Namespace `nuxt-speedkit-components` imp
 - <nuxt-link to="/components/speedkit-youtube">SpeedkitYoutube</nuxt-link>
 
 ```html
-
 <template>
   <speedkit-picture>
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-components/SpeedkitPicture'
+import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture'
 export default {
   components: {
     SpeedkitPicture
@@ -105,3 +79,7 @@ export default {
 }
 </script>
 ```
+
+<alert type="info">
+The speedkit components will be expanded in the future. If you have explicit wishes, please send us a feature request or directly a pull request with the corresponding feature :)
+</alert>

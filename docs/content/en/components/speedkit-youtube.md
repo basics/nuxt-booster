@@ -1,47 +1,98 @@
 ---
 title: SpeedkitYoutube
 description: ''
-position: 33
+position: 34
 category: Components
 features:
   - Lazy Load Integration
 ---
+> Please note the privacy policy when using. [Google Youtube-API](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)
+Da das [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
 
+Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) deckungsgleich.
 
-```html
-<speedkit-youtube id="…" />
+## Usage
+Das `SpeedkitYoutube` unterscheidet sich in der Verwendung zum [`SpeedkitYoutube` (Experimental)](#) nur in der definierung des Posters. Es muss in der Eigenschaft `poster`, ein `SpeedkitPicture` zusätzlich definiert werden.
+
+[Learn more about `SpeedkitPicture`](/components/speedkit-picture)
+
+### Example
+
+```vue
+<template>
+  <div>
+    <speedkit-youtube v-bind="youtube" @playing="onPlaying" />
+  </div>
+</template>
+
+<script>
+import SpeedkitYoutube from 'nuxt-speedkit-component/SpeedkitYoutube';
+export default {
+  components: { SpeedkitYoutube },
+  data () {
+    return {
+      youtube: {
+        id: 'youtube-id',
+        host: 'https://www.youtube-nocookie.com',
+        config: { … },
+        poster: {
+          placeholders: [
+            {
+              format: 'jpg',
+              url: 'data:image/jpeg;base64,…'
+            }
+          ],
+          sources: [
+            {
+              format: 'jpg',
+              sizes: [
+                { width: 414, url: 'poster-414.jpg' },
+                { width: 576, media: '(min-width: 576px)', url: 'poster-576.jpg' },
+                { width: 768, media: '(min-width: 768px)', url: 'poster-768.jpg' },
+                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.jpg' },
+                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.jpg' }
+              ]
+            },
+            {
+              format: 'webp',
+              sizes: [
+                { width: 414, url: 'poster-414.webp') },
+                { width: 576, media: '(min-width: 576px)', url: 'poster-576.webp' },
+                { width: 768, media: '(min-width: 768px)', url: 'poster-768.webp' },
+                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.webp' },
+                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.webp' }
+              ]
+            }
+          ],
+          alt: 'Youtube Alt',
+          title: 'Youtube Title'
+        }
+      }
+    };
+  },
+  methods: {
+    onPlaying () {
+      console.log('Youtube Player playing!');
+    }
+  }
+};
+</script>
 ```
-
-`SpeedkitYoutube` wird verwendet für das einfache einbinden eines Youtube Videos.
-
-## Features
-
-<list :items="features"></list>
-
 ## Properties
-
 
 ```js
 {
-  id: 'XXXXXXX',
+  id: 'youtube-id',
   autoplay: false,
-  poster: { … }
+  host: 'https://www.youtube-nocookie.com',
+  config: { … }
 }
 ```
 
-### `id`
-- Type: `String`
-  - <badge>required</badge>
+Alle Eigenschaften bis auf `poster` sind mit dem `SpeedkitYoutube` identisch.
 
-Legt die Youtube-ID fest.
-
-### `autoplay`
-- Type: `Boolean`
-  - Default: `false`
-
-Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automatisch gestartet.
+Learn more about [`SpeedkitYoutube` (Experimental) - Properties](/components/experimental-speedkit-youtube#events).
 
 ### `poster`
 - Type: `Object` als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
@@ -49,35 +100,6 @@ Wenn gesetzt, wird wenn die mitte des Viewports erreicht ist, der Player automat
 
 Poster wird angezeigt solange Player nicht abspielt.
 
-
-
-
 ## Events
 
-```html
-<speedkit-picture 
-  @ready="console.log('Ready!')" 
-  @loading="console.log('Video Loading!')" 
-  @playing="console.log('Video Playing!')" 
-  @enter="console.log('Viewport!')" 
-/>
-```
-
-### `ready`
-
-Tritt ein wenn Youtube-Api komplett geladen ist.
-
-### `loading`
-
-Tritt ein wenn Video angefangen wird zu laden.
-
-### `playing`
-
-Tritt ein wenn Video fertiggeladen ist und abspielt.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
-
-
-
+Mehr zu Events unter [`SpeedkitYoutube` (Experimental) - Events](/components/experimental-speedkit-youtube#events).
