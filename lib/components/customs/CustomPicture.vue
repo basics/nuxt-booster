@@ -78,9 +78,7 @@ export default {
   head () {
     let data = {};
     if (this.preload.length && (this.isCritical || (process.client && this.visible))) {
-      const sources = filterBySupportedMimeTypes(this.preload);
-      const [source] = sources;
-
+      const source = this.getPreloadSource();
       preloadCache.getPromise(toHashHex(source.srcset), (resolve, reject) => {
         if (isPreloadSupported()) {
           data = {
@@ -119,6 +117,20 @@ export default {
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
+    },
+    getPreloadSource () {
+      const sources = filterBySupportedMimeTypes(this.preload);
+      const type = Array.from(new Set(sources.map(({ type }) => type))).shift();
+      const { srcset, sizes } = sources.filter(source => (source.type === type)).reduce((result, source) => {
+        result.srcset.push(source.srcset);
+        result.sizes.push(source.sizes);
+        return result;
+      }, { srcset: [], sizes: [] });
+      return {
+        srcset: srcset.join(', '),
+        sizes: sizes.join(', '),
+        type
+      };
     }
   }
 };
@@ -144,27 +156,27 @@ function isWebp ({ type }) {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 picture {
   display: block;
   height: inherit;
   overflow: hidden;
   background-size: cover;
+}
 
-  & img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    filter: blur(0);
-    transition-duration: 350ms;
-    transition-property: filter, transform;
-    transform: scale(1);
-    object-fit: cover;
+picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: blur(0);
+  transition-duration: 350ms;
+  transition-property: filter, transform;
+  transform: scale(1);
+  object-fit: cover;
+}
 
-    &.in-progress {
-      filter: blur(10px);
-      transform: scale(1.1);
-    }
-  }
+picture img.in-progress {
+  filter: blur(10px);
+  transform: scale(1.1);
 }
 </style>

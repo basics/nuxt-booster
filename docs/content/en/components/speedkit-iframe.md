@@ -3,40 +3,89 @@ title: SpeedkitIframe
 description: ''
 position: 35
 category: Components
-features:
-  - Lazy Load Integration
+
+primaryList:
+  - Ruckler (Kurzzeitig einfrieren der Seite)
+  - Verzögertes laden von Resourcen (Bilder, Fonts)
+  - Unnötig erzeugter Traffic
+secondaryList:
+  - Iframe laden ist reaktiv.
+  - Es werden keine Resourcen beim laden blockiert.
+  - Traffic wird erst erzeugt, wenn Iframe sichtbar.
 
 ---
 
-[view source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)
+`SpeedkitIframe`, Iframe & IntersectionObserver in one.
 
-```html
-<speedkit-iframe src="…" />
+## Exkurs
+
+Iframes neigen dazu, im speziellen Fall beim initialen PageLoad, durch das massive laden von Resourcen einer anderer Quelle, den Aufbau und Initialisierung der eigentlichen Seite zu stören. 
+
+**Für den Benutzer ist dies ist inbesondere spürbar durch:**
+
+<list :items="primaryList" type="warning"></list>
+
+## Solution
+
+Um diese Punkte zu lösen, sollte bei der Verwendung darauf geachtet werden, das die Initialisierung des Iframes nachgelagert geschieht.
+Dies kann zum Beispiel über einen [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) realisiert werden. Dieser ist dafür zuständig die Source auf dem Iframe zu setzen, sobald dieser den Sichtbarenbereich erreicht.
+
+**Somit können folgende Bedingungen erfüllt werden:**
+
+<list :items="secondaryList" type="success"></list>
+
+
+Die oben erwähnte Strategie bringt das `SpeedkitIframe` mit, arbeiten lässt es sich wie mit einem normalen [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+Der enthaltene [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) wird über die Eigenachaft `intersectionObserver` konfiguriert. 
+
+## Usage
+
+Das `SpeedkitIframe` wird verwendet wie ein normales [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+
+### Example
+```vue
+<template>
+  <speedkit-iframe v-bind="iframe" @load="onIFrameLoaded" />
+</template>
+
+<script>
+  export default {
+    data: {
+      iframe: {
+       src: '…',
+       intersectionObserver: { trackVisibility: true, delay: 350 }
+      }
+    },
+    methods: {
+      onIFrameLoaded (){
+        console.log('iframe loaded!');
+      }
+    }
+  };
+</script>
 ```
-
-`SpeedkitIframe` ersetzt den Einsatz eines nativen `<iframe>` Elements.
-
-## Features
-
-<list :items="features"></list>
 
 ## Properties
 
-Use native attributes to configure [iframe](https://www.w3schools.com/tags/tag_iframe.asp) (eg. `<iframe>`).
+> Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+### `intersectionObserver`
+- Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
+  - Default: `{ trackVisibility: true, delay: 350 }`
+
+Legt die Optionen vom enthaltenen [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) fest.  
+
+For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about option `trackVisibility` from [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
+
 ## Events
 
 ```html
 <speedkit-iframe 
   @load="console.log('Loaded!')" 
-  @enter="console.log('Viewport!')" 
+  @enter="console.log('Enter Viewport!')" 
 />
 ```
 
-### `load`
-
-Tritt ein wenn Iframe fertig geladen hat.
-
-### `enter`
-
-Tritt ein wenn Komponente den Viewport erreicht hat.
-
+| Name    | Description                                          |
+| ------- | ---------------------------------------------------- |
+| `load`  | Tritt ein wenn Iframe fertig geladen hat.            |
+| `enter` | Tritt ein wenn Komponente den Viewport erreicht hat. |

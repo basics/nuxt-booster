@@ -74,18 +74,18 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style>
 #nuxt-speedkit__speedkit-layer {
   width: 0;
   height: 0;
+}
 
-  & input {
-    display: none;
-  }
+#nuxt-speedkit__speedkit-layer input {
+  display: none;
+}
 
-  & input:checked + * {
-    display: none;
-  }
+#nuxt-speedkit__speedkit-layer input:checked + * {
+  display: none;
 }
 
 #nuxt-speedkit__button__init-nojs {

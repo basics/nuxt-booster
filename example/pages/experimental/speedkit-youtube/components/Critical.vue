@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import SpeedkitYoutube from 'nuxt-speedkit-components/experimental/SpeedkitYoutube';
+import SpeedkitYoutube from 'nuxt-speedkit/components/experimental/SpeedkitYoutube';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
   components: {

@@ -24,8 +24,10 @@ export default {
         claim: 'powered by Grabarz & Partner',
         picture: {
           sources: [
-            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/portrait.jpg', sizes: '414,576:576,768:768' },
-            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/landscape.jpg', sizes: '1024:1024,1280:1280,1680:1680,1920:1920' }
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/landscape.jpg', sizes: '1024:1024,1280:1280,1680:1680,1920:1920' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/portrait.jpg', sizes: '768:768' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/landscape.jpg', sizes: '576:576' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-1/portrait.jpg', sizes: '414' }
           ]
         }
       },
@@ -42,8 +44,8 @@ export default {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
           sources: [
-            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-2/jpg/1920.jpg', sizes: '414' },
-            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-2/jpg/1920.jpg', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' }
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-2/jpg/1920.jpg', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-2/jpg/1920.jpg', sizes: '414' }
           ]
         }
       },
@@ -53,8 +55,8 @@ export default {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
           sources: [
-            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-3/jpg/1920.jpg', sizes: '414' },
-            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-3/jpg/1920.jpg', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' }
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-3/jpg/1920.jpg', sizes: '576:576,768:768,1024:1024,1200:1280,1600:1680,1900:1920' },
+            { src: 'https://nuxt-speedkit.grabarzundpartner.dev/example/img/image-content-3/jpg/1920.jpg', sizes: '414' }
           ]
         }
       },

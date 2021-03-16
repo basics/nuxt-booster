@@ -8,6 +8,11 @@
   "github": {
     "repo": "GrabarzUndPartner/nuxt-speedkit",
     "branch": "main",
-    "dir": "docs"
+    "dir": "docs",
+    "releases": false
+  },
+  "colors": {
+    "primary": "#E83162",
+    "code": "#E83162"
   }
 }

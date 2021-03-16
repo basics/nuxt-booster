@@ -53,6 +53,16 @@ export default {
       default () {
         return {};
       }
+    },
+    host: {
+      type: String,
+      default: 'https://www.youtube-nocookie.com'
+    },
+    config: {
+      type: Object,
+      default () {
+        return { playsinline: 1, modestbranding: 1 };
+      }
     }
   },
 
@@ -101,9 +111,9 @@ export default {
 
     loadPlayer () {
       this.player = YoutubePlayer(this.$refs.youtube, {
-        host: 'https://www.youtube-nocookie.com',
+        host: this.host,
         videoId: this.id,
-        playerVars: { playsinline: 1, modestbranding: 1 }
+        playerVars: this.config
       });
       this.player.on('ready', () => { this.playerReady.resolve(); });
       this.player.on('stateChange', (e) => {
@@ -119,147 +129,140 @@ export default {
 
 </script>
 
-<style lang="postcss" scoped>
-div {
+<style scoped>
+.nuxt-speedkit__speedkit-youtube {
   position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
-.nuxt-speedkit__speedkit-youtube {
+.nuxt-speedkit__speedkit-youtube >>> iframe {
+  position: absolute;
+  top: 0;
   width: 100%;
+  height: 100%;
+}
 
-  & >>> iframe {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
+.nuxt-speedkit__speedkit-youtube .poster {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  transition: opacity 0.2s ease-in;
+  appearance: none;
+}
 
-  & .poster {
-    position: relative;
-    display: block;
-    width: 100%;
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    outline: none;
-    appearance: none;
-    transition: opacity 0.2s ease-in;
+.nuxt-speedkit__speedkit-youtube .poster .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  transform: translate(-50%, -50%);
+}
 
-    & .icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 68px;
-      transform: translate(-50%, -50%);
+.nuxt-speedkit__speedkit-youtube .poster .icon path:first-child {
+  fill: #212121;
+  fill-opacity: 0.8;
+  transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
 
-      & path:first-child {
-        fill: #212121;
-        fill-opacity: 0.8;
-        transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
-      }
-    }
+.nuxt-speedkit__speedkit-youtube .poster:hover path:first-child {
+  fill: #f00;
+  fill-opacity: 1;
+  transition: fill 0.1s cubic-bezier(0, 0, 0.2, 1), fill-opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
 
-    &:hover {
-      & path:first-child {
-        fill: #f00;
-        fill-opacity: 1;
-        transition: fill 0.1s cubic-bezier(0, 0, 0.2, 1), fill-opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
-      }
-    }
-  }
+.nuxt-speedkit__speedkit-youtube svg {
+  transition: opacity 0.2s linear, transform 0.2s linear;
+}
 
-  & svg {
-    transition: opacity 0.2s linear, transform 0.2s linear;
-  }
+.nuxt-speedkit__speedkit-youtube.js--playing .poster {
+  pointer-events: none;
+  opacity: 0;
+}
 
-  &.js--playing {
-    & .poster {
-      pointer-events: none;
-      opacity: 0;
-    }
-  }
+.nuxt-speedkit__speedkit-youtube .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 18;
+  width: 48px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
 
-  & .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 18;
-    width: 48px;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
+.nuxt-speedkit__speedkit-youtube .spinner::before {
+  display: block;
+  padding-top: 100%;
+  content: "";
+}
 
-    &::before {
-      display: block;
-      padding-top: 100%;
-      content: "";
-    }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  margin-top: -50%;
+  margin-left: -50%;
+  pointer-events: none;
+  -webkit-animation: spinner-linspin 1568.23529647ms linear infinite;
+  animation: spinner-linspin 1568.23529647ms linear infinite;
+}
 
-    & .spinner-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      padding-bottom: 100%;
-      margin-top: -50%;
-      margin-left: -50%;
-      pointer-events: none;
-      -webkit-animation: spinner-linspin 1568.23529647ms linear infinite;
-      animation: spinner-linspin 1568.23529647ms linear infinite;
-    }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-rotator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: spinner-easespin 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: spinner-easespin 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
 
-    & .spinner-rotator {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-animation: spinner-easespin 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-      animation: spinner-easespin 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-    }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-left {
+  position: absolute;
+  top: 0;
+  right: 49%;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
 
-    & .spinner-left {
-      position: absolute;
-      top: 0;
-      right: 49%;
-      bottom: 0;
-      left: 0;
-      overflow: hidden;
-    }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 49%;
+  overflow: hidden;
+}
 
-    & .spinner-right {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 49%;
-      overflow: hidden;
-    }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-circle {
+  position: absolute;
+  box-sizing: border-box;
+  width: 200%;
+  height: 100%;
+  border-color: #b81c22 #b81c22 transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 50%;
+}
 
-    & .spinner-circle {
-      position: absolute;
-      box-sizing: border-box;
-      width: 200%;
-      height: 100%;
-      border-color: #b81c22 #b81c22 transparent;
-      border-style: solid;
-      border-width: 4px;
-      border-radius: 50%;
-    }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-left .spinner-circle {
+  border-right-color: transparent;
+  -webkit-animation: spinner-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: spinner-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
 
-    & .spinner-left .spinner-circle {
-      border-right-color: transparent;
-      -webkit-animation: spinner-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-      animation: spinner-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-    }
-
-    & .spinner-right .spinner-circle {
-      left: -100%;
-      border-left-color: transparent;
-      -webkit-animation: spinner-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-      animation: spinner-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-    }
-  }
+.nuxt-speedkit__speedkit-youtube .spinner .spinner-right .spinner-circle {
+  left: -100%;
+  border-left-color: transparent;
+  -webkit-animation: spinner-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  animation: spinner-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
 @keyframes rotate {
