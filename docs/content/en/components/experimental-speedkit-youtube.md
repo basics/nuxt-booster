@@ -45,8 +45,8 @@ export default {
           sources: [
             { src: 'poster.jpg', sizes: '414,768:768,576:576,1024:1024,1280:1280,1680:1680,1920:1920' },
           ],
-          title: 'Image Title',
-          alt: 'Image Alt'
+          alt: 'Youtube Alt',
+          title: 'Youtube Title'
         }
       }
     };

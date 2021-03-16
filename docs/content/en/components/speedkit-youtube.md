@@ -37,29 +37,36 @@ export default {
         host: 'https://www.youtube-nocookie.com',
         config: { … },
         poster: {
-          alt: 'Youtube Alt Text',
-          title: 'Youtube Title Text',
+          placeholders: [
+            {
+              format: 'jpg',
+              url: 'data:image/jpeg;base64,…'
+            }
+          ],
           sources: [
             {
-              placeholder: {
-                url: 'data:image/jpeg;base64,…'
-              },
+              format: 'jpg',
               sizes: [
-                // jpg
-                { width: 414, url: 'poster-414.jpg', format: 'jpg' },
-                { width: 576, media: '(min-width: 576px)', url: 'poster-576.jpg', format: 'jpg' },
-                { width: 768, media: '(min-width: 768px)', url: 'poster-768.jpg', format: 'jpg' },
-                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.jpg', format: 'jpg' },
-                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.jpg', format: 'jpg' },
-                // webp
-                { width: 414, url: 'poster-414.webp', format: 'webp' },
-                { width: 576, media: '(min-width: 576px)', url: 'poster-576.webp', format: 'webp' },
-                { width: 768, media: '(min-width: 768px)', url: 'poster-768.webp', format: 'webp' },
-                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.webp', format: 'webp' },
-                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.webp', format: 'webp' }
+                { width: 414, url: 'poster-414.jpg' },
+                { width: 576, media: '(min-width: 576px)', url: 'poster-576.jpg' },
+                { width: 768, media: '(min-width: 768px)', url: 'poster-768.jpg' },
+                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.jpg' },
+                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.jpg' }
+              ]
+            },
+            {
+              format: 'webp',
+              sizes: [
+                { width: 414, url: 'poster-414.webp') },
+                { width: 576, media: '(min-width: 576px)', url: 'poster-576.webp' },
+                { width: 768, media: '(min-width: 768px)', url: 'poster-768.webp' },
+                { width: 1024, media: '(min-width: 1024px)', url: 'poster-1024.webp' },
+                { width: 1280, media: '(min-width: 1200px)', url: 'poster-1280.webp' }
               ]
             }
-          ]
+          ],
+          alt: 'Youtube Alt',
+          title: 'Youtube Title'
         }
       }
     };
