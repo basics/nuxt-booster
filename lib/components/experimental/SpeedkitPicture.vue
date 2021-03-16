@@ -146,7 +146,7 @@ function getFormats (sources) {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 .nuxt-speedkit__experimental__speedkit-picture {
   width: 100%;
   height: inherit;

@@ -108,7 +108,7 @@ export default {
 
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 .nuxt-speedkit__speedkit-picture {
   width: 100%;
   height: inherit;

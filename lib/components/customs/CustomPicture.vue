@@ -156,27 +156,27 @@ function isWebp ({ type }) {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 picture {
   display: block;
   height: inherit;
   overflow: hidden;
   background-size: cover;
+}
 
-  & img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    filter: blur(0);
-    transition-duration: 350ms;
-    transition-property: filter, transform;
-    transform: scale(1);
-    object-fit: cover;
+picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: blur(0);
+  transition-duration: 350ms;
+  transition-property: filter, transform;
+  transform: scale(1);
+  object-fit: cover;
+}
 
-    &.in-progress {
-      filter: blur(10px);
-      transform: scale(1.1);
-    }
-  }
+picture img.in-progress {
+  filter: blur(10px);
+  transform: scale(1.1);
 }
 </style>
