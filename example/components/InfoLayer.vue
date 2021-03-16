@@ -1,5 +1,5 @@
 <template>
-  <speedkit-layer class="info_layer">
+  <speedkit-layer class="info-layer">
     <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
@@ -18,7 +18,7 @@
           slow connection
         </li>
       </ul>
-      <div class="info_layer__buttons">
+      <div class="info-layer__buttons">
         <base-button id="nuxt-speedkit__button__init-nojs">
           <label for="nuxt-speedkit__speedkit-layer__close">
             OK
@@ -54,7 +54,7 @@ export default {
   head () {
     return {
       noscript: [
-        getStyleDescription('.info_layer > div { animation-delay: initial !important; }', true)
+        getStyleDescription('.info-layer > div { animation-delay: initial !important; }', true)
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     };
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.info_layer {
+.info-layer {
   & >>> #nuxt-speedkit__speedkit-layer__content {
     position: fixed;
     top: 0;
@@ -109,7 +109,7 @@ ul {
   }
 }
 
-.info_layer__buttons {
+.info-layer__buttons {
   margin: calc(10 / 16 * 1em) 0;
 
   & > * {
