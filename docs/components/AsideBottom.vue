@@ -37,14 +37,8 @@ export default {
         More: [
           {
             icon: 'IconExternalLink',
-            url: 'https://github.com/GrabarzUndPartner/nuxt-speedkit',
-            title: 'Example Project',
-            target: '_blank'
-          },
-          {
-            icon: 'IconExternalLink',
-            url: 'https://nuxt-speedkit.grabarzundpartner.dev/example',
-            title: 'Live Example',
+            url: 'https://github.com/GrabarzUndPartner/nuxt-speedkit-example',
+            title: 'Example',
             target: '_blank'
           }
         ]
