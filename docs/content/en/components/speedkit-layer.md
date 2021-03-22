@@ -10,7 +10,7 @@ solutions:
   - unsupported browser
 
 hideLayerFeatures:
-  - Schließmechanik benötigt kein Javascript.
+  - Closing mechanics does not require javascript.
 
 
 ---
@@ -42,33 +42,31 @@ The layer is also displayed with a corresponding message when Javascript is deac
 [Learn more in Concept.](/concept)
 ## Usage
 
-Ist der SpeedkitLayer implementiert, erfolgt automatisch die Überwachung der Javascript-Initialisierung. Tritt eines der oben beschriebenen Ereignisse ein, wird der Ablauf pausiert und erst nach einer Benutzer-Interaktion im Layer entsprechend fortgesetzt bzw. abgebrochen.
+If the SpeedkitLayer is implemented, the javascript initialisation is automatically monitored. If one of the events described above occurs, the process is paused and only continued or cancelled after a user interaction in the layer.
 
-Platziert wird der Layer einmalig im Layout der Seite.
-Dieser dient als Wrapper und muss anhand des [Template](/components/speedkit-layer#template) befüllt werden, [siehe Beispiel Komponente](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
+The layer is placed once in the layout (e.g. `layouts/default.vue`). 
+The included SpeedkitLayer serves as a wrapper and must be filled according to the [template](/components/speedkit-layer#template), see [example component](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
 
-Der Inhalt besteht aus Mitteilungen und Buttons, die im jeweiligen Ereignis eingeblendet werden.
+The content contains messages and buttons that are displayed in the respective event.
+Messages and buttons are defined with an `id`, these are set to `display: none;` by default via CSS.
 
-Mitteilungen und Buttons werden mit einer `id` definiert, diese sind default per CSS auf `display: none;` gesetzt.
+- e.g. `nuxt-speedkit__message__unsupported-browser` for message
+- e.g. `nuxt-speedkit__button__init-app` for button
 
-- e.g. `nuxt-speedkit__message__unsupported-browser` für Mitteilung
-- e.g. `nuxt-speedkit__button__init-app` für Button
-
-<alert>Für die Schließmechanik des Layers, siehe [Hide Layer](/components/speedkit-layer#hide-layer).</alert>
-
+<alert>For the closing mechanism of the layer, see [Hide Layer](/components/speedkit-layer#hide-layer).</alert>
 
 ## Messages
 
-Die Mitteilungen sind Elemente, die zu den jeweiligen Ereignissen eingeblendet werden.
+The messages are elements that are displayed for the relevant events.
 
-Initial sind alle IDs auf `display: none;` gesetzt, somit ist keine Mitteilung sichtbar.  
-Wenn ein Ereigniss eintritt, wird über die ID die jewelige Mitteilung per Style Attribute `display: block;` eingeblendet.
-
-| ID                                                         | Description                                                                                |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| <nobr>`nuxt-speedkit__message__unsupported-browser`</nobr> | Benutzer Browser wird von der [`Browserslist`](/options#browsersupport) nicht unterstützt. |
-| <nobr>`nuxt-speedkit__message__outdated-device`</nobr>     | Benutzer Hardware (Anzahl Prozessor & Arbeitsspeicher) sind nicht ausreichend.             |
-| <nobr>`nuxt-speedkit__message__slow-connection`</nobr>     | Verbindungsgeschwindigkeit ist zu niedrig.                                                 |
+Initially, all IDs are set to `display: none;`, so no message is visible.  
+When an event is triggered, the relevant message is displayed via the ID using the style attribute `display: block;`.
+	
+| ID                                                         | Description                                                                 |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------- |
+| <nobr>`nuxt-speedkit__message__unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/options#browsersupport). |
+| <nobr>`nuxt-speedkit__message__outdated-device`</nobr>     | User hardware (number of processor & RAM) are not sufficient.               |
+| <nobr>`nuxt-speedkit__message__slow-connection`</nobr>     | Connection speed is too low.                                                |
 
 **Example**
 ```html
@@ -85,36 +83,36 @@ Wenn ein Ereigniss eintritt, wird über die ID die jewelige Mitteilung per Style
 
 ## Buttons
 
-Die Buttons sind die Interkation Elemente für den Benutzer.
-Je nach Ereignis, muss der Benutzer über diese seine Wahl treffen.
+The buttons are interaction elements for the user with which he can make his choice at the relevant event.
 
-Initial sind alle IDs bis auf `nuxt-speedkit__button__init-nojs` auf `display: none;` gesetzt.
-Wenn ein Ereigniss eintritt, wird über die ID der jewelige Button per Style Attribute `display: block;` eingeblendet.
+Initially, all IDs except for `nuxt-speedkit__button__init-nojs` are set to `display: none;`.
+When an event is triggered, the relevant button is displayed via the ID using the style attribute `display: block;`.
 
-| ID                                              | Description                                                                                                                                                                                  |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <nobr>`nuxt-speedkit__button__init-nojs`</nobr> | Sichtbar bei deaktivierten Javascript, wird benötigt damit der User den Layer ausblenden kann. Benötigt die [Hide Layer](/components/speedkit-layer#hide-layer) implementation.              |
-| <nobr>`nuxt-speedkit__button__init-font`</nobr> | Wird eingesetzt um dem Benutzer die Möglichkeit zu bieten nur mit aktivierten Schriften die Seite zu besuchen. Weitere Initialisierung des Javascript und laden der Bilder wird unterbunden. |
-| <nobr>`nuxt-speedkit__button__init-app`</nobr>  | Dient zum aktiveren aller Features. Die initialisierung des Javascripts wird gestartet, Bilder werden geladen.                                                                               |
-
+| ID                                              | Description                                                                                                                                                               |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <nobr>`nuxt-speedkit__button__init-nojs`</nobr> | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/speedkit-layer#hide-layer) implementation.         |
+| <nobr>`nuxt-speedkit__button__init-font`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts. Other initialisations of the Javascript and loading of the pictures are prevented. |
+| <nobr>`nuxt-speedkit__button__init-app`</nobr>  | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                               |
 
 
-<alert type="info">Es wird empfohlen bei den Buttons `nuxt-speedkit__button__init-font` und `nuxt-speedkit__button__init-app` ein **Inline Click-Event** zu registrieren.<br><br>More information under [Force App initialization or Font load](/components/speedkit-layer#force-app-initialization-or-font-load)</alert>
+
+
+<alert type="info">It is recommended to register an **Inline Click-Event** for the buttons `nuxt-speedkit__button__init-font` and `nuxt-speedkit__button__init-app`.<br><br>More information under [Force App initialization or Font load](/components/speedkit-layer#force-app-initialization-or-font-load)</alert>
 
 
 
 ## Force initialization (App, Font)
 
-Für die Fälle Unsupported-Browser und nicht ausreichender Hardware, muss mit der `id` auch ein `onclick` Event gesetzt werden.
+For Unsupported-Browser and Insufficient Hardware events, an `onclick` event must also be set with the `id`.
 
-In dem Event muss die globale Variable `__NUXT_SPEEDKIT_FONT_INIT__` oder `__NUXT_SPEEDKIT_FONT_INIT__` auf `true` gesetzt werden.
+In the event, the global variable `__NUXT_SPEEDKIT_FONT_INIT__` or `__NUXT_SPEEDKIT_FONT_INIT__` must be set to `true`.
 
-Diese werden benötigt, wenn der Benutzer schon reagiert hat bevor das initiale Javascript geladen wurden ist. Nach erfolgreichem Laden des Javascripts, wird die App automatisch initialisiert.
+These are needed if the user has already reacted before the initial Javascript has been loaded. After the javascript has been successfully loaded, the app is automatically initialised.
 
-| Variable                      | Type      | Description                                                                               | Default |
-| ----------------------------- | --------- | ----------------------------------------------------------------------------------------- | ------- |
-| `__NUXT_SPEEDKIT_FONT_INIT__` | `Boolean` | Wenn gesetzt, werden nur die Schriften initialisiert.                                     | `false` |
-| `__NUXT_SPEEDKIT_AUTO_INIT__` | `Boolean` | Wenn gesetzt, wird nach vollständigen laden des Javascript initialisierung weitergeführt. | `false` |
+| Variable                      | Type      | Description                                                                  | Default |
+| ----------------------------- | --------- | ---------------------------------------------------------------------------- | ------- |
+| `__NUXT_SPEEDKIT_FONT_INIT__` | `Boolean` | If set, only the fonts are initialised.                                      | `false` |
+| `__NUXT_SPEEDKIT_AUTO_INIT__` | `Boolean` | If set, initialisation continues after the javascript has been fully loaded. | `false` |
 
 **Example**
 
@@ -138,7 +136,7 @@ Diese werden benötigt, wenn der Benutzer schon reagiert hat bevor das initiale 
 </label>
 ```
 
-Der Layer kann über ein `for` Attribute mit der `id` `nuxt-speedkit__speedkit-layer__close` geschlossen werden.
+The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit__speedkit-layer__close`.
 
 <list :items="hideLayerFeatures"></list>
 

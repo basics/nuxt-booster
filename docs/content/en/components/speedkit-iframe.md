@@ -5,13 +5,13 @@ position: 35
 category: Components
 
 primaryList:
-  - Ruckler (Kurzzeitig einfrieren der Seite)
-  - Verzögertes laden von Resourcen (Bilder, Fonts)
-  - Unnötig erzeugter Traffic
+  - Freeze (Short freeze of the page)
+  - Delayed loading of resources  (Bilder, Fonts)
+  - Unnecessarily generated traffic
 secondaryList:
-  - Iframe laden ist reaktiv.
-  - Es werden keine Resourcen beim laden blockiert.
-  - Traffic wird erst erzeugt, wenn Iframe sichtbar.
+  - Iframe load is reactive.
+  - No resources are blocked during loading.
+  - Traffic is only generated when the iframe is visible.
 
 ---
 
@@ -19,28 +19,28 @@ secondaryList:
 
 ## Exkurs
 
-Iframes neigen dazu, im speziellen Fall beim initialen PageLoad, durch das massive laden von Resourcen einer anderer Quelle, den Aufbau und Initialisierung der eigentlichen Seite zu stören. 
+Iframes have a tendency, in the special case of the initial page load, to disrupt the construction and initialisation of the actual page through the massive loading of resources from another source. 
 
-**Für den Benutzer ist dies ist inbesondere spürbar durch:**
+**For the user, this is particularly visible by:**
 
 <list :items="primaryList" type="warning"></list>
 
 ## Solution
 
-Um diese Punkte zu lösen, sollte bei der Verwendung darauf geachtet werden, das die Initialisierung des Iframes nachgelagert geschieht.
-Dies kann zum Beispiel über einen [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) realisiert werden. Dieser ist dafür zuständig die Source auf dem Iframe zu setzen, sobald dieser den Sichtbarenbereich erreicht.
+In order to solve these points, care should be taken to ensure that the initialisation of the iframe takes place downstream.
+This can be realised, for example, via an [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver). 
+This sets the source on the iframe only when the visible viewport has been reached.
 
-**Somit können folgende Bedingungen erfüllt werden:**
+**The following conditions can thus be fulfilled:**
 
 <list :items="secondaryList" type="success"></list>
 
-
-Die oben erwähnte Strategie bringt das `SpeedkitIframe` mit, arbeiten lässt es sich wie mit einem normalen [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
-Der enthaltene [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) wird über die Eigenachaft `intersectionObserver` konfiguriert. 
+The strategy mentioned above is provided by the `SpeedkitIframe`, which can be used in the same way as a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+The included [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) is configured via the `intersectionObserver` property. 
 
 ## Usage
 
-Das `SpeedkitIframe` wird verwendet wie ein normales [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+The `SpeedkitIframe` is used like a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 
 ### Example
 ```vue
@@ -72,7 +72,7 @@ Das `SpeedkitIframe` wird verwendet wie ein normales [HTML Iframe](https://www.w
 - Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
   - Default: `{ trackVisibility: true, delay: 350 }`
 
-Legt die Optionen vom enthaltenen [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) fest.  
+Sets the options from the integrated [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).  
 
 For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about option `trackVisibility` from [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
 
@@ -85,7 +85,7 @@ For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about
 />
 ```
 
-| Name    | Description                                          |
-| ------- | ---------------------------------------------------- |
-| `load`  | Tritt ein wenn Iframe fertig geladen hat.            |
-| `enter` | Tritt ein wenn Komponente den Viewport erreicht hat. |
+| Name    | Description                                        |
+| ------- | -------------------------------------------------- |
+| `load`  | Triggered when Iframe has finished loading.        |
+| `enter` | Triggered when component has reached the viewport. |

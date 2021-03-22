@@ -5,17 +5,17 @@ position: 32
 category: Components
 ---
 
-Da das [`SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitPicture` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
+Since the [`SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture) is still marked as experimental, we still offer the simplified version called `SpeedkitPicture`. Here, all resources that are generated fully automatically in the experimental module must be defined manually.
 
-Bis auf die manuelle Ressourcendefinition sind alle weiteren [Features](/components/experimental-speedkit-picture#features) von [`SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture) deckungsgleich.
+Except for the manual resource definition, all other [features](/components/experimental-speedkit-picture#features) of [`SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture) are identical.
 
 ## Usage
 
-Ohne die Verwendung von [`@nuxt/image`](https://image.nuxtjs.org/) müssen alle **Sourcen** (`sources`) und **Platzhalter** (`placeholders`) angeben werden.
+Without using [`@nuxt/image`](https://image.nuxtjs.org/), all **sources** and **placeholders** must be specified.
 
-Beispiele für das Definieren der Ressourcen, findest du im [Beispiel](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue) des Moduls.
+Examples for defining the resources can be found in the [example](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/pages/index.vue) of the module.
 
-<alert>**Denke an die Optimierung der Bilder!**<br> Verwende wenn möglich das Format `webp`, analog zu den vorhandenen `jpg` Dateien und achte auf eine Bildoptimierung.
+<alert>**Think about the optimisation of the images!**<br> If possible, use the format `webp`, analog to the existing `jpg` files and make sure that the images are optimised.
 </alert>
 
 ### Example
@@ -86,14 +86,14 @@ export default {
 ```
 ## Properties
 
-Alle Eigenschaften bis auf [`sources`](/components/speedkit-picture#sources) und [`placeholders`](/components/speedkit-picture#placeholders) sind mit dem `SpeedkitPicture` (Experimental) identisch.
+All properties except [`sources`](/components/speedkit-picture#sources) and [`placeholders`](/components/speedkit-picture#placeholders) are identical to the `SpeedkitPicture` (Experimental).
 
 Learn more about [`ExperimentalSpeedkitPicture` - Properties](/components/experimental-speedkit-picture#properties).
 
 ### `sources`
 - Type: `Array`
 
-Beinhaltet Ressourcen die abängig vom Viewport angezeigt werden sollen.
+Contains resources that are to be displayed depending on the viewport.
 
 ```js
 [
@@ -128,20 +128,20 @@ Beinhaltet Ressourcen die abängig vom Viewport angezeigt werden sollen.
 ]
 ```
 
-Jedes Source in der Liste beschreibt ein Dateiformat mit seinen Viewport abhängigen Bildgrößen.
+Each source in the list describes a file format with its viewport dependent image sizes.
 
-Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je nach Viewport anzeigen zu lassen.
-`sizes` dient zum definieren der Viewport abhängigen Bildgrößen.
-
-
-| Key      | Type     | Required | Value                                                      | Default |
-| -------- | -------- | -------- | ---------------------------------------------------------- | ------- |
-| `sizes`  | `Array`  | yes      | Bechreibt die unterschiedlichen Varianten.                 | `[]`    |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, … |         |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                  |         |
+Property `sizes` is used to define the viewport dependent image sizes and `media` is used to display different aspect ratios depending on the viewport.  
 
 
-<alert>`media` kann verwendet werden für Breakpoints spezifische Bildverhältnisse.</alert>
+
+| Key      | Type     | Required | Value                                                         | Default |
+| -------- | -------- | -------- | ------------------------------------------------------------- | ------- |
+| `sizes`  | `Array`  | yes      | Describes the different image sizes.                          | `[]`    |
+| `format` | `String` | yes      | Image format of the specified resource, e.g. `webp`, `jpg`, … |         |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                     |         |
+
+
+<alert>`media` can be used for breakpoint specific aspect ratios.</alert>
 
 
 ```js
@@ -162,16 +162,15 @@ Eigenschaft `media` wird verwendent um unterschiedliche Bildverhältnisse, je na
   url: '768.webp' 
 }
 ```
- 
-Das Size Objekt in `sizes` beschreibt die unterschiedlichen Bildgrößen für die jeweiligen Breakpoints.
+The size object in `sizes` describes the different image sizes for the respective breakpoints.
 
-Aus der gesamt `sizes` Liste wird am ende ein `srcset` & `sizes` generiert.
+From the list `sizes`, the `srcset` & `sizes` is generated.
 
-Mehr zu  [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset) & [`HTMLImageElement.sizes`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
+More about [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset) & [`HTMLImageElement.sizes`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
 
 
-`url` und `width` werden im `srcset` angewendet (e.g. `srcset="image.jpg 768w"`).  
-`media` wird im `sizes` angewendet für Media Query zu Breite (e.g. `sizes="(min-width: 768px) 768px"`), 
+`url` and `width` are applied in `srcset` (e.g. `srcset="image.jpg 768w"`).  
+`media` is applied in `sizes` for media query to width (e.g. `sizes="(min-width: 768px) 768px"`). 
 
 | Key     | Required | Value                                       | Default     |
 | ------- | -------- | ------------------------------------------- | ----------- |
@@ -179,7 +178,7 @@ Mehr zu  [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/We
 | `width` |          | Viewport width as `Number` (e.g. `768`)     | `undefined` |
 | `media` |          | CSS Media Query (e.g. `(min-width: 768px)`) | `undefined` |
 
-<alert>**Important:** `url` Angabe ist absolut. Wenn ein Alias verwendet wird (e.g. `@/assets/img/image.jpg`), muss der Pfad per `require` aufgelöst werden (e.g. `url: require('@/assets/img/image.jpg')`)</alert>
+<alert>**Important:** The `url` specification is absolute. If an alias is used (e.g. `@/assets/img/image.jpg`), the path must be resolved by `require` (e.g. `url: require('@/assets/img/image.jpg')`).</alert>
 
 **Example**
 
@@ -193,18 +192,18 @@ Mehr zu  [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/We
 ### `placeholders`
 - Type: `Array`
 
-Beschreibt die Platzhalter die angezeigt werden, solange keine Ressourcen geladen wurden.
+Describes the placeholders that are displayed as long as no resources have been loaded.
 
-Es ist möglich über die Eigenschaft `media`, unterschiedliche Bildverhältnisse für die Platzhalter zu definieren.
+It is possible to define different image ratios for the placeholders via the `media` property.
 
-<alert type="warning">Achte darauf das die Platzhalter eine Breite von `30px` haben und optimiert sind. </alert>
+<alert type="warning">Make sure that the placeholders have a width of `30px` and are optimized.</alert>
 
 
-| Key      | Type     | Required | Value                                                      |
-| -------- | -------- | -------- | ---------------------------------------------------------- |
-| `url`    | `String` | yes      | Url oder Base64 von einem Bild                             |
-| `format` | `String` | yes      | Bildformat der angebenen Ressource,  e.g. `webp`, `jpg`, … |
-| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                  |
+| Key      | Type     | Required | Value                                                         |
+| -------- | -------- | -------- | ------------------------------------------------------------- |
+| `url`    | `String` | yes      | Url or Base64 of an image.                                    |
+| `format` | `String` | yes      | Image format of the specified resource. e.g. `webp`, `jpg`, … |
+| `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                     |
 
 ```js
 [
@@ -222,4 +221,4 @@ Es ist möglich über die Eigenschaft `media`, unterschiedliche Bildverhältniss
 
 ## Events
 
-Mehr zu Events unter [`SpeedkitPicture` (Experimental) - Events](/components/experimental-speedkit-picture#events).
+More on events at [`SpeedkitPicture` (Experimental) - Events](/components/experimental-speedkit-picture#events).

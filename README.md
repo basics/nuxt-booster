@@ -1,6 +1,6 @@
 ![nuxt-speedkit][logo]
 
-# nuxt-speedkit
+# Nuxt Speedkit
 
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
