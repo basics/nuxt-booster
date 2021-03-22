@@ -54,52 +54,8 @@ For multiple fonts, a list (`Array`) can be passed.
 ]">
 ```
 
-## Important
-
-Currently the use of `v-font` on components or in combination with `v-html/v-text` directives is not possible. Caused is a bug in the Vue SSR, directive is not applied.
-
-Read more in the Issue: [vue-server-renderer: directive not applied to imported component](https://github.com/vuejs/vue/issues/10733).
-
-As long as this case exists, a workaround must be used.
-### `v-font` with component
-
-**<span style="color: red;">Bad</span>**
-```html
-<template>
-  <nuxt-link to="/" v-font="$getFont(…)">Back</nuxt-link>
-</template>
-```
-
-**<span style="color: green;">Good</span>**
-```html
-<template>
-  <nuxt-link to="/" v-font="$getFont(…)">
-    <span v-font="$getFont(…)"></span>
-  </nuxt-link>
-</template>
-```
-
-### `v-font` and directives
-
-**<span style="color: red;">Bad</span>**
-```html
-<template>
-  <div>
-    <div v-font="$getFont(…)" v-html="…">…</div>
-  </div>
-</template>
-```
-
-**<span style="color: green;">Good</span>**
-```html
-<template>
-  <div>
-    <div v-font="$getFont(…)">
-      <div v-html="…" />
-    </div>
-  </div>
-</template>
-```
+<alert type="danger">Currently the use of `v-font` on components or in combination with `v-html/v-text` directives is not possible. Caused is a bug in the Vue SSR, directive is not applied.<br><br>Read more in the Issue: [vue-server-renderer: directive not applied to imported component](https://github.com/vuejs/vue/issues/10733).<br><br>As long as this error exists, you can look [**here**](/directives/v-font#workarounds) for workarounds.
+</alert>
 
 
 ## `$getFont`
@@ -165,3 +121,46 @@ This has an effect on prefetches and preloads.
 
 ]
 ```
+
+## Workarounds
+
+Workarounds are used to work around a bug in the Vue SSR, read more in [Usage](/directives/v-font#usage).
+### Use component
+
+**<span style="color: red;">Bad</span>**
+```html
+<template>
+  <nuxt-link to="/" v-font="$getFont(…)">Back</nuxt-link>
+</template>
+```
+
+**<span style="color: green;">Good</span>**
+```html
+<template>
+  <nuxt-link to="/" v-font="$getFont(…)">
+    <span v-font="$getFont(…)"></span>
+  </nuxt-link>
+</template>
+```
+
+### Use v-html/v-text
+**<span style="color: red;">Bad</span>**
+```html
+<template>
+  <div>
+    <div v-font="$getFont(…)" v-html="…">…</div>
+  </div>
+</template>
+```
+
+**<span style="color: green;">Good</span>**
+```html
+<template>
+  <div>
+    <div v-font="$getFont(…)">
+      <div v-html="…" />
+    </div>
+  </div>
+</template>
+```
+
