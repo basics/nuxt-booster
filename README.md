@@ -18,6 +18,7 @@
 
 - [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
 - [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
+- [👁 &nbsp;&nbsp;**Preview**](https://grabarzundpartner.github.io/nuxt-speedkit-example/)
 
 
 Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
