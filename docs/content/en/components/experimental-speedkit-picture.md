@@ -28,9 +28,9 @@ With the current implementation of `SpeedkitPicture` we can cover the following 
 
 ## Usage
 
-Das `SpeedkitPicture` (Experimental) verwendet man um vollautomatisiert unterschiedliche Bildgrößen und/oder Bildverhältnisse für verschiedene Viewports zu generieren und darzustellen.
+The `SpeedkitPicture` (Experimental) is used to automatically generate and display different image sizes and/or image ratios for different viewports.
 
-Die angegebenen Ressourcen können per absolutem Pfad (static folder) oder vollständiger URL angegeben werden. [`nuxt/image`](https://image.nuxtjs.org/) downloaded vollautomatisiert die Ressourcen und legt die generierten und optimierten renditions im destination Ordner ab.
+The specified resources can be given by absolute path (static folder) or complete URL. [`nuxt/image`](https://image.nuxtjs.org/) downloads the resources fully automatically and stores the generated and optimized renditions in the destination folder.
 
 ### Example
 
@@ -75,19 +75,19 @@ export default {
 ### `sources`
 - Type: `Array`
 
-Liste der verwendeten Ressourcen.
+List of resources used.
 
-<alert><strong>Beachte:</strong> Wenn mehr als eine Ressource enthalten ist, wird die kleinste Breite aus der Property `sizes` als Bedingung für die Source genommen e.g. `(min-width: 992px)`.
-Dies ermöglicht Viewport abhängige Bildverhältnisse.</alert>
+<alert><strong>Note:</strong> If more than one resource is included, the smallest width from the `sizes` property is taken as the condition for the source e.g. `(min-width: 992px)`.
+This allows viewport dependent aspect ratios.</alert>
 
-Informationen zu Eigenschaft `src` findest du unter [hier](https://image.nuxtjs.org/components/nuxt-img#src).
+Information on property `src` can be found at [here](https://image.nuxtjs.org/components/nuxt-img#src).
 
-Eigenschaft `sizes` beschreibt die Bildgrößen in der die Ressource angezeigt werden soll. Bildgrößen sind Kommaseparatiert und beschreiben die Bildbreite und deren abhängige Viewportbreite e.g. `ImageWidth:MinWidth`.
+Property `sizes` describes the image sizes in which the resource is to be displayed. Image sizes are comma separated and describe the image width and its dependent viewport width e.g. `ImageWidth:MinWidth`.
 
-Im folgenden Beispiel werden zwei unterschiedliche Bildverhältnisse verwendet.
+In the following example, two different image ratios are used.
 
-- `landscape.jpg` wird bei einem Viewport von `992px` mit einer Bildgröße von `1024px` angewendet.  
-- `portrait.jpg` wird unterhalb von `992px` angewendet und hat zwei Viewport abhängige Bildgrößen, bei `(min-width: 768px)` die Breite `768px` und alles darunter die Breite `414px`.
+- `landscape.jpg` is applied at a viewport of `992px` with an image size of `1024px`.  
+- `portrait.jpg` is applied below `992px` and has two viewport dependent image sizes, at `(min-width: 768px)` the width `768px` and everything below that the width `414px`.
 
 ```js
 [
@@ -137,9 +137,7 @@ Image CrossOrigin.
 />
 ```
 
-| Name    | Description                                          |
-| ------- | ---------------------------------------------------- |
-| `load`  | Tritt ein wenn Bild Resource komplett geladen wurde. |
-| `enter` | Tritt ein wenn Komponente den Viewport erreicht hat. |
-| ``      |                                                      |
-| ``      |                                                      |
+| Name    | Description                                                   |
+| ------- | ------------------------------------------------------------- |
+| `load`  | Triggered when the image resource has been completely loaded. |
+| `enter` | Triggered when component has reached the viewport.            |

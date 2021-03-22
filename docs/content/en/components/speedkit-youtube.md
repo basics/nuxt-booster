@@ -8,12 +8,13 @@ features:
 ---
 > Please note the privacy policy when using. [Google Youtube-API](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
-Da das [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) noch als experimental gekennzeichnet ist, bieten wir noch die vereinfachte Version namens `SpeedkitYoutube` an. Hier müssen alle Ressourcen, die im Experimental-Modul vollautomatisiert generiert werden, manuell definiert werden.
+Since the [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) is still marked as experimental, we still offer the simplified version called `SpeedkitYoutube`. Here, all resources that are generated fully automatically in the experimental module must be defined manually.
 
-Bis auf die manuelle Ressourcendefinition für das Poster sind alle weiteren [Features](/components/experimental-speedkit-youtube#features) von [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) deckungsgleich.
+Except for the manual resource definition for the poster, all other [features](/components/experimental-speedkit-youtube#features) of [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) are identical.
 
 ## Usage
-Das `SpeedkitYoutube` unterscheidet sich in der Verwendung zum [`SpeedkitYoutube` (Experimental)](#) nur in der definierung des Posters. Es muss in der Eigenschaft `poster`, ein `SpeedkitPicture` zusätzlich definiert werden.
+The `SpeedkitYoutube` differs from the [`SpeedkitYoutube` (Experimental)](/components/experimental-speedkit-youtube) in the definition of the `poster`.  
+A `SpeedkitPicture` must be additionally defined in the `poster` property.
 
 [Learn more about `SpeedkitPicture`](/components/speedkit-picture)
 
@@ -90,16 +91,16 @@ export default {
 }
 ```
 
-Alle Eigenschaften bis auf `poster` sind mit dem `SpeedkitYoutube` identisch.
+All properties except `poster` are identical to `SpeedkitYoutube`.
 
 Learn more about [`SpeedkitYoutube` (Experimental) - Properties](/components/experimental-speedkit-youtube#events).
 
 ### `poster`
-- Type: `Object` als Konfiguration wird das <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link> verwendet.
+- Type: `Object` The [SpeedkitPicture](/components/speedkit-picture) is used as the configuration.
   - <badge>required</badge>
 
-Poster wird angezeigt solange Player nicht abspielt.
+Poster is displayed as long as the player is not playing.
 
 ## Events
 
-Mehr zu Events unter [`SpeedkitYoutube` (Experimental) - Events](/components/experimental-speedkit-youtube#events).
+More on events at [`SpeedkitYoutube` (Experimental) - Events](/components/experimental-speedkit-youtube#events).

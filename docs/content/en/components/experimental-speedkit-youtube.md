@@ -15,10 +15,10 @@ So that no empty space is visible to the user, we use the functionality of the [
 
 ## Usage
 
-Das `SpeedkitYoutube` (Experimental) wird verwendet um Youtube Videos mit Youtube-API erst zu initialisieren, wenn diese sich im sichtbaren Viewport befinden.
+The `SpeedkitYoutube` (Experimental) is used to initialise Youtube videos with Youtube-API only when they are in the visible viewport.
 
-Es muss die `id` des Youtube-Videos und die passenden Viewport abhängiigen Breiten in [`sizes` (What is `sizes`?)](/components/experimental-speedkit-picture#sources) angegeben werden. 
-Für das Poster wird das `SpeedkitPicture` (Experimental) verwendet, die generierung des Poster ist somit automatisiert.
+The `id` of the Youtube video and the appropriate viewport dependent widths must be specified in [`sizes` (What is `sizes`?)](/components/experimental-speedkit-picture#sources). 
+The `SpeedkitPicture` (Experimental) is used for the poster, so the generation of the poster is automated.
 
 [Learn more about `SpeedkitPicture` (Experimental)](/components/experimental-speedkit-picture)
 
@@ -76,33 +76,33 @@ export default {
 - Type: `String`
   - <badge>required</badge>
 
-Legt die Youtube-ID fest.
+Sets the Youtube ID.
 
 ### `sizes`
 - Type: `String`
   - Default: `undefined`
 
-Definiert die Viewport abhängigen Bildgrößen für das Poster.
+Defines the viewport dependent image sizes for the poster.
 
-Wenn `undefined` wird die Bildgröße von Youtube-THumbnail verwendet (e.g. `https://img.youtube.com/vi/${id}/maxresdefault.jpg`).
+If `undefined` the image size of Youtube thumbnail is used (e.g. `https://img.youtube.com/vi/${id}/maxresdefault.jpg`).
 
 ### `autoplay`
 - Type: `Boolean`
   - Default: `false`
 
-Wenn gesetzt, wird bei erreichen der Viewport mitte, der Player automatisch gestartet.
+If set, the player is started automatically when the viewport centre is reached.
 
 ### `host`
 - Type: `String`
   - Default: `https://www.youtube-nocookie.com`
 
-Setzt die Host-Url für den Youtube-Player.
+Sets the host url for the Youtube player.
 
 ### `config`
 - Type: `Object`
   - Default: `{ playsinline: 1, modestbranding: 1 }`
 
-Setzt die Youtube-Player Konfiguration. 
+Sets the Youtube player configuration. 
 
 [Learn more about Youtube Player Parameters](https://developers.google.com/youtube/player_parameters.html?playerVersion=HTML5)
 
@@ -117,9 +117,9 @@ Setzt die Youtube-Player Konfiguration.
 />
 ```
 
-| Name      | Description                                          |
-| --------- | ---------------------------------------------------- |
-| `ready`   | Tritt ein wenn Youtube-Api komplett geladen ist.     |
-| `loading` | Tritt ein wenn Video angefangen wird zu laden.       |
-| `playing` | Tritt ein wenn Video fertiggeladen ist und abspielt. |
-| `enter`   | Tritt ein wenn Komponente den Viewport erreicht hat. |
+| Name      | Description                                           |
+| --------- | ----------------------------------------------------- |
+| `ready`   | Triggered when Youtube-Api is completely loaded.      |
+| `loading` | Triggered when video starts loading.                  |
+| `playing` | Triggered when video is finished loading and playing. |
+| `enter`   | Triggered when component has reached the viewport.    |
