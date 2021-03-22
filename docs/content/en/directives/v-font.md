@@ -138,7 +138,7 @@ Workarounds are used to work around a bug in the Vue SSR, read more in [Usage](/
 ```html
 <template>
   <nuxt-link to="/">
-    <span v-font="$getFont(…)"></span>
+    <span v-font="$getFont(…)">Back</span>
   </nuxt-link>
 </template>
 ```
@@ -148,7 +148,7 @@ Workarounds are used to work around a bug in the Vue SSR, read more in [Usage](/
 ```html
 <template>
   <div>
-    <div v-font="$getFont(…)" v-html="…">…</div>
+    <div v-font="$getFont(…)" v-html="…" />
   </div>
 </template>
 ```
