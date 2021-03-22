@@ -1,5 +1,35 @@
 # Project Changelog
 
+## [1.1.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.21...v1.1.22) (2021-03-16)
+
+
+### Bug Fixes
+
+* **alias:** remove component alias ([7051547](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7051547a35d3d475ff7d412e913e823f08f5515b))
+* **components:** remove nested postcss ([b231f89](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b231f89338c22606551282e465c25896a1779947))
+* **font:** fix missing font-active class by multiple selector ([6b771e7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6b771e74c52926a63f5e83ffba3ccd4fb1fe615b))
+* **modules:** fix missing nuxt/image registration ([6d7d89b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6d7d89b1b947471c2d42a55005fa85cbbf408e4f))
+* **preload:** add type ([9614db3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9614db3955fcc4367803dd587c37e292a5ef00a3))
+* **speedkit-iframe:** fix missing track-visibillity delay ([8a56cb2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8a56cb22410352235dcba9b90edc8568c1c4c3ca))
+* **speedkit-picture:** add media support to experimental picture ([1b2395c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1b2395c2f2f434d672bec1bb290e2954e5bf0a66))
+* **speedkit-picture:** fix sort srcset and sizes; fix examples ([c0a0cbf](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c0a0cbfc1c6fbe788ed52a6239adb90691333ef5))
+* **speedkit-picture:** optimize code ([d9b983e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d9b983ea26b92009c5edc3121bf8c4fce44ee5a6))
+* **speedkit-picture:** rename var ([f04d738](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f04d738bd7b4f7be08c5d12b158ebb47ed4258ff))
+
+## [1.1.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.20...v1.1.21) (2021-03-02)
+
+
+### Bug Fixes
+
+* **plugin:** fix missing import ([0382e40](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0382e40b09dc24c8cf85d1d4775a13c0cef7a810))
+
+## [1.1.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.19...v1.1.20) (2021-03-02)
+
+
+### Bug Fixes
+
+* **browser-detection:** var for checking if browser is supported ([0ce7fed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0ce7fed0b23446ae167ede168afbdd44c9da9b23))
+
 ## [1.1.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.18...v1.1.19) (2021-02-28)
 
 

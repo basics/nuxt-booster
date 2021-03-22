@@ -28,19 +28,19 @@ The strategy mentioned above makes sense, but is hardly implementable with the c
 
 ## Usage
 
-Die Directive `v-font` wird verwendet, um die in den [Module Optionen](/options#fonts) definierten Schriften in der Website zu einzubinden.  
+The directive `v-font` is used to integrate the fonts defined in the [module options](/options#fonts) into the website.
 
-Dafür muss über die im Komponenten Scope (e.g. `this`) enthaltene Methode `$getFont`, die jeweilige Schrift abgerufen.
+To do this, the respective font must be retrieved via the `$getFont` method contained in the component scope (e.g. `this`).
 
-Schriften werden anhand der `family`, `weight` und dem `style` angegeben und können über die Optionen (`media`, `selector`) auf Elemente und Viewports eingegrenzt werden.
+Fonts are specified by `family`, `weight` and `style` and can be limited to elements and viewports via the options (`media`, `selector`).
 
-Normalerweise schaltet die Direktive die Schriften erst bei erreichen des Viewports aktiv.  
-Es empfiehlt sich, bei schon initial im Viewport enthaltenen Komponenten die Verwendung der Eigenschaft `critical`.
+Normally the directive activates the fonts only when the viewport is reached.
+It is recommended to use the property `critical` for components that are already initially contained in the viewport.
 
-Bei Kritische Komponente werden die Schriften vorgeladen und sind initial aktiv.  
-Mehr Infos zu **Kritische Komponente** findest du [hier](/usage#critical-prop-for-critical-components).
+With critical component the fonts are preloaded and are initially active.
+More information on critical components can be found [here](/usage#critical-prop-for-critical-components).
 
-Für Multiple Schriften, kann eine Liste (`Array`) übergeben werden.
+For multiple fonts, a list (`Array`) can be passed.
 
 ```html
 
@@ -54,12 +54,15 @@ Für Multiple Schriften, kann eine Liste (`Array`) übergeben werden.
 ]">
 ```
 
+<alert type="danger">Currently the use of `v-font` on components or in combination with `v-html/v-text` directives is not possible. Caused is a bug in the Vue SSR, directive is not applied.<br><br>Read more in the Issue: [vue-server-renderer: directive not applied to imported component](https://github.com/vuejs/vue/issues/10733).<br><br>As long as this error exists, you can look [**here**](/directives/v-font#workarounds) for workarounds.
+</alert>
+
 
 ## `$getFont`
 
-`$getFont` wird als Plugin eingebunden und ist über jeden Komponenten Scope abrufbar. 
+`$getFont` is included as a plugin and can be accessed via any component scope.
 
-Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
+Is used in the `v-font` directive and creates the relevant font definition.
 
 | Key       | Type               | Requried | Description                                                     | Default  |
 | --------- | ------------------ | -------- | --------------------------------------------------------------- | -------- |
@@ -71,8 +74,9 @@ Wird in der Direktive `v-font` verwendet und erzeugt jeweilige Font-Definition.
 
 ### options
 
-Jede Definition kann über die Optionen in ihrem Verhalten angepasst werden.  
-Sowohl Viewport, als auch Selektor abhängige definierungen sind möglich.
+Each definition can be modified in its behaviour via the options.
+With the property `media`, the call of the font definition can be made dependent on the viewport.  
+The property `selector` can be used to limit the font to elements (e.g. `span`, `.class`).
 
 | Key        | Type     | Requried | Description                                    | Default |
 | ---------- | -------- | -------- | ---------------------------------------------- | ------- |
@@ -80,8 +84,7 @@ Sowohl Viewport, als auch Selektor abhängige definierungen sind möglich.
 | `selector` | `String` |          | CSS Selector e.g. `element, .elm, .elm:before` |         |
 
 
-<alert type="danger">
-<code>link</code> Tag is not supported orientation media query. e.g. <code>(orientation: portrait)</code>.
+<alert type="danger">`link` Tag is not supported orientation media query. e.g. `(orientation: portrait)`.
 This has an effect on prefetches and preloads.
 </alert>
 
@@ -90,33 +93,6 @@ This has an effect on prefetches and preloads.
   media: '(min-width: 768px)',
   selector: 'element, .elm, .elm:before'
 }
-```
-
-## Best Practice
-
-### Platzierung
-### Never use with `v-html` or `v-text`
-
-Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
-
-**<span style="color: red;">Bad</span>**
-```html
-<template>
-  <div>
-    <div v-font="$getFont('Font Family A')" v-html="…">…</div>
-  </div>
-</template>
-```
-
-**<span style="color: green;">Good</span>**
-```html
-<template>
-  <div>
-    <div v-font="$getFont('Font Family A')">
-      <div v-html="…" />
-    </div>
-  </div>
-</template>
 ```
 
 ## Examples
@@ -145,3 +121,46 @@ Setze den `v-font` niemals zusammen mit einem `v-html` oder `v-text`.
 
 ]
 ```
+
+## Workarounds
+
+Workarounds are used to work around a bug in the Vue SSR, read more in [Usage](/directives/v-font#usage).
+### Use component
+
+**<span style="color: red;">Bad</span>**
+```html
+<template>
+  <nuxt-link to="/" v-font="$getFont(…)">Back</nuxt-link>
+</template>
+```
+
+**<span style="color: green;">Good</span>**
+```html
+<template>
+  <nuxt-link to="/" v-font="$getFont(…)">
+    <span v-font="$getFont(…)"></span>
+  </nuxt-link>
+</template>
+```
+
+### Use v-html/v-text
+**<span style="color: red;">Bad</span>**
+```html
+<template>
+  <div>
+    <div v-font="$getFont(…)" v-html="…">…</div>
+  </div>
+</template>
+```
+
+**<span style="color: green;">Good</span>**
+```html
+<template>
+  <div>
+    <div v-font="$getFont(…)">
+      <div v-html="…" />
+    </div>
+  </div>
+</template>
+```
+

@@ -62,6 +62,15 @@ export default {
     OnlySsr
   },
 
+  props: {
+    critical: {
+      type: Boolean,
+      default () {
+        return true;
+      }
+    }
+  },
+
   head () {
     return {
       noscript: [
