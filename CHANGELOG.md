@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.22...v1.1.23) (2021-03-26)
+
+
+### Bug Fixes
+
+* **directive:** fix intersection unregister with unobserve ([5248b30](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5248b304a28252eb05a3b4c9f47d918a6690ef6c))
+
 ## [1.1.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.21...v1.1.22) (2021-03-16)
 
 
