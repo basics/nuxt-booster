@@ -14,7 +14,6 @@
 [![Renovate - Status][renovate-status-src]][renovate-status-href]
 [![License][license-src]][license-href]
 
-> **<span style="color: red;">⚠️ &nbsp;&nbsp;This Package is work in progress…</span>**
 
 - [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
 - [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
@@ -26,9 +25,14 @@ All used components and resources are loaded on demand based on the viewport.
 
 ## Features
 
-- Automatic preloading critical font resources
-- Dynamic viewport based loading of font resources (subselectors, media queries)
-- Dynamic loading of images based on bandwidth
+- dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
+- optional loading prevention of resources at low bandwidth or weak hardware
+- prevents the loading of unnecessary resources (including components) that are outside the current viewport.
+- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
+
+## Results
+- delivery of the minimum required resources based on the current viewport
+- if you use the tools as specified we can guarantee a lighthouse performance score of 100/100
 
 📖 &nbsp;&nbsp;[Read more](https://nuxt-speedkit.grabarzundpartner.dev/)
 
