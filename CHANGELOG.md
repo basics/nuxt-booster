@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.25...v1.1.26) (2021-03-29)
+
+
+### Bug Fixes
+
+* **sematic-release:** add missing dep ([2b252f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b252f9a696d4af6312b4c388cbc2bd7539977d1))
+
 ## [1.1.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.24...v1.1.25) (2021-03-29)
 
 
