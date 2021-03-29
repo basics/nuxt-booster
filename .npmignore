@@ -23,7 +23,12 @@ publish
 .DS_Store
 coverage
 dist
+.husky
+.*
+*.code-workspace
+jsconfig.json
 
 /docs
+/lib
 /example
 /test
