@@ -19,8 +19,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "postinstall": "node ./install.js",
-    "postversion": "cp -r ./package.json ..",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
     "dev": "nuxt example",
     "build": "nuxt build --config-file example/nuxt.config.js",
     "generate": "nuxt generate --config-file example/nuxt.config.js --target static",
@@ -44,6 +45,7 @@
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
+    "pinst": "2.1.6",
     "nuxt": "2.15.3",
     "@babel/core": "7.13.10",
     "@babel/preset-env": "7.13.10",
