@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.24...v1.1.25) (2021-03-29)
+
+
+### Bug Fixes
+
+* **npm:** optimize package ([15e032d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/15e032db4be3ba869675e504404aaecd81f6e6f2))
+
 ## [1.1.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.23...v1.1.24) (2021-03-29)
 
 
