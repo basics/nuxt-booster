@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.1.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.23...v1.1.24) (2021-03-29)
+
+
+### Bug Fixes
+
+* **readme:** update ([1506672](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/15066729a735e55359196d76f64fb0cbd79689b5))
+
 ## [1.1.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.22...v1.1.23) (2021-03-26)
 
 
