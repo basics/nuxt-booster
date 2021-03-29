@@ -50,7 +50,7 @@ All used components and resources are loaded on demand based on the viewport.
 
 ## Preview
 
-1. Clone this repository
+1. Clone this repository.
 2. Install dependencies using `npm install` or `yarn install`
 3. Build and start with express `npm run start:generate` or `yarn start:generate`
 4. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in Browser.
