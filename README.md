@@ -32,7 +32,7 @@ All used components and resources are loaded on demand based on the viewport.
 
 ## Results
 - delivery of the minimum required resources based on the current viewport
-- if you use the tools as specified we can guarantee a lighthouse performance score of 100/100
+- if you use the tools as specified you will get a lighthouse performance score of 100/100
 
 📖 &nbsp;&nbsp;[Read more](https://nuxt-speedkit.grabarzundpartner.dev/)
 
