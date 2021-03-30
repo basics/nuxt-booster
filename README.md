@@ -23,6 +23,10 @@
 Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
 
+## Requirements
+- NodeJS >= 12.x.x
+- NuxtJS >= 2.15.0
+
 ## Features
 
 - dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
