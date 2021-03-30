@@ -48,9 +48,9 @@ All used components and resources are loaded on demand based on the viewport.
 
 ## Development
 
-1. Clone this repository
-2. Install dependencies using `npm install` or `yarn install`
-3. Start development server using `npm run dev` or `yarn dev`
+1. Clone this repository.
+2. Install dependencies using `npm install` or `yarn install`.
+3. Start development server using `npm run dev` or `yarn dev`.
 
 ## Preview
 
