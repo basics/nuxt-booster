@@ -92,3 +92,44 @@ The speedkit components will be expanded in the future. If you have explicit wis
 You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-custom-speedkit).
 
 <code-sandbox :src="developmentSandboxUrl"></code-sandbox>
+
+## Browser Support
+
+### IE 11
+
+```js
+
+{
+  build: {
+    transpile: ['@nuxt/image'],
+  },
+
+  modules: [
+    // Polyfills for IE 11
+    // npm i object-fit-images picturefill intersection-observer
+    [
+      'nuxt-polyfill', {
+        features: [
+          {
+            require: 'object-fit-images',
+            detect: () => 'objectFit' in document.documentElement.style,
+            install: objectFitImages => (window.objectFitImages = objectFitImages)
+          },
+          {
+            require: 'picturefill',
+            detect: () => 'HTMLPictureElement' in window || 'picturefill' in window
+          },
+          {
+            require: 'picturefill/dist/plugins/mutation/pf.mutation.js',
+            detect: () => 'HTMLPictureElement' in window || 'picturefill' in window
+          },
+          {
+            require: 'intersection-observer',
+            detect: () => 'IntersectionObserver' in window
+          }
+        ]
+      }
+    ]]
+}
+
+```
