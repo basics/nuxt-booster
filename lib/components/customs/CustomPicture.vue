@@ -21,7 +21,7 @@
 
 <script>
 import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
-import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
+import { webpSupport, isPreloadSupported, isResponsiveImageSupport } from 'nuxt-speedkit/utils/support';
 import { getImagePreloadDescription } from 'nuxt-speedkit/utils/description';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 import Cache from 'nuxt-speedkit/classes/Cache';
@@ -137,11 +137,15 @@ export default {
 
 function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
   if (!process.server) {
-    const img = new global.Image();
-    img.onload = callback;
-    img.crossorigin = crossorigin;
-    img.sizes = sizes;
-    img.srcset = srcset;
+    if (isResponsiveImageSupport()) {
+      const img = new global.Image();
+      img.onload = callback;
+      img.crossorigin = crossorigin;
+      img.sizes = sizes;
+      img.srcset = srcset;
+    } else {
+      callback && callback();
+    }
   }
 }
 
