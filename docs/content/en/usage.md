@@ -93,9 +93,11 @@ You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Exam
 
 <code-sandbox :src="developmentSandboxUrl"></code-sandbox>
 
-## Browser Support
+## Browser compatibility
 
-### IE 11
+You can use `nuxt-speedkit` with Internet Explorer 11, before this works you need to create a transpile entry for `@nuxt/image` and provide polyfills for `IntersectionObserver`, `Picture` and `ObjectFit`.
+
+### Example configuration
 
 ```js
 
