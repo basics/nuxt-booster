@@ -61,10 +61,12 @@ Although the attribute "speedkitComponents" can be filled in every component, we
 
 In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
 
-- <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link>
-- <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link>
-- <nuxt-link to="/components/speedkit-iframe">SpeedkitIframe</nuxt-link>
-- <nuxt-link to="/components/speedkit-youtube">SpeedkitYoutube</nuxt-link>
+- [SpeedkitLayer](/components/speedkit-layer)
+- [SpeedkitPicture](/components/speedkit-picture)
+- [SpeedkitPicture (Experimental)](/components/experimental-speedkit-picture)
+- [SpeedkitIframe](/components/speedkit-iframe)
+- [SpeedkitYoutube](/components/speedkit-youtube)
+- [SpeedkitYoutube (Experimental)](/components/experimental-speedkit-youtube)
 
 ```html
 <template>
