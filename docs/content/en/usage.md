@@ -103,7 +103,15 @@ You can use `nuxt-speedkit` with Internet Explorer 11, before this works you nee
 
 {
   build: {
+
     transpile: ['@nuxt/image'],
+
+    postcss: {
+      plugins: {
+        'postcss-object-fit-images': {}
+      }
+    }
+    
   },
 
   modules: [
