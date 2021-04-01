@@ -101,7 +101,15 @@ You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Exam
 
 {
   build: {
+
     transpile: ['@nuxt/image'],
+
+    postcss: {
+      plugins: {
+        'postcss-object-fit-images': {}
+      }
+    }
+    
   },
 
   modules: [

@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
-import { webpSupport, isPreloadSupported, isResponsiveImageSupport } from 'nuxt-speedkit/utils/support';
+import { observeIntersection, unobserveIntersection } from 'nuxt-speedkit/utils/intersectionObserver';
+import { webpSupport, isPreloadSupported, isPictureSupported } from 'nuxt-speedkit/utils/support';
 import { getImagePreloadDescription } from 'nuxt-speedkit/utils/description';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 import Cache from 'nuxt-speedkit/classes/Cache';
@@ -101,14 +101,15 @@ export default {
   },
 
   mounted () {
-    registerIntersecting(this.$el, (e) => {
+    observeIntersection(this.$el, (e) => {
       this.visible = true;
       this.$emit('enter', e);
+      doPolyfill();
     });
   },
 
   destroyed () {
-    unregisterIntersecting(this.$el);
+    unobserveIntersection(this.$el);
   },
 
   methods: {
@@ -137,12 +138,12 @@ export default {
 
 function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
   if (!process.server) {
-    if (isResponsiveImageSupport()) {
+    if (isPictureSupported()) {
       const img = new global.Image();
-      img.onload = callback;
-      img.crossorigin = crossorigin;
       img.sizes = sizes;
       img.srcset = srcset;
+      img.crossorigin = crossorigin;
+      img.onload = callback;
     } else {
       callback && callback();
     }
@@ -157,6 +158,15 @@ function filterBySupportedMimeTypes (sources) {
 
 function isWebp ({ type }) {
   return type === getMimeTypeByFormat('webp');
+}
+
+function doPolyfill () {
+  if ('picturefill' in global) {
+    global.picturefill();
+  }
+  if ('objectFitImages' in global) {
+    global.objectFitImages();
+  }
 }
 </script>
 
