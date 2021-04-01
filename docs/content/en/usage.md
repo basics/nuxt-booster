@@ -95,16 +95,28 @@ You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Exam
 
 ## Browser compatibility
 
-You can use `nuxt-speedkit` with Internet Explorer 11, before this works you need to create a transpile entry for `@nuxt/image` and provide polyfills for `IntersectionObserver`, `Picture` and `ObjectFit`.
+You can use `nuxt-speedkit` with **Internet Explorer 11** browser. 
+
+<alert type="info">Note that there is no optimization based on preloads in IE 11.</alert>
+
+You need the following polyfills:
+
+- [`object-fit-images`](https://www.npmjs.com/package/object-fit-images)
+- [`picturefill`](https://www.npmjs.com/package/picturefill)
+- [`intersection-observer`](https://www.npmjs.com/package/intersection-observer)
+  
+and following build transpile entries for `@nuxt/image`: 
+
+- `@nuxt/image`
+- `image-meta`
 
 ### Example configuration
 
 ```js
-
 {
   build: {
-
-    transpile: ['@nuxt/image'],
+    
+    transpile: ['@nuxt/image', 'image-meta'],
 
     postcss: {
       plugins: {
@@ -115,8 +127,6 @@ You can use `nuxt-speedkit` with Internet Explorer 11, before this works you nee
   },
 
   modules: [
-    // Polyfills for IE 11
-    // npm i object-fit-images picturefill intersection-observer
     [
       'nuxt-polyfill', {
         features: [
