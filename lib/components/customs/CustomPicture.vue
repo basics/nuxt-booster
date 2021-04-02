@@ -104,7 +104,6 @@ export default {
     observeIntersection(this.$el, (e) => {
       this.visible = true;
       this.$emit('enter', e);
-      doPolyfill();
     });
   },
 
@@ -118,6 +117,9 @@ export default {
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
+      global.requestAnimationFrame(() => {
+        doPolyfill(this.$el, this.$refs.image);
+      });
     },
     getPreloadSource () {
       const sources = filterBySupportedMimeTypes(this.preload);
@@ -160,12 +162,14 @@ function isWebp ({ type }) {
   return type === getMimeTypeByFormat('webp');
 }
 
-function doPolyfill () {
+function doPolyfill (pictureEl, imageEl) {
+  // See more https://github.com/scottjehl/picturefill
   if ('picturefill' in global) {
-    global.picturefill({ elements: this.$el });
+    global.picturefill({ elements: pictureEl });
   }
+  // See more https://github.com/fregante/object-fit-images
   if ('objectFitImages' in global) {
-    global.objectFitImages(this.$el);
+    global.objectFitImages(imageEl);
   }
 }
 </script>
