@@ -145,7 +145,7 @@ function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {})
       img.crossorigin = crossorigin;
       img.onload = callback;
     } else {
-      callback && callback();
+      callback();
     }
   }
 }
@@ -162,10 +162,10 @@ function isWebp ({ type }) {
 
 function doPolyfill () {
   if ('picturefill' in global) {
-    global.picturefill();
+    global.picturefill({ elements: this.$el });
   }
   if ('objectFitImages' in global) {
-    global.objectFitImages();
+    global.objectFitImages(this.$el);
   }
 }
 </script>
