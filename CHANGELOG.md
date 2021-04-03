@@ -1,5 +1,33 @@
 # Project Changelog
 
+## [1.1.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.27...v1.1.28) (2021-03-30)
+
+
+### Bug Fixes
+
+* **readme:** update ([f316d26](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f316d26b1dab1467244055b60bf7af23b8c1b9a4))
+
+## [1.1.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.26...v1.1.27) (2021-03-30)
+
+
+### Bug Fixes
+
+* **readme:** added points ([1cbf798](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1cbf798132b4b8170935da6718303c175f093181))
+
+## [1.1.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.25...v1.1.26) (2021-03-29)
+
+
+### Bug Fixes
+
+* **sematic-release:** add missing dep ([2b252f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b252f9a696d4af6312b4c388cbc2bd7539977d1))
+
+## [1.1.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.24...v1.1.25) (2021-03-29)
+
+
+### Bug Fixes
+
+* **npm:** optimize package ([15e032d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/15e032db4be3ba869675e504404aaecd81f6e6f2))
+
 ## [1.1.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.23...v1.1.24) (2021-03-29)
 
 
