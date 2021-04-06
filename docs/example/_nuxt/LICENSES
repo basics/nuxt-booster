@@ -1,3 +1,9 @@
+/**
+* @link https://github.com/gajus/sister for the canonical source repository
+* @license https://github.com/gajus/sister/blob/master/LICENSE BSD 3-Clause
+*/
+
+
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -31,9 +37,3 @@
  * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
-
-
-/**
-* @link https://github.com/gajus/sister for the canonical source repository
-* @license https://github.com/gajus/sister/blob/master/LICENSE BSD 3-Clause
-*/
