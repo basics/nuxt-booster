@@ -73,10 +73,10 @@
 
     --bg-opacity: 1;
 
-    background-color: rgb(0 0 0 / 40%);
+    background-color: rgba(0, 0, 0, 0.4);
 
     @media (prefers-color-scheme: dark) {
-      background-color: rgb(255 255 255 / 40%);
+      background-color: rgba(255, 255, 255, 0.4);
     }
 
     & > article {

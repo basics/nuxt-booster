@@ -1,5 +1,19 @@
 # Project Changelog
 
+# [1.2.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.28...v1.2.0) (2021-04-06)
+
+
+### Bug Fixes
+
+* **custom-picture:** fix doPolyfill position and element ([f7c582b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f7c582b620236f4686f91b5e0b9a2b0f4cf5a216))
+* **custom-picture:** improve polyfill execute ([17f01c7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/17f01c7472f6681e4a74a97c16114bfeb63d5ce8))
+* **ie11:** prepare for ie11 (preloads, intersectionObserver) ([1b0be90](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1b0be905bb9d52fd3d5431c5a91df3737baca834))
+
+
+### Features
+
+* **ie11:** improve for ie11 ([70c1f3e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/70c1f3ea69e18402a28ab7bd416f25ccb569a34c))
+
 ## [1.1.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.27...v1.1.28) (2021-03-30)
 
 

@@ -92,3 +92,64 @@ The speedkit components will be expanded in the future. If you have explicit wis
 You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-custom-speedkit).
 
 <code-sandbox :src="developmentSandboxUrl"></code-sandbox>
+
+## Browser compatibility
+
+You can use `nuxt-speedkit` with **Internet Explorer 11** browser. 
+
+<alert type="info">Note that there is no optimization based on preloads in IE 11.</alert>
+
+You need the following polyfills:
+
+- [`object-fit-images`](https://www.npmjs.com/package/object-fit-images)
+- [`picturefill`](https://www.npmjs.com/package/picturefill)
+- [`intersection-observer`](https://www.npmjs.com/package/intersection-observer)
+  
+and following build transpile entries for `@nuxt/image`: 
+
+- `@nuxt/image`
+- `image-meta`
+
+### Example configuration
+
+```js
+{
+  build: {
+    
+    transpile: ['@nuxt/image', 'image-meta'],
+
+    postcss: {
+      plugins: {
+        'postcss-object-fit-images': {}
+      }
+    }
+    
+  },
+
+  modules: [
+    [
+      'nuxt-polyfill', {
+        features: [
+          {
+            require: 'object-fit-images',
+            detect: () => 'objectFit' in document.documentElement.style,
+            install: objectFitImages => (window.objectFitImages = objectFitImages)
+          },
+          {
+            require: 'picturefill',
+            detect: () => 'HTMLPictureElement' in window || 'picturefill' in window
+          },
+          {
+            require: 'picturefill/dist/plugins/mutation/pf.mutation.js',
+            detect: () => 'HTMLPictureElement' in window || 'picturefill' in window
+          },
+          {
+            require: 'intersection-observer',
+            detect: () => 'IntersectionObserver' in window
+          }
+        ]
+      }
+    ]]
+}
+
+```

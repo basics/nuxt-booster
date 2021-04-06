@@ -108,12 +108,12 @@ html.js--menu-open {
     left: calc(10 / 16 * 1em);
     padding: calc(10 / 16 * 1em);
     cursor: pointer;
-    background: rgb(255 255 255 / 40%);
+    background: rgba(255, 255, 255, 0.4);
     outline: none;
     transition: background 0.2s linear;
 
     @media (prefers-color-scheme: dark) {
-      background: rgb(0 0 0 / 40%);
+      background: rgba(0, 0, 0, 0.4);
     }
 
     & svg {
@@ -239,7 +239,7 @@ html.js--menu-open {
     color: #333;
 
     @media (prefers-color-scheme: dark) {
-      color: rgb(255 255 255 / 80%);
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 
