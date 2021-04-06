@@ -23,7 +23,7 @@
     "disallowed": [
       "main",
       "master",
-      "develop",
+      "next",
       "staging"
     ],
     "seperator": "/",
