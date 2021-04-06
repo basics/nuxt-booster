@@ -104,6 +104,7 @@ You need the following polyfills:
 - [`object-fit-images`](https://www.npmjs.com/package/object-fit-images)
 - [`picturefill`](https://www.npmjs.com/package/picturefill)
 - [`intersection-observer`](https://www.npmjs.com/package/intersection-observer)
+- [`postcss-object-fit-images`](https://github.com/ronik-design/postcss-object-fit-images)
   
 and following build transpile entries for `@nuxt/image`: 
 
@@ -149,7 +150,8 @@ and following build transpile entries for `@nuxt/image`:
           }
         ]
       }
-    ]]
+    ]
+  ]
 }
 
 ```
