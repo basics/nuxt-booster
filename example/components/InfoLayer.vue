@@ -71,7 +71,7 @@ export default {
     z-index: 1000;
     width: 100%;
     height: 100%;
-    background-color: rgb(0 0 0 / 25%);
+    background-color: rgba(0, 0, 0, 0.25);
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 0.2s;
@@ -83,8 +83,8 @@ export default {
       padding: 10px;
       color: #fff;
       text-align: center;
-      background-color: rgb(0 0 0 / 60%);
-      box-shadow: 0 0 calc(10 / 16 * 1em) rgb(0 0 0 / 60%);
+      background-color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 calc(10 / 16 * 1em) rgba(0, 0, 0, 0.6);
       transform: translateY(-100%);
       animation-name: fall-down;
       animation-duration: 0.2s;
