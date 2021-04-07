@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.0...v1.2.1) (2021-04-07)
+
+
+### Bug Fixes
+
+* **ie11:** fix polyfill order ([d47d08d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d47d08d395f23714cdc974d8c3d8219a3525ce13))
+
 # [1.2.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.28...v1.2.0) (2021-04-06)
 
 
