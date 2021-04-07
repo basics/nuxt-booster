@@ -104,15 +104,42 @@ You need the following polyfills:
 - [`object-fit-images`](https://www.npmjs.com/package/object-fit-images)
 - [`picturefill`](https://www.npmjs.com/package/picturefill)
 - [`intersection-observer`](https://www.npmjs.com/package/intersection-observer)
-  
-and following build transpile entries for `@nuxt/image`: 
+
+The PostCSS Plugin [`postcss-object-fit-images`](https://github.com/ronik-design/postcss-object-fit-images) and following `build.transpile` entries for `@nuxt/image`: 
 
 - `@nuxt/image`
 - `image-meta`
 
-### Example configuration
+For the polyfills, it is recommended to integrate them as a [plugin](https://nuxtjs.org/docs/2.x/directory-structure/plugins), polyfills loading must follow a specific order.
 
-```js
+You can see a live example at [Nuxt Speedkit Example](https://grabarzundpartner.github.io/nuxt-speedkit-example/).
+
+### Example
+
+```js[plugins/polyfills.js]
+async function polyfills (){
+
+  if (!('IntersectionObserver' in global)) {
+    await import('intersection-observer');
+  }
+
+  if (!('objectFit' in document.documentElement.style)) {
+    await import('object-fit-images');
+  }
+
+  if (!('HTMLPictureElement' in global || 'picturefill' in global)) {
+    await import('picturefill');
+    await import('picturefill/dist/plugins/mutation/pf.mutation.js');
+  }
+
+}
+
+polyfills ();
+```
+
+<br>
+
+```js[nuxt.config.js]
 {
   build: {
     
@@ -126,30 +153,9 @@ and following build transpile entries for `@nuxt/image`:
     
   },
 
-  modules: [
-    [
-      'nuxt-polyfill', {
-        features: [
-          {
-            require: 'object-fit-images',
-            detect: () => 'objectFit' in document.documentElement.style,
-            install: objectFitImages => (window.objectFitImages = objectFitImages)
-          },
-          {
-            require: 'picturefill',
-            detect: () => 'HTMLPictureElement' in window || 'picturefill' in window
-          },
-          {
-            require: 'picturefill/dist/plugins/mutation/pf.mutation.js',
-            detect: () => 'HTMLPictureElement' in window || 'picturefill' in window
-          },
-          {
-            require: 'intersection-observer',
-            detect: () => 'IntersectionObserver' in window
-          }
-        ]
-      }
-    ]]
+  plugins: [
+    { src: "@/plugins/polyfills.js", mode: "client" }
+  ]
 }
-
 ```
+
