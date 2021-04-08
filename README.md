@@ -5,7 +5,7 @@
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
-[![develop][github-workflow-develop-src]][github-workflow-develop-href]
+[![next][github-workflow-next-src]][github-workflow-next-href]
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
@@ -41,7 +41,7 @@ All used components and resources are loaded on demand based on the viewport.
 📖 &nbsp;&nbsp;[Read more](https://nuxt-speedkit.grabarzundpartner.dev/)
 ## Browsers support
 
-> You can use `nuxt-speedkit` with **Internet Explorer 11** browser. [Learn more at Browser compatibility](/usage#browser-compatibility) 
+> You can use `nuxt-speedkit` with **Internet Explorer 11** browser. [Learn more at Browser compatibility](https://nuxt-speedkit.grabarzundpartner.dev/usage#browser-compatibility) 
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Vivaldi |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,8 +81,8 @@ or look here
 
 [github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
-[github-workflow-develop-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=develop>
-[github-workflow-develop-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
+[github-workflow-next-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=next>
+[github-workflow-next-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
 [dependencies-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/status.svg>
 [dependencies-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit>
 [dependencies-dev-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/dev-status.svg>
@@ -99,6 +99,4 @@ or look here
 
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-speedkit.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/nuxt-speedkit
-
-
 
