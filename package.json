@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -59,7 +59,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "26.6.3",
     "commitlint": "12.1.1",
-    "core-js": "3.10.0",
+    "core-js": "3.10.1",
     "eslint": "7.23.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-no-secrets": "0.8.9",
