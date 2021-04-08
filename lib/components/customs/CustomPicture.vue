@@ -163,13 +163,13 @@ function isWebp ({ type }) {
 }
 
 function doPolyfill (pictureEl, imageEl) {
-  // See more https://github.com/scottjehl/picturefill
-  if ('picturefill' in global) {
-    global.picturefill({ elements: pictureEl });
-  }
   // See more https://github.com/fregante/object-fit-images
   if ('objectFitImages' in global) {
     global.objectFitImages(imageEl);
+  }
+  // See more https://github.com/scottjehl/picturefill
+  if ('picturefill' in global) {
+    global.picturefill({ elements: pictureEl });
   }
 }
 </script>
