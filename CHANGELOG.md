@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.1...v1.2.2) (2021-04-08)
+
+
+### Bug Fixes
+
+* **style-tag:** removed type declaration at generated style tags ([5f818ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5f818cef062c52507d148b08943d281d0145d07e))
+
 ## [1.2.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.0...v1.2.1) (2021-04-07)
 
 
