@@ -77,6 +77,6 @@
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "2.3.0",
     "stylelint-config-standard": "21.0.0",
-    "webpack-bundle-analyzer": "4.4.0"
+    "webpack-bundle-analyzer": "4.4.1"
   }
 }
