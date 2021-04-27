@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.3...v1.2.4) (2021-04-27)
+
+
+### Bug Fixes
+
+* **speedkit-components:** fix hydrateWhenVisible options ([41ee93c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/41ee93c38b17491db19187a4135877be2e272c29))
+
 ## [1.2.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.2...v1.2.3) (2021-04-08)
 
 
