@@ -28,7 +28,7 @@ A `SpeedkitPicture` must be additionally defined in the `poster` property.
 </template>
 
 <script>
-import SpeedkitYoutube from 'nuxt-speedkit-component/SpeedkitYoutube';
+import SpeedkitYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
 export default {
   components: { SpeedkitYoutube },
   data () {
