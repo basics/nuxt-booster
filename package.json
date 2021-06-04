@@ -68,7 +68,7 @@
     "eslint-plugin-sonarjs": "0.7.0",
     "eslint-plugin-xss": "0.1.10",
     "husky": "6.0.0",
-    "jest": "27.0.3",
+    "jest": "27.0.4",
     "lint-staged": "11.0.0",
     "lost": "8.3.1",
     "playwright": "1.11.1",
