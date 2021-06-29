@@ -28,7 +28,7 @@ These options can be used to define which initial checks are to be carried out w
 
  | Key              | Type      | Required | Description                                                                                                                                                                                      | Default |
  | ---------------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
- | `performance`    | `Boolean` | yes      | Checks whether the minimum [performance requirement](/options#performance-1) has been met. If this is not the case, the [`SpeedkitLayer`](/components/speedkit-layer) is displayed.              | `true`  |
+ | `performance`    | `Boolean` | yes      | Checks whether the minimum [performance requirement](/options#performancemetrics) has been met. If this is not the case, the [`SpeedkitLayer`](/components/speedkit-layer) is displayed.         | `true`  |
  | `browserSupport` | `Boolean` | yes      | Überprüft, ob die Webseite über einen supported Browser besucht wird. Handelt es sich hierbei um einen unsupported Browser, wird der [`SpeedkitLayer`](/components/speedkit-layer) eingeblendet. | `true`  |
 
 <alert type="info">
