@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.4...v1.2.5) (2021-05-20)
+
+
+### Bug Fixes
+
+* **error:** add error-handling for missing font variance ([ecc0a27](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ecc0a27bb649e5d898b163e6663682fca7127aaa))
+
 ## [1.2.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.3...v1.2.4) (2021-04-27)
 
 
