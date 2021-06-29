@@ -50,7 +50,7 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
       performance: true,
       browserSupport: true
     },
-    performance: {
+    performanceMetrics: {
       device: {
         hardwareConcurrency: { min: 2, max: 48 },
         deviceMemory: { min: 2 }
