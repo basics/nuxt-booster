@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [1.2.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.5...v1.2.6) (2021-06-29)
+
+
+### Bug Fixes
+
+* **options:** fix example nuxt.config ([38f5443](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/38f544316c231b30eadd2818da896b5cf38ace35))
+* **options:** rename option performance to performanceMetrics ([c58e424](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c58e4246aac02fa2c026fc414d632d2014d736b8))
+
 ## [1.2.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.4...v1.2.5) (2021-05-20)
 
 
