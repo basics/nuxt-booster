@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "docus": "0.0.10",
-    "nuxt": "2.15.6",
-    "tailwindcss": "2.1.2"
+    "nuxt": "2.15.7",
+    "tailwindcss": "2.2.4"
   }
 }
