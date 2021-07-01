@@ -67,7 +67,7 @@
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-sonarjs": "0.7.0",
     "eslint-plugin-xss": "0.1.10",
-    "husky": "6.0.0",
+    "husky": "7.0.0",
     "jest": "27.0.6",
     "lint-staged": "11.0.0",
     "lost": "8.3.1",
