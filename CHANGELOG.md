@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.3.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.6...v1.3.0-beta.1) (2021-07-12)
+
+
+### Features
+
+* **options:** add option to disable nuxt/image ([7d52075](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7d52075cc5e18d8adac06e43217c6562af372cc9))
+
 ## [1.2.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.5...v1.2.6) (2021-06-29)
 
 
