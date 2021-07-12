@@ -61,10 +61,12 @@ Although the attribute "speedkitComponents" can be filled in every component, we
 
 In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
 
-- <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link>
-- <nuxt-link to="/components/speedkit-picture">SpeedkitPicture</nuxt-link>
-- <nuxt-link to="/components/speedkit-iframe">SpeedkitIframe</nuxt-link>
-- <nuxt-link to="/components/speedkit-youtube">SpeedkitYoutube</nuxt-link>
+- [SpeedkitLayer](/components/speedkit-layer)
+- [SpeedkitPicture](/components/speedkit-picture)
+- [SpeedkitPicture (Experimental)](/components/experimental-speedkit-picture)
+- [SpeedkitIframe](/components/speedkit-iframe)
+- [SpeedkitYoutube](/components/speedkit-youtube)
+- [SpeedkitYoutube (Experimental)](/components/experimental-speedkit-youtube)
 
 ```html
 <template>
@@ -90,3 +92,70 @@ The speedkit components will be expanded in the future. If you have explicit wis
 You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-custom-speedkit).
 
 <code-sandbox :src="developmentSandboxUrl"></code-sandbox>
+
+## Browser compatibility
+
+You can use `nuxt-speedkit` with **Internet Explorer 11** browser. 
+
+<alert type="info">Note that there is no optimization based on preloads in IE 11.</alert>
+
+You need the following polyfills:
+
+- [`object-fit-images`](https://www.npmjs.com/package/object-fit-images)
+- [`picturefill`](https://www.npmjs.com/package/picturefill)
+- [`intersection-observer`](https://www.npmjs.com/package/intersection-observer)
+
+The PostCSS Plugin [`postcss-object-fit-images`](https://github.com/ronik-design/postcss-object-fit-images) and following `build.transpile` entries for `@nuxt/image`: 
+
+- `@nuxt/image`
+- `image-meta`
+
+For the polyfills, it is recommended to integrate them as a [plugin](https://nuxtjs.org/docs/2.x/directory-structure/plugins), polyfills loading must follow a specific order.
+
+You can see a live example at [Nuxt Speedkit Example](https://grabarzundpartner.github.io/nuxt-speedkit-example/).
+
+### Example
+
+```js[plugins/polyfills.js]
+async function polyfills (){
+
+  if (!('IntersectionObserver' in global)) {
+    await import('intersection-observer');
+  }
+
+  if (!('objectFit' in document.documentElement.style)) {
+    await import('object-fit-images');
+  }
+
+  if (!('HTMLPictureElement' in global || 'picturefill' in global)) {
+    await import('picturefill');
+    await import('picturefill/dist/plugins/mutation/pf.mutation.js');
+  }
+
+}
+
+polyfills ();
+```
+
+<br>
+
+```js[nuxt.config.js]
+{
+  build: {
+    
+    transpile: ['@nuxt/image', 'image-meta'],
+
+    postcss: {
+      plugins: {
+        'postcss-object-fit-images': {}
+      }
+    }
+    
+  },
+
+  plugins: [
+    { src: "@/plugins/polyfills.js", mode: "client" }
+  ]
+}
+```
+

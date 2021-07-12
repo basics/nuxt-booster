@@ -32,7 +32,7 @@ The `SpeedkitPicture` (Experimental) is used for the poster, so the generation o
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit-component/experimental/SpeedkitYoutube';
+import SpeedkitPicture from 'nuxt-speedkit/components/experimental/SpeedkitYoutube';
 export default {
   components: { SpeedkitPicture },
   data () {

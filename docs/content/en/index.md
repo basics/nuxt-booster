@@ -9,7 +9,7 @@ features:
   - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
 results:
   - delivery of the minimum required resources based on the current viewport
-  - if you use the tools as specified we can guarantee a lighthouse performance score of 100/100
+  - if you use the tools as specified you will get a lighthouse performance score of 100/100
 ---
 
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>

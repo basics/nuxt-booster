@@ -1,5 +1,82 @@
 # Project Changelog
 
+## [1.2.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.4...v1.2.5) (2021-05-20)
+
+
+### Bug Fixes
+
+* **error:** add error-handling for missing font variance ([ecc0a27](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ecc0a27bb649e5d898b163e6663682fca7127aaa))
+
+## [1.2.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.3...v1.2.4) (2021-04-27)
+
+
+### Bug Fixes
+
+* **speedkit-components:** fix hydrateWhenVisible options ([41ee93c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/41ee93c38b17491db19187a4135877be2e272c29))
+
+## [1.2.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.2...v1.2.3) (2021-04-08)
+
+
+### Bug Fixes
+
+* **ci:** next test ([7f39e91](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7f39e9140fb5234da3fa99ee9dd3bc7b3a28fe7d))
+
+## [1.2.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.1...v1.2.2) (2021-04-08)
+
+
+### Bug Fixes
+
+* **style-tag:** removed type declaration at generated style tags ([5f818ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5f818cef062c52507d148b08943d281d0145d07e))
+
+## [1.2.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.0...v1.2.1) (2021-04-07)
+
+
+### Bug Fixes
+
+* **ie11:** fix polyfill order ([d47d08d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d47d08d395f23714cdc974d8c3d8219a3525ce13))
+
+# [1.2.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.28...v1.2.0) (2021-04-06)
+
+
+### Bug Fixes
+
+* **custom-picture:** fix doPolyfill position and element ([f7c582b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f7c582b620236f4686f91b5e0b9a2b0f4cf5a216))
+* **custom-picture:** improve polyfill execute ([17f01c7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/17f01c7472f6681e4a74a97c16114bfeb63d5ce8))
+* **ie11:** prepare for ie11 (preloads, intersectionObserver) ([1b0be90](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1b0be905bb9d52fd3d5431c5a91df3737baca834))
+
+
+### Features
+
+* **ie11:** improve for ie11 ([70c1f3e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/70c1f3ea69e18402a28ab7bd416f25ccb569a34c))
+
+## [1.1.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.27...v1.1.28) (2021-03-30)
+
+
+### Bug Fixes
+
+* **readme:** update ([f316d26](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f316d26b1dab1467244055b60bf7af23b8c1b9a4))
+
+## [1.1.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.26...v1.1.27) (2021-03-30)
+
+
+### Bug Fixes
+
+* **readme:** added points ([1cbf798](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1cbf798132b4b8170935da6718303c175f093181))
+
+## [1.1.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.25...v1.1.26) (2021-03-29)
+
+
+### Bug Fixes
+
+* **sematic-release:** add missing dep ([2b252f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b252f9a696d4af6312b4c388cbc2bd7539977d1))
+
+## [1.1.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.24...v1.1.25) (2021-03-29)
+
+
+### Bug Fixes
+
+* **npm:** optimize package ([15e032d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/15e032db4be3ba869675e504404aaecd81f6e6f2))
+
 ## [1.1.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.1.23...v1.1.24) (2021-03-29)
 
 

@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import { registerIntersecting, unregisterIntersecting } from 'nuxt-speedkit/utils/intersectionObserver';
-import { webpSupport, isPreloadSupported } from 'nuxt-speedkit/utils/support';
+import { observeIntersection, unobserveIntersection } from 'nuxt-speedkit/utils/intersectionObserver';
+import { webpSupport, isPreloadSupported, isPictureSupported } from 'nuxt-speedkit/utils/support';
 import { getImagePreloadDescription } from 'nuxt-speedkit/utils/description';
 import { getMimeTypeByFormat } from 'nuxt-speedkit/utils/mimeType';
 import Cache from 'nuxt-speedkit/classes/Cache';
@@ -101,14 +101,14 @@ export default {
   },
 
   mounted () {
-    registerIntersecting(this.$el, (e) => {
+    observeIntersection(this.$el, (e) => {
       this.visible = true;
       this.$emit('enter', e);
     });
   },
 
   destroyed () {
-    unregisterIntersecting(this.$el);
+    unobserveIntersection(this.$el);
   },
 
   methods: {
@@ -117,6 +117,9 @@ export default {
       this.imageSources = this.preload;
       this.inProgress = false;
       this.$emit('load');
+      global.requestAnimationFrame(() => {
+        doPolyfill(this.$el, this.$refs.image);
+      });
     },
     getPreloadSource () {
       const sources = filterBySupportedMimeTypes(this.preload);
@@ -137,11 +140,15 @@ export default {
 
 function doPreloadFallback ({ srcset, sizes }, crossorigin, callback = () => {}) {
   if (!process.server) {
-    const img = new global.Image();
-    img.onload = callback;
-    img.crossorigin = crossorigin;
-    img.sizes = sizes;
-    img.srcset = srcset;
+    if (isPictureSupported()) {
+      const img = new global.Image();
+      img.sizes = sizes;
+      img.srcset = srcset;
+      img.crossorigin = crossorigin;
+      img.onload = callback;
+    } else {
+      callback();
+    }
   }
 }
 
@@ -153,6 +160,17 @@ function filterBySupportedMimeTypes (sources) {
 
 function isWebp ({ type }) {
   return type === getMimeTypeByFormat('webp');
+}
+
+function doPolyfill (pictureEl, imageEl) {
+  // See more https://github.com/fregante/object-fit-images
+  if ('objectFitImages' in global) {
+    global.objectFitImages(imageEl);
+  }
+  // See more https://github.com/scottjehl/picturefill
+  if ('picturefill' in global) {
+    global.picturefill({ elements: pictureEl });
+  }
 }
 </script>
 

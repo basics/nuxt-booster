@@ -1,0 +1,62 @@
+name: Next
+on:
+  push:
+    branches:
+      - next
+
+jobs:
+  install:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    name: Install
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: cache node_modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Test
+        run: npm run test
+
+  semantic-version:
+    name: Semantic Release
+    needs: install
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Versioning
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          rsync -r --exclude ./lib ./lib/* .
+          npx -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-github semantic-release --provider=github --debug=true
