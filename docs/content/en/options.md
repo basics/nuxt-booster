@@ -232,3 +232,14 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
  | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for `speedkitComponents`                                   | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font` und `SpeedkitPicture`) | `0%`    |
 
+## `disableNuxtImage`
+- Type: `Boolean`
+  - Default: `false`
+
+If set, `@nuxt/image` will not be integrated.
+
+⚠️&nbsp;&nbsp;The following components can no longer be used:<br>
+<ul>
+  <li><nuxt-link to="/components/experimental-speedkit-picture">SpeedkitPicture (Experimental)</nuxt-link></li>
+  <li><nuxt-link to="/components/experimental-speedkit-youtube">SpeedkitYoutube (Experimental)</nuxt-link></li>
+</ul>
