@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.3.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.0-beta.1...v1.3.0-beta.2) (2021-07-12)
+
+
+### Bug Fixes
+
+* **lint:** fix sonar lint errors ([165caa3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/165caa3ea6714cdee9e5e9a840f7704f229c3e4d))
+
 # [1.3.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.6...v1.3.0-beta.1) (2021-07-12)
 
 
