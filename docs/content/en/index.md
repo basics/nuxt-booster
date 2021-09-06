@@ -2,6 +2,9 @@
 title: Introduction
 description: ''
 position: 1
+requirements:
+  - NodeJS >= 12.x.x
+  - NuxtJS >= 2.15.0
 features:
   - dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
   - optional loading prevention of resources at low bandwidth or weak hardware
@@ -18,7 +21,6 @@ results:
 
 [Module]() for [NuxtJS](https://nuxtjs.org).
 
-
 Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
 
 In order to achieve a performance score of 100/100, only the resources that are necessary in the current viewport may be loaded. Concepts already exist for the loading of javascript components and images.
@@ -26,6 +28,9 @@ However, there is not yet a practicable concept for loading fonts dynamically. T
 
 This module implements the lazy-hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) and embeds a [modified version](https://github.com/StephanGerbeth/image) of [nuxt/image](https://github.com/nuxt/image).
 
+## Requirements
+
+<list type="info" :items="requirements"></list>
 ## Features
 
 <list type="success" :items="features"></list>
