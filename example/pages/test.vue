@@ -12,7 +12,7 @@ import ImageSource from 'nuxt-speedkit/components/image/classes/ImageSource';
 import ImageSourceList from 'nuxt-speedkit/components/picture/classes/ImageSourceList';
 
 export default {
-  components: {
+  speedkitComponents: {
     DefaultVimeo: () => import('nuxt-speedkit/components/iframe/mutation/vimeo'),
     DefaultYoutube: () => import('nuxt-speedkit/components/iframe/mutation/youtube'),
     DefaultPicture: () => import('nuxt-speedkit/components/picture')
