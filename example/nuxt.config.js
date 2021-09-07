@@ -23,7 +23,8 @@ module.exports = {
   },
 
   alias: {
-    [pkg.name]: resolve(__dirname, '../lib')
+    [pkg.name]: resolve(__dirname, '../lib'),
+    vue$: 'vue/dist/vue.runtime.common.js'
   },
 
   build: {
