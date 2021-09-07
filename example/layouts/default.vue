@@ -2,14 +2,14 @@
   <div>
     <organism-page-header v-bind="pageHeader" />
     <Nuxt />
-    <info-layer critical />
+    <!-- <info-layer critical /> -->
     <GithubCorner />
     <google-lighthouse />
   </div>
 </template>
 
 <script>
-import InfoLayer from '@/components/InfoLayer';
+// import InfoLayer from '@/components/InfoLayer';
 
 export default {
   speedkitComponents: {
@@ -17,7 +17,7 @@ export default {
     OrganismPageHeader: () => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
   },
   components: {
-    InfoLayer
+    // InfoLayer
   },
 
   data () {
@@ -29,53 +29,66 @@ export default {
             {
               links: [
                 {
-                  title: 'Home',
-                  to: '/'
-                }
-              ]
-            },
-            {
-              headline: 'Test',
-              links: [
-                {
-                  title: 'v-font',
-                  to: '/tests/v-font/'
+                  title: 'Test',
+                  to: '/test'
                 },
                 {
-                  title: 'v-font (media)',
-                  to: '/tests/v-font-media/'
-                },
-                {
-                  title: 'SpeedkitPicture',
-                  to: '/tests/speedkit-picture/'
-                },
-                {
-                  title: 'SpeedkitYoutube',
-                  to: '/tests/speedkit-youtube/'
-                },
-                {
-                  title: 'SpeedkitIframe',
-                  to: '/tests/speedkit-iframe/'
-                }
-              ]
-            },
-            {
-              headline: 'Experimental',
-              links: [
-                {
-                  title: 'Home',
-                  to: '/experimental/'
-                },
-                {
-                  title: 'SpeedkitYoutube',
-                  to: '/experimental/speedkit-youtube/'
-                },
-                {
-                  title: 'SpeedkitPicture (5 Pictures)',
-                  to: '/experimental/speedkit-picture/5/'
+                  title: 'Test',
+                  to: '/test-2'
                 }
               ]
             }
+
+            // {
+            //   links: [
+            //     {
+            //       title: 'Home',
+            //       to: '/'
+            //     }
+            //   ]
+            // },
+            // {
+            //   headline: 'Test',
+            //   links: [
+            //     {
+            //       title: 'v-font',
+            //       to: '/tests/v-font/'
+            //     },
+            //     {
+            //       title: 'v-font (media)',
+            //       to: '/tests/v-font-media/'
+            //     },
+            //     {
+            //       title: 'SpeedkitPicture',
+            //       to: '/tests/speedkit-picture/'
+            //     },
+            //     {
+            //       title: 'SpeedkitYoutube',
+            //       to: '/tests/speedkit-youtube/'
+            //     },
+            //     {
+            //       title: 'SpeedkitIframe',
+            //       to: '/tests/speedkit-iframe/'
+            //     }
+            //   ]
+            // },
+            // {
+            //   headline: 'Experimental',
+            //   links: [
+            //     {
+            //       title: 'Home',
+            //       to: '/experimental/'
+            //     },
+            //     {
+            //       title: 'SpeedkitYoutube',
+            //       to: '/experimental/speedkit-youtube/'
+            //     },
+            //     {
+            //       title: 'SpeedkitPicture (5 Pictures)',
+            //       to: '/experimental/speedkit-picture/5/'
+            //     }
+            //   ]
+            // }
 
           ]
         }

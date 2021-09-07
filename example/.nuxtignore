@@ -1,4 +1,6 @@
 pages/**/components/**/*.vue
 ####
 pages/**/*.vue
+!pages/youtube.vue
 !pages/test.vue
+!pages/test-2.vue

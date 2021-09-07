@@ -29,7 +29,7 @@ export default {
     // DefaultImage: () => import('nuxt-speedkit/components/image')
   },
   data () {
-    const count = 4;
+    const count = 2;
     return {
       loadingSpinner: new LoadingSpinner({
         dataUri: require('@/assets/spinner/three-circles.svg').default,
@@ -41,8 +41,8 @@ export default {
         const background = Array(3).fill(Math.round((255 / count * index)).toString(16)).join('');
         const color = Array(3).fill(Math.round(255 - (255 / count * index)).toString(16)).join('');
         return new ImageSourceList([
-          new ImageSource({ src: `/dummyimage/4096x2304/${background}/${color}.jpg`, sizes: { sm: '100vw', md: '100vw' }, media: '(min-width: 768px)' }),
-          new ImageSource({ src: `/dummyimage/2304x4096/${background}/${color}.jpg`, sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
+          new ImageSource({ src: `/dummyimage/4096x2304/${color}/${background}.jpg`, sizes: { sm: '100vw', md: '100vw' }, media: '(min-width: 768px)' }),
+          new ImageSource({ src: `/dummyimage/2304x4096/${color}/${background}.jpg`, sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
         ], { retina: true });
       }),
 
