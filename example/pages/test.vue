@@ -1,6 +1,6 @@
 <template>
   <main>
-    <default-picture :sources="picture" :loading-spinner="loadingSpinner" />
+    <default-picture :sources="picture" :loading-spinner="loadingSpinner" :critical="true" />
     <default-youtube url="https://www.youtube.com/watch?v=c2cxzy-Dar4" :loading-spinner="loadingSpinner" />
     <default-vimeo url="https://vimeo.com/381669797" :loading-spinner="loadingSpinner" />
   </main>
