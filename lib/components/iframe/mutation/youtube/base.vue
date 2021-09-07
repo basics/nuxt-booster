@@ -105,7 +105,6 @@ export default {
     fromEvent(global, 'orientationchange').subscribe((e) => {
       this.updateOrientation();
       if (!this.landscape && this.playing) {
-        // eslint-disable-next-line scanjs-rules/call_setTimeout
         global.setTimeout(async () => {
           await scrollToElement(this.$el, { behavior: 'smooth', block: 'center' }, true);
         }, 500);

@@ -7,15 +7,14 @@
     :show="ready"
     class="youtube"
     allow="autoplay; fullscreen; picture-in-picture"
-    allowfullscreen
     @load="onLoad"
   >
     <template #placeholder>
-      <button @click="onClick">
+      <default-button @click="onClick">
         <default-picture class="poster" :sources="posterSources" :loading-spinner="loadingSpinner" />
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
-      </button>
+      </default-button>
     </template>
   </component>
 </template>
@@ -23,6 +22,7 @@
 <script>
 import DefaultPicture from '../../../picture';
 import DefaultIframe from '../../';
+import DefaultButton from '../../../button';
 import ImageSourceList from '../../../picture/classes/ImageSourceList';
 import ImageSource from '../../../image/classes/ImageSource';
 import LoadingSpinner from '../../../image/classes/LoadingSpinner';
@@ -30,7 +30,8 @@ import LoadingSpinner from '../../../image/classes/LoadingSpinner';
 export default {
   components: {
     DefaultPicture,
-    DefaultIframe
+    DefaultIframe,
+    DefaultButton
   },
 
   inheritAttrs: false,
@@ -115,30 +116,6 @@ export default {
   & button {
     display: block;
     width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    font: inherit;
-
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
-
-    /* inherit font & color from ancestor */
-    color: inherit;
-    background: transparent;
-    border: none;
-
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
-
-    &::-moz-focus-inner {
-      padding: 0;
-      border: 0;
-    }
 
     @nest .ready& {
       pointer-events: none;

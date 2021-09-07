@@ -48,10 +48,10 @@
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.14.7",
+    "@babel/eslint-parser": "7.15.4",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
-    "@nuxt/image": "0.5.0",
+    "@nuxt/image": "0.6.0",
     "@nuxt/test-utils": "0.2.2",
     "@nuxtjs/eslint-config": "6.0.1",
     "@nuxtjs/eslint-module": "3.0.2",
