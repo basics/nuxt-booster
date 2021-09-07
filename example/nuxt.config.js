@@ -88,10 +88,30 @@ module.exports = {
     trailingSlash: undefined
   },
 
-  // nuxt/image options https://image.nuxtjs.org/setup#configure
-  image: {},
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      default: 320,
+      xxs: 480,
+      xs: 576,
+      sm: 768,
+      md: 996,
+      lg: 1200,
+      xl: 1367,
+      xxl: 1600,
+      '4k': 1921
+    },
+    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com'],
+    alias: {
+      picsum: 'https://picsum.photos',
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com'
+    }
+    // staticFilename: '[publicPath]/images/[name]-[hash][ext]'
+  },
 
   buildModules: [
+    '@nuxt/image',
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
   ],
@@ -256,6 +276,7 @@ module.exports = {
   },
 
   modules: [
+    '@/modules/svg',
     resolve(__dirname, '..') // nuxt-speedkit
   ],
 
