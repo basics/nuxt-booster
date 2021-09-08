@@ -3,7 +3,4 @@
 
 export PATH=/usr/local/bin:$PATH # Important for sourcetree osx
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 npx branch-name-lint .branchlintrc
