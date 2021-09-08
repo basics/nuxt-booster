@@ -28,7 +28,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return ['avif', 'webp', 'jpg'];
+        return ['webp', 'avif', 'jpg'];
       }
     },
 
@@ -77,8 +77,8 @@ export default {
     },
 
     preloadSources () {
-      const orderedFormats = formatPriority.find(v => this.formats.includes(v));
-      return this.sources.getFormats([orderedFormats]);
+      const priorityFormat = formatPriority.find(v => this.formats.includes(v));
+      return this.sources.getFormats([priorityFormat]);
     }
   },
 
