@@ -2,9 +2,12 @@
   <main>
     <default-picture :sources="pictureA" :loading-spinner="loadingSpinner" :critical="true" />
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <default-picture :sources="pictureB" :loading-spinner="loadingSpinner" :critical="true" />
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <default-picture :sources="pictureC" :loading-spinner="loadingSpinner" :critical="true" />
+    <default-picture :sources="pictureB" :loading-spinner="loadingSpinner" />
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <default-picture :sources="pictureC" :loading-spinner="loadingSpinner" />
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <span
       v-font="[
