@@ -4,10 +4,12 @@
     <!-- <default-youtube url="https://www.youtube.com/watch?v=c2cxzy-Dar4" :loading-spinner="loadingSpinner" />
     <default-vimeo url="https://vimeo.com/381669797" :loading-spinner="loadingSpinner" /> -->
     <!-- <default-image :source="image" :loading-spinner="loadingSpinner" :critical="true" /> -->
-    <div v-for="(picture, index) in pictures" :key="index">
-      <default-picture :sources="picture" :loading-spinner="loadingSpinner" :critical="true" />
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </Div>
+    <default-picture :sources="pictureA" :loading-spinner="loadingSpinner" :critical="true" />
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <default-picture :sources="pictureB" :loading-spinner="loadingSpinner" :critical="true" />
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <default-picture :sources="pictureC" :loading-spinner="loadingSpinner" :critical="true" />
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <span
       v-font="[
         $getFont('Montserrat Alternates', 700, 'normal')
@@ -29,7 +31,6 @@ export default {
     // DefaultImage: () => import('nuxt-speedkit/components/image')
   },
   data () {
-    const count = 4;
     return {
       loadingSpinner: new LoadingSpinner({
         dataUri: require('@/assets/spinner/three-circles.svg').default,
@@ -37,19 +38,21 @@ export default {
         backgroundColor: 'grey'
       }),
 
-      pictures: Array(count).fill({}).map((value, index) => {
-        const background = Array(3).fill(Math.round((255 / count * index)).toString(16)).join('');
-        const color = Array(3).fill(Math.round(255 - (255 / count * index)).toString(16)).join('');
-        return new ImageSourceList([
-          new ImageSource({ src: `/dummyimage/4096x2304/${background}/${color}.jpg`, sizes: { sm: '100vw', md: '100vw' }, media: '(min-width: 768px)' }),
-          new ImageSource({ src: `/dummyimage/2304x4096/${background}/${color}.jpg`, sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
-        ], { retina: true });
-      }),
+      pictureA: new ImageSourceList([
+        new ImageSource({ src: '/picsum/id/234/4096/2304.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
+        new ImageSource({ src: '/picsum/id/234/2304/4096.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
+      ], { retina: true }),
+      pictureB: new ImageSourceList([
+        new ImageSource({ src: '/picsum/id/235/4096/2304.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
+        new ImageSource({ src: '/picsum/id/235/2304/4096.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
+      ], { retina: true }),
+      pictureC: new ImageSourceList([
+        new ImageSource({ src: '/picsum/id/1040/4496/3000.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
+        new ImageSource({ src: '/picsum/id/1040/3000/4496.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
+      ], { retina: true }),
 
       image: new ImageSource({ src: '/picsum/id/236/4096/2304.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' })
     };
   }
 };
-
-// asasdasdasdasdasds
 </script>
