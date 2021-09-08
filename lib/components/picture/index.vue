@@ -11,6 +11,8 @@ import LoadingSpinner from '../image/classes/LoadingSpinner';
 import PictureSource from './source';
 import ImageSourceList from './classes/ImageSourceList';
 
+const formatPriority = ['avif', 'webp', 'png', 'jpg'];
+
 export default {
   components: {
     PictureSource,
@@ -21,6 +23,13 @@ export default {
     sources: {
       type: ImageSourceList,
       required: true
+    },
+
+    formats: {
+      type: Array,
+      default () {
+        return ['webp', 'avif', 'jpg'];
+      }
     },
 
     loadingSpinner: {
@@ -64,11 +73,12 @@ export default {
 
   computed: {
     formatSources () {
-      return this.sources.getFormats(['avif', 'webp', 'jpg']);
+      return this.sources.getFormats(this.formats);
     },
 
     preloadSources () {
-      return this.sources.getFormats(['avif']);
+      const orderedFormats = formatPriority.find(v => this.formats.includes(v));
+      return this.sources.getFormats([orderedFormats]);
     }
   },
 
