@@ -102,9 +102,10 @@ module.exports = {
       xxl: 1600,
       '4k': 1921
     },
-    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com'],
+    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'dummyimage.com'],
     alias: {
       picsum: 'https://picsum.photos',
+      dummyimage: 'https://dummyimage.com',
       youtube: 'https://img.youtube.com',
       vimeo: 'https://i.vimeocdn.com'
     }
