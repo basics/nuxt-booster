@@ -28,7 +28,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return ['webp', 'avif', 'jpg'];
+        return ['avif', 'webp', 'jpg'];
       }
     },
 
