@@ -40,7 +40,7 @@ export default {
         new ImageSource({ src: '/picsum/id/1072/2592/3872.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
       ], { retina: true }),
       pictureC: new ImageSourceList([
-        new ImageSource({ src: '/picsum/id/1069/3500/2333.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
+        new ImageSource({ src: '/picsum/id/1080/3500/2333.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
         new ImageSource({ src: '/picsum/id/1080/2333/3500.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: 'all' })
       ], { retina: true }),
 
