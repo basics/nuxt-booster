@@ -1,7 +1,7 @@
 <template>
   <picture :class="classNames.picture">
     <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" />
-    <base-image :class="classNames.image" :title="title" :alt="alt || title" :loading-spinner="loadingSpinner" @load="onLoad" />
+    <base-image :class="classNames.image" :title="title" :alt="alt" :loading-spinner="loadingSpinner" @load="onLoad" />
   </picture>
 </template>
 

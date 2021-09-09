@@ -7,6 +7,8 @@
     :height="height"
     class="image"
     :class="classNames"
+    :title="title"
+    :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
     v-on="$listeners"
@@ -41,7 +43,7 @@ export default {
 
     alt: {
       type: String,
-      required: true
+      default: null
     }
   },
 
