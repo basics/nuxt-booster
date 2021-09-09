@@ -4,13 +4,13 @@
     <!-- <default-youtube url="https://www.youtube.com/watch?v=c2cxzy-Dar4" :loading-spinner="loadingSpinner" />
     <default-vimeo url="https://vimeo.com/381669797" :loading-spinner="loadingSpinner" /> -->
     <!-- <default-image :source="image" :loading-spinner="loadingSpinner" :critical="true" /> -->
-    <default-picture :sources="pictureA" :loading-spinner="loadingSpinner" :critical="true" />
+    <default-picture :sources="pictureA" :loading-spinner="loadingSpinner" :critical="true" title="picture a" />
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <default-picture :sources="pictureB" :loading-spinner="loadingSpinner" />
+    <default-picture :sources="pictureB" :loading-spinner="loadingSpinner" title="picture b" />
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <default-picture :sources="pictureC" :loading-spinner="loadingSpinner" />
+    <default-picture :sources="pictureC" :loading-spinner="loadingSpinner" title="picture c" />
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <span

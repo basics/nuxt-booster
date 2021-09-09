@@ -32,6 +32,16 @@ export default {
       default () {
         return null;
       }
+    },
+
+    title: {
+      type: String,
+      required: true
+    },
+
+    alt: {
+      type: String,
+      required: true
     }
   },
 
