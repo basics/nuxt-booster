@@ -27,11 +27,6 @@ export default {
       default: null
     },
 
-    preloadSources: {
-      type: Array,
-      default: null
-    },
-
     loadingSpinner: {
       type: LoadingSpinner,
       default () {
@@ -59,35 +54,11 @@ export default {
   },
 
   head () {
-    let cssRule = null;
-
-    if (this.meta) {
-      cssRule = new ImageSource(this.meta).style;
-    }
-
-    const preloads = [];
-    if (this.config && this.isCritical) {
-      preloads.push(new ImageSource(this.source).getPreload(this.config.srcset, this.config.sizes));
-    }
-
     return {
-      style: [
-        {
-          cssText: this.loadingSpinner.style,
-          type: 'text/css',
-          hid: this.loadingSpinner.className
-        }, {
-          cssText: cssRule,
-          type: 'text/css',
-          hid: this.className
-        }
-      ],
-      link: preloads,
+      style: this.style,
+      link: this.preload,
       noscript: [
-        {
-          hid: 'img-nojs',
-          innerHTML: '<style>img { content-visibility: unset !important; }</style>'
-        }
+        { hid: 'img-nojs', innerHTML: '<style>img { content-visibility: unset !important; }</style>' }
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     };
@@ -95,10 +66,7 @@ export default {
 
   computed: {
     classNames () {
-      return [{
-        [this.loadingSpinner.className]: true,
-        loading: this.loading
-      }].concat(this.className);
+      return [{ [this.loadingSpinner.className]: true, loading: this.loading }].concat(this.className);
     },
 
     srcset () {
@@ -129,6 +97,23 @@ export default {
         return 'async';
       }
       return 'sync';
+    },
+
+    style () {
+      if (!this.meta) {
+        return [];
+      }
+      return [
+        { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
+        { hid: this.className, type: 'text/css', cssText: new ImageSource(this.meta).style }
+      ];
+    },
+
+    preload () {
+      if (!this.config || !this.isCritical) {
+        return [];
+      }
+      return [new ImageSource(this.source).getPreload(this.config.srcset, this.config.sizes)];
     }
   },
 

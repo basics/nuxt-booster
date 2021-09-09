@@ -31,7 +31,7 @@ export default {
 
   head () {
     const imageSource = new ImageSource(this.source);
-    if (this.config && this.isCritical && imageSource.format === 'avif') {
+    if (this.config && imageSource.preload) {
       return {
         link: [imageSource.getPreload(this.config.srcset, this.config.sizes)]
       };

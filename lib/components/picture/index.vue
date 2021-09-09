@@ -1,7 +1,7 @@
 <template>
   <picture :class="classNames.picture">
     <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" />
-    <base-image :preload-sources="preloadSources" :class="classNames.image" :title="title" :loading-spinner="loadingSpinner" @load="onLoad" />
+    <base-image :class="classNames.image" :title="title" :loading-spinner="loadingSpinner" @load="onLoad" />
   </picture>
 </template>
 
@@ -59,26 +59,24 @@ export default {
   },
 
   head () {
-    if (this.metaSources) {
-      const metaSources = (this.metaSources.length && new ImageSourceList(this.metaSources)) || this.metaSources;
-      return {
-        style: [{
-          cssText: metaSources.style,
-          type: 'text/css',
-          hid: this.classNames.picture
-        }]
-      };
-    }
+    return {
+      style: this.style
+    };
   },
 
   computed: {
     formatSources () {
-      return this.sources.getFormats(this.formats);
+      const sortedFormatsByPriority = formatPriority.filter(v => this.formats.includes(v));
+      const preloadFormat = formatPriority.find(v => this.formats.includes(v));
+      return this.sources.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
     },
 
-    preloadSources () {
-      const priorityFormat = formatPriority.find(v => this.formats.includes(v));
-      return this.sources.getFormats([priorityFormat]);
+    style () {
+      if (!this.metaSources) {
+        return [];
+      }
+      const metaSources = (this.metaSources.length && new ImageSourceList(this.metaSources)) || this.metaSources;
+      return [{ hid: this.classNames.picture, type: 'text/css', cssText: metaSources.style }];
     }
   },
 
