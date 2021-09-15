@@ -82,7 +82,7 @@ export default {
 
   methods: {
     onLoad (e) {
-      // console.log('LOAD', e);
+      this.$emit('load', e);
     }
   }
 };

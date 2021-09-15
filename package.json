@@ -34,6 +34,7 @@
     "start:generate": "npm run generate && npm run start"
   },
   "dependencies": {
+    "@js-basics/vector": "^1.57.2",
     "axios": "^0.21.4",
     "bowser": "2.11.0",
     "browserslist-useragent-regexp": "3.0.0",
@@ -41,6 +42,7 @@
     "defu": "5.0.0",
     "dynamic-class-list": "1.1.0",
     "fs-extra": "10.0.0",
+    "ios-inner-height": "^1.1.1",
     "serialize-to-js": "3.1.1",
     "sort-css-media-queries": "^2.0.4",
     "units-css": "^0.4.0",

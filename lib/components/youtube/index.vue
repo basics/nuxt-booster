@@ -1,5 +1,5 @@
 <template>
-  <base-iframe-youtube class="youtube" v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="youtube" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <svg class="loader loading-spinner" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <circle
@@ -28,15 +28,16 @@
         <path d="M 45,24 27,14 27,34" fill="#fff" />
       </svg>
     </template>
-  </base-iframe-youtube>
+  </base-youtube>
 </template>
 
 <script>
-import BaseIframeYoutube from './base';
+
+import BaseYoutube from './base';
 
 export default {
   components: {
-    BaseIframeYoutube
+    BaseYoutube
   },
 
   inheritAttrs: false
