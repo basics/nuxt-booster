@@ -33,8 +33,12 @@ export default {
                   to: '/test'
                 },
                 {
-                  title: 'Test',
+                  title: 'Test 2',
                   to: '/test-2'
+                },
+                {
+                  title: 'Youtube',
+                  to: '/youtube'
                 }
               ]
             }
@@ -118,10 +122,13 @@ html {
 }
 
 body {
+  /* width: 375px; */
   min-height: 100vh;
   min-height: stretch;
   margin: 0;
-  font-size: calc(16 / 320 * 100vw);
+  font-size: 16px;
+
+  /* font-size: calc(16 / 320 * 100vw); */
   color: #000;
   background-color: #fff;
 
@@ -130,7 +137,7 @@ body {
     background-color: #333;
   }
 
-  @media (min-width: 375px) {
+  /* @media (min-width: 375px) {
     font-size: calc(16 / 375 * 100vw);
   }
 
@@ -144,7 +151,7 @@ body {
 
   @media (min-width: 992px) {
     font-size: 16px;
-  }
+  } */
 }
 
 </style>
