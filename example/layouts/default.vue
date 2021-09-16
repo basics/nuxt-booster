@@ -29,71 +29,36 @@ export default {
             {
               links: [
                 {
-                  title: 'Test',
-                  to: '/test'
+                  title: 'Home',
+                  to: '/'
+                }
+              ]
+            },
+            {
+              headline: 'Test',
+              links: [
+                {
+                  title: 'v-font',
+                  to: '/tests/v-font/'
                 },
                 {
-                  title: 'Test 2',
-                  to: '/test-2'
+                  title: 'v-font (media)',
+                  to: '/tests/v-font-media/'
+                },
+                {
+                  title: 'Picture',
+                  to: '/tests/picture/'
                 },
                 {
                   title: 'Youtube',
-                  to: '/youtube'
+                  to: '/tests/youtube/'
+                },
+                {
+                  title: 'Iframe',
+                  to: '/tests/iframe/'
                 }
               ]
             }
-
-            // {
-            //   links: [
-            //     {
-            //       title: 'Home',
-            //       to: '/'
-            //     }
-            //   ]
-            // },
-            // {
-            //   headline: 'Test',
-            //   links: [
-            //     {
-            //       title: 'v-font',
-            //       to: '/tests/v-font/'
-            //     },
-            //     {
-            //       title: 'v-font (media)',
-            //       to: '/tests/v-font-media/'
-            //     },
-            //     {
-            //       title: 'SpeedkitPicture',
-            //       to: '/tests/speedkit-picture/'
-            //     },
-            //     {
-            //       title: 'SpeedkitYoutube',
-            //       to: '/tests/speedkit-youtube/'
-            //     },
-            //     {
-            //       title: 'SpeedkitIframe',
-            //       to: '/tests/speedkit-iframe/'
-            //     }
-            //   ]
-            // },
-            // {
-            //   headline: 'Experimental',
-            //   links: [
-            //     {
-            //       title: 'Home',
-            //       to: '/experimental/'
-            //     },
-            //     {
-            //       title: 'SpeedkitYoutube',
-            //       to: '/experimental/speedkit-youtube/'
-            //     },
-            //     {
-            //       title: 'SpeedkitPicture (5 Pictures)',
-            //       to: '/experimental/speedkit-picture/5/'
-            //     }
-            //   ]
-            // }
-
           ]
         }
       }

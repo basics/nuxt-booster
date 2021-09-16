@@ -1,14 +1,14 @@
 <template>
-  <picture :class="classNames.picture">
+  <picture :class="classNames.picture" class="nuxt-speedkit__picture">
     <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" />
     <base-image :class="classNames.image" :title="title" :alt="alt" :loading-spinner="loadingSpinner" @load="onLoad" />
   </picture>
 </template>
 
 <script>
-import BaseImage from '../image';
-import LoadingSpinner from '../image/classes/LoadingSpinner';
-import PictureSource from './source';
+import BaseImage from '../Image';
+import LoadingSpinner from '../Image/classes/LoadingSpinner';
+import PictureSource from './Source';
 import ImageSourceList from './classes/ImageSourceList';
 
 const formatPriority = ['avif', 'webp', 'png', 'jpg'];
@@ -34,9 +34,7 @@ export default {
 
     loadingSpinner: {
       type: LoadingSpinner,
-      default () {
-        return null;
-      }
+      default: undefined
     },
 
     title: {
@@ -80,7 +78,7 @@ export default {
       if (!this.metaSources) {
         return [];
       }
-      const metaSources = (this.metaSources.length && new ImageSourceList(this.metaSources)) || this.metaSources;
+      const metaSources = (this.metaSources.length && new ImageSourceList({ list: this.metaSources })) || this.metaSources;
       return [{ hid: this.classNames.picture, type: 'text/css', cssText: metaSources.style }];
     }
   },

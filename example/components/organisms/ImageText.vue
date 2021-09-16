@@ -7,23 +7,33 @@
     :class="{['component-image-text--right']: alignRight}"
   >
     <div class="image">
-      <speedkit-picture v-bind="picture" />
+      <default-picture v-bind="pictureDataset" />
     </div>
     <div class="text" v-html="text" />
   </div>
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+
+import DefaultPicture from 'nuxt-speedkit/components/Picture';
+import Picture from 'nuxt-speedkit/components/Picture/classes/Picture';
+
 export default {
   components: {
-    SpeedkitPicture
+    DefaultPicture
   },
   props: {
-    alignRight: { type: Boolean, default () { return false; } },
-    picture: { type: Object, default () { return {}; } },
-    text: { type: String, default () { return 'Headline'; } }
+    alignRight: { type: Boolean, default: false },
+    picture: { type: Object, required: true },
+    text: { type: String, default: 'Headline' }
+  },
+
+  computed: {
+    pictureDataset () {
+      return (new Picture({ ...this.picture })).toJSON();
+    }
   }
+
 };
 </script>
 

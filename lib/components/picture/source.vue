@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ImageSource from '../image/classes/ImageSource';
+import ImageSource from '../Image/classes/ImageSource';
 
 const types = new Map([['jpg', 'jpeg']]);
 

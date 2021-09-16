@@ -11,6 +11,7 @@
     :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
+    :crossorigin="$speedkit.crossorigin"
     v-on="$listeners"
     @load="onLoad"
   >
@@ -32,7 +33,7 @@ export default {
     loadingSpinner: {
       type: LoadingSpinner,
       default () {
-        return null;
+        return this.$speedkit.loader();
       }
     },
 
@@ -78,7 +79,9 @@ export default {
 
   computed: {
     classNames () {
-      return [{ [this.loadingSpinner.className]: true, loading: this.loading }].concat(this.className);
+      const classNames = [{ loading: this.loading }].concat(this.className);
+      this.loadingSpinner && classNames.push(this.loadingSpinner.className);
+      return classNames;
     },
 
     srcset () {
@@ -116,7 +119,7 @@ export default {
         return [];
       }
       return [
-        { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
+        this.loadingSpinner && { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
         { hid: this.className, type: 'text/css', cssText: new ImageSource(this.meta).style }
       ];
     },

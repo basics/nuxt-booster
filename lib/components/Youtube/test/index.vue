@@ -1,5 +1,5 @@
 <template>
-  <default-youtube v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="nuxt-speedkit__youtube" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <svg class="loader loading-spinner" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <circle
@@ -28,16 +28,16 @@
         <path d="M 45,24 27,14 27,34" fill="#fff" />
       </svg>
     </template>
-  </default-youtube>
+  </base-youtube>
 </template>
 
 <script>
 
-import DefaultYoutube from './Base';
+import BaseYoutube from './Base';
 
 export default {
   components: {
-    DefaultYoutube
+    BaseYoutube
   },
 
   inheritAttrs: false
@@ -45,40 +45,40 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.loading-spinner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 64px;
-  margin: auto;
-
-  & circle {
-    stroke-dasharray: 5, 177;
-    stroke-width: 6px;
-    animation: stroke 1.33333s ease infinite;
-  }
-}
-
-.play {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 68px;
-  margin: auto;
-  pointer-events: none;
-
-  & path:first-child {
-    fill: #212121;
-    fill-opacity: 0.8;
-    transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
-  }
-}
-
 >>> {
+  & .loading-spinner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    margin: auto;
+
+    & circle {
+      stroke-dasharray: 5, 177;
+      stroke-width: 6px;
+      animation: stroke 1.33333s ease infinite;
+    }
+  }
+
+  & .play {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 68px;
+    margin: auto;
+    pointer-events: none;
+
+    & path:first-child {
+      fill: #212121;
+      fill-opacity: 0.8;
+      transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+    }
+  }
+
   @nest &:hover {
     & .play path:first-child {
       fill: #f00;

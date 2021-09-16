@@ -79,6 +79,17 @@
       background-color: rgba(255, 255, 255, 0.4);
     }
 
+    & >>> picture {
+      width: 100%;
+      height: 100%;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
     & > article {
       position: relative;
       display: flex;

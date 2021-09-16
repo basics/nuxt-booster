@@ -102,12 +102,12 @@ module.exports = {
       xxl: 1600,
       '4k': 1921
     },
-    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'dummyimage.com'],
+    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'i.pickadummy.com'],
     alias: {
       picsum: 'https://picsum.photos',
-      dummyimage: 'https://dummyimage.com',
       youtube: 'https://img.youtube.com',
-      vimeo: 'https://i.vimeocdn.com'
+      vimeo: 'https://i.vimeocdn.com',
+      pickadummy: 'https://i.pickadummy.com'
     }
     // staticFilename: '[publicPath]/images/[name]-[hash][ext]'
   },
@@ -274,7 +274,13 @@ module.exports = {
           ]
         }
       ]
-    }]
+    }],
+
+    loader: {
+      dataUri: '@/assets/spinner/three-circles.svg',
+      size: '100px',
+      backgroundColor: 'grey'
+    }
   },
 
   modules: [

@@ -1,21 +1,33 @@
 <template>
-  <div
+  <component
+    :is="design"
     :title="title"
     :class="{ready, playing}"
     :show="ready"
-    class="nuxt-speedkit__youtube"
+    class="youtube"
   >
     <slot name="background" />
-
-    <iframe
-      v-if="src"
-      ref="player"
-      class="player"
-      :src="src"
-      frameborder="0"
-      allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      @load="onLoad"
-    />
+    <div class="player-wrapper">
+      <div
+        class="player"
+        :style="playerStyle"
+      >
+        <div>
+          <div>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABFJREFUeNpiYBgFo4AKACDAAAJJAAHkYY/SAAAAAElFTkSuQmCC">
+            <!-- <svg width="16" height="9" viewbox="0 0 16 9" /> -->
+            <iframe
+              v-if="src"
+              ref="player"
+              :src="src"
+              frameborder="0"
+              allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              @load="onLoad"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <default-button @click="onInit">
       <default-picture class="poster" v-bind="pictureDataset" />
       <slot v-if="loading" name="loading-spinner" />
@@ -24,17 +36,17 @@
       </transition>
     </default-button>
     <div v-if="ready && muted" class="click-overlay" @click="onUnmute" />
-  </div>
+  </component>
 </template>
 
 <script>
-import DefaultPicture from '../Picture';
-import DefaultButton from '../Button';
+import DefaultPicture from '../picture';
+import DefaultButton from '../button';
 import ImageSourceList from '../Picture/classes/ImageSourceList';
 import ImageSource from '../Image/classes/ImageSource';
 import LoadingSpinner from '../Image/classes/LoadingSpinner';
 import Picture from '../Picture/classes/Picture';
-import { load, ready } from './utils/loader';
+import { load, ready } from '../utils/loader';
 
 export default {
   components: {
@@ -45,15 +57,36 @@ export default {
   inheritAttrs: false,
 
   props: {
+    design: {
+      type: [String, Function],
+      default () {
+        return 'div';
+      }
+    },
+
+    onBeforeInit: {
+      type: Function,
+      required: false,
+      default: null
+    },
 
     url: {
       type: String,
       required: true
     },
 
+    playerStyle: {
+      type: Array,
+      default () {
+        return [];
+      }
+    },
+
     title: {
       type: String,
-      required: true
+      default () {
+        return 'YouTube video player';
+      }
     },
 
     loadingSpinner: {
@@ -107,7 +140,7 @@ export default {
   },
 
   destroyed () {
-    this.player && youtube.remove(this.player);
+    youtube.remove(this.player);
   },
 
   methods: {
@@ -209,7 +242,7 @@ const youtube = new Youtube();
 </script>
 
 <style lang="postcss" scoped>
-.nuxt-speedkit__youtube {
+.youtube {
   position: relative;
   padding: 0;
   margin: 0;
@@ -218,7 +251,6 @@ const youtube = new Youtube();
 button {
   display: block;
   width: 100%;
-  cursor: pointer;
 
   @nest .ready & {
     pointer-events: none;
