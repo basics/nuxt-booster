@@ -34,8 +34,7 @@ export default {
               new ImageSource({ src: '/pickadummy/index.php?imgsize=5760x3240&t=Stage', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
               // eslint-disable-next-line no-secrets/no-secrets
               new ImageSource({ src: '/pickadummy/index.php?imgsize=3240x5760&t=Stage', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(max-width: 767px)' })
-            ],
-            options: { retina: true }
+            ]
           })
         }
       },
@@ -54,8 +53,7 @@ export default {
               new ImageSource({ src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20A', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
               // eslint-disable-next-line no-secrets/no-secrets
               new ImageSource({ src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20A', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(max-width: 767px)' })
-            ],
-            options: { retina: true }
+            ]
           })
         }
       },
@@ -77,8 +75,7 @@ export default {
               new ImageSource({ src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20B', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(min-width: 768px)' }),
               // eslint-disable-next-line no-secrets/no-secrets
               new ImageSource({ src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20B', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(max-width: 767px)' })
-            ],
-            options: { retina: true }
+            ]
           })
         }
       },

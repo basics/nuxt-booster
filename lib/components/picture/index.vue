@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import BaseImage from '../Image';
-import LoadingSpinner from '../Image/classes/LoadingSpinner';
-import PictureSource from './Source';
-import ImageSourceList from './classes/ImageSourceList';
+import BaseImage from 'nuxt-speedkit/components/Image';
+import ImageSourceList from 'nuxt-speedkit/components/Picture/classes/ImageSourceList';
+import LoadingSpinner from 'nuxt-speedkit/components/Image/classes/LoadingSpinner';
+import PictureSource from 'nuxt-speedkit/components/Source';
 
 const formatPriority = ['avif', 'webp', 'png', 'jpg'];
 
@@ -78,7 +78,7 @@ export default {
       if (!this.metaSources) {
         return [];
       }
-      const metaSources = (this.metaSources.length && new ImageSourceList({ list: this.metaSources })) || this.metaSources;
+      const metaSources = (this.metaSources.length && new ImageSourceList(this.metaSources)) || this.metaSources;
       return [{ hid: this.classNames.picture, type: 'text/css', cssText: metaSources.style }];
     }
   },
