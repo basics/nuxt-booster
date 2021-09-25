@@ -89,6 +89,10 @@ or look here
 - [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/modern.html)
 - [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/server.html)
 
+## TODOs
+
+- add detector for https://github.com/nuxtlabs/vue-telescope-analyzer
+
 ## License
 
 [MIT License](./LICENSE)
