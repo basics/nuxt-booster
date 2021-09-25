@@ -1,5 +1,3 @@
-![nuxt-speedkit][logo]
-
 <p align="right">
   share me:
   <a href="https://twitter.com/intent/tweet?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&text=nuxt-speedkit will help you to improve the lighthouse performance score of your website&via=grabarzpartner&hashtags=vue,nuxt,speedkit">
@@ -21,6 +19,8 @@
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg?sanitize=true"/>
   </a>
 </p>
+
+![nuxt-speedkit][logo]
 
 # Nuxt Speedkit
 
