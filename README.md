@@ -1,5 +1,27 @@
 ![nuxt-speedkit][logo]
 
+<p align="right">
+  share me:
+  <a href="https://twitter.com/intent/tweet?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&text=nuxt-speedkit will help you to improve the lighthouse performance score of your website&via=grabarzpartner&hashtags=vue,nuxt,speedkit">
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg?sanitize=true"/>
+  </a>
+  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/GrabarzUndPartner/nuxt-speedkit&t=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/hackernews.svg?sanitize=true"/>
+  </a>
+  <a href="https://reddit.com/submit?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/reddit.svg?sanitize=true"/>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https://github.com/GrabarzUndPartner/nuxt-speedkit">
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg?sanitize=true"/>
+  </a>
+  <a href="https://www.xing.com/spi/shares/new?url=https://github.com/GrabarzUndPartner/nuxt-speedkit">
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/xing.svg?sanitize=true"/>
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit&summary=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg?sanitize=true"/>
+  </a>
+</p>
+
 # Nuxt Speedkit
 
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
