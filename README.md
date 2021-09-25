@@ -5,7 +5,7 @@
   <a href="https://twitter.com/intent/tweet?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&text=nuxt-speedkit will help you to improve the lighthouse performance score of your website&via=grabarzpartner&hashtags=vue,nuxt,speedkit">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg?sanitize=true"/>
   </a>
-  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/GrabarzUndPartner/nuxt-speedkit&t=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
+  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/GrabarzUndPartner/nuxt-speedkit&t=nuxt-speedkit will help you to improve the lighthouse performance score">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/hackernews.svg?sanitize=true"/>
   </a>
   <a href="https://reddit.com/submit?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
