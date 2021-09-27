@@ -65,7 +65,7 @@ export default {
   async fetch () {
     const { get } = await import('axios');
     const result = await get(`https://vimeo.com/api/v2/video/${this.videoId}.json`);
-    this.posterUrl = result.data[0].thumbnail_large.replace(/(.+)(\/video\/[\w]+)_([\d]+)$/, `/vimeo$2_${result.data[0].width}`);
+    this.posterUrl = result.data[0].thumbnail_large.replace(/(.+)(\/video\/[\w-]+)_([\d]+)$/, `/vimeo$2_${result.data[0].width}`);
   },
 
   computed: {
