@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pkg = require('../package.json');
 const isDev = process.env.NODE_ENV === 'development';
+const isTest = process.env.NODE_ENV === 'test';
 
 module.exports = {
   dev: isDev,
@@ -113,10 +114,10 @@ module.exports = {
   },
 
   buildModules: [
-    '@nuxt/image',
+    !isTest && '@nuxt/image',
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
-  ],
+  ].filter(v => v),
 
   speedkit: {
     detection: {

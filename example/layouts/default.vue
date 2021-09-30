@@ -54,6 +54,10 @@ export default {
                   to: '/tests/youtube/'
                 },
                 {
+                  title: 'Vimeo',
+                  to: '/tests/vimeo/'
+                },
+                {
                   title: 'Iframe',
                   to: '/tests/iframe/'
                 }

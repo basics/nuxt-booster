@@ -24,11 +24,6 @@ export default {
         {
           youtubeUrl: 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
           title: 'Youtube 2'
-        },
-        {
-          // eslint-disable-next-line no-secrets/no-secrets
-          youtubeUrl: 'https://www.youtube.com/watch?v=2s8DJkf5s1E',
-          title: 'Youtube 3'
         }
       ]
     };

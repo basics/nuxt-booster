@@ -30,8 +30,7 @@
     <template #play>
       <div class="play">
         <span>
-          <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" focusable="false" aria-labelledby="play-icon-title" role="img">
-            <title id="play-icon-title">Play</title>
+          <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" focusable="false">
             <polygon class="fill" points="1,0 20,10 1,20" />
           </svg>
         </span>

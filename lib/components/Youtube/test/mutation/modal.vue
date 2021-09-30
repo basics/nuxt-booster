@@ -77,7 +77,6 @@ export default {
         global.scroll(0, DEFAULT_SCROLL_POS);
         this.animationStates.start = false;
       } else if (!playing && this.opened && !this.landscape) {
-        console.log('neee', playing);
         scrollToElement(this.$el);
         this.endAnimation();
       }

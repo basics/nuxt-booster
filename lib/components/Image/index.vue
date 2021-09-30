@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ImageSource from './classes/ImageSource';
+import Source from './classes/Source';
 import LoadingSpinner from './classes/LoadingSpinner';
 
 export default {
@@ -26,7 +26,7 @@ export default {
 
   props: {
     source: {
-      type: ImageSource,
+      type: Source,
       default: null
     },
 
@@ -120,7 +120,7 @@ export default {
       }
       return [
         this.loadingSpinner && { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
-        { hid: this.className, type: 'text/css', cssText: new ImageSource(this.meta).style }
+        { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
       ];
     },
 
@@ -128,7 +128,7 @@ export default {
       if (!this.config || !this.isCritical) {
         return [];
       }
-      return [new ImageSource(this.source).getPreload(this.config.srcset, this.config.sizes)];
+      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes)];
     }
   },
 
