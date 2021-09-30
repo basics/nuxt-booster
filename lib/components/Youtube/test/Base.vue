@@ -42,8 +42,8 @@
 <script>
 import DefaultPicture from '../picture';
 import DefaultButton from '../button';
-import ImageSourceList from '../Picture/classes/ImageSourceList';
-import ImageSource from '../Image/classes/ImageSource';
+import SourceList from '../Picture/classes/SourceList';
+import Source from '../Image/classes/Source';
 import LoadingSpinner from '../Image/classes/LoadingSpinner';
 import Picture from '../Picture/classes/Picture';
 import { load, ready } from '../utils/loader';
@@ -120,16 +120,13 @@ export default {
     pictureDataset () {
       return (new Picture({
         title: this.title,
-        sources: new ImageSourceList({
-          list: [
-            new ImageSource({
-              src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
-              sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
-              media: 'all'
-            })
-          ],
-          options: { retina: true }
-        }),
+        sources: new SourceList([
+          new Source({
+            src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
+            sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
+            media: 'all'
+          })
+        ]),
         loadingSpinner: this.loadingSpinner
       })).toJSON();
     }

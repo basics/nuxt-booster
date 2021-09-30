@@ -7,9 +7,9 @@
 
 <script>
 import BaseImage from 'nuxt-speedkit/components/Image';
-import ImageSourceList from 'nuxt-speedkit/components/Picture/classes/ImageSourceList';
+import SourceList from 'nuxt-speedkit/components/Picture/classes/SourceList';
 import LoadingSpinner from 'nuxt-speedkit/components/Image/classes/LoadingSpinner';
-import PictureSource from 'nuxt-speedkit/components/Source';
+import PictureSource from 'nuxt-speedkit/components/Picture/Source';
 
 const formatPriority = ['avif', 'webp', 'png', 'jpg'];
 
@@ -21,7 +21,7 @@ export default {
 
   props: {
     sources: {
-      type: ImageSourceList,
+      type: SourceList,
       required: true
     },
 
@@ -55,7 +55,10 @@ export default {
     };
   },
 
-  fetchKey: 'picture',
+  fetchKey () {
+    return `picture-${this.sources.key}`;
+  },
+
   async fetch () {
     this.metaSources = await this.sources.getMeta(this.$img);
     this.classNames = this.metaSources.classNames;
@@ -78,7 +81,7 @@ export default {
       if (!this.metaSources) {
         return [];
       }
-      const metaSources = (this.metaSources.length && new ImageSourceList(this.metaSources)) || this.metaSources;
+      const metaSources = (this.metaSources.length && new SourceList(this.metaSources)) || this.metaSources;
       return [{ hid: this.classNames.picture, type: 'text/css', cssText: metaSources.style }];
     }
   },
@@ -94,24 +97,39 @@ export default {
 <style lang="postcss" scoped>
 picture {
   position: relative;
+  box-sizing: border-box;
   display: block;
   width: 100%;
 
   & img {
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
+    box-sizing: border-box;
   }
-}
 
-@supports (aspect-ratio: 1) {
-  picture {
+  &::before {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    content: "";
+  }
+
+  @supports (aspect-ratio: 1) {
     position: unset;
 
     & img {
       position: unset;
       top: unset;
+      right: unset;
+      bottom: unset;
       left: unset;
+    }
+
+    &::before {
+      display: none;
     }
   }
 }

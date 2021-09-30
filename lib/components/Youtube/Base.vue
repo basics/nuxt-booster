@@ -6,7 +6,6 @@
     class="nuxt-speedkit__youtube"
   >
     <slot name="background" />
-
     <iframe
       v-if="src"
       ref="player"
@@ -23,18 +22,20 @@
         <slot v-if="!ready && !loading" name="play" />
       </transition>
     </default-button>
-    <div v-if="ready && muted" class="click-overlay" @click="onUnmute" />
   </div>
 </template>
 
 <script>
 import DefaultPicture from '../Picture';
 import DefaultButton from '../Button';
-import ImageSourceList from '../Picture/classes/ImageSourceList';
-import ImageSource from '../Image/classes/ImageSource';
+import SourceList from '../Picture/classes/SourceList';
+import Source from '../Image/classes/Source';
 import LoadingSpinner from '../Image/classes/LoadingSpinner';
 import Picture from '../Picture/classes/Picture';
-import { load, ready } from './utils/loader';
+import { load } from './utils/loader';
+import Youtube from './classes/Youtube';
+
+const youtube = new Youtube();
 
 export default {
   components: {
@@ -68,12 +69,11 @@ export default {
       videoId: new URL(this.url).searchParams.get('v'),
       script: [],
       player: null,
-      loading: false,
       ready: false,
-      muted: true,
-      landscape: false,
+      loading: false,
       playing: false,
-      ratio: null
+      landscape: false,
+      isTouchDevice: false
     };
   },
 
@@ -87,23 +87,16 @@ export default {
     pictureDataset () {
       return (new Picture({
         title: this.title,
-        sources: new ImageSourceList({
-          list: [
-            new ImageSource({
-              src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
-              sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
-              media: 'all'
-            })
-          ],
-          options: { retina: true }
-        }),
+        sources: new SourceList([
+          new Source({
+            src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
+            sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
+            media: 'all'
+          })
+        ]),
         loadingSpinner: this.loadingSpinner
       })).toJSON();
     }
-  },
-
-  mounted () {
-    this.ratio = window.innerHeight / window.innerWidth;
   },
 
   destroyed () {
@@ -117,18 +110,12 @@ export default {
       this.ready = false;
       this.playing = false;
     },
-    async onInit (e) {
-      this.onBeforeInit && await this.onBeforeInit();
-
+    onInit (e) {
+      this.isTouchDevice = Number(e.pointerType === 'touch');
       this.loading = true;
       // eslint-disable-next-line no-secrets/no-secrets
-      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=1&mute=1&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
+      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=0&mute=${Number(this.isTouchDevice)}&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
       this.script = [load()];
-    },
-
-    onUnmute () {
-      this.player.unMute();
-      this.muted = false;
     },
 
     async onLoad () {
@@ -146,12 +133,12 @@ export default {
               player: this.player
             });
           },
-          onStateChange: e => this.onStateChange(youtube.YT, e.data)
+          onStateChange: e => this.onPlayerStateChange(youtube.api, e.data)
         }
       });
     },
 
-    onStateChange (YT, state) {
+    onPlayerStateChange (YT, state) {
       if (state === YT.PlayerState.PLAYING) {
         this.playing = true;
       } else if (state === YT.PlayerState.ENDED || state === YT.PlayerState.PAUSED) {
@@ -162,49 +149,6 @@ export default {
 
   }
 };
-
-class Youtube {
-  YT;
-  players = new Map();
-
-  play (player) {
-    this.pausePlayers();
-    return player.playVideo();
-  }
-
-  pausePlayers (ignorePlayer) {
-    Array.from(this.players.values())
-      .filter(player => !ignorePlayer || (ignorePlayer && player !== ignorePlayer))
-      .filter(player => player.getPlayerState)
-      .forEach((player) => {
-        player.getPlayerState() === global.YT.PlayerState.PLAYING && player.pauseVideo();
-      });
-  }
-
-  async createPlayer (...args) {
-    this.YT = await ready();
-    const player = new this.YT.Player(...args);
-
-    player.addEventListener('onStateChange', ({ data }) => {
-      if (global.YT.PlayerState.PLAYING === data) {
-        this.pausePlayers(player);
-      }
-    });
-
-    this.add(player);
-    return player;
-  }
-
-  add (player) {
-    this.players.set(player.id, player);
-  }
-
-  remove (player) {
-    this.players.delete(player.id);
-    player.destroy();
-  }
-}
-const youtube = new Youtube();
 
 </script>
 

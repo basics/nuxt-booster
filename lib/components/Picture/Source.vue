@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import ImageSource from '../Image/classes/ImageSource';
+import Source from '../Image/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);
 
 export default {
   props: {
     source: {
-      type: ImageSource,
+      type: Source,
       required: true
     }
   },
@@ -21,7 +21,10 @@ export default {
     };
   },
 
-  fetchKey: 'source',
+  fetchKey () {
+    return `source-${this.source.key}`;
+  },
+
   fetch () {
     this.config = this.$img.getSizes(this.source.src, {
       sizes: this.source.sizes,
@@ -30,10 +33,10 @@ export default {
   },
 
   head () {
-    const imageSource = new ImageSource(this.source);
+    const imageSource = new Source(this.source);
     if (this.config && imageSource.preload) {
       return {
-        link: [imageSource.getPreload(this.config.srcset, this.config.sizes)]
+        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, this.$speedkit.crossorigin)]
       };
     }
     return {};
