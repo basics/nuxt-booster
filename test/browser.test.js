@@ -200,29 +200,31 @@ function tests ({ chromium = false, firefox = false }) {
 
   // #region /tests/vimeo
 
-  it('vimeo ready & play', async () => {
-    const page = await createPage('/vimeo/');
+  // Vimeo test disabled because the video codecs are probably missing on the test VMs.
 
-    // Other Vimeo tests not working in chromium, codec H.264 is unsupport
-    if (chromium) {
-      // start first player
-      await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
-      // wait for player ready
-      await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready');
-    } else {
-      // start first player
-      await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
-      // wait for playing first player playing
-      await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready.playing');
+  // it('vimeo ready & play', async () => {
+  //   const page = await createPage('/vimeo/');
 
-      // // wait for playing first player playing
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-      // // start second player
-      await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
-      await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready:not(.playing)');
-      await page.waitForSelector('#vimeo-1 .nuxt-speedkit__vimeo.ready.playing');
-    }
-  });
+  //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
+  //   if (chromium) {
+  //     // start first player
+  //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+  //     // wait for player ready
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready');
+  //   } else {
+  //     // start first player
+  //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+  //     // wait for playing first player playing
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready.playing');
+
+  //     // // wait for playing first player playing
+  //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+  //     // // start second player
+  //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready:not(.playing)');
+  //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit__vimeo.ready.playing');
+  //   }
+  // });
 
   // #endregion
 
