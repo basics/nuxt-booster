@@ -37,9 +37,9 @@
 
 <script>
 
-import BaseButton from '@/components/atoms/BaseButton';
 import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer';
 import { getStyleDescription } from 'nuxt-speedkit/utils/description';
+import BaseButton from '@/components/atoms/BaseButton';
 
 export default {
   components: {

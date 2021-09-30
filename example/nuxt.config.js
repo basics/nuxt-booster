@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pkg = require('../package.json');
 const isDev = process.env.NODE_ENV === 'development';
+const isTest = process.env.NODE_ENV === 'test';
 
 module.exports = {
   dev: isDev,
@@ -23,7 +24,8 @@ module.exports = {
   },
 
   alias: {
-    [pkg.name]: resolve(__dirname, '../lib')
+    [pkg.name]: resolve(__dirname, '../lib'),
+    vue$: 'vue/dist/vue.runtime.common.js'
   },
 
   build: {
@@ -53,13 +55,18 @@ module.exports = {
 
     postcss: {
       plugins: {
+        'postcss-preset-env': {
+          preserve: true,
+          stage: 0
+        },
         'postcss-nesting': {},
         lost: {
           gutter: '15px',
           flexbox: 'flex',
           cycle: 'auto'
         }
-      }
+      },
+      order: 'cssnanoLast'
     },
 
     extend (config) {
@@ -88,13 +95,35 @@ module.exports = {
     trailingSlash: undefined
   },
 
-  // nuxt/image options https://image.nuxtjs.org/setup#configure
-  image: {},
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      default: 320,
+      xxs: 480,
+      xs: 576,
+      sm: 768,
+      md: 996,
+      lg: 1200,
+      xl: 1367,
+      xxl: 1600,
+      '4k': 1921
+    },
+    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'i.pickadummy.com'],
+    alias: {
+      picsum: 'https://picsum.photos',
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com',
+      pickadummy: 'https://i.pickadummy.com'
+    }
+    // staticFilename: '[publicPath]/images/[name]-[hash][ext]'
+  },
 
   buildModules: [
+    '@nuxt/postcss8',
+    !isTest && '@nuxt/image',
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
-  ],
+  ].filter(v => v),
 
   speedkit: {
     detection: {
@@ -252,10 +281,17 @@ module.exports = {
           ]
         }
       ]
-    }]
+    }],
+
+    loader: {
+      dataUri: '@/assets/spinner/three-circles.svg',
+      size: '100px',
+      backgroundColor: 'grey'
+    }
   },
 
   modules: [
+    '@/modules/svg',
     resolve(__dirname, '..') // nuxt-speedkit
   ],
 

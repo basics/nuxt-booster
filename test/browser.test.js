@@ -3,7 +3,6 @@
 import { join, resolve } from 'path';
 import { createPage, setupTest } from '@nuxt/test-utils';
 
-// eslint-disable-next-line scanjs-rules/call_setTimeout
 jest.setTimeout(20000);
 
 describe('browser (Chrome)', () => {
@@ -17,16 +16,17 @@ describe('browser (Chrome)', () => {
     },
     fixture: '../example',
     config: {
-      fullstatic: true,
-      modern: false,
+      target: 'static',
+      modern: true,
       buildDir,
+      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }
     }
   });
 
-  tests();
+  tests({ chromium: true });
 });
 
 describe('browser (Firefox)', () => {
@@ -40,19 +40,20 @@ describe('browser (Firefox)', () => {
     },
     fixture: '../example',
     config: {
-      fullstatic: true,
-      modern: false,
+      target: 'static',
+      modern: true,
       buildDir,
+      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }
     }
   });
 
-  tests();
+  tests({ firefox: true });
 });
 
-function tests () {
+function tests ({ chromium = false, firefox = false }) {
   // #region /tests/v-font
 
   it('v-font (font assign simple) (element class)', async () => {
@@ -160,10 +161,10 @@ function tests () {
 
   // #endregion
 
-  // #region /tests/speedkit-picture
+  // #region /tests/picture
 
-  it('speedkit-picture', async () => {
-    const page = await createPage('/speedkit-picture/');
+  it('picture', async () => {
+    const page = await createPage('/picture/');
 
     expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]'))).toBeFalsy();
 
@@ -176,10 +177,61 @@ function tests () {
 
   // #endregion
 
-  // #region /tests/speedkit-iframe
+  // #region /tests/youtube
 
-  it('speedkit-iframe', async () => {
-    const page = await createPage('/speedkit-iframe/');
+  it('youtube ready & play', async () => {
+    const page = await createPage('/youtube/');
+
+    // start first player
+    await page.evaluate(() => document.querySelector('#youtube-0 button').click());
+    // wait for playing first player playing
+    await page.waitForSelector('#youtube-0 .nuxt-speedkit__youtube.ready.playing');
+
+    // start second player
+    await page.evaluate(() => document.querySelector('#youtube-1 button').click());
+    // wait for playing first player playing
+    await page.waitForSelector('#youtube-0 .nuxt-speedkit__youtube.ready:not(.playing)');
+
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+    await page.waitForSelector('#youtube-1 .nuxt-speedkit__youtube.ready.playing');
+  });
+
+  // #endregion
+
+  // #region /tests/vimeo
+
+  // Vimeo test disabled because the video codecs are probably missing on the test VMs.
+
+  // it('vimeo ready & play', async () => {
+  //   const page = await createPage('/vimeo/');
+
+  //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
+  //   if (chromium) {
+  //     // start first player
+  //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+  //     // wait for player ready
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready');
+  //   } else {
+  //     // start first player
+  //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+  //     // wait for playing first player playing
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready.playing');
+
+  //     // // wait for playing first player playing
+  //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+  //     // // start second player
+  //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready:not(.playing)');
+  //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit__vimeo.ready.playing');
+  //   }
+  // });
+
+  // #endregion
+
+  // #region /tests/iframe
+
+  it('iframe', async () => {
+    const page = await createPage('/iframe/');
 
     await page.evaluate(() => {
       window.scrollBy(0, window.innerHeight);

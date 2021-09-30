@@ -14,7 +14,7 @@ module.exports = {
   },
   transformIgnorePatterns: [`/node_modules/(?!${['@nuxt/image']})`],
   testPathIgnorePatterns: [
-    // 'generate.test.js',
+    // 'generate.test.js'
     // 'browser.test.js'
   ]
 };

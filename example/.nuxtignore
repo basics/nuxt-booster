@@ -1,4 +1,3 @@
 pages/**/components/**/*.vue
 ####
 # pages/**/*.vue
-# !pages/test.vue

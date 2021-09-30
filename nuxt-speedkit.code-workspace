@@ -9,6 +9,7 @@
   ],
   "settings": {
     "breadcrumbs.enabled": true,
+    "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "phase",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,

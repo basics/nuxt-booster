@@ -2,14 +2,14 @@
   <div>
     <organism-page-header v-bind="pageHeader" />
     <Nuxt />
-    <info-layer critical />
+    <!-- <info-layer critical /> -->
     <GithubCorner />
     <google-lighthouse />
   </div>
 </template>
 
 <script>
-import InfoLayer from '@/components/InfoLayer';
+// import InfoLayer from '@/components/InfoLayer';
 
 export default {
   speedkitComponents: {
@@ -17,7 +17,7 @@ export default {
     OrganismPageHeader: () => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
   },
   components: {
-    InfoLayer
+    // InfoLayer
   },
 
   data () {
@@ -46,37 +46,23 @@ export default {
                   to: '/tests/v-font-media/'
                 },
                 {
-                  title: 'SpeedkitPicture',
-                  to: '/tests/speedkit-picture/'
+                  title: 'Picture',
+                  to: '/tests/picture/'
                 },
                 {
-                  title: 'SpeedkitYoutube',
-                  to: '/tests/speedkit-youtube/'
+                  title: 'Youtube',
+                  to: '/tests/youtube/'
                 },
                 {
-                  title: 'SpeedkitIframe',
-                  to: '/tests/speedkit-iframe/'
-                }
-              ]
-            },
-            {
-              headline: 'Experimental',
-              links: [
-                {
-                  title: 'Home',
-                  to: '/experimental/'
+                  title: 'Vimeo',
+                  to: '/tests/vimeo/'
                 },
                 {
-                  title: 'SpeedkitYoutube',
-                  to: '/experimental/speedkit-youtube/'
-                },
-                {
-                  title: 'SpeedkitPicture (5 Pictures)',
-                  to: '/experimental/speedkit-picture/5/'
+                  title: 'Iframe',
+                  to: '/tests/iframe/'
                 }
               ]
             }
-
           ]
         }
       }
@@ -105,10 +91,13 @@ html {
 }
 
 body {
+  /* width: 375px; */
   min-height: 100vh;
   min-height: stretch;
   margin: 0;
-  font-size: calc(16 / 320 * 100vw);
+  font-size: 16px;
+
+  /* font-size: calc(16 / 320 * 100vw); */
   color: #000;
   background-color: #fff;
 
@@ -117,7 +106,7 @@ body {
     background-color: #333;
   }
 
-  @media (min-width: 375px) {
+  /* @media (min-width: 375px) {
     font-size: calc(16 / 375 * 100vw);
   }
 
@@ -131,7 +120,7 @@ body {
 
   @media (min-width: 992px) {
     font-size: 16px;
-  }
+  } */
 }
 
 </style>
