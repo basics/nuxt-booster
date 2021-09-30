@@ -163,6 +163,7 @@ export default {
 <style lang="postcss" scoped>
 .nuxt-speedkit__vimeo {
   position: relative;
+  width: 100%;
   padding: 0;
   margin: 0;
 

@@ -55,13 +55,18 @@ module.exports = {
 
     postcss: {
       plugins: {
+        'postcss-preset-env': {
+          preserve: true,
+          stage: 0
+        },
         'postcss-nesting': {},
         lost: {
           gutter: '15px',
           flexbox: 'flex',
           cycle: 'auto'
         }
-      }
+      },
+      order: 'cssnanoLast'
     },
 
     extend (config) {
@@ -114,6 +119,7 @@ module.exports = {
   },
 
   buildModules: [
+    '@nuxt/postcss8',
     !isTest && '@nuxt/image',
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'

@@ -22,6 +22,7 @@ describe('generate', () => {
       modern: false,
       buildDir,
       generate: { dir: distDir, crawler: false },
+      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }

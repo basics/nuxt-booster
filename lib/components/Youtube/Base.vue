@@ -155,6 +155,7 @@ export default {
 <style lang="postcss" scoped>
 .nuxt-speedkit__youtube {
   position: relative;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
