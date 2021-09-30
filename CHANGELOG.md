@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.4.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.1...v1.4.0-beta.2) (2021-09-30)
+
+
+### Bug Fixes
+
+* **deps:** set @nuxt/image as dep; fix package.json require ([b5e793f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b5e793f199b53766c90b22912a32349f10ee4422))
+
 # [1.4.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.0...v1.4.0-beta.1) (2021-09-30)
 
 
