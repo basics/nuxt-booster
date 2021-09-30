@@ -1,5 +1,37 @@
 # Project Changelog
 
+# [1.4.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.0...v1.4.0-beta.1) (2021-09-30)
+
+
+### Bug Fixes
+
+* **components:** added refactored picture, image and youtube. added vimeo as new component ([eba4b20](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/eba4b201b419620cc4b8b0b088027097e21237af))
+* **config:** updated eslint version and config ([c5d71ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c5d71cea0bb3ab14c3b79c4c61b9e69430814c36))
+* **dummyimage:** added forgotten alias ([1e1e71b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1e1e71b35216279db851101ebc100db46f4e7655))
+* **hash:** switched to already existing hash function ([16c5a48](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/16c5a48afc1d0db4ffba719657830a7e3fdf69eb))
+* **husky:** removed updated lines -> do not work ([d093aea](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d093aeae4cee161695aa764e5dc52c7ce9eb8a11))
+* **image:** added alt and title prop as attr to template ([6df1bc2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6df1bc2d128ca99c0f5eea87fb1376a6b558b1e9))
+* **image:** alt and title attribute is required ([d69f9b1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d69f9b1aeaa8a1968883db52fb7574fe718287c7))
+* **intersection:** optimized intersection observable ([62e6aa3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/62e6aa342736f7a5f2821cb73809f1b0d45817b5))
+* **observable:** optimized register observable at node directly ([d8da349](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d8da3496ebc63aa71acb5148f55ef3cc43c2f224))
+* **packages:** updated versions + cleanup ([02044a0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/02044a06b588838e6e9b33a02db2c5d68fbefbf8))
+* **picture:** add dynamic preload priorities ([d791d25](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d791d25c503ac90425665ffbb746d046838e48a1))
+* **picture:** fixed default format order ([ebb8b84](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ebb8b84580e79a96eb49a81160b5ec16433412c5))
+* **picture:** renamed priority format var ([38d4b8f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/38d4b8f24b6ef27f822cdb8cae530218166e5e4a))
+* **preload:** add full preload support ([6c93fa0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6c93fa0b0b143081a985819a3e13d66aa780e63d))
+* **speedkit-components:** execute by requestidlecallback ([b4c32ff](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b4c32ff154f08c6cfaf480ce38ec6408834d2a5a))
+* **speedkit-components:** optimized initialization ([64bf091](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/64bf091bfb044b93e21273f711b8963d561eb0db))
+* **test:** added critical flag to picture test implementation ([25677de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/25677ded3a30a10558bc87f5b420099cbc8b34c0))
+* **vue:** use only runtime version in examples ([a7a8b82](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a7a8b8266785b610d8c6a31ae192b3797e9e8149))
+* **workspace.config:** enabled new feature -> colored brackets without performance issues ([77434d8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/77434d82554d85ef906edb9090db4632f9e3717f))
+* **youtube:** changed script attribute order ([e94c693](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e94c69358a5aabd4802408a6d1d88c61977d77be))
+
+
+### Features
+
+* **update:** update test pages; add Youtube/Vimeo Component ([581ee91](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/581ee917243347823da8431434d1a5d5e0b62e96))
+* **v2:** prepare v2 ([852d851](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/852d85126247e449a0f35759635630ac87f6805a))
+
 # [1.3.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.6...v1.3.0) (2021-08-19)
 
 
