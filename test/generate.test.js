@@ -22,7 +22,6 @@ describe('generate', () => {
       modern: false,
       buildDir,
       generate: { dir: distDir, crawler: false },
-      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }
@@ -150,6 +149,17 @@ describe('generate', () => {
     html = await getHTML(join(distDir, 'picture'));
     dom = getDom(html);
     const imageSrcset = dom.querySelector('#criticalContainer picture source:first-child').getAttribute('imageSrcset');
+    expect(dom.querySelector(`link[imageSrcset="${imageSrcset}"][rel="preload"]`)).not.toBeNull();
+  });
+
+  // #endregion
+
+  // #region /tests/image
+
+  it('image', async () => {
+    html = await getHTML(join(distDir, 'picture'));
+    dom = getDom(html);
+    const imageSrcset = dom.querySelector('#criticalContainer img').getAttribute('srcset');
     expect(dom.querySelector(`link[imageSrcset="${imageSrcset}"][rel="preload"]`)).not.toBeNull();
   });
 

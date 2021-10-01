@@ -2,7 +2,6 @@ const { resolve } = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pkg = require('../package.json');
 const isDev = process.env.NODE_ENV === 'development';
-const isTest = process.env.NODE_ENV === 'test';
 
 module.exports = {
   dev: isDev,
@@ -115,14 +114,13 @@ module.exports = {
       vimeo: 'https://i.vimeocdn.com',
       pickadummy: 'https://i.pickadummy.com'
     }
-    // staticFilename: '[publicPath]/images/[name]-[hash][ext]'
   },
 
   buildModules: [
     '@nuxt/postcss8',
-    !isTest && '@nuxt/image',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxt/image'
   ].filter(v => v),
 
   speedkit: {

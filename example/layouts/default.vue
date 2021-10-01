@@ -50,6 +50,10 @@ export default {
                   to: '/tests/picture/'
                 },
                 {
+                  title: 'Image',
+                  to: '/tests/image/'
+                },
+                {
                   title: 'Youtube',
                   to: '/tests/youtube/'
                 },

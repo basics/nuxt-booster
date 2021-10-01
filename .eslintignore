@@ -7,6 +7,5 @@ coverage
 publish
 sw.js
 
-lib/plugin.js
-lib/entry.js
+lib/templates/**/*
 lib/components/SpeedkitLayer.vue

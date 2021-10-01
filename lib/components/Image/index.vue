@@ -57,11 +57,18 @@ export default {
     };
   },
 
-  fetchKey: 'image',
+  fetchKey () {
+    return `image-${this.source && this.source.key}`;
+  },
+
   async fetch () {
     if (this.source) {
-      this.config = this.$img.getSizes(this.source.src, { sizes: this.source.sizes, modifiers: { format: this.source.format, quality: this.source.quality } });
-      this.meta = await this.source.getMeta(this.$img);
+      this.config = this.$img.getSizes(this.source.src, {
+        sizes: this.source.sizes,
+        modifiers: this.source.getModifiers()
+      });
+      const { ssrContext } = this.$nuxt.context;
+      this.meta = await this.source.getMeta(this.config, ssrContext);
       this.className = this.meta.className;
     }
   },
