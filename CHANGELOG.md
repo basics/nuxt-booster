@@ -1,5 +1,17 @@
 # Project Changelog
 
+# [2.0.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.4...v2.0.0-beta.1) (2021-10-01)
+
+
+### chore
+
+* **v2:** version update ([fbaea95](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/fbaea95b703296265a9511f6c3785e50375753c3))
+
+
+### BREAKING CHANGES
+
+* **v2:** version update
+
 # [1.4.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.3...v1.4.0-beta.4) (2021-10-01)
 
 
