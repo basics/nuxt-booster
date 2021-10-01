@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.4.0-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.2...v1.4.0-beta.3) (2021-10-01)
+
+
+### Bug Fixes
+
+* **nuxt-image:** improve nuxt/image integration ([330fde9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/330fde95e83b06fd5af6e63387b696a7f028fe8c))
+
 # [1.4.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.1...v1.4.0-beta.2) (2021-09-30)
 
 
