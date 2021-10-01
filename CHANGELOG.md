@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2021-10-01)
+
+
+### Bug Fixes
+
+* **image:** fix ssrContext src request ([1e6cde9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1e6cde96a7587f7a496d123f882d4c89b99154ee))
+
 # [2.0.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.4...v2.0.0-beta.1) (2021-10-01)
 
 
