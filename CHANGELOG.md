@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.4.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.3...v1.4.0-beta.4) (2021-10-01)
+
+
+### Performance Improvements
+
+* **v2:** version change to v2 ([09c11c9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/09c11c9369db920ddb8d02072e3cdd3a49ca1906))
+
 # [1.4.0-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.4.0-beta.2...v1.4.0-beta.3) (2021-10-01)
 
 
