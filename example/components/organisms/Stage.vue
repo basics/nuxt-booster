@@ -32,7 +32,7 @@ export default {
 
   computed: {
     pictureDataset () {
-      return (new Picture({ ...this.picture })).toJSON();
+      return Picture.create(this.picture).toJSON();
     }
   }
 

@@ -60,7 +60,8 @@ export default {
   },
 
   async fetch () {
-    this.metaSources = await this.sources.getMeta(this.$img);
+    const { ssrContext } = this.$nuxt.context;
+    this.metaSources = await this.sources.getMeta(this.$img, ssrContext);
     this.classNames = this.metaSources.classNames;
   },
 

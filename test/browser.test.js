@@ -19,7 +19,6 @@ describe('browser (Chrome)', () => {
       target: 'static',
       modern: true,
       buildDir,
-      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }
@@ -157,22 +156,6 @@ function tests ({ chromium = false, firefox = false }) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
     await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-font="-719faf96"]');
-  });
-
-  // #endregion
-
-  // #region /tests/picture
-
-  it('picture', async () => {
-    const page = await createPage('/picture/');
-
-    expect(await page.evaluate(() => document.querySelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]'))).toBeFalsy();
-
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-
-    await page.waitForSelector('#lazyContainer :not(noscript) > picture source[type="image/webp"]', {
-      state: 'attached'
-    });
   });
 
   // #endregion

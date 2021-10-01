@@ -13,8 +13,7 @@
 </template>
 
 <script>
-import SourceList from 'nuxt-speedkit/components/Picture/classes/SourceList';
-import Source from 'nuxt-speedkit/components/Image/classes/Source';
+import Picture from 'nuxt-speedkit/components/Picture/classes/Picture';
 
 export default {
   data () {
@@ -26,15 +25,15 @@ export default {
         headline: 'nuxt-speedkit',
         claim: 'powered by Grabarz & Partner',
 
-        picture: {
+        picture: Picture.create({
           title: 'Stage',
-          sources: new SourceList([
+          sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            new Source({ src: '/pickadummy/index.php?imgsize=5760x3240&t=Stage', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' }),
+            { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x3240&t=Stage', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
             // eslint-disable-next-line no-secrets/no-secrets
-            new Source({ src: '/pickadummy/index.php?imgsize=3240x5760&t=Stage', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' })
-          ])
-        }
+            { format: 'jpg', src: '/pickadummy/index.php?imgsize=3240x5760&t=Stage', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+          ]
+        }).toJSON()
       },
 
       textA: {
@@ -43,15 +42,15 @@ export default {
 
       imageTextA: {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
-        picture: {
+        picture: Picture.create({
           title: 'Image Text A',
-          sources: new SourceList([
+          sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            new Source({ src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20A', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' }),
+            { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20A', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
             // eslint-disable-next-line no-secrets/no-secrets
-            new Source({ src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20A', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' })
-          ])
-        }
+            { format: 'jpg', src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20A', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+          ]
+        }).toJSON()
       },
 
       videoYoutube: {
@@ -63,15 +62,15 @@ export default {
       imageTextB: {
         alignRight: true,
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
-        picture: {
+        picture: Picture.create({
           title: 'Image Text B',
-          sources: new SourceList([
+          sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            new Source({ src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20B', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' }),
+            { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20B', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
             // eslint-disable-next-line no-secrets/no-secrets
-            new Source({ src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20B', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' })
-          ])
-        }
+            { format: 'jpg', src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20B', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+          ]
+        }).toJSON()
       },
 
       videoVimeoA: {

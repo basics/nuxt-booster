@@ -2,8 +2,7 @@ module.exports = {
   preset: '@nuxt/test-utils',
   collectCoverageFrom: [
     'lib/**/*.js',
-    '!lib/plugin.js',
-    '!lib/entry.js',
+    '!lib/templates/**/*.js',
     '!lib/components/SpeedkitLayer.vue'
   ],
   moduleNameMapper: {
