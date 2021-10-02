@@ -72,18 +72,18 @@ jobs:
       - name: code checkout
         uses: actions/checkout@v2
 
-      - name: cache docker
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: |
-            ~/var/lib/docker/
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-sitespeedio/sitespeed.io:20.0.0 }}
+      # - name: cache docker
+      #   uses: actions/cache@v2
+      #   id: cache
+      #   with:
+      #     path: |
+      #       ~/var/lib/docker/
+      #     key: ${{ matrix.os }}-node-v${{ matrix.node }}-sitespeedio/sitespeed.io:20.0.0 }}
 
 
 
       - name: docker pull
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         run: |
           docker pull sitespeedio/sitespeed.io:20.0.0
 
