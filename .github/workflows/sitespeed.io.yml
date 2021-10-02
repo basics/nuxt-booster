@@ -74,11 +74,12 @@ jobs:
 
       - name: start throttle 3g
         run: |
+          docker pull sitespeedio/sitespeed.io:20.0.0
           npm install @sitespeed.io/throttle -g
           throttle 3g
 
       - name: running sitespeed.io container with arguments and optional Docker options
-        run: docker run --network=3g -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 http://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 1
+        run: docker run --network=3g -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 http://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 1 -b chrome --mobile
 
       - name: stop throttle 3g
         run: |
