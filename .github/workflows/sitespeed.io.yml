@@ -45,7 +45,7 @@ jobs:
 
 
   run-sitespeed:
-    # needs: baqend
+    needs: build
     runs-on: ubuntu-latest
     name: running sitespeed.io
 
