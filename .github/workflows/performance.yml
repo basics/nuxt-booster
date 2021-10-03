@@ -2,7 +2,7 @@ name: Performance
 on:
   push:
     branches:
-      - feature/performance-report
+      - beta
 
 env:
   WEBSITE_HOST: https://pagespeed.app.baqend.com/nuxt-speedkit/
