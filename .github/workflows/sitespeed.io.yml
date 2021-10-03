@@ -111,4 +111,4 @@ jobs:
         run: |
           npx baqend deploy -f /sitespeed.io/report -b www/nuxt-speedkit/sitespeed pagespeed
         env:
-          BAQEND_TOKEN: secrets.BAQEND_TOKEN
+          BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
