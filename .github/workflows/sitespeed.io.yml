@@ -109,5 +109,5 @@ jobs:
 
       - name: upload report
         run: |
-          cp -r /sitespeed-report/pagespeed.app.baqend.com/*?-*?-*?-*?-*?-*?/* ./report
-          npx baqend deploy -f /report -b www/nuxt-speedkit/sitespeed pagespeed
+          cp -r sitespeed-report/pagespeed.app.baqend.com/*?-*?-*?-*?-*?-*?/* report
+          npx baqend deploy -f report -b www/nuxt-speedkit/sitespeed pagespeed
