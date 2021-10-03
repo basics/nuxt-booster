@@ -107,13 +107,8 @@ jobs:
           npm install @sitespeed.io/throttle -g
           throttle stop
 
-      - name: test
-        run: |
-          ls $(pwd)
-          ls $(pwd)/report
-
       - name: upload report
         run: |
-          npx baqend deploy -f "$(pwd)/report" -b www/nuxt-speedkit/sitespeed pagespeed
+          npx baqend deploy -f report -b www/nuxt-speedkit/sitespeed pagespeed
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
