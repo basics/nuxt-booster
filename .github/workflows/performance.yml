@@ -48,7 +48,7 @@ jobs:
 
 
   run-sitespeed:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     name: running sitespeed.io
 
@@ -85,7 +85,7 @@ jobs:
           path: sitespeed-report
 
   run-lighthouse:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     name: Running lighthouse ci
 
