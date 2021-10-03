@@ -124,9 +124,8 @@ jobs:
           path: reports/lighthouse
       - name: rename lighthouse reports
         run: |
-          ls -lha reports/lighthouse
-          mv reports/lighthouse/*.html reports/lighthouse/index.html
-          mv reports/lighthouse/*.json reports/lighthouse/index.json
+          mv reports/lighthouse/lhr-*.html reports/lighthouse/index.html
+          mv reports/lighthouse/lhr-*.json reports/lighthouse/index.json
       - name: Upload to baqend
         run: |
           npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
