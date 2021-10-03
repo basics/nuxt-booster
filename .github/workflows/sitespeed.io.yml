@@ -114,6 +114,6 @@ jobs:
 
       - name: upload report
         run: |
-          npx baqend deploy -f $(pwd)/report -b www/nuxt-speedkit/sitespeed pagespeed
+          npx baqend deploy -f "$(pwd)/report" -b www/nuxt-speedkit/sitespeed pagespeed
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
