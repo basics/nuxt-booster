@@ -68,6 +68,12 @@ jobs:
     # needs: baqend
     runs-on: ubuntu-latest
     name: running sitespeed.io
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
     steps:
       - name: code checkout
         uses: actions/checkout@v2
