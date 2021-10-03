@@ -75,43 +75,45 @@ jobs:
         node: [12]
 
     steps:
+      - name: code checkout
+        uses: actions/checkout@v2
+
+      - name: cache docker
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            /var/lib/docker
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-sitespeedio/sitespeed.io:20.0.0-test1 }}
+
+      - name: docker pull
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          docker pull sitespeedio/sitespeed.io:20.0.0
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: start throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle 3g
+
+      - name: running sitespeed.io container with arguments and optional Docker options
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 1 -b chrome --mobile --summary-detail --outputFolder report
+
+      - name: stop throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle stop
+
       - name: test
         run: |
-          echo $(pwd)/report
-      # - name: code checkout
-      #   uses: actions/checkout@v2
+          ls $(pwd)
+          ls $(pwd)/report
 
-      # - name: cache docker
-      #   uses: actions/cache@v2
-      #   id: cache
-      #   with:
-      #     path: |
-      #       /var/lib/docker
-      #     key: ${{ matrix.os }}-node-v${{ matrix.node }}-sitespeedio/sitespeed.io:20.0.0-test1 }}
-
-      # - name: docker pull
-      #   if: steps.cache.outputs.cache-hit != 'true'
-      #   run: |
-      #     docker pull sitespeedio/sitespeed.io:20.0.0
-
-      # - name: Checkout Repo
-      #   uses: actions/checkout@v2
-
-      # - name: start throttle 3g
-      #   run: |
-      #     npm install @sitespeed.io/throttle -g
-      #     throttle 3g
-
-      # - name: running sitespeed.io container with arguments and optional Docker options
-      #   run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 1 -b chrome --mobile --summary-detail --outputFolder report
-
-      # - name: stop throttle 3g
-      #   run: |
-      #     npm install @sitespeed.io/throttle -g
-      #     throttle stop
-
-      # - name: upload report
-      #   run: |
-      #     npx baqend deploy -f ${{pwd}}/report -b www/nuxt-speedkit/sitespeed pagespeed
-      #   env:
-      #     BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
+      - name: upload report
+        run: |
+          npx baqend deploy -f $(pwd)/report -b www/nuxt-speedkit/sitespeed pagespeed
+        env:
+          BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
