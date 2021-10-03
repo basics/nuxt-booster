@@ -122,7 +122,7 @@ jobs:
           path: reports/lighthouse
       - name: Upload to baqend
         run: |
-          npx baqend@2 deploy -f report -b www/nuxt-speedkit/reports pagespeed
+          npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
