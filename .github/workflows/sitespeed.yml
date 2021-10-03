@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload
         run: |
-          npx baqend@2 deploy -f public -b www/nuxt-speedkit pagespeed
+          npx baqend@2 deploy -f dist -b www/nuxt-speedkit pagespeed
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
