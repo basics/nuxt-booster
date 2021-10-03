@@ -47,42 +47,42 @@ jobs:
   #         BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
 
-  run-sitespeed:
-    # needs: build
-    runs-on: ubuntu-latest
-    name: running sitespeed.io
+  # run-sitespeed:
+  #   # needs: build
+  #   runs-on: ubuntu-latest
+  #   name: Running sitespeed.io
 
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest]
+  #       node: [14]
 
-    steps:
-      - name: docker pull
-        run: |
-          docker pull sitespeedio/sitespeed.io:20.0.0
+  #   steps:
+  #     - name: docker pull
+  #       run: |
+  #         docker pull sitespeedio/sitespeed.io:20.0.0
 
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Start throttle 3g
-        run: |
-          npm install @sitespeed.io/throttle -g
-          throttle 3g
+  #     - name: Start throttle 3g
+  #       run: |
+  #         npm install @sitespeed.io/throttle -g
+  #         throttle 3g
 
-      - name: running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
+  #     - name: Running sitespeed.io container with arguments and optional Docker options
+  #       run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
 
-      - name: Stop throttle 3g
-        run: |
-          npm install @sitespeed.io/throttle -g
-          throttle stop
+  #     - name: Stop throttle 3g
+  #       run: |
+  #         npm install @sitespeed.io/throttle -g
+  #         throttle stop
 
-      - name: Archive Sitespeed Report
-        uses: actions/upload-artifact@master
-        with:
-          name: sitespeed-report
-          path: sitespeed-report
+  #     - name: Archive Sitespeed Report
+  #       uses: actions/upload-artifact@master
+  #       with:
+  #         name: sitespeed-report
+  #         path: sitespeed-report
 
   run-lighthouse:
     # needs: build
@@ -107,7 +107,8 @@ jobs:
           runs: 3
 
   upload-reports:
-    needs: [run-sitespeed, run-lighthouse]
+    # needs: [run-sitespeed, run-lighthouse]
+    needs: [run-lighthouse]
     runs-on: ubuntu-latest
     name: Upload reports
     steps:
@@ -123,8 +124,8 @@ jobs:
           path: reports/lighthouse
       - name: rename lighthouse reports
         run: |
-          mv ./reports/lighthouse/*?-*?.html ./reports/lighthouse/index.html
-          mv ./reports/lighthouse/*?-*?.json ./reports/lighthouse/index.json
+          mv reports/lighthouse/*.html reports/lighthouse/index.html
+          mv reports/lighthouse/*.json reports/lighthouse/index.json
       - name: Upload to baqend
         run: |
           npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
