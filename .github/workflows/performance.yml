@@ -104,7 +104,7 @@ jobs:
           artifactName: lighthouse-report
           budgetPath: ./.github/budgets/lighthouse.json
           uploadArtifacts: true
-          runs: 3
+          runs: 1
 
   upload-reports:
     # needs: [run-sitespeed, run-lighthouse]
@@ -112,11 +112,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Upload reports
     steps:
-      - name: Download Artifact (sitespeed-report)
-        uses: actions/download-artifact@master
-        with:
-          name: sitespeed-report
-          path: reports/sitespeed
+      # - name: Download Artifact (sitespeed-report)
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: sitespeed-report
+      #     path: reports/sitespeed
       - name: Download Artifact (lighthouse-report)
         uses: actions/download-artifact@master
         with:
