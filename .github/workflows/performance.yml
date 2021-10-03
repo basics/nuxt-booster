@@ -1,8 +1,8 @@
-name: sitespeed.io
+name: performance
 on:
   push:
     branches:
-      - beta
+      - feature/performance-report
 jobs:
   build:
     name: Build
@@ -19,7 +19,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: cache node_modules
+      - name: Cache node_modules
         uses: actions/cache@v2
         id: cache
         with:
@@ -65,22 +65,64 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: start throttle 3g
+      - name: Start throttle 3g
         run: |
           npm install @sitespeed.io/throttle -g
           throttle 3g
 
       - name: running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 3 -b chrome --mobile --summary-detail --outputFolder report
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
 
-      - name: stop throttle 3g
+      - name: Stop throttle 3g
         run: |
           npm install @sitespeed.io/throttle -g
           throttle stop
 
-      - name: upload report
+      - name: Archive Sitespeed Report
+        uses: actions/upload-artifact@master
+        with:
+          name: sitespeed-report
+          path: sitespeed-report
+
+  run-lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Running lighthouse ci
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          urls: |
+            https://pagespeed.app.baqend.com/nuxt-speedkit/
+          artifactName: lighthouse-report
+          budgetPath: ./.github/budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
+
+  upload-reports:
+    needs: [run-sitespeed, run-lighthouse]
+    runs-on: ubuntu-latest
+    name: Upload reports
+    steps:
+      - name: Download Artifact (sitespeed-report)
+        uses: actions/download-artifact@master
+        with:
+          name: sitespeed-report
+          path: reports/sitespeed
+      - name: Download Artifact (lighthouse-report)
+        uses: actions/download-artifact@master
+        with:
+          name: lighthouse-report
+          path: reports/lighthouse
+      - name: Upload to baqend
         run: |
-          npx baqend@2 deploy -f report -b www/nuxt-speedkit/sitespeed pagespeed
+          npx baqend@2 deploy -f report -b www/nuxt-speedkit/reports pagespeed
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
