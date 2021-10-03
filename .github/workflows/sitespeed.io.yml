@@ -78,7 +78,6 @@ jobs:
       - name: test
         run: |
           echo $(pwd)/report
-          echo ${{pwd}}/report
       # - name: code checkout
       #   uses: actions/checkout@v2
 
