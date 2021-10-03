@@ -110,3 +110,5 @@ jobs:
       - name: upload report
         run: |
           npx baqend deploy -f /sitespeed.io/report -b www/nuxt-speedkit/sitespeed pagespeed
+        env:
+          BAQEND_TOKEN: secrets.BAQEND_TOKEN
