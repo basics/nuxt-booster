@@ -104,7 +104,7 @@ jobs:
           artifactName: lighthouse-report
           budgetPath: ./.github/budgets/lighthouse.json
           uploadArtifacts: true
-          runs: 1
+          runs: 3
 
   upload-reports:
     # needs: [run-sitespeed, run-lighthouse]
@@ -124,6 +124,7 @@ jobs:
           path: reports/lighthouse
       - name: rename lighthouse reports
         run: |
+          ls -lha reports/lighthouse
           mv reports/lighthouse/lhr-*.html reports/lighthouse/index.html
           mv reports/lighthouse/lhr-*.json reports/lighthouse/index.json
       - name: Upload to baqend
