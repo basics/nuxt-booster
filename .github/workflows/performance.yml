@@ -102,8 +102,9 @@ jobs:
           urls: |
             https://pagespeed.app.baqend.com/nuxt-speedkit/
           artifactName: lighthouse-report
-          budgetPath: ./.github/budgets/lighthouse.json # test performance budgets
-          uploadArtifacts: true # save results as an action artifacts
+          budgetPath: ./.github/budgets/lighthouse.json
+          uploadArtifacts: true
+          runs: 3
 
   upload-reports:
     needs: [run-sitespeed, run-lighthouse]
@@ -122,8 +123,8 @@ jobs:
           path: reports/lighthouse
       - name: rename lighthouse reports
         run: |
-          cp -r reports/lighthouse/*?-*?.html index.html
-          cp -r reports/lighthouse/*?-*?.json index.json
+          cp -r reports/lighthouse/*?-*?.html reports/lighthouse/index.html
+          cp -r reports/lighthouse/*?-*?.json reports/lighthouse/index.json
       - name: Upload to baqend
         run: |
           npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
