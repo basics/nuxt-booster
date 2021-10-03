@@ -28,7 +28,7 @@ export default {
       image: Image.create({
         title: 'Critical - Image',
         // eslint-disable-next-line no-secrets/no-secrets
-        source: { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x5760&t=Critical', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+        source: { format: 'jpg', src: '/img/pickadummy/critical.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
       }).toJSON()
 
     };
