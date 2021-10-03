@@ -46,6 +46,7 @@ jobs:
   # baqend:
   #   needs: build
   #   runs-on: ${{ matrix.os }}
+  #   name: upload build
 
   #   strategy:
   #     matrix:
@@ -61,7 +62,9 @@ jobs:
 
   #     - name: Build
   #       run: |
-  #         npx baqend deploy -f /public -b www/nuxt-speedkit pagespeed
+  #         npx baqend@2 deploy -f public -b www/nuxt-speedkit pagespeed
+  #       env:
+  #         BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
 
   run-sitespeed:
@@ -72,12 +75,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12]
+        node: [14]
 
     steps:
-      - name: code checkout
-        uses: actions/checkout@v2
-
       - name: cache docker
         uses: actions/cache@v2
         id: cache
