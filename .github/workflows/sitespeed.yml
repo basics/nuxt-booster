@@ -2,7 +2,7 @@ name: sitespeed.io
 on:
   push:
     branches:
-      - feature/sitespeed
+      - beta
 jobs:
   build:
     name: Build
@@ -71,7 +71,7 @@ jobs:
           throttle 3g
 
       - name: running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 1 -b chrome --mobile --summary-detail --outputFolder report
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 3 -b chrome --mobile --summary-detail --outputFolder report
 
       - name: stop throttle 3g
         run: |
