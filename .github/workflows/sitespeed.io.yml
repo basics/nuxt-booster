@@ -85,20 +85,21 @@ jobs:
       - name: docker pull
         # if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          docker pull sitespeedio/sitespeed.io:20.0.0
+          docker info
+      #     docker pull sitespeedio/sitespeed.io:20.0.0
 
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+      # - name: Checkout Repo
+      #   uses: actions/checkout@v2
 
-      - name: start throttle 3g
-        run: |
-          npm install @sitespeed.io/throttle -g
-          throttle 3g
+      # - name: start throttle 3g
+      #   run: |
+      #     npm install @sitespeed.io/throttle -g
+      #     throttle 3g
 
-      - name: running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 3 -b chrome --mobile --summary-detail
+      # - name: running sitespeed.io container with arguments and optional Docker options
+      #   run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 3 -b chrome --mobile --summary-detail
 
-      - name: stop throttle 3g
-        run: |
-          npm install @sitespeed.io/throttle -g
-          throttle stop
+      # - name: stop throttle 3g
+      #   run: |
+      #     npm install @sitespeed.io/throttle -g
+      #     throttle stop
