@@ -71,7 +71,7 @@ jobs:
           throttle 3g
 
       - name: running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath $(pwd)/.github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
 
       - name: Stop throttle 3g
         run: |
@@ -120,6 +120,10 @@ jobs:
         with:
           name: lighthouse-report
           path: reports/lighthouse
+      - name: rename lighthouse reports
+        run: |
+          cp -r reports/lighthouse/*?-*?.html index.html
+          cp -r reports/lighthouse/*?-*?.json index.json
       - name: Upload to baqend
         run: |
           npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
