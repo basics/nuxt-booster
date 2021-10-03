@@ -1,11 +1,9 @@
 {
   "budget": {
-    "lighthouse": {
-      "performance": 100,
-      "accessibility": 100,
-      "best-practices": 100,
-      "seo": 100,
-      "pwa": 100
+    "score": {
+      "bestpractice": 100,
+      "privacy": 100,
+      "performance": 100
     }
   }
 }
