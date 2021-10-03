@@ -83,7 +83,7 @@ jobs:
         id: cache
         with:
           path: |
-            /var/lib/docker
+            ~/var/lib/docker
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-sitespeedio/sitespeed.io:20.0.0 }}
 
       - name: docker pull
