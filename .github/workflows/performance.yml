@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - feature/performance-report
+
+env:
+  WEBSITE_HOST: https://pagespeed.app.baqend.com/nuxt-speedkit/
+  BASE: /nuxt-speedkit/
+
 jobs:
   build:
     name: Build
@@ -33,7 +38,7 @@ jobs:
         run: npm ci
       - name: Build
         run: |
-          npm run generate --build-analyze --base=/nuxt-speedkit/ --website-host=https://pagespeed.app.baqend.com/nuxt-speedkit/
+          npm run generate --build-analyze --base=${{env.BASE}} --website-host=${{env.WEBSITE_HOST}}
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
@@ -71,7 +76,7 @@ jobs:
           throttle 3g
 
       - name: Running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 ${{env.WEBSITE_HOST}} --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
 
       - name: Stop throttle 3g
         run: |
@@ -100,7 +105,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v8
         with:
           urls: |
-            https://pagespeed.app.baqend.com/nuxt-speedkit/
+            ${{env.WEBSITE_HOST}}
           artifactName: lighthouse-report
           budgetPath: ./.github/budgets/lighthouse.json
           uploadArtifacts: true
