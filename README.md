@@ -96,7 +96,6 @@ or look here
 - [sitespeed.io (report)](http://pagespeed.app.baqend.com/nuxt-speedkit/reports/sitespeed)
 - [lighthouse (report)](http://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse)
 
-
 ## TODOs
 
 - add detector for https://github.com/nuxtlabs/vue-telescope-analyzer
