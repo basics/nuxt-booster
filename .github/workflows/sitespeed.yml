@@ -1,0 +1,87 @@
+name: sitespeed.io
+on:
+  push:
+    branches:
+      - beta
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: cache node_modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Build
+        run: |
+          npm run generate --build-analyze --base=/nuxt-speedkit/ --website-host=https://pagespeed.app.baqend.com/nuxt-speedkit/
+          mkdir dist/reports dist/reports/webpack
+          cp -R .reports/webpack/* dist/reports/webpack
+          touch dist/.nojekyll
+        env:
+          DIST_PATH: dist
+
+      - name: Upload
+        run: |
+          npx baqend@2 deploy -f dist -b www/nuxt-speedkit pagespeed
+        env:
+          BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
+
+
+  run-sitespeed:
+    needs: build
+    runs-on: ubuntu-latest
+    name: running sitespeed.io
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: docker pull
+        run: |
+          docker pull sitespeedio/sitespeed.io:20.0.0
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: start throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle 3g
+
+      - name: running sitespeed.io container with arguments and optional Docker options
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://pagespeed.app.baqend.com/nuxt-speedkit/ --budget.configPath .github/budget.json -n 3 -b chrome --mobile --summary-detail --outputFolder report
+
+      - name: stop throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle stop
+
+      - name: upload report
+        run: |
+          npx baqend@2 deploy -f report -b www/nuxt-speedkit/sitespeed pagespeed
+        env:
+          BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
+
+
