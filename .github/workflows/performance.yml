@@ -123,8 +123,8 @@ jobs:
           path: reports/lighthouse
       - name: rename lighthouse reports
         run: |
-          cp -r ./reports/lighthouse/*?-*?.html ./reports/lighthouse/index.html
-          cp -r ./reports/lighthouse/*?-*?.json ./reports/lighthouse/index.json
+          mv ./reports/lighthouse/*?-*?.html ./reports/lighthouse/index.html
+          mv ./reports/lighthouse/*?-*?.json ./reports/lighthouse/index.json
       - name: Upload to baqend
         run: |
           npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
