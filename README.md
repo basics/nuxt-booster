@@ -89,6 +89,15 @@ or look here
 - [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/modern.html)
 - [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/server.html)
 
+
+## Performance
+
+- [Preview](https://pagespeed.app.baqend.com/nuxt-speedkit/)
+- [sitespeed.io (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/sitespeed)
+- [lighthouse run #1 (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse/index-1.html)
+- [lighthouse run #2 (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse/index-2.html)
+- [lighthouse run #3 (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse/index-3.html)
+
 ## TODOs
 
 - add detector for https://github.com/nuxtlabs/vue-telescope-analyzer

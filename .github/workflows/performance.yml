@@ -1,0 +1,152 @@
+name: Performance
+on:
+  push:
+    branches:
+      - beta
+
+env:
+  WEBSITE_HOST: https://pagespeed.app.baqend.com/nuxt-speedkit/
+  BASE: /nuxt-speedkit/
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Build
+        run: |
+          npm run generate --build-analyze --base=${{env.BASE}} --website-host=${{env.WEBSITE_HOST}}
+          mkdir dist/reports dist/reports/webpack
+          cp -R .reports/webpack/* dist/reports/webpack
+          touch dist/.nojekyll
+        env:
+          DIST_PATH: dist
+
+      - name: Upload
+        run: |
+          npx baqend@2 deploy -f dist -b www/nuxt-speedkit pagespeed
+        env:
+          BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
+
+
+  run-sitespeed:
+    needs: build
+    runs-on: ${{ matrix.os }}
+    name: Running sitespeed.io
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: docker pull
+        run: |
+          docker pull sitespeedio/sitespeed.io:20.0.0
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Start throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle 3g
+
+      - name: Running sitespeed.io container with arguments and optional Docker options
+        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 ${{env.WEBSITE_HOST}} --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
+
+      - name: Stop throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle stop
+
+      - name: Archive Sitespeed Report
+        uses: actions/upload-artifact@master
+        with:
+          name: sitespeed-report
+          path: sitespeed-report
+
+  run-lighthouse:
+    needs: build
+    runs-on: ${{ matrix.os }}
+    name: Running lighthouse ci
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          urls: |
+            ${{env.WEBSITE_HOST}}
+          artifactName: lighthouse-report
+          budgetPath: ./.github/budgets/lighthouse.json
+          uploadArtifacts: true
+          runs: 3
+
+  upload-reports:
+    needs: [run-sitespeed, run-lighthouse]
+    runs-on: ${{ matrix.os }}
+    name: Upload reports
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+    steps:
+      - name: Download Artifact (sitespeed-report)
+        uses: actions/download-artifact@master
+        with:
+          name: sitespeed-report
+          path: reports/sitespeed
+      - name: Download Artifact (lighthouse-report)
+        uses: actions/download-artifact@master
+        with:
+          name: lighthouse-report
+          path: reports/lighthouse
+      - name: rename lighthouse reports
+        run: |
+          i=1
+          for file in reports/lighthouse/lhr-*.html; do
+            mv "$file" "reports/lighthouse/index-$i.html"
+            let i=i+1
+          done
+          i=1
+          for file in reports/lighthouse/lhr-*.json; do
+            mv "$file" "reports/lighthouse/index-$i.json"
+            let i=i+1
+          done
+      - name: Upload to baqend
+        run: |
+          npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
+        env:
+          BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
+
+

@@ -29,9 +29,9 @@ export default {
           title: 'Stage',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x3240&t=Stage', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
+            { src: '/img/pickadummy/stage-landscape.png', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
             // eslint-disable-next-line no-secrets/no-secrets
-            { format: 'jpg', src: '/pickadummy/index.php?imgsize=3240x5760&t=Stage', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+            { src: '/img/pickadummy/stage-portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
           ]
         }).toJSON()
       },
@@ -46,9 +46,7 @@ export default {
           title: 'Image Text A',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20A', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
-            // eslint-disable-next-line no-secrets/no-secrets
-            { format: 'jpg', src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20A', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+            { src: '/img/pickadummy/image-text-a.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
           ]
         }).toJSON()
       },
@@ -66,9 +64,7 @@ export default {
           title: 'Image Text B',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            { format: 'jpg', src: '/pickadummy/index.php?imgsize=5760x3240&t=Image%20Text%20B', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
-            // eslint-disable-next-line no-secrets/no-secrets
-            { format: 'jpg', src: '/pickadummy/index.php?imgsize=3240x5760&t=Image%20Text%20B', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+            { src: '/img/pickadummy/image-text-b.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
           ]
         }).toJSON()
       },
