@@ -68,7 +68,7 @@ export default {
         modifiers: this.source.getModifiers()
       });
       const { ssrContext } = this.$nuxt.context;
-      this.meta = await this.source.getMeta(this.config, ssrContext);
+      this.meta = await this.source.getMeta(this.config.src, ssrContext?.nuxt?._img || {});
       this.className = this.meta.className;
     }
   },
