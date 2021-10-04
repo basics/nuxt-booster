@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2021-10-04)
+
+
+### Bug Fixes
+
+* **readme:** update readme ([99feecd](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/99feecd0b8ae26256a5b075c45cb970e1b8ac002))
+
 # [2.0.0-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2021-10-04)
 
 
