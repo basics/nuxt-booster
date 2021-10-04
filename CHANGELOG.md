@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2021-10-04)
+
+
+### Bug Fixes
+
+* **style:** fix video player styles ([20de67a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/20de67a885b7cbe7c0826e0e442912ac3e5005aa))
+
 # [2.0.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2021-10-04)
 
 
