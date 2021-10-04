@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2021-10-04)
+
+
+### Bug Fixes
+
+* **naming:** renaming components for auto import ([a7fa314](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a7fa3140607f98d6239df553497ba8f427bda361))
+
 # [2.0.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2021-10-01)
 
 
