@@ -5,7 +5,7 @@
     :sizes="sizes"
     :width="width"
     :height="height"
-    class="image"
+    class="nuxt-speedkit__image"
     :class="classNames"
     :title="title"
     :alt="alt || title"
@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import Source from './classes/Source';
-import LoadingSpinner from './classes/LoadingSpinner';
+import Source from 'nuxt-speedkit/components/SpeedkitImage/classes/Source';
+import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 
 export default {
   inheritAttrs: false,
@@ -153,7 +153,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-img {
+.nuxt-speedkit__image {
   content-visibility: auto;
   display: block;
   width: 100%;

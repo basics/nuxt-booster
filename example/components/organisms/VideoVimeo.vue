@@ -11,7 +11,7 @@
 
 <script>
 
-import DefaultVimeo from 'nuxt-speedkit/components/Vimeo';
+import DefaultVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
 
 export default {
   components: { DefaultVimeo },

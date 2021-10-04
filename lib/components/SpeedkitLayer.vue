@@ -1,7 +1,7 @@
 <template>
   <only-ssr>
     <div id="nuxt-speedkit__speedkit-layer">
-      <input name="close" id="nuxt-speedkit__speedkit-layer__close" type="checkbox">
+      <input id="nuxt-speedkit__speedkit-layer__close" name="close" type="checkbox">
       <div id="nuxt-speedkit__speedkit-layer__content">
         <slot>
           <div>
@@ -44,7 +44,6 @@
             <button id="nuxt-speedkit__button__init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
               Apply with all Features
             </button>
-
           </div>
         </slot>
       </div>
@@ -54,9 +53,9 @@
 
 <script>
 import { getStyleDescription } from 'nuxt-speedkit/utils/description';
-import OnlySsr from './abstracts/OnlySsr'
+import OnlySsr from 'nuxt-speedkit/components/abstracts/OnlySsr';
+
 export default {
-  name: 'SpeedkitLayer',
 
   components: {
     OnlySsr
@@ -80,7 +79,7 @@ export default {
     };
   }
 
-}
+};
 </script>
 
 <style>

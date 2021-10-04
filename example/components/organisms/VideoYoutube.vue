@@ -11,7 +11,7 @@
 
 <script>
 
-import DefaultYoutube from 'nuxt-speedkit/components/Youtube';
+import DefaultYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
 
 export default {
   components: { DefaultYoutube },

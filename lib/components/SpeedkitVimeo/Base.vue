@@ -1,6 +1,5 @@
 <template>
   <div
-    class="nuxt-speedkit__vimeo"
     :title="title"
     :src="src"
     :class="{ready, playing}"
@@ -25,10 +24,10 @@
 
 <script>
 import { toHashHex } from 'nuxt-speedkit/utils/string';
-import SpeedkitPicture from '../Picture';
+import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 import DefaultButton from '../Button';
-import LoadingSpinner from '../Image/classes/LoadingSpinner';
-import Picture from '../Picture/classes/Picture';
 import { load } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 
@@ -158,7 +157,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.nuxt-speedkit__vimeo {
+div {
   position: relative;
   width: 100%;
   padding: 0;

@@ -16,7 +16,7 @@
 
 <script>
 
-import ComponentObserver from './abstracts/ComponentObserver';
+import ComponentObserver from 'nuxt-speedkit/components/abstracts/ComponentObserver';
 
 export default {
 

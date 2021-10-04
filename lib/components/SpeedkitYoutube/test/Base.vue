@@ -1,58 +1,90 @@
 <template>
-  <div
+  <component
+    :is="design"
     :title="title"
     :class="{ready, playing}"
     :show="ready"
-    class="nuxt-speedkit__youtube"
+    class="youtube"
   >
     <slot name="background" />
-    <iframe
-      v-if="src"
-      ref="player"
-      class="player"
-      :src="src"
-      frameborder="0"
-      allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      @load="onLoad"
-    />
+    <div class="player-wrapper">
+      <div
+        class="player"
+        :style="playerStyle"
+      >
+        <div>
+          <div>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABFJREFUeNpiYBgFo4AKACDAAAJJAAHkYY/SAAAAAElFTkSuQmCC">
+            <!-- <svg width="16" height="9" viewbox="0 0 16 9" /> -->
+            <iframe
+              v-if="src"
+              ref="player"
+              :src="src"
+              frameborder="0"
+              allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              @load="onLoad"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <default-button @click="onInit">
-      <speedkit-picture class="poster" v-bind="pictureDataset" />
+      <default-picture class="poster" v-bind="pictureDataset" />
       <slot v-if="loading" name="loading-spinner" />
       <transition name="base-fade">
         <slot v-if="!ready && !loading" name="play" />
       </transition>
     </default-button>
-  </div>
+    <div v-if="ready && muted" class="click-overlay" @click="onUnmute" />
+  </component>
 </template>
 
 <script>
-import SpeedkitPicture from '../Picture';
-import DefaultButton from '../Button';
-import LoadingSpinner from '../Image/classes/LoadingSpinner';
-import Picture from '../Picture/classes/Picture';
-import { load } from './utils/loader';
-import Youtube from './classes/Youtube';
-
-const youtube = new Youtube();
+import DefaultPicture from '../picture';
+import DefaultButton from '../button';
+import LoadingSpinner from '../SpeedkitImage/classes/LoadingSpinner';
+import Picture from '../SpeedkitPicture/classes/Picture';
+import { load, ready } from '../utils/loader';
 
 export default {
   components: {
-    SpeedkitPicture,
+    DefaultPicture,
     DefaultButton
   },
 
   inheritAttrs: false,
 
   props: {
+    design: {
+      type: [String, Function],
+      default () {
+        return 'div';
+      }
+    },
+
+    onBeforeInit: {
+      type: Function,
+      required: false,
+      default: null
+    },
 
     url: {
       type: String,
       required: true
     },
 
+    playerStyle: {
+      type: Array,
+      default () {
+        return [];
+      }
+    },
+
     title: {
       type: String,
-      required: true
+      default () {
+        return 'YouTube video player';
+      }
     },
 
     loadingSpinner: {
@@ -67,11 +99,12 @@ export default {
       videoId: new URL(this.url).searchParams.get('v'),
       script: [],
       player: null,
-      ready: false,
       loading: false,
-      playing: false,
+      ready: false,
+      muted: true,
       landscape: false,
-      isTouchDevice: false
+      playing: false,
+      ratio: null
     };
   },
 
@@ -95,8 +128,12 @@ export default {
     }
   },
 
+  mounted () {
+    this.ratio = window.innerHeight / window.innerWidth;
+  },
+
   destroyed () {
-    this.player && youtube.remove(this.player);
+    youtube.remove(this.player);
   },
 
   methods: {
@@ -106,12 +143,18 @@ export default {
       this.ready = false;
       this.playing = false;
     },
-    onInit (e) {
-      this.isTouchDevice = Number(e.pointerType === 'touch');
+    async onInit (e) {
+      this.onBeforeInit && await this.onBeforeInit();
+
       this.loading = true;
       // eslint-disable-next-line no-secrets/no-secrets
-      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=0&mute=${Number(this.isTouchDevice)}&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
+      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=1&mute=1&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
       this.script = [load()];
+    },
+
+    onUnmute () {
+      this.player.unMute();
+      this.muted = false;
     },
 
     async onLoad () {
@@ -129,12 +172,12 @@ export default {
               player: this.player
             });
           },
-          onStateChange: e => this.onPlayerStateChange(youtube.api, e.data)
+          onStateChange: e => this.onStateChange(youtube.YT, e.data)
         }
       });
     },
 
-    onPlayerStateChange (YT, state) {
+    onStateChange (YT, state) {
       if (state === YT.PlayerState.PLAYING) {
         this.playing = true;
       } else if (state === YT.PlayerState.ENDED || state === YT.PlayerState.PAUSED) {
@@ -146,12 +189,54 @@ export default {
   }
 };
 
+class Youtube {
+  YT;
+  players = new Map();
+
+  play (player) {
+    this.pausePlayers();
+    return player.playVideo();
+  }
+
+  pausePlayers (ignorePlayer) {
+    Array.from(this.players.values())
+      .filter(player => !ignorePlayer || (ignorePlayer && player !== ignorePlayer))
+      .filter(player => player.getPlayerState)
+      .forEach((player) => {
+        player.getPlayerState() === global.YT.PlayerState.PLAYING && player.pauseVideo();
+      });
+  }
+
+  async createPlayer (...args) {
+    this.YT = await ready();
+    const player = new this.YT.Player(...args);
+
+    player.addEventListener('onStateChange', ({ data }) => {
+      if (global.YT.PlayerState.PLAYING === data) {
+        this.pausePlayers(player);
+      }
+    });
+
+    this.add(player);
+    return player;
+  }
+
+  add (player) {
+    this.players.set(player.id, player);
+  }
+
+  remove (player) {
+    this.players.delete(player.id);
+    player.destroy();
+  }
+}
+const youtube = new Youtube();
+
 </script>
 
 <style lang="postcss" scoped>
-.nuxt-speedkit__youtube {
+.youtube {
   position: relative;
-  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -159,7 +244,6 @@ export default {
 button {
   display: block;
   width: 100%;
-  cursor: pointer;
 
   @nest .ready & {
     pointer-events: none;

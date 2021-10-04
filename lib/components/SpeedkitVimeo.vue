@@ -1,5 +1,9 @@
 <template>
-  <base-vimeo v-bind="$attrs" v-on="$listeners">
+  <base-vimeo
+    class="nuxt-speedkit__vimeo"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <template #loading-spinner>
       <div
         class="loading-spinner"
@@ -40,7 +44,7 @@
 </template>
 
 <script>
-import BaseVimeo from './Base';
+import BaseVimeo from 'nuxt-speedkit/components/SpeedkitVimeo/Base';
 
 export default {
   components: {

@@ -9,3 +9,4 @@ sw.js
 
 lib/templates/**/*
 lib/components/SpeedkitLayer.vue
+lib/components/SpeedkitYoutube/test/**/*

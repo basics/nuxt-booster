@@ -11,8 +11,8 @@
 
 <script>
 
-import DefaultImage from 'nuxt-speedkit/components/Image';
-import Image from 'nuxt-speedkit/components/Image/classes/Image';
+import DefaultImage from 'nuxt-speedkit/components/SpeedkitImage';
+import Image from 'nuxt-speedkit/components/SpeedkitImage/classes/Image';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {

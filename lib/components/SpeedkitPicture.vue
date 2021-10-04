@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import BaseImage from 'nuxt-speedkit/components/Image';
-import SourceList from 'nuxt-speedkit/components/Picture/classes/SourceList';
-import LoadingSpinner from 'nuxt-speedkit/components/Image/classes/LoadingSpinner';
-import PictureSource from 'nuxt-speedkit/components/Picture/Source';
+import BaseImage from 'nuxt-speedkit/components/SpeedkitImage';
+import SourceList from 'nuxt-speedkit/components/SpeedkitPicture/classes/SourceList';
+import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import PictureSource from 'nuxt-speedkit/components/SpeedkitPicture/Source';
 
 const formatPriority = ['avif', 'webp', 'png', 'jpg'];
 
@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-picture {
+.nuxt-speedkit__picture {
   position: relative;
   box-sizing: border-box;
   display: block;

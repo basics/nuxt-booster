@@ -13,7 +13,7 @@
 
 <script>
 
-import DefaultVimeo from 'nuxt-speedkit/components/Vimeo';
+import DefaultVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {

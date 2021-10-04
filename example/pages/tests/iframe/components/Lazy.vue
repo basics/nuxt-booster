@@ -11,7 +11,7 @@
 
 <script>
 
-import DefaultIframe from 'nuxt-speedkit/components/Iframe';
+import DefaultIframe from 'nuxt-speedkit/components/SpeedkitIframe';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {

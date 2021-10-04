@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Picture from 'nuxt-speedkit/components/Picture/classes/Picture';
+import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 
 export default {
   data () {

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Source from '../Image/classes/Source';
+import Source from 'nuxt-speedkit/components/SpeedkitImage/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);
 

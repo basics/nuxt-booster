@@ -1,90 +1,57 @@
 <template>
-  <component
-    :is="design"
+  <div
     :title="title"
     :class="{ready, playing}"
     :show="ready"
-    class="youtube"
   >
     <slot name="background" />
-    <div class="player-wrapper">
-      <div
-        class="player"
-        :style="playerStyle"
-      >
-        <div>
-          <div>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABFJREFUeNpiYBgFo4AKACDAAAJJAAHkYY/SAAAAAElFTkSuQmCC">
-            <!-- <svg width="16" height="9" viewbox="0 0 16 9" /> -->
-            <iframe
-              v-if="src"
-              ref="player"
-              :src="src"
-              frameborder="0"
-              allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              @load="onLoad"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <iframe
+      v-if="src"
+      ref="player"
+      class="player"
+      :src="src"
+      frameborder="0"
+      allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      @load="onLoad"
+    />
     <default-button @click="onInit">
-      <default-picture class="poster" v-bind="pictureDataset" />
+      <speedkit-picture class="poster" v-bind="pictureDataset" />
       <slot v-if="loading" name="loading-spinner" />
       <transition name="base-fade">
         <slot v-if="!ready && !loading" name="play" />
       </transition>
     </default-button>
-    <div v-if="ready && muted" class="click-overlay" @click="onUnmute" />
-  </component>
+  </div>
 </template>
 
 <script>
-import DefaultPicture from '../picture';
-import DefaultButton from '../button';
-import LoadingSpinner from '../Image/classes/LoadingSpinner';
-import Picture from '../Picture/classes/Picture';
-import { load, ready } from '../utils/loader';
+import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
+import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import DefaultButton from '../Button';
+import { load } from './utils/loader';
+import Youtube from './classes/Youtube';
+
+const youtube = new Youtube();
 
 export default {
   components: {
-    DefaultPicture,
+    SpeedkitPicture,
     DefaultButton
   },
 
   inheritAttrs: false,
 
   props: {
-    design: {
-      type: [String, Function],
-      default () {
-        return 'div';
-      }
-    },
-
-    onBeforeInit: {
-      type: Function,
-      required: false,
-      default: null
-    },
 
     url: {
       type: String,
       required: true
     },
 
-    playerStyle: {
-      type: Array,
-      default () {
-        return [];
-      }
-    },
-
     title: {
       type: String,
-      default () {
-        return 'YouTube video player';
-      }
+      required: true
     },
 
     loadingSpinner: {
@@ -99,12 +66,11 @@ export default {
       videoId: new URL(this.url).searchParams.get('v'),
       script: [],
       player: null,
-      loading: false,
       ready: false,
-      muted: true,
-      landscape: false,
+      loading: false,
       playing: false,
-      ratio: null
+      landscape: false,
+      isTouchDevice: false
     };
   },
 
@@ -128,12 +94,8 @@ export default {
     }
   },
 
-  mounted () {
-    this.ratio = window.innerHeight / window.innerWidth;
-  },
-
   destroyed () {
-    youtube.remove(this.player);
+    this.player && youtube.remove(this.player);
   },
 
   methods: {
@@ -143,18 +105,12 @@ export default {
       this.ready = false;
       this.playing = false;
     },
-    async onInit (e) {
-      this.onBeforeInit && await this.onBeforeInit();
-
+    onInit (e) {
+      this.isTouchDevice = Number(e.pointerType === 'touch');
       this.loading = true;
       // eslint-disable-next-line no-secrets/no-secrets
-      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=1&mute=1&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
+      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=0&mute=${Number(this.isTouchDevice)}&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
       this.script = [load()];
-    },
-
-    onUnmute () {
-      this.player.unMute();
-      this.muted = false;
     },
 
     async onLoad () {
@@ -172,12 +128,12 @@ export default {
               player: this.player
             });
           },
-          onStateChange: e => this.onStateChange(youtube.YT, e.data)
+          onStateChange: e => this.onPlayerStateChange(youtube.api, e.data)
         }
       });
     },
 
-    onStateChange (YT, state) {
+    onPlayerStateChange (YT, state) {
       if (state === YT.PlayerState.PLAYING) {
         this.playing = true;
       } else if (state === YT.PlayerState.ENDED || state === YT.PlayerState.PAUSED) {
@@ -189,54 +145,12 @@ export default {
   }
 };
 
-class Youtube {
-  YT;
-  players = new Map();
-
-  play (player) {
-    this.pausePlayers();
-    return player.playVideo();
-  }
-
-  pausePlayers (ignorePlayer) {
-    Array.from(this.players.values())
-      .filter(player => !ignorePlayer || (ignorePlayer && player !== ignorePlayer))
-      .filter(player => player.getPlayerState)
-      .forEach((player) => {
-        player.getPlayerState() === global.YT.PlayerState.PLAYING && player.pauseVideo();
-      });
-  }
-
-  async createPlayer (...args) {
-    this.YT = await ready();
-    const player = new this.YT.Player(...args);
-
-    player.addEventListener('onStateChange', ({ data }) => {
-      if (global.YT.PlayerState.PLAYING === data) {
-        this.pausePlayers(player);
-      }
-    });
-
-    this.add(player);
-    return player;
-  }
-
-  add (player) {
-    this.players.set(player.id, player);
-  }
-
-  remove (player) {
-    this.players.delete(player.id);
-    player.destroy();
-  }
-}
-const youtube = new Youtube();
-
 </script>
 
 <style lang="postcss" scoped>
-.youtube {
+div {
   position: relative;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -244,6 +158,7 @@ const youtube = new Youtube();
 button {
   display: block;
   width: 100%;
+  cursor: pointer;
 
   @nest .ready & {
     pointer-events: none;

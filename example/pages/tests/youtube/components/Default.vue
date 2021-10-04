@@ -13,7 +13,7 @@
 
 <script>
 
-import DefaultYoutube from 'nuxt-speedkit/components/Youtube';
+import DefaultYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <default-youtube v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="nuxt-speedkit__youtube" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <svg class="loader loading-spinner" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <circle
@@ -28,16 +28,16 @@
         <path d="M 45,24 27,14 27,34" fill="#fff" />
       </svg>
     </template>
-  </default-youtube>
+  </base-youtube>
 </template>
 
 <script>
 
-import DefaultYoutube from './Base';
+import BaseYoutube from 'nuxt-speedkit/components/SpeedkitYoutube/Base';
 
 export default {
   components: {
-    DefaultYoutube
+    BaseYoutube
   },
 
   inheritAttrs: false
