@@ -92,11 +92,11 @@ or look here
 
 ## Performance
 
-- [Preview](https://pagespeed.app.baqend.com/nuxt-speedkit/)
-- [sitespeed.io (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/sitespeed)
-- [lighthouse run #1 (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse/index-1.html)
-- [lighthouse run #2 (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse/index-2.html)
-- [lighthouse run #3 (report)](https://pagespeed.app.baqend.com/nuxt-speedkit/reports/lighthouse/index-3.html)
+- [Preview](https://nuxt-speedkit.app.baqend.com/)
+- [sitespeed.io (report)](https://nuxt-speedkit.app.baqend.com/reports/sitespeed)
+- [lighthouse run #1 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-1.html)
+- [lighthouse run #2 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-2.html)
+- [lighthouse run #3 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-3.html)
 
 ## TODOs
 
