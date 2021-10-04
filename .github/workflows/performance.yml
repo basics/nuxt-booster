@@ -5,8 +5,7 @@ on:
       - beta
 
 env:
-  WEBSITE_HOST: https://pagespeed.app.baqend.com/nuxt-speedkit/
-  BASE: /nuxt-speedkit/
+  WEBSITE_HOST: https://nuxt-speedkit.app.baqend.com/
 
 jobs:
   build:
@@ -38,7 +37,7 @@ jobs:
         run: npm ci
       - name: Build
         run: |
-          npm run generate --build-analyze --base=${{env.BASE}} --website-host=${{env.WEBSITE_HOST}}
+          npm run generate --build-analyze --website-host=${{env.WEBSITE_HOST}}
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
