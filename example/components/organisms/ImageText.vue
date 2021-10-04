@@ -7,7 +7,7 @@
     :class="{['component-image-text--right']: alignRight}"
   >
     <div class="image">
-      <default-picture v-bind="pictureDataset" />
+      <speedkit-picture v-bind="pictureDataset" />
     </div>
     <div class="text" v-html="text" />
   </div>
@@ -15,12 +15,12 @@
 
 <script>
 
-import DefaultPicture from 'nuxt-speedkit/components/Picture';
+import SpeedkitPicture from 'nuxt-speedkit/components/Picture';
 import Picture from 'nuxt-speedkit/components/Picture/classes/Picture';
 
 export default {
   components: {
-    DefaultPicture
+    SpeedkitPicture
   },
   props: {
     alignRight: { type: Boolean, default: false },

@@ -25,7 +25,7 @@
 
 <script>
 import { toHashHex } from 'nuxt-speedkit/utils/string';
-import DefaultPicture from '../Picture';
+import SpeedkitPicture from '../Picture';
 import DefaultButton from '../Button';
 import LoadingSpinner from '../Image/classes/LoadingSpinner';
 import Picture from '../Picture/classes/Picture';
@@ -36,7 +36,7 @@ const vimeo = new Vimeo();
 
 export default {
   components: {
-    DefaultPicture,
+    SpeedkitPicture,
     DefaultButton
   },
 
@@ -95,7 +95,7 @@ export default {
   computed: {
 
     pictureComponent () {
-      return this.posterUrl ? DefaultPicture : 'picture';
+      return this.posterUrl ? SpeedkitPicture : 'picture';
     },
 
     poster () {

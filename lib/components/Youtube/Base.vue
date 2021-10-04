@@ -16,7 +16,7 @@
       @load="onLoad"
     />
     <default-button @click="onInit">
-      <default-picture class="poster" v-bind="pictureDataset" />
+      <speedkit-picture class="poster" v-bind="pictureDataset" />
       <slot v-if="loading" name="loading-spinner" />
       <transition name="base-fade">
         <slot v-if="!ready && !loading" name="play" />
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import DefaultPicture from '../Picture';
+import SpeedkitPicture from '../Picture';
 import DefaultButton from '../Button';
 import LoadingSpinner from '../Image/classes/LoadingSpinner';
 import Picture from '../Picture/classes/Picture';
@@ -37,7 +37,7 @@ const youtube = new Youtube();
 
 export default {
   components: {
-    DefaultPicture,
+    SpeedkitPicture,
     DefaultButton
   },
 

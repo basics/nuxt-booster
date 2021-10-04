@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container id="lazyContainer">
     <template #default>
-      <default-picture v-bind="picture" />
+      <speedkit-picture v-bind="picture" />
     </template>
     <template #title>
       <p>Lazy - Picture</p>
@@ -11,7 +11,7 @@
 
 <script>
 
-import DefaultPicture from 'nuxt-speedkit/components/Picture';
+import SpeedkitPicture from 'nuxt-speedkit/components/Picture';
 import Picture from 'nuxt-speedkit/components/Picture/classes/Picture';
 
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
@@ -19,7 +19,7 @@ import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 export default {
 
   components: {
-    DefaultPicture,
+    SpeedkitPicture,
     OrganismPreviewContainer
   },
 
