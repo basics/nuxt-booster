@@ -46,7 +46,7 @@ jobs:
 
       - name: Upload
         run: |
-          npx baqend@2 deploy -f dist -b www/nuxt-speedkit pagespeed
+          npx baqend@2 deploy -f dist -b www nuxt-speedkit
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
@@ -144,7 +144,7 @@ jobs:
           done
       - name: Upload to baqend
         run: |
-          npx baqend@2 deploy -f reports -b www/nuxt-speedkit/reports pagespeed
+          npx baqend@2 deploy -f reports -b www/reports www nuxt-speedkit
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
