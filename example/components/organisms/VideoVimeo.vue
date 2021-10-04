@@ -3,18 +3,19 @@
     v-font="[
       $getFont('Merriweather', 400),
     ]"
+    class="video-vimeo"
   >
-    <default-vimeo v-bind="$attrs" />
+    <speedkit-vimeo v-bind="$attrs" />
     <p v-if="text" v-html="text" />
   </div>
 </template>
 
 <script>
 
-import DefaultVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
+import SpeedkitVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
 
 export default {
-  components: { DefaultVimeo },
+  components: { SpeedkitVimeo },
 
   inheritAttrs: false,
 
@@ -29,7 +30,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-div {
+.video-vimeo {
   padding: 0 10%;
 }
 </style>

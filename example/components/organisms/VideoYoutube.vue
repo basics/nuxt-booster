@@ -3,18 +3,19 @@
     v-font="[
       $getFont('Merriweather', 400),
     ]"
+    class="video-youtube"
   >
-    <default-youtube v-bind="$attrs" />
+    <speedkit-youtube v-bind="$attrs" />
     <p v-if="text" v-html="text" />
   </div>
 </template>
 
 <script>
 
-import DefaultYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
+import SpeedkitYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
 
 export default {
-  components: { DefaultYoutube },
+  components: { SpeedkitYoutube },
 
   inheritAttrs: false,
 
@@ -29,7 +30,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-div {
+.video-youtube {
   padding: 0 10%;
 }
 </style>
