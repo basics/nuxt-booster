@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2021-10-05)
+
+
+### Bug Fixes
+
+* **observer:** fix observer destroy ([69e70d6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/69e70d6ad35a3ff597e12a361dd65d0446014791))
+* **publish:** trigger publish ([5feef1e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5feef1e20c8cd0156bf68b9be81997f18c7bb87e))
+
 # [2.0.0-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2021-10-05)
 
 
