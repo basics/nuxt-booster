@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2021-10-05)
+
+
+### Bug Fixes
+
+* **observer:** fix horizontal root node ([19a3c5e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/19a3c5e24d1b1d9a0178a5de757ec654e927eace))
+
 # [2.0.0-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2021-10-05)
 
 
