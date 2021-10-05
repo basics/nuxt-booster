@@ -17,7 +17,6 @@
 export default {
   data () {
     return {
-      contentA: '<p>This is a basic test with single font variant.</p>',
 
       stage: {
         critical: true,
