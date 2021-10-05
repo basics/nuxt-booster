@@ -1,6 +1,10 @@
 <template>
   <div class="component-stage">
-    <speedkit-picture v-bind="pictureDataset" />
+    <speedkit-picture
+      :title="picture.title"
+      :alt="picture.alt"
+      :sources="picture.sources"
+    />
     <h1
       v-font="[
         $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
@@ -16,7 +20,6 @@
 <script>
 
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 
 export default {
 
@@ -28,12 +31,6 @@ export default {
     picture: { type: Object, required: true },
     headline: { type: String, default () { return 'Headline'; } },
     claim: { type: String, default () { return 'Claim'; } }
-  },
-
-  computed: {
-    pictureDataset () {
-      return Picture.create(this.picture).toJSON();
-    }
   }
 
 };

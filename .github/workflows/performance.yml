@@ -50,7 +50,6 @@ jobs:
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
-
   run-sitespeed:
     needs: build
     runs-on: ${{ matrix.os }}
@@ -144,8 +143,6 @@ jobs:
           done
       - name: Upload to baqend
         run: |
-          npx baqend@2 deploy -f reports -b www/reports www nuxt-speedkit
+          npx baqend@2 deploy -f reports -b www/reports nuxt-speedkit
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
-
-

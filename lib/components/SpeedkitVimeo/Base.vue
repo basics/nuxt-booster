@@ -26,7 +26,6 @@
 import { toHashHex } from 'nuxt-speedkit/utils/string';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
-import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Vimeo from './classes/Vimeo';
@@ -98,7 +97,7 @@ export default {
     },
 
     poster () {
-      return Picture.create({
+      return {
         title: this.title,
         sources: [{
           format: 'jpg',
@@ -107,7 +106,7 @@ export default {
           media: 'all'
         }],
         loadingSpinner: this.loadingSpinner
-      }).toJSON();
+      };
     }
   },
 

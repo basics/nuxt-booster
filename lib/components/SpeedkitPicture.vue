@@ -21,7 +21,7 @@ export default {
 
   props: {
     sources: {
-      type: SourceList,
+      type: [Array, SourceList],
       required: true
     },
 
@@ -55,13 +55,9 @@ export default {
     };
   },
 
-  fetchKey () {
-    return `picture-${this.sources.key}`;
-  },
-
   async fetch () {
     const { ssrContext } = this.$nuxt.context;
-    this.metaSources = await this.sources.getMeta(this.$img, ssrContext);
+    this.metaSources = await this.sourceList.getMeta(this.$img, ssrContext);
     this.classNames = this.metaSources.classNames;
   },
 
@@ -71,11 +67,18 @@ export default {
     };
   },
 
+  fetchKey () {
+    return `picture-${this.sourceList.key}`;
+  },
+
   computed: {
+    sourceList () {
+      return SourceList.create(this.sources);
+    },
     formatSources () {
       const sortedFormatsByPriority = formatPriority.filter(v => this.formats.includes(v));
       const preloadFormat = formatPriority.find(v => this.formats.includes(v));
-      return this.sources.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
+      return this.sourceList.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
     },
 
     style () {

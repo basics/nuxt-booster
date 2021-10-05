@@ -46,6 +46,10 @@ export default {
                   to: '/tests/v-font-media/'
                 },
                 {
+                  title: 'v-font (scroll)',
+                  to: '/tests/v-font-scroll/'
+                },
+                {
                   title: 'Picture',
                   to: '/tests/picture/'
                 },

@@ -2,18 +2,17 @@
   <div class="page-index">
     <component-stage v-bind="stage" />
     <component-text-a v-bind="textA" />
-    <component-text-image v-bind="imageTextA" />
+    <component-image-text v-bind="imageTextA" />
     <component-video-youtube v-bind="videoYoutube" />
     <component-video-vimeo v-bind="videoVimeoA" />
     <component-text-a v-bind="textA" />
-    <component-text-image v-bind="imageTextB" />
+    <component-image-text v-bind="imageTextB" />
     <component-text-b v-bind="textB" />
     <component-video-vimeo v-bind="videoVimeoB" />
   </div>
 </template>
 
 <script>
-import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 
 export default {
   data () {
@@ -25,7 +24,7 @@ export default {
         headline: 'nuxt-speedkit',
         claim: 'powered by Grabarz & Partner',
 
-        picture: Picture.create({
+        picture: {
           title: 'Stage',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
@@ -33,7 +32,7 @@ export default {
             // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/stage-portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
           ]
-        }).toJSON()
+        }
       },
 
       textA: {
@@ -42,13 +41,13 @@ export default {
 
       imageTextA: {
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
-        picture: Picture.create({
+        picture: {
           title: 'Image Text A',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/image-text-a.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
           ]
-        }).toJSON()
+        }
       },
 
       videoYoutube: {
@@ -60,13 +59,13 @@ export default {
       imageTextB: {
         alignRight: true,
         text: '<h2>Text Headline</h2><p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
-        picture: Picture.create({
+        picture: {
           title: 'Image Text B',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/image-text-b.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
           ]
-        }).toJSON()
+        }
       },
 
       videoVimeoA: {
@@ -89,7 +88,7 @@ export default {
   speedkitComponents: {
     ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
     ComponentTextA: () => import('@/components/organisms/TextFontA'),
-    ComponentTextImage: () => import('@/components/organisms/ImageText'),
+    ComponentImageText: () => import('@/components/organisms/ImageText'),
     ComponentTextB: () => import('@/components/organisms/TextFontB'),
     ComponentVideoYoutube: () => import('@/components/organisms/VideoYoutube'),
     ComponentVideoVimeo: () => import('@/components/organisms/VideoVimeo')
