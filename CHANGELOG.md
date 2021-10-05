@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2021-10-05)
+
+
+### Bug Fixes
+
+* **observer:** fix observer root select ([5ff1b19](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5ff1b197cc5df83fbf08f308fc8e24f2a778537f))
+
 # [2.0.0-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2021-10-04)
 
 
