@@ -2,7 +2,7 @@
   <organism-preview-container>
     <template #default>
       <div>
-        <scroll-container id="horizontalScroll" v-bind="scrollContainerHorizontal" />
+        <scroll-container id="horizontalScroll" v-bind="scrollContainer" />
       </div>
     </template>
     <template #title>
@@ -18,7 +18,8 @@ export default {
   components: { OrganismPreviewContainer, ScrollContainer },
   data () {
     return {
-      scrollContainerHorizontal: {
+      scrollContainer: {
+        directionHorizontal: true,
         items: Array(10).fill({}).map((v, index) => ({ title: `Item ${index + 1}` }))
       }
     };

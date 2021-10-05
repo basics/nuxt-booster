@@ -1,6 +1,6 @@
 <template>
   <div>
-    <horizontal critical />
+    <horizontal />
     <vertical />
   </div>
 </template>
