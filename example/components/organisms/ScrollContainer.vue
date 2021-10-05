@@ -3,7 +3,7 @@
     <scroll-item
       v-for="({title}, index) in items"
       :key="title"
-      class="item"
+      :class="`item item-${index}`"
       :index="index"
       :title="title"
     />

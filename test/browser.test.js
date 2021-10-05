@@ -160,6 +160,34 @@ function tests ({ chromium = false, firefox = false }) {
 
   // #endregion
 
+  // #region /tests/v-font-scroll
+
+  it('v-font (scroll) (font assign simple with horizontal & vertical offset scroll)', async () => {
+    const page = await createPage('/v-font-scroll');
+
+    expect(await page.evaluate(() => document.querySelector('#horizontalScroll .item-4').classList.contains('.font-active'))).toBeFalsy();
+
+    await page.evaluate(() => {
+      const containerEl = document.querySelector('#horizontalScroll');
+      containerEl.scrollTo(containerEl.scrollWidth, 0);
+    });
+
+    await page.waitForSelector('#horizontalScroll .item-4.font-active');
+
+    expect(await page.evaluate(() => document.querySelector('#verticalScroll .item-4').classList.contains('.font-active'))).toBeFalsy();
+
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+
+    await page.evaluate(() => {
+      const containerEl = document.querySelector('#verticalScroll');
+      containerEl.scrollTo(0, containerEl.scrollHeight);
+    });
+
+    await page.waitForSelector('#verticalScroll .item-4.font-active');
+  });
+
+  // #endregion
+
   // #region /tests/youtube
 
   it('youtube ready & play', async () => {

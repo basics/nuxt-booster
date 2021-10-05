@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       scrollContainer: {
-        items: Array(10).fill({}).map((v, index) => ({ title: `Item ${index + 1}` }))
+        items: Array(5).fill({}).map((v, index) => ({ title: `Item ${index + 1}` }))
       }
     };
   }
