@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2021-10-10)
+
+
+### Bug Fixes
+
+* **vimeo:** update player, add api title as default, and default slot with api data ([346d6da](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/346d6dafee1c612ef503f623e59e1ff07287730a))
+
 # [2.0.0-beta.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2021-10-05)
 
 
