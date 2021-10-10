@@ -5,8 +5,11 @@
     ]"
     class="video-vimeo"
   >
-    <speedkit-vimeo v-bind="$attrs" />
-    <p v-if="text" v-html="text" />
+    <speedkit-vimeo v-bind="$attrs">
+      <template #default="{videoData}">
+        <div class="description" v-html="videoData && videoData.description" />
+      </template>
+    </speedkit-vimeo>
   </div>
 </template>
 
@@ -32,5 +35,9 @@ export default {
 <style lang="postcss" scoped>
 .video-vimeo {
   padding: 0 10%;
+
+  & .description {
+    margin-top: 20px;
+  }
 }
 </style>

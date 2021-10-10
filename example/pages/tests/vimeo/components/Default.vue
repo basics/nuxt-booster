@@ -2,7 +2,7 @@
   <organism-preview-container>
     <template #default>
       <div>
-        <default-vimeo v-bind="youtube" />
+        <default-vimeo v-bind="vimeo" />
       </div>
     </template>
     <template #title>
@@ -36,10 +36,9 @@ export default {
   },
 
   computed: {
-    youtube () {
+    vimeo () {
       return {
-        url: this.vimeoUrl,
-        title: this.title
+        url: this.vimeoUrl
       };
     }
   }

@@ -68,7 +68,6 @@ export default {
       },
 
       videoVimeoA: {
-        title: 'Vimeo',
         url: 'https://vimeo.com/440265549',
         text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
       },
@@ -78,7 +77,6 @@ export default {
       },
 
       videoVimeoB: {
-        title: 'Vimeo',
         url: 'https://vimeo.com/288344114',
         text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
       }

@@ -1,24 +1,24 @@
 <template>
   <div
-    :title="title"
-    :src="src"
     :class="{ready, playing}"
-    @load="onLoad"
   >
-    <iframe
-      v-if="src"
-      ref="player"
-      :src="src"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      :title="title"
-      @load="onLoad"
-    />
-    <default-button @click="onInit">
-      <component :is="pictureComponent" class="poster" v-bind="poster" />
-      <slot v-if="loading" name="loading-spinner" />
-      <slot v-if="!ready && !loading" name="play" />
-    </default-button>
+    <div>
+      <iframe
+        v-if="src"
+        ref="player"
+        :title="playerTitle"
+        :src="src"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        @load="onLoad"
+      />
+      <default-button @click="onInit">
+        <component :is="pictureComponent" class="poster" v-bind="poster" />
+        <slot v-if="loading" name="loading-spinner" />
+        <slot v-if="!ready && !loading" name="play" />
+      </default-button>
+    </div>
+    <slot :videoData="videoData" />
   </div>
 </template>
 
@@ -49,7 +49,8 @@ export default {
 
     title: {
       type: String,
-      required: true
+      required: false,
+      default: null
     },
 
     loadingSpinner: {
@@ -62,11 +63,11 @@ export default {
 
   data () {
     return {
+      videoData: null,
       src: null,
       videoId: new URL(this.url).pathname.replace('/', ''),
       script: [],
       player: null,
-      posterUrl: null,
       ready: false,
       loading: false,
       playing: false,
@@ -81,7 +82,7 @@ export default {
   async fetch () {
     const { get } = await import('axios');
     const result = await get(`https://vimeo.com/api/v2/video/${this.videoId}.json`);
-    this.posterUrl = result.data[0].thumbnail_large.replace(/(.+)(\/video\/[\w-]+)_([\d]+)$/, `/vimeo$2_${result.data[0].width}`);
+    this.videoData = result.data[0];
   },
 
   head () {
@@ -92,16 +93,20 @@ export default {
 
   computed: {
 
+    playerTitle () {
+      return this.title || (this.videoData && this.videoData.title);
+    },
+
     pictureComponent () {
-      return this.posterUrl ? SpeedkitPicture : 'picture';
+      return this.videoData ? SpeedkitPicture : 'picture';
     },
 
     poster () {
       return {
-        title: this.title,
+        title: this.playerTitle,
         sources: [{
           format: 'jpg',
-          src: this.posterUrl,
+          src: this.videoData && this.videoData.thumbnail_large.replace(/(.+)(\/video\/[\w-]+)_([\d]+)$/, `/vimeo$2_${this.videoData.width}`),
           sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
           media: 'all'
         }],
@@ -166,8 +171,10 @@ div {
     display: block;
     width: 100%;
     cursor: pointer;
+  }
 
-    @nest .ready& {
+  &.ready {
+    & button {
       pointer-events: none;
       visibility: hidden;
     }

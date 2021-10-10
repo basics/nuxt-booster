@@ -1,6 +1,6 @@
 <template>
   <div>
-    <default v-for="(item, index) in items" :id="`youtube-${index}`" v-bind="item" :key="item.url" :critical="index < 1" />
+    <default v-for="(item, index) in items" :id="`youtube-${index}`" v-bind="item" :key="item.youtubeUrl" :critical="index < 1" />
   </div>
 </template>
 

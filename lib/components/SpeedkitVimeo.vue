@@ -40,6 +40,9 @@
         </span>
       </div>
     </template>
+    <template #default="context">
+      <slot name="default" v-bind="context" />
+    </template>
   </base-vimeo>
 </template>
 
