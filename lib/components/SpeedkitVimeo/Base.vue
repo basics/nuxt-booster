@@ -1,11 +1,11 @@
 <template>
   <div
-    :class="{ready, playing}"
+    :class="{ready, playing, 'iframe-mode': iframeMode}"
   >
-    <div>
+    <div class="player">
       <iframe
-        v-if="src"
         ref="player"
+        :key="src"
         :title="playerTitle"
         :src="src"
         frameborder="0"
@@ -27,7 +27,7 @@ import { toHashHex } from 'nuxt-speedkit/utils/string';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import DefaultButton from '../Button';
-import { load } from './utils/loader';
+import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 
 const vimeo = new Vimeo();
@@ -71,7 +71,8 @@ export default {
       ready: false,
       loading: false,
       playing: false,
-      isTouchDevice: false
+      isTouchDevice: false,
+      iframeMode: false
     };
   },
 
@@ -81,8 +82,13 @@ export default {
 
   async fetch () {
     const { get } = await import('axios');
-    const result = await get(`https://vimeo.com/api/v2/video/${this.videoId}.json`);
-    this.videoData = result.data[0];
+    try {
+      const result = await get(`https://vimeo.com/api/v2/video/${this.videoId}.json`);
+      this.videoData = result.data[0];
+    } catch (error) {
+      this.iframeMode = true;
+      this.src = this.playerSrc;
+    }
   },
 
   head () {
@@ -102,6 +108,9 @@ export default {
     },
 
     poster () {
+      if (!this.videoData) {
+        return null;
+      }
       return {
         title: this.playerTitle,
         sources: [{
@@ -112,7 +121,12 @@ export default {
         }],
         loadingSpinner: this.loadingSpinner
       };
+    },
+
+    playerSrc () {
+      return `https://player.vimeo.com/video/${this.videoId}?dnt=1&autoplay=0&autopause=0&muted=${Number(this.isTouchDevice)}`;
     }
+
   },
 
   destroyed () {
@@ -124,8 +138,12 @@ export default {
     onInit (e) {
       this.isTouchDevice = e.pointerType === 'touch';
       this.loading = true;
-      this.src = `https://player.vimeo.com/video/${this.videoId}?dnt=1&autoplay=0&autopause=0&muted=${Number(this.isTouchDevice)}`;
+      this.src = this.playerSrc;
       this.script = [load()];
+      if (this.iframeMode) {
+        // force iframe reload for onload
+        this.$refs.player.src = String(this.$refs.player.src);
+      }
     },
 
     onPlayerStateChange (state) {
@@ -137,7 +155,13 @@ export default {
       this.$emit('playing', this.playing);
     },
 
-    async onLoad () {
+    async onLoad (e) {
+      if (!e.target.src || !this.script.length) {
+        return;
+      }
+
+      await ready();
+
       this.player = await vimeo.createPlayer(this.$refs.player);
       this.player.on('playing', () => this.onPlayerStateChange({ playing: true }));
       this.player.on('pause', () => this.onPlayerStateChange({ pause: true }));
@@ -161,7 +185,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-div {
+.player {
   position: relative;
   width: 100%;
   padding: 0;
@@ -173,7 +197,7 @@ div {
     cursor: pointer;
   }
 
-  &.ready {
+  @nest .ready & {
     & button {
       pointer-events: none;
       visibility: hidden;
@@ -190,5 +214,10 @@ div {
     height: 100%;
     margin: auto;
   }
+
+  @nest .iframe-mode & {
+    aspect-ratio: 16 / 9;
+  }
 }
+
 </style>
