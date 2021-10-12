@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2021-10-12)
+
+
+### Bug Fixes
+
+* **vimeo:** add iframe fallback for protected videos ([57be633](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/57be633a84b5a48497e4e07f7a7976b492eb739c))
+
 # [2.0.0-beta.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2021-10-10)
 
 
