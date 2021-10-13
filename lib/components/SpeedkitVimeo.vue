@@ -59,6 +59,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
 
 .loading-spinner,
 .play {
@@ -113,4 +114,5 @@ export default {
   }
 }
 
+/*! purgecss end ignore */
 </style>

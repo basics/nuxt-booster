@@ -11,6 +11,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
+
 button {
   padding: 0;
   margin: 0;
@@ -37,4 +39,6 @@ button {
     border: 0;
   }
 }
+
+/*! purgecss end ignore */
 </style>
