@@ -99,6 +99,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
+
 .nuxt-speedkit__picture {
   position: relative;
   box-sizing: border-box;
@@ -137,4 +139,6 @@ export default {
     }
   }
 }
+
+/*! purgecss end ignore */
 </style>

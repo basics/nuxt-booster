@@ -148,6 +148,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
+
 div {
   position: relative;
   width: 100%;
@@ -203,12 +205,6 @@ button {
     height: 100%;
   }
 
-  /* &::before {
-    display: block;
-    padding-top: calc(9 / 16 * 100%);
-    content: '';
-  } */
-
   & iframe {
     position: absolute;
     top: 0;
@@ -224,9 +220,9 @@ button {
 }
 
 .base-fade-enter,
-.base-fade-leave-to
-/* .component-fade-lea
-e-active below version 2.1.8 */ {
+.base-fade-leave-to {
   opacity: 0;
 }
+
+/*! purgecss end ignore */
 </style>

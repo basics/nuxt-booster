@@ -153,6 +153,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
+
 .nuxt-speedkit__image {
   content-visibility: auto;
   display: block;
@@ -160,4 +162,6 @@ export default {
   height: auto;
   object-fit: cover;
 }
+
+/*! purgecss end ignore */
 </style>

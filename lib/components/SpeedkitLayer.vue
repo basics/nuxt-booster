@@ -83,6 +83,8 @@ export default {
 </script>
 
 <style>
+/*! purgecss start ignore */
+
 #nuxt-speedkit__speedkit-layer {
   width: 0;
   height: 0;
@@ -115,4 +117,6 @@ export default {
 #nuxt-speedkit__message__slow-connection {
   display: none;
 }
+
+/*! purgecss end ignore */
 </style>

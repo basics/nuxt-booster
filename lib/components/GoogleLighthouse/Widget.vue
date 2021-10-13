@@ -112,6 +112,8 @@ export default {
 </script>
 
 <style scoped>
+/*! purgecss start ignore */
+
 .nuxt-speedkit__lighthouse {
   --pi: 3.14159265358979;
   --score: 0;
@@ -194,4 +196,6 @@ export default {
     transform: rotate(270deg);
   }
 }
+
+/*! purgecss end ignore */
 </style>

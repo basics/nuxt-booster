@@ -40,7 +40,7 @@ export default {
     height: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: flex;
     align-items: center;
 

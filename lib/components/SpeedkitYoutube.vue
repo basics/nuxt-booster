@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
+
 .loading-spinner {
   position: absolute;
   top: 0;
@@ -100,4 +102,6 @@ export default {
 @keyframes hue {
   100% { filter: hue-rotate(360deg); }
 }
+
+/*! purgecss end ignore */
 </style>

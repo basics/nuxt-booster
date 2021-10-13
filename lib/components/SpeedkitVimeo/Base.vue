@@ -185,6 +185,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/*! purgecss start ignore */
+
 .player {
   position: relative;
   width: 100%;
@@ -220,4 +222,5 @@ export default {
   }
 }
 
+/*! purgecss end ignore */
 </style>

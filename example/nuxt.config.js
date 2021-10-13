@@ -63,6 +63,16 @@ module.exports = {
           gutter: '15px',
           flexbox: 'flex',
           cycle: 'auto'
+        },
+        '@fullhuman/postcss-purgecss': {
+          content: [
+            'example/pages/**/*.vue',
+            'example/layouts/**/*.vue',
+            'example/components/**/*.vue'
+          ],
+          safelist: [
+            'html', 'body', /^nuxt/
+          ]
         }
       },
       order: 'cssnanoLast'
