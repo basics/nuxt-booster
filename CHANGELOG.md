@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.10...v2.0.0-beta.11) (2021-10-13)
+
+
+### Bug Fixes
+
+* **purgecss:** prepare all components with purgecss ignore comment ([07bd3b3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/07bd3b30b43b82ab9fedf1446a4cb53b1747be69))
+
 # [2.0.0-beta.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2021-10-12)
 
 
