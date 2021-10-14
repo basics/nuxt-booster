@@ -28,6 +28,11 @@ module.exports = {
   },
 
   build: {
+    filenames: {
+      app: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js'
+    },
+
     babel: {
       presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
