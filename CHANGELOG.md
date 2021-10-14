@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.11...v2.0.0-beta.12) (2021-10-14)
+
+
+### Bug Fixes
+
+* **directive:** improve imports ([ba99823](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ba998230fffa46acfeb03ac51fb2e4dc28cbb730))
+
 # [2.0.0-beta.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.10...v2.0.0-beta.11) (2021-10-13)
 
 
