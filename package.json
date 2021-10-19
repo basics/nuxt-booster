@@ -34,7 +34,6 @@
     "start:generate": "npm run generate && npm run start"
   },
   "dependencies": {
-    "@js-basics/vector": "1.57.3",
     "@nuxt/image": "0.6.0",
     "axios": "0.23.0",
     "bowser": "2.11.0",
