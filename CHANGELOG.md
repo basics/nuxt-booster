@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.12...v2.0.0-beta.13) (2021-10-19)
+
+
+### Bug Fixes
+
+* **observer:** remove rxjs and vector import for reduce chunk size ([7a7355b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7a7355b11bd87a131d0760815416a3716568b14b))
+
 # [2.0.0-beta.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.11...v2.0.0-beta.12) (2021-10-14)
 
 
