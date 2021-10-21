@@ -73,7 +73,7 @@
     "lost": "8.3.1",
     "playwright": "1.15.2",
     "postcss-nesting": "7.0.1",
-    "stylelint": "13.13.1",
+    "stylelint": "14.0.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "2.5.0",
     "stylelint-config-standard": "22.0.0",
