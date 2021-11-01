@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.13...v2.0.0-beta.14) (2021-11-01)
+
+
+### Bug Fixes
+
+* **module:** fix internalUrl with protocol and host ([d9e0ceb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d9e0ceba25781fc2863b1431903ed901161a5009))
+
 # [2.0.0-beta.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.12...v2.0.0-beta.13) (2021-10-19)
 
 
