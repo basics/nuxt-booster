@@ -5,14 +5,7 @@
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": {
-    "repo": "GrabarzUndPartner/nuxt-speedkit",
-    "branch": "main",
-    "dir": "docs",
-    "releases": false
-  },
-  "colors": {
-    "primary": "#E83162",
-    "code": "#E83162"
-  }
+  "github": "GrabarzUndPartner/nuxt-speedkit",
+  "defaultBranch": "main",
+  "defaultDir": "docs"
 }

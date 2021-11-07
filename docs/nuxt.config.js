@@ -1,8 +1,12 @@
-import { withDocus } from 'docus';
+
+import theme from '@nuxt/content-theme-docs';
 import nuxtSpeedkitPkg from '../package.json';
 
-export default withDocus({
-
+export default theme({
+  docs: {
+    primaryColor: '#E83162',
+    code: '#E83162'
+  },
   pwa: {
     manifest: {
       name: nuxtSpeedkitPkg.name,

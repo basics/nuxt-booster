@@ -89,7 +89,7 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
           ]
         }
       ]
-    }]
+    }],
 
     componentAutoImport: false,
     componentPrefix: undefined,
