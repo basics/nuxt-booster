@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.3.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.0...v1.3.1) (2021-11-07)
+
+
+### Bug Fixes
+
+* **docs:** replace docus with nuxt docs theme ([cf37ae4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cf37ae4cb773d14c2b275d1296045da7283d3ecd)), closes [#368](https://github.com/GrabarzUndPartner/nuxt-speedkit/issues/368)
+
 # [1.3.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.2.6...v1.3.0) (2021-08-19)
 
 
