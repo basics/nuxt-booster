@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.14...v2.0.0-beta.15) (2021-11-07)
+
+
+### Bug Fixes
+
+* **docs:** replace docus with nuxt docs theme ([1aeb81e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1aeb81e7a69d9331c70de00a89088819aa6a6d65))
+
 # [2.0.0-beta.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.13...v2.0.0-beta.14) (2021-11-01)
 
 
