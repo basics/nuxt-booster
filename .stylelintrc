@@ -4,6 +4,7 @@
     "stylelint-config-recess-order",
     "stylelint-config-lost"
   ],
+  "customSyntax": "postcss-html",
   "ignoreFiles": [
     "./**/*.js"
   ],
