@@ -53,7 +53,7 @@
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
     "@nuxt/test-utils": "0.2.2",
-    "@nuxtjs/eslint-config": "6.0.1",
+    "@nuxtjs/eslint-config": "7.0.0",
     "@nuxtjs/eslint-module": "3.0.2",
     "@nuxtjs/stylelint-module": "4.0.0",
     "babel-eslint": "10.1.0",
