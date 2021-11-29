@@ -38,6 +38,7 @@
         "ignores": []
       }
     ],
-    "sonarjs/no-duplicate-string": 0
+    "sonarjs/no-duplicate-string": 0,
+    "vue/multi-word-component-names": "off"
   }
 }
