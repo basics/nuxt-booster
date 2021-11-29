@@ -3,7 +3,6 @@
 import { join, resolve } from 'path';
 import { createPage, setupTest } from '@nuxt/test-utils';
 
-// eslint-disable-next-line scanjs-rules/call_setTimeout
 jest.setTimeout(20000);
 
 describe('browser (Chrome)', () => {
