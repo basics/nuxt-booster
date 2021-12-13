@@ -95,7 +95,7 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
     componentPrefix: undefined,
 
     /**
-     * IntersectionObserver rootMargin for Compoennts and Assets
+     * IntersectionObserver rootMargin for Components and Assets
      */
     lazyOffset: {
       component: '0%',
