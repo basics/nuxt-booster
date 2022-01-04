@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.15...v2.0.0-beta.16) (2022-01-04)
+
+
+### Bug Fixes
+
+* **stylelint:** fixes for new stylelint ([f9812c5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f9812c5910ac0de20e89ebc11bab276bd5d61f39))
+
 # [2.0.0-beta.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.14...v2.0.0-beta.15) (2021-11-07)
 
 
