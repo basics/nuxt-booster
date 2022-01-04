@@ -10,9 +10,9 @@
       dimensions.origin.toCSSVars('dimension-origin'),
       dimensions.viewport.toCSSVars('dimension-viewport')]"
     :class="{
-      'animate--start': animationStates.start,
-      'animate--hide': animationStates.hide,
-      'animate--hide-start': animationStates.hideStart
+      'animate-start': animationStates.start,
+      'animate-hide': animationStates.hide,
+      'animate-hide-start': animationStates.hideStart
     }"
     v-bind="$attrs"
     :on-before-init="onBeforeInit"
@@ -120,7 +120,7 @@ export default {
           this.$el.querySelector('.player-wrapper').append(el);
           this.$children[0].reset();
           el.removeAttribute('id');
-          el.classList.remove('youtube-modal--prepare', 'youtube-modal--hide');
+          el.classList.remove('youtube-modal-prepare', 'youtube-modal-hide');
 
           this.$el.querySelector('button').addEventListener('transitionend', (e) => {
             this.animationStates.hideStart = false;
@@ -133,7 +133,7 @@ export default {
         this.updatePositions();
         this.animationStates.hide = true;
         this.$nextTick(() => {
-          el.classList.add('youtube-modal--hide');
+          el.classList.add('youtube-modal-hide');
         });
       });
     },
@@ -154,7 +154,7 @@ export default {
                 resolve();
               }, { once: true });
               global.setTimeout(() => {
-                el.classList.add('youtube-modal--prepare');
+                el.classList.add('youtube-modal-prepare');
               }, 200);
             });
           });
@@ -221,7 +221,6 @@ const scrollToElement = (element) => {
 </script>
 
 <style lang="postcss">
-
 :root {
   --youtube-modal-duration: 0.6s;
 }
@@ -258,8 +257,8 @@ const scrollToElement = (element) => {
       left: 0;
       width: 100%;
       height: 100%;
-      content: '';
-      background: rgba(0, 0, 0, 1);
+      content: "";
+      background: rgb(0 0 0 / 100%);
       opacity: 0;
     }
 
@@ -270,7 +269,7 @@ const scrollToElement = (element) => {
       &::before {
         display: block;
         padding-top: calc(9 / 16 * 100%);
-        content: '';
+        content: "";
       }
 
       @media (orientation: landscape) {
@@ -308,7 +307,7 @@ const scrollToElement = (element) => {
     }
   }
 
-  &.youtube-modal--prepare {
+  &.youtube-modal-prepare {
     & > div {
       &::before {
         opacity: 1;
@@ -317,7 +316,7 @@ const scrollToElement = (element) => {
     }
   }
 
-  &.youtube-modal--hide {
+  &.youtube-modal-hide {
     opacity: 0;
     transition: opacity var(--youtube-modal-duration) var(--youtube-modal-duration) linear;
   }
@@ -334,14 +333,13 @@ const scrollToElement = (element) => {
 </style>
 
 <style lang="postcss" scoped>
-
 .youtube-modal {
-  background: rgba(0, 0, 0, 1);
+  background: rgb(0 0 0 / 100%);
 
   &::before {
     display: block;
     padding-top: calc(9 / 16 * 100%);
-    content: '';
+    content: "";
   }
 }
 
@@ -361,7 +359,7 @@ const scrollToElement = (element) => {
   }
 }
 
-.animate--start {
+.animate-start {
   --duration: 0.3s;
 
   & >>> button {
@@ -378,7 +376,7 @@ const scrollToElement = (element) => {
   }
 }
 
-.animate--hide {
+.animate-hide {
   & >>> button {
     z-index: 100;
     pointer-events: none;
@@ -386,7 +384,7 @@ const scrollToElement = (element) => {
   }
 }
 
-.animate--hide-start {
+.animate-hide-start {
   --duration: 0.3s;
 
   & >>> button {

@@ -1,5 +1,5 @@
 <template>
-  <picture :class="classNames.picture" class="nuxt-speedkit__picture">
+  <picture :class="classNames.picture" class="nuxt-speedkit-picture">
     <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" />
     <base-image :class="classNames.image" :title="title" :alt="alt" :loading-spinner="loadingSpinner" @load="onLoad" />
   </picture>
@@ -101,7 +101,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit__picture {
+.nuxt-speedkit-picture {
   position: relative;
   box-sizing: border-box;
   display: block;

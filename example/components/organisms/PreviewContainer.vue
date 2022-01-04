@@ -1,9 +1,9 @@
 <template>
   <div class="preview-container">
-    <div class="preview-container__preview">
+    <div class="preview">
       <slot name="default" />
     </div>
-    <div v-font="$getFont('Quicksand', 400, 'normal')" class="preview-container__info">
+    <div v-font="$getFont('Quicksand', 400, 'normal')" class="info">
       <slot name="title">
         <p>Preview Info</p>
       </slot>
@@ -54,7 +54,7 @@
     }
   }
 
-  & .preview-container__info {
+  & .info {
     font-size: calc(32 / 16 * 1em);
 
     & p {
@@ -68,15 +68,15 @@
     }
   }
 
-  & .preview-container__preview {
+  & .preview {
     font-size: calc(18 / 16 * 1em);
 
     --bg-opacity: 1;
 
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgb(0 0 0 / 40%);
 
     @media (prefers-color-scheme: dark) {
-      background-color: rgba(255, 255, 255, 0.4);
+      background-color: rgb(255 255 255 / 40%);
     }
 
     & img,

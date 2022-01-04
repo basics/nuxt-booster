@@ -6,7 +6,7 @@
   >
     <iframe
       :src="lazySrc"
-      class="nuxt-speedkit__iframe"
+      class="nuxt-speedkit-iframe"
       v-bind="$attrs"
       frameborder="0"
       @load="onLoad"

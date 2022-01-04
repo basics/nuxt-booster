@@ -6,9 +6,9 @@
       dimensions.origin.toCSSVars('dimension-origin'),
       dimensions.viewport.toCSSVars('dimension-viewport')]"
     :class="{
-      'player--fixed' : playerFixed,
-      'player--translate' : playerTranslate,
-      animate, 'animate--ready' : animateReady, 'animate--start' : animateStart}"
+      'player-fixed' : playerFixed,
+      'player-translate' : playerTranslate,
+      animate, 'animate-ready' : animateReady, 'animate-start' : animateStart}"
     v-bind="$attrs"
     v-on="$listeners"
     @ready="onReady"
@@ -190,7 +190,6 @@ const scrollToElement = (element, offset) => {
 </style>
 
 <style lang="postcss" scoped>
-
 .debug {
   position: fixed;
   right: 0;
@@ -242,13 +241,13 @@ const scrollToElement = (element, offset) => {
   }
 }
 
-.player--translate {
+.player-translate {
   & >>> .player {
     transform: translate(0%, calc(((((var(--dimension-viewport-y) - var(--dimension-origin-y)) / 2) - var(--position-origin-y) - var(--screen-offset)) / var(--dimension-origin-y)) * 100%));
   }
 }
 
-.player--fixed {
+.player-fixed {
   & >>> .player {
     position: fixed;
     top: calc(50% - ((var(--screen-offset) + (var(--dimension-origin-y) / 2)) * 1px));
@@ -287,7 +286,7 @@ const scrollToElement = (element, offset) => {
   }
 }
 
-.animate--ready {
+.animate-ready {
   & .background {
     position: absolute;
     transform: scale(calc(var(--dimension-viewport-x) / var(--dimension-origin-x)), calc(var(--dimension-viewport-y) / var(--dimension-origin-y)));
@@ -295,7 +294,7 @@ const scrollToElement = (element, offset) => {
   }
 }
 
-.animate--start {
+.animate-start {
   --duration: 0.2s;
 
   & >>> .player {
@@ -304,8 +303,9 @@ const scrollToElement = (element, offset) => {
   }
 
   & .background {
-    transition: transform var(--duration) var(--duration)  ease-in, border-radius var(--duration)  var(--duration) ease-in;
+    transition: transform var(--duration) var(--duration) ease-in, border-radius var(--duration) var(--duration) ease-in;
     transform: scale(1, 1);
   }
 }
 </style>
+

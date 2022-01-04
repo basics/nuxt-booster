@@ -11,8 +11,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-/*! purgecss start ignore */
-
 button {
   padding: 0;
   margin: 0;
@@ -31,14 +29,9 @@ button {
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
 
-  /* Corrects inability to style clickable `input` types in iOS */
-  -webkit-appearance: none;
-
   &::-moz-focus-inner {
     padding: 0;
     border: 0;
   }
 }
-
-/*! purgecss end ignore */
 </style>

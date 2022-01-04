@@ -1,5 +1,5 @@
 <template>
-  <base-youtube class="nuxt-speedkit__youtube" v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <svg class="loader loading-spinner" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <circle
@@ -58,7 +58,7 @@ export default {
     & circle {
       stroke-dasharray: 5, 177;
       stroke-width: 6px;
-      animation: stroke 1.33333s ease infinite;
+      animation: stroke 1.3333s ease infinite;
     }
   }
 

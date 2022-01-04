@@ -188,67 +188,67 @@ function tests ({ chromium = false, firefox = false }) {
 
   // #endregion
 
-  // #region /tests/youtube
+  if (!firefox) {
+    // #region /tests/youtube
+    it('youtube ready & play', async () => {
+      const page = await createPage('/youtube/');
 
-  it('youtube ready & play', async () => {
-    const page = await createPage('/youtube/');
+      // start first player
+      await page.evaluate(() => document.querySelector('#youtube-0 button').click());
+      // wait for playing first player playing
+      await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready.playing');
 
-    // start first player
-    await page.evaluate(() => document.querySelector('#youtube-0 button').click());
-    // wait for playing first player playing
-    await page.waitForSelector('#youtube-0 .nuxt-speedkit__youtube.ready.playing');
+      // start second player
+      await page.evaluate(() => document.querySelector('#youtube-1 button').click());
+      // wait for playing first player playing
+      await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready:not(.playing)');
 
-    // start second player
-    await page.evaluate(() => document.querySelector('#youtube-1 button').click());
-    // wait for playing first player playing
-    await page.waitForSelector('#youtube-0 .nuxt-speedkit__youtube.ready:not(.playing)');
-
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-    await page.waitForSelector('#youtube-1 .nuxt-speedkit__youtube.ready.playing');
-  });
-
-  // #endregion
-
-  // #region /tests/vimeo
-
-  // Vimeo test disabled because the video codecs are probably missing on the test VMs.
-
-  // it('vimeo ready & play', async () => {
-  //   const page = await createPage('/vimeo/');
-
-  //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
-  //   if (chromium) {
-  //     // start first player
-  //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
-  //     // wait for player ready
-  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready');
-  //   } else {
-  //     // start first player
-  //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
-  //     // wait for playing first player playing
-  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready.playing');
-
-  //     // // wait for playing first player playing
-  //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-  //     // // start second player
-  //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
-  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready:not(.playing)');
-  //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit__vimeo.ready.playing');
-  //   }
-  // });
-
-  // #endregion
-
-  // #region /tests/iframe
-
-  it('iframe', async () => {
-    const page = await createPage('/iframe/');
-
-    await page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight);
+      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.waitForSelector('#youtube-1 .nuxt-speedkit-youtube.ready.playing');
     });
-    await page.waitForSelector('#lazyContainer iframe[src]');
-  });
 
+    // #endregion
+
+    // #region /tests/vimeo
+
+    // Vimeo test disabled because the video codecs are probably missing on the test VMs.
+
+    // it('vimeo ready & play', async () => {
+    //   const page = await createPage('/vimeo/');
+
+    //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
+    //   if (chromium) {
+    //     // start first player
+    //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+    //     // wait for player ready
+    //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready');
+    //   } else {
+    //     // start first player
+    //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+    //     // wait for playing first player playing
+    //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready.playing');
+
+    //     // // wait for playing first player playing
+    //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+    //     // // start second player
+    //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
+    //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready:not(.playing)');
+    //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit-vimeo.ready.playing');
+    //   }
+    // });
+
+    // #endregion
+
+    // #region /tests/iframe
+
+    it('iframe', async () => {
+      const page = await createPage('/iframe/');
+
+      await page.evaluate(() => {
+        window.scrollBy(0, window.innerHeight);
+      });
+      await page.waitForSelector('#lazyContainer iframe[src]');
+    });
+  }
   // #endregion
 }
