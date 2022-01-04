@@ -196,15 +196,15 @@ function tests ({ chromium = false, firefox = false }) {
     // start first player
     await page.evaluate(() => document.querySelector('#youtube-0 button').click());
     // wait for playing first player playing
-    await page.waitForSelector('#youtube-0 .nuxt-speedkit__youtube.ready.playing');
+    await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready.playing');
 
     // start second player
     await page.evaluate(() => document.querySelector('#youtube-1 button').click());
     // wait for playing first player playing
-    await page.waitForSelector('#youtube-0 .nuxt-speedkit__youtube.ready:not(.playing)');
+    await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready:not(.playing)');
 
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-    await page.waitForSelector('#youtube-1 .nuxt-speedkit__youtube.ready.playing');
+    await page.waitForSelector('#youtube-1 .nuxt-speedkit-youtube.ready.playing');
   });
 
   // #endregion
@@ -221,19 +221,19 @@ function tests ({ chromium = false, firefox = false }) {
   //     // start first player
   //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
   //     // wait for player ready
-  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready');
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready');
   //   } else {
   //     // start first player
   //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
   //     // wait for playing first player playing
-  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready.playing');
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready.playing');
 
   //     // // wait for playing first player playing
   //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
   //     // // start second player
   //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
-  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit__vimeo.ready:not(.playing)');
-  //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit__vimeo.ready.playing');
+  //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready:not(.playing)');
+  //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit-vimeo.ready.playing');
   //   }
   // });
 

@@ -1,6 +1,6 @@
 <template>
   <base-vimeo
-    class="nuxt-speedkit__vimeo"
+    class="nuxt-speedkit-vimeo"
     v-bind="$attrs"
     v-on="$listeners"
   >
@@ -71,7 +71,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
 }
 
 .loading-spinner {
@@ -82,7 +82,7 @@ export default {
 }
 
 >>> button {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
 }
 
 .play {
@@ -96,13 +96,13 @@ export default {
     width: 6.5em;
     height: 4em;
     color: white;
-    background: rgba(30, 30, 30, 0.9);
+    background: rgb(30 30 30 / 90%);
     border-radius: 0.5em;
     transition: opacity 250ms ease-out, background-color 40ms, color 40ms;
     transform: translate(-50%, -50%);
 
     @nest button:hover & {
-      background-color: rgb(0, 173, 239);
+      background-color: rgb(0 173 239);
     }
 
     & svg {

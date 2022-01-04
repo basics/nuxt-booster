@@ -61,7 +61,7 @@ a {
 
   &:hover,
   &.nuxt-link-exact-active {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgb(255 255 255 / 40%);
     opacity: 1;
   }
 }

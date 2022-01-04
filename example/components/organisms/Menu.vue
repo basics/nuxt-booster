@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <input id="menu-control" v-model="open" type="checkbox" name="menu-control">
-    <div class="menu__content" aria-label="Menu">
+    <div class="content" aria-label="Menu">
       <label for="menu-control" />
       <div>
         <div>
@@ -9,7 +9,7 @@
             <headline
               v-if="headline"
               tag="span"
-              class="menu__headline"
+              class="headline"
               type="menu"
               :content="headline"
             />
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <label for="menu-control" class="menu__toggle">
+    <label for="menu-control" class="toggle">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
         <g id="open">
           <g>
@@ -71,7 +71,7 @@ export default {
 
   watch: {
     open (value) {
-      document.documentElement.classList.toggle('js--menu-open', value);
+      document.documentElement.classList.toggle('js-menu-open', value);
     }
   },
 
@@ -85,16 +85,12 @@ export default {
 </script>
 
 <style lang="postcss">
-
-/* stylelint-disable no-descending-specificity */
-
-html.js--menu-open {
+html.js-menu-open {
   overflow: hidden;
 }
 </style>
 
 <style lang="postcss" scoped>
-
 .menu {
   color: black;
 
@@ -102,18 +98,18 @@ html.js--menu-open {
     color: #fff;
   }
 
-  & .menu__toggle {
+  & .toggle {
     position: absolute;
     top: calc(10 / 16 * 1em);
     left: calc(10 / 16 * 1em);
     padding: calc(10 / 16 * 1em);
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgb(255 255 255 / 40%);
     outline: none;
     transition: background 0.2s linear;
 
     @media (prefers-color-scheme: dark) {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgb(0 0 0 / 40%);
     }
 
     & svg {
@@ -167,7 +163,7 @@ html.js--menu-open {
     }
   }
 
-  & input:checked ~ .menu__toggle {
+  & input:checked ~ .toggle {
     background: transparent;
 
     & #open {
@@ -223,7 +219,7 @@ html.js--menu-open {
     }
   }
 
-  & .menu__title {
+  & .title {
     display: block;
     font-size: calc(18 / 16 * 1em);
     font-weight: normal;
@@ -232,14 +228,14 @@ html.js--menu-open {
     opacity: 0.4;
   }
 
-  & .menu__headline {
+  & .headline {
     display: block;
     margin-left: calc(10 / 16 * 1em);
     font-size: calc(18 / 16 * 1em);
     color: #333;
 
     @media (prefers-color-scheme: dark) {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgb(255 255 255 / 80%);
     }
   }
 
@@ -249,7 +245,7 @@ html.js--menu-open {
     padding: 0;
   }
 
-  & .menu__content {
+  & .content {
     position: fixed;
     top: 0;
 
@@ -277,12 +273,12 @@ html.js--menu-open {
         padding-top: calc(50 / 16 * 1em);
         overflow: auto;
         text-align: left;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgb(255 255 255 / 50%);
         transition: transform 0.2s  ease-in;
         transform: translateX(-100%);
 
         @media (prefers-color-scheme: dark) {
-          background: rgba(0, 0, 0, 0.5);
+          background: rgb(0 0 0 / 50%);
         }
       }
     }
@@ -292,7 +288,7 @@ html.js--menu-open {
     display: none;
   }
 
-  & input:checked + .menu__content {
+  & input:checked + .content {
     display: block;
     pointer-events: auto;
     transition-delay: 0s;
@@ -304,6 +300,5 @@ html.js--menu-open {
     }
   }
 }
-/* stylelint-enable no-descending-specificity */
 
 </style>

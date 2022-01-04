@@ -93,7 +93,6 @@ export default {
 </script>
 
 <style lang="postcss">
-
 html {
   height: stretch;
 }

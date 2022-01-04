@@ -5,7 +5,7 @@
     :sizes="sizes"
     :width="width"
     :height="height"
-    class="nuxt-speedkit__image"
+    class="nuxt-speedkit-image"
     :class="classNames"
     :title="title"
     :alt="alt || title"
@@ -155,7 +155,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit__image {
+.nuxt-speedkit-image {
   content-visibility: auto;
   display: block;
   width: 100%;

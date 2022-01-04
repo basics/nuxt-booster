@@ -4,7 +4,7 @@
       $getFont('Merriweather', 300, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
     class="component-image-text"
-    :class="{['component-image-text--right']: alignRight}"
+    :class="{['component-image-text-right']: alignRight}"
   >
     <div class="image">
       <speedkit-picture
@@ -57,15 +57,15 @@ export default {
     & > * {
       width: 80%;
       margin: 0 auto;
-      box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 25px 0 rgb(0 0 0 / 40%);
 
       @media (prefers-color-scheme: dark) {
-        box-shadow: 0 0 25px 0 rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 25px 0 rgb(255 255 255 / 40%);
       }
     }
   }
 
-  &.component-image-text--right {
+  &.component-image-text-right {
     & > * {
       &:nth-child(1) {
         order: 2;

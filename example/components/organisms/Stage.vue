@@ -71,7 +71,7 @@ export default {
     margin: 0;
     color: white;
     text-align: center;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgb(0 0 0 / 40%);
 
     @media (min-width: 768px) {
       position: absolute;

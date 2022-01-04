@@ -8,5 +8,7 @@
   "ignoreFiles": [
     "./**/*.js"
   ],
-  "rules": {}
+  "rules": {
+    "max-line-length": null
+  }
 }
