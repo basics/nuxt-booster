@@ -42,7 +42,7 @@ More information on critical components can be found [here](/usage#critical-prop
 
 For multiple fonts, a list (`Array`) can be passed.
 
-```html
+````html
 
 <!-- single definition -->
 <node v-font="$getFont(…)">
@@ -52,7 +52,7 @@ For multiple fonts, a list (`Array`) can be passed.
   $getFont(…),
   $getFont(…)
 ]">
-```
+````
 
 <alert type="danger">Currently the use of `v-font` on components or in combination with `v-html/v-text` directives is not possible. Caused is a bug in the Vue SSR, directive is not applied.<br><br>Read more in the Issue: [vue-server-renderer: directive not applied to imported component](https://github.com/vuejs/vue/issues/10733).<br><br>As long as this error exists, you can look [**here**](/directives/v-font#workarounds) for workarounds.
 </alert>
@@ -88,23 +88,23 @@ The property `selector` can be used to limit the font to elements (e.g. `span`, 
 This has an effect on prefetches and preloads.
 </alert>
 
-```js
+````js
 {
   media: '(min-width: 768px)',
   selector: 'element, .elm, .elm:before'
 }
-```
+````
 
 ## Examples
 
 ### Basic Usage
 
-```html
+````html
 <h1 v-font="$getFont('Font Family', 700)">Headline</h1>
-```
+````
 ### Advanced Usage
 
-```js
+````js
 [
   
   // Font wird auf alles angewendet
@@ -120,7 +120,7 @@ This has an effect on prefetches and preloads.
   $getFont('Font Family B', 700, 'normal', { selector: 'b, strong', media: '(min-width: 768px)' })
 
 ]
-```
+````
 
 ## Workarounds
 
@@ -128,37 +128,37 @@ Workarounds are used to work around a bug in the Vue SSR, read more in [Usage](/
 ### Use component
 
 **<span style="color: red;">Bad</span>**
-```html
+````html
 <template>
   <nuxt-link to="/" v-font="$getFont(…)">Back</nuxt-link>
 </template>
-```
+````
 
 **<span style="color: green;">Good</span>**
-```html
+````html
 <template>
   <nuxt-link to="/">
     <span v-font="$getFont(…)">Back</span>
   </nuxt-link>
 </template>
-```
+````
 
 ### Use v-html/v-text
 **<span style="color: red;">Bad</span>**
-```html
+````html
 <template>
   <div>
     <div v-font="$getFont(…)" v-html="…" />
   </div>
 </template>
-```
+````
 
 **<span style="color: green;">Good</span>**
-```html
+````html
 <template>
   <div v-font="$getFont(…)">
     <div v-html="…" />
   </div>
 </template>
-```
+````
 

@@ -19,12 +19,12 @@ The default value is the `crossorigin` from the [Render Configuration](https://n
 
 These options can be used to define which initial checks are to be carried out when using the [`SpeedkitLayer`](/components/speedkit-layer).
   
-```js
+````js
 {
   performance: true,
   browserSupport: true
 }
-```
+````
 
  | Key              | Type      | Required | Description                                                                                                                                                                                      | Default |
  | ---------------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
@@ -40,7 +40,7 @@ For the browser support detection, the default <a href="https://github.com/brows
 
 With the help of the metrics, the actual performance check on client side can be configured. An explicit lighthouse check via user agent can be optionally added.
 
-```js
+````js
 {
   device: {
     hardwareConcurrency: { min: 2, max: 48 },
@@ -52,18 +52,18 @@ With the help of the metrics, the actual performance check on client side can be
   },
   lighthouseDetectionByUserAgent: false
 }
-```
+````
 ### `device`
 - Type: `Object`
 
 Describes the minimum hardware requirements that a device should meet to display the website.
 
-```js
+````js
 {
   hardwareConcurrency: { min: 2, max: 48 },
   deviceMemory: { min: 2 }
 }
-```
+````
 
  | Key                   | Type     | Required | Description            | Default               |
  | --------------------- | -------- | -------- | ---------------------- | --------------------- |
@@ -75,12 +75,12 @@ Describes the minimum hardware requirements that a device should meet to display
 
 Defines the max. time (ms) for the FCP. If the specified value is exceeded, the [`SpeedkitLayer`](/components/speedkit-layer) is displayed. If the browser does not yet grant access to the FCP, the DCL is evaluated as an alternative.
 
-```js
+````js
 {
   fcp: 800,
   dcl: 1200 // fallback if fcp is not available (safari)
 }
-```
+````
 
  | Key   | Type     | Required | Description                                                                                                                       | Default |
  | ----- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -103,7 +103,7 @@ We recommend that you disable the explicit lighthouse check . In the description
 
 List of all font families used in the project. Only the fonts that are listed in the configuration can be retrieved and integrated via [`$fonts.getFont(...)`](/directives/v-font).
 
-```js
+````js
 [
   {
     family: 'Font A',
@@ -118,20 +118,20 @@ List of all font families used in the project. Only the fonts that are listed in
     variances: […]
   }
 ]
-```
+````
 ### Font-Family
 - Type: `Object`
 
 Describes a font family with all its variants.
 
-```js
+````js
 {
   family: 'Font A',
   locals: ['Font A'],
   fallback: ['Arial', 'sans-serif'],
   variances: […]
 }
-```
+````
 
 | Key         | Type     | Required | Description                                      |
 | ----------- | -------- | -------- | ------------------------------------------------ |
@@ -150,7 +150,7 @@ Prevent sizing discrepancy between your custom and fallback font for perfect swa
 A font variant describes an instance of a font family and is used to generate the `FontFace` declaration.
 Font variants differ in [`style`](https://developer.mozilla.org/de/docs/Web/CSS/font-style) and [`weight`](https://developer.mozilla.org/de/docs/Web/CSS/font-weight).
 
-```js
+````js
 {
   style: 'normal',
   weight: 400,
@@ -159,7 +159,7 @@ Font variants differ in [`style`](https://developer.mozilla.org/de/docs/Web/CSS/
     { src: '@/assets/fonts/font-a-regular.woff2', type:'woff2' }
   ]
 }
-```
+````
 
 | Key       | Type                 | Required | Description                                                            |
 | --------- | -------------------- | -------- | ---------------------------------------------------------------------- |
@@ -172,12 +172,12 @@ Font variants differ in [`style`](https://developer.mozilla.org/de/docs/Web/CSS/
 
 List of all available font files of a font family variation.
 
-```js
+````js
 [
   { src: '@/assets/fonts/font-a-regular.woff', type:'woff' },
   { src: '@/assets/fonts/font-a-regular.woff2', type:'woff2' }
 ]
-```
+````
 
 | Key    | Type     | Required | Value                                                      |
 | ------ | -------- | -------- | ---------------------------------------------------------- |
@@ -194,16 +194,14 @@ With this attribute all components that can be found under `nuxt-speedkit/compon
 ### Available components
 
 
-| Global Name                    | Import Path                                               |                                                                                                                          |
-| ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `SpeedkitIframe`               | `nuxt-speedkit/components/SpeedkitIframe`                 | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)                 |
-| `SpeedkitLayer`                | `nuxt-speedkit/components/SpeedkitLayer`                  | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)                  |
-| `SpeedkitPicture`              | `nuxt-speedkit/components/SpeedkitPicture`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)                |
-| `SpeedkitYoutube`              | `nuxt-speedkit/components/SpeedkitYoutube`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)                |
-| `AbstractIntersectionObserver` | `nuxt-speedkit/components/abstracts/IntersectionObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/IntersectionObserver.vue) |
-| `AbstractOnlySsr`              | `nuxt-speedkit/components/abstracts/OnlySsr`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)              |
-| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit/components/experimental/SpeedkitPicture`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)   |
-| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit/components/experimental/SpeedkitYoutube`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitYoutube.vue)   |
+| Global Name                 | Import Path                                            |                                                                                                                       |
+| --------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `SpeedkitIframe`            | `nuxt-speedkit/components/SpeedkitIframe`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)              |
+| `SpeedkitLayer`             | `nuxt-speedkit/components/SpeedkitLayer`               | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)               |
+| `SpeedkitPicture`           | `nuxt-speedkit/components/SpeedkitPicture`             | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)             |
+| `SpeedkitYoutube`           | `nuxt-speedkit/components/SpeedkitYoutube`             | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)             |
+| `AbstractComponentObserver` | `nuxt-speedkit/components/abstracts/ComponentObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/ComponentObserver.vue) |
+| `AbstractOnlySsr`           | `nuxt-speedkit/components/abstracts/OnlySsr`           | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)           |
 
 ## `componentPrefix`
 - Type: `String`
@@ -218,28 +216,37 @@ Defines a prefix for the module components, important for auto import e.g. optio
 
 Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) built into the `nuxt-speedkit`.
 
-```js
+````js
 {
   // rootMargin for speedkitComponents components
   component: '0%',
   // rootMargin for SpeedkitPicture and SpeedkitImage
   asset: '0%' 
 }
-```
+````
 
  | Key         | Type     | Required | Description                                                                                                                                                       | Default |
  | ----------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
  | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for `speedkitComponents`                                   | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font` und `SpeedkitPicture`) | `0%`    |
 
-## `disableNuxtImage`
-- Type: `Boolean`
-  - Default: `false`
 
-If set, `@nuxt/image` will not be integrated.
+## `loader`
+- Type: `Object`
 
-⚠️&nbsp;&nbsp;The following components can no longer be used:<br>
-<ul>
-  <li><nuxt-link to="/components/experimental-speedkit-picture">SpeedkitPicture (Experimental)</nuxt-link></li>
-  <li><nuxt-link to="/components/experimental-speedkit-youtube">SpeedkitYoutube (Experimental)</nuxt-link></li>
-</ul>
+Defines the global built-in loader in the [SpeedkitImage (`loaderSpinnner`)](/components/speedkit-image#loadingspinner). 
+
+````js
+{
+  dataUri: undefined,
+  size: '100px',
+  backgroundColor: 'grey'
+}
+````
+
+ | Key               | Type     | Required | Description                                                                   | Default     |
+ | ----------------- | -------- | -------- | ----------------------------------------------------------------------------- | ----------- |
+ | `dataUri`         | `String` | no       | Defines the source of the loader. (e.g. `@/assets/spinner/three-circles.svg`) | `undefined` |
+ | `size`            | `String` | no       | Defines the size of the loader. Use css `background-size` definition.         | `100px`     |
+ | `backgroundColor` | `String` | no       | Defines the background color of the loader. Use css `color` definition.       | `grey`      |
+

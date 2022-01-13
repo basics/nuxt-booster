@@ -69,7 +69,7 @@ When an event is triggered, the relevant message is displayed via the ID using t
 | <nobr>`nuxt-speedkit__message__slow-connection`</nobr>     | Connection speed is too low.                                                |
 
 **Example**
-```html
+````html
 <!-- initial -->
 <div id="nuxt-speedkit__message__unsupported-browser">
   Your browser is not supported!
@@ -79,7 +79,7 @@ When an event is triggered, the relevant message is displayed via the ID using t
 <div id="nuxt-speedkit__message__unsupported-browser" style="display: block;">
   Your browser is not supported!
 </div>
-```
+````
 
 ## Buttons
 
@@ -116,7 +116,7 @@ These are needed if the user has already reacted before the initial Javascript h
 
 **Example**
 
-```html
+````html
 <button
   id="nuxt-speedkit__button__init-font"
   onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;"
@@ -126,15 +126,15 @@ These are needed if the user has already reacted before the initial Javascript h
   id="nuxt-speedkit__button__init-app"
   onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"
   >…</button>
-```
+````
 
 ## Hide Layer
 
-```html
+````html
 <label for="nuxt-speedkit__speedkit-layer__close">
   Close Layer
 </label>
-```
+````
 
 The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit__speedkit-layer__close`.
 
@@ -142,7 +142,7 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit__spee
 
 ## Template
 
-```html
+````html
 <speedkit-layer>
   <div>
 
@@ -188,4 +188,4 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit__spee
 
   </div>
 </speedkit-layer>
-```
+````

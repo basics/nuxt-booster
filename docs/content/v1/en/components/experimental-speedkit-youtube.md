@@ -24,7 +24,7 @@ The `SpeedkitPicture` (Experimental) is used for the poster, so the generation o
 
 ### Example
 
-```vue
+````vue
 <template>
   <div>
     <speedkit-youtube v-bind="youtube" @playing="onPlaying"  />
@@ -58,19 +58,19 @@ export default {
   }
 };
 </script>
-```
+````
 
 
 ## Properties
 
-```js
+````js
 {
   id: 'youtube-id',
   autoplay: false,
   host: 'https://www.youtube-nocookie.com',
   config: { … }
 }
-```
+````
 
 ### `id`
 - Type: `String`
@@ -108,14 +108,14 @@ Sets the Youtube player configuration.
 
 ## Events
 
-```html
+````html
 <speedkit-picture 
   @ready="console.log('Ready!')" 
   @loading="console.log('Video Loading!')" 
   @playing="console.log('Video Playing!')" 
   @enter="console.log('Viewport!')" 
 />
-```
+````
 
 | Name      | Description                                           |
 | --------- | ----------------------------------------------------- |

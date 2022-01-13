@@ -1,6 +1,5 @@
 <template>
   <div
-    :title="title"
     :class="{ready, playing}"
     :show="ready"
   >
@@ -8,6 +7,7 @@
     <iframe
       v-if="src"
       ref="player"
+      :title="title"
       class="player"
       :src="src"
       frameborder="0"
@@ -15,7 +15,11 @@
       @load="onLoad"
     />
     <default-button @click="onInit">
-      <speedkit-picture class="poster" v-bind="pictureDataset" />
+      <speedkit-picture
+        class="poster"
+        v-bind="pictureDataset"
+        :title="title"
+      />
       <slot v-if="loading" name="loading-spinner" />
       <transition name="base-fade">
         <slot v-if="!ready && !loading" name="play" />
@@ -28,6 +32,7 @@
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import { isTouchSupported } from 'nuxt-speedkit/utils/browser';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
@@ -44,6 +49,16 @@ export default {
 
   props: {
 
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+
+    mute: {
+      type: Boolean,
+      default: undefined
+    },
+
     url: {
       type: String,
       required: true
@@ -54,9 +69,28 @@ export default {
       required: true
     },
 
-    loadingSpinner: {
+    host: {
+      type: String,
+      default: 'https://www.youtube-nocookie.com'
+    },
+
+    options: {
+      type: Object,
+      default () {
+        return {};
+      }
+    },
+
+    posterLoadingSpinner: {
       type: LoadingSpinner,
       default: undefined
+    },
+
+    posterSizes: {
+      type: Object,
+      default () {
+        return { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' };
+      }
     }
   },
 
@@ -70,7 +104,7 @@ export default {
       loading: false,
       playing: false,
       landscape: false,
-      isTouchDevice: false
+      isTouchDevice: isTouchSupported()
     };
   },
 
@@ -86,11 +120,17 @@ export default {
         title: this.title,
         sources: [{
           src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
-          sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
+          sizes: this.posterSizes,
           media: 'all'
         }],
-        loadingSpinner: this.loadingSpinner
+        loadingSpinner: this.posterLoadingSpinner
       }).toJSON();
+    }
+  },
+
+  mounted () {
+    if (this.autoplay) {
+      this.onInit();
     }
   },
 
@@ -105,18 +145,30 @@ export default {
       this.ready = false;
       this.playing = false;
     },
-    onInit (e) {
-      this.isTouchDevice = Number(e.pointerType === 'touch');
+    onInit () {
       this.loading = true;
+
+      const params = {
+        rel: 0,
+        enablejsapi: 1,
+        autoplay: 0,
+        modestbranding: 1,
+        showinfo: 0,
+        iv_load_policy: 3,
+        ...this.options,
+        playsinline: 1,
+        mute: Number(this.isTouchDevice) || Number(this.mute)
+      };
+
       // eslint-disable-next-line no-secrets/no-secrets
-      this.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0&enablejsapi=1&autoplay=0&mute=${Number(this.isTouchDevice)}&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1`;
+      this.src = `${this.host}/embed/${this.videoId}?` + Object.entries(params).map(([name, value]) => `${name}=${value}`).join('&');
       this.script = [load()];
     },
 
     async onLoad () {
       this.player = await youtube.createPlayer(this.$refs.player, {
         videoId: this.videoId,
-        host: 'https://www.youtube-nocookie.com',
+        host: this.host,
         events: {
           onReady: (e) => {
             e.target.mute();

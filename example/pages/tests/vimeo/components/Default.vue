@@ -13,13 +13,14 @@
 
 <script>
 
-import DefaultVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
+  speedkitComponents: {
+    DefaultVimeo: () => import('nuxt-speedkit/components/SpeedkitVimeo')
+  },
 
   components: {
-    DefaultVimeo,
     OrganismPreviewContainer
   },
 
@@ -32,13 +33,19 @@ export default {
     title: {
       type: String,
       default: 'Vimeo'
+    },
+
+    autoplay: {
+      type: Boolean,
+      default: false
     }
   },
 
   computed: {
     vimeo () {
       return {
-        url: this.vimeoUrl
+        url: this.vimeoUrl,
+        autoplay: this.autoplay
       };
     }
   }

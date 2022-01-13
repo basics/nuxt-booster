@@ -190,7 +190,7 @@ function tests ({ chromium = false, firefox = false }) {
 
   if (!firefox) {
     // #region /tests/youtube
-    it('youtube ready & play', async () => {
+    it('youtube ready, play and autoplay', async () => {
       const page = await createPage('/youtube/');
 
       // start first player
@@ -198,12 +198,11 @@ function tests ({ chromium = false, firefox = false }) {
       // wait for playing first player playing
       await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready.playing');
 
-      // start second player
-      await page.evaluate(() => document.querySelector('#youtube-1 button').click());
+      // scroll to second player for autoplay
+      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+
       // wait for playing first player playing
       await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready:not(.playing)');
-
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       await page.waitForSelector('#youtube-1 .nuxt-speedkit-youtube.ready.playing');
     });
 

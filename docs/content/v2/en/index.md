@@ -2,6 +2,7 @@
 title: Introduction
 description: ''
 position: 1
+version: 2
 requirements:
   - NodeJS >= 12.x.x
   - NuxtJS >= 2.15.0

@@ -5,27 +5,27 @@
         Sorry, but you will have a limited user experience due to a…
       </p>
       <ul v-font="$getFont('Quicksand', 700, 'normal')">
-        <li id="nuxt-speedkit-button-nojs">
+        <li id="nuxt-speedkit-message-nojs">
           disabled javascript
         </li>
-        <li id="nuxt-speedkit-button-unsupported-browser">
+        <li id="nuxt-speedkit-message-unsupported-browser">
           outdated browser
         </li>
-        <li id="nuxt-speedkit-button-outdated-device">
+        <li id="nuxt-speedkit-message-outdated-device">
           outdated device
         </li>
-        <li id="nuxt-speedkit-button-slow-connection">
+        <li id="nuxt-speedkit-message-slow-connection">
           slow connection
         </li>
       </ul>
       <div class="info-layer-buttons">
         <base-button id="nuxt-speedkit-button-init-nojs">
-          <label for="nuxt-speedkit-speedkit-layer__close">
+          <label for="nuxt-speedkit-speedkit-layer-close">
             OK
           </label>
         </base-button>
         <base-button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
-          <label for="nuxt-speedkit-speedkit-layer__close">
+          <label for="nuxt-speedkit-speedkit-layer-close">
             No
           </label>
         </base-button>
