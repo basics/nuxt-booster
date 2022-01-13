@@ -20,7 +20,7 @@ Examples for defining the resources can be found in the [example](https://github
 
 ### Example
 
-```vue
+````vue
 <template>
   <div>
     <speedkit-picture v-bind="image" />
@@ -83,7 +83,7 @@ export default {
   }
 };
 </script>
-```
+````
 ## Properties
 
 All properties except [`sources`](/components/speedkit-picture#sources) and [`placeholders`](/components/speedkit-picture#placeholders) are identical to the `SpeedkitPicture` (Experimental).
@@ -95,7 +95,7 @@ Learn more about [`ExperimentalSpeedkitPicture` - Properties](/components/experi
 
 Contains resources that are to be displayed depending on the viewport.
 
-```js
+````js
 [
   {
     media: '(min-width: 768px)',
@@ -126,7 +126,7 @@ Contains resources that are to be displayed depending on the viewport.
     ]
   }
 ]
-```
+````
 
 Each source in the list describes a file format with its viewport dependent image sizes.
 
@@ -144,7 +144,7 @@ Property `sizes` is used to define the viewport dependent image sizes and `media
 <alert>`media` can be used for breakpoint specific aspect ratios.</alert>
 
 
-```js
+````js
 {
   media: '(min-width: 768px)',
   format: 'webp',
@@ -153,15 +153,15 @@ Property `sizes` is used to define the viewport dependent image sizes and `media
     { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
   ]
 }
-```
+````
 
-```js
+````js
 { 
   width: 768, 
   media: '(min-width: 768px)', 
   url: '768.webp' 
 }
-```
+````
 The size object in `sizes` describes the different image sizes for the respective breakpoints.
 
 From the list `sizes`, the `srcset` & `sizes` is generated.
@@ -182,12 +182,12 @@ More about [`HTMLImageElement.srcset`](https://developer.mozilla.org/en-US/docs/
 
 **Example**
 
-```js
+````js
 [
   { width: 768, media: '(min-width: 768px)', url: '768.webp' },
   { width: 1024, media: '(min-width: 1024px)', url: '1024.webp' }
 ]
-```
+````
 
 ### `placeholders`
 - Type: `Array`
@@ -205,7 +205,7 @@ It is possible to define different image ratios for the placeholders via the `me
 | `format` | `String` | yes      | Image format of the specified resource. e.g. `webp`, `jpg`, … |
 | `media`  | `String` |          | CSS Media Query e.g. `(min-width: 768px)`                     |
 
-```js
+````js
 [
   {
     media: '(min-width: 768px)',
@@ -217,7 +217,7 @@ It is possible to define different image ratios for the placeholders via the `me
     url: 'portrait.jpg' // base64 or url
   }
 ]
-```
+````
 
 ## Events
 

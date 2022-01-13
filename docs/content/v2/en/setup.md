@@ -14,23 +14,23 @@ Add `nuxt-speedkit` dependency to your project:
 <code-group>
   <code-block label="Yarn" active>
 
-  ```bash
+  ````bash
   yarn add nuxt-speedkit
-  ```
+  ````
 
   </code-block>
   <code-block label="NPM">
 
-  ```bash
+  ````bash
   npm install nuxt-speedkit
-  ```
+  ````
 
   </code-block>
 </code-group>
 
 Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 
-```js[nuxt.config.js]
+````js[nuxt.config.js]
 {
   modules: [
     'nuxt-speedkit'
@@ -39,11 +39,11 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
     // Options
   }
 }
-```
+````
 
 ## Example Configuration
 
-```js
+````js
 {
   speedkit: {
     detection: {
@@ -100,9 +100,15 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
     lazyOffset: {
       component: '0%',
       asset: '0%'
+    },
+
+    loader: {
+      dataUri: null,
+      size: '100px',
+      backgroundColor: 'grey'
     }
   }
 }
-```
+````
 
 See <nuxt-link to="/options">module options</nuxt-link>.

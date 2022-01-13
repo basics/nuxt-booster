@@ -34,7 +34,7 @@ The specified resources can be given by absolute path (static folder) or complet
 
 ### Example
 
-```vue
+````vue
 <template>
   <div>
     <speedkit-picture v-bind="image" />
@@ -59,18 +59,18 @@ export default {
   }
 };
 </script>
-```
+````
 
 ## Properties
 
-```js
+````js
 {
   sources: […],
   alt: 'Image Alt',
   title: 'Image Title',
   crossorigin: 'anonymous'
 }
-```
+````
 
 ### `sources`
 - Type: `Array`
@@ -89,13 +89,13 @@ In the following example, two different image ratios are used.
 - `landscape.jpg` is applied at a viewport of `992px` with an image size of `1024px`.  
 - `portrait.jpg` is applied below `992px` and has two viewport dependent image sizes, at `(min-width: 768px)` the width `768px` and everything below that the width `414px`.
 
-```js
+````js
 [
   
   { src: 'landscape.jpg', sizes: '992:1024' },
   { src: 'portrait.jpg', sizes: '414,768:768' }
 ]
-```
+````
 #### 
 
 ### `critical`
@@ -130,12 +130,12 @@ Image CrossOrigin.
 
 ## Events
 
-```html
+````html
 <speedkit-picture 
   @load="console.log('Loaded!')" 
   @enter="console.log('Viewport!')" 
 />
-```
+````
 
 | Name    | Description                                                   |
 | ------- | ------------------------------------------------------------- |

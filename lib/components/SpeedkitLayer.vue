@@ -1,7 +1,7 @@
 <template>
   <only-ssr>
     <div id="nuxt-speedkit-speedkit-layer">
-      <input id="nuxt-speedkit-speedkit-layer__close" name="close" type="checkbox">
+      <input id="nuxt-speedkit-speedkit-layer-close" name="close" type="checkbox">
       <div id="nuxt-speedkit-speedkit-layer-content">
         <slot>
           <div>
@@ -9,33 +9,33 @@
 
             <ul style="padding: 0; list-style: none;">
               <!-- Displayed when javascript is disabled. -->
-              <li id="nuxt-speedkit-button-nojs">
+              <li id="nuxt-speedkit-message-nojs">
                 disabled javascript
               </li>
               <!-- Displayed when browser does not support. -->
-              <li id="nuxt-speedkit-button-unsupported-browser">
+              <li id="nuxt-speedkit-message-unsupported-browser">
                 outdated browser
               </li>
               <!-- Displayed when user hardware is not sufficient. -->
-              <li id="nuxt-speedkit-button-outdated-device">
+              <li id="nuxt-speedkit-message-outdated-device">
                 outdated device
               </li>
               <!-- Displayed when connection is too slow. -->
-              <li id="nuxt-speedkit-button-slow-connection">
+              <li id="nuxt-speedkit-message-slow-connection">
                 slow connection
               </li>
             </ul>
 
             <!-- Button to hide the layer with no javascript -->
             <button id="nuxt-speedkit-button-init-nojs">
-              <label for="nuxt-speedkit-speedkit-layer__close">
+              <label for="nuxt-speedkit-speedkit-layer-close">
                 Apply without js
               </label>
             </button>
 
             <!-- Button for use without javascript and with fonts -->
             <button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
-              <label for="nuxt-speedkit-speedkit-layer__close">
+              <label for="nuxt-speedkit-speedkit-layer-close">
                 Apply with Fonts
               </label>
             </button>
@@ -102,19 +102,19 @@ export default {
   display: none;
 }
 
-#nuxt-speedkit-button-nojs {
+#nuxt-speedkit-message-nojs {
   display: none;
 }
 
-#nuxt-speedkit-button-unsupported-browser {
+#nuxt-speedkit-message-unsupported-browser {
   display: none;
 }
 
-#nuxt-speedkit-button-outdated-device {
+#nuxt-speedkit-message-outdated-device {
   display: none;
 }
 
-#nuxt-speedkit-button-slow-connection {
+#nuxt-speedkit-message-slow-connection {
   display: none;
 }
 

@@ -30,13 +30,6 @@ export default {
       default: null
     },
 
-    loadingSpinner: {
-      type: LoadingSpinner,
-      default () {
-        return this.$speedkit.loader();
-      }
-    },
-
     title: {
       type: String,
       required: true
@@ -45,6 +38,13 @@ export default {
     alt: {
       type: String,
       default: null
+    },
+
+    loadingSpinner: {
+      type: LoadingSpinner,
+      default () {
+        return this.$speedkit.loader();
+      }
     }
   },
 

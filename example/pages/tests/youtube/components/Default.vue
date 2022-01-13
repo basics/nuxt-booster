@@ -13,14 +13,15 @@
 
 <script>
 
-import DefaultYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
-
   components: {
-    DefaultYoutube,
     OrganismPreviewContainer
+  },
+  speedkitComponents: {
+    DefaultYoutube: () => import('nuxt-speedkit/components/SpeedkitYoutube')
+
   },
 
   props: {
@@ -32,6 +33,11 @@ export default {
     title: {
       type: String,
       default: 'Youtube'
+    },
+
+    autoplay: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -39,7 +45,8 @@ export default {
     youtube () {
       return {
         url: this.youtubeUrl,
-        title: this.title
+        title: this.title,
+        autoplay: this.autoplay
       };
     }
   }

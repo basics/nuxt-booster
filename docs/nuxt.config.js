@@ -20,12 +20,17 @@ export default theme({
     }
   },
 
+  router: {
+    base: getBasePath()
+  },
+
   server: {
     port: getPort()
   },
 
   content: {
-    liveEdit: false
+    liveEdit: false,
+    dir: getContentDir()
   },
 
   generate: {
@@ -40,4 +45,12 @@ function getDistPath () {
 
 function getPort () {
   return process.env.npm_config_port || process.env.PORT || 3000;
+}
+
+function getContentDir () {
+  return process.env.npm_config_content_dir || process.env.CONTENT_DIR || 'content/v2';
+}
+
+function getBasePath () {
+  return process.env.npm_config_base_path || process.env.BASE_PATH || '/';
 }

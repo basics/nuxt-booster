@@ -43,9 +43,9 @@ The included [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web
 The `SpeedkitIframe` is used like a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 
 ### Example
-```vue
+````vue
 <template>
-  <speedkit-iframe v-bind="iframe" @load="onIFrameLoaded" />
+  <speedkit-iframe v-bind="iframe" @load="onLoadIframe" />
 </template>
 
 <script>
@@ -53,22 +53,22 @@ The `SpeedkitIframe` is used like a normal [HTML Iframe](https://www.w3schools.c
     data: {
       iframe: {
        src: '…',
-       intersectionObserver: { trackVisibility: true, delay: 350 }
+       componentObserver: { trackVisibility: true, delay: 350 }
       }
     },
     methods: {
-      onIFrameLoaded (){
+      onLoadIframe (){
         console.log('iframe loaded!');
       }
     }
   };
 </script>
-```
+````
 
 ## Properties
 
 > Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
-### `intersectionObserver`
+### `componentObserver`
 - Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
   - Default: `{ trackVisibility: true, delay: 350 }`
 
@@ -78,12 +78,12 @@ For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about
 
 ## Events
 
-```html
+````html
 <speedkit-iframe 
-  @load="console.log('Loaded!')" 
-  @enter="console.log('Enter Viewport!')" 
+  @load="console.log('Iframe Loaded!')" 
+  @enter="console.log('Iframe enter viewport!')" 
 />
-```
+````
 
 | Name    | Description                                        |
 | ------- | -------------------------------------------------- |

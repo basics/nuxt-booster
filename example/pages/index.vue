@@ -27,9 +27,9 @@ export default {
           title: 'Stage',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            { src: '/img/pickadummy/stage-landscape.png', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
+            { src: '/img/pickadummy/stage-landscape.png', sizes: { sm: '20vw', md: '20vw', lg: '20vw', xl: '20vw', xxl: '20vw' }, media: '(orientation: landscape)' },
             // eslint-disable-next-line no-secrets/no-secrets
-            { src: '/img/pickadummy/stage-portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+            { src: '/img/pickadummy/stage-portrait.png', sizes: { default: '20vw', xxs: '20vw', xs: '20vw' }, media: '(orientation: portrait)' }
           ]
         }
       },
@@ -44,7 +44,7 @@ export default {
           title: 'Image Text A',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            { src: '/img/pickadummy/image-text-a.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+            { src: '/img/pickadummy/image-text-a.png', sizes: { default: '20vw', xxs: '20vw', xs: '20vw', sm: '20vw', md: '20vw', lg: '20vw', xl: '20vw', xxl: '20vw' } }
           ]
         }
       },
@@ -62,7 +62,7 @@ export default {
           title: 'Image Text B',
           sources: [
             // eslint-disable-next-line no-secrets/no-secrets
-            { src: '/img/pickadummy/image-text-b.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+            { src: '/img/pickadummy/image-text-b.png', sizes: { default: '20vw', xxs: '20vw', xs: '20vw', sm: '20vw', md: '20vw', lg: '20vw', xl: '20vw', xxl: '20vw' } }
           ]
         }
       },

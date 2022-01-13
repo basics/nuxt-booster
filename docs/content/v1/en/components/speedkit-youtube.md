@@ -20,7 +20,7 @@ A `SpeedkitPicture` must be additionally defined in the `poster` property.
 
 ### Example
 
-```vue
+````vue
 <template>
   <div>
     <speedkit-youtube v-bind="youtube" @playing="onPlaying" />
@@ -79,17 +79,17 @@ export default {
   }
 };
 </script>
-```
+````
 ## Properties
 
-```js
+````js
 {
   id: 'youtube-id',
   autoplay: false,
   host: 'https://www.youtube-nocookie.com',
   config: { … }
 }
-```
+````
 
 All properties except `poster` are identical to `SpeedkitYoutube`.
 

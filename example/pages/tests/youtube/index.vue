@@ -23,7 +23,8 @@ export default {
         },
         {
           youtubeUrl: 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
-          title: 'Youtube 2'
+          title: 'Youtube 2',
+          autoplay: true
         }
       ]
     };

@@ -58,8 +58,9 @@ export default {
       }
     },
 
-    onEnterView () {
+    onEnterView (e) {
       this.lazySrc = this.src;
+      this.$emit('enter', e);
     }
   }
 
