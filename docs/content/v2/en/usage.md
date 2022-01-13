@@ -63,10 +63,8 @@ In order to be able to load further static resources such as pictures, iFrames o
 
 - [SpeedkitLayer](/components/speedkit-layer)
 - [SpeedkitPicture](/components/speedkit-picture)
-- [SpeedkitPicture (Experimental)](/components/experimental-speedkit-picture)
 - [SpeedkitIframe](/components/speedkit-iframe)
 - [SpeedkitYoutube](/components/speedkit-youtube)
-- [SpeedkitYoutube (Experimental)](/components/experimental-speedkit-youtube)
 
 ````html
 <template>

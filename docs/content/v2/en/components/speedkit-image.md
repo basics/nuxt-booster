@@ -116,7 +116,7 @@ In the following example, one image with two different image sizes by breakpoint
 
 ### `loadingSpinner`
 - Type: [`LoadingSpinner`](/classes/loading-spinner)
-  - Default: `undefined`
+  - Default: `this.$speedkit.loader()`
 
 Sets a loading spinner definition of type [`LoadingSpinner`](/classes/loading-spinner), this describes the visual appearance of the loading state.
 

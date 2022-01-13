@@ -32,6 +32,7 @@
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import { isTouchSupported } from 'nuxt-speedkit/utils/browser';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
@@ -47,6 +48,16 @@ export default {
   inheritAttrs: false,
 
   props: {
+
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+
+    mute: {
+      type: Boolean,
+      default: undefined
+    },
 
     url: {
       type: String,
@@ -68,16 +79,6 @@ export default {
       default () {
         return {};
       }
-    },
-
-    autoplay: {
-      type: Boolean,
-      default: false
-    },
-
-    mute: {
-      type: Boolean,
-      default: undefined
     },
 
     posterLoadingSpinner: {
@@ -103,7 +104,7 @@ export default {
       loading: false,
       playing: false,
       landscape: false,
-      isTouchDevice: false
+      isTouchDevice: isTouchSupported()
     };
   },
 
@@ -144,8 +145,7 @@ export default {
       this.ready = false;
       this.playing = false;
     },
-    onInit (e) {
-      this.isTouchDevice = Number(e?.pointerType === 'touch');
+    onInit () {
       this.loading = true;
 
       const params = {

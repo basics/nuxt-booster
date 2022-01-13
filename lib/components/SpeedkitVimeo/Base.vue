@@ -26,6 +26,7 @@
 import { toHashHex } from 'nuxt-speedkit/utils/string';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import { isTouchSupported } from 'nuxt-speedkit/utils/browser';
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
@@ -42,6 +43,16 @@ export default {
 
   props: {
 
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+
+    mute: {
+      type: Boolean,
+      default: undefined
+    },
+
     url: {
       type: String,
       required: true
@@ -53,10 +64,22 @@ export default {
       default: null
     },
 
-    loadingSpinner: {
-      type: LoadingSpinner,
+    options: {
+      type: Object,
       default () {
-        return null;
+        return {};
+      }
+    },
+
+    posterLoadingSpinner: {
+      type: LoadingSpinner,
+      default: undefined
+    },
+
+    posterSizes: {
+      type: Object,
+      default () {
+        return { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' };
       }
     }
   },
@@ -71,8 +94,8 @@ export default {
       ready: false,
       loading: false,
       playing: false,
-      isTouchDevice: false,
-      iframeMode: false
+      iframeMode: false,
+      isTouchDevice: isTouchSupported()
     };
   },
 
@@ -116,17 +139,32 @@ export default {
         sources: [{
           format: 'jpg',
           src: this.videoData && this.videoData.thumbnail_large.replace(/(.+)(\/video\/[\w-]+)_([\d]+)$/, `/vimeo$2_${this.videoData.width}`),
-          sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' },
+          sizes: this.posterSizes,
           media: 'all'
         }],
-        loadingSpinner: this.loadingSpinner
+        loadingSpinner: this.posterLoadingSpinner
       };
     },
 
     playerSrc () {
-      return `https://player.vimeo.com/video/${this.videoId}?dnt=1&autoplay=0&autopause=0&muted=${Number(this.isTouchDevice)}`;
+      const params = {
+        dnt: 1,
+        autopause: 0,
+        ...this.options,
+        playsinline: 1,
+        autoplay: Number(this.autoplay),
+        muted: Number(this.isTouchDevice || this.mute || false)
+      };
+
+      return `https://player.vimeo.com/video/${this.videoId}?` + Object.entries(params).map(([name, value]) => `${name}=${value}`).join('&');
     }
 
+  },
+
+  mounted () {
+    if (this.autoplay) {
+      this.onInit();
+    }
   },
 
   destroyed () {
@@ -135,8 +173,7 @@ export default {
 
   methods: {
 
-    onInit (e) {
-      this.isTouchDevice = e.pointerType === 'touch';
+    onInit () {
       this.loading = true;
       this.src = this.playerSrc;
       this.script = [load()];

@@ -17,7 +17,7 @@ features:
 
 Path: `nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner.js`
 
-The LoadingSpinner instance describes the visual appearance of the loading state in the SpeedkitImage. This can be defined globally via the module settings or on the specific components.
+The LoadingSpinner instance describes the visual appearance of the loading state in the [`SpeedkitImage`](/components/speedkit-image). This can be defined globally via the module settings or on the specific components.
 
 
 ````js 
@@ -38,3 +38,4 @@ Defines the size of the loader. Use css `background-size` definition. (e.g. `100
   - Type: `String`
 
 Defines the background color of the loader. Use css `color` definition. (e.g. `#fff`)
+

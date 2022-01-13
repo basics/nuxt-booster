@@ -1,21 +1,22 @@
 ---
-title: SpeedkitYoutube
+title: SpeedkitVimeo
 description: ''
-position: 335
+position: 36
 category: Components
 ---
 
-We have integrated `SpeedkitYoutube`  as an example to show how iFrame content must be integrated in a performance-optimized manner.
+We have integrated `SpeedkitVimeo`  as an example to show how iFrame content must be integrated in a performance-optimized manner.
 For this purpose, a separate IntersectionObserver has been implemented, which detects a longer dwell time of the component in the viewport. The iFrame is initialized only after a positive detection. This prevents immense data from having to be loaded when simply scrolling through the page.
-So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture`](/components/speedkit-picture) and preload the corresponding Youtube poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
+So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture`](/components/speedkit-picture) and preload the corresponding Vimeo poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
 
 ## Usage
 
-The `SpeedkitYoutube`is used to initialise Youtube videos with [Youtube Iframe-API](https://developers.google.com/youtube/iframe_api_reference?hl=de).
+The `SpeedkitVimeo`is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
+<alert>The SDK is not part of `nuxt-speedkit` and will be loaded by an external script.</alert>
 
-The `url` of the Youtube video must be specified.  
+The `url` of the Vimeo video must be specified.  
 
-The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/components/speedkit-picture#sources). 
+The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/components/speedkit-image#source). 
 
 
 
@@ -26,23 +27,22 @@ The `SpeedkitPicture` is used for the poster, so the generation of the poster is
 ````vue
 <template>
   <div>
-    <speedkit-youtube v-bind="youtube" @playing="onPlaying"  />
+    <speedkit-vimeo v-bind="vimeo" @playing="onPlaying"  />
   </div>
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitYoutube';
+import SpeedkitVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
 export default {
-  components: { SpeedkitPicture },
+  components: { SpeedkitVimeo },
   data () {
     return {
-      youtube: {
-        url: '<youtube-url>',
-        title: 'Youtube Title',
+      vimeo: {
+        url: '<vimeo-url>',
+        title: 'Vimeo Title',
         loadingSpinner: undefined,
-        host: 'https://www.youtube.com',
         options: {
-          fs: false // use boolean instead of 0 or 1
+          controls: false // use boolean instead of 0 or 1
         },
         posterSizes: {
           default: '100vw',
@@ -53,19 +53,18 @@ export default {
   },
   methods: {
     onPlaying () {
-      console.log('Youtube Player playing!');
+      console.log('Vimeo Player playing!');
     }
   }
 };
 </script>
 ````
 
-
 ## Properties
 
 ````js
 {
-  url: '<youtube-url>',
+  url: '<vimeo-url>',
   title: 'Player Title',
   autoplay: false,
   mute: false,
@@ -77,7 +76,7 @@ export default {
 ### `url`
 - Type: `String`
 
-Sets a video via the youtube url.
+Sets a video via the vimeo url.
  
 ### `title`
 - Type: `String`
@@ -108,16 +107,16 @@ Sets a loading spinner definition of type [`LoadingSpinner`](#), this describes 
 
 Sets the image sizes of the poster.
 
-[Learn more about `sizes`](/components/speedkit-picture#sources)
+[Learn more about `sizes`](/components/speedkit-image#source)
 
 ### `options`
 - Type: `Object`
 
-Overrides the youtube player options. These will be the same as the youtube player parameters.
+Overrides the vimeo player options. These will be the same as the vimeo player embed options.
 
 Use `boolean` values instead of integers (e.g. `0`, `1`).
 
-[Learn more about Youtube Player Parameters](https://developers.google.com/youtube/player_parameters#Parameters)
+[Learn more about Vimeo Player Parameters](https://developer.vimeo.com/player/sdk/embed)
 
 <alert type="warning">
 
@@ -128,24 +127,16 @@ This is important for autoplay on mobile devices.
 
 </alert>
 
-### `host`
-- Type: `String`
-  - default: `'https://www.youtube-nocookie.com'`
-
-Sets the host for the player.
-
-<alert>It is recommended to use the default (https://www.youtube-nocookie.com).</alert>
-
 ## Events
 
 ````html
-<speedkit-youtube 
+<speedkit-vimeo 
   @ready="console.log('Player Ready!')" 
   @playing="console.log('Player Playing!')" 
 />
 ````
 
-| Name      | Description                                           |
-| --------- | ----------------------------------------------------- |
-| `ready`   | Triggered when `Youtube-API` is completely loaded.    |
-| `playing` | Triggered when video is finished loading and playing. |
+| Name      | Description                                             |
+| --------- | ------------------------------------------------------- |
+| `ready`   | Triggered when `Vimeo Player-SDK` is completely loaded. |
+| `playing` | Triggered when video is finished loading and playing.   |

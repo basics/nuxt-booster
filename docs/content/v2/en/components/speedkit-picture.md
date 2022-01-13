@@ -1,7 +1,7 @@
 ---
 title: SpeedkitPicture
 description: ''
-position: 31
+position: 32
 category: Components
 features:
   - generation of multiple image resolutions (srcset)
@@ -39,7 +39,7 @@ The specified resources can be given by absolute path (static folder) or complet
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit/components/experimental/SpeedkitPicture';
+import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 export default {
   components: { SpeedkitPicture },
   data () {

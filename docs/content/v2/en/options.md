@@ -194,16 +194,14 @@ With this attribute all components that can be found under `nuxt-speedkit/compon
 ### Available components
 
 
-| Global Name                    | Import Path                                               |                                                                                                                          |
-| ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `SpeedkitIframe`               | `nuxt-speedkit/components/SpeedkitIframe`                 | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)                 |
-| `SpeedkitLayer`                | `nuxt-speedkit/components/SpeedkitLayer`                  | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)                  |
-| `SpeedkitPicture`              | `nuxt-speedkit/components/SpeedkitPicture`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)                |
-| `SpeedkitYoutube`              | `nuxt-speedkit/components/SpeedkitYoutube`                | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)                |
-| `AbstractIntersectionObserver` | `nuxt-speedkit/components/abstracts/IntersectionObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/IntersectionObserver.vue) |
-| `AbstractOnlySsr`              | `nuxt-speedkit/components/abstracts/OnlySsr`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)              |
-| `ExperimentalSpeedkitPicture`  | `nuxt-speedkit/components/experimental/SpeedkitPicture`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitPicture.vue)   |
-| `ExperimentalSpeedkitYoutube`  | `nuxt-speedkit/components/experimental/SpeedkitYoutube`   | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/experimental/SpeedkitYoutube.vue)   |
+| Global Name                 | Import Path                                            |                                                                                                                       |
+| --------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `SpeedkitIframe`            | `nuxt-speedkit/components/SpeedkitIframe`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)              |
+| `SpeedkitLayer`             | `nuxt-speedkit/components/SpeedkitLayer`               | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)               |
+| `SpeedkitPicture`           | `nuxt-speedkit/components/SpeedkitPicture`             | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)             |
+| `SpeedkitYoutube`           | `nuxt-speedkit/components/SpeedkitYoutube`             | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)             |
+| `AbstractComponentObserver` | `nuxt-speedkit/components/abstracts/ComponentObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/ComponentObserver.vue) |
+| `AbstractOnlySsr`           | `nuxt-speedkit/components/abstracts/OnlySsr`           | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)           |
 
 ## `componentPrefix`
 - Type: `String`
@@ -235,10 +233,8 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
 ## `loader`
 - Type: `Object`
-- 
-Defines the built-in loader in the `SpeedkitImage`. 
 
-Loader is displayed via CSS `background-image`.
+Defines the global built-in loader in the [SpeedkitImage (`loaderSpinnner`)](/components/speedkit-image#loadingspinner). 
 
 ````js
 {

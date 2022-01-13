@@ -18,10 +18,13 @@ export default {
     return {
       items: [
         {
-          vimeoUrl: 'https://vimeo.com/440265549'
+          vimeoUrl: 'https://vimeo.com/440265549',
+          title: 'Vimeo 1'
         },
         {
-          vimeoUrl: 'https://vimeo.com/288344114'
+          vimeoUrl: 'https://vimeo.com/288344114',
+          title: 'Vimeo 2',
+          autoplay: true
         }
       ]
     };
