@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     onLoadImage() {
-      console.log('Image loaded!)
+      console.log('Image loaded!');
     }
   }
 };

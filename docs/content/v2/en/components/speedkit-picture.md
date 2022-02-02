@@ -45,10 +45,10 @@ export default {
   data () {
     return {
       picture: {
-          sources: [
-            { src: '/img/landscape.png', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
-            { src: '/img/portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
-          ]
+        sources: [
+          { src: '/img/landscape.png', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
+          { src: '/img/portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+        ],
         title: 'Image Title',
         alt: 'Image Alt'
       }
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     onLoadPicture() {
-      console.log('Picture loaded!)
+      console.log('Picture loaded!');
     }
   }
 };
