@@ -6,12 +6,12 @@
 
 <script>
 
-import Default from './components/Default';
+import SpeedkitLoader from 'nuxt-speedkit/loader';
 
 export default {
 
   components: {
-    Default
+    Default: SpeedkitLoader(() => import('./components/Default'))
   },
 
   asyncData () {

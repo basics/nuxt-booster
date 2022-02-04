@@ -13,13 +13,13 @@
 
 <script>
 
-import SpeedkitLoader from 'nuxt-speedkit/loader';
+import DefaultYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
   components: {
     OrganismPreviewContainer,
-    DefaultYoutube: SpeedkitLoader(() => import('nuxt-speedkit/components/SpeedkitYoutube'))
+    DefaultYoutube
 
   },
 
