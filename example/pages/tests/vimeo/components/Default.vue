@@ -13,14 +13,12 @@
 
 <script>
 
+import SpeedkitLoader from 'nuxt-speedkit/loader';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
-  speedkitComponents: {
-    DefaultVimeo: () => import('nuxt-speedkit/components/SpeedkitVimeo')
-  },
-
   components: {
+    DefaultVimeo: SpeedkitLoader(() => import('nuxt-speedkit/components/SpeedkitVimeo')),
     OrganismPreviewContainer
   },
 

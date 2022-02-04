@@ -13,8 +13,17 @@
 </template>
 
 <script>
+import SpeedkitLoader from 'nuxt-speedkit/loader';
 
 export default {
+  components: {
+    ComponentStage: SpeedkitLoader(() => import('@/components/organisms/Stage')),
+    ComponentTextA: SpeedkitLoader(() => import('@/components/organisms/TextFontA')),
+    ComponentImageText: SpeedkitLoader(() => import('@/components/organisms/ImageText')),
+    ComponentTextB: SpeedkitLoader(() => import('@/components/organisms/TextFontB')),
+    ComponentVideoYoutube: SpeedkitLoader(() => import('@/components/organisms/VideoYoutube')),
+    ComponentVideoVimeo: SpeedkitLoader(() => import('@/components/organisms/VideoVimeo'))
+  },
   data () {
     return {
 
@@ -81,14 +90,6 @@ export default {
         text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
       }
     };
-  },
-  speedkitComponents: {
-    ComponentStage: () => import(/* webpackMode: "eager" */'@/components/organisms/Stage'),
-    ComponentTextA: () => import('@/components/organisms/TextFontA'),
-    ComponentImageText: () => import('@/components/organisms/ImageText'),
-    ComponentTextB: () => import('@/components/organisms/TextFontB'),
-    ComponentVideoYoutube: () => import('@/components/organisms/VideoYoutube'),
-    ComponentVideoVimeo: () => import('@/components/organisms/VideoVimeo')
   }
 
 };
