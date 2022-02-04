@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.16...v2.0.0-beta.17) (2022-02-04)
+
+
+### Bug Fixes
+
+* **directive:** removing delaying import ([7ab509e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7ab509ea3e0de916ed0f3dc1dfd9ce9855b3c9b9))
+* **mixin:** remove speedkitComponents; add loader function for component load ([ff69fef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ff69fefbb2d91fcdf69fe002136b22154e121edd))
+
 # [2.0.0-beta.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.15...v2.0.0-beta.16) (2022-01-04)
 
 
