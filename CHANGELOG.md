@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.21...v2.0.0-beta.22) (2022-02-07)
+
+
+### Bug Fixes
+
+* **mixin:** improve context request ([1747f0e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1747f0ea623f43d533eb2ffef1fe5d74bfa9d31a))
+
 # [2.0.0-beta.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.20...v2.0.0-beta.21) (2022-02-07)
 
 
