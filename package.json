@@ -40,7 +40,6 @@
     "bowser": "2.11.0",
     "browserslist-useragent-regexp": "3.0.2",
     "buffer-image-size": "0.6.4",
-    "cheerio": "^1.0.0-rc.10",
     "defu": "5.0.1",
     "dynamic-class-list": "2.0.1",
     "serialize-to-js": "3.1.1",
