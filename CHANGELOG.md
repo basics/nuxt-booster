@@ -1,5 +1,15 @@
 # Project Changelog
 
+# [2.0.0-beta.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.17...v2.0.0-beta.18) (2022-02-07)
+
+
+### Bug Fixes
+
+* **Image:** finalized Image ([2103361](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2103361bce72bc66e204a1e574796aff953d0bb6))
+* **picture+image:** possible priority loading (low/high) at lazy load of resources ([17676d1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/17676d1dc897d2a55094bb0dc96a80cd5dc89f22))
+* **picture+image:** renamed load attr to hydrate and bridging eventlisteners ([04f1975](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/04f1975f7ef6183d4adeb640eeaa1d903aa97eb2))
+* **picture:** final integration and updated mixin to disable critical in child component ([60e925f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/60e925f14e98e28b463a35ca603ccb1a2bd53f4b))
+
 # [2.0.0-beta.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.16...v2.0.0-beta.17) (2022-02-04)
 
 
