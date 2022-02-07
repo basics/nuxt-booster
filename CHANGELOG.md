@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.19...v2.0.0-beta.20) (2022-02-07)
+
+
+### Bug Fixes
+
+* **fonts:** remove generate hook; add font cache for ssr ([6089530](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6089530519f083b9d60a99a133254ae2bd59f824))
+
 # [2.0.0-beta.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.18...v2.0.0-beta.19) (2022-02-07)
 
 
