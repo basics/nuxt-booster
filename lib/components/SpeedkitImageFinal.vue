@@ -13,15 +13,14 @@ export default {
   },
 
   render (h) {
-    const component = h(SpeedkitImage, { props: { ...this.$attrs, critical: this.isCritical, on: this.$listeners } });
-    if (!this.isCritical && !this.hydrate) {
+    if (!this.hydrate) {
       return h(LazyHydrate, { props: { never: true } }, [
         h('noscript', {}, [
-          component
+          h(SpeedkitImage, { props: { ...this.$attrs, critical: this.hydrate, on: this.$listeners } })
         ])
       ]);
     }
-    return component;
+    return h(SpeedkitImage, { props: { ...this.$attrs, critical: this.isCritical, on: this.$listeners } });
   }
 };
 </script>
