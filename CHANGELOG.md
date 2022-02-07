@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.18...v2.0.0-beta.19) (2022-02-07)
+
+
+### Bug Fixes
+
+* **generate:** add generate hook for preventing critical font style remove ([47c9eb1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/47c9eb19047dc2131e99fc3339dd4e0833d75ba3))
+
 # [2.0.0-beta.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.17...v2.0.0-beta.18) (2022-02-07)
 
 
