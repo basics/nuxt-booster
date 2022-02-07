@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.20...v2.0.0-beta.21) (2022-02-07)
+
+
+### Bug Fixes
+
+* **mixin:** fix head ([cdae7d7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cdae7d7cd9ae5a3af3f854099f7d178974dd9ecf))
+
 # [2.0.0-beta.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.19...v2.0.0-beta.20) (2022-02-07)
 
 
