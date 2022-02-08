@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2022-02-08)
+
+
+### Bug Fixes
+
+* **font:** renaming and improv critical font styles ([2d53d83](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2d53d83e440db93e08103a6751eb599c8714256f))
+* **loader:** disable idle execute by trigger beforeRouteLeave ([b5a1cde](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b5a1cdeaccd0d4e3654fef8b3bad041940c7dc0e))
+
 # [2.0.0-beta.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.21...v2.0.0-beta.22) (2022-02-07)
 
 
