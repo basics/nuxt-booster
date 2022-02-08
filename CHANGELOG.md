@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2022-02-08)
+
+
+### Bug Fixes
+
+* **deps:** pin nuxt/image version ([3dc022f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3dc022f0f2911dca481c82a76f1c7cad5e2719c2))
+
 # [2.0.0-beta.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2022-02-08)
 
 
