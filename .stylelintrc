@@ -9,6 +9,12 @@
     "./**/*.js"
   ],
   "rules": {
-    "max-line-length": null
+    "max-line-length": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "camelCaseSvgKeywords": true
+      }
+    ]
   }
 }
