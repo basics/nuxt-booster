@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2022-02-08)
+
+
+### Bug Fixes
+
+* **image:** revert nuxt/image version ([8cc8525](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8cc85255a066b882a6ab4f3c75e0d24ad2b22a55))
+
 # [2.0.0-beta.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2022-02-08)
 
 
