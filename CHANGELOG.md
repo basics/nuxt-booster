@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2022-02-08)
+
+
+### Bug Fixes
+
+* **mixin:** fix state data request ([a5d2105](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a5d2105f81e3e62191df80038b5459f8b2176c69))
+
 # [2.0.0-beta.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2022-02-08)
 
 
