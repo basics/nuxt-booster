@@ -72,7 +72,7 @@
     "nuxt": "2.15.8",
     "pinst": "2.1.6",
     "playwright": "1.18.1",
-    "postcss-nesting": "7.0.1",
+    "postcss-nesting": "10.1.2",
     "stylelint": "14.3.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "3.0.0",
