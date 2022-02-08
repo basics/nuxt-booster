@@ -11,12 +11,12 @@
 <script>
 // import InfoLayer from '@/components/InfoLayer';
 
-import SpeedkitLoader from 'nuxt-speedkit/loader';
+import speedkitLoader from 'nuxt-speedkit/loader';
 
 export default {
   components: {
-    GoogleLighthouse: SpeedkitLoader(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
-    OrganismPageHeader: SpeedkitLoader(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
+    GoogleLighthouse: speedkitLoader(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
+    OrganismPageHeader: speedkitLoader(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
   },
 
   data () {
