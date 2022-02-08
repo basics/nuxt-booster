@@ -2,13 +2,20 @@
   "extends": [
     "@nuxtjs"
   ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "@nuxt/image"
+      ],
+      "groupName": "@nuxt/image"
+    }
+  ],
   "baseBranches": [
     "main",
     "beta"
   ],
   "rangeStrategy": "pin",
   "ignoreDeps": [
-    "docus",
-    "postcss-nesting"
+    "docus"
   ]
 }
