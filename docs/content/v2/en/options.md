@@ -218,17 +218,17 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
 ````js
 {
-  // rootMargin for speedkitComponents components
+  // rootMargin for SpeedkitLoader
   component: '0%',
   // rootMargin for SpeedkitPicture and SpeedkitImage
   asset: '0%' 
 }
 ````
 
- | Key         | Type     | Required | Description                                                                                                                                                       | Default |
- | ----------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for `speedkitComponents`                                   | `0%`    |
- | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font` und `SpeedkitPicture`) | `0%`    |
+ | Key         | Type     | Required | Description                                                                                                                                                        | Default |
+ | ----------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitLoader`](/usage#import-components).           | `0%`    |
+ | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font` und `SpeedkitPicture`). | `0%`    |
 
 
 ## `loader`

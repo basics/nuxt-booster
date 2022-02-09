@@ -3,9 +3,9 @@ title: Usage
 description: ''
 position: 13
 category: Guide
-components:
-  - "Directive zum anwenden von Fonts"
-  - Komponenten mit Lazy funktionialität
+importComponents:
+  - 'Ensures that components are initialized only when needed in the visible viewport.'
+  - 'Optimizes initialization of critical components on initial page load (critical components are initially in the visible viewport).'
 developmentSandboxUrl: https://codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark
 
 ---
@@ -41,20 +41,26 @@ Fonts are no longer declared via CSS with the help of this module. They may even
 
 ## Import components
 
-Until now, the components available in the page were always declared via the attribute `components`. The import was done statically (`import component from '@/component';`) or dynamically (`import('@/component')`). `nuxt-speedkit` provides a new attribute named `speedkitComponents` that only allows dynamic imports. This ensures that only the components visible in the viewport are executed on initial load and the remaining components outside the viewport are executed on demand. In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
+Until now, the components available in the page were always declared via the attribute components. The import was done statically (`import component from '@/component';`) or dynamically (`import('@/component')`). `nuxt-speedkit` provides a new function `nuxt-speedkit/loader` which is used as an import wrapper. This function is set around each asynchronous import of a component when registering the components. 
+
+<list type="success" :items="importComponents"></list>
+
+In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-{
-  speedkitComponents: {
-    Stage: () => import('@/components/organisms/Stage'),
+import speedkitLoader from 'nuxt-speedkit/loader';
+
+export default {
+  components: {
+    Stage: speedkitLoader(() => import('@/components/organisms/Stage')),
   }
-}
+};
 ````
 
-Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#components">nuxt.config</nuxt-link>.
+Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#lazyoffset">nuxt.config</nuxt-link>.
 
 <alert type="warning">
-Although the attribute "speedkitComponents" can be filled in every component, we recommend its explicit use only in pages and layout. The use within components can only make sense in explicit special cases. Here we recommend the general use of static imports.
+Although the "nuxt-speedkit/loader" function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases. Here we recommend the general use of static imports.
 </alert>
 
 ## Speedkit Components
@@ -63,6 +69,7 @@ In order to be able to load further static resources such as pictures, iFrames o
 
 - [SpeedkitLayer](/components/speedkit-layer)
 - [SpeedkitPicture](/components/speedkit-picture)
+- [SpeedkitImage](/components/speedkit-image)
 - [SpeedkitIframe](/components/speedkit-iframe)
 - [SpeedkitYoutube](/components/speedkit-youtube)
 
