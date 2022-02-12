@@ -1,5 +1,26 @@
 # Project Changelog
 
+# [2.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2022-02-08)
+
+
+### Bug Fixes
+
+* **mixin:** fix state data request ([a5d2105](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a5d2105f81e3e62191df80038b5459f8b2176c69))
+
+# [2.0.0-beta.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2022-02-08)
+
+
+### Bug Fixes
+
+* **deps:** pin nuxt/image version ([3dc022f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3dc022f0f2911dca481c82a76f1c7cad5e2719c2))
+
+# [2.0.0-beta.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2022-02-08)
+
+
+### Bug Fixes
+
+* **image:** revert nuxt/image version ([8cc8525](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8cc85255a066b882a6ab4f3c75e0d24ad2b22a55))
+
 # [2.0.0-beta.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2022-02-08)
 
 

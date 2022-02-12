@@ -13,16 +13,16 @@
 </template>
 
 <script>
-import SpeedkitLoader from 'nuxt-speedkit/loader';
+import speedkitLoader from 'nuxt-speedkit/loader';
 
 export default {
   components: {
-    ComponentStage: SpeedkitLoader(() => import('@/components/organisms/Stage')),
-    ComponentTextA: SpeedkitLoader(() => import('@/components/organisms/TextFontA')),
-    ComponentImageText: SpeedkitLoader(() => import('@/components/organisms/ImageText')),
-    ComponentTextB: SpeedkitLoader(() => import('@/components/organisms/TextFontB')),
-    ComponentVideoYoutube: SpeedkitLoader(() => import('@/components/organisms/VideoYoutube')),
-    ComponentVideoVimeo: SpeedkitLoader(() => import('@/components/organisms/VideoVimeo'))
+    ComponentStage: speedkitLoader(() => import('@/components/organisms/Stage')),
+    ComponentTextA: speedkitLoader(() => import('@/components/organisms/TextFontA')),
+    ComponentImageText: speedkitLoader(() => import('@/components/organisms/ImageText')),
+    ComponentTextB: speedkitLoader(() => import('@/components/organisms/TextFontB')),
+    ComponentVideoYoutube: speedkitLoader(() => import('@/components/organisms/VideoYoutube')),
+    ComponentVideoVimeo: speedkitLoader(() => import('@/components/organisms/VideoVimeo'))
   },
   data () {
     return {

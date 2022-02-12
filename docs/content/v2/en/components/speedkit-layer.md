@@ -64,6 +64,7 @@ When an event is triggered, the relevant message is displayed via the ID using t
 	
 | ID                                                       | Description                                                                 |
 | -------------------------------------------------------- | --------------------------------------------------------------------------- |
+| <nobr>`nuxt-speedkit-message-nojs`</nobr>                | Javascript is disabled.                                                     |
 | <nobr>`nuxt-speedkit-message-unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/options#browsersupport). |
 | <nobr>`nuxt-speedkit-message-outdated-device`</nobr>     | User hardware (number of processor & RAM) are not sufficient.               |
 | <nobr>`nuxt-speedkit-message-slow-connection`</nobr>     | Connection speed is too low.                                                |
@@ -88,11 +89,11 @@ The buttons are interaction elements for the user with which he can make his cho
 Initially, all IDs except for `nuxt-speedkit-button-nojs` are set to `display: none;`.
 When an event is triggered, the relevant button is displayed via the ID using the style attribute `display: block;`.
 
-| ID                                       | Description                                                                                                                                                               |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <nobr>`nuxt-speedkit-button-nojs`</nobr> | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/speedkit-layer#hide-layer) implementation.         |
-| <nobr>`nuxt-speedkit-button-font`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts. Other initialisations of the Javascript and loading of the pictures are prevented. |
-| <nobr>`nuxt-speedkit-button-app`</nobr>  | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                               |
+| ID                                            | Description                                                                                                                                                               |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <nobr>`nuxt-speedkit-button-init-nojs`</nobr> | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/speedkit-layer#hide-layer) implementation.         |
+| <nobr>`nuxt-speedkit-button-init-font`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts. Other initialisations of the Javascript and loading of the pictures are prevented. |
+| <nobr>`nuxt-speedkit-button-init-app`</nobr>  | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                               |
 
 
 

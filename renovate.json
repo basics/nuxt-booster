@@ -2,6 +2,14 @@
   "extends": [
     "@nuxtjs"
   ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "@nuxt/image"
+      ],
+      "groupName": "@nuxt/image"
+    }
+  ],
   "baseBranches": [
     "main"
   ],
