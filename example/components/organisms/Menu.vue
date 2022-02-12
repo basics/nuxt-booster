@@ -261,8 +261,7 @@ html.js-menu-open {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    transition: backdrop-filter 0.2s 0.2s ease-in;
-    backdrop-filter: none;
+    transition: background 0.2s 0.2s ease-in;
 
     & > div {
       display: flex;
@@ -291,8 +290,8 @@ html.js-menu-open {
   & input:checked + .content {
     display: block;
     pointer-events: auto;
+    background: rgb(0 0 0 / 40%);
     transition-delay: 0s;
-    backdrop-filter: blur(10px);
 
     & > div > div {
       transition-delay: 0.2s;
