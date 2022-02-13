@@ -36,12 +36,12 @@ The cool thing about this is that it saves the additional declaration in the CSS
 [Learn more](/directives/v-font) about directive `v-font`.
 
 <alert type="warning">
-Fonts are no longer declared via CSS with the help of this module. They may even no longer be explicitly defined via CSS, as otherwise the loading behaviour would be negatively affected in the worst case.
+Fonts are no longer explicitly defined via CSS, otherwise the loading behavior of the fonts cannot be controlled and an optimized loading behavior of the page can no longer be guaranteed.
 </alert>
 
 ## Import components
 
-Until now, the components available in the page were always declared via the attribute components. The import was done statically (`import component from '@/component';`) or dynamically (`import('@/component')`). `nuxt-speedkit` provides a new function `nuxt-speedkit/loader` which is used as an import wrapper. This function is set around each asynchronous import of a component when registering the components. 
+Until now, components were imported either statically (`import component from '@/component';`) or dynamically (`import('@/component')`). However, with these two variants, hydration cannot be controlled. As a result, all components are also initialized on initial load. `nuxt-speedkit` offers a corresponding loader for this feature request. Each async component import should be enclosed with this loader in a page or layout.
 
 <list type="success" :items="importComponents"></list>
 

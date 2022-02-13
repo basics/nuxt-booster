@@ -24,10 +24,38 @@ results:
 
 Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
 
-In order to achieve a performance score of 100/100, only the resources that are necessary in the current viewport may be loaded. Concepts already exist for the loading of javascript components and images.
-However, there is not yet a practicable concept for loading fonts dynamically. This module provides a holistic approach to load all necessary resources on demand, including fonts, based on the current viewport.
+In order to achieve a performance score of 100/100, only the necessary resources located in the current viewport may be initialized when the page is loaded. This includes images, fonts and the js-modules. Until now, there has been no practical and usable concept to help developers maintain an overview and enable accurate targeting in nuxtJS projects. 
 
-This module implements the lazy-hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) and embeds a [modified version](https://github.com/StephanGerbeth/image) of [nuxt/image](https://github.com/nuxt/image).
+This module addresses this problem and provides a holistic approach to intelligently load the necessary viewport related resources to reduce FCP, DCL, TTI, TBT and CLS.
+
+For this goal we provide the following CMS-friendly features:
+- completely new approach of font declaration
+  - template related declaration by a directive
+  - supports critical load
+  - support lazy hydration mode
+- full optimized picture component
+  - supports critical load
+  - supports SEO-friendly lazy hydration mode
+  - supports viewport based sources (e.g. landscape/portrait)
+  - auto generated modern file formats (avif, Webp, jpg)
+  - supports custom loading spinner
+- full optimized image component
+  - supports critical load
+  - supports SEO-friendly lazy hydration mode
+  - supports custom loading spinner
+- full optimized youtube component
+  - auto generated poster image in different resolutions
+  - supports lazy hydration mode
+  - supports custom loading spinner
+- full optimized vimeo component
+  - auto generated poster image in different resolutions
+  - supports lazy hydration mode
+  - supports custom loading spinner
+- full optimized load of javascript files
+  - elimation of unnecessary javascript files at initial page load
+  - optional blocking of javascript execution by initial performance measuring
+
+We have not reinvented everything. We use use the lazy hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) to load js components in an efficient way and use the [nuxt/image](https://github.com/nuxt/image) module as a basis for the optimized version of our picture and image component.
 
 ## Requirements
 

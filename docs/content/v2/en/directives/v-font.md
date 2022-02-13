@@ -11,14 +11,14 @@ solutions:
 - embed the fonts via Base64
 ---
 
-Fonts are the great mystery on the Internet. For more complex designs it is not uncommon that more than 6 font files have to be loaded. It would be desirable if there were many more variable fonts, but the reality is usually different. Often, developers are forced to register tens of fonts with different font styles. So it can happen that the website needs a total of 12 font files, which have to be loaded initially to achieve the right visual result on the whole page.
+Fonts are the great mystery on the Internet. For more complex designs it is not uncommon that more than 6 font files have to be loaded. It would be desirable if there were many more variable fonts, but the reality is usually different. Often, developers are forced to register tons of fonts with different font styles. So it can happen that the website needs a total of 12 font files, which have to be loaded initially to achieve the right visual result on the whole page.
 
-This is really a performance problem. If you look for solutions, you like to hear
+This is a real performance problem. If you look for solutions, you like to hear
 
 <list :items="solutions" type="info"></list>
 
-In the internet you can find some articles about font loading. But most of them are more than 3 years old. So not much new has happened on that front. A nice and recommendable list of different strategies can be found at [web-font-loading-recipes](https://github.com/zachleat/web-font-loading-recipes) or 
-[comprehensive-webfonts](https://www.zachleat.com/web/comprehensive-webfonts/). From this it can be deduced that there is still no universal solution to the problem. However, it is possible to approach the issue very efficiently by using a preload strategy and setting classes accordingly. However, this does not make the handling of the fonts any easier. On the one hand, the preloads have to be defined per page and on the other hand, the CSS in the respective component has to be activated with the corresponding font declaration per class on demand. This is manageable for smaller projects in a 1 person team. But if several people are working in parallel, it can quickly become a horror trip. This will inevitably lead to the fact that the approach will not be accepted by the team in the long run and the optimization will be optimized out of the project in the long run.
+You will find some articles about font loading. But most of them are more than 3 years old. So not much new has happened on that front. A nice and recommendable list of different strategies can be found at [web-font-loading-recipes](https://github.com/zachleat/web-font-loading-recipes) or 
+[comprehensive-webfonts](https://www.zachleat.com/web/comprehensive-webfonts/). From this it can be deduced that there is still no universal solution to the problem. However, it is possible to approach the issue very efficiently by using a preload strategy and setting classes accordingly. However, this does not make the handling of the fonts any easier. On the one hand, the preloads have to be defined per page and on the other hand, the CSS in the respective component has to be activated with the corresponding font declaration per class on demand. This is manageable for smaller projects in a 1 person team. But if several people are working in parallel, it can quickly become a nightmare. This will inevitably lead to the fact that the approach will not be accepted by the team and the optimization will be optimized out of the project in the long run.
 
 <alert type="info">A few words about Google Fonts: If possible, the FontFaces should always be included directly as Woff/Woff2 files via inline style. The loading mechanism via external CSS file, as it is the case with Google Fonts, creates an additional network roundtrip, which delays the loading of the actual font files.</alert>
 
@@ -54,15 +54,14 @@ For multiple fonts, a list (`Array`) can be passed.
 ]">
 ````
 
-<alert type="danger">Currently the use of `v-font` on components or in combination with `v-html/v-text` directives is not possible. Caused is a bug in the Vue SSR, directive is not applied.<br><br>Read more in the Issue: [vue-server-renderer: directive not applied to imported component](https://github.com/vuejs/vue/issues/10733).<br><br>As long as this error exists, you can look [**here**](/directives/v-font#workarounds) for workarounds.
+<alert type="danger">Currently it is not possible to use v-font in combination with v-html/v-text directives. The reason is a bug in Vue SSR, the directive is not applied. As long as this error exists, you can look [**here**](/directives/v-font#workarounds) for workarounds.<br>Read more: [vue-server-renderer: directive not applied to imported component](https://github.com/vuejs/vue/issues/10733).
 </alert>
 
 
 ## `$getFont`
 
 `$getFont` is included as a plugin and can be accessed via any component scope.
-
-Is used in the `v-font` directive and creates the relevant font definition.
+Use `$getFont` in the `v-font` directive and create the relevant font definition.
 
 | Key       | Type               | Requried | Description                                                     | Default  |
 | --------- | ------------------ | -------- | --------------------------------------------------------------- | -------- |
@@ -78,22 +77,22 @@ Each definition can be modified in its behaviour via the options.
 With the property `media`, the call of the font definition can be made dependent on the viewport.  
 The property `selector` can be used to limit the font to elements (e.g. `span`, `.class`).
 
-| Key        | Type     | Requried | Description                                    | Default |
-| ---------- | -------- | -------- | ---------------------------------------------- | ------- |
-| `media`    | `String` |          | CSS Media Query e.g. `(min-width: 768px)`      |         |
-| `selector` | `String` |          | CSS Selector e.g. `element, .elm, .elm:before` |         |
-
-
-<alert type="danger">`link` Tag is not supported orientation media query. e.g. `(orientation: portrait)`.
-This has an effect on prefetches and preloads.
-</alert>
-
 ````js
 {
   media: '(min-width: 768px)',
   selector: 'element, .elm, .elm:before'
 }
 ````
+
+| Key        | Type     | Requried | Description                                    | Default |
+| ---------- | -------- | -------- | ---------------------------------------------- | ------- |
+| `media`    | `String` |          | CSS Media Query e.g. `(min-width: 768px)`      |         |
+| `selector` | `String` |          | CSS Selector e.g. `element, .elm, .elm:before` |         |
+
+
+<alert type="danger">The `link` Tag does not support the orientation media query. e.g. `(orientation: portrait)`.
+This has an effect on prefetches and preloads.
+</alert>
 
 ## Examples
 

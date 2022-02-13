@@ -9,7 +9,7 @@ Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossa
 
 ## Installation
 
-Add `nuxt-speedkit` dependency to your project:
+Install `nuxt-speedkit` as a dependency to your project:
 
 <code-group>
   <code-block label="Yarn" active>
@@ -28,7 +28,7 @@ Add `nuxt-speedkit` dependency to your project:
   </code-block>
 </code-group>
 
-Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
+Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 
 ````js[nuxt.config.js]
 {

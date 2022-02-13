@@ -12,12 +12,12 @@ category: Guide
   - String values: `'anonymous'`, `'use-credentials'` or `undefined` [learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
 Sets the global `crossorigin` value of the nuxt-speedkit preloads.  
-The default value is the `crossorigin` from the [Render Configuration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin).
+The default value is the `crossorigin` value from the [Render Configuration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin).
 
 ## `detection`
 - Type: `Object`
 
-These options can be used to define which initial checks are to be carried out when using the [`SpeedkitLayer`](/components/speedkit-layer).
+These options can be used to define the initial checks to display the [`SpeedkitLayer`](/components/speedkit-layer). The prerequisite are that the [`SpeedkitLayer`](/components/speedkit-layer) has been embedded into the layout.
   
 ````js
 {
@@ -26,10 +26,10 @@ These options can be used to define which initial checks are to be carried out w
 }
 ````
 
- | Key              | Type      | Required | Description                                                                                                                                                                                      | Default |
- | ---------------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
- | `performance`    | `Boolean` | yes      | Checks whether the minimum [performance requirement](/options#performancemetrics) has been met. If this is not the case, the [`SpeedkitLayer`](/components/speedkit-layer) is displayed.         | `true`  |
- | `browserSupport` | `Boolean` | yes      | Überprüft, ob die Webseite über einen supported Browser besucht wird. Handelt es sich hierbei um einen unsupported Browser, wird der [`SpeedkitLayer`](/components/speedkit-layer) eingeblendet. | `true`  |
+ | Key              | Type      | Required | Description                                                                                                                                                                                        | Default |
+ | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed. | `true`  |
+ | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed.                                            | `true`  |
 
 <alert type="info">
 For the browser support detection, the default <a href="https://github.com/browserslist/browserslist">Browserslist</a> of the NuxtJS configuration is used.
@@ -38,7 +38,7 @@ For the browser support detection, the default <a href="https://github.com/brows
 ## `performanceMetrics`
 - Type: `Object`
 
-With the help of the metrics, the actual performance check on client side can be configured. An explicit lighthouse check via user agent can be optionally added.
+With the help of the metrics, the actual performance check on client side can be configured. An explicit lighthouse check via user agent can be optionally added but is not recommended.
 
 ````js
 {
@@ -56,7 +56,7 @@ With the help of the metrics, the actual performance check on client side can be
 ### `device`
 - Type: `Object`
 
-Describes the minimum hardware requirements that a device should meet to display the website.
+Definition of the minimum hardware requirements for visiting the website.
 
 ````js
 {
@@ -73,7 +73,7 @@ Describes the minimum hardware requirements that a device should meet to display
 ### `timing`
 - Type: `Object`
 
-Defines the max. time (ms) for the FCP. If the specified value is exceeded, the [`SpeedkitLayer`](/components/speedkit-layer) is displayed. If the browser does not yet grant access to the FCP, the DCL is evaluated as an alternative.
+Definition of the max. FCP duration (ms). If the specified value is exceeded, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed. If the browser does not grant access to the FCP, as fallback the DCL will be evaluated.
 
 ````js
 {
@@ -82,20 +82,20 @@ Defines the max. time (ms) for the FCP. If the specified value is exceeded, the 
 }
 ````
 
- | Key   | Type     | Required | Description                                                                                                                       | Default |
- | ----- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `fcp` | `Number` | yes      | Max. First contentful paint duration in ms [learn More](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) | `800`   |
- | `dcl` | `Number` | yes      | Max. Dom content load duration in ms                                                                                              | `1200`  |
+ | Key   | Type     | Required | Description                                                                                                    | Default |
+ | ----- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- | ------- |
+ | `fcp` | `Number` | yes      | Max. FCP duration in ms [learn More](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) | `800`   |
+ | `dcl` | `Number` | yes      | Max. DCL duration in ms                                                                                        | `1200`  |
 
 
 ### `lighthouseDetectionByUserAgent`
 - Type: `Boolean`
   - Default: `false`
 
-Fallback to detect lighthouse user agent when the other ressources like the hardware detect don't work anymore.
+Classic fallback to detect the lighthouse test by the user agent. Can be used if the detection via the hardware metric is no longer effective.
 
 <alert type="warning">
-We recommend that you disable the explicit lighthouse check . In the description of the <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link> you will find a more detailed description of the trick that can be used to detect a lighthouse test.
+We recommend that you disable the explicit lighthouse check. In the description of the <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link> you will find a more detailed description of the trick that can be used to detect a lighthouse test.
 </alert>
 
 ## `fonts`
@@ -189,7 +189,7 @@ List of all available font files of a font family variation.
   - Default: `false`
 
 With this attribute all components that can be found under `nuxt-speedkit/components` can be registered globally.
-[Learn more @nuxt/components](https://github.com/nuxt/components)
+[Learn more @nuxt/components](https://github.com/nuxt/components). This option is not recommended if you want to achieve a lighthouse score of 100/100.
 
 ### Available components
 
@@ -234,7 +234,7 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 ## `loader`
 - Type: `Object`
 
-Defines the global built-in loader in the [SpeedkitImage (`loaderSpinnner`)](/components/speedkit-image#loadingspinner). 
+Defines the global built-in [LoadingSpinner](/components/speedkit-image#loadingspinner). 
 
 ````js
 {
