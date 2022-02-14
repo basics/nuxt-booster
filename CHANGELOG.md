@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.29...v2.0.0-beta.30) (2022-02-14)
+
+
+### Bug Fixes
+
+* **directive:** fix font load with media ([e892946](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e892946dba966cfa85177048ea59fb7c85568ff9))
+
 # [2.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2022-02-14)
 
 
