@@ -20,6 +20,9 @@ features:
 results:
   - delivery of the minimum required resources based on the current viewport
   - if you use the tools as specified you will get a lighthouse performance score of 100/100
+demos:
+  - [Grabarz & Partner](https://grabarzundpartner.de)
+  - [Grabarz Group](https://grabarz-group.de)
 ---
 
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
@@ -41,10 +44,14 @@ We didn't reinvent the whole wheel. We adapt the lazy hydration concept of [Mark
 <list type="info" :items="requirements"></list>
 ## Features
 
-For this goal we provide the following CMS-friendly features:
+We provide the following CMS-friendly features:
 
 <list type="success" :items="features"></list>
 
 ## Results
 
 <list type="success" :items="results"></list>
+
+## Demos
+
+<list :items="demos"></list>
