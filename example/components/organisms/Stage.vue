@@ -46,9 +46,13 @@ export default {
 
   & .claim {
     display: block;
-    font-size: 25px;
-    line-height: 50px;
+    font-size: calc(25 / 50);
+    font-size: 40;
     text-transform: none;
+
+    @media (min-width: 768px) {
+      font-size: 25px;
+    }
   }
 
   & .headline {

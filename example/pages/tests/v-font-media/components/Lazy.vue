@@ -5,6 +5,18 @@
         <ul>
           <li>
             <ul>
+              <li>Montserrat Alternates - 300 - normal - (orientation: portrait)</li>
+            </ul>
+            <span id="criticalFontAssignSimpleByOrientationPortrait" v-font="$getFont('Montserrat Alternates', 300, 'normal', {media: '(orientation: portrait)'})">font assign simple by portrait</span>
+          </li>
+          <li>
+            <ul>
+              <li>Montserrat Alternates - 300 - italic - (orientation: landscape)</li>
+            </ul>
+            <span id="criticalFontAssignSimpleByOrientationLandscape" v-font="$getFont('Montserrat Alternates', 300, 'italic', {media: '(orientation: landscape)'})">font assign simple by landscape</span>
+          </li>
+          <li>
+            <ul>
               <li>Montserrat Alternates - 700 - italic - (max-width: 479px)</li>
             </ul>
             <span id="lazyFontAssignSimpleByMax479" v-font="$getFont('Montserrat Alternates', 700, 'italic', {media: '(max-width: 479px)'})">font assign simple by max 479px</span>
@@ -44,6 +56,18 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.preview-container {
+  @media (max-width: 767px) {
+    & >>> .preview {
+      height: 70vh;
+    }
+
+    & >>> .info {
+      height: 30vh;
+    }
+  }
+}
+
 div > ul {
   & > li + li {
     border-top: solid currentColor 1px;
@@ -53,7 +77,7 @@ div > ul {
     padding: 0;
     margin: 0;
     font-family: monospace;
-    font-size: 11px;
+    font-size: 10px;
 
     /* font-style: italic; */
     list-style: none;
