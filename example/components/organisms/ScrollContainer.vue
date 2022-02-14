@@ -1,11 +1,11 @@
 <template>
   <div class="scroll-container" :class="{'direction-horizontal': directionHorizontal}">
     <scroll-item
-      v-for="({title}, index) in items"
-      :key="title"
+      v-for="(item, index) in items"
+      :key="index"
       :class="`item item-${index}`"
       :index="index"
-      :title="title"
+      v-bind="item"
     />
   </div>
 </template>

@@ -19,7 +19,14 @@ export default {
   data () {
     return {
       scrollContainer: {
-        items: Array(5).fill({}).map((v, index) => ({ title: `Item ${index + 1}` }))
+        items: [
+          { font: ['Montserrat Alternates', 300, 'normal'] },
+          { font: ['Montserrat Alternates', 300, 'italic'] },
+          { font: ['Montserrat Alternates', 400, 'normal'] },
+          { font: ['Montserrat Alternates', 400, 'italic'] },
+          { font: ['Montserrat Alternates', 700, 'normal'] },
+          { font: ['Montserrat Alternates', 700, 'italic'] }
+        ]
       }
     };
   }
