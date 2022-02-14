@@ -4,7 +4,7 @@ description: ''
 position: 32
 category: Components
 features:
-  - generation of multiple image resolutions (srcset)
+  - generation of multiple sources with multiple image resolutions (srcset)
   - breakpoint-based differentiation of multiple image resolutions and ratios (srcset + media-rule)
   - optimized preloading of critical image resources
   - lazy load of non-critical image resources
