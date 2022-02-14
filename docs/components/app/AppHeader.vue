@@ -108,7 +108,6 @@ export default {
       if (!this.settings.preReleases) {
         releases = releases.filter(r => !r.prerelease);
       }
-      console.log('tst', releases);
 
       return releases.shift();
     },
