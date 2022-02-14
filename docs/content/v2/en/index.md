@@ -7,10 +7,16 @@ requirements:
   - NodeJS >= 12.x.x
   - NuxtJS >= 2.15.0
 features:
-  - dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
-  - optional loading prevention of resources at low bandwidth or weak hardware
+  - dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
+  - optional blocking of javascript execution by initial performance measuring
+  - optimized initial load of javascript files by eliminating of unnecessary javascript files
   - prevents the loading of unnecessary resources (including components) that are outside the current viewport.
-  - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
+  - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.  
+  - completely new approach of font declaration
+  - optimized picture component (supports viewport based sources e.g. landscape/portrait)
+  - optimized image component
+  - supports SEO-friendly lazy hydration mode (picture + image)
+  - optimized youtube/vimeo component (auto generated poster image in different resolutions)  
 results:
   - delivery of the minimum required resources based on the current viewport
   - if you use the tools as specified you will get a lighthouse performance score of 100/100
@@ -28,39 +34,14 @@ In order to achieve a performance score of 100/100, only the necessary resources
 
 This module addresses this problem and provides a holistic approach to intelligently load the necessary viewport related resources to reduce FCP, DCL, TTI, TBT and CLS.
 
-For this goal we provide the following CMS-friendly features:
-- completely new approach of font declaration
-  - template related declaration by a directive
-  - supports critical load
-  - support lazy hydration mode
-- full optimized picture component
-  - supports critical load
-  - supports SEO-friendly lazy hydration mode
-  - supports viewport based sources (e.g. landscape/portrait)
-  - auto generated modern file formats (avif, Webp, jpg)
-  - supports custom loading spinner
-- full optimized image component
-  - supports critical load
-  - supports SEO-friendly lazy hydration mode
-  - supports custom loading spinner
-- full optimized youtube component
-  - auto generated poster image in different resolutions
-  - supports lazy hydration mode
-  - supports custom loading spinner
-- full optimized vimeo component
-  - auto generated poster image in different resolutions
-  - supports lazy hydration mode
-  - supports custom loading spinner
-- full optimized load of javascript files
-  - elimation of unnecessary javascript files at initial page load
-  - optional blocking of javascript execution by initial performance measuring
-
-We have not reinvented everything. We use use the lazy hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) to load js components in an efficient way and use the [nuxt/image](https://github.com/nuxt/image) module as a basis for the optimized version of our picture and image component.
+We didn't reinvent the whole wheel. We adapt the lazy hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) to load js components in an efficient way, use the [nuxt/image](https://github.com/nuxt/image) module as a base to retrieve optimized image resolutions for our picture and image components and add some new stuff to obtain a holistic solution.
 
 ## Requirements
 
 <list type="info" :items="requirements"></list>
 ## Features
+
+For this goal we provide the following CMS-friendly features:
 
 <list type="success" :items="features"></list>
 
