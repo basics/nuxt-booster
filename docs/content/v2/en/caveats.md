@@ -7,7 +7,7 @@ category: Guide
 
 ## Optimize `runtime` & `vendor` App
 
-It is recommended to check the initial javascript file sizes, they should not exceed `50KB`.
+It is recommended to check the initial javascript file sizes, they should not exceed `40KB (gzip)`.
 
 If this is the case or if you want to reduce the size of the files, it is recommended to create a CacheGroup in Webpack to extract resources from the files.
 
