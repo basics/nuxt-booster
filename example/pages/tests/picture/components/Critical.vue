@@ -12,7 +12,6 @@
 <script>
 
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
@@ -26,13 +25,13 @@ export default {
   data () {
     return {
 
-      picture: Picture.create({
+      picture: {
         title: 'Critical',
         sources: [
           // eslint-disable-next-line no-secrets/no-secrets
           { src: '/img/pickadummy/critical.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
         ]
-      }).toJSON()
+      }
 
     };
   }
