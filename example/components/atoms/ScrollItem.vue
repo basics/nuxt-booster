@@ -24,7 +24,13 @@ div {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 20px;
+  font-size: 16px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
   transition: background 1s linear, color 1s linear;
 
   &.font-active {
