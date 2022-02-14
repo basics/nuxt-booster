@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.27...v2.0.0-beta.28) (2022-02-14)
+
+
+### Bug Fixes
+
+* **mixin:** fix missing init prev map ([59654b7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/59654b7166ee8d7c9844f5514a812b38060b0d4f))
+
 # [2.0.0-beta.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2022-02-14)
 
 
