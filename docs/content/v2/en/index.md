@@ -20,9 +20,6 @@ features:
 results:
   - delivery of the minimum required resources based on the current viewport
   - if you use the tools as specified you will get a lighthouse performance score of 100/100
-demos:
-  - [Grabarz & Partner](https://grabarzundpartner.de)
-  - [Grabarz Group](https://grabarz-group.de)
 ---
 
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
@@ -54,4 +51,5 @@ We provide the following CMS-friendly features:
 
 ## Demos
 
-<list :items="demos"></list>
+- [Grabarz & Partner](https://grabarzundpartner.de)
+- [Grabarz Group](https://grabarz-group.de)
