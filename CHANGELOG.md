@@ -1,5 +1,16 @@
 # Project Changelog
 
+# [2.0.0-beta.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2022-02-14)
+
+
+### Bug Fixes
+
+* **mixin:** add style map for improve page change ([3553d0e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3553d0ea140999668108fd4b86b3a18639d24267))
+* **mixin:** fix missing styles without hid ([b8e2aac](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b8e2aac81fa05bb81a01f985e9822dd2c68e4233))
+* **mixin:** improve and clean ([a47195a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a47195a6f57259726ec065666a5250d91ce6eef7))
+* **mixin:** improve page style change ([d16ce7b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d16ce7bd0efd79896cb9b310084713e23a48efbe))
+* **mixin:** improve pageStyles ([2b13698](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b1369833e8d5c62a90c25c82130a46952a2b01f))
+
 # [2.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2022-02-08)
 
 
