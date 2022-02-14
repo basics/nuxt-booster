@@ -64,6 +64,18 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.preview-container {
+  @media (max-width: 767px) {
+    & >>> .preview {
+      height: 70vh;
+    }
+
+    & >>> .info {
+      height: 30vh;
+    }
+  }
+}
+
 div > ul {
   & > li + li {
     border-top: solid currentColor 1px;
