@@ -59,22 +59,22 @@ function tests ({ chromium = false, firefox = false }) {
     const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple[data-font="-56bf77ce"]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple[data-font="-7d2b6285"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimple.font-active[data-font="-56bf77ce"]');
+    await page.waitForSelector('#lazyFontAssignSimple.font-active[data-font="-7d2b6285"]');
   });
 
   it('v-font (font assign by single selector) (element class)', async () => {
     const page = await createPage('/v-font/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector[data-font="-3ce46a67"]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector[data-font="-65bc6cec"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-active[data-font="-3ce46a67"]');
+    await page.waitForSelector('#lazyFontAssignBySingleSelector.font-active[data-font="-65bc6cec"]');
   });
 
   it('v-font (font assign by multiple variances) (element class)', async () => {
@@ -118,44 +118,44 @@ function tests ({ chromium = false, firefox = false }) {
     const page = await createPage('/v-font-media');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479[data-font="--cb5eade"]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479[data-font="--4db87f5"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-active[data-font="--cb5eade"]');
+    await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-active[data-font="--4db87f5"]');
   });
 
   it('v-font (media) (font assign simple by 480px) (element class)', async () => {
     const page = await createPage('/v-font-media/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480[data-font="-4ceb1f12"]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480[data-font="-5e7c91e5"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleBy480.font-active[data-font="-4ceb1f12"]');
+    await page.waitForSelector('#lazyFontAssignSimpleBy480.font-active[data-font="-5e7c91e5"]');
   });
 
   it('v-font (media) (font assign simple by 960px) (element class)', async () => {
     const page = await createPage('/v-font-media/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960[data-font="-1c63300d"]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960[data-font="-2df4a2e0"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontAssignSimpleBy960.font-active[data-font="-1c63300d"]');
+    await page.waitForSelector('#lazyFontAssignSimpleBy960.font-active[data-font="-2df4a2e0"]');
   });
 
   it('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
     const page = await createPage('/v-font-media/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-font="-719faf96"]').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-font="-5f6b8217"]').classList.contains('.font-active'))).toBeFalsy();
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-font="-719faf96"]');
+    await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-font="-5f6b8217"]');
   });
 
   // #endregion
@@ -165,16 +165,16 @@ function tests ({ chromium = false, firefox = false }) {
   it('v-font (scroll) (font assign simple with horizontal & vertical offset scroll)', async () => {
     const page = await createPage('/v-font-scroll');
 
-    expect(await page.evaluate(() => document.querySelector('#horizontalScroll .item-4').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#horizontalScroll .item-5').classList.contains('.font-active'))).toBeFalsy();
 
     await page.evaluate(() => {
       const containerEl = document.querySelector('#horizontalScroll');
       containerEl.scrollTo(containerEl.scrollWidth, 0);
     });
 
-    await page.waitForSelector('#horizontalScroll .item-4.font-active');
+    await page.waitForSelector('#horizontalScroll .item-5.font-active');
 
-    expect(await page.evaluate(() => document.querySelector('#verticalScroll .item-4').classList.contains('.font-active'))).toBeFalsy();
+    expect(await page.evaluate(() => document.querySelector('#verticalScroll .item-5').classList.contains('.font-active'))).toBeFalsy();
 
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
 
@@ -183,7 +183,7 @@ function tests ({ chromium = false, firefox = false }) {
       containerEl.scrollTo(0, containerEl.scrollHeight);
     });
 
-    await page.waitForSelector('#verticalScroll .item-4.font-active');
+    await page.waitForSelector('#verticalScroll .item-5.font-active');
   });
 
   // #endregion
