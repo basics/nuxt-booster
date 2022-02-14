@@ -2,6 +2,7 @@
   <div
     :class="{ready, playing, 'iframe-mode': iframeMode}"
   >
+    <slot name="background" v-bind="{playing, videoData}" />
     <div class="player">
       <iframe
         ref="player"
@@ -18,7 +19,7 @@
         <slot v-if="!ready && !loading" name="play" />
       </default-button>
     </div>
-    <slot :videoData="videoData" />
+    <slot v-bind="{playing, videoData}" />
   </div>
 </template>
 
@@ -104,10 +105,16 @@ export default {
   },
 
   async fetch () {
+    const { withQuery } = await import('ufo');
     const { get } = await import('axios');
     try {
-      const result = await get(`https://vimeo.com/api/v2/video/${this.videoId}.json`);
-      this.videoData = result.data[0];
+      const url = withQuery('https://vimeo.com/api/oembed.json', {
+        url: this.url,
+        width: 1920,
+        height: 1080
+      });
+      const { data } = await get(url);
+      this.videoData = data;
     } catch (error) {
       this.iframeMode = true;
       this.src = this.playerSrc;
@@ -138,7 +145,7 @@ export default {
         title: this.playerTitle,
         sources: [{
           format: 'jpg',
-          src: this.videoData && this.videoData.thumbnail_large.replace(/(.+)(\/video\/[\w-]+)_([\d]+)$/, `/vimeo$2_${this.videoData.width}`),
+          src: this.videoData && this.videoData.thumbnail_url,
           sizes: this.posterSizes,
           media: 'all'
         }],
