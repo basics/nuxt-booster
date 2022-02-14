@@ -89,11 +89,6 @@ The property `selector` can be used to limit the font to elements (e.g. `span`, 
 | `media`    | `String` |          | CSS Media Query e.g. `(min-width: 768px)`      |         |
 | `selector` | `String` |          | CSS Selector e.g. `element, .elm, .elm:before` |         |
 
-
-<alert type="danger">The `link` Tag does not support the orientation media query. e.g. `(orientation: portrait)`.
-This has an effect on prefetches and preloads.
-</alert>
-
 ## Examples
 
 ### Basic Usage
