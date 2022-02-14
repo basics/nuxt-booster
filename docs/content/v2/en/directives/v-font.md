@@ -37,7 +37,7 @@ Fonts are specified by `family`, `weight` and `style` and can be limited to elem
 Normally the directive activates the fonts only when the viewport is reached.
 It is recommended to use the property `critical` for components that are already initially contained in the viewport.
 
-With critical component the fonts are preloaded and are initially active.
+With critical component the fonts are preloaded and are initially active.  
 More information on critical components can be found [here](/usage#critical-prop-for-critical-components).
 
 For multiple fonts, a list (`Array`) can be passed.
@@ -45,10 +45,10 @@ For multiple fonts, a list (`Array`) can be passed.
 ````html
 
 <!-- single definition -->
-<node v-font="$getFont(…)">
+<element v-font="$getFont(…)">
 
 <!-- multiple definitions -->
-<node v-font="[
+<element v-font="[
   $getFont(…),
   $getFont(…)
 ]">
@@ -58,9 +58,9 @@ For multiple fonts, a list (`Array`) can be passed.
 </alert>
 
 
-## `$getFont`
+## `$getFont(family, [weight, style, options])`
 
-`$getFont` is included as a plugin and can be accessed via any component scope.
+`$getFont` is included as a plugin and can be accessed via any component scope.  
 Use `$getFont` in the `v-font` directive and create the relevant font definition.
 
 | Key       | Type               | Requried | Description                                                     | Default  |
@@ -73,8 +73,8 @@ Use `$getFont` in the `v-font` directive and create the relevant font definition
 
 ### options
 
-Each definition can be modified in its behaviour via the options.
-With the property `media`, the call of the font definition can be made dependent on the viewport.  
+Each definition can be modified in its behaviour via the options.  
+With the property `media`, the call of the font definition can be made dependent on the viewport. 
 The property `selector` can be used to limit the font to elements (e.g. `span`, `.class`).
 
 ````js
@@ -99,7 +99,7 @@ This has an effect on prefetches and preloads.
 ### Basic Usage
 
 ````html
-<h1 v-font="$getFont('Font Family', 700)">Headline</h1>
+<element v-font="$getFont('Font Family', 700)">Text…</element>
 ````
 ### Advanced Usage
 

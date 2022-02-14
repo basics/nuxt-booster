@@ -30,7 +30,7 @@ The integration of fonts is component-based directly in the Vue template. All fo
 The cool thing about this is that it saves the additional declaration in the CSS. You no longer have to keep the template and the CSS with its corresponding selectors for fonts in sync. Yeah! This is extremely helpful, especially when it comes to theming.
 
 ````html
-<component v-font="$fonts.getFont(…)" />
+<element v-font="$fonts.getFont(…)" />
 ````
 
 [Learn more](/directives/v-font) about directive `v-font`.
@@ -65,12 +65,13 @@ Although the "nuxt-speedkit/loader" function can be used in any component, we re
 
 ## Speedkit Components
 
-In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
+In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
 
 - [SpeedkitLayer](/components/speedkit-layer)
 - [SpeedkitPicture](/components/speedkit-picture)
 - [SpeedkitImage](/components/speedkit-image)
 - [SpeedkitIframe](/components/speedkit-iframe)
+- [SpeedkitVimeo](/components/speedkit-vimeo)
 - [SpeedkitYoutube](/components/speedkit-youtube)
 
 ````html
