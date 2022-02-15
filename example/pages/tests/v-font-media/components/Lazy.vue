@@ -7,13 +7,13 @@
             <ul>
               <li>Montserrat Alternates - 300 - normal - (orientation: portrait)</li>
             </ul>
-            <span id="criticalFontAssignSimpleByOrientationPortrait" v-font="$getFont('Montserrat Alternates', 300, 'normal', {media: '(orientation: portrait)'})">font assign simple by portrait</span>
+            <span id="lazyFontAssignSimpleByOrientationPortrait" v-font="$getFont('Montserrat Alternates', 300, 'normal', {media: '(orientation: portrait)'})">font assign simple by portrait</span>
           </li>
           <li>
             <ul>
               <li>Montserrat Alternates - 300 - italic - (orientation: landscape)</li>
             </ul>
-            <span id="criticalFontAssignSimpleByOrientationLandscape" v-font="$getFont('Montserrat Alternates', 300, 'italic', {media: '(orientation: landscape)'})">font assign simple by landscape</span>
+            <span id="lazyFontAssignSimpleByOrientationLandscape" v-font="$getFont('Montserrat Alternates', 300, 'italic', {media: '(orientation: landscape)'})">font assign simple by landscape</span>
           </li>
           <li>
             <ul>
