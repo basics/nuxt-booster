@@ -127,6 +127,29 @@ This is important for autoplay on mobile devices.
 
 </alert>
 
+## Slots
+
+````html
+<template #default="{ videoData }">
+  {{videoData.title}}
+</template>
+
+<template #loading-spinner>
+  Loading…
+</template>
+
+<template #play>
+  <span>Click!</span>
+</template>
+````
+
+| Name              | Description                                                                                                                                                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `default`         | Used to display more information about the video below the player.<br>The slot has a scoped property `videoData`. <br>This contains the result from the Vimeo `oembed` api.<br><br>https://developer.vimeo.com/api/oembed/videos#table-2 |
+| `loading-spinner` | Overwrites the loading spinner.                                                                                                                                                                                                          |
+| `play`            | Overwrites the play button.                                                                                                                                                                                                              |
+
+
 ## Events
 
 ````html

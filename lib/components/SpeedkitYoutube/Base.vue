@@ -3,7 +3,6 @@
     :class="{ready, playing}"
     :show="ready"
   >
-    <slot name="background" />
     <iframe
       v-if="src"
       ref="player"
@@ -21,16 +20,13 @@
         :title="title"
       />
       <slot v-if="loading" name="loading-spinner" />
-      <transition name="base-fade">
-        <slot v-if="!ready && !loading" name="play" />
-      </transition>
+      <slot v-if="!ready && !loading" name="play" />
     </default-button>
   </div>
 </template>
 
 <script>
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
-import Picture from 'nuxt-speedkit/components/SpeedkitPicture/classes/Picture';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import { isTouchSupported } from 'nuxt-speedkit/utils/browser';
 import DefaultButton from '../Button';
@@ -116,7 +112,7 @@ export default {
 
   computed: {
     pictureDataset () {
-      return Picture.create({
+      return {
         title: this.title,
         sources: [{
           src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
@@ -124,7 +120,7 @@ export default {
           media: 'all'
         }],
         loadingSpinner: this.posterLoadingSpinner
-      }).toJSON();
+      };
     }
   },
 
@@ -264,16 +260,6 @@ button {
     width: 100%;
     height: 100%;
   }
-}
-
-.base-fade-enter-active,
-.base-fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.base-fade-enter,
-.base-fade-leave-to {
-  opacity: 0;
 }
 
 /*! purgecss end ignore */

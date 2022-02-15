@@ -20,7 +20,14 @@ export default {
     return {
       scrollContainer: {
         directionHorizontal: true,
-        items: Array(5).fill({}).map((v, index) => ({ title: `Item ${index + 1}` }))
+        items: [
+          { font: ['Merriweather', 300, 'normal'] },
+          { font: ['Merriweather', 300, 'italic'] },
+          { font: ['Merriweather', 400, 'normal'] },
+          { font: ['Merriweather', 400, 'italic'] },
+          { font: ['Merriweather', 700, 'normal'] },
+          { font: ['Merriweather', 700, 'italic'] }
+        ]
       }
     };
   }

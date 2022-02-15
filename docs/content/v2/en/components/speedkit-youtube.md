@@ -136,6 +136,23 @@ Sets the host for the player.
 
 <alert>It is recommended to use the default (https://www.youtube-nocookie.com).</alert>
 
+## Slots
+
+````html
+<template #loading-spinner>
+  Loading…
+</template>
+
+<template #play>
+  <span>Click!</span>
+</template>
+````
+
+| Name              | Description                     |
+| ----------------- | ------------------------------- |
+| `loading-spinner` | Overwrites the loading spinner. |
+| `play`            | Overwrites the play button.     |
+
 ## Events
 
 ````html

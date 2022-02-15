@@ -7,5 +7,7 @@
   },
   "github": "GrabarzUndPartner/nuxt-speedkit",
   "defaultBranch": "main",
-  "defaultDir": "docs"
+  "defaultDir": "docs",
+  "releaseMajorVersion": 1,
+  "preReleases": false
 }

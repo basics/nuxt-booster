@@ -1,5 +1,30 @@
 # Project Changelog
 
+# [2.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2022-02-14)
+
+
+### Bug Fixes
+
+* **components:** update youtube & vimeo; update vimeo api ([8d611f7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8d611f78f385ad73fd6dede8fb1899f97bdd3d93))
+
+# [2.0.0-beta.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.27...v2.0.0-beta.28) (2022-02-14)
+
+
+### Bug Fixes
+
+* **mixin:** fix missing init prev map ([59654b7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/59654b7166ee8d7c9844f5514a812b38060b0d4f))
+
+# [2.0.0-beta.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2022-02-14)
+
+
+### Bug Fixes
+
+* **mixin:** add style map for improve page change ([3553d0e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3553d0ea140999668108fd4b86b3a18639d24267))
+* **mixin:** fix missing styles without hid ([b8e2aac](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b8e2aac81fa05bb81a01f985e9822dd2c68e4233))
+* **mixin:** improve and clean ([a47195a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a47195a6f57259726ec065666a5250d91ce6eef7))
+* **mixin:** improve page style change ([d16ce7b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d16ce7bd0efd79896cb9b310084713e23a48efbe))
+* **mixin:** improve pageStyles ([2b13698](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b1369833e8d5c62a90c25c82130a46952a2b01f))
+
 # [2.0.0-beta.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2022-02-08)
 
 
