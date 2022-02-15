@@ -1,12 +1,20 @@
 <template>
   <picture :class="classNames.picture" class="nuxt-speedkit-picture">
     <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" />
-    <base-image :class="classNames.image" :title="title" :alt="alt" :loading-spinner="loadingSpinner" @load="onLoad" />
+    <base-image
+      :class="classNames.image"
+      :title="title"
+      :alt="alt"
+      :loading-spinner="loadingSpinner"
+      width="0"
+      height="0"
+      @load="onLoad"
+    />
   </picture>
 </template>
 
 <script>
-import BaseImage from 'nuxt-speedkit/components/SpeedkitImage';
+import BaseImage from 'nuxt-speedkit/components/SpeedkitImage/Base';
 import SourceList from 'nuxt-speedkit/components/SpeedkitPicture/classes/SourceList';
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import PictureSource from 'nuxt-speedkit/components/SpeedkitPicture/Source';
