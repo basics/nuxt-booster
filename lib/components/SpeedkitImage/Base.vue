@@ -92,19 +92,19 @@ export default {
     },
 
     srcset () {
-      return this.config && (this.config.srcset || this.config.src);
+      return (this.config?.srcset || this.config?.src);
     },
 
     sizes () {
-      return this.config && this.config.sizes;
+      return this.config?.sizes;
     },
 
     width () {
-      return this.meta && this.meta.width;
+      return this.$attrs.width || this.meta?.width;
     },
 
     height () {
-      return this.meta && this.meta.height;
+      return this.$attrs.height || this.meta?.height;
     },
 
     loadingMode () {
