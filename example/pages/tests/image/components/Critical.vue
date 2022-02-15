@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container id="criticalContainer">
     <template #default>
-      <default-image v-bind="image" />
+      <speedkit-image v-bind="image" />
     </template>
     <template #title>
       <p>Critical - Image</p>
@@ -11,25 +11,24 @@
 
 <script>
 
-import DefaultImage from 'nuxt-speedkit/components/SpeedkitImage';
-import Image from 'nuxt-speedkit/components/SpeedkitImage/classes/Image';
+import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
 
   components: {
     OrganismPreviewContainer,
-    DefaultImage
+    SpeedkitImage
   },
 
   data () {
     return {
 
-      image: Image.create({
+      image: {
         title: 'Critical - Image',
         // eslint-disable-next-line no-secrets/no-secrets
-        source: { format: 'jpg', src: '/img/pickadummy/critical.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
-      }).toJSON()
+        source: { format: 'jpg', src: '/img/pickadummy/critical.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+      }
 
     };
   }
