@@ -53,7 +53,45 @@ describe('browser (Firefox)', () => {
 });
 
 function tests ({ chromium = false, firefox = false }) {
+  // #region /tests/loader
+
+  it('speedkitLoader', async () => {
+    const page = await createPage('/speedkit-loader/');
+
+    // element has no font class?
+    expect(await page.evaluate(() => document.querySelector('#lazySpeedkitLoader').classList.contains('.active'))).toBeFalsy();
+    await page.waitForSelector('#criticalSpeedkitLoader.active');
+    // scroll to element
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+    // element has font class?
+    await page.waitForSelector('#lazySpeedkitLoader.active');
+  });
+
+  // #endregion /tests/loader
+
   // #region /tests/v-font
+
+  // it('v-font (media) (font assign simple by orientation portrait) (element class)', async () => {
+  //   const page = await createPage('/v-font-media');
+
+  //   // element has no font class?
+  //   expect(await page.evaluate(() => document.querySelector('#criticalFontAssignSimpleByOrientationPortrait[data-font="-3ed9f5ca"]').classList.contains('.font-active'))).toBeFalsy();
+  //   // scroll to element
+  //   await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+  //   // element has font class?
+  //   await page.waitForSelector('#lazyFontAssignSimpleByOrientationPortrait.font-active[data-font="-72fc4ecb"]');
+  // });
+
+  // it('v-font (media) (font assign simple by orientation landscape) (element class)', async () => {
+  //   const page = await createPage('/v-font-media');
+
+  //   // element has no font class?
+  //   expect(await page.evaluate(() => document.querySelector('#criticalFontAssignSimpleByOrientationLandscape[data-font="-410c79b7"]').classList.contains('.font-active'))).toBeFalsy();
+  //   // scroll to element
+  //   await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+  //   // element has font class?
+  //   await page.waitForSelector('#lazyFontAssignSimpleByOrientationLandscape.font-active[data-font="-1c245f8b"]');
+  // });
 
   it('v-font (font assign simple) (element class)', async () => {
     const page = await createPage('/v-font/');
