@@ -123,7 +123,7 @@ This has an effect on prefetches and preloads.
 
 ## Workarounds
 
-Workarounds are used to work around a bug in the Vue SSR, read more in [Usage](/directives/v-font#usage).
+Workarounds to prevent bugs with default nuxt components and directives, read more in [Usage](/directives/v-font#usage).
 ### Use component
 
 **<span style="color: red;">Bad</span>**
