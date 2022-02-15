@@ -1,5 +1,20 @@
 # Project Changelog
 
+# [2.0.0-beta.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.30...v2.0.0-beta.31) (2022-02-15)
+
+
+### Bug Fixes
+
+* **loader:** ignore loader in dev mode (improve hot reload) ([ee15889](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ee15889b7a917520725b073b2c466282df2b55e3))
+* **speedkit-picture:** add width & height with 0 ([607614f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/607614f32cd4c2c5fb034126b3e2c10241ed10c6))
+
+# [2.0.0-beta.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.29...v2.0.0-beta.30) (2022-02-14)
+
+
+### Bug Fixes
+
+* **directive:** fix font load with media ([e892946](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e892946dba966cfa85177048ea59fb7c85568ff9))
+
 # [2.0.0-beta.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2022-02-14)
 
 
