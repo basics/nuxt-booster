@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.31...v2.0.0-beta.32) (2022-02-16)
+
+
+### Bug Fixes
+
+* **loading-spinner:** fix not visible loading-spinner ([65d2fed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/65d2fed70a4d4a311bac8912ac444ee649e09f87))
+* **plugin:** improve loading-spinner config ([151403a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/151403a6fd56d4ee8081071bba2a77e82b5685fa))
+
 # [2.0.0-beta.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.30...v2.0.0-beta.31) (2022-02-15)
 
 

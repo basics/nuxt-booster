@@ -126,13 +126,10 @@ export default {
     },
 
     style () {
-      if (!this.meta) {
-        return [];
-      }
       return [
         this.loadingSpinner && { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
-        { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
-      ];
+        this.meta && { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
+      ].filter(Boolean);
     },
 
     preload () {
