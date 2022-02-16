@@ -113,7 +113,6 @@ export default {
   computed: {
     pictureDataset () {
       return {
-        formats: ['avif', 'webp', 'jpg'],
         title: this.title,
         sources: [{
           src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
