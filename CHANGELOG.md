@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.32...v2.0.0-beta.33) (2022-02-16)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** improve the use of formats and fix missing png ([8c93b6b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8c93b6b62031704b70ff0e97611da6cd621d4b74))
+
 # [2.0.0-beta.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.31...v2.0.0-beta.32) (2022-02-16)
 
 
