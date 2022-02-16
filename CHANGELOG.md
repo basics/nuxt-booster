@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.33...v2.0.0-beta.34) (2022-02-16)
+
+
+### Bug Fixes
+
+* **speedkit-youtube:** remove formats ([39fbb36](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/39fbb367baf1b07452fdeff284c584a711989174))
+
 # [2.0.0-beta.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.32...v2.0.0-beta.33) (2022-02-16)
 
 
