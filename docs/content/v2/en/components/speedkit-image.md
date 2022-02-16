@@ -95,6 +95,8 @@ Available formats:
 - `png`
 - `jpg`
 
+<alert type="warning">Important: Note that if you specify `src` without a file extension, the format must be included. </alert>
+
 #### `src`
 
 Information on property `src` can be found at [here](https://image.nuxtjs.org/components/nuxt-img#src).
