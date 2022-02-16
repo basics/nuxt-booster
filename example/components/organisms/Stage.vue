@@ -14,21 +14,39 @@
       <span class="headline">{{ headline }}</span>
       <span class="claim">{{ claim }}</span>
     </h1>
+
+    <speedkit-image
+      class="logo"
+      v-bind="image"
+      :loading-spinner="null"
+    />
   </div>
 </template>
 
 <script>
 
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
 
 export default {
 
   components: {
-    SpeedkitPicture
+    SpeedkitPicture,
+    SpeedkitImage
   },
 
   props: {
     picture: { type: Object, required: true },
+    image: {
+      type: Object,
+      default () {
+        return {
+          source: { src: '/icon.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } },
+          title: 'Image Title',
+          alt: 'Image Alt'
+        };
+      }
+    },
     headline: { type: String, default () { return 'Headline'; } },
     claim: { type: String, default () { return 'Claim'; } }
   }
@@ -44,15 +62,28 @@ export default {
   margin: 0;
   overflow: hidden;
 
-  & .claim {
-    display: block;
-    font-size: calc(25 / 50);
-    font-size: 40;
-    text-transform: none;
+  & .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 96px;
+    margin: 20px;
+    margin-left: calc(-96px / 2);
 
     @media (min-width: 768px) {
-      font-size: 25px;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      left: auto;
+      width: 128px;
     }
+  }
+
+  & .claim {
+    display: block;
+    font-size: 16px;
+    line-height: 2;
+    text-transform: none;
   }
 
   & .headline {
