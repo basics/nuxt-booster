@@ -45,7 +45,7 @@
     "youtube-player": "5.5.2"
   },
   "devDependencies": {
-    "@babel/core": "7.17.3",
+    "@babel/core": "7.17.4",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-typescript": "7.16.7",
     "@commitlint/cli": "16.2.1",
@@ -71,7 +71,7 @@
     "lost": "8.3.1",
     "nuxt": "2.15.8",
     "pinst": "2.1.6",
-    "playwright": "1.19.0",
+    "playwright": "1.19.1",
     "postcss-nesting": "7.0.1",
     "stylelint": "14.5.0",
     "stylelint-config-lost": "0.0.3",
