@@ -299,7 +299,7 @@ module.exports = {
     loader: {
       dataUri: '@/assets/spinner/three-circles.svg',
       size: '100px',
-      backgroundColor: 'grey'
+      backgroundColor: 'transparent'
     }
   },
 
