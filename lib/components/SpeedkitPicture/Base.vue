@@ -36,7 +36,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return ['webp', 'avif', 'jpg'];
+        return ['webp', 'avif', 'jpg|jpeg|png'];
       }
     },
 
@@ -83,9 +83,10 @@ export default {
     sourceList () {
       return SourceList.create(this.sources);
     },
+
     formatSources () {
-      const sortedFormatsByPriority = formatPriority.filter(v => this.formats.includes(v));
-      const preloadFormat = formatPriority.find(v => this.formats.includes(v));
+      const sortedFormatsByPriority = Array.from(new Set(formatPriority.map(v => this.formats.find(format => format.includes(v))))).filter(Boolean);
+      const preloadFormat = formatPriority.find(v => this.formats.find(format => format.includes(v)));
       return this.sourceList.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
     },
 
