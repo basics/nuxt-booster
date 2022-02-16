@@ -68,7 +68,7 @@ export default {
 ````js
 {
   sources: [ … ],
-  formats: ['jpeg'],
+  formats: ['avif', 'webp', 'jpg|jpeg|png'],
   loadingSpinner: new LoadingSpinner( … ),
   alt: 'Image Alt',
   title: 'Image Title',
@@ -102,9 +102,12 @@ In the following example, two different image ratios are used.
 
 ### `formats`
 - Type: `Array`
-  - Default: `['webp', 'avif', 'jpg']`
+  - Default: `['webp', 'avif', 'jpg|jpeg|png']`
 
-List of image formats to generate.
+Defines the formats that are to be generated and provided as source in the Picture.  
+Is used to offer the correct image type for the browser.
+
+<alert type="warning">Formats can also be specified as OR condition (`jpg|jpeg|png`). This is important when using JPGs and PNGs with the same `format` configuration.</alert>
 
 ### `loadingSpinner`
 - Type: [`LoadingSpinner`](/classes/loading-spinner)
