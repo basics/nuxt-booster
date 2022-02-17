@@ -71,6 +71,14 @@ export default {
 }
 ````
 
+### `hydrate`
+- Type: `Boolean`
+  - Default: `true`
+
+The initialization of the `SpeedkitImage` in the client can be controlled manually.  
+Here for the property `hydrate` must be set externally.
+If `true` the `SpeedkitImage` is initialized.
+
 ### `source`
 - Type: `Object`
 
@@ -82,8 +90,6 @@ export default {
   sizes: { … }
 }
 ````
-
-
 #### `format`
 
 Sets the image output format.

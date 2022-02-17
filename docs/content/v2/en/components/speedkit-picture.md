@@ -75,6 +75,14 @@ export default {
 }
 ````
 
+### `hydrate`
+- Type: `Boolean`
+  - Default: `true`
+
+The initialization of the `SpeedkitPicture` in the client can be controlled manually.  
+Here for the property `hydrate` must be set externally.
+If `true` the `SpeedkitPicture` is initialized.
+
 ### `sources`
 - Type: `Array`
 
@@ -102,12 +110,12 @@ In the following example, two different image ratios are used.
 
 ### `formats`
 - Type: `Array`
-  - Default: `['webp', 'avif', 'jpg|jpeg|png']`
+  - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 
 Defines the formats that are to be generated and provided as source in the Picture.  
 Is used to offer the correct image type for the browser.
 
-<alert type="warning">Formats can also be specified as OR condition (`jpg|jpeg|png`). This is important when using JPGs and PNGs with the same `format` configuration.</alert>
+<alert type="warning">Formats can also be specified as OR condition (`jpg|jpeg|png|gif`). This is important when using JPGs and PNGs with the same `format` configuration.</alert>
 
 ### `loadingSpinner`
 - Type: [`LoadingSpinner`](/classes/loading-spinner)
