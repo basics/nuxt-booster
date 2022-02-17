@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.35](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.34...v2.0.0-beta.35) (2022-02-17)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** update formats ([b199ef0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b199ef08c3c904ca80e497f13543528434d57fc6))
+
 # [2.0.0-beta.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.33...v2.0.0-beta.34) (2022-02-16)
 
 
