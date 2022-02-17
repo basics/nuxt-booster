@@ -36,7 +36,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return ['webp', 'avif', 'jpg|jpeg|png'];
+        return ['webp', 'avif', 'jpg|jpeg|png|gif'];
       }
     },
 
