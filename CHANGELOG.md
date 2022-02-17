@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.36](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.35...v2.0.0-beta.36) (2022-02-17)
+
+
+### Bug Fixes
+
+* **picture:** fix missing format priority ([ddc37be](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ddc37be46a1690c647999afe5dec14bb2001a451))
+
 # [2.0.0-beta.35](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.34...v2.0.0-beta.35) (2022-02-17)
 
 
