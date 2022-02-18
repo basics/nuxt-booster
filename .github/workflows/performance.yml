@@ -46,7 +46,7 @@ jobs:
 
       - name: Upload
         run: |
-          npx baqend deploy -f dist -b www nuxt-speedkit
+          npx baqend@2 deploy -f dist -b www nuxt-speedkit
         env:
           BAQEND_TOKEN: ${{ secrets.BAQEND_TOKEN }}
 
