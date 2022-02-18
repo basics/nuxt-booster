@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.37](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.36...v2.0.0-beta.37) (2022-02-18)
+
+
+### Bug Fixes
+
+* **entry:** add idle callback for client ([f6fc0ef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f6fc0ef7e0e568c807d1fc0784cbd348ea92c56a))
+
 # [2.0.0-beta.36](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.35...v2.0.0-beta.36) (2022-02-17)
 
 
