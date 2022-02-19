@@ -99,6 +99,10 @@ module.exports = {
     }
   },
 
+  render: {
+    resourceHints: false
+  },
+
   generate: {
     crawler: true,
     dir: getDistPath()
