@@ -42,7 +42,6 @@ describe('browser (Firefox)', () => {
       target: 'static',
       modern: true,
       buildDir,
-      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }
