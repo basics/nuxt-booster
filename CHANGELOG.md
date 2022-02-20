@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.38](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.37...v2.0.0-beta.38) (2022-02-20)
+
+
+### Bug Fixes
+
+* **entry:** change client import to lazy; remove resourceHints false ([bd36411](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bd36411fc54cfeb72bf7958ecb21a9853b4e945d))
+* **lighthouse:** disable resourcehints ([d51671e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d51671e94254bcdad2242ee70e3d4f92defa19b6))
+
 # [2.0.0-beta.37](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.36...v2.0.0-beta.37) (2022-02-18)
 
 
