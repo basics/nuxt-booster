@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.39](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.38...v2.0.0-beta.39) (2022-02-20)
+
+
+### Bug Fixes
+
+* **lint:** fix lint error ([100f822](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/100f822f3651a2b6d711271c856708b020c99644))
+
 # [2.0.0-beta.38](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.37...v2.0.0-beta.38) (2022-02-20)
 
 
