@@ -26,7 +26,7 @@ export default {
 
   props: {
     source: {
-      type: Source,
+      type: [Source, Object],
       default: null
     },
 
@@ -58,17 +58,21 @@ export default {
   },
 
   fetchKey () {
-    return `image-${this.source && this.source.key}`;
+    if (this.source) {
+      return `image-${(new Source(this.source))?.key}`;
+    }
+    return 'image';
   },
 
   async fetch () {
     if (this.source) {
-      this.config = this.$img.getSizes(this.source.src, {
-        sizes: this.source.sizes,
-        modifiers: this.source.getModifiers()
+      const source = new Source(this.source);
+      this.config = this.$img.getSizes(source.src, {
+        sizes: source.sizes,
+        modifiers: source.getModifiers()
       });
       const { ssrContext } = this.$nuxt.context;
-      this.meta = await this.source.getMeta(this.config.src, ssrContext?.nuxt?._img || {});
+      this.meta = await source.getMeta(this.config.src, ssrContext?.nuxt?._img || {});
       this.className = this.meta.className;
     }
   },
@@ -115,20 +119,17 @@ export default {
     },
 
     decodingMode () {
-      if (!this.source || this.source.format !== 'svg') {
+      if (!this.source || (new Source(this.source)).format !== 'svg') {
         return 'async';
       }
       return 'sync';
     },
 
     style () {
-      if (!this.meta) {
-        return [];
-      }
       return [
         this.loadingSpinner && { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
-        { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
-      ];
+        this.meta && { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
+      ].filter(Boolean);
     },
 
     preload () {

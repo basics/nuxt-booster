@@ -142,6 +142,7 @@ export default {
         return null;
       }
       return {
+        formats: ['avif', 'webp', 'jpg'],
         title: this.playerTitle,
         sources: [{
           format: 'jpg',

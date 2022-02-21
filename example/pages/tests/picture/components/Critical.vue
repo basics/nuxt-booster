@@ -29,7 +29,7 @@ export default {
         title: 'Critical',
         sources: [
           // eslint-disable-next-line no-secrets/no-secrets
-          { src: '/img/pickadummy/critical.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+          { src: '/img/pickadummy/critical.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
         ]
       }
 

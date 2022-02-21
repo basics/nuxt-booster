@@ -28,6 +28,14 @@ dist
 *.code-workspace
 jsconfig.json
 
+jest.config.js
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+README.md
+commitlint.config.js
+renovate.json
+vetur.config.json
+
 /docs
 /lib
 /example

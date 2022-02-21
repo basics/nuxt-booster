@@ -1,5 +1,63 @@
 # Project Changelog
 
+# [2.0.0-beta.39](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.38...v2.0.0-beta.39) (2022-02-20)
+
+
+### Bug Fixes
+
+* **lint:** fix lint error ([100f822](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/100f822f3651a2b6d711271c856708b020c99644))
+
+# [2.0.0-beta.38](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.37...v2.0.0-beta.38) (2022-02-20)
+
+
+### Bug Fixes
+
+* **entry:** change client import to lazy; remove resourceHints false ([bd36411](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bd36411fc54cfeb72bf7958ecb21a9853b4e945d))
+* **lighthouse:** disable resourcehints ([d51671e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d51671e94254bcdad2242ee70e3d4f92defa19b6))
+
+# [2.0.0-beta.37](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.36...v2.0.0-beta.37) (2022-02-18)
+
+
+### Bug Fixes
+
+* **entry:** add idle callback for client ([f6fc0ef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f6fc0ef7e0e568c807d1fc0784cbd348ea92c56a))
+
+# [2.0.0-beta.36](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.35...v2.0.0-beta.36) (2022-02-17)
+
+
+### Bug Fixes
+
+* **picture:** fix missing format priority ([ddc37be](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ddc37be46a1690c647999afe5dec14bb2001a451))
+
+# [2.0.0-beta.35](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.34...v2.0.0-beta.35) (2022-02-17)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** update formats ([b199ef0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b199ef08c3c904ca80e497f13543528434d57fc6))
+
+# [2.0.0-beta.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.33...v2.0.0-beta.34) (2022-02-16)
+
+
+### Bug Fixes
+
+* **speedkit-youtube:** remove formats ([39fbb36](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/39fbb367baf1b07452fdeff284c584a711989174))
+
+# [2.0.0-beta.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.32...v2.0.0-beta.33) (2022-02-16)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** improve the use of formats and fix missing png ([8c93b6b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8c93b6b62031704b70ff0e97611da6cd621d4b74))
+
+# [2.0.0-beta.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.31...v2.0.0-beta.32) (2022-02-16)
+
+
+### Bug Fixes
+
+* **loading-spinner:** fix not visible loading-spinner ([65d2fed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/65d2fed70a4d4a311bac8912ac444ee649e09f87))
+* **plugin:** improve loading-spinner config ([151403a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/151403a6fd56d4ee8081071bba2a77e82b5685fa))
+
 # [2.0.0-beta.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.30...v2.0.0-beta.31) (2022-02-15)
 
 

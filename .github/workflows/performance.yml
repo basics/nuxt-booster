@@ -74,7 +74,10 @@ jobs:
           throttle 3g
 
       - name: Running sitespeed.io container with arguments and optional Docker options
-        run: docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 ${{env.WEBSITE_HOST}} --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report
+        run: |
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.app.baqend.com/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarzundpartner.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarzundpartner
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarz-group.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarz-group
 
       - name: Stop throttle 3g
         run: |
@@ -100,10 +103,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v8
+        uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
-            ${{env.WEBSITE_HOST}}
+            https://nuxt-speedkit.app.baqend.com/
+            https://grabarzundpartner.de/
+            https://grabarz-group.de/
           artifactName: lighthouse-report
           budgetPath: ./.github/budgets/lighthouse.json
           uploadArtifacts: true
