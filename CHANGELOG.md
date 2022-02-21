@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.40](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.39...v2.0.0-beta.40) (2022-02-21)
+
+
+### Bug Fixes
+
+* **module:** add method for nuxt option optimization ([5af68d5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5af68d538ab884835084be173fd5742eb7eb659c))
+* **module:** improve preload optimization ([dc395a9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/dc395a9a1a1ff59ff604e026cb37b7ef2372ef73))
+
 # [2.0.0-beta.39](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.38...v2.0.0-beta.39) (2022-02-20)
 
 
