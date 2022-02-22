@@ -39,7 +39,7 @@
     "browserslist-useragent-regexp": "3.0.2",
     "defu": "5.0.1",
     "dynamic-class-list": "2.0.1",
-    "fs-extra": "10.0.0",
+    "fs-extra": "10.0.1",
     "serialize-to-js": "3.1.1",
     "vue-lazy-hydration": "2.0.0-beta.4",
     "youtube-player": "5.5.2"
@@ -73,7 +73,7 @@
     "pinst": "3.0.0",
     "playwright": "1.19.1",
     "postcss-nesting": "7.0.1",
-    "stylelint": "14.5.1",
+    "stylelint": "14.5.2",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "3.0.0",
     "stylelint-config-standard": "25.0.0",
