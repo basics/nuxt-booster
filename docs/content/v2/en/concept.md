@@ -22,7 +22,8 @@ factors:
 ---
 
 
-`nuxt-speedkit` is used to increase the initial loading performance of the website.  
+
+`nuxt-speedkit` is used to increase the initial loading performance of the website.
 For this purpose, various tools are provided that optimise the loading and initialisation of resources (`images`, `fonts`) and components automatically and on demand.
 
 This has the following impact:

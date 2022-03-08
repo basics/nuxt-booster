@@ -28,6 +28,18 @@ module.exports = {
   },
 
   build: {
+
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/](node-libs-browser)[\\/]/,
+            name: 'vendor'
+          }
+        }
+      }
+    },
+
     filenames: {
       app: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
       chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js'

@@ -6,7 +6,7 @@ category: Components
 
 primaryList:
   - Freeze (Short freeze of the page)
-  - Delayed loading of resources  (Bilder, Fonts)
+  - Delayed loading of resources  (images, fonts)
   - Unnecessarily generated traffic
 secondaryList:
   - Iframe load is reactive.

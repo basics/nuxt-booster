@@ -7,10 +7,16 @@ requirements:
   - NodeJS >= 12.x.x
   - NuxtJS >= 2.15.0
 features:
-  - dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
-  - optional loading prevention of resources at low bandwidth or weak hardware
+  - dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
+  - optional blocking of javascript execution by initial performance measuring
+  - optimized initial load of javascript files by eliminating of unnecessary javascript files
   - prevents the loading of unnecessary resources (including components) that are outside the current viewport.
-  - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
+  - optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.  
+  - completely new approach of font declaration
+  - optimized picture component (supports viewport based sources e.g. landscape/portrait)
+  - optimized image component
+  - supports SEO-friendly lazy hydration mode (picture + image)
+  - optimized youtube/vimeo component (auto generated poster image in different resolutions)  
 results:
   - delivery of the minimum required resources based on the current viewport
   - if you use the tools as specified you will get a lighthouse performance score of 100/100
@@ -24,18 +30,26 @@ results:
 
 Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
 
-In order to achieve a performance score of 100/100, only the resources that are necessary in the current viewport may be loaded. Concepts already exist for the loading of javascript components and images.
-However, there is not yet a practicable concept for loading fonts dynamically. This module provides a holistic approach to load all necessary resources on demand, including fonts, based on the current viewport.
+In order to achieve a performance score of 100/100, only the necessary resources located in the current viewport may be initialized when the page is loaded. This includes images, fonts and the js-modules. Until now, there has been no practical and usable concept to help developers maintain an overview and enable accurate targeting in nuxtJS projects. 
 
-This module implements the lazy-hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) and embeds a [modified version](https://github.com/StephanGerbeth/image) of [nuxt/image](https://github.com/nuxt/image).
+This module addresses this problem and provides a holistic approach to intelligently load the necessary viewport related resources to reduce FCP, DCL, TTI, TBT and CLS.
+
+We didn't reinvent the whole wheel. We adapt the lazy hydration concept of [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) to load js components in an efficient way, use the [nuxt/image](https://github.com/nuxt/image) module as a base to retrieve optimized image resolutions for our picture and image components and add some new stuff to obtain a holistic solution.
 
 ## Requirements
 
 <list type="info" :items="requirements"></list>
 ## Features
 
+We provide the following CMS-friendly features:
+
 <list type="success" :items="features"></list>
 
 ## Results
 
 <list type="success" :items="results"></list>
+
+## Demos
+
+- [Grabarz & Partner](https://grabarzundpartner.de)
+- [Grabarz Group](https://grabarz-group.de)

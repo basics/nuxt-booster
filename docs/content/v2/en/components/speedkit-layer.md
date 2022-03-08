@@ -28,7 +28,7 @@ The answer to this is relatively simple: the site must first and foremost work a
 
 No more and no less.
 
-The user doesn't need any fancy slider animations and parallax effects that can only be implemented with certain libraries. Or a softload mechanism to get to more pages in a more elegant and animated way, but which initially needs an increased amount of javascript logic. All he wants is that information is retrievable reasonably fast and he can click through the presence. Among other things, he doesn't need full retina images, which simply take a long time to load with 3G.
+The user doesn't need any fancy slider animations and parallax effects that can only be implemented with certain libraries. Or a softload mechanism to get to more pages in a more elegant and animated way, but which initially needs an increased amount of javascript logic. All he wants is that information is retrievable reasonably fast and he can click through the presence. 
 
 ## Solution
 
@@ -132,12 +132,12 @@ These are needed if the user has already reacted before the initial Javascript h
 ## Hide Layer
 
 ````html
-<label for="nuxt-speedkit-speedkit-layer-close">
+<label for="nuxt-speedkit-layer-close">
   Close Layer
 </label>
 ````
 
-The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-speedkit-layer-close`.
+The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer-close`.
 
 <list :items="hideLayerFeatures"></list>
 
@@ -170,14 +170,14 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-speed
 
     <!-- Button to hide the layer with no javascript -->
     <button id="nuxt-speedkit-button-init-nojs">
-      <label for="nuxt-speedkit-speedkit-layer-close">
+      <label for="nuxt-speedkit-layer-close">
         Apply without js
       </label>
     </button>
 
     <!-- Button for use without javascript and with fonts -->
     <button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
-      <label for="nuxt-speedkit-speedkit-layer-close">
+      <label for="nuxt-speedkit-layer-close">
         Apply with Fonts
       </label>
     </button>
