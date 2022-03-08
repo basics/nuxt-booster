@@ -132,12 +132,12 @@ These are needed if the user has already reacted before the initial Javascript h
 ## Hide Layer
 
 ````html
-<label for="nuxt-speedkit-speedkit-layer-close">
+<label for="nuxt-speedkit-layer-close">
   Close Layer
 </label>
 ````
 
-The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-speedkit-layer-close`.
+The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer-close`.
 
 <list :items="hideLayerFeatures"></list>
 
@@ -170,14 +170,14 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-speed
 
     <!-- Button to hide the layer with no javascript -->
     <button id="nuxt-speedkit-button-init-nojs">
-      <label for="nuxt-speedkit-speedkit-layer-close">
+      <label for="nuxt-speedkit-layer-close">
         Apply without js
       </label>
     </button>
 
     <!-- Button for use without javascript and with fonts -->
     <button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
-      <label for="nuxt-speedkit-speedkit-layer-close">
+      <label for="nuxt-speedkit-layer-close">
         Apply with Fonts
       </label>
     </button>
