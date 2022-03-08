@@ -1,5 +1,21 @@
 # Project Changelog
 
+# [2.0.0-beta.41](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.40...v2.0.0-beta.41) (2022-03-08)
+
+
+### Bug Fixes
+
+* **docs:** fonts workarounds ([a1df67f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a1df67f3ca9bf401f95b160cc3ff6852257897ca))
+* **docs:** index ([c466f7d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c466f7d144afb6c805d645ff034b817587b9a30a))
+* **docs:** optimized sentences ([7e67f67](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7e67f67ef1c9469c862ce2d82c98dff1441fc5dd))
+* **docs:** restructured feature list ([bfeeff8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bfeeff8a7f8edea919637979b0864b24ceea0b07))
+* **docs:** updated ([45d2db8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/45d2db847628e2ed3b74e909b0429af264b03720))
+* **docs:** updated docs ([d72ee0c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d72ee0c274320d0ed482b1808f8be0f60a135f08))
+* **hydrate:** rename loader to hydrate ([57dbcf3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/57dbcf3aee2eee7f44744d0d3c5cf3618c471033))
+* **layer:** improve layer style classes ([b155f49](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b155f497e3f7d6ed4b9bca66e00f113d47c89cc4))
+* **performance:** remove lighthouse detection ([c61fee7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c61fee797843fe12283943160e476d33f5462b83))
+* **test:** test ([5789c61](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5789c61d76d497908e4fa4a5f1e1e4437cc29189))
+
 # [2.0.0-beta.40](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.39...v2.0.0-beta.40) (2022-02-21)
 
 
