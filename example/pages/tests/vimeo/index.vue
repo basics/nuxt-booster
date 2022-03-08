@@ -6,12 +6,12 @@
 
 <script>
 
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
 
   components: {
-    Default: speedkitLoader(() => import('./components/Default'))
+    Default: speedkitHydrate(() => import('./components/Default'))
   },
 
   asyncData () {

@@ -13,16 +13,16 @@
 </template>
 
 <script>
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
-    ComponentStage: speedkitLoader(() => import('@/components/organisms/Stage')),
-    ComponentTextA: speedkitLoader(() => import('@/components/organisms/TextFontA')),
-    ComponentImageText: speedkitLoader(() => import('@/components/organisms/ImageText')),
-    ComponentTextB: speedkitLoader(() => import('@/components/organisms/TextFontB')),
-    ComponentVideoYoutube: speedkitLoader(() => import('@/components/organisms/VideoYoutube')),
-    ComponentVideoVimeo: speedkitLoader(() => import('@/components/organisms/VideoVimeo'))
+    ComponentStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
+    ComponentTextA: speedkitHydrate(() => import('@/components/organisms/TextFontA')),
+    ComponentImageText: speedkitHydrate(() => import('@/components/organisms/ImageText')),
+    ComponentTextB: speedkitHydrate(() => import('@/components/organisms/TextFontB')),
+    ComponentVideoYoutube: speedkitHydrate(() => import('@/components/organisms/VideoYoutube')),
+    ComponentVideoVimeo: speedkitHydrate(() => import('@/components/organisms/VideoVimeo'))
   },
   data () {
     return {

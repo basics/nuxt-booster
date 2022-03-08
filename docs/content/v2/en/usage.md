@@ -48,11 +48,11 @@ Until now, components were imported either statically (`import component from '@
 In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
-    Stage: speedkitLoader(() => import('@/components/organisms/Stage')),
+    Stage: speedkitHydrate(() => import('@/components/organisms/Stage')),
   }
 };
 ````
@@ -60,7 +60,7 @@ export default {
 Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#lazyoffset">nuxt.config</nuxt-link>.
 
 <alert type="warning">
-Although the <code>nuxt-speedkit/loader</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
+Although the <code>nuxt-speedkit/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
 </alert>
 
 <alert type="info">
