@@ -68,7 +68,7 @@
     "eslint-plugin-xss": "0.1.11",
     "husky": "7.0.4",
     "jest": "27.5.1",
-    "lint-staged": "12.3.4",
+    "lint-staged": "12.3.5",
     "lost": "8.3.1",
     "nuxt": "2.15.8",
     "pinst": "3.0.0",
