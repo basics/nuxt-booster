@@ -1,15 +1,21 @@
 <template>
-  <div class="preview-container">
+  <document-section class="preview-container">
     <div class="preview">
       <slot name="default" />
     </div>
-    <div v-font="$getFont('Quicksand', 400, 'normal')" class="info">
-      <slot name="title">
-        <p>Preview Info</p>
-      </slot>
-    </div>
-  </div>
+    <document-heading class="info">
+      <span v-font="$getFont('Quicksand', 400, 'normal')">
+        <slot name="title">
+          <p>Preview Info</p>
+        </slot>
+      </span>
+    </document-heading>
+  </document-section>
 </template>
+
+<script>
+export default {};
+</script>
 
 <style lang="postcss" scoped>
 .preview-container {
@@ -35,12 +41,14 @@
     flex-direction: row;
   }
 
-  & > div {
+  & > .preview,
+  & > .info {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 50vh;
+    margin: 0;
     overflow: hidden;
 
     @media (orientation: landscape) {
@@ -102,33 +110,35 @@
       text-align: center;
     }
 
-    & > div {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
+    & >>> {
+      & > div {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
 
-      & >>> div {
-        flex: 1;
-      }
+        & div {
+          flex: 1;
+        }
 
-      & > ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
+        & > ul {
+          padding: 0;
+          margin: 0;
+          list-style: none;
 
-        & li {
-          margin: calc(10 / 16 * 1em) 0;
+          & li {
+            margin: calc(10 / 16 * 1em) 0;
+          }
         }
       }
-    }
 
-    & > iframe {
-      position: relative;
-      width: 100%;
-      height: 100%;
+      & > iframe {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

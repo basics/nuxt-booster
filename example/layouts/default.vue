@@ -1,9 +1,9 @@
 <template>
   <div>
     <organism-page-header v-bind="pageHeader" />
-    <Nuxt />
+    <nuxt />
     <!-- <info-layer critical /> -->
-    <GithubCorner />
+    <github-corner />
     <google-lighthouse />
   </div>
 </template>

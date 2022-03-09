@@ -1,20 +1,26 @@
 <template>
-  <div
-    v-font="[
-      $getFont('Merriweather', 300, 'normal'),
-      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+  <document-section
     class="component-image-text"
     :class="{['component-image-text-right']: alignRight}"
   >
-    <div class="image">
-      <speedkit-picture
-        :title="picture.title"
-        :alt="picture.alt"
-        :sources="picture.sources"
-      />
+    <div
+      v-font="[
+        $getFont('Merriweather', 300, 'normal'),
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+    >
+      <div class="image">
+        <speedkit-picture
+          :title="picture.title"
+          :alt="picture.alt"
+          :sources="picture.sources"
+        />
+      </div>
+      <div class="text">
+        <document-heading>{{ headline }}</document-heading>
+        <div v-html="content" />
+      </div>
     </div>
-    <div class="text" v-html="text" />
-  </div>
+  </document-section>
 </template>
 
 <script>
@@ -28,7 +34,8 @@ export default {
   props: {
     alignRight: { type: Boolean, default: false },
     picture: { type: Object, required: true },
-    text: { type: String, default: 'Headline' }
+    headline: { type: String, default: 'Headline' },
+    content: { type: String, default: 'Text' }
   }
 };
 </script>
@@ -40,12 +47,14 @@ export default {
     height: 100%;
   }
 
-  @media (min-width: 992px) {
-    display: flex;
-    align-items: center;
+  & > div {
+    @media (min-width: 992px) {
+      display: flex;
+      align-items: center;
 
-    & > * {
-      width: 50%;
+      & > * {
+        width: 50%;
+      }
     }
   }
 

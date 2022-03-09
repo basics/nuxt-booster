@@ -1,7 +1,9 @@
-const { resolve } = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const pkg = require('../package.json');
-const isDev = process.env.NODE_ENV === 'development';
+import { resolve } from 'path';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import nuxtBabelPresetApp from '@nuxt/babel-preset-app';
+import pkg from '../package.json';
+
+const isDev = process.env.NODE_ENV === 'development'; ;
 
 module.exports = {
   dev: isDev,
@@ -29,6 +31,8 @@ module.exports = {
 
   build: {
 
+    transpile: ['vue-headings'],
+
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -50,7 +54,7 @@ module.exports = {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'),
+            nuxtBabelPresetApp,
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3, proposals: true },
@@ -142,6 +146,10 @@ module.exports = {
       pickadummy: 'https://i.pickadummy.com'
     }
   },
+
+  plugins: [
+    '@/plugins/vue-headings'
+  ],
 
   buildModules: [
     '@nuxt/postcss8',

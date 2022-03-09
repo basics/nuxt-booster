@@ -1,10 +1,10 @@
 <template>
-  <div class="organism-spacer">
+  <document-section class="organism-spacer">
     <div>
       <p>Scroll down</p>
       <span>&darr;</span>
     </div>
-  </div>
+  </document-section>
 </template>
 
 <script>

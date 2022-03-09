@@ -1,5 +1,5 @@
 <template>
-  <div
+  <document-section
     v-font="[
       $getFont('Merriweather', 400),
     ]"
@@ -7,7 +7,7 @@
   >
     <speedkit-youtube v-bind="$attrs" />
     <p v-if="text" v-html="text" />
-  </div>
+  </document-section>
 </template>
 
 <script>
