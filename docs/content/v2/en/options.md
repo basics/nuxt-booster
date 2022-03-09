@@ -14,6 +14,23 @@ category: Guide
 Sets the global `crossorigin` value of the nuxt-speedkit preloads.  
 The default value is the `crossorigin` value from the [Render Configuration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin).
 
+## `optimizePreloads`
+- Type: `Boolean`
+  - Default: `true`
+
+If set, the preloads and scripts will be optimized.
+
+The following nuxt options are set:
+
+| Property                            | Value   |
+| ----------------------------------- | ------- |
+| `nuxt.options.generate.manifest`    | `false` |
+| `nuxt.options.render.resourceHints` | `true`  |
+| `nuxt.options.render.asyncScripts`  | `true`  |
+| `nuxt.options.render.http2.push`    | `false` |
+
+And not used `client` & `modern` scripts tags filtered out.
+
 ## `detection`
 - Type: `Object`
 
