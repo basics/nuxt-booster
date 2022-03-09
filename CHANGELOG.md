@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.42](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.41...v2.0.0-beta.42) (2022-03-09)
+
+
+### Bug Fixes
+
+* **module:** activate `resourceHints` and `asyncScripts` ([798772b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/798772be94ff3ba39d989f7b43a9373d32a1c2f0))
+
 # [2.0.0-beta.41](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.40...v2.0.0-beta.41) (2022-03-08)
 
 
