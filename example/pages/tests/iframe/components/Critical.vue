@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <default-iframe v-bind="iframe" />
+      <default-iframe class="test-iframe" v-bind="iframe" />
     </template>
     <template #title>
       <p>Critical<br>Iframe</p>

@@ -1,7 +1,9 @@
 <template>
   <document-section class="preview-container">
     <div class="preview">
-      <slot name="default" />
+      <div>
+        <slot name="default" />
+      </div>
     </div>
     <document-heading class="info">
       <span v-font="$getFont('Quicksand', 400, 'normal')">
@@ -110,31 +112,25 @@ export default {};
       text-align: center;
     }
 
-    & >>> {
-      & > div {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
+    & > div {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
 
-        & div {
-          flex: 1;
-        }
+      & >>> ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
 
-        & > ul {
-          padding: 0;
-          margin: 0;
-          list-style: none;
-
-          & li {
-            margin: calc(10 / 16 * 1em) 0;
-          }
+        & li {
+          margin: calc(10 / 16 * 1em) 0;
         }
       }
 
-      & > iframe {
+      & >>> .test-iframe {
         position: relative;
         width: 100%;
         height: 100%;
