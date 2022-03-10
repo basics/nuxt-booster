@@ -11,23 +11,6 @@ solutions:
 - embed the fonts via Base64
 ---
 
-Fonts are the great mystery on the Internet. For more complex designs it is not uncommon that more than 6 font files have to be loaded. It would be desirable if there were many more variable fonts, but the reality is usually different. Often, developers are forced to register tons of fonts with different font styles. So it can happen that the website needs a total of 12 font files, which have to be loaded initially to achieve the right visual result on the whole page.
-
-This is a real performance problem. If you look for solutions, you like to hear
-
-<list :items="solutions" type="info"></list>
-
-You will find some articles about font loading. But most of them are more than 3 years old. So not much new has happened on that front. A nice and recommendable list of different strategies can be found at [web-font-loading-recipes](https://github.com/zachleat/web-font-loading-recipes) or 
-[comprehensive-webfonts](https://www.zachleat.com/web/comprehensive-webfonts/). From this it can be deduced that there is still no universal solution to the problem. However, it is possible to approach the issue very efficiently by using a preload strategy and setting classes accordingly. However, this does not make the handling of the fonts any easier. On the one hand, the preloads have to be defined per page and on the other hand, the CSS in the respective component has to be activated with the corresponding font declaration per class on demand. This is manageable for smaller projects in a 1 person team. But if several people are working in parallel, it can quickly become a nightmare. This will inevitably lead to the fact that the approach will not be accepted by the team and the optimization will be optimized out of the project in the long run.
-
-<alert type="info">A few words about Google Fonts: If possible, the FontFaces should always be included directly as Woff/Woff2 files via inline style. The loading mechanism via external CSS file, as it is the case with Google Fonts, creates an additional network roundtrip, which delays the loading of the actual font files.</alert>
-
-## Solution
-
-The strategy mentioned above makes sense, but is hardly implementable with the current tools. For this reason, we are introducing Directive `v-font`, which takes care of the outlined behavior in a fully automated way and thus represents a truly relevant solution even on larger projects.
-
-## Usage
-
 The directive `v-font` is used to integrate the fonts defined in the [module options](/options#fonts) into the website.
 
 To do this, the respective font must be retrieved via the `$getFont` method contained in the component scope (e.g. `this`).
