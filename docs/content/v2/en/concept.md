@@ -99,7 +99,7 @@ The [TimeRemaining function](https://developer.mozilla.org/en-US/docs/Web/API/Id
 
 We use this effect by executing the intial javascript process and the component initialization in the RequestIdleCallback, if we get a time slot >10ms from the device. Hereby we achieve a massive reduction of the TTI/TBT in the Lighthouse Test and on weak hardware, because the javascript execution is simply paused in the worst case until sufficient resources are available. This also prevents blocking of the MainThread.
 
-Side effect: The timeslots in the Google Lighthouse Test are always <= 10ms, no javascript is initialized or only after 2s.
+Side effect: The timeslots in the Google Lighthouse Test are always <= 10ms, so no javascript will be initialized.
 
 ### FunFact: `window.navigator.hardwareConcurrency`
 
