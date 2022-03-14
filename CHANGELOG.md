@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.44](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.43...v2.0.0-beta.44) (2022-03-14)
+
+
+### Bug Fixes
+
+* **v-font:** add argument for additional head ([6e620bd](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6e620bdf971bf53958c0fd502ae7cc3411ee1556))
+
 # [2.0.0-beta.43](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.42...v2.0.0-beta.43) (2022-03-14)
 
 
