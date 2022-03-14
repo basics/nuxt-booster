@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.3.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.1...v1.3.2) (2022-03-14)
+
+
+### Bug Fixes
+
+* **eslint:** add eslint dep ([c863d8e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c863d8e4129bac1c2993ff57372f629df700dee9))
+
 ## [1.3.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.0...v1.3.1) (2021-11-07)
 
 
