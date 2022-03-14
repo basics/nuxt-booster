@@ -1,5 +1,14 @@
 # Project Changelog
 
+# [2.0.0-beta.43](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.42...v2.0.0-beta.43) (2022-03-14)
+
+
+### Bug Fixes
+
+* **plugin:** add plugin for head; clean mixin ([bffb95d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bffb95d12dcbb4db7d6c500093b5d1ffa96f7740))
+* **plugin:** move head def to head.js ([82031ef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/82031eff7416a45819b84f08d7d4dfdf9ae75ffa))
+* **plugin:** remove head as plugin, add import to vFont plugin ([e3881fb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e3881fbb2ff5d22c2c84993fd523c7ebe42f54db))
+
 # [2.0.0-beta.42](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.41...v2.0.0-beta.42) (2022-03-09)
 
 
