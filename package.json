@@ -59,7 +59,6 @@
     "babel-jest": "27.5.1",
     "commitlint": "16.2.1",
     "core-js": "3.21.1",
-    "eslint": "8.10.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-no-secrets": "0.8.9",
     "eslint-plugin-no-unsanitized": "4.0.1",
