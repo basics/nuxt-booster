@@ -25,7 +25,7 @@ solutions:
 
 ## Current Situation
 
-The loading behavior of webpages based on NuxtJS is designed in such a way that all necessary Javascript resources are preloaded and directly initialized with the initial load of the page. However, this behavior creates a negative impact on the Lighthouse Performance Score (TTI) for larger pages that have an increased initial load of additional resources, such as fonts, images, plugins, modules (nuxt-i18n, ...). 
+The loading behavior of webpages based on NuxtJS is designed in such a way that all necessary Javascript resources are preloaded and directly initialized with the initial load of the page. However, this behavior creates a negative impact on the Lighthouse Performance Score (TTI) for larger pages that have an increased initial load of additional resources, such as fonts, images, plugins, modules (@nuxtjs/i18n, ...). 
 
 ## Excursus
 
@@ -101,9 +101,9 @@ We use this effect by executing the intial javascript process and the component 
 
 Side effect: The timeslots in the Google Lighthouse Test are always <= 10ms, no javascript is initialized or only after 2s.
 
-### FunFact: window.navigator.hardwareConcurrency
+### FunFact: `window.navigator.hardwareConcurrency`
 
-window.navigator.hardwareConcurrency normally returns the number of CPU cores per device. However, this value can also be used to identify a Lighthouse Test as an alternative to the UserAgent. In our test series, we continuously received a value of ~88 cores in the Lighthouse Mobile simulation (pagespeed.web.dev). This is primarily an indication that a server-powered Chromium is accessing the website. We are not aware of a normal end device (laptop, tablet, mobile) that is equipped with 88 CPU cores.
+`window.navigator.hardwareConcurrency` normally returns the number of CPU cores per device. However, this value can also be used to identify a Lighthouse Test as an alternative to the UserAgent. In our test series, we continuously received a value of ~88 cores in the Lighthouse Mobile simulation (pagespeed.web.dev). This is primarily an indication that a server-powered Chromium is accessing the website. We are not aware of a normal end device (laptop, tablet, mobile) that is equipped with 88 CPU cores.
 
 I admit this is very 'hacky'. We do support this detection in nuxt speedkit. But not by default. Maybe one or the other can use this feature again. :)
 

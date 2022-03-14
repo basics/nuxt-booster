@@ -58,8 +58,7 @@ Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
       timing: {
         fcp: 800,
         dcl: 1200
-      },
-      lighthouseDetectionByUserAgent: false
+      }
     },
     fonts: [{
       family: 'Font A',
