@@ -102,6 +102,7 @@ The property `selector` can be used to limit the font to elements (e.g. `span`, 
 ## Workarounds
 
 Workarounds to prevent bugs with default nuxt components and directives, read more in [Usage](/directives/v-font#usage).
+
 ### Use component
 
 **<span style="color: red;">Bad</span>**
