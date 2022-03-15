@@ -86,7 +86,13 @@ export default {
 }
 
 >>> button {
+  color: white;
   background: rgb(0 0 0 / 20%);
+
+  &:hover,
+  &:focus {
+    color: rgb(0 173 239);
+  }
 }
 
 .play {
@@ -99,21 +105,22 @@ export default {
     justify-content: center;
     width: 6.5em;
     height: 4em;
-    color: white;
-    background: rgb(30 30 30 / 90%);
+    background: rgb(30 30 30 / 70%);
     border-radius: 0.5em;
     transition: opacity 250ms ease-out, background-color 40ms, color 40ms;
     transform: translate(-50%, -50%);
-
-    @nest button:hover & {
-      background-color: rgb(0 173 239);
-    }
 
     & svg {
       display: block;
       width: 2em;
       height: 2em;
       fill: currentColor;
+    }
+  }
+
+  &:hover {
+    & span {
+      background: rgb(30 30 30 / 90%);
     }
   }
 }

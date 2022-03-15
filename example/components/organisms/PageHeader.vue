@@ -1,6 +1,6 @@
 <template>
   <header class="page-header">
-    <organism-menu v-bind="menu" />
+    <organism-menu v-bind="$attrs" v-on="$listeners" />
   </header>
 </template>
 
@@ -11,16 +11,7 @@ export default {
   components: {
     OrganismMenu
   },
-  props: {
-    menu: {
-      type: Object,
-      default () {
-        return {
-          lists: []
-        };
-      }
-    }
-  }
+  inheritAttrs: false
 };
 </script>
 

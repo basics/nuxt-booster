@@ -59,6 +59,11 @@ a {
   opacity: 0.8;
   transition: opacity 0.2s linear, background 0.2s linear;
 
+  &:focus {
+    background: rgb(255 255 255 / 20%);
+    opacity: 1;
+  }
+
   &:hover,
   &.nuxt-link-exact-active {
     background: rgb(255 255 255 / 40%);

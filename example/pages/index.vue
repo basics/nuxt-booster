@@ -104,7 +104,7 @@ export default {
   padding: calc(25 / 16 * 1em) 0;
   padding-top: 0;
 
-  & > * {
+  & > section {
     margin: calc(25 / 16 * 1em) 0;
 
     &:first-child {

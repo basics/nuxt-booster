@@ -80,11 +80,6 @@ module.exports = {
           stage: 0
         },
         'postcss-nesting': {},
-        lost: {
-          gutter: '15px',
-          flexbox: 'flex',
-          cycle: 'auto'
-        },
         '@fullhuman/postcss-purgecss': {
           content: [
             'example/pages/**/*.vue',
