@@ -15,7 +15,8 @@ features:
 
 ---
 
-The `SpeedkitImage` is a `img` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/). It uses the provided API `$img`.
+The `SpeedkitImage` is a `img` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
+It uses the provided API `$img`.
 
 ## Features
 

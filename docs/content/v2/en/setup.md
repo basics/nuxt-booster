@@ -46,10 +46,12 @@ Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 ````js
 {
   speedkit: {
+
     detection: {
       performance: true,
       browserSupport: true
     },
+
     performanceMetrics: {
       device: {
         hardwareConcurrency: { min: 2, max: 48 },
@@ -60,6 +62,7 @@ Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
         dcl: 1200
       }
     },
+
     fonts: [{
       family: 'Font A',
       locals: ['Font A'],
@@ -106,6 +109,7 @@ Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
       size: '100px',
       backgroundColor: 'grey'
     }
+    
   }
 }
 ````

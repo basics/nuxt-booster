@@ -227,9 +227,7 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
 ````js
 {
-  // rootMargin for SpeedkitHydrate
   component: '0%',
-  // rootMargin for fonts, SpeedkitPicture & SpeedkitImage
   asset: '0%' 
 }
 ````
