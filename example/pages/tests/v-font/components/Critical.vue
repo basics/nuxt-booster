@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <ul class="root">
+      <ul class="list">
         <li>
           <ul>
             <li>Merriweather - 400 - normal</li>
@@ -76,6 +76,7 @@ export default {
 
 div > ul {
   & > li + li {
+    padding-top: calc(10 / 16 * 1em);
     border-top: solid currentColor 1px;
   }
 

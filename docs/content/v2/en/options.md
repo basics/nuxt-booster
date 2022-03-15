@@ -18,9 +18,9 @@ The default value is the `crossorigin` value from the [Render Configuration](htt
 - Type: `Boolean`
   - Default: `true`
 
-If set, the preloads and scripts will be optimized.
+Activating this option optimizes the initial script preloads and removes unnecessary loads.
 
-The following nuxt options are set:
+The following NuxtJS settings are made or overwritten in the `nuxt.config`:
 
 | Property                            | Value   |
 | ----------------------------------- | ------- |
@@ -28,8 +28,6 @@ The following nuxt options are set:
 | `nuxt.options.render.resourceHints` | `true`  |
 | `nuxt.options.render.asyncScripts`  | `true`  |
 | `nuxt.options.render.http2.push`    | `false` |
-
-And not used `client` & `modern` scripts tags filtered out.
 
 ## `detection`
 - Type: `Object`

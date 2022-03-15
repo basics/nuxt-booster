@@ -120,12 +120,12 @@ export default {};
       width: 100%;
       height: 100%;
 
-      & >>> ul {
+      & >>> .list {
         padding: 0;
         margin: 0;
         list-style: none;
 
-        & li {
+        & > * {
           margin: calc(10 / 16 * 1em) 0;
         }
       }
