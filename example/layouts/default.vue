@@ -97,13 +97,9 @@ html {
 }
 
 body {
-  /* width: 375px; */
   min-height: 100vh;
   min-height: stretch;
   margin: 0;
-  font-size: 16px;
-
-  /* font-size: calc(16 / 320 * 100vw); */
   color: #000;
   background-color: #fff;
 
@@ -112,21 +108,25 @@ body {
     background-color: #333;
   }
 
-  /* @media (min-width: 375px) {
-    font-size: calc(16 / 375 * 100vw);
+  @media (min-width: 375px) {
+    font-size: vw(16, 375);
   }
 
-  @media (min-width: 414px) {
-    font-size: calc(16 / 414 * 100vw);
+  @media (min-width: 576px) {
+    font-size: vw(16, 576);
   }
 
   @media (min-width: 768px) {
-    font-size: calc(16 / 768 * 100vw);
+    font-size: vw(16, 768);
   }
 
   @media (min-width: 992px) {
+    font-size: vw(16, 992);
+  }
+
+  @media (min-width: 1200px) {
     font-size: 16px;
-  } */
+  }
 }
 
 .page-enter-active,
@@ -138,4 +138,5 @@ body {
 .page-leave-to {
   opacity: 0;
 }
+
 </style>

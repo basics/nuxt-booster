@@ -35,7 +35,7 @@ export default {
   overflow-y: scroll;
 
   & .item + .item {
-    margin-top: 20px;
+    margin-top: em(20px);
   }
 
   &.direction-horizontal {
@@ -49,7 +49,7 @@ export default {
 
     & .item + .item {
       margin-top: 0;
-      margin-left: 20px;
+      margin-left: em(20px);
     }
   }
 }

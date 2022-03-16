@@ -29,5 +29,9 @@ export default {
 <style lang="postcss" scoped>
 .component-text-font-b {
   padding: 0 10%;
+
+  & >>> p {
+    line-height: 1.6;
+  }
 }
 </style>

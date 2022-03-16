@@ -37,7 +37,7 @@ export default {
   padding: 0 10%;
 
   & .description {
-    margin-top: 20px;
+    margin-top: em(20px);
   }
 }
 </style>

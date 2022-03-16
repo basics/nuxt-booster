@@ -45,16 +45,16 @@ ul {
 }
 
 li {
-  margin: calc(10 / 16 * 1em) 0;
+  margin: em(10px) 0;
 }
 
 a {
   position: relative;
   display: block;
-  padding: calc(5 / 16 * 1em) calc(10 / 16 * 1em);
+  padding: em(5px) em(10px);
   color: currentColor;
   text-decoration: none;
-  border-radius: calc(3 / 16 * 1em);
+  border-radius: em(3px);
   outline: none;
   opacity: 0.8;
   transition: opacity 0.2s linear, background 0.2s linear;

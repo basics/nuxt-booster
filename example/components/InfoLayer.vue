@@ -76,7 +76,7 @@ export default {
     animation-name: fade-in;
     animation-duration: 0.2s;
     animation-delay: 3s;
-    backdrop-filter: blur(calc(7 / 16 * 1em));
+    backdrop-filter: blur(em(7px));
     animation-fill-mode: forwards;
 
     & > div {
@@ -84,7 +84,7 @@ export default {
       color: #fff;
       text-align: center;
       background-color: rgb(0 0 0 / 60%);
-      box-shadow: 0 0 calc(10 / 16 * 1em) rgb(0 0 0 / 60%);
+      box-shadow: 0 0 em(10px) rgb(0 0 0 / 60%);
       transform: translateY(-100%);
       animation-name: fall-down;
       animation-duration: 0.2s;
@@ -110,10 +110,10 @@ ul {
 }
 
 .info-layer-buttons {
-  margin: calc(10 / 16 * 1em) 0;
+  margin: em(10px) 0;
 
   & > * {
-    margin: 0 calc(5 / 16 * 1em);
+    margin: 0 em(5px);
   }
 }
 

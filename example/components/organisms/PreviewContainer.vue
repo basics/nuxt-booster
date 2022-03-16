@@ -25,7 +25,7 @@ export default {};
   flex-direction: column;
   min-height: 100vh;
   min-height: stretch;
-  margin: 50px 0;
+  margin: em(50px) 0;
 
   &:first-child {
     margin-top: 0;
@@ -65,7 +65,7 @@ export default {};
   }
 
   & .info {
-    font-size: calc(32 / 16 * 1em);
+    font-size: em(32px);
 
     & p {
       line-height: calc(44 / 32);
@@ -79,7 +79,7 @@ export default {};
   }
 
   & .preview {
-    font-size: calc(18 / 16 * 1em);
+    font-size: em(18px);
 
     --bg-opacity: 1;
 
@@ -126,7 +126,7 @@ export default {};
         list-style: none;
 
         & > * {
-          margin: calc(10 / 16 * 1em) 0;
+          margin: em(10px) 0;
         }
       }
 

@@ -50,7 +50,7 @@ export default {
 
   & > div {
     width: 60%;
-    padding: 20px;
+    padding: em(20px);
     margin: auto;
     color: #000;
     background: #fff;

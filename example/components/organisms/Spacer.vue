@@ -22,7 +22,7 @@ export default {
 .organism-spacer {
   min-height: 100vh;
   min-height: stretch;
-  font-size: calc(32 / 16 * 1em);
+  font-size: em(32px);
 
   & > div {
     display: flex;
@@ -33,7 +33,7 @@ export default {
 
     & > span {
       display: block;
-      font-size: calc(44 / 32 * 1em);
+      font-size: em(44px);
       text-align: center;
     }
 
