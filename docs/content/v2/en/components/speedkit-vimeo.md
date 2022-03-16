@@ -87,7 +87,7 @@ Sets the title for the player iframe and poster.
 - Type: `Boolean`
   - Default: `false`
 
-When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitLoader`](/usage#import-components) or is only activated when entering the visible area.
+When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/usage#import-components) or is only activated when entering the visible area.
 
 ### `mute`
 - Type: `Boolean`
@@ -126,6 +126,29 @@ Option `playsinline` is always set, `mute` is set automatically for touch device
 This is important for autoplay on mobile devices.
 
 </alert>
+
+## Slots
+
+````html
+<template #default="{ videoData }">
+  {{videoData.title}}
+</template>
+
+<template #loading-spinner>
+  Loading…
+</template>
+
+<template #play>
+  <span>Click!</span>
+</template>
+````
+
+| Name              | Description                                                                                                                                                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `default`         | Used to display more information about the video below the player.<br>The slot has a scoped property `videoData`. <br>This contains the result from the Vimeo `oembed` api.<br><br>https://developer.vimeo.com/api/oembed/videos#table-2 |
+| `loading-spinner` | Overwrites the loading spinner.                                                                                                                                                                                                          |
+| `play`            | Overwrites the play button.                                                                                                                                                                                                              |
+
 
 ## Events
 

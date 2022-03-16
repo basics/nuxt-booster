@@ -1,10 +1,10 @@
 <template>
-  <div class="organism-spacer">
+  <document-section class="organism-spacer">
     <div>
       <p>Scroll down</p>
       <span>&darr;</span>
     </div>
-  </div>
+  </document-section>
 </template>
 
 <script>
@@ -22,7 +22,7 @@ export default {
 .organism-spacer {
   min-height: 100vh;
   min-height: stretch;
-  font-size: calc(32 / 16 * 1em);
+  font-size: em(32px);
 
   & > div {
     display: flex;
@@ -33,7 +33,7 @@ export default {
 
     & > span {
       display: block;
-      font-size: calc(44 / 32 * 1em);
+      font-size: em(44px);
       text-align: center;
     }
 

@@ -30,29 +30,29 @@ The integration of fonts is component-based directly in the Vue template. All fo
 The cool thing about this is that it saves the additional declaration in the CSS. You no longer have to keep the template and the CSS with its corresponding selectors for fonts in sync. Yeah! This is extremely helpful, especially when it comes to theming.
 
 ````html
-<component v-font="$fonts.getFont(…)" />
+<element v-font="$fonts.getFont(…)" />
 ````
 
 [Learn more](/directives/v-font) about directive `v-font`.
 
 <alert type="warning">
-Fonts are no longer declared via CSS with the help of this module. They may even no longer be explicitly defined via CSS, as otherwise the loading behaviour would be negatively affected in the worst case.
+Fonts are no longer explicitly defined via CSS, otherwise the loading behavior of the fonts cannot be controlled and an optimized loading behavior of the page can no longer be guaranteed.
 </alert>
 
 ## Import components
 
-Until now, the components available in the page were always declared via the attribute components. The import was done statically (`import component from '@/component';`) or dynamically (`import('@/component')`). `nuxt-speedkit` provides a new function `nuxt-speedkit/loader` which is used as an import wrapper. This function is set around each asynchronous import of a component when registering the components. 
+Until now, components were imported either statically (`import component from '@/component';`) or dynamically (`import('@/component')`). However, with these two variants, hydration cannot be controlled. As a result, all components are also initialized on initial load. `nuxt-speedkit` offers a corresponding loader for this feature request. Each async component import should be enclosed with this loader in a page or layout.
 
 <list type="success" :items="importComponents"></list>
 
 In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
-    Stage: speedkitLoader(() => import('@/components/organisms/Stage')),
+    Stage: speedkitHydrate(() => import('@/components/organisms/Stage')),
   }
 };
 ````
@@ -60,17 +60,22 @@ export default {
 Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#lazyoffset">nuxt.config</nuxt-link>.
 
 <alert type="warning">
-Although the "nuxt-speedkit/loader" function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases. Here we recommend the general use of static imports.
+Although the <code>nuxt-speedkit/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
+</alert>
+
+<alert type="info">
+With <code>NODE-ENV (development)</code>, the components are included directly. <br>This is relevant for the hot reload of the imported vue files.
 </alert>
 
 ## Speedkit Components
 
-In order to be able to load further static resources such as pictures, iFrames or Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
+In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `nuxt-speedkit/components`.
 
 - [SpeedkitLayer](/components/speedkit-layer)
 - [SpeedkitPicture](/components/speedkit-picture)
 - [SpeedkitImage](/components/speedkit-image)
 - [SpeedkitIframe](/components/speedkit-iframe)
+- [SpeedkitVimeo](/components/speedkit-vimeo)
 - [SpeedkitYoutube](/components/speedkit-youtube)
 
 ````html

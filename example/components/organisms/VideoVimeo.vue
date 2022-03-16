@@ -1,5 +1,5 @@
 <template>
-  <div
+  <document-section
     v-font="[
       $getFont('Merriweather', 400),
     ]"
@@ -10,7 +10,7 @@
         <div class="description" v-html="videoData && videoData.description" />
       </template>
     </speedkit-vimeo>
-  </div>
+  </document-section>
 </template>
 
 <script>
@@ -37,7 +37,7 @@ export default {
   padding: 0 10%;
 
   & .description {
-    margin-top: 20px;
+    margin-top: em(20px);
   }
 }
 </style>

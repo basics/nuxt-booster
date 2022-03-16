@@ -88,7 +88,7 @@ Sets the title for the player iframe and poster.
 - Type: `Boolean`
   - Default: `false`
 
-When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitLoader`](/usage#import-components) or is only activated when entering the visible area.
+When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/usage#import-components) or is only activated when entering the visible area.
 
 ### `mute`
 - Type: `Boolean`
@@ -135,6 +135,23 @@ This is important for autoplay on mobile devices.
 Sets the host for the player.
 
 <alert>It is recommended to use the default (https://www.youtube-nocookie.com).</alert>
+
+## Slots
+
+````html
+<template #loading-spinner>
+  Loading…
+</template>
+
+<template #play>
+  <span>Click!</span>
+</template>
+````
+
+| Name              | Description                     |
+| ----------------- | ------------------------------- |
+| `loading-spinner` | Overwrites the loading spinner. |
+| `play`            | Overwrites the play button.     |
 
 ## Events
 

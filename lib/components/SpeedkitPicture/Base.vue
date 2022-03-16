@@ -19,7 +19,7 @@ import SourceList from 'nuxt-speedkit/components/SpeedkitPicture/classes/SourceL
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import PictureSource from 'nuxt-speedkit/components/SpeedkitPicture/Source';
 
-const formatPriority = ['avif', 'webp', 'png', 'jpg'];
+const formatPriority = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
 export default {
   components: {
@@ -36,7 +36,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return ['webp', 'avif', 'jpg|jpeg|png'];
+        return ['webp', 'avif', 'jpg|jpeg|png|gif'];
       }
     },
 

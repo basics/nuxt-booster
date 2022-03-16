@@ -1,17 +1,18 @@
 <template>
-  <div>
+  <document-section tag="main">
     <critical critical />
     <lazy />
-  </div>
+  </document-section>
 </template>
+
 <script>
 
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
-    Critical: speedkitLoader(() => import('./components/Critical')),
-    Lazy: speedkitLoader(() => import('./components/Lazy'))
+    Critical: speedkitHydrate(() => import('./components/Critical')),
+    Lazy: speedkitHydrate(() => import('./components/Lazy'))
   },
   layout: 'blank'
 

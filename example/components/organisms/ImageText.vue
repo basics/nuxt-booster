@@ -1,20 +1,26 @@
 <template>
-  <div
-    v-font="[
-      $getFont('Merriweather', 300, 'normal'),
-      $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+  <document-section
     class="component-image-text"
     :class="{['component-image-text-right']: alignRight}"
   >
-    <div class="image">
-      <speedkit-picture
-        :title="picture.title"
-        :alt="picture.alt"
-        :sources="picture.sources"
-      />
+    <div
+      v-font="[
+        $getFont('Merriweather', 300, 'normal'),
+        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+    >
+      <div class="image">
+        <speedkit-picture
+          :title="picture.title"
+          :alt="picture.alt"
+          :sources="picture.sources"
+        />
+      </div>
+      <div class="text">
+        <document-heading>{{ headline }}</document-heading>
+        <div v-html="content" />
+      </div>
     </div>
-    <div class="text" v-html="text" />
-  </div>
+  </document-section>
 </template>
 
 <script>
@@ -28,24 +34,35 @@ export default {
   props: {
     alignRight: { type: Boolean, default: false },
     picture: { type: Object, required: true },
-    text: { type: String, default: 'Headline' }
+    headline: { type: String, default: 'Headline' },
+    content: { type: String, default: 'Text' }
   }
 };
 </script>
 
 <style lang="postcss" scoped>
 .component-image-text {
+  @media (orientation: portrait) {
+    padding: 0 10%;
+  }
+
   & >>> img {
     width: 100%;
     height: 100%;
   }
 
-  @media (min-width: 992px) {
-    display: flex;
-    align-items: center;
+  & >>> p {
+    line-height: 1.6;
+  }
 
-    & > * {
-      width: 50%;
+  & > div {
+    @media (orientation: landscape) and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+
+      & > * {
+        width: 50%;
+      }
     }
   }
 
@@ -57,10 +74,10 @@ export default {
     & > * {
       width: 80%;
       margin: 0 auto;
-      box-shadow: 0 0 25px 0 rgb(0 0 0 / 40%);
+      box-shadow: 0 0 em(25px) 0 rgb(0 0 0 / 40%);
 
       @media (prefers-color-scheme: dark) {
-        box-shadow: 0 0 25px 0 rgb(255 255 255 / 40%);
+        box-shadow: 0 0 em(25px) 0 rgb(255 255 255 / 40%);
       }
     }
   }

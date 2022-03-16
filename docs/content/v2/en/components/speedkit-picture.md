@@ -4,7 +4,7 @@ description: ''
 position: 32
 category: Components
 features:
-  - generation of multiple image resolutions (srcset)
+  - generation of multiple sources with multiple image resolutions (srcset)
   - breakpoint-based differentiation of multiple image resolutions and ratios (srcset + media-rule)
   - optimized preloading of critical image resources
   - lazy load of non-critical image resources
@@ -15,7 +15,8 @@ features:
 
 ---
 
-The `SpeedkitPicture` is a `picture` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/). It uses the provided API `$img`.
+The `SpeedkitPicture` is a `picture` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
+It uses the provided API `$img`.
 
 ## Features
 
@@ -68,12 +69,20 @@ export default {
 ````js
 {
   sources: [ … ],
-  formats: ['jpeg'],
+  formats: ['avif', 'webp', 'jpg|jpeg|png'],
   loadingSpinner: new LoadingSpinner( … ),
   alt: 'Image Alt',
   title: 'Image Title',
 }
 ````
+
+### `hydrate`
+- Type: `Boolean`
+  - Default: `true`
+
+The initialization of the `SpeedkitPicture` in the client can be controlled manually.  
+Here for the property `hydrate` must be set externally.
+If `true` the `SpeedkitPicture` is initialized.
 
 ### `sources`
 - Type: `Array`
@@ -102,9 +111,12 @@ In the following example, two different image ratios are used.
 
 ### `formats`
 - Type: `Array`
-  - Default: `['webp', 'avif', 'jpg']`
+  - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 
-List of image formats to generate.
+Defines the formats that are to be generated and provided as source in the Picture.  
+Is used to offer the correct image type for the browser.
+
+<alert type="warning">Formats can also be specified as OR condition (`jpg|jpeg|png|gif`). This is important when using JPGs and PNGs with the same `format` configuration.</alert>
 
 ### `loadingSpinner`
 - Type: [`LoadingSpinner`](/classes/loading-spinner)

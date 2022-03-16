@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container id="lazyContainer">
     <template #default>
-      <default-iframe v-bind="iframe" />
+      <default-iframe class="test-iframe" v-bind="iframe" />
     </template>
     <template #title>
       <p>Lazy<br>Iframe</p>

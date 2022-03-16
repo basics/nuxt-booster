@@ -1,7 +1,11 @@
-const { resolve } = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const pkg = require('../package.json');
-const isDev = process.env.NODE_ENV === 'development';
+import { resolve } from 'path';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import nuxtBabelPresetApp from '@nuxt/babel-preset-app';
+import pkg from '../package.json';
+
+import * as functions from './postcss/functions';
+
+const isDev = process.env.NODE_ENV === 'development'; ;
 
 module.exports = {
   dev: isDev,
@@ -28,6 +32,20 @@ module.exports = {
   },
 
   build: {
+
+    transpile: ['vue-headings'],
+
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/](node-libs-browser)[\\/]/,
+            name: 'vendor'
+          }
+        }
+      }
+    },
+
     filenames: {
       app: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
       chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js'
@@ -38,7 +56,7 @@ module.exports = {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'),
+            nuxtBabelPresetApp,
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3, proposals: true },
@@ -64,10 +82,8 @@ module.exports = {
           stage: 0
         },
         'postcss-nesting': {},
-        lost: {
-          gutter: '15px',
-          flexbox: 'flex',
-          cycle: 'auto'
+        'postcss-functions': {
+          functions
         },
         '@fullhuman/postcss-purgecss': {
           content: [
@@ -131,6 +147,10 @@ module.exports = {
     }
   },
 
+  plugins: [
+    '@/plugins/vue-headings'
+  ],
+
   buildModules: [
     '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
@@ -151,8 +171,7 @@ module.exports = {
       timing: {
         fcp: 800,
         dcl: 1200 // fallback if fcp is not available (safari)
-      },
-      lighthouseDetectionByUserAgent: false
+      }
     },
     fonts: [{
       family: 'Quicksand',

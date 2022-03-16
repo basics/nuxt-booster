@@ -1,77 +1,77 @@
 <template>
   <div>
-    <organism-page-header v-bind="pageHeader" />
-    <Nuxt />
+    <organism-page-header v-model="menuOpened" v-bind="pageHeader" />
+    <nuxt :inert="menuOpened" />
     <!-- <info-layer critical /> -->
-    <GithubCorner />
+    <github-corner />
     <google-lighthouse />
   </div>
 </template>
 
 <script>
+import 'wicg-inert';
 // import InfoLayer from '@/components/InfoLayer';
 
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
-    GoogleLighthouse: speedkitLoader(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
-    OrganismPageHeader: speedkitLoader(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
+    GoogleLighthouse: speedkitHydrate(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
+    OrganismPageHeader: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
   },
 
   data () {
     return {
+      menuOpened: false,
       pageHeader: {
-        menu: {
 
-          lists: [
-            {
-              links: [
-                {
-                  title: 'Home',
-                  to: '/'
-                }
-              ]
-            },
-            {
-              headline: 'Test',
-              links: [
-                {
-                  title: 'v-font',
-                  to: '/tests/v-font/'
-                },
-                {
-                  title: 'v-font (media)',
-                  to: '/tests/v-font-media/'
-                },
-                {
-                  title: 'v-font (scroll)',
-                  to: '/tests/v-font-scroll/'
-                },
-                {
-                  title: 'Picture',
-                  to: '/tests/picture/'
-                },
-                {
-                  title: 'Image',
-                  to: '/tests/image/'
-                },
-                {
-                  title: 'Youtube',
-                  to: '/tests/youtube/'
-                },
-                {
-                  title: 'Vimeo',
-                  to: '/tests/vimeo/'
-                },
-                {
-                  title: 'Iframe',
-                  to: '/tests/iframe/'
-                }
-              ]
-            }
-          ]
-        }
+        lists: [
+          {
+            links: [
+              {
+                title: 'Home',
+                to: '/'
+              }
+            ]
+          },
+          {
+            headline: 'Test',
+            links: [
+              {
+                title: 'v-font',
+                to: '/tests/v-font/'
+              },
+              {
+                title: 'v-font (media)',
+                to: '/tests/v-font-media/'
+              },
+              {
+                title: 'v-font (scroll)',
+                to: '/tests/v-font-scroll/'
+              },
+              {
+                title: 'Picture',
+                to: '/tests/picture/'
+              },
+              {
+                title: 'Image',
+                to: '/tests/image/'
+              },
+              {
+                title: 'Youtube',
+                to: '/tests/youtube/'
+              },
+              {
+                title: 'Vimeo',
+                to: '/tests/vimeo/'
+              },
+              {
+                title: 'Iframe',
+                to: '/tests/iframe/'
+              }
+            ]
+          }
+        ]
       }
     };
   },
@@ -97,13 +97,9 @@ html {
 }
 
 body {
-  /* width: 375px; */
   min-height: 100vh;
   min-height: stretch;
   margin: 0;
-  font-size: 16px;
-
-  /* font-size: calc(16 / 320 * 100vw); */
   color: #000;
   background-color: #fff;
 
@@ -112,21 +108,25 @@ body {
     background-color: #333;
   }
 
-  /* @media (min-width: 375px) {
-    font-size: calc(16 / 375 * 100vw);
+  @media (min-width: 375px) {
+    font-size: vw(16, 375);
   }
 
-  @media (min-width: 414px) {
-    font-size: calc(16 / 414 * 100vw);
+  @media (min-width: 576px) {
+    font-size: vw(16, 576);
   }
 
   @media (min-width: 768px) {
-    font-size: calc(16 / 768 * 100vw);
+    font-size: vw(16, 768);
   }
 
   @media (min-width: 992px) {
+    font-size: vw(16, 992);
+  }
+
+  @media (min-width: 1200px) {
     font-size: 16px;
-  } */
+  }
 }
 
 .page-enter-active,
@@ -138,4 +138,5 @@ body {
 .page-leave-to {
   opacity: 0;
 }
+
 </style>

@@ -1,26 +1,28 @@
 <template>
-  <div class="component-stage">
+  <document-section class="component-stage" :level="-1">
     <speedkit-picture
       :title="picture.title"
       :alt="picture.alt"
       :sources="picture.sources"
     />
-    <h1
-      v-font="[
-        $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
-        $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
-      ]"
-    >
-      <span class="headline">{{ headline }}</span>
-      <span class="claim">{{ claim }}</span>
-    </h1>
+    <document-heading class="headline">
+      <span
+        v-font="[
+          $getFont('Montserrat Alternates', 700, 'normal', {selector: '.content'}),
+          $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
+        ]"
+      >
+        <span class="content">{{ content }}</span>
+        <span class="claim">{{ claim }}</span>
+      </span>
+    </document-heading>
 
     <speedkit-image
       class="logo"
       v-bind="image"
       :loading-spinner="null"
     />
-  </div>
+  </document-section>
 </template>
 
 <script>
@@ -47,7 +49,7 @@ export default {
         };
       }
     },
-    headline: { type: String, default () { return 'Headline'; } },
+    content: { type: String, default () { return 'Headline'; } },
     claim: { type: String, default () { return 'Claim'; } }
   }
 
@@ -66,55 +68,55 @@ export default {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 96px;
-    margin: 20px;
-    margin-left: calc(-96px / 2);
+    width: em(96px);
+    margin: em(20px);
+    margin-left: calc(em(-96px) / 2);
 
-    @media (min-width: 768px) {
+    @media (orientation: landscape) {
       top: auto;
       right: 0;
       bottom: 0;
       left: auto;
-      width: 128px;
     }
   }
 
   & .claim {
     display: block;
-    font-size: 16px;
+    font-size: em(16px);
     line-height: 2;
     text-transform: none;
   }
 
-  & .headline {
+  & .content {
     display: block;
-    font-size: 30px;
-    line-height: 60px;
+    font-size: em(30px);
+    line-height: 2;
 
-    @media (min-width: 768px) {
-      font-size: 40px;
-      line-height: 80px;
+    @media (orientation: landscape) and (min-width: 992px) {
+      font-size: em(40px);
     }
   }
 
-  & h1 {
+  & .headline {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: em(20px) 0;
     margin: 0;
+    font-size: 1em;
     color: white;
     text-align: center;
     background: rgb(0 0 0 / 40%);
 
-    @media (min-width: 768px) {
+    @media (orientation: landscape) {
       position: absolute;
       top: 50px;
       right: 0;
       bottom: auto;
       left: auto;
-      width: 400px;
+      width: auto;
+      padding: em(20px) em(40px);
     }
   }
 }

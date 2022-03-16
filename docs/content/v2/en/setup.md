@@ -9,7 +9,7 @@ Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossa
 
 ## Installation
 
-Add `nuxt-speedkit` dependency to your project:
+Install `nuxt-speedkit` as a dependency to your project:
 
 <code-group>
   <code-block label="Yarn" active>
@@ -28,7 +28,7 @@ Add `nuxt-speedkit` dependency to your project:
   </code-block>
 </code-group>
 
-Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
+Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 
 ````js[nuxt.config.js]
 {
@@ -46,10 +46,12 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 ````js
 {
   speedkit: {
+
     detection: {
       performance: true,
       browserSupport: true
     },
+
     performanceMetrics: {
       device: {
         hardwareConcurrency: { min: 2, max: 48 },
@@ -58,9 +60,9 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
       timing: {
         fcp: 800,
         dcl: 1200
-      },
-      lighthouseDetectionByUserAgent: false
+      }
     },
+
     fonts: [{
       family: 'Font A',
       locals: ['Font A'],
@@ -107,6 +109,7 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
       size: '100px',
       backgroundColor: 'grey'
     }
+    
   }
 }
 ````

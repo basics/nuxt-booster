@@ -42,7 +42,6 @@ describe('browser (Firefox)', () => {
       target: 'static',
       modern: true,
       buildDir,
-      modules: ['@nuxt/image'],
       dir: {
         pages: 'pages/tests'
       }
@@ -55,16 +54,16 @@ describe('browser (Firefox)', () => {
 function tests ({ chromium = false, firefox = false }) {
   // #region /tests/loader
 
-  it('speedkitLoader', async () => {
+  it('speedkitHydrate', async () => {
     const page = await createPage('/speedkit-loader/');
 
     // element has no font class?
-    expect(await page.evaluate(() => document.querySelector('#lazySpeedkitLoader').classList.contains('.active'))).toBeFalsy();
-    await page.waitForSelector('#criticalSpeedkitLoader.active');
+    expect(await page.evaluate(() => document.querySelector('#lazySpeedkitHydrate').classList.contains('.active'))).toBeFalsy();
+    await page.waitForSelector('#criticalSpeedkitHydrate.active');
     // scroll to element
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
     // element has font class?
-    await page.waitForSelector('#lazySpeedkitLoader.active');
+    await page.waitForSelector('#lazySpeedkitHydrate.active');
   });
 
   // #endregion /tests/loader

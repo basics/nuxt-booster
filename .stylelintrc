@@ -1,8 +1,7 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-recess-order",
-    "stylelint-config-lost"
+    "stylelint-config-recess-order"
   ],
   "customSyntax": "postcss-html",
   "ignoreFiles": [
@@ -10,10 +9,21 @@
   ],
   "rules": {
     "max-line-length": null,
+    "no-descending-specificity": null,
     "value-keyword-case": [
       "lower",
       {
         "camelCaseSvgKeywords": true
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": [
+          "lost-vars",
+          "em",
+          "vw"
+        ]
       }
     ]
   }

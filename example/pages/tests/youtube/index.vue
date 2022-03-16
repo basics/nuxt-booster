@@ -1,16 +1,17 @@
 <template>
-  <div>
+  <document-section tag="main">
     <default v-for="(item, index) in items" :id="`youtube-${index}`" v-bind="item" :key="item.youtubeUrl" :critical="index < 1" />
-  </div>
+  </document-section>
 </template>
 
 <script>
 
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
+
 export default {
 
   components: {
-    Default: speedkitLoader(() => import('./components/Default'))
+    Default: speedkitHydrate(() => import('./components/Default'))
   },
 
   asyncData () {

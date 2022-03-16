@@ -15,7 +15,8 @@ features:
 
 ---
 
-The `SpeedkitImage` is a `img` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/). It uses the provided API `$img`.
+The `SpeedkitImage` is a `img` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
+It uses the provided API `$img`.
 
 ## Features
 
@@ -71,6 +72,14 @@ export default {
 }
 ````
 
+### `hydrate`
+- Type: `Boolean`
+  - Default: `true`
+
+The initialization of the `SpeedkitImage` in the client can be controlled manually.  
+Here for the property `hydrate` must be set externally.
+If `true` the `SpeedkitImage` is initialized.
+
 ### `source`
 - Type: `Object`
 
@@ -82,8 +91,6 @@ export default {
   sizes: { … }
 }
 ````
-
-
 #### `format`
 
 Sets the image output format.
@@ -94,6 +101,8 @@ Available formats:
 - `webp`
 - `png`
 - `jpg`
+
+<alert type="warning">Important: Note that if you specify `src` without a file extension, the format must be included. </alert>
 
 #### `src`
 
@@ -155,29 +164,3 @@ Set component as critical component.
 | ------ | ------------------------------------------------------------- |
 | `load` | Triggered when the image resource has been completely loaded. |
 
-
-## `class` LoadingSpinner
-
-Path: `nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner.js`
-
-The LoadingSpinner instance describes the visual appearance of the loading state in the SpeedkitImage. This can be defined globally via the module settings or on the specific components.
-
-
-````js 
-new LoadingSpinner({dataUri, size, backgroundColor});
-````
-
-### dataUri
-  - Type: `String`
-
-Defines the source of the loader. (e.g. `@/assets/spinner/three-circles.svg`)
-
-### size
-  - Type: `String`
-
-Defines the size of the loader. Use css `background-size` definition. (e.g. `100px`)
-
-### backgroundColor
-  - Type: `String`
-
-Defines the background color of the loader. Use css `color` definition. (e.g. `#fff`)

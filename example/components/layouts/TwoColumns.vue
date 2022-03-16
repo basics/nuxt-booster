@@ -19,8 +19,8 @@ export default {
   display: flex;
 
   & > div {
+    width: calc(100% / 2);
     text-align: center;
-    lost-column: 1/2;
   }
 }
 </style>
