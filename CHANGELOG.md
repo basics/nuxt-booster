@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.45](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.44...v2.0.0-beta.45) (2022-03-16)
+
+
+### Bug Fixes
+
+* **components:** improve hover and focus style vimeo and youtube ([a6042b3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a6042b33581f8cbede5baabddbab7f8dcad7a40c))
+
 # [2.0.0-beta.44](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.43...v2.0.0-beta.44) (2022-03-14)
 
 
