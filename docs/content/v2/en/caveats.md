@@ -8,9 +8,11 @@ category: Guide
 
 When a `v-font` directive is called in a component with a custom head, the directive specific head settings must be applied in the `head`.
 
-The method `this.$speedkitHead(headAddition)` is provided, it queries the required `head` settings and returns them.
+The method `this.$speedkit.head(headAddition)` is provided, it queries the required `head` settings and returns them.
 
 By passing the `headAddition` argument, additional head settings can be applied.
+
+<alert type="warning">`$speedkit.head()` is only available in vue component scope.</alert>
 
 #### Example:
 
@@ -22,7 +24,7 @@ By passing the `headAddition` argument, additional head settings can be applied.
 <script>
   export default {
     head () {
-      return this.$speedkitHead({
+      return this.$speedkit.head({
         link: […],
         style: […],
         noscript: [
