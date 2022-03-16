@@ -104,14 +104,6 @@ export default {
   }
 }
 
-/* .nuxt-speedkit-youtube {
-  & >>> button {
-    &:focus,
-    &:hover {
-    }
-  }
-} */
-
 @keyframes stroke {
   50% {
     stroke-dasharray: 137, 45;
