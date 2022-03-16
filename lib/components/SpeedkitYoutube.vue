@@ -70,11 +70,13 @@ export default {
 >>> button {
   --color-background: #212121;
   --color-foreground: #fff;
+  --transition-duration: 0.1s;
 
   &:hover,
   &:focus {
     --color-background: #f00;
     --color-foreground: #fff;
+    --transition-duration: 0.2s;
   }
 }
 
@@ -89,15 +91,15 @@ export default {
   pointer-events: none;
 
   & path {
+    transition: fill var(--transition-duration) cubic-bezier(0.4, 0, 1, 1), fill-opacity var(--transition-duration) cubic-bezier(0.4, 0, 1, 1);
+
     &:first-child {
       fill: var(--color-background);
       fill-opacity: 0.8;
-      transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
     }
 
     &:last-child {
       fill: var(--color-foreground);
-      transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
     }
   }
 }

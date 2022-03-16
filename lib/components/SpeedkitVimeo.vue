@@ -86,12 +86,15 @@ export default {
 }
 
 >>> button {
-  color: white;
-  background: rgb(0 0 0 / 20%);
+  --color-background: rgb(30 30 30 / 70%);
+  --color-foreground: #fff;
+  --transition-duration: 0.1s;
 
   &:hover,
   &:focus {
-    color: rgb(0 173 239);
+    --color-background: rgb(30 30 30 / 90%);
+    --color-foreground: rgb(0 173 239);
+    --transition-duration: 0.2s;
   }
 }
 
@@ -105,9 +108,10 @@ export default {
     justify-content: center;
     width: 6.5em;
     height: 4em;
-    background: rgb(30 30 30 / 70%);
+    color: var(--color-foreground);
+    background: var(--color-background);
     border-radius: 0.5em;
-    transition: opacity 250ms ease-out, background-color 40ms, color 40ms;
+    transition: opacity var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
     transform: translate(-50%, -50%);
 
     & svg {
@@ -115,12 +119,6 @@ export default {
       width: 2em;
       height: 2em;
       fill: currentColor;
-    }
-  }
-
-  &:hover {
-    & span {
-      background: rgb(30 30 30 / 90%);
     }
   }
 }
