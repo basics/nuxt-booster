@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <input id="menu-control" type="checkbox" name="menu-control" :value="value" @input="onInput">
+    <input id="menu-control" type="checkbox" name="menu-control" :checked="value" @input="onInput">
     <div class="content" aria-label="Menu" :inert="inert">
       <label for="menu-control" />
       <div>
