@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.46](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.45...v2.0.0-beta.46) (2022-03-16)
+
+
+### Bug Fixes
+
+* **plugin:** changed $speedkitHead to $speedkit.head ([3442bc8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3442bc81d2197966b55422ece223a4f56577f9b3))
+
 # [2.0.0-beta.45](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.44...v2.0.0-beta.45) (2022-03-16)
 
 
