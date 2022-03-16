@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <document-section tag="main">
     <critical critical />
     <lazy />
-  </div>
+  </document-section>
 </template>
+
 <script>
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';

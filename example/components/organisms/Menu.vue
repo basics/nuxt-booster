@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
-    <input id="menu-control" v-model="open" type="checkbox" name="menu-control">
-    <div class="content" aria-label="Menu">
+    <input id="menu-control" type="checkbox" name="menu-control" :checked="value" @input="onInput">
+    <div class="content" aria-label="Menu" :inert="inert">
       <label for="menu-control" />
       <div>
         <div>
@@ -45,6 +45,10 @@ export default {
   },
 
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
     lists: {
       type: Array,
       default () {
@@ -65,20 +69,33 @@ export default {
 
   data () {
     return {
-      open: false
+      withInert: false
     };
   },
 
+  computed: {
+    inert () {
+      return this.withInert && !this.value;
+    }
+  },
+
   watch: {
-    open (value) {
+    value (value) {
       document.documentElement.classList.toggle('js-menu-open', value);
     }
   },
 
   mounted () {
+    this.withInert = true;
     this.$router.afterEach((to, from) => {
-      this.open = false;
+      this.$emit('input', false);
     });
+  },
+
+  methods: {
+    onInput (e) {
+      this.$emit('input', e.target.checked);
+    }
   }
 
 };
@@ -219,6 +236,32 @@ html.js-menu-open {
     }
   }
 
+  & input:focus ~ .toggle {
+    & #open {
+      & path {
+        opacity: 0.6;
+      }
+
+      & path:nth-child(1) {
+        transform: translateY(-4%);
+      }
+
+      & path:nth-child(2) {
+        transform: translateY(4%);
+      }
+    }
+
+    & #close {
+      & path:nth-child(1) {
+        transform: rotate(15deg);
+      }
+
+      & path:nth-child(2) {
+        transform: rotate(-15deg);
+      }
+    }
+  }
+
   & .title {
     display: block;
     font-size: calc(18 / 16 * 1em);
@@ -284,7 +327,11 @@ html.js-menu-open {
   }
 
   & input {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    appearance: none;
+    opacity: 0;
   }
 
   & input:checked + .content {

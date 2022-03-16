@@ -67,6 +67,19 @@ export default {
   }
 }
 
+>>> button {
+  --color-background: #212121;
+  --color-foreground: #fff;
+  --transition-duration: 0.1s;
+
+  &:hover,
+  &:focus {
+    --color-background: #f00;
+    --color-foreground: #fff;
+    --transition-duration: 0.2s;
+  }
+}
+
 .play {
   position: absolute;
   top: 0;
@@ -77,19 +90,16 @@ export default {
   margin: auto;
   pointer-events: none;
 
-  & path:first-child {
-    fill: #212121;
-    fill-opacity: 0.8;
-    transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
-  }
-}
+  & path {
+    transition: fill var(--transition-duration) cubic-bezier(0.4, 0, 1, 1), fill-opacity var(--transition-duration) cubic-bezier(0.4, 0, 1, 1);
 
->>> {
-  @nest &:hover {
-    & .play path:first-child {
-      fill: #f00;
-      fill-opacity: 1;
-      transition: fill 0.1s cubic-bezier(0, 0, 0.2, 1), fill-opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
+    &:first-child {
+      fill: var(--color-background);
+      fill-opacity: 0.8;
+    }
+
+    &:last-child {
+      fill: var(--color-foreground);
     }
   }
 }

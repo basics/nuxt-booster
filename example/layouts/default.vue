@@ -1,14 +1,15 @@
 <template>
   <div>
-    <organism-page-header v-bind="pageHeader" />
-    <Nuxt />
+    <organism-page-header v-model="menuOpened" v-bind="pageHeader" />
+    <nuxt :inert="menuOpened" />
     <!-- <info-layer critical /> -->
-    <GithubCorner />
+    <github-corner />
     <google-lighthouse />
   </div>
 </template>
 
 <script>
+import 'wicg-inert';
 // import InfoLayer from '@/components/InfoLayer';
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
@@ -21,57 +22,56 @@ export default {
 
   data () {
     return {
+      menuOpened: false,
       pageHeader: {
-        menu: {
 
-          lists: [
-            {
-              links: [
-                {
-                  title: 'Home',
-                  to: '/'
-                }
-              ]
-            },
-            {
-              headline: 'Test',
-              links: [
-                {
-                  title: 'v-font',
-                  to: '/tests/v-font/'
-                },
-                {
-                  title: 'v-font (media)',
-                  to: '/tests/v-font-media/'
-                },
-                {
-                  title: 'v-font (scroll)',
-                  to: '/tests/v-font-scroll/'
-                },
-                {
-                  title: 'Picture',
-                  to: '/tests/picture/'
-                },
-                {
-                  title: 'Image',
-                  to: '/tests/image/'
-                },
-                {
-                  title: 'Youtube',
-                  to: '/tests/youtube/'
-                },
-                {
-                  title: 'Vimeo',
-                  to: '/tests/vimeo/'
-                },
-                {
-                  title: 'Iframe',
-                  to: '/tests/iframe/'
-                }
-              ]
-            }
-          ]
-        }
+        lists: [
+          {
+            links: [
+              {
+                title: 'Home',
+                to: '/'
+              }
+            ]
+          },
+          {
+            headline: 'Test',
+            links: [
+              {
+                title: 'v-font',
+                to: '/tests/v-font/'
+              },
+              {
+                title: 'v-font (media)',
+                to: '/tests/v-font-media/'
+              },
+              {
+                title: 'v-font (scroll)',
+                to: '/tests/v-font-scroll/'
+              },
+              {
+                title: 'Picture',
+                to: '/tests/picture/'
+              },
+              {
+                title: 'Image',
+                to: '/tests/image/'
+              },
+              {
+                title: 'Youtube',
+                to: '/tests/youtube/'
+              },
+              {
+                title: 'Vimeo',
+                to: '/tests/vimeo/'
+              },
+              {
+                title: 'Iframe',
+                to: '/tests/iframe/'
+              }
+            ]
+          }
+        ]
       }
     };
   },

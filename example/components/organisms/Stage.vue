@@ -1,26 +1,28 @@
 <template>
-  <div class="component-stage">
+  <document-section class="component-stage" :level="-1">
     <speedkit-picture
       :title="picture.title"
       :alt="picture.alt"
       :sources="picture.sources"
     />
-    <h1
-      v-font="[
-        $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
-        $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
-      ]"
-    >
-      <span class="headline">{{ headline }}</span>
-      <span class="claim">{{ claim }}</span>
-    </h1>
+    <document-heading>
+      <span
+        v-font="[
+          $getFont('Montserrat Alternates', 700, 'normal', {selector: '.headline'}),
+          $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
+        ]"
+      >
+        <span class="headline">{{ headline }}</span>
+        <span class="claim">{{ claim }}</span>
+      </span>
+    </document-heading>
 
     <speedkit-image
       class="logo"
       v-bind="image"
       :loading-spinner="null"
     />
-  </div>
+  </document-section>
 </template>
 
 <script>

@@ -7,13 +7,14 @@
       <iframe
         ref="player"
         :key="src"
+        :inert="inert"
         :title="playerTitle"
         :src="src"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         @load="onLoad"
       />
-      <default-button @click="onInit">
+      <default-button aria-label="Play Video" @click="onInit">
         <component :is="pictureComponent" class="poster" v-bind="poster" />
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
@@ -87,6 +88,7 @@ export default {
 
   data () {
     return {
+      inert: false,
       videoData: null,
       src: null,
       videoId: new URL(this.url).pathname.replace('/', ''),
@@ -169,7 +171,14 @@ export default {
 
   },
 
+  watch: {
+    ready () {
+      this.inert = false;
+    }
+  },
+
   mounted () {
+    this.inert = true;
     if (this.autoplay) {
       this.onInit();
     }

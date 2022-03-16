@@ -1,9 +1,7 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <div>
-        <scroll-container id="verticalScroll" v-bind="scrollContainer" />
-      </div>
+      <scroll-container id="verticalScroll" v-bind="scrollContainer" />
     </template>
     <template #title>
       <p>Vertical Scroll - v-font</p>

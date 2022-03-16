@@ -14,6 +14,21 @@ category: Guide
 Sets the global `crossorigin` value of the nuxt-speedkit preloads.  
 The default value is the `crossorigin` value from the [Render Configuration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin).
 
+## `optimizePreloads`
+- Type: `Boolean`
+  - Default: `true`
+
+Activating this option optimizes the initial script preloads and removes unnecessary loads.
+
+The following NuxtJS settings are made or overwritten in the `nuxt.config`:
+
+| Property                            | Value   |
+| ----------------------------------- | ------- |
+| `nuxt.options.generate.manifest`    | `false` |
+| `nuxt.options.render.resourceHints` | `true`  |
+| `nuxt.options.render.asyncScripts`  | `true`  |
+| `nuxt.options.render.http2.push`    | `false` |
+
 ## `detection`
 - Type: `Object`
 
@@ -35,10 +50,11 @@ These options can be used to define the initial checks to display the [`Speedkit
 For the browser support detection, the default <a href="https://github.com/browserslist/browserslist">Browserslist</a> of the NuxtJS configuration is used.
 </alert>
 
+
 ## `performanceMetrics`
 - Type: `Object`
 
-With the help of the metrics, the actual performance check on client side can be configured. An explicit lighthouse check via user agent can be optionally added but is not recommended.
+With the help of the metrics, the actual performance check on client side can be configured.
 
 ````js
 {
@@ -49,8 +65,7 @@ With the help of the metrics, the actual performance check on client side can be
   timing: {
     fcp: 800,
     dcl: 1200 // fallback if fcp is not available (safari)
-  },
-  lighthouseDetectionByUserAgent: false
+  }
 }
 ````
 ### `device`
@@ -87,16 +102,6 @@ Definition of the max. FCP duration (ms). If the specified value is exceeded, th
  | `fcp` | `Number` | yes      | Max. FCP duration in ms [learn More](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) | `800`   |
  | `dcl` | `Number` | yes      | Max. DCL duration in ms                                                                                        | `1200`  |
 
-
-### `lighthouseDetectionByUserAgent`
-- Type: `Boolean`
-  - Default: `false`
-
-Classic fallback to detect the lighthouse test by the user agent. Can be used if the detection via the hardware metric is no longer effective.
-
-<alert type="warning">
-We recommend that you disable the explicit lighthouse check. In the description of the <nuxt-link to="/components/speedkit-layer">SpeedkitLayer</nuxt-link> you will find a more detailed description of the trick that can be used to detect a lighthouse test.
-</alert>
 
 ## `fonts`
 - Type: `Array`
@@ -189,7 +194,9 @@ List of all available font files of a font family variation.
   - Default: `false`
 
 With this attribute all components that can be found under `nuxt-speedkit/components` can be registered globally.
-[Learn more @nuxt/components](https://github.com/nuxt/components). This option is not recommended if you want to achieve a lighthouse score of 100/100.
+[Learn more @nuxt/components](https://github.com/nuxt/components).
+
+<alert type="warning">This option is not recommended if you want to achieve a lighthouse score of 100/100.</alert>
 
 ### Available components
 
@@ -218,17 +225,15 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
 ````js
 {
-  // rootMargin for SpeedkitLoader
   component: '0%',
-  // rootMargin for SpeedkitPicture and SpeedkitImage
   asset: '0%' 
 }
 ````
 
- | Key         | Type     | Required | Description                                                                                                                                                        | Default |
- | ----------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitLoader`](/usage#import-components).           | `0%`    |
- | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font` und `SpeedkitPicture`). | `0%`    |
+ | Key         | Type     | Required | Description                                                                                                                                                                       | Default |
+ | ----------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/usage#import-components).                         | `0%`    |
+ | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `SpeedkitPicture` & `SpeedkitImage`). | `0%`    |
 
 
 ## `loader`

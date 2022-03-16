@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <document-section tag="main">
     <default v-for="(item, index) in items" :id="`vimeo-${index}`" v-bind="item" :key="item.vimeoUrl" :critical="index < 1" />
-  </div>
+  </document-section>
 </template>
 
 <script>

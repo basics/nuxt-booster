@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <document-section tag="main">
     <default v-for="(item, index) in items" :id="`youtube-${index}`" v-bind="item" :key="item.youtubeUrl" :critical="index < 1" />
-  </div>
+  </document-section>
 </template>
 
 <script>
