@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.0.0-beta.47](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.46...v2.0.0-beta.47) (2022-03-16)
+
+
+### Bug Fixes
+
+* **components:** fix load event in picture and image ([921c059](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/921c05921a27127b96814c6383ffbed5c7827bdc))
+
 # [2.0.0-beta.46](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.45...v2.0.0-beta.46) (2022-03-16)
 
 
