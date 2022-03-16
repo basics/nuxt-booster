@@ -12,8 +12,7 @@
     :loading="loadingMode"
     :decoding="decodingMode"
     :crossorigin="$speedkit.crossorigin"
-    v-on="$listeners"
-    @load="onLoad"
+    v-on="{...$listeners, load: onLoad}"
   >
 </template>
 

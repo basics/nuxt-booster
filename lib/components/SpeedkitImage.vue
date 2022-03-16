@@ -16,11 +16,11 @@ export default {
     if (!this.hydrate) {
       return h(LazyHydrate, { props: { never: true } }, [
         h('noscript', {}, [
-          h(SpeedkitImage, { props: { ...this.$attrs, critical: this.hydrate, on: this.$listeners } })
+          h(SpeedkitImage, { props: { ...this.$attrs, critical: this.hydrate }, on: this.$listeners })
         ])
       ]);
     }
-    return h(SpeedkitImage, { props: { ...this.$attrs, critical: this.isCritical, on: this.$listeners } });
+    return h(SpeedkitImage, { props: { ...this.$attrs, critical: this.isCritical }, on: this.$listeners });
   }
 };
 </script>
