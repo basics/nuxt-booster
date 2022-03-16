@@ -3,6 +3,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import nuxtBabelPresetApp from '@nuxt/babel-preset-app';
 import pkg from '../package.json';
 
+import * as functions from './postcss/functions';
+
 const isDev = process.env.NODE_ENV === 'development'; ;
 
 module.exports = {
@@ -80,6 +82,9 @@ module.exports = {
           stage: 0
         },
         'postcss-nesting': {},
+        'postcss-functions': {
+          functions
+        },
         '@fullhuman/postcss-purgecss': {
           content: [
             'example/pages/**/*.vue',

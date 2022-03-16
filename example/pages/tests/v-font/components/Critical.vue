@@ -76,8 +76,8 @@ export default {
 
 div > ul {
   & > li + li {
-    padding-top: calc(10 / 16 * 1em);
-    border-top: solid currentColor 1px;
+    padding-top: em(10);
+    border-top: solid currentColor em(1px);
   }
 
   & ul {

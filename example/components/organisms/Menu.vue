@@ -117,9 +117,9 @@ html.js-menu-open {
 
   & .toggle {
     position: absolute;
-    top: calc(10 / 16 * 1em);
-    left: calc(10 / 16 * 1em);
-    padding: calc(10 / 16 * 1em);
+    top: em(10px);
+    left: em(10px);
+    padding: em(10px);
     cursor: pointer;
     background: rgb(255 255 255 / 40%);
     outline: none;
@@ -131,7 +131,7 @@ html.js-menu-open {
 
     & svg {
       display: block;
-      width: calc(30 / 16 * 1em);
+      width: em(30px);
     }
 
     & path {
@@ -264,7 +264,7 @@ html.js-menu-open {
 
   & .title {
     display: block;
-    font-size: calc(18 / 16 * 1em);
+    font-size: em(18px);
     font-weight: normal;
     text-align: right;
     text-transform: uppercase;
@@ -273,8 +273,8 @@ html.js-menu-open {
 
   & .headline {
     display: block;
-    margin-left: calc(10 / 16 * 1em);
-    font-size: calc(18 / 16 * 1em);
+    margin-left: em(10px);
+    font-size: em(18px);
     color: #333;
 
     @media (prefers-color-scheme: dark) {
@@ -311,8 +311,8 @@ html.js-menu-open {
       height: 100%;
 
       & > div {
-        padding: calc(20 / 16 * 1em);
-        padding-top: calc(50 / 16 * 1em);
+        padding: em(20px);
+        padding-top: em(50px);
         overflow: auto;
         text-align: left;
         background: rgb(255 255 255 / 50%);

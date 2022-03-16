@@ -23,20 +23,4 @@ export default {
   z-index: 1;
 }
 
-.page-header .overview-link {
-  display: inline-block;
-  padding: calc(10 / 18 * 1em);
-  font-size: calc(18 / 16 * 1em);
-  color: #f5f7fa;
-  text-decoration: none;
-  background-color: #2c3e50;
-  border-radius: 0 0 calc(5 / 18 * 1em) 0;
-  box-shadow: 0 0 calc(5 / 18 * 1em) rgb(255 255 255 / 60%);
-
-  @media (prefers-color-scheme: dark) {
-    color: #2f495e;
-    background-color: #fff;
-    box-shadow: 0 0 calc(5 / 18 * 1em) rgb(0 0 0 / 60%);
-  }
-}
 </style>

@@ -29,7 +29,7 @@ export default {
 
       stage: {
         critical: true,
-        headline: 'nuxt-speedkit',
+        content: 'nuxt-speedkit',
         claim: 'powered by Grabarz & Partner',
 
         picture: {
@@ -101,11 +101,11 @@ export default {
 
 <style lang="postcss" scoped>
 .page-index {
-  padding: calc(25 / 16 * 1em) 0;
+  padding: em(40px) 0;
   padding-top: 0;
 
   & > section {
-    margin: calc(25 / 16 * 1em) 0;
+    margin: em(80px) 0;
 
     &:first-child {
       margin-top: 0;
