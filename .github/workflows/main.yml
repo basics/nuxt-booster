@@ -174,11 +174,6 @@ jobs:
         with:
           name: exampleArtifact
           path: public/docs/example
-      - name: Download Artifact (sitespeed-report)
-        uses: actions/download-artifact@master
-        with:
-          name: sitespeed-report
-          path: public/reports/sitespeed
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
