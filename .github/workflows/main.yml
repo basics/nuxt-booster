@@ -214,7 +214,7 @@ jobs:
         with:
           name: sitespeed-report
           path: sitespeed-report
-
+          
   deploy-ghpages-sitespeed:
     name: Deploy (GH-Pages) (Sitespeed)
     needs: [sitespeed]
@@ -228,10 +228,10 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: sitespeed-report
-          path: sitespeed
+          path: public/docs/reports/sitespeed
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public/docs/reports
+          publish_dir: public
           keep_files: true
