@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tests/speedkit-loader", {data:[{_criticalFontStyles:{"-79f94d47":{hid:"-79f94d47",cssText:"[data-font=\"-6281543a\"] {\n        font-family: sans-serif;\n        font-weight: 400;\n        font-style: normal;\n      }\n      .font-active[data-font=\"-6281543a\"] {\n        font-family: \"Quicksand\", sans-serif;\n      }"}},_img:{}}],fetch:{},mutations:void 0});
