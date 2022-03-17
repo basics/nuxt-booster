@@ -51,12 +51,19 @@ All used components and resources are loaded on demand based on the viewport.
 
 ## Features
 
-- dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
-- optional loading prevention of resources at low bandwidth or weak hardware
+- dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
+- optional blocking of javascript execution by initial performance measuring
+- optimized initial load of javascript files by eliminating of unnecessary javascript files
 - prevents the loading of unnecessary resources (including components) that are outside the current viewport.
-- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
+- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.  
+- completely new approach of font declaration
+- optimized picture component (supports viewport based sources e.g. landscape/portrait)
+- optimized image component
+- supports SEO-friendly lazy hydration mode (picture + image)
+- optimized youtube/vimeo component (auto generated poster image in different resolutions)  
 
 ## Results
+
 - delivery of the minimum required resources based on the current viewport
 - if you use the tools as specified you will get a lighthouse performance score of 100/100
 
@@ -89,18 +96,11 @@ or look here
 - [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/modern.html)
 - [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/server.html)
 
+## Demos
 
-## Performance
-
-- [Preview](https://nuxt-speedkit.app.baqend.com/)
-- [sitespeed.io (report)](https://nuxt-speedkit.app.baqend.com/reports/sitespeed)
-- [lighthouse run #1 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-1.html)
-- [lighthouse run #2 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-2.html)
-- [lighthouse run #3 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-3.html)
-
-## TODOs
-
-- add detector for https://github.com/nuxtlabs/vue-telescope-analyzer
+- [Grabarz & Partner](https://grabarzundpartner.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarzundpartner.de%2F), [Sitespeed](https://nuxt-speedkit.app.baqend.com/reports/sitespeed/grabarzundpartner/index.html))
+- [Grabarz Group](https://grabarz-group.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarz-group.de%2F), [Sitespeed](https://nuxt-speedkit.app.baqend.com/reports/sitespeed/grabarz-group/index.html))
+- [Nuxt Speedkit Example](https://nuxt-speedkit.grabarzundpartner.dev/example/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fexample%2F), [Sitespeed](https://nuxt-speedkit.app.baqend.com/reports/sitespeed/nuxt-speedkit/index.html))
 
 ## License
 
