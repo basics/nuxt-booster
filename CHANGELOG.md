@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0...v2.0.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* **npm:** remove changelog from npm package ([4cd8b96](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4cd8b965e3889a588cef6951f70a53f73c5537fd))
+
 # [2.0.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.2...v2.0.0) (2022-03-17)
 
 
