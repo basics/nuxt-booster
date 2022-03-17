@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [2.0.0-beta.48](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.47...v2.0.0-beta.48) (2022-03-17)
+
+
+### Bug Fixes
+
+* **docs:** replace docus with nuxt docs theme ([cf37ae4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cf37ae4cb773d14c2b275d1296045da7283d3ecd)), closes [#368](https://github.com/GrabarzUndPartner/nuxt-speedkit/issues/368)
+* **eslint:** add eslint dep ([c863d8e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c863d8e4129bac1c2993ff57372f629df700dee9))
+
 # [2.0.0-beta.47](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.46...v2.0.0-beta.47) (2022-03-16)
 
 
