@@ -131,7 +131,7 @@ jobs:
         with:
           path: docs/node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
-      - name: Build
+      - name: Build v2
         run: |
           cd ./docs
           npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
@@ -140,7 +140,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIST_PATH: dist
           CONTENT_DIR: "content/v2"
-      - name: Build
+      - name: Build v1
         run: |
           cd ./docs
           npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
@@ -219,3 +219,24 @@ jobs:
         with:
           name: sitespeed-report
           path: sitespeed-report
+
+  deploy-ghpages-sitespeed:
+    name: Deploy (GH-Pages) (Sitespeed)
+    needs: [sitespeed]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    steps:
+      - name: Download Artifact (sitespeed-report)
+        uses: actions/download-artifact@master
+        with:
+          name: sitespeed-report
+          path: sitespeed
+      - name: Deploy to GH-Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public/docs/reports
+          keep_files: true

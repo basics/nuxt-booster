@@ -38,7 +38,7 @@
 
 
 - [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
-- [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
+- [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/) ([v1](https://nuxt-speedkit.grabarzundpartner.dev/v1))
 - [👁 &nbsp;&nbsp;**Preview**](https://grabarzundpartner.github.io/nuxt-speedkit-example/)
 
 
