@@ -35,7 +35,7 @@
     "start:generate": "npm run generate && npm run start"
   },
   "dependencies": {
-    "@nuxt/image": "0.6.0",
+    "@nuxt/image": "0.6.2",
     "axios": "0.26.1",
     "bowser": "2.11.0",
     "browserslist-useragent-regexp": "3.0.2",
