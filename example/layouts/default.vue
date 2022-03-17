@@ -1,84 +1,77 @@
 <template>
   <div>
-    <organism-page-header v-bind="pageHeader" />
-    <Nuxt />
-    <info-layer critical />
-    <GithubCorner />
+    <organism-page-header v-model="menuOpened" v-bind="pageHeader" />
+    <nuxt :inert="menuOpened" />
+    <!-- <info-layer critical /> -->
+    <github-corner />
     <google-lighthouse />
   </div>
 </template>
 
 <script>
-import InfoLayer from '@/components/InfoLayer';
+import 'wicg-inert';
+// import InfoLayer from '@/components/InfoLayer';
+
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
-  speedkitComponents: {
-    GoogleLighthouse: () => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'),
-    OrganismPageHeader: () => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
-  },
   components: {
-    InfoLayer
+    GoogleLighthouse: speedkitHydrate(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
+    OrganismPageHeader: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
   },
 
   data () {
     return {
+      menuOpened: false,
       pageHeader: {
-        menu: {
 
-          lists: [
-            {
-              links: [
-                {
-                  title: 'Home',
-                  to: '/'
-                }
-              ]
-            },
-            {
-              headline: 'Test',
-              links: [
-                {
-                  title: 'v-font',
-                  to: '/tests/v-font/'
-                },
-                {
-                  title: 'v-font (media)',
-                  to: '/tests/v-font-media/'
-                },
-                {
-                  title: 'SpeedkitPicture',
-                  to: '/tests/speedkit-picture/'
-                },
-                {
-                  title: 'SpeedkitYoutube',
-                  to: '/tests/speedkit-youtube/'
-                },
-                {
-                  title: 'SpeedkitIframe',
-                  to: '/tests/speedkit-iframe/'
-                }
-              ]
-            },
-            {
-              headline: 'Experimental',
-              links: [
-                {
-                  title: 'Home',
-                  to: '/experimental/'
-                },
-                {
-                  title: 'SpeedkitYoutube',
-                  to: '/experimental/speedkit-youtube/'
-                },
-                {
-                  title: 'SpeedkitPicture (5 Pictures)',
-                  to: '/experimental/speedkit-picture/5/'
-                }
-              ]
-            }
-
-          ]
-        }
+        lists: [
+          {
+            links: [
+              {
+                title: 'Home',
+                to: '/'
+              }
+            ]
+          },
+          {
+            headline: 'Test',
+            links: [
+              {
+                title: 'v-font',
+                to: '/tests/v-font/'
+              },
+              {
+                title: 'v-font (media)',
+                to: '/tests/v-font-media/'
+              },
+              {
+                title: 'v-font (scroll)',
+                to: '/tests/v-font-scroll/'
+              },
+              {
+                title: 'Picture',
+                to: '/tests/picture/'
+              },
+              {
+                title: 'Image',
+                to: '/tests/image/'
+              },
+              {
+                title: 'Youtube',
+                to: '/tests/youtube/'
+              },
+              {
+                title: 'Vimeo',
+                to: '/tests/vimeo/'
+              },
+              {
+                title: 'Iframe',
+                to: '/tests/iframe/'
+              }
+            ]
+          }
+        ]
       }
     };
   },
@@ -99,7 +92,6 @@ export default {
 </script>
 
 <style lang="postcss">
-
 html {
   height: stretch;
 }
@@ -108,7 +100,6 @@ body {
   min-height: 100vh;
   min-height: stretch;
   margin: 0;
-  font-size: calc(16 / 320 * 100vw);
   color: #000;
   background-color: #fff;
 
@@ -118,20 +109,34 @@ body {
   }
 
   @media (min-width: 375px) {
-    font-size: calc(16 / 375 * 100vw);
+    font-size: vw(16, 375);
   }
 
-  @media (min-width: 414px) {
-    font-size: calc(16 / 414 * 100vw);
+  @media (min-width: 576px) {
+    font-size: vw(16, 576);
   }
 
   @media (min-width: 768px) {
-    font-size: calc(16 / 768 * 100vw);
+    font-size: vw(16, 768);
   }
 
   @media (min-width: 992px) {
+    font-size: vw(16, 992);
+  }
+
+  @media (min-width: 1200px) {
     font-size: 16px;
   }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }
 
 </style>

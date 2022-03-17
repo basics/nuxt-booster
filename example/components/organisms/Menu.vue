@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
-    <input id="menu-control" v-model="open" type="checkbox" name="menu-control">
-    <div class="menu__content" aria-label="Menu">
+    <input id="menu-control" type="checkbox" name="menu-control" :checked="value" @input="onInput">
+    <div class="content" aria-label="Menu" :inert="inert">
       <label for="menu-control" />
       <div>
         <div>
@@ -9,7 +9,7 @@
             <headline
               v-if="headline"
               tag="span"
-              class="menu__headline"
+              class="headline"
               type="menu"
               :content="headline"
             />
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <label for="menu-control" class="menu__toggle">
+    <label for="menu-control" class="toggle">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
         <g id="open">
           <g>
@@ -45,6 +45,10 @@ export default {
   },
 
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
     lists: {
       type: Array,
       default () {
@@ -65,36 +69,45 @@ export default {
 
   data () {
     return {
-      open: false
+      withInert: false
     };
   },
 
+  computed: {
+    inert () {
+      return this.withInert && !this.value;
+    }
+  },
+
   watch: {
-    open (value) {
-      document.documentElement.classList.toggle('js--menu-open', value);
+    value (value) {
+      document.documentElement.classList.toggle('js-menu-open', value);
     }
   },
 
   mounted () {
+    this.withInert = true;
     this.$router.afterEach((to, from) => {
-      this.open = false;
+      this.$emit('input', false);
     });
+  },
+
+  methods: {
+    onInput (e) {
+      this.$emit('input', e.target.checked);
+    }
   }
 
 };
 </script>
 
 <style lang="postcss">
-
-/* stylelint-disable no-descending-specificity */
-
-html.js--menu-open {
+html.js-menu-open {
   overflow: hidden;
 }
 </style>
 
 <style lang="postcss" scoped>
-
 .menu {
   color: black;
 
@@ -102,23 +115,23 @@ html.js--menu-open {
     color: #fff;
   }
 
-  & .menu__toggle {
+  & .toggle {
     position: absolute;
-    top: calc(10 / 16 * 1em);
-    left: calc(10 / 16 * 1em);
-    padding: calc(10 / 16 * 1em);
+    top: em(10px);
+    left: em(10px);
+    padding: em(10px);
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgb(255 255 255 / 40%);
     outline: none;
     transition: background 0.2s linear;
 
     @media (prefers-color-scheme: dark) {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgb(0 0 0 / 40%);
     }
 
     & svg {
       display: block;
-      width: calc(30 / 16 * 1em);
+      width: em(30px);
     }
 
     & path {
@@ -167,7 +180,7 @@ html.js--menu-open {
     }
   }
 
-  & input:checked ~ .menu__toggle {
+  & input:checked ~ .toggle {
     background: transparent;
 
     & #open {
@@ -223,23 +236,49 @@ html.js--menu-open {
     }
   }
 
-  & .menu__title {
+  & input:focus ~ .toggle {
+    & #open {
+      & path {
+        opacity: 0.6;
+      }
+
+      & path:nth-child(1) {
+        transform: translateY(-4%);
+      }
+
+      & path:nth-child(2) {
+        transform: translateY(4%);
+      }
+    }
+
+    & #close {
+      & path:nth-child(1) {
+        transform: rotate(15deg);
+      }
+
+      & path:nth-child(2) {
+        transform: rotate(-15deg);
+      }
+    }
+  }
+
+  & .title {
     display: block;
-    font-size: calc(18 / 16 * 1em);
+    font-size: em(18px);
     font-weight: normal;
     text-align: right;
     text-transform: uppercase;
     opacity: 0.4;
   }
 
-  & .menu__headline {
+  & .headline {
     display: block;
-    margin-left: calc(10 / 16 * 1em);
-    font-size: calc(18 / 16 * 1em);
+    margin-left: em(10px);
+    font-size: em(18px);
     color: #333;
 
     @media (prefers-color-scheme: dark) {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgb(255 255 255 / 80%);
     }
   }
 
@@ -249,7 +288,7 @@ html.js--menu-open {
     padding: 0;
   }
 
-  & .menu__content {
+  & .content {
     position: fixed;
     top: 0;
 
@@ -265,38 +304,41 @@ html.js--menu-open {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    transition: backdrop-filter 0.2s 0.2s ease-in;
-    backdrop-filter: none;
+    transition: background 0.2s 0.2s ease-in;
 
     & > div {
       display: flex;
       height: 100%;
 
       & > div {
-        padding: calc(20 / 16 * 1em);
-        padding-top: calc(50 / 16 * 1em);
+        padding: em(20px);
+        padding-top: em(50px);
         overflow: auto;
         text-align: left;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgb(255 255 255 / 50%);
         transition: transform 0.2s  ease-in;
         transform: translateX(-100%);
 
         @media (prefers-color-scheme: dark) {
-          background: rgba(0, 0, 0, 0.5);
+          background: rgb(0 0 0 / 50%);
         }
       }
     }
   }
 
   & input {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    appearance: none;
+    opacity: 0;
   }
 
-  & input:checked + .menu__content {
+  & input:checked + .content {
     display: block;
     pointer-events: auto;
+    background: rgb(0 0 0 / 40%);
     transition-delay: 0s;
-    backdrop-filter: blur(10px);
 
     & > div > div {
       transition-delay: 0.2s;
@@ -304,6 +346,5 @@ html.js--menu-open {
     }
   }
 }
-/* stylelint-enable no-descending-specificity */
 
 </style>

@@ -1,41 +1,39 @@
+
 <template>
-  <intersection-observer
-    v-bind="intersectionObserver"
-    @enter="onEnter"
+  <component-observer
+    v-bind="componentObserver"
+    @enterView="onEnterView"
   >
     <iframe
       :src="lazySrc"
+      class="nuxt-speedkit-iframe"
       v-bind="$attrs"
-      class="nuxt-speedkit__speedkit-iframe"
-      :loading="loading"
-      :title="title"
+      frameborder="0"
       @load="onLoad"
     />
-  </intersection-observer>
+  </component-observer>
 </template>
 
 <script>
-import IntersectionObserver from './abstracts/IntersectionObserver';
+
+import ComponentObserver from 'nuxt-speedkit/components/abstracts/ComponentObserver';
 
 export default {
+
   components: {
-    IntersectionObserver
+    ComponentObserver
   },
 
+  inheritAttrs: false,
+
   props: {
-    loading: {
-      type: String,
-      default: 'lazy'
-    },
-    title: {
-      type: String,
-      default: null
-    },
+
     src: {
       type: String,
       default: null
     },
-    intersectionObserver: {
+
+    componentObserver: {
       type: Object,
       default () {
         return {
@@ -44,6 +42,7 @@ export default {
         };
       }
     }
+
   },
 
   data () {
@@ -54,12 +53,21 @@ export default {
 
   methods: {
     onLoad (e) {
-      this.$emit('load', e);
+      if (e.target.src) {
+        this.$emit('load', e);
+      }
     },
-    onEnter (e) {
+
+    onEnterView (e) {
       this.lazySrc = this.src;
       this.$emit('enter', e);
     }
   }
+
 };
+
 </script>
+
+<style lang="postcss" scoped>
+/* empty */
+</style>

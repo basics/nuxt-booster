@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [16]
 
     steps:
       - uses: actions/setup-node@v3
@@ -53,7 +53,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [16]
 
     steps:
       - uses: actions/setup-node@v3
@@ -78,7 +78,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [16]
 
     steps:
       - uses: actions/setup-node@v3
@@ -117,7 +117,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [16]
 
     steps:
       - uses: actions/setup-node@v3
@@ -139,20 +139,63 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIST_PATH: dist
+          CONTENT_DIR: "content-v2"
+      - name: Build
+        run: |
+          npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DIST_PATH: dist/v1
+          BASE_PATH: "/v1/"
+          CONTENT_DIR: "content-v1"
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: docsArtifact
           path: docs/dist
 
+  sitespeed:
+    runs-on: ${{ matrix.os }}
+    name: Running sitespeed.io
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+
+    steps:
+      - name: docker pull
+        run: |
+          docker pull sitespeedio/sitespeed.io:20.0.0
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Start throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle 3g
+      - name: Running sitespeed.io container with arguments and optional Docker options
+        run: |
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/example/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarzundpartner.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarzundpartner
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarz-group.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarz-group
+      - name: Stop throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle stop
+      - name: Archive Sitespeed Report
+        uses: actions/upload-artifact@master
+        with:
+          name: sitespeed-report
+          path: sitespeed-report
+
   deploy-ghpages:
     name: Deploy (GH-Pages)
-    needs: [build-example, build-docs]
+    needs: [build-example, build-docs, sitespeed]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [16]
     steps:
       - name: Download Artifact (Docs)
         uses: actions/download-artifact@master
@@ -164,6 +207,11 @@ jobs:
         with:
           name: exampleArtifact
           path: public/docs/example
+      - name: Download Artifact (sitespeed-report)
+        uses: actions/download-artifact@master
+        with:
+          name: sitespeed-report
+          path: public/reports/sitespeed
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

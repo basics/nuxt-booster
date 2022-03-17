@@ -1,7 +1,11 @@
-const { resolve } = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const pkg = require('../package.json');
-const isDev = process.env.NODE_ENV === 'development';
+import { resolve } from 'path';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import nuxtBabelPresetApp from '@nuxt/babel-preset-app';
+import pkg from '../package.json';
+
+import * as postcssFunctions from './postcss/functions';
+
+const isDev = process.env.NODE_ENV === 'development'; ;
 
 module.exports = {
   dev: isDev,
@@ -23,16 +27,36 @@ module.exports = {
   },
 
   alias: {
-    [pkg.name]: resolve(__dirname, '../lib')
+    [pkg.name]: resolve(__dirname, '../lib'),
+    vue$: 'vue/dist/vue.runtime.common.js'
   },
 
   build: {
+
+    transpile: ['vue-headings'],
+
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/](node-libs-browser)[\\/]/,
+            name: 'vendor'
+          }
+        }
+      }
+    },
+
+    filenames: {
+      app: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js'
+    },
+
     babel: {
       presets ({ isServer, isModern }) {
         // TODO: Check performance issues (useBuiltIns, forceAllTransforms, shippedProposals, loose, bugfixes)
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'),
+            nuxtBabelPresetApp,
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: { version: 3, proposals: true },
@@ -53,13 +77,26 @@ module.exports = {
 
     postcss: {
       plugins: {
+        'postcss-preset-env': {
+          preserve: true,
+          stage: 0
+        },
         'postcss-nesting': {},
-        lost: {
-          gutter: '15px',
-          flexbox: 'flex',
-          cycle: 'auto'
+        'postcss-functions': {
+          functions: postcssFunctions
+        },
+        '@fullhuman/postcss-purgecss': {
+          content: [
+            'example/pages/**/*.vue',
+            'example/layouts/**/*.vue',
+            'example/components/**/*.vue'
+          ],
+          safelist: [
+            'html', 'body', /^nuxt/
+          ]
         }
-      }
+      },
+      order: 'cssnanoLast'
     },
 
     extend (config) {
@@ -88,13 +125,38 @@ module.exports = {
     trailingSlash: undefined
   },
 
-  // nuxt/image options https://image.nuxtjs.org/setup#configure
-  image: {},
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      default: 320,
+      xxs: 480,
+      xs: 576,
+      sm: 768,
+      md: 996,
+      lg: 1200,
+      xl: 1367,
+      xxl: 1600,
+      '4k': 1921
+    },
+    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'i.pickadummy.com'],
+    alias: {
+      picsum: 'https://picsum.photos',
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com',
+      pickadummy: 'https://i.pickadummy.com'
+    }
+  },
+
+  plugins: [
+    '@/plugins/vue-headings'
+  ],
 
   buildModules: [
+    '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module'
-  ],
+    '@nuxtjs/stylelint-module',
+    '@nuxt/image'
+  ].filter(v => v),
 
   speedkit: {
     detection: {
@@ -109,8 +171,7 @@ module.exports = {
       timing: {
         fcp: 800,
         dcl: 1200 // fallback if fcp is not available (safari)
-      },
-      lighthouseDetectionByUserAgent: false
+      }
     },
     fonts: [{
       family: 'Quicksand',
@@ -252,10 +313,17 @@ module.exports = {
           ]
         }
       ]
-    }]
+    }],
+
+    loader: {
+      dataUri: '@/assets/spinner/three-circles.svg',
+      size: '100px',
+      backgroundColor: 'transparent'
+    }
   },
 
   modules: [
+    '@/modules/svg',
     resolve(__dirname, '..') // nuxt-speedkit
   ],
 

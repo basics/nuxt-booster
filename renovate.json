@@ -11,12 +11,10 @@
     }
   ],
   "baseBranches": [
-    "main",
-    "beta"
+    "main"
   ],
   "rangeStrategy": "pin",
   "ignoreDeps": [
-    "docus",
-    "postcss-nesting"
+    "docus"
   ]
 }

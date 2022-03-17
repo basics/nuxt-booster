@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug (generate)",
-      "runtimeVersion": "12.1.0",
+      "runtimeVersion": "14.18.0",
       "runtimeArgs": [
         "--inspect"
       ],
@@ -23,7 +23,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug (build)",
-      "runtimeVersion": "12.1.0",
+      "runtimeVersion": "14.18.0",
       "runtimeArgs": [
         "--inspect"
       ],
@@ -39,7 +39,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug (nuxt)",
-      "runtimeVersion": "12.1.0",
+      "runtimeVersion": "14.18.0",
       "runtimeArgs": [
         "--inspect"
       ],

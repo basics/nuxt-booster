@@ -25,8 +25,8 @@ export default {
   color: currentColor;
   cursor: pointer;
   background: transparent;
-  border: solid currentColor calc(1 / 16 * 1em);
-  border-radius: calc(5 / 16 * 1em);
+  border: solid currentColor em(1px);
+  border-radius: em(5px);
   outline: none;
   transition: transform 0.1s ease-in;
   appearance: none;
@@ -34,7 +34,7 @@ export default {
 
   & > * {
     display: block;
-    padding: calc(10 / 16 * 1em) calc(20 / 16 * 1em);
+    padding: em(10px) em(20px);
     cursor: pointer;
   }
 

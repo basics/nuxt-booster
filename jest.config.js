@@ -2,8 +2,7 @@ module.exports = {
   preset: '@nuxt/test-utils',
   collectCoverageFrom: [
     'lib/**/*.js',
-    '!lib/plugin.js',
-    '!lib/entry.js',
+    '!lib/templates/**/*.js',
     '!lib/components/SpeedkitLayer.vue'
   ],
   moduleNameMapper: {
@@ -14,7 +13,7 @@ module.exports = {
   },
   transformIgnorePatterns: [`/node_modules/(?!${['@nuxt/image']})`],
   testPathIgnorePatterns: [
-    // 'generate.test.js',
+    // 'generate.test.js'
     // 'browser.test.js'
   ]
 };
