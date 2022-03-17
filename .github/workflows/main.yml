@@ -155,33 +155,7 @@ jobs:
           name: docsArtifact
           path: docs/dist
 
-  deploy-ghpages:
-    name: Deploy (GH-Pages)
-    needs: [build-example, build-docs]
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [16]
-    steps:
-      - name: Download Artifact (Docs)
-        uses: actions/download-artifact@master
-        with:
-          name: docsArtifact
-          path: public/docs
-      - name: Download Artifact (Example)
-        uses: actions/download-artifact@master
-        with:
-          name: exampleArtifact
-          path: public/docs/example
-      - name: Deploy to GH-Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public
-
   sitespeed:
-    needs: [deploy-ghpages]
     runs-on: ${{ matrix.os }}
     name: Running sitespeed.io
 
@@ -212,26 +186,35 @@ jobs:
       - name: Archive Sitespeed Report
         uses: actions/upload-artifact@master
         with:
-          name: sitespeed-report
+          name: sitespeedReportArtifact
           path: sitespeed-report
-          
-  deploy-ghpages-sitespeed:
-    name: Deploy (GH-Pages) (Sitespeed)
-    needs: [sitespeed]
+
+  deploy-ghpages:
+    name: Deploy (GH-Pages)
+    needs: [build-example, build-docs, sitespeed]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [16]
     steps:
-      - name: Download Artifact (sitespeed-report)
+      - name: Download Artifact (Docs)
         uses: actions/download-artifact@master
         with:
-          name: sitespeed-report
+          name: docsArtifact
+          path: public/docs
+      - name: Download Artifact (Example)
+        uses: actions/download-artifact@master
+        with:
+          name: exampleArtifact
+          path: public/docs/example
+      - name: Download Artifact (Sitespeed)
+        uses: actions/download-artifact@master
+        with:
+          name: sitespeedReportArtifact
           path: public/docs/reports/sitespeed
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
-          keep_files: true
