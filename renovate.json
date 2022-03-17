@@ -11,8 +11,7 @@
     }
   ],
   "baseBranches": [
-    "main",
-    "beta"
+    "main"
   ],
   "rangeStrategy": "pin"
 }
