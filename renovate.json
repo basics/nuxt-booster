@@ -11,10 +11,8 @@
     }
   ],
   "baseBranches": [
-    "main"
+    "main",
+    "beta"
   ],
-  "rangeStrategy": "pin",
-  "ignoreDeps": [
-    "docus"
-  ]
+  "rangeStrategy": "pin"
 }
