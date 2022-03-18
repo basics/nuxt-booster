@@ -11,7 +11,7 @@ category: Guide
   - Default: `'anonymous'`
   - String values: `'anonymous'`, `'use-credentials'` or `undefined` [learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
-Sets the global `crossorigin` value of the nuxt-speedkit preloads.  
+Sets the global `crossorigin` value of the **Nuxt Speedkit** preloads.  
 The default value is the `crossorigin` value from the [Render Configuration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin).
 
 ## `optimizePreloads`
@@ -221,7 +221,7 @@ Defines a prefix for the module components, important for auto import e.g. optio
 ## `lazyOffset`
 - Type: `Object`
 
-Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) built into the `nuxt-speedkit`.
+Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) built into the **Nuxt Speedkit**.
 
 ````js
 {

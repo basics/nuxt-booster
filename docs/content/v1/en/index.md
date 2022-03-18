@@ -20,7 +20,7 @@ results:
 <img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/> -->
 <img src="/intro-light.png" width="1280" height="640" alt=""/>
 
-[Module]() for [NuxtJS](https://nuxtjs.org).
+[Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
 
 Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
 

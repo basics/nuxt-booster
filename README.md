@@ -38,17 +38,18 @@
 
 
 - [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
-- [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/) ([v1](https://nuxt-speedkit.grabarzundpartner.dev/v1))
 - [👁 &nbsp;&nbsp;**Preview**](https://grabarzundpartner.github.io/nuxt-speedkit-example/)
-
 
 Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
 
+## Getting Started
+Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
+> Nuxt Speedkit (v1) documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).
+
 ## Requirements
 - NodeJS >= 12.x.x
 - NuxtJS >= 2.15.0
-
 ## Features
 
 - dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
