@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.1...v2.0.2) (2022-03-18)
+
+
+### Bug Fixes
+
+* **vimeo:** fix picture source urls with provider ([568a98d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/568a98df3cdd82f717f7a6a68985b71f0027e8cb))
+
 ## [2.0.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0...v2.0.1) (2022-03-17)
 
 
