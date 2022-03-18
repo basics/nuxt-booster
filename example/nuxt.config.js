@@ -154,8 +154,7 @@ module.exports = {
   buildModules: [
     '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module',
-    '@nuxt/image'
+    '@nuxtjs/stylelint-module'
   ].filter(v => v),
 
   speedkit: {
