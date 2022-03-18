@@ -74,10 +74,10 @@ export default {
     & > * {
       width: 80%;
       margin: 0 auto;
-      box-shadow: 0 0 em(25px) 0 rgb(0 0 0 / 40%);
+      box-shadow: 0 0 em(25px) rgb(0 0 0 / 40%);
 
       @media (prefers-color-scheme: dark) {
-        box-shadow: 0 0 em(25px) 0 rgb(255 255 255 / 40%);
+        box-shadow: 0 0 em(25px) rgb(255 255 255 / 40%);
       }
     }
   }
