@@ -24,6 +24,8 @@ export default theme({
     base: getBasePath(),
     extendRoutes (routes, resolve) {
       routes.find(route => route.name === 'releases').component = resolve(__dirname, 'pages/releases.vue');
+      routes.find(route => route.name === 'all').component = resolve(__dirname, 'pages/_.vue');
+      routes.find(route => route.name === 'index').component = resolve(__dirname, 'pages/_.vue');
     }
   },
 
