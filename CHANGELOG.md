@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.2...v2.0.3) (2022-03-18)
+
+
+### Bug Fixes
+
+* **entry:** without ssr load client as eager ([a959007](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a9590075be8910788f0d36502caf8221e6ea0cb0))
+
 ## [2.0.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.1...v2.0.2) (2022-03-18)
 
 
