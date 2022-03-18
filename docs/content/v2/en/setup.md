@@ -48,8 +48,7 @@ It is necessary for the use of the components `SpeedkitYoutube` and `SpeedkitVim
   }
 }
 ````
-
-
+More about `@nuxt/image` module options can be found [here](https://image.nuxtjs.org/api/options).
 ## Example Configuration
 
 ````js[nuxt.config.js]
