@@ -30,21 +30,34 @@ Install `nuxt-speedkit` as a dependency to your project:
 
 Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 
+### @nuxt/image
+
+**Nuxt Speedkit** uses the module `@nuxt/image`, if this is not already present, it will be integrated automatically.
+
+<alert type="warning">Currently the version `@nuxt/image@0.6.0` is used, this has the reason because this is the last stable version for us and the module itself is still in an early release.
+<br>In the long term, however, the latest version of `@nuxt/image` should be used.</alert>
+
+It is necessary for the use of the components `SpeedkitYoutube` and `SpeedkitVimeo` to add aliases and domains to the `@nuxt/image` options. These are needed to retrieve the images from Youtube and Vimeo.
+
+````js[@nuxt/image]
+{
+  domains: ['img.youtube.com', 'i.vimeocdn.com'],
+  alias: {
+    youtube: 'https://img.youtube.com',
+    vimeo: 'https://i.vimeocdn.com',
+  }
+}
+````
+
+
+## Example Configuration
+
 ````js[nuxt.config.js]
 {
   modules: [
     'nuxt-speedkit'
   ],
-  speedkit: {
-    // Options
-  }
-}
-````
 
-## Example Configuration
-
-````js
-{
   speedkit: {
 
     detection: {
@@ -110,6 +123,27 @@ Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
       backgroundColor: 'grey'
     }
     
+  },
+
+  image: {
+    screens: {
+      default: 320,
+      xxs: 480,
+      xs: 576,
+      sm: 768,
+      md: 996,
+      lg: 1200,
+      xl: 1367,
+      xxl: 1600,
+      '4k': 1921
+    },
+
+    domains: ['img.youtube.com', 'i.vimeocdn.com'],
+
+    alias: {
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com',
+    }
   }
 }
 ````
