@@ -148,7 +148,7 @@ export default {
         title: this.playerTitle,
         sources: [{
           format: 'jpg',
-          src: this.videoData && this.videoData.thumbnail_url,
+          src: this.videoData && this.videoData.thumbnail_url?.replace('https://i.vimeocdn.com', 'vimeo'),
           sizes: this.posterSizes,
           media: 'all'
         }],
