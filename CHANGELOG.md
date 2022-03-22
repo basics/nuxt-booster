@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.3...v2.0.4) (2022-03-22)
+
+
+### Bug Fixes
+
+* **npm:** force publish ([e081b45](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e081b45e25c20e9331f3f24fb45756665d4a25f4))
+
 ## [2.0.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.2...v2.0.3) (2022-03-18)
 
 
