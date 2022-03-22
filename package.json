@@ -41,7 +41,7 @@
     "browserslist-useragent-regexp": "3.0.2",
     "buffer-image-size": "0.6.4",
     "deepmerge": "4.2.2",
-    "defu": "5.0.1",
+    "defu": "6.0.0",
     "dynamic-class-list": "2.0.1",
     "serialize-to-js": "3.1.1",
     "sort-css-media-queries": "2.0.4",
