@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.4...v2.0.5) (2022-03-22)
+
+
+### Bug Fixes
+
+* **defu:** fix `defu` import ([0401409](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0401409397c7238e6882f793a0e14fa3b9c9bdf1))
+
 ## [2.0.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.3...v2.0.4) (2022-03-22)
 
 
