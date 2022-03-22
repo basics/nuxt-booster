@@ -7,7 +7,7 @@ import * as postcssFunctions from './postcss/functions';
 
 const isDev = process.env.NODE_ENV === 'development'; ;
 
-module.exports = {
+export default {
   dev: isDev,
   target: hasTargetStatic() ? 'static' : null,
   modern: isDev ? false : 'client',
