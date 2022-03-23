@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.5...v2.0.6) (2022-03-23)
+
+
+### Bug Fixes
+
+* **docs:** add browser compatibility to caveats ([0cb442a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0cb442a885b419cd1639a885b845167b1e36a00d))
+
 ## [2.0.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.4...v2.0.5) (2022-03-22)
 
 
