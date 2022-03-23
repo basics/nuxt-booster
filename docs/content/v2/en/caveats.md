@@ -38,3 +38,69 @@ By passing the `headAddition` argument, additional head settings can be applied.
   }
 </script>
 ````
+## Browser compatibility
+
+You can use `nuxt-speedkit` with **Internet Explorer 11** browser. 
+
+<alert type="info">Note that there is no optimization based on preloads in IE 11.</alert>
+
+You need the following polyfills:
+
+- [`object-fit-images`](https://www.npmjs.com/package/object-fit-images)
+- [`picturefill`](https://www.npmjs.com/package/picturefill)
+- [`intersection-observer`](https://www.npmjs.com/package/intersection-observer)
+
+The PostCSS Plugin [`postcss-object-fit-images`](https://github.com/ronik-design/postcss-object-fit-images) and following `build.transpile` entries for `@nuxt/image`: 
+
+- `@nuxt/image`
+- `image-meta`
+
+For the polyfills, it is recommended to integrate them as a [plugin](https://nuxtjs.org/docs/2.x/directory-structure/plugins), polyfills loading must follow a specific order.
+
+You can see a example with live demo at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
+
+### Example
+
+````js[plugins/polyfills.js]
+async function polyfills (){
+
+  if (!('IntersectionObserver' in global)) {
+    await import('intersection-observer');
+  }
+
+  if (!('objectFit' in document.documentElement.style)) {
+    await import('object-fit-images');
+  }
+
+  if (!('HTMLPictureElement' in global || 'picturefill' in global)) {
+    await import('picturefill');
+    await import('picturefill/dist/plugins/mutation/pf.mutation.js');
+  }
+
+}
+
+polyfills ();
+````
+
+<br>
+
+````js[nuxt.config.js]
+{
+  build: {
+    
+    transpile: ['@nuxt/image', 'image-meta'],
+
+    postcss: {
+      plugins: {
+        'postcss-object-fit-images': {}
+      }
+    }
+    
+  },
+
+  plugins: [
+    { src: "@/plugins/polyfills.js", mode: "client" }
+  ]
+}
+````
+
