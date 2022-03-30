@@ -1,6 +1,7 @@
 <template>
   <document-section class="component-stage" :level="-1">
     <speedkit-picture
+      class="background"
       :title="picture.title"
       :alt="picture.alt"
       :sources="picture.sources"
@@ -17,6 +18,8 @@
       </span>
     </document-heading>
 
+    <span class="arrow"><svg-chevron-down /></span>
+
     <speedkit-image
       class="logo"
       v-bind="image"
@@ -29,12 +32,14 @@
 
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
+import SvgChevronDown from '@/assets/svg/chevron-down.svg?vue-template';
 
 export default {
 
   components: {
     SpeedkitPicture,
-    SpeedkitImage
+    SpeedkitImage,
+    SvgChevronDown
   },
 
   props: {
@@ -60,7 +65,7 @@ export default {
 <style lang="postcss" scoped>
 .component-stage {
   position: relative;
-  max-height: 100%;
+  min-height: 100vh;
   margin: 0;
   overflow: hidden;
 
@@ -97,6 +102,39 @@ export default {
     }
   }
 
+  & .arrow {
+    position: absolute;
+    bottom: em(140px);
+
+    @media (orientation: landscape) {
+      bottom: em(20px);
+    }
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & svg {
+    width: 64px;
+    animation-name: bounce-6;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+
+  & .background {
+    aspect-ratio: auto;
+
+    & >>> img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   & .headline {
     position: absolute;
     bottom: 0;
@@ -119,5 +157,15 @@ export default {
       padding: em(20px) em(40px);
     }
   }
+}
+
+@keyframes bounce-6 {
+  0% { transform: scale(1, 1)      translateY(0); }
+  10% { transform: scale(1.1, 0.9)   translateY(0); }
+  30% { transform: scale(0.9, 1.1)   translateY(-50%); }
+  50% { transform: scale(1.05, 0.95) translateY(0); }
+  57% { transform: scale(1, 1)      translateY(-5%); }
+  64% { transform: scale(1, 1)      translateY(0); }
+  100% { transform: scale(1, 1)      translateY(0); }
 }
 </style>
