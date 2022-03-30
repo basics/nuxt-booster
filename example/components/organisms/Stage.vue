@@ -69,6 +69,10 @@ export default {
   margin: 0;
   overflow: hidden;
 
+  @supports (-webkit-touch-callout: none) {
+    height: fill-available;
+  }
+
   & .logo {
     position: absolute;
     top: 0;
