@@ -54,8 +54,8 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.gra
 > Nuxt Speedkit (v1) documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).
 
 ## Requirements
-- NodeJS >= 12.x.x
-- NuxtJS >= 2.15.0
+- NodeJS `>= 14.x.x`
+- NuxtJS `>= 2.15.0`
 ## Features
 
 - dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
