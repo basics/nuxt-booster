@@ -3,7 +3,6 @@
 .DS_Store
 .git
 .hg
-.npmrc
 .lock-wscript
 .svn
 .wafpickle-*
