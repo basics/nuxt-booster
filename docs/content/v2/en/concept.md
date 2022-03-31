@@ -47,7 +47,7 @@ The good news is that the NuxtJS SSR build provides the right foundation. The co
 - is a fully automated preload logic that allows component and viewport based handling and prioritization of the individual resources (FCP, LCP, CLS)
 - is a logic that enables a perfomance-oriented initialization of the javascript (TTI, TBT)
 
-These two central points are handled by nuxt speedkit and enable a fast and resource-saving loading behavior of the website.
+These two central points are handled by **Nuxt Speedkit** and enable a fast and resource-saving loading behavior of the website.
 
 ## Approach
 
@@ -56,10 +56,10 @@ All our thoughts are based on [HTTP/2 request prioritization](https://www.slides
 
 ## Insights & Solutions
 
-During the tests, we gained the following insights, which we would like to share with you, but which also allow us to draw conclusions regarding the performance optimization of the initial loading process and which have been incorporated into the nuxt-speedkit solution.
+During the tests, we gained the following insights, which we would like to share with you, but which also allow us to draw conclusions regarding the performance optimization of the initial loading process and which have been incorporated into the **Nuxt Speedkit** solution.
 
 ### Critical Render Path
-The (critical render path)[https://developers.google.com/web/fundamentals/performance/critical-rendering-path] is the core of a high-performance and efficient loading and rendering behavior of a website. It is important that components and resources in the viewport are loaded and executed with priority so that the user can be provided with a functioning page as quickly as possible. A browser is not able to recognize this fully automatically to dynamically adapt the loading behavior. Some attempts have been made in the past to systematically identify the critical render path.However, this has the consequence that every generated page in a virtual browser has to be analyzed in given viewport sizes, which slows down the deployment process and makes it more error-prone. For this reason, we (the developers) will be forced to provide the build process with appropriate hints in the form of a Critical Attribute on the affected component, so that an automated optimization by preloads, lazy hydration, etc. can be performed in response.
+The  [critical render path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path) is the core of a high-performance and efficient loading and rendering behavior of a website. It is important that components and resources in the viewport are loaded and executed with priority so that the user can be provided with a functioning page as quickly as possible. A browser is not able to recognize this fully automatically to dynamically adapt the loading behavior. Some attempts have been made in the past to systematically identify the critical render path.However, this has the consequence that every generated page in a virtual browser has to be analyzed in given viewport sizes, which slows down the deployment process and makes it more error-prone. For this reason, we (the developers) will be forced to provide the build process with appropriate hints in the form of a Critical Attribute on the affected component, so that an automated optimization by preloads, lazy hydration, etc. can be performed in response.
 
 ### Font Loading
 
@@ -80,11 +80,11 @@ If no javascript is activated on the end device, all fonts are automatically act
 
 ### Image Loading
 
-For image compression and different image formats, the module (nuxt-optimized-images)[https://marquez.co/docs/nuxt-optimized-images/] was popularly used in the nuxt world in the past. The downside, however, is that this approach is not particularly CMS and deployment friendly. With each image change, a full build process had to be initiated.
-For this reason, we use the (nuxt-image)[https://image.NuxtJS.org] module, as this takes advantage of a change in NuxtJS as of version 2.13.0. In this version update, the build was split into two separate processes (javascript compilation + page generation). 
-With (nuxt-optimized-images)[https://marquez.co/docs/nuxt-optimized-images/] the full build process had to be run for every image change. This is no longer the case with (nuxt-image)[https://image.NuxtJS.org]. Here only the page generation process is necessary. As a result, deployment times for all content changes can be massively reduced.
+For image compression and different image formats, the module [nuxt-optimized-images](https://marquez.co/docs/nuxt-optimized-images/) was popularly used in the nuxt world in the past. The downside, however, is that this approach is not particularly CMS and deployment friendly. With each image change, a full build process had to be initiated.
+For this reason, we use the [nuxt-image](https://image.NuxtJS.org) module, as this takes advantage of a change in NuxtJS as of version 2.13.0. In this version update, the build was split into two separate processes (javascript compilation + page generation). 
+With [nuxt-optimized-images](https://marquez.co/docs/nuxt-optimized-images/) the full build process had to be run for every image change. This is no longer the case with [nuxt-image](https://image.NuxtJS.org). Here only the page generation process is necessary. As a result, deployment times for all content changes can be massively reduced.
 
-We use the module in its complete form. However, we have redeveloped the nuxt-image and nuxt-picture components, as the current version does not fully meet our requirements. For example, we lacked an appropriate preloading and lazy hydration strategy. Although there is a native loading attribute on the image element that allows prioritization, the use for websites with a lot of images is still not optimal, because the (distance-from-viewport threshold)[https://web.dev/browser-level-image-lazy-loading/#improved-data-savings-and-distance-from-viewport-thresholds] is still too generous and the loading performance can deteriorate unintentionally. For this we have implemented a corresponding SEO-compliant alternative, which loads the images only when the viewport is reached, but also provides the image sources for search engines via no-script tag. This way all relevant images can be displayed even if Javascript is disabled. Furthermore you can also define multiple image sources in the picture, so it is possible to display an image in portait mode with a 9/16 aspect-ratio (multiple renditions) and in landscape mode with a 16/9 aspect-ratio (multiple renditions).
+We use the module in its complete form. However, we have redeveloped the nuxt-image and nuxt-picture components, as the current version does not fully meet our requirements. For example, we lacked an appropriate preloading and lazy hydration strategy. Although there is a native loading attribute on the image element that allows prioritization, the use for websites with a lot of images is still not optimal, because the [distance-from-viewport threshold](https://web.dev/browser-level-image-lazy-loading/#improved-data-savings-and-distance-from-viewport-thresholds) is still too generous and the loading performance can deteriorate unintentionally. For this we have implemented a corresponding SEO-compliant alternative, which loads the images only when the viewport is reached, but also provides the image sources for search engines via no-script tag. This way all relevant images can be displayed even if Javascript is disabled. Furthermore you can also define multiple image sources in the picture, so it is possible to display an image in portait mode with a 9/16 aspect-ratio (multiple renditions) and in landscape mode with a 16/9 aspect-ratio (multiple renditions).
 
 ### Javascript Loading
 
@@ -105,7 +105,7 @@ Side effect: The timeslots in the Google Lighthouse Test are always <= 10ms, so 
 
 `window.navigator.hardwareConcurrency` normally returns the number of CPU cores per device. However, this value can also be used to identify a Lighthouse Test as an alternative to the UserAgent. In our test series, we continuously received a value of ~88 cores in the Lighthouse Mobile simulation (pagespeed.web.dev). This is primarily an indication that a server-powered Chromium is accessing the website. We are not aware of a normal end device (laptop, tablet, mobile) that is equipped with 88 CPU cores.
 
-I admit this is very 'hacky'. We do support this detection in nuxt speedkit. But not by default. Maybe one or the other can use this feature again. :)
+I admit this is very 'hacky'. We do support this detection in **Nuxt Speedkit**. But not by default. Maybe one or the other can use this feature again. :)
 
 
 ### InfoLayer
@@ -119,7 +119,7 @@ The reduced bandwidth or weak hardware should get a focus especially when larger
 For this purpose, we provide an InfoLayer that is displayed when a minimum FCP time is exceeded, when the number of available CPU cores falls below a minimum level, when javascript is disabled or the users opens the page by an unsupported browser. The user can decide in this dialog box whether he wants to load the remaining resources despite the restrictions. If the user declines this dialog, only the fonts and images for the page will be loaded and no further javascript will be loaded or executed.
 
 ### Conclusion
-The findings and solutions described above have been incorporated and systematized in the nuxt-speedkit module. Only in combination can they unfold their full functionality and ensure an overall optimization of the loading behavior. Overall we have reduced the following timing metrics ...
+The findings and solutions described above have been incorporated and systematized in the **Nuxt Speedkit** module. Only in combination can they unfold their full functionality and ensure an overall optimization of the loading behavior. Overall we have reduced the following timing metrics ...
 
 <list type="success" :items="reductionofTimingMetrics"></list>
 

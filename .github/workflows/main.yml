@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: cache node_modules (Example)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache
         with:
           path: |
@@ -36,7 +36,7 @@ jobs:
       - name: Test
         run: npm run test
       - name: cache node_modules (Docs)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cacheDocs
         with:
           path: docs/node_modules
@@ -68,7 +68,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           rsync -r --exclude ./lib ./lib/* .
-          npx -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p semantic-release-github semantic-release --provider=github --debug=true
+          npx -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
 
   build-example:
     name: Build (Example)
@@ -87,7 +87,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: cache node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache
         with:
           path: |
@@ -126,12 +126,12 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: cache docs/node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cacheDocs
         with:
           path: docs/node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
-      - name: Build
+      - name: Build v2
         run: |
           cd ./docs
           npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
@@ -139,15 +139,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIST_PATH: dist
-          CONTENT_DIR: "content-v2"
-      - name: Build
+          CONTENT_DIR: "content/v2"
+      - name: Build v1
         run: |
+          cd ./docs
           npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIST_PATH: dist/v1
           BASE_PATH: "/v1/"
-          CONTENT_DIR: "content-v1"
+          CONTENT_DIR: "content/v1"
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -185,7 +186,7 @@ jobs:
       - name: Archive Sitespeed Report
         uses: actions/upload-artifact@master
         with:
-          name: sitespeed-report
+          name: sitespeedReportArtifact
           path: sitespeed-report
 
   deploy-ghpages:
@@ -207,11 +208,11 @@ jobs:
         with:
           name: exampleArtifact
           path: public/docs/example
-      - name: Download Artifact (sitespeed-report)
+      - name: Download Artifact (Sitespeed)
         uses: actions/download-artifact@master
         with:
-          name: sitespeed-report
-          path: public/reports/sitespeed
+          name: sitespeedReportArtifact
+          path: public/docs/reports/sitespeed
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

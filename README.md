@@ -38,32 +38,46 @@
 
 
 - [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
-- [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
 - [👁 &nbsp;&nbsp;**Preview**](https://grabarzundpartner.github.io/nuxt-speedkit-example/)
-
 
 Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
 
-## Requirements
-- NodeJS >= 12.x.x
-- NuxtJS >= 2.15.0
+## Demos
 
+- [Grabarz & Partner](https://grabarzundpartner.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarzundpartner.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarzundpartner/))
+- [Grabarz Group](https://grabarz-group.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarz-group.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarz-group/))
+- [Nuxt Speedkit Example](https://nuxt-speedkit.grabarzundpartner.dev/example/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fexample%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/nuxt-speedkit/))
+
+## Getting Started
+Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
+> Nuxt Speedkit (v1) documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).
+
+## Requirements
+- NodeJS `>= 14.x.x`
+- NuxtJS `>= 2.15.0`
 ## Features
 
-- dynamic loading of viewport based page resources like fonts (subselectors, media queries), components, pictures
-- optional loading prevention of resources at low bandwidth or weak hardware
+- dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
+- optional blocking of javascript execution by initial performance measuring
+- optimized initial load of javascript files by eliminating of unnecessary javascript files
 - prevents the loading of unnecessary resources (including components) that are outside the current viewport.
-- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.
+- optional info layer concept to inform users about a reduced UX when bandwidth or hardware is compromised.  
+- completely new approach of font declaration
+- optimized picture component (supports viewport based sources e.g. landscape/portrait)
+- optimized image component
+- supports SEO-friendly lazy hydration mode (picture + image)
+- optimized youtube/vimeo component (auto generated poster image in different resolutions)  
 
 ## Results
+
 - delivery of the minimum required resources based on the current viewport
 - if you use the tools as specified you will get a lighthouse performance score of 100/100
 
 📖 &nbsp;&nbsp;[Read more](https://nuxt-speedkit.grabarzundpartner.dev/)
 ## Browsers support
 
-> You can use `nuxt-speedkit` with **Internet Explorer 11** browser. [Learn more at Browser compatibility](https://nuxt-speedkit.grabarzundpartner.dev/usage#browser-compatibility) 
+> You can use `nuxt-speedkit` with **Internet Explorer 11** browser. [Learn more at Browser compatibility](https://nuxt-speedkit.grabarzundpartner.dev/caveats#browser-compatibility) 
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Vivaldi |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,22 +103,10 @@ or look here
 - [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/modern.html)
 - [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/server.html)
 
-
-## Performance
-
-- [Preview](https://nuxt-speedkit.app.baqend.com/)
-- [sitespeed.io (report)](https://nuxt-speedkit.app.baqend.com/reports/sitespeed)
-- [lighthouse run #1 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-1.html)
-- [lighthouse run #2 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-2.html)
-- [lighthouse run #3 (report)](https://nuxt-speedkit.app.baqend.com/reports/lighthouse/index-3.html)
-
-## TODOs
-
-- add detector for https://github.com/nuxtlabs/vue-telescope-analyzer
-
 ## License
 
 [MIT License](./LICENSE)
+
 
 <!-- Badges -->
 [logo]: https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727 "nuxt-speedkit"

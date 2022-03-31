@@ -1,5 +1,167 @@
 # Project Changelog
 
+## [2.0.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.5...v2.0.6) (2022-03-23)
+
+
+### Bug Fixes
+
+* **docs:** add browser compatibility to caveats ([0cb442a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0cb442a885b419cd1639a885b845167b1e36a00d))
+
+## [2.0.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.4...v2.0.5) (2022-03-22)
+
+
+### Bug Fixes
+
+* **defu:** fix `defu` import ([0401409](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0401409397c7238e6882f793a0e14fa3b9c9bdf1))
+
+## [2.0.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.3...v2.0.4) (2022-03-22)
+
+
+### Bug Fixes
+
+* **npm:** force publish ([e081b45](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e081b45e25c20e9331f3f24fb45756665d4a25f4))
+
+## [2.0.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.2...v2.0.3) (2022-03-18)
+
+
+### Bug Fixes
+
+* **entry:** without ssr load client as eager ([a959007](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a9590075be8910788f0d36502caf8221e6ea0cb0))
+
+## [2.0.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.1...v2.0.2) (2022-03-18)
+
+
+### Bug Fixes
+
+* **vimeo:** fix picture source urls with provider ([568a98d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/568a98df3cdd82f717f7a6a68985b71f0027e8cb))
+
+## [2.0.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0...v2.0.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* **npm:** remove changelog from npm package ([4cd8b96](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/4cd8b965e3889a588cef6951f70a53f73c5537fd))
+
+# [2.0.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v1.3.2...v2.0.0) (2022-03-17)
+
+
+### Bug Fixes
+
+* **components:** added refactored picture, image and youtube. added vimeo as new component ([eba4b20](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/eba4b201b419620cc4b8b0b088027097e21237af))
+* **components:** fix load event in picture and image ([921c059](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/921c05921a27127b96814c6383ffbed5c7827bdc))
+* **components:** improve hover and focus style vimeo and youtube ([a6042b3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a6042b33581f8cbede5baabddbab7f8dcad7a40c))
+* **components:** update youtube & vimeo; update vimeo api ([8d611f7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8d611f78f385ad73fd6dede8fb1899f97bdd3d93))
+* **config:** updated eslint version and config ([c5d71ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c5d71cea0bb3ab14c3b79c4c61b9e69430814c36))
+* **deps:** pin nuxt/image version ([3dc022f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3dc022f0f2911dca481c82a76f1c7cad5e2719c2))
+* **deps:** set @nuxt/image as dep; fix package.json require ([b5e793f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b5e793f199b53766c90b22912a32349f10ee4422))
+* **directive:** fix font load with media ([e892946](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e892946dba966cfa85177048ea59fb7c85568ff9))
+* **directive:** improve imports ([ba99823](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ba998230fffa46acfeb03ac51fb2e4dc28cbb730))
+* **directive:** removing delaying import ([7ab509e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7ab509ea3e0de916ed0f3dc1dfd9ce9855b3c9b9))
+* **docs:** fonts workarounds ([a1df67f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a1df67f3ca9bf401f95b160cc3ff6852257897ca))
+* **docs:** index ([c466f7d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c466f7d144afb6c805d645ff034b817587b9a30a))
+* **docs:** optimized sentences ([7e67f67](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7e67f67ef1c9469c862ce2d82c98dff1441fc5dd))
+* **docs:** replace docus with nuxt docs theme ([1aeb81e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1aeb81e7a69d9331c70de00a89088819aa6a6d65))
+* **docs:** restructured feature list ([bfeeff8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bfeeff8a7f8edea919637979b0864b24ceea0b07))
+* **docs:** updated ([45d2db8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/45d2db847628e2ed3b74e909b0429af264b03720))
+* **docs:** updated docs ([d72ee0c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d72ee0c274320d0ed482b1808f8be0f60a135f08))
+* **dummyimage:** added forgotten alias ([1e1e71b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1e1e71b35216279db851101ebc100db46f4e7655))
+* **entry:** add idle callback for client ([f6fc0ef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f6fc0ef7e0e568c807d1fc0784cbd348ea92c56a))
+* **entry:** change client import to lazy; remove resourceHints false ([bd36411](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bd36411fc54cfeb72bf7958ecb21a9853b4e945d))
+* **font:** renaming and improv critical font styles ([2d53d83](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2d53d83e440db93e08103a6751eb599c8714256f))
+* **fonts:** remove generate hook; add font cache for ssr ([6089530](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6089530519f083b9d60a99a133254ae2bd59f824))
+* **generate:** add generate hook for preventing critical font style remove ([47c9eb1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/47c9eb19047dc2131e99fc3339dd4e0833d75ba3))
+* **hash:** switched to already existing hash function ([16c5a48](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/16c5a48afc1d0db4ffba719657830a7e3fdf69eb))
+* **husky:** removed updated lines -> do not work ([d093aea](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d093aeae4cee161695aa764e5dc52c7ce9eb8a11))
+* **hydrate:** rename loader to hydrate ([57dbcf3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/57dbcf3aee2eee7f44744d0d3c5cf3618c471033))
+* **image:** added alt and title prop as attr to template ([6df1bc2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6df1bc2d128ca99c0f5eea87fb1376a6b558b1e9))
+* **image:** alt and title attribute is required ([d69f9b1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d69f9b1aeaa8a1968883db52fb7574fe718287c7))
+* **Image:** finalized Image ([2103361](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2103361bce72bc66e204a1e574796aff953d0bb6))
+* **image:** fix ssrContext src request ([1e6cde9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1e6cde96a7587f7a496d123f882d4c89b99154ee))
+* **image:** revert nuxt/image version ([8cc8525](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8cc85255a066b882a6ab4f3c75e0d24ad2b22a55))
+* **intersection:** optimized intersection observable ([62e6aa3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/62e6aa342736f7a5f2821cb73809f1b0d45817b5))
+* **layer:** improve layer style classes ([b155f49](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b155f497e3f7d6ed4b9bca66e00f113d47c89cc4))
+* **lighthouse:** disable resourcehints ([d51671e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d51671e94254bcdad2242ee70e3d4f92defa19b6))
+* **lint:** fix lint error ([100f822](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/100f822f3651a2b6d711271c856708b020c99644))
+* **loader:** disable idle execute by trigger beforeRouteLeave ([b5a1cde](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b5a1cdeaccd0d4e3654fef8b3bad041940c7dc0e))
+* **loader:** ignore loader in dev mode (improve hot reload) ([ee15889](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ee15889b7a917520725b073b2c466282df2b55e3))
+* **loading-spinner:** fix not visible loading-spinner ([65d2fed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/65d2fed70a4d4a311bac8912ac444ee649e09f87))
+* **mixin:** add style map for improve page change ([3553d0e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3553d0ea140999668108fd4b86b3a18639d24267))
+* **mixin:** fix head ([cdae7d7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cdae7d7cd9ae5a3af3f854099f7d178974dd9ecf))
+* **mixin:** fix missing init prev map ([59654b7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/59654b7166ee8d7c9844f5514a812b38060b0d4f))
+* **mixin:** fix missing styles without hid ([b8e2aac](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b8e2aac81fa05bb81a01f985e9822dd2c68e4233))
+* **mixin:** fix state data request ([a5d2105](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a5d2105f81e3e62191df80038b5459f8b2176c69))
+* **mixin:** improve and clean ([a47195a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a47195a6f57259726ec065666a5250d91ce6eef7))
+* **mixin:** improve context request ([1747f0e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1747f0ea623f43d533eb2ffef1fe5d74bfa9d31a))
+* **mixin:** improve page style change ([d16ce7b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d16ce7bd0efd79896cb9b310084713e23a48efbe))
+* **mixin:** improve pageStyles ([2b13698](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2b1369833e8d5c62a90c25c82130a46952a2b01f))
+* **mixin:** remove speedkitComponents; add loader function for component load ([ff69fef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ff69fefbb2d91fcdf69fe002136b22154e121edd))
+* **module:** activate `resourceHints` and `asyncScripts` ([798772b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/798772be94ff3ba39d989f7b43a9373d32a1c2f0))
+* **module:** add method for nuxt option optimization ([5af68d5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5af68d538ab884835084be173fd5742eb7eb659c))
+* **module:** fix internalUrl with protocol and host ([d9e0ceb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d9e0ceba25781fc2863b1431903ed901161a5009))
+* **module:** improve preload optimization ([dc395a9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/dc395a9a1a1ff59ff604e026cb37b7ef2372ef73))
+* **naming:** renaming components for auto import ([a7fa314](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a7fa3140607f98d6239df553497ba8f427bda361))
+* **nuxt-image:** improve nuxt/image integration ([330fde9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/330fde95e83b06fd5af6e63387b696a7f028fe8c))
+* **observable:** optimized register observable at node directly ([d8da349](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d8da3496ebc63aa71acb5148f55ef3cc43c2f224))
+* **observer:** fix horizontal root node ([19a3c5e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/19a3c5e24d1b1d9a0178a5de757ec654e927eace))
+* **observer:** fix observer destroy ([69e70d6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/69e70d6ad35a3ff597e12a361dd65d0446014791))
+* **observer:** fix observer root select ([5ff1b19](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5ff1b197cc5df83fbf08f308fc8e24f2a778537f))
+* **observer:** remove rxjs and vector import for reduce chunk size ([7a7355b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7a7355b11bd87a131d0760815416a3716568b14b))
+* **packages:** updated versions + cleanup ([02044a0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/02044a06b588838e6e9b33a02db2c5d68fbefbf8))
+* **performance:** remove lighthouse detection ([c61fee7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c61fee797843fe12283943160e476d33f5462b83))
+* **picture+image:** possible priority loading (low/high) at lazy load of resources ([17676d1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/17676d1dc897d2a55094bb0dc96a80cd5dc89f22))
+* **picture+image:** renamed load attr to hydrate and bridging eventlisteners ([04f1975](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/04f1975f7ef6183d4adeb640eeaa1d903aa97eb2))
+* **picture:** add dynamic preload priorities ([d791d25](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d791d25c503ac90425665ffbb746d046838e48a1))
+* **picture:** final integration and updated mixin to disable critical in child component ([60e925f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/60e925f14e98e28b463a35ca603ccb1a2bd53f4b))
+* **picture:** fix missing format priority ([ddc37be](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ddc37be46a1690c647999afe5dec14bb2001a451))
+* **picture:** fixed default format order ([ebb8b84](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ebb8b84580e79a96eb49a81160b5ec16433412c5))
+* **picture:** renamed priority format var ([38d4b8f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/38d4b8f24b6ef27f822cdb8cae530218166e5e4a))
+* **plugin:** add plugin for head; clean mixin ([bffb95d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bffb95d12dcbb4db7d6c500093b5d1ffa96f7740))
+* **plugin:** changed $speedkitHead to $speedkit.head ([3442bc8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3442bc81d2197966b55422ece223a4f56577f9b3))
+* **plugin:** improve loading-spinner config ([151403a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/151403a6fd56d4ee8081071bba2a77e82b5685fa))
+* **plugin:** move head def to head.js ([82031ef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/82031eff7416a45819b84f08d7d4dfdf9ae75ffa))
+* **plugin:** remove head as plugin, add import to vFont plugin ([e3881fb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e3881fbb2ff5d22c2c84993fd523c7ebe42f54db))
+* **preload:** add full preload support ([6c93fa0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6c93fa0b0b143081a985819a3e13d66aa780e63d))
+* **publish:** trigger publish ([5feef1e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5feef1e20c8cd0156bf68b9be81997f18c7bb87e))
+* **purgecss:** prepare all components with purgecss ignore comment ([07bd3b3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/07bd3b30b43b82ab9fedf1446a4cb53b1747be69))
+* **readme:** update readme ([99feecd](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/99feecd0b8ae26256a5b075c45cb970e1b8ac002))
+* **speedkit-components:** execute by requestidlecallback ([b4c32ff](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b4c32ff154f08c6cfaf480ce38ec6408834d2a5a))
+* **speedkit-components:** optimized initialization ([64bf091](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/64bf091bfb044b93e21273f711b8963d561eb0db))
+* **speedkit-picture:** add width & height with 0 ([607614f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/607614f32cd4c2c5fb034126b3e2c10241ed10c6))
+* **speedkit-picture:** improve the use of formats and fix missing png ([8c93b6b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8c93b6b62031704b70ff0e97611da6cd621d4b74))
+* **speedkit-picture:** update formats ([b199ef0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b199ef08c3c904ca80e497f13543528434d57fc6))
+* **speedkit-youtube:** remove formats ([39fbb36](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/39fbb367baf1b07452fdeff284c584a711989174))
+* **style:** fix video player styles ([20de67a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/20de67a885b7cbe7c0826e0e442912ac3e5005aa))
+* **stylelint:** fixes for new stylelint ([f9812c5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f9812c5910ac0de20e89ebc11bab276bd5d61f39))
+* **test:** added critical flag to picture test implementation ([25677de](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/25677ded3a30a10558bc87f5b420099cbc8b34c0))
+* **test:** test ([5789c61](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5789c61d76d497908e4fa4a5f1e1e4437cc29189))
+* **v-font:** add argument for additional head ([6e620bd](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6e620bdf971bf53958c0fd502ae7cc3411ee1556))
+* **vimeo:** add iframe fallback for protected videos ([57be633](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/57be633a84b5a48497e4e07f7a7976b492eb739c))
+* **vimeo:** update player, add api title as default, and default slot with api data ([346d6da](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/346d6dafee1c612ef503f623e59e1ff07287730a))
+* **vue:** use only runtime version in examples ([a7a8b82](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a7a8b8266785b610d8c6a31ae192b3797e9e8149))
+* **workspace.config:** enabled new feature -> colored brackets without performance issues ([77434d8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/77434d82554d85ef906edb9090db4632f9e3717f))
+* **youtube:** changed script attribute order ([e94c693](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e94c69358a5aabd4802408a6d1d88c61977d77be))
+
+
+### chore
+
+* **v2:** version update ([fbaea95](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/fbaea95b703296265a9511f6c3785e50375753c3))
+
+
+### Features
+
+* **update:** update test pages; add Youtube/Vimeo Component ([581ee91](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/581ee917243347823da8431434d1a5d5e0b62e96))
+* **v2:** prepare v2 ([852d851](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/852d85126247e449a0f35759635630ac87f6805a))
+
+
+### Performance Improvements
+
+* **v2:** version change to v2 ([09c11c9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/09c11c9369db920ddb8d02072e3cdd3a49ca1906))
+
+
+### BREAKING CHANGES
+
+* **v2:** version update
+
 # [2.0.0-beta.48](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.0-beta.47...v2.0.0-beta.48) (2022-03-17)
 
 
