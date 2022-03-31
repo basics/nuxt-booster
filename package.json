@@ -82,5 +82,8 @@
     "vue-headings": "1.0.0",
     "webpack-bundle-analyzer": "4.5.0",
     "wicg-inert": "3.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
