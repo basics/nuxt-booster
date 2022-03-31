@@ -323,6 +323,7 @@ export default {
 
   modules: [
     '@/modules/svg',
+    '@nuxt/image',
     resolve(__dirname, '..') // nuxt-speedkit
   ],
 
