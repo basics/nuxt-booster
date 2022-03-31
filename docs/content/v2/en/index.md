@@ -4,7 +4,7 @@ description: ''
 position: 1
 version: 2
 requirements:
-  - NodeJS >= 12.x.x
+  - NodeJS >= 14.x.x
   - NuxtJS >= 2.15.0
 features:
   - dynamic loading of viewport based page resources like fonts, components, pictures, images and iframes
