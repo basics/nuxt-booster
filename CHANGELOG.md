@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.6...v2.0.7) (2022-03-31)
+
+
+### Bug Fixes
+
+* **plugin:** remove optional chaining ([c74b80f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c74b80fb58d4e28c68b52248946c0a0c617bd167))
+
 ## [2.0.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.5...v2.0.6) (2022-03-23)
 
 

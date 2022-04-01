@@ -27,7 +27,8 @@
 [![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href] 
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
-[![next][github-workflow-next-src]][github-workflow-next-href]
+[![next][github-workflow-beta-src]][github-workflow-beta-href]
+[![next][github-workflow-test-src]][github-workflow-test-href]
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
@@ -54,7 +55,7 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.gra
 > Nuxt Speedkit (v1) documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).
 
 ## Requirements
-- NodeJS `>= 14.x.x`
+- NodeJS `>= 12.x.x`
 - NuxtJS `>= 2.15.0`
 ## Features
 
@@ -118,8 +119,11 @@ or look here
 
 [github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
-[github-workflow-next-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=next>
-[github-workflow-next-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
+[github-workflow-beta-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Beta/badge.svg?branch=beta>
+[github-workflow-beta-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ABeta>
+[github-workflow-test-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=main>
+[github-workflow-test-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
+
 [dependencies-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/status.svg>
 [dependencies-status-href]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit>
 [dependencies-dev-status-src]: <https://david-dm.org/GrabarzUndPartner/nuxt-speedkit/dev-status.svg>
