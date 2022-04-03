@@ -43,7 +43,7 @@
     "deepmerge": "4.2.2",
     "defu": "6.0.0",
     "dynamic-class-list": "2.0.1",
-    "serialize-to-js": "3.1.1",
+    "serialize-to-js": "3.1.2",
     "sort-css-media-queries": "2.0.4",
     "vue-lazy-hydration": "2.0.0-beta.4"
   },
