@@ -28,7 +28,8 @@ export default {
   fetch () {
     this.config = this.$img.getSizes(this.source.src, {
       sizes: this.source.sizes,
-      modifiers: this.source.getModifiers()
+      modifiers: this.source.getModifiers(),
+      options: this.source.getOptions()
     });
   },
 

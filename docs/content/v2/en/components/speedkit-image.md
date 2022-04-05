@@ -88,7 +88,9 @@ If `true` the `SpeedkitImage` is initialized.
 {
   format: '<output-format>', 
   src: '<file-path|url>', 
-  sizes: { … }
+  sizes: { … }, 
+  preset: { … }, 
+  provider: '<provider>'
 }
 ````
 #### `format`
@@ -123,6 +125,27 @@ In the following example, one image with two different image sizes by breakpoint
 ]
 ````
 
+#### `preset`
+- Type: `Object`
+
+If a preset is set on a source, the globally defined one is ignored.
+
+This means that a separate preset can be specified for each source.
+
+Learn more about `preset`:
+- https://image.nuxtjs.org/api/$img#imggetsizes
+- https://image.nuxtjs.org/api/options/#presets
+
+#### `provider`
+- Type: `String`
+
+If a provider is set on a source, the globally defined one is ignored.
+
+This means that a separate provider can be specified for each source.
+
+Learn more about `provider`:
+- https://image.nuxtjs.org/api/$img#imggetsizes
+- https://image.nuxtjs.org/api/options/#providers
 ### `loadingSpinner`
 - Type: [`LoadingSpinner`](/classes/loading-spinner)
   - Default: `this.$speedkit.loader()`

@@ -68,7 +68,8 @@ export default {
       const source = new Source(this.source);
       this.config = this.$img.getSizes(source.src, {
         sizes: source.sizes,
-        modifiers: source.getModifiers()
+        modifiers: source.getModifiers(),
+        options: source.getOptions()
       });
       const { ssrContext } = this.$nuxt.context;
       this.meta = await source.getMeta(this.config.src, ssrContext?.nuxt?._img || {});
