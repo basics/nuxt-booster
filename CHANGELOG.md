@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.0.8-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.7...v2.0.8-beta.1) (2022-04-05)
+
+
+### Bug Fixes
+
+* **deps:** update `@nuxt/image` add override for `ipx` ([d1cd1f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d1cd1f99df4749cc4ade15fe3d88ff29c893d422))
+* **source:** add missing options for `preset` and `provider` ([bfdbcb3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bfdbcb377ae0bf162122cf5d0e44f25a3c4ce46f))
+
 ## [2.0.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.6...v2.0.7) (2022-03-31)
 
 
