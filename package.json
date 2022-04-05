@@ -35,7 +35,7 @@
     "start:generate": "npm run generate && npm run start"
   },
   "dependencies": {
-    "@nuxt/image": "0.6.2",
+    "@nuxt/image": "0.6.0",
     "axios": "0.26.1",
     "bowser": "2.11.0",
     "browserslist-useragent-regexp": "3.0.2",
@@ -83,15 +83,5 @@
     "vue-headings": "1.0.0",
     "webpack-bundle-analyzer": "4.5.0",
     "wicg-inert": "3.1.1"
-  },
-  "overrides": {
-    "nuxt-speedkit": {
-      "@nuxt/image": {
-        "ipx": "0.8.1"
-      }
-    },
-    "@nuxt/image": {
-      "ipx": "0.8.1"
-    }
   }
 }
