@@ -29,7 +29,7 @@ export default {
     this.config = this.$img.getSizes(this.source.src, {
       sizes: this.source.sizes,
       modifiers: this.source.getModifiers(),
-      options: this.source.getOptions()
+      ...this.source.getOptions()
     });
   },
 
