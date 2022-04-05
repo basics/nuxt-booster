@@ -89,6 +89,7 @@ If `true` the `SpeedkitImage` is initialized.
   format: '<output-format>', 
   src: '<file-path|url>', 
   sizes: { … }, 
+  modifiers: { … }, 
   preset: { … }, 
   provider: '<provider>'
 }
@@ -124,6 +125,15 @@ In the following example, one image with two different image sizes by breakpoint
   { format: 'webp', src: '/img/image.jpg', sizes: { default: '100vw', sm: '100vw' } }
 ]
 ````
+
+#### `modifiers`
+- Type: `Object`
+
+You can give separate modifiers to each source. 
+This overwrites the global ones of the preset if available.
+
+Learn more about `modifiers`:
+- https://image.nuxtjs.org/api/options/#presets
 
 #### `preset`
 - Type: `Object`
