@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.8-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8-beta.2...v2.0.8-beta.3) (2022-04-05)
+
+
+### Bug Fixes
+
+* **deps:** remove override ([1d248b0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1d248b0f86e4d30809e0dcf2769f2945bc1b2634))
+
 ## [2.0.8-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8-beta.1...v2.0.8-beta.2) (2022-04-05)
 
 
