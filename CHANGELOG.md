@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.0.8-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8-beta.3...v2.0.8-beta.4) (2022-04-05)
+
+
+### Bug Fixes
+
+* **module:** add required default `@nuxt/image` options ([c0838e4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c0838e40d409ef265cf3c452e4667d955a466014))
+* **Source:** add `modifiers` prop.; fix options in `getSize` ([d2567ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d2567ce54a37b006bc09e91434b1e3bdd49eb6e8))
+
 ## [2.0.8-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8-beta.2...v2.0.8-beta.3) (2022-04-05)
 
 
