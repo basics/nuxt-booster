@@ -104,3 +104,26 @@ polyfills ();
 }
 ````
 
+
+## Use latest `@nuxt/image` version
+
+
+In case the latest `@nuxt/image` version is needed, the following modifications can be made in the `package.json`:
+
+```js
+{
+  "overrides": {
+    "nuxt-speedkit": {
+      "@nuxt/image": "latest"
+    },
+    "@nuxt/image": {
+      "ipx": "0.8.1"
+    }
+  }
+}
+```
+
+An older `IPX` version is needed because of the Issues:
+
+- https://github.com/unjs/ohmyfetch/issues/57
+- https://github.com/node-fetch/node-fetch/pull/1474
