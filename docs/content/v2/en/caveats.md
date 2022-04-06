@@ -110,6 +110,8 @@ polyfills ();
 
 In case the latest `@nuxt/image` version is needed, the following modifications can be made in the `package.json`:
 
+> https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides
+
 ```js
 {
   "overrides": {
@@ -122,6 +124,7 @@ In case the latest `@nuxt/image` version is needed, the following modifications 
   }
 }
 ```
+
 
 An older `IPX` version is needed because of the Issues:
 
