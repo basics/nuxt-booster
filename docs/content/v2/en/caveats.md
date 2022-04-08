@@ -14,7 +14,7 @@ By passing the `headAddition` argument, additional head settings can be applied.
 
 <alert type="warning">`$speedkit.head()` is only available in vue component scope.</alert>
 
-#### Example:
+### Example
 
 ````html
 <template>
@@ -38,6 +38,9 @@ By passing the `headAddition` argument, additional head settings can be applied.
   }
 </script>
 ````
+
+### Issues
+- https://github.com/nuxt/vue-meta/issues/695
 ## Browser compatibility
 
 You can use `nuxt-speedkit` with **Internet Explorer 11** browser. 
