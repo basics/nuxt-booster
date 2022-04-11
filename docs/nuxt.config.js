@@ -40,7 +40,17 @@ export default theme({
 
   generate: {
     dir: getDistPath()
-  }
+  },
+
+  modules: [
+    [
+      '@nuxtjs/robots',
+      {
+        UserAgent: '*',
+        Disallow: () => ['/reports']
+      }
+    ]
+  ]
 
 });
 
