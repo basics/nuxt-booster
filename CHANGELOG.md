@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8...v2.0.9) (2022-04-11)
+
+
+### Bug Fixes
+
+* **head:** remove merge strategy override ([b2535fe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b2535fe9cfeed643ae43472972f9c45d9c63204b))
+
 ## [2.0.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.7...v2.0.8) (2022-04-06)
 
 
