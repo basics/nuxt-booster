@@ -113,6 +113,8 @@ In the following example, two different image ratios are used.
 - Type: `Array`
   - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 
+> Overrides the [`pictureFormats`](/options#pictureformats) property defined in the module options.
+
 Defines the formats that are to be generated and provided as source in the Picture.  
 Is used to offer the correct image type for the browser.
 

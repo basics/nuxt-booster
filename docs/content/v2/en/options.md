@@ -189,6 +189,31 @@ List of all available font files of a font family variation.
 | `src`  | `String` | yes      | path to a font file, the use of aliases is possible        |
 | `type` | `String` | yes      | file format of the specified file, e.g. `woff`, `woff2`, … |
 
+## `pictureFormats`
+- Type: `Array`
+  - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
+
+Defines the default `formats` for the `SpeedkitPicture`.
+
+Can be overwritten in the `SpeedkitPicture`.
+
+By default, the operator `|` is used to combine formats.
+
+For each `png` a `jpg` and for each `jpg` a `png` is generated.
+
+````js
+{
+  formats: ['png', 'jpg']
+}
+````
+
+Depending on the source file type a `png` or `jpg` will be generated.
+````js
+{
+  formats: ['png|jpg']
+}
+````
+
 ## `componentAutoImport`
 - Type: `Boolean`
   - Default: `false`
