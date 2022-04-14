@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.9...v2.0.10) (2022-04-14)
+
+
+### Bug Fixes
+
+* **module:** added `pictureFormats` property for `SpeedkitPicture` formats ([a13d828](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a13d828aa0608a8b0d6e8d675b965d60b39e7ec0))
+
 ## [2.0.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8...v2.0.9) (2022-04-11)
 
 
