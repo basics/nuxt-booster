@@ -28,7 +28,7 @@ dist
 *.code-workspace
 jsconfig.json
 
-jest.config.js
+vitest.config
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 CHANGELOG.md

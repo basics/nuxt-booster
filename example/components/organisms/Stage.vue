@@ -70,7 +70,7 @@ export default {
   overflow: hidden;
 
   @supports (-webkit-touch-callout: none) {
-    height: fill-available;
+    height: stretch;
   }
 
   & .logo {
