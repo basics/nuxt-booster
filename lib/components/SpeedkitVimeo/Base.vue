@@ -144,7 +144,7 @@ export default {
         return null;
       }
       return {
-        formats: ['avif', 'webp', 'jpg'],
+        formats: this.$speedkit.targetFormats,
         title: this.playerTitle,
         sources: [{
           format: 'jpg',
