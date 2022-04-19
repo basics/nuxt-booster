@@ -189,7 +189,7 @@ List of all available font files of a font family variation.
 | `src`  | `String` | yes      | path to a font file, the use of aliases is possible        |
 | `type` | `String` | yes      | file format of the specified file, e.g. `woff`, `woff2`, … |
 
-## `pictureFormats`
+## `targetFormats`
 - Type: `Array`
   - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 

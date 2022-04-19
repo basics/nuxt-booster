@@ -113,7 +113,7 @@ export default {
   computed: {
     pictureDataset () {
       return {
-        formats: this.$speedkit.pictureFormats,
+        formats: this.$speedkit.targetFormats,
         title: this.title,
         sources: [{
           src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,

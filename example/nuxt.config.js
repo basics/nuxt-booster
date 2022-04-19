@@ -158,6 +158,7 @@ export default {
   ].filter(v => v),
 
   speedkit: {
+    targetFormats: ['jpg'],
     detection: {
       performance: true,
       browserSupport: true
