@@ -46,22 +46,28 @@ const testDir = resolve(__dirname, '.test');
 const distDir = resolve(testDir, 'dist');
 const buildDir = join(testDir, '.nuxt');
 
-describe('🧐 inspect browser (chromium, firefox)', () => {
-  beforeAll(async () => {
-    await generate(buildDir, distDir);
-    runtime.serverUrl = (await startStaticServer(distDir)).url;
-  });
-
-  tests({ browser: BROWSERS.CHROMIUM, runtime });
-
-  tests({ browser: BROWSERS.FIREFOX, runtime });
-
-  afterAll(async () => {
-    await Promise.all(Array.from(browsers.values()).map(async browser => (await browser).close()));
-  });
+beforeAll(async () => {
+  await generate(buildDir, distDir);
+  runtime.serverUrl = (await startStaticServer(distDir)).url;
 });
 
-function tests ({ browser = false, runtime }) {
+afterAll(async () => {
+  await Promise.all(Array.from(browsers.values()).map(async browser => (await browser).close()));
+});
+
+describe('🧐 inspect browser (chromium)', () => {
+  browserTests({ browser: BROWSERS.CHROMIUM, runtime });
+});
+
+describe('🧐 inspect browser (firefox)', () => {
+  browserTests({ browser: BROWSERS.FIREFOX, runtime });
+});
+
+describe('🧐 inspect html', () => {
+  markupTests();
+});
+
+function browserTests ({ browser = false, runtime }) {
   const createPage = async (path) => {
     const page = await (await browsers.get(browser)).newPage();
     await page.goto(joinURL(runtime.serverUrl, path));
@@ -221,7 +227,7 @@ function tests ({ browser = false, runtime }) {
   // #endregion
 }
 
-describe('🧐 inspect html', () => {
+function markupTests () {
   let html, dom;
 
   it('v-font (font assign simple) (font-face, class, link (preload), element class)', async () => {
@@ -361,4 +367,4 @@ describe('🧐 inspect html', () => {
   });
 
   // #endregion
-});
+}
