@@ -207,7 +207,7 @@ The declaration below generates a `png`, `jpeg` and `gif` (destination format) f
 
 ````js
 {
-  formats: ['jpg', 'jpeg', 'png', 'gif']
+  targetFormats: ['jpg', 'jpeg', 'png', 'gif']
 }
 ````
 
@@ -217,7 +217,7 @@ Based on the source format, the appropriate target format is created using the d
 
 ````js
 {
-  formats: ['jpg|jpeg|png|gif']
+  targetFormats: ['jpg|jpeg|png|gif']
 }
 ````
 
