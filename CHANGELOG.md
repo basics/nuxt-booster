@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [2.0.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.10...v2.0.11) (2022-04-19)
+
+
+### Bug Fixes
+
+* **module:** updated deprecated warnings ([3300be2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3300be215963662aaacca63648a2a74767c46a82))
+* **source:** add fallback for missing src extension ([533170c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/533170cba2a328c69e2995a30db9990624682ea3))
+* **source:** renamed `pictureFormats` to `targetFormats` ([8f3d576](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8f3d576905db5e2a953974ce9696879c9456d4b3))
+
 ## [2.0.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.9...v2.0.10) (2022-04-14)
 
 
