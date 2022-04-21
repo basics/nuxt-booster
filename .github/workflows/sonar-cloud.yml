@@ -46,7 +46,7 @@ jobs:
 
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+        uses: martinbeentjes/npm-get-version-action@main
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
