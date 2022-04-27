@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@nuxt/image": "0.6.0",
-    "axios": "0.27.1",
+    "axios": "0.27.2",
     "bowser": "2.11.0",
     "browserslist-useragent-regexp": "3.0.2",
     "buffer-image-size": "0.6.4",
