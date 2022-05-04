@@ -20,12 +20,12 @@
       </ul>
       <div class="info-layer-buttons">
         <base-button id="nuxt-speedkit-button-init-nojs">
-          <label for="nuxt-speedkit-speedkit-layer-close">
+          <label for="nuxt-speedkit-layer-close">
             OK
           </label>
         </base-button>
         <base-button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
-          <label for="nuxt-speedkit-speedkit-layer-close">
+          <label for="nuxt-speedkit-layer-close">
             No
           </label>
         </base-button>
@@ -64,7 +64,7 @@ export default {
 
 <style lang="postcss" scoped>
 .info-layer {
-  & >>> #nuxt-speedkit-speedkit-layer-content {
+  & >>> #nuxt-speedkit-layer-content {
     position: fixed;
     top: 0;
     left: 0;
@@ -93,8 +93,8 @@ export default {
     }
   }
 
-  &.nuxt-speedkit-speedkit-layer-visible {
-    & >>> #nuxt-speedkit-speedkit-layer-content {
+  &.nuxt-speedkit-layer-visible {
+    & >>> #nuxt-speedkit-layer-content {
       animation-delay: initial;
     }
   }
