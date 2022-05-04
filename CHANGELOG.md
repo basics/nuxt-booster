@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.0.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.11...v2.0.12) (2022-05-04)
+
+
+### Bug Fixes
+
+* **entry:** fix ids ([b95300d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b95300de59f99ce656fff9063edca5ba24ea3c52))
+* **entry:** fix speedkit-layer ids ([ce06c81](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ce06c81d826d6e32c230aa9f5efd2358ad43de7f))
+
 ## [2.0.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.10...v2.0.11) (2022-04-19)
 
 
