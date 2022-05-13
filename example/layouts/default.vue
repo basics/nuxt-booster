@@ -2,7 +2,7 @@
   <div>
     <organism-page-header v-model="menuOpened" v-bind="pageHeader" />
     <nuxt :inert="menuOpened" />
-    <!-- <info-layer critical /> -->
+    <info-layer critical />
     <github-corner />
     <google-lighthouse />
   </div>
@@ -10,12 +10,12 @@
 
 <script>
 import 'wicg-inert';
-// import InfoLayer from '@/components/InfoLayer';
-
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
+import InfoLayer from '@/components/InfoLayer';
 
 export default {
   components: {
+    InfoLayer,
     GoogleLighthouse: speedkitHydrate(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
     OrganismPageHeader: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
   },

@@ -11,11 +11,11 @@
         <li id="nuxt-speedkit-message-unsupported-browser">
           outdated browser
         </li>
-        <li id="nuxt-speedkit-message-outdated-device">
-          outdated device
-        </li>
         <li id="nuxt-speedkit-message-slow-connection">
           slow connection
+        </li>
+        <li id="nuxt-speedkit-message-bad-performance">
+          bad performance
         </li>
       </ul>
       <div class="info-layer-buttons">

@@ -16,13 +16,13 @@
               <li id="nuxt-speedkit-message-unsupported-browser">
                 outdated browser
               </li>
-              <!-- Displayed when user hardware is not sufficient. -->
-              <li id="nuxt-speedkit-message-outdated-device">
-                outdated device
-              </li>
               <!-- Displayed when connection is too slow. -->
               <li id="nuxt-speedkit-message-slow-connection">
                 slow connection
+              </li>
+              <!-- Displayed when by bad perforamce. -->
+              <li id="nuxt-speedkit-message-bad-performance">
+                basd performance
               </li>
             </ul>
 
@@ -110,11 +110,11 @@ export default {
   display: none;
 }
 
-#nuxt-speedkit-message-outdated-device {
+#nuxt-speedkit-message-slow-connection {
   display: none;
 }
 
-#nuxt-speedkit-message-slow-connection {
+#nuxt-speedkit-message-bad-performance {
   display: none;
 }
 
