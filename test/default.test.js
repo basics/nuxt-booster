@@ -26,7 +26,10 @@ const generate = async (buildDir, distDir) => {
     target: 'static',
     modern: true,
     buildDir,
-    generate: { dir: distDir, crawler: false },
+    env: {
+      DISABLE_INFO_LAYER: true
+    },
+    generate: { cache: false, dir: distDir, crawler: false },
     dir: {
       pages: 'pages/tests'
     }

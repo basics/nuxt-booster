@@ -2,7 +2,7 @@
   <div>
     <organism-page-header v-model="menuOpened" v-bind="pageHeader" />
     <nuxt :inert="menuOpened" />
-    <info-layer critical />
+    <info-layer v-if="!disableInfoLayer" critical />
     <github-corner />
     <google-lighthouse />
   </div>
@@ -22,6 +22,7 @@ export default {
 
   data () {
     return {
+      disableInfoLayer: String(process.env.DISABLE_INFO_LAYER).toLowerCase() === 'true',
       menuOpened: false,
       pageHeader: {
 
