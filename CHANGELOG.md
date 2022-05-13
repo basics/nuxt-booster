@@ -1,5 +1,48 @@
 # Project Changelog
 
+## [2.0.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.11...v2.0.12) (2022-05-04)
+
+
+### Bug Fixes
+
+* **entry:** fix ids ([b95300d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b95300de59f99ce656fff9063edca5ba24ea3c52))
+* **entry:** fix speedkit-layer ids ([ce06c81](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ce06c81d826d6e32c230aa9f5efd2358ad43de7f))
+
+## [2.0.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.10...v2.0.11) (2022-04-19)
+
+
+### Bug Fixes
+
+* **module:** updated deprecated warnings ([3300be2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3300be215963662aaacca63648a2a74767c46a82))
+* **source:** add fallback for missing src extension ([533170c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/533170cba2a328c69e2995a30db9990624682ea3))
+* **source:** renamed `pictureFormats` to `targetFormats` ([8f3d576](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8f3d576905db5e2a953974ce9696879c9456d4b3))
+
+## [2.0.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.9...v2.0.10) (2022-04-14)
+
+
+### Bug Fixes
+
+* **module:** added `pictureFormats` property for `SpeedkitPicture` formats ([a13d828](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a13d828aa0608a8b0d6e8d675b965d60b39e7ec0))
+
+## [2.0.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8...v2.0.9) (2022-04-11)
+
+
+### Bug Fixes
+
+* **head:** remove merge strategy override ([b2535fe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b2535fe9cfeed643ae43472972f9c45d9c63204b))
+
+## [2.0.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.7...v2.0.8) (2022-04-06)
+
+
+### Bug Fixes
+
+* **deps:** remove override ([1d248b0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1d248b0f86e4d30809e0dcf2769f2945bc1b2634))
+* **deps:** test override ([425f1e2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/425f1e2b5c397570f3497165460a4fb0277fa492))
+* **deps:** update `@nuxt/image` add override for `ipx` ([d1cd1f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d1cd1f99df4749cc4ade15fe3d88ff29c893d422))
+* **module:** add required default `@nuxt/image` options ([c0838e4](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c0838e40d409ef265cf3c452e4667d955a466014))
+* **Source:** add `modifiers` prop.; fix options in `getSize` ([d2567ce](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d2567ce54a37b006bc09e91434b1e3bdd49eb6e8))
+* **source:** add missing options for `preset` and `provider` ([bfdbcb3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/bfdbcb377ae0bf162122cf5d0e44f25a3c4ce46f))
+
 ## [2.0.8-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.8-beta.3...v2.0.8-beta.4) (2022-04-05)
 
 

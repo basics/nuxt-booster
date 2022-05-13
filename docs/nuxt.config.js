@@ -21,7 +21,6 @@ export default theme({
   },
 
   router: {
-    base: getBasePath(),
     extendRoutes (routes, resolve) {
       routes.find(route => route.name === 'releases').component = resolve(__dirname, 'pages/releases.vue');
       routes.find(route => route.name === 'all').component = resolve(__dirname, 'pages/_.vue');
@@ -40,7 +39,17 @@ export default theme({
 
   generate: {
     dir: getDistPath()
-  }
+  },
+
+  modules: [
+    [
+      '@nuxtjs/robots',
+      {
+        UserAgent: '*',
+        Disallow: () => ['/reports']
+      }
+    ]
+  ]
 
 });
 
@@ -54,8 +63,4 @@ function getPort () {
 
 function getContentDir () {
   return process.env.npm_config_content_dir || process.env.CONTENT_DIR || 'content/v2';
-}
-
-function getBasePath () {
-  return process.env.npm_config_base_path || process.env.BASE_PATH || '/';
 }

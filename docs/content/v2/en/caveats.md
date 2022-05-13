@@ -14,7 +14,7 @@ By passing the `headAddition` argument, additional head settings can be applied.
 
 <alert type="warning">`$speedkit.head()` is only available in vue component scope.</alert>
 
-#### Example:
+### Example
 
 ````html
 <template>
@@ -38,6 +38,9 @@ By passing the `headAddition` argument, additional head settings can be applied.
   }
 </script>
 ````
+
+### Issues
+- https://github.com/nuxt/vue-meta/issues/695
 ## Browser compatibility
 
 You can use `nuxt-speedkit` with **Internet Explorer 11** browser. 
@@ -110,6 +113,8 @@ polyfills ();
 
 In case the latest `@nuxt/image` version is needed, the following modifications can be made in the `package.json`:
 
+> https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides
+
 ```js
 {
   "overrides": {
@@ -122,6 +127,7 @@ In case the latest `@nuxt/image` version is needed, the following modifications 
   }
 }
 ```
+
 
 An older `IPX` version is needed because of the Issues:
 

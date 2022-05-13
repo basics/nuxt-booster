@@ -189,6 +189,42 @@ List of all available font files of a font family variation.
 | `src`  | `String` | yes      | path to a font file, the use of aliases is possible        |
 | `type` | `String` | yes      | file format of the specified file, e.g. `woff`, `woff2`, … |
 
+## `targetFormats`
+- Type: `Array`
+  - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
+
+Sets the default formats for the `SpeedkitPicture`.
+
+Can be overridden in the `SpeedkitPicture` via the [`formats`](/components/speedkit-picture#formats) property.
+
+For `png`, `jpeg` and `gif` formats we have added the `|` operator in the declaration.  
+This adjusts the destination format to the source format.
+
+### Example
+**<span style="color: red;">Bad</span>**
+
+The declaration below generates a `png`, `jpeg` and `gif` (destination format) for each `jpeg` (source format). The same applies to a `png` and a `gif` as source format. However, this is not practical for the source specifications in the Picture.
+
+````js
+{
+  targetFormats: ['jpg', 'jpeg', 'png', 'gif']
+}
+````
+
+**<span style="color: green;">Good</span>**
+
+Based on the source format, the appropriate target format is created using the declaration described below.
+
+````js
+{
+  targetFormats: ['jpg|jpeg|png|gif']
+}
+````
+
+<alert type="info">
+For the <code>avif</code> and <code>webp</code> formats the <code>|</code> operator is not needed, because these two image formats do not depend on the source format, as it is the case for <code>png</code>, <code>jpeg</code> and <code>gif</code>. 
+</alert>
+
 ## `componentAutoImport`
 - Type: `Boolean`
   - Default: `false`

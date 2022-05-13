@@ -19,7 +19,7 @@ import SourceList from 'nuxt-speedkit/components/SpeedkitPicture/classes/SourceL
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import PictureSource from 'nuxt-speedkit/components/SpeedkitPicture/Source';
 
-const formatPriority = ['avif', 'webp', 'png', 'jpg', 'gif'];
+const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
 export default {
   components: {
@@ -36,7 +36,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return ['webp', 'avif', 'jpg|jpeg|png|gif'];
+        return this.$speedkit.targetFormats;
       }
     },
 
@@ -85,8 +85,8 @@ export default {
     },
 
     formatSources () {
-      const sortedFormatsByPriority = Array.from(new Set(formatPriority.map(v => this.formats.find(format => format.includes(v))))).filter(Boolean);
-      const preloadFormat = formatPriority.find(v => this.formats.find(format => format.includes(v)));
+      const sortedFormatsByPriority = Array.from(new Set(TARGET_FORMAT_PRIORITY.map(v => this.formats.find(format => format.includes(v))))).filter(Boolean);
+      const preloadFormat = TARGET_FORMAT_PRIORITY.find(v => this.formats.find(format => format.includes(v)));
       return this.sourceList.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
     },
 
