@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.0.13-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.12...v2.0.13-beta.1) (2022-05-13)
+
+
+### Bug Fixes
+
+* **entry:** improve init; fix test without info-layer ([5731c7f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5731c7f7dda14298003891d797b05787beca011f))
+* **module:** removed `device` option; update `entry.js` ([62305c9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/62305c9d16f8db208d5046cd84ffbc29d3720d73))
+
 ## [2.0.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.11...v2.0.12) (2022-05-04)
 
 
