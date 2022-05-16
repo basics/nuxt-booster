@@ -5,7 +5,33 @@ import rimraf from 'rimraf';
 import { createApp } from 'h3';
 import { listen } from 'listhen';
 import serveStatic from 'serve-static';
+import { defu } from 'defu';
+import { Nuxt, Builder, Generator } from 'nuxt';
+import { getPort } from 'get-port-please';
+import nuxtConfig from '../example/nuxt.config';
 import { toHashHex } from '../lib/utils/string';
+
+export const generate = async (buildDir, distDir) => {
+  const config = defu({
+    target: 'static',
+    modern: true,
+    buildDir,
+    env: {
+      DISABLE_INFO_LAYER: true
+    },
+    generate: { cache: false, dir: distDir, crawler: false },
+    dir: {
+      pages: 'pages/tests'
+    }
+  }, nuxtConfig);
+  const nuxt = new Nuxt(config);
+  nuxt.server.listen(await getPort({ random: true }));
+  await nuxt.ready();
+
+  const builder = new Builder(nuxt);
+  await new Generator(nuxt, builder).generate({ build: true, init: true });
+  await nuxt.close();
+};
 
 export const getDom = html => new JSDOM(html).window.document;
 
