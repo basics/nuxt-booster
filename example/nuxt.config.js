@@ -5,7 +5,7 @@ import pkg from '../package.json';
 
 import * as postcssFunctions from './postcss/functions';
 
-const isDev = process.env.NODE_ENV === 'development'; ;
+const isDev = process.env.NODE_ENV === 'development';
 
 export default {
   dev: isDev,
@@ -16,7 +16,8 @@ export default {
   srcDir: __dirname,
 
   env: {
-    GITHUB_REPO_URL: pkg.repository.url
+    GITHUB_REPO_URL: pkg.repository.url,
+    DISABLE_INFO_LAYER: false
   },
 
   components: ['~/components/auto-import/'],
