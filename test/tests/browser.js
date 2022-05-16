@@ -185,12 +185,11 @@ export default (runtime) => {
     // #region /tests/youtube
     it('youtube ready, play and autoplay', async () => {
       const page = await createPage('/youtube/');
-
-      // wait for ready
-      await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready');
+      await page.waitForLoadState('networkidle');
 
       // start first player
       await page.evaluate(() => document.querySelector('#youtube-0 button').click());
+      await page.waitForLoadState('networkidle');
 
       // wait for playing first player playing
       await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready.playing');
