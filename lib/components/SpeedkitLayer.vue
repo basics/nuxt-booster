@@ -34,11 +34,11 @@
             </button>
 
             <!-- Button for use without javascript and with fonts -->
-            <base-button id="nuxt-speedkit-button-init-performance-issue" onclick="window.__NUXT_SPEEDKIT_PERFORMANCE_ISSUE_INIT__ = true;">
+            <button id="nuxt-speedkit-button-init-performance-issue" onclick="window.__NUXT_SPEEDKIT_PERFORMANCE_ISSUE_INIT__ = true;">
               <label for="nuxt-speedkit-layer-close">
                 Apply without scripts
               </label>
-            </base-button>
+            </button>
 
             <!-- Button for activate javascript by bad connection or browser support -->
             <button id="nuxt-speedkit-button-init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
