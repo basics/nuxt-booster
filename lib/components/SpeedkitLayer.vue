@@ -21,8 +21,8 @@
                 slow connection
               </li>
               <!-- Displayed when by bad perforamce. -->
-              <li id="nuxt-speedkit-message-bad-performance">
-                basd performance
+              <li id="nuxt-speedkit-message-performance-issue">
+                performance issue
               </li>
             </ul>
 
@@ -34,11 +34,11 @@
             </button>
 
             <!-- Button for use without javascript and with fonts -->
-            <button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
+            <base-button id="nuxt-speedkit-button-init-performance-issue" onclick="window.__NUXT_SPEEDKIT_PERFORMANCE_ISSUE_INIT__ = true;">
               <label for="nuxt-speedkit-layer-close">
-                Apply with Fonts
+                Apply without scripts
               </label>
-            </button>
+            </base-button>
 
             <!-- Button for activate javascript by bad connection or browser support -->
             <button id="nuxt-speedkit-button-init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
@@ -114,7 +114,7 @@ export default {
   display: none;
 }
 
-#nuxt-speedkit-message-bad-performance {
+#nuxt-speedkit-message-performance-issue {
   display: none;
 }
 
