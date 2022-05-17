@@ -14,14 +14,14 @@
         <li id="nuxt-speedkit-message-slow-connection">
           slow connection
         </li>
-        <li id="nuxt-speedkit-message-bad-performance">
+        <li id="nuxt-speedkit-message-performance-issue">
           bad performance
         </li>
       </ul>
       <div class="info-layer-buttons">
         <base-button id="nuxt-speedkit-button-init-nojs">
           <label for="nuxt-speedkit-layer-close">
-            OK
+            Yes
           </label>
         </base-button>
         <base-button id="nuxt-speedkit-button-init-performance-issue" onclick="window.__NUXT_SPEEDKIT_PERFORMANCE_ISSUE_INIT__ = true;">

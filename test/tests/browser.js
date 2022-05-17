@@ -24,13 +24,64 @@ export default (runtime) => {
   });
 
   function browserTests ({ browser = false, runtime }) {
-    const createPage = async (path) => {
-      const page = await (await browsers.get(browser)).newPage();
+    const createPage = async (path, nojs) => {
+      let context = await browsers.get(browser);
+      if (nojs) {
+        context = await context.newContext({
+          javaScriptEnabled: false
+        });
+      }
+      const page = await context.newPage();
       await page.goto(joinURL(runtime.serverUrl, path));
       return page;
     };
 
-    // #region /tests/loader
+    // #region /tests/speedkit-layer
+
+    it('SpeedkitLayer (Apply without scripts)', async () => {
+      const page = await createPage('/speedkit-layer/');
+
+      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
+
+      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-performance-issue').click());
+      await page.waitForLoadState('networkidle');
+
+      // picture transformed
+      await page.waitForSelector('.nuxt-speedkit-picture');
+
+      // active font
+      await page.waitForSelector('[data-font].font-active');
+    });
+
+    it('SpeedkitLayer (Apply with scripts)', async () => {
+      const page = await createPage('/speedkit-layer/');
+
+      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
+
+      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-app').click());
+      await page.waitForLoadState('networkidle');
+
+      // picture transformed
+      await page.waitForSelector('.nuxt-speedkit-picture');
+
+      // active font
+      await page.waitForSelector('[data-font].font-active');
+    });
+
+    it('SpeedkitLayer (No Javascript)', async () => {
+      const page = await createPage('/speedkit-layer/', true);
+
+      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
+
+      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-nojs').click());
+
+      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer-close').checked)).toBeFalsy();
+      await page.screenshot({ path: 'screenshot.png', fullPage: true });
+    });
+
+    // #endregion /tests/speedkit-layer
+
+    // #region /tests/speedkit-loader
 
     it('speedkitHydrate', async () => {
       const page = await createPage('/speedkit-loader/');
@@ -43,7 +94,7 @@ export default (runtime) => {
       await page.waitForSelector('#lazySpeedkitHydrate.active');
     });
 
-    // #endregion /tests/loader
+    // #endregion /tests/speedkit-loader
 
     // #region /tests/v-font
 
