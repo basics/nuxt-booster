@@ -24,7 +24,7 @@
             OK
           </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
+        <base-button id="nuxt-speedkit-button-init-performance-issue" onclick="window.__NUXT_SPEEDKIT_PERFORMANCE_ISSUE_INIT__ = true;">
           <label for="nuxt-speedkit-layer-close">
             No
           </label>
