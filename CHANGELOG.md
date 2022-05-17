@@ -1,5 +1,18 @@
 # Project Changelog
 
+## [2.0.13-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.2...v2.0.13-beta.3) (2022-05-17)
+
+
+### Bug Fixes
+
+* **entry:** added idle loop break; … ([171807d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/171807d5b7bcd558cac17c521f25df134f3516ff))
+* **entry:** button registrations ordered ([8dd8477](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8dd84777899b59933ff70ffd4d7b8f967ed00005))
+* **entry:** fix `performance-issue` class by init app ([05d2c89](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/05d2c8973d03a29c7c4ccea23f553f2fc87b0c57))
+* **entry:** fix spelling; remove init font option ([6971225](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6971225348163743be6a210b21af67b434cfc389))
+* **entry:** improve noscript picture transform ([2d632e6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2d632e62ff455f375dc269ea486646dfc881193b))
+* **sample:** replace font button in info-layer ([08f141e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/08f141e42962c9c6a6bee6a0d1e8622f34bdacfc))
+* **speedkit-picture:** fix missing noscript identifier class ([b720dc5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b720dc53026b7b0a1b632f4ce3890cbd3b71821f))
+
 ## [2.0.13-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.1...v2.0.13-beta.2) (2022-05-16)
 
 
