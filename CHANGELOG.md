@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.13-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.3...v2.0.13-beta.4) (2022-05-17)
+
+
+### Bug Fixes
+
+* **speedkit-layer:** fix button tag ([d35d0e6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d35d0e609117a490174a54c358a971c63b7e4a40))
+
 ## [2.0.13-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.2...v2.0.13-beta.3) (2022-05-17)
 
 
