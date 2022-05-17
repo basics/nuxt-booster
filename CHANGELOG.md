@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.13-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.4...v2.0.13-beta.5) (2022-05-17)
+
+
+### Bug Fixes
+
+* **entry:** max idle tries can be set via modul option ([1671b9c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1671b9c21162c61a2fcf962bcccb53c2b02b06c2))
+
 ## [2.0.13-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.3...v2.0.13-beta.4) (2022-05-17)
 
 
