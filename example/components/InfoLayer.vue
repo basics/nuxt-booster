@@ -24,12 +24,12 @@
             Yes
           </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-performance-issue" onclick="window.__NUXT_SPEEDKIT_PERFORMANCE_ISSUE_INIT__ = true;">
+        <base-button id="nuxt-speedkit-button-init-performance-issue">
           <label for="nuxt-speedkit-layer-close">
             No
           </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-app" label="Yes" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" />
+        <base-button id="nuxt-speedkit-button-init-app" label="Yes" />
       </div>
     </div>
   </speedkit-layer>
