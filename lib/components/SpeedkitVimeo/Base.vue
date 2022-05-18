@@ -4,6 +4,7 @@
   >
     <slot name="background" v-bind="{playing, videoData}" />
     <div class="player">
+      <slot name="beforePlayer" />
       <iframe
         ref="player"
         :key="src"
@@ -19,6 +20,7 @@
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
       </default-button>
+      <slot name="afterPlayer" />
     </div>
     <slot v-bind="{playing, videoData}" />
   </div>

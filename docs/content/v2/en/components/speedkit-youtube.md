@@ -148,10 +148,12 @@ Sets the host for the player.
 </template>
 ````
 
-| Name              | Description                     |
-| ----------------- | ------------------------------- |
-| `loading-spinner` | Overwrites the loading spinner. |
-| `play`            | Overwrites the play button.     |
+| Name              | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| `loading-spinner` | Overwrites the loading spinner.                          |
+| `play`            | Overwrites the play button.                              |
+| `beforePlayer`    | Used to place elements in the player container (before). |
+| `afterPlayer`     | Used to place elements in the player container (after).  |
 
 ## Events
 

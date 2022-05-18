@@ -1,5 +1,8 @@
 <template>
   <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs" v-on="$listeners">
+    <template #beforePlayer>
+      <slot name="beforePlayer" />
+    </template>
     <template #loading-spinner>
       <slot name="loading-spinner">
         <svg class="loader loading-spinner" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -31,6 +34,9 @@
           <path d="M 45,24 27,14 27,34" fill="#fff" />
         </svg>
       </slot>
+    </template>
+    <template #afterPlayer>
+      <slot name="afterPlayer" />
     </template>
   </base-youtube>
 </template>
@@ -118,4 +124,5 @@ export default {
 }
 
 /*! purgecss end ignore */
+
 </style>

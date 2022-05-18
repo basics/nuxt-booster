@@ -4,6 +4,9 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
+    <template #beforePlayer>
+      <slot name="beforePlayer" />
+    </template>
     <template #loading-spinner>
       <slot name="loading-spinner">
         <div
@@ -43,6 +46,9 @@
           </span>
         </div>
       </slot>
+    </template>
+    <template #afterPlayer>
+      <slot name="afterPlayer" />
     </template>
     <template #default="context">
       <slot name="default" v-bind="context" />

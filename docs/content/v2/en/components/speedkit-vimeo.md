@@ -148,7 +148,8 @@ This is important for autoplay on mobile devices.
 | `default`         | Used to display more information about the video below the player.<br>The slot has a scoped property `videoData`. <br>This contains the result from the Vimeo `oembed` api.<br><br>https://developer.vimeo.com/api/oembed/videos#table-2 |
 | `loading-spinner` | Overwrites the loading spinner.                                                                                                                                                                                                          |
 | `play`            | Overwrites the play button.                                                                                                                                                                                                              |
-
+| `beforePlayer`    | Used to place elements in the player container (before).                                                                                                                                                                                 |
+| `afterPlayer`     | Used to place elements in the player container (after).                                                                                                                                                                                  |
 
 ## Events
 
