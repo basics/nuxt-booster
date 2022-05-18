@@ -91,6 +91,8 @@ export default (runtime) => {
 
       await page.evaluate(() => document.querySelector('.nuxt-speedkit-weak-hardware-overlay button').click());
       await page.waitForSelector('main.mounted');
+
+      expect(await page.evaluate(() => document.querySelector('.nuxt-speedkit-weak-hardware-overlay'))).toBeFalsy();
     });
 
     // #endregion /tests/weak-hardware-overlay
@@ -237,7 +239,7 @@ export default (runtime) => {
 
     // #region /tests/iframe
 
-    it('iframe', async () => {
+    it('SpeedkitIframe', async () => {
       const page = await createPage('/iframe/');
       await page.evaluate(() => {
         window.scrollBy(0, window.innerHeight);
@@ -248,7 +250,7 @@ export default (runtime) => {
     // #endregion
 
     // #region /tests/youtube
-    it('youtube ready, play and autoplay', async () => {
+    it('SpeedkitYoutube (ready, play and autoplay)', async () => {
       const page = await createPage('/youtube/');
       await page.waitForLoadState('networkidle');
 
@@ -271,7 +273,7 @@ export default (runtime) => {
 
     // // #region /tests/vimeo
 
-    // it('vimeo ready & play', async () => {
+    // it('SpeedkitVimeo (ready & play)', async () => {
     //   const page = await createPage('/vimeo/');
     //   await page.waitForLoadState('networkidle');
 
