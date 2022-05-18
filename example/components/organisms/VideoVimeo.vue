@@ -9,6 +9,9 @@
       <template #default="{videoData}">
         <div class="description" v-html="videoData && videoData.description" />
       </template>
+      <template #afterPlayer>
+        <weak-hardware-overlay />
+      </template>
     </speedkit-vimeo>
   </document-section>
 </template>
@@ -16,9 +19,10 @@
 <script>
 
 import SpeedkitVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
+import WeakHardwareOverlay from '@/components/atoms/WeakHardwareOverlay';
 
 export default {
-  components: { SpeedkitVimeo },
+  components: { SpeedkitVimeo, WeakHardwareOverlay },
 
   inheritAttrs: false,
 

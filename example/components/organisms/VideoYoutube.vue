@@ -5,7 +5,11 @@
     ]"
     class="video-youtube"
   >
-    <speedkit-youtube v-bind="$attrs" />
+    <speedkit-youtube v-bind="$attrs">
+      <template #afterPlayer>
+        <weak-hardware-overlay />
+      </template>
+    </speedkit-youtube>
     <p v-if="text" v-html="text" />
   </document-section>
 </template>
@@ -13,9 +17,10 @@
 <script>
 
 import SpeedkitYoutube from 'nuxt-speedkit/components/SpeedkitYoutube';
+import WeakHardwareOverlay from '@/components/atoms/WeakHardwareOverlay';
 
 export default {
-  components: { SpeedkitYoutube },
+  components: { SpeedkitYoutube, WeakHardwareOverlay },
 
   inheritAttrs: false,
 
@@ -33,4 +38,5 @@ export default {
 .video-youtube {
   padding: 0 10%;
 }
+
 </style>
