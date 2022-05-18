@@ -11,7 +11,7 @@
         <li id="nuxt-speedkit-message-unsupported-browser">
           outdated browser
         </li>
-        <li id="nuxt-speedkit-message-slow-connection">
+        <li id="nuxt-speedkit-message-reduced-bandwidth">
           slow connection
         </li>
         <li id="nuxt-speedkit-message-performance-issue">
