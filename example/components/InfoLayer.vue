@@ -12,10 +12,10 @@
           outdated browser
         </li>
         <li id="nuxt-speedkit-message-reduced-bandwidth">
-          slow connection
+          reduced-bandwidth
         </li>
-        <li id="nuxt-speedkit-message-performance-issue">
-          bad performance
+        <li id="nuxt-speedkit-message-weak-hardware">
+          weak hardware
         </li>
       </ul>
       <div class="info-layer-buttons">
@@ -24,7 +24,7 @@
             Yes
           </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-performance-issue">
+        <base-button id="nuxt-speedkit-button-init-reduced-view">
           <label for="nuxt-speedkit-layer-close">
             No
           </label>
