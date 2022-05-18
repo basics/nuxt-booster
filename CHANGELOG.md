@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.13-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.6...v2.0.13-beta.7) (2022-05-18)
+
+
+### Bug Fixes
+
+* **entry:** renamed `slow-connection` to `reduced-bandwidth` ([8bbe27a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8bbe27a464b0782a95abf892c62c59ccdfac796b))
+
 ## [2.0.13-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.5...v2.0.13-beta.6) (2022-05-18)
 
 
