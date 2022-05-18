@@ -101,14 +101,7 @@ We use this effect by executing the intial javascript process and the component 
 
 Side effect: The timeslots in the Google Lighthouse Test are always <= 10ms, so no javascript will be initialized.
 
-### FunFact: `window.navigator.hardwareConcurrency`
-
-`window.navigator.hardwareConcurrency` normally returns the number of CPU cores per device. However, this value can also be used to identify a Lighthouse Test as an alternative to the UserAgent. In our test series, we continuously received a value of ~88 cores in the Lighthouse Mobile simulation (pagespeed.web.dev). This is primarily an indication that a server-powered Chromium is accessing the website. We are not aware of a normal end device (laptop, tablet, mobile) that is equipped with 88 CPU cores.
-
-I admit this is very 'hacky'. We do support this detection in **Nuxt Speedkit**. But not by default. Maybe one or the other can use this feature again. :)
-
-
-### InfoLayer
+### SpeedkitLayer
 With the solutions described above, the user gets a functioning webpage displayed very quickly.
 However, the following situation can also occur on the end device:
 
