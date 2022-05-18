@@ -17,7 +17,7 @@
                 outdated browser
               </li>
               <!-- Displayed when connection bandwidth is too low. -->
-              <li id="nuxt-speedkit-message-slow-connection">
+              <li id="nuxt-speedkit-message-reduced-bandwidth">
                 slow connection
               </li>
               <!-- Displayed when user hardware are not sufficient.  -->
@@ -110,7 +110,7 @@ export default {
   display: none;
 }
 
-#nuxt-speedkit-message-slow-connection {
+#nuxt-speedkit-message-reduced-bandwidth {
   display: none;
 }
 

@@ -101,8 +101,8 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer
         outdated browser
       </li>
       <!-- Displayed when connection bandwidth is too low. -->
-      <li id="nuxt-speedkit-message-slow-connection">
-        slow connection
+      <li id="nuxt-speedkit-message-reduced-bandwidth">
+        reduced-bandwidth
       </li>
       <!-- Displayed when user hardware are not sufficient.  -->
       <li id="nuxt-speedkit-message-weak-hardware">
