@@ -70,7 +70,7 @@ export default (runtime) => {
       await page.waitForSelector('[data-font].font-active');
     });
 
-    it('SpeedkitLayer (No Javascript)', async () => {
+    it('SpeedkitLayer (NoJs)', async () => {
       const page = await createPage('/speedkit-layer/', true);
 
       expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
@@ -81,6 +81,19 @@ export default (runtime) => {
     });
 
     // #endregion /tests/speedkit-layer
+
+    // #region /tests/weak-hardware-overlay
+
+    it('WeakHardwareOverlay (Visible & Init App)', async () => {
+      const page = await createPage('/weak-hardware-overlay/');
+
+      expect(await page.evaluate(() => document.querySelector('.nuxt-speedkit-weak-hardware-overlay'))).not.toBeFalsy();
+
+      await page.evaluate(() => document.querySelector('.nuxt-speedkit-weak-hardware-overlay button').click());
+      await page.waitForSelector('main.mounted');
+    });
+
+    // #endregion /tests/weak-hardware-overlay
 
     // #region /tests/speedkit-loader
 
