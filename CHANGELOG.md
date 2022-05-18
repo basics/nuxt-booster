@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.13-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.5...v2.0.13-beta.6) (2022-05-18)
+
+
+### Bug Fixes
+
+* **entry:** renamed `performance-issue` to `weak hardware` ([d38d09d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d38d09d6dd80733230d14269bba2936871fe7bd6))
+
 ## [2.0.13-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.4...v2.0.13-beta.5) (2022-05-17)
 
 
