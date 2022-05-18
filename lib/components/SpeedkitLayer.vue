@@ -16,13 +16,13 @@
               <li id="nuxt-speedkit-message-unsupported-browser">
                 outdated browser
               </li>
-              <!-- Displayed when connection is too slow. -->
+              <!-- Displayed when connection bandwidth is too low. -->
               <li id="nuxt-speedkit-message-slow-connection">
                 slow connection
               </li>
-              <!-- Displayed when by perforamce issue. -->
-              <li id="nuxt-speedkit-message-performance-issue">
-                performance issue
+              <!-- Displayed when user hardware are not sufficient.  -->
+              <li id="nuxt-speedkit-message-weak-hardware">
+                weak hardware
               </li>
             </ul>
 
@@ -34,7 +34,7 @@
             </button>
 
             <!-- Button for use without javascript and with fonts -->
-            <button id="nuxt-speedkit-button-init-performance-issue">
+            <button id="nuxt-speedkit-button-init-reduced-view">
               <label for="nuxt-speedkit-layer-close">
                 Apply without scripts
               </label>
@@ -114,7 +114,7 @@ export default {
   display: none;
 }
 
-#nuxt-speedkit-message-performance-issue {
+#nuxt-speedkit-message-weak-hardware {
   display: none;
 }
 

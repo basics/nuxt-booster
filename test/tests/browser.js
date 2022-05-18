@@ -43,8 +43,10 @@ export default (runtime) => {
 
       expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
 
-      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-performance-issue').click());
+      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-reduced-view').click());
       await page.waitForLoadState('networkidle');
+
+      await page.waitForSelector('html.nuxt-speedkit-reduced-view');
 
       // picture transformed
       await page.waitForSelector('.nuxt-speedkit-picture');
@@ -76,7 +78,6 @@ export default (runtime) => {
       await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-nojs').click());
 
       expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer-close').checked)).toBeFalsy();
-      await page.screenshot({ path: 'screenshot.png', fullPage: true });
     });
 
     // #endregion /tests/speedkit-layer
