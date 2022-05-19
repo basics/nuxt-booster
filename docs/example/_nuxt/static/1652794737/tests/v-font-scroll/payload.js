@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tests/v-font-scroll", {data:[{_criticalFontStyles:{},_img:{}}],fetch:{},mutations:void 0});
