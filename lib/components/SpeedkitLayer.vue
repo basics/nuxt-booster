@@ -16,13 +16,13 @@
               <li id="nuxt-speedkit-message-unsupported-browser">
                 outdated browser
               </li>
-              <!-- Displayed when user hardware is not sufficient. -->
-              <li id="nuxt-speedkit-message-outdated-device">
-                outdated device
-              </li>
-              <!-- Displayed when connection is too slow. -->
-              <li id="nuxt-speedkit-message-slow-connection">
+              <!-- Displayed when connection bandwidth is too low. -->
+              <li id="nuxt-speedkit-message-reduced-bandwidth">
                 slow connection
+              </li>
+              <!-- Displayed when user hardware are not sufficient.  -->
+              <li id="nuxt-speedkit-message-weak-hardware">
+                weak hardware
               </li>
             </ul>
 
@@ -34,14 +34,14 @@
             </button>
 
             <!-- Button for use without javascript and with fonts -->
-            <button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
+            <button id="nuxt-speedkit-button-init-reduced-view">
               <label for="nuxt-speedkit-layer-close">
-                Apply with Fonts
+                Apply without scripts
               </label>
             </button>
 
             <!-- Button for activate javascript by bad connection or browser support -->
-            <button id="nuxt-speedkit-button-init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
+            <button id="nuxt-speedkit-button-init-app">
               Apply with all Features
             </button>
           </div>
@@ -67,11 +67,18 @@ export default {
       default () {
         return true;
       }
+    },
+    maxIdleDuration: {
+      type: Number,
+      default: undefined
     }
   },
 
   head () {
     return {
+      script: [
+         this.maxIdleDuration !== undefined && { type: 'text/javascript', innerHTML: `window.__NUXT_SPEEDKIT_MAX_IDLE_DURATION__ = ${this.maxIdleDuration};`}
+      ].filter(Boolean),
       noscript: [
         getStyleDescription('#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }', true)
       ],
@@ -110,11 +117,11 @@ export default {
   display: none;
 }
 
-#nuxt-speedkit-message-outdated-device {
+#nuxt-speedkit-message-reduced-bandwidth {
   display: none;
 }
 
-#nuxt-speedkit-message-slow-connection {
+#nuxt-speedkit-message-weak-hardware {
   display: none;
 }
 

@@ -12,7 +12,6 @@ solutions:
 hideLayerFeatures:
   - Closing mechanics does not require javascript.
 
-
 ---
 
 If the SpeedkitLayer is implemented, the javascript initialisation is automatically monitored. If one of the events 
@@ -30,6 +29,15 @@ Messages and buttons are defined with an `id`, these are set to `display: none;`
 
 <alert>For the closing mechanism of the layer, see [Hide Layer](/components/speedkit-layer#hide-layer).</alert>
 
+## Properties
+
+### `maxIdleDuration`
+- Type: `Number`
+
+Can be used to override the `maxIdleDuration` defined in the module options.
+
+[More about `maxIdleDuration`](/options#maxidleduration)
+
 ## Messages
 
 The messages are elements that are displayed for the relevant events.
@@ -40,9 +48,9 @@ When an event is triggered, the relevant message is displayed via the ID using t
 | ID                                                       | Description                                                                 |
 | -------------------------------------------------------- | --------------------------------------------------------------------------- |
 | <nobr>`nuxt-speedkit-message-nojs`</nobr>                | Javascript is disabled.                                                     |
+| <nobr>`nuxt-speedkit-message-reduced-bandwidth`</nobr>   | Connection bandwidth is too low.                                            |
+| <nobr>`nuxt-speedkit-message-weak-hardware`</nobr>       | User hardware are not sufficient.                                           |
 | <nobr>`nuxt-speedkit-message-unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/options#browsersupport). |
-| <nobr>`nuxt-speedkit-message-outdated-device`</nobr>     | User hardware (number of processor & RAM) are not sufficient.               |
-| <nobr>`nuxt-speedkit-message-slow-connection`</nobr>     | Connection speed is too low.                                                |
 
 **Example**
 ````html
@@ -64,45 +72,14 @@ The buttons are interaction elements for the user with which he can make his cho
 Initially, all IDs except for `nuxt-speedkit-button-nojs` are set to `display: none;`.
 When an event is triggered, the relevant button is displayed via the ID using the style attribute `display: block;`.
 
-| ID                                            | Description                                                                                                                                                               |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <nobr>`nuxt-speedkit-button-init-nojs`</nobr> | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/speedkit-layer#hide-layer) implementation.         |
-| <nobr>`nuxt-speedkit-button-init-font`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts. Other initialisations of the Javascript and loading of the pictures are prevented. |
-| <nobr>`nuxt-speedkit-button-init-app`</nobr>  | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                               |
+| ID                                                    | Description                                                                                                                                                       |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <nobr>`nuxt-speedkit-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/speedkit-layer#hide-layer) implementation. |
+| <nobr>`nuxt-speedkit-button-init-reduced-view`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts and images. Other initialisations of the Javascript are prevented.          |
+| <nobr>`nuxt-speedkit-button-init-app`</nobr>          | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                       |
 
+<alert type="info">It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-speedkit-button-init-reduced-view` and `#nuxt-speedkit-button-init-app`.<br><br>More information under [Force App initialization](/components/speedkit-layer#force-app-initialization)</alert>
 
-
-
-<alert type="info">It is recommended to register an **Inline Click-Event** for the buttons `nuxt-speedkit__button__init-font` and `nuxt-speedkit__button__init-app`.<br><br>More information under [Force App initialization or Font load](/components/speedkit-layer#force-app-initialization-or-font-load)</alert>
-
-
-
-## Force initialization (App, Font)
-
-For Unsupported-Browser and Insufficient Hardware events, an `onclick` event must also be set with the `id`.
-
-In the event, the global variable `__NUXT_SPEEDKIT_FONT_INIT__` or `__NUXT_SPEEDKIT_FONT_INIT__` must be set to `true`.
-
-These are needed if the user has already reacted before the initial Javascript has been loaded. After the javascript has been successfully loaded, the app is automatically initialised.
-
-| Variable                      | Type      | Description                                                                  | Default |
-| ----------------------------- | --------- | ---------------------------------------------------------------------------- | ------- |
-| `__NUXT_SPEEDKIT_FONT_INIT__` | `Boolean` | If set, only the fonts are initialised.                                      | `false` |
-| `__NUXT_SPEEDKIT_AUTO_INIT__` | `Boolean` | If set, initialisation continues after the javascript has been fully loaded. | `false` |
-
-**Example**
-
-````html
-<button
-  id="nuxt-speedkit-button-init-font"
-  onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;"
-  >…</button>
-
-<button
-  id="nuxt-speedkit-button-init-app"
-  onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;"
-  >…</button>
-````
 
 ## Hide Layer
 
@@ -121,7 +98,6 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer
 ````html
 <speedkit-layer>
   <div>
-
     <p>Sorry, but you will have a limited user experience due to a…</p>
 
     <ul style="padding: 0; list-style: none;">
@@ -133,13 +109,13 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer
       <li id="nuxt-speedkit-message-unsupported-browser">
         outdated browser
       </li>
-      <!-- Displayed when user hardware is not sufficient. -->
-      <li id="nuxt-speedkit-message-outdated-device">
-        outdated device
+      <!-- Displayed when connection bandwidth is too low. -->
+      <li id="nuxt-speedkit-message-reduced-bandwidth">
+        reduced-bandwidth
       </li>
-      <!-- Displayed when connection is too slow. -->
-      <li id="nuxt-speedkit-message-slow-connection">
-        slow connection
+      <!-- Displayed when user hardware are not sufficient.  -->
+      <li id="nuxt-speedkit-message-weak-hardware">
+        weak hardware
       </li>
     </ul>
 
@@ -151,17 +127,29 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer
     </button>
 
     <!-- Button for use without javascript and with fonts -->
-    <button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
+    <button id="nuxt-speedkit-button-init-reduced-view">
       <label for="nuxt-speedkit-layer-close">
-        Apply with Fonts
+        Apply without scripts
       </label>
     </button>
 
     <!-- Button for activate javascript by bad connection or browser support -->
-    <button id="nuxt-speedkit-button-init-app" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;">
+    <button id="nuxt-speedkit-button-init-app">
       Apply with all Features
     </button>
-
   </div>
 </speedkit-layer>
 ````
+
+## Force App initialization
+
+For Unsupported-Browser and Insufficient Hardware events, an `onclick` event must also be set with the `id`.
+
+In the event, the global variable `__NUXT_SPEEDKIT_AUTO_INIT__` must be set to `true`.
+
+These are needed if the user has already reacted before the initial Javascript has been loaded. After the javascript has been successfully loaded, the app is automatically initialised.
+
+| Variable                      | Type      | Description                                                                  | Default |
+| ----------------------------- | --------- | ---------------------------------------------------------------------------- | ------- |
+| `__NUXT_SPEEDKIT_AUTO_INIT__` | `Boolean` | If set, initialisation continues after the javascript has been fully loaded. | `false` |
+

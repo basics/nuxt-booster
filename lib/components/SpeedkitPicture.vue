@@ -15,7 +15,9 @@ export default {
   render (h) {
     if (!this.hydrate) {
       return h(LazyHydrate, { props: { never: true } }, [
-        h('noscript', {}, [
+        h('noscript', {
+          class: 'nuxt-speedkit-picture-noscript'
+        }, [
           h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.hydrate }, on: this.$listeners })
         ])
       ]);

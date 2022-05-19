@@ -1,5 +1,68 @@
 # Project Changelog
 
+## [2.0.13-beta.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.7...v2.0.13-beta.8) (2022-05-19)
+
+
+### Bug Fixes
+
+* **entry:** changed `maxIdleTries` to `maxIdleDuration` ([534653a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/534653a4238d87a0bd2f657455a6677b915bb54a))
+
+## [2.0.13-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.6...v2.0.13-beta.7) (2022-05-18)
+
+
+### Bug Fixes
+
+* **entry:** renamed `slow-connection` to `reduced-bandwidth` ([8bbe27a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8bbe27a464b0782a95abf892c62c59ccdfac796b))
+
+## [2.0.13-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.5...v2.0.13-beta.6) (2022-05-18)
+
+
+### Bug Fixes
+
+* **entry:** renamed `performance-issue` to `weak hardware` ([d38d09d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d38d09d6dd80733230d14269bba2936871fe7bd6))
+
+## [2.0.13-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.4...v2.0.13-beta.5) (2022-05-17)
+
+
+### Bug Fixes
+
+* **entry:** max idle tries can be set via modul option ([1671b9c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1671b9c21162c61a2fcf962bcccb53c2b02b06c2))
+
+## [2.0.13-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.3...v2.0.13-beta.4) (2022-05-17)
+
+
+### Bug Fixes
+
+* **speedkit-layer:** fix button tag ([d35d0e6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d35d0e609117a490174a54c358a971c63b7e4a40))
+
+## [2.0.13-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.2...v2.0.13-beta.3) (2022-05-17)
+
+
+### Bug Fixes
+
+* **entry:** added idle loop break; … ([171807d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/171807d5b7bcd558cac17c521f25df134f3516ff))
+* **entry:** button registrations ordered ([8dd8477](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8dd84777899b59933ff70ffd4d7b8f967ed00005))
+* **entry:** fix `performance-issue` class by init app ([05d2c89](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/05d2c8973d03a29c7c4ccea23f553f2fc87b0c57))
+* **entry:** fix spelling; remove init font option ([6971225](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6971225348163743be6a210b21af67b434cfc389))
+* **entry:** improve noscript picture transform ([2d632e6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2d632e62ff455f375dc269ea486646dfc881193b))
+* **sample:** replace font button in info-layer ([08f141e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/08f141e42962c9c6a6bee6a0d1e8622f34bdacfc))
+* **speedkit-picture:** fix missing noscript identifier class ([b720dc5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b720dc53026b7b0a1b632f4ce3890cbd3b71821f))
+
+## [2.0.13-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.1...v2.0.13-beta.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* **entry:** test entry init 1 ([5c99642](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5c996421972a13c40b15989ad1d054eaa606c0ff))
+
+## [2.0.13-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.12...v2.0.13-beta.1) (2022-05-13)
+
+
+### Bug Fixes
+
+* **entry:** improve init; fix test without info-layer ([5731c7f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5731c7f7dda14298003891d797b05787beca011f))
+* **module:** removed `device` option; update `entry.js` ([62305c9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/62305c9d16f8db208d5046cd84ffbc29d3720d73))
+
 ## [2.0.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.11...v2.0.12) (2022-05-04)
 
 

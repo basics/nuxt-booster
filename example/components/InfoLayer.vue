@@ -1,5 +1,5 @@
 <template>
-  <speedkit-layer class="info-layer">
+  <speedkit-layer class="info-layer" v-bind="$attrs" v-on="$listeners">
     <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
@@ -11,25 +11,25 @@
         <li id="nuxt-speedkit-message-unsupported-browser">
           outdated browser
         </li>
-        <li id="nuxt-speedkit-message-outdated-device">
-          outdated device
+        <li id="nuxt-speedkit-message-reduced-bandwidth">
+          reduced-bandwidth
         </li>
-        <li id="nuxt-speedkit-message-slow-connection">
-          slow connection
+        <li id="nuxt-speedkit-message-weak-hardware">
+          weak hardware
         </li>
       </ul>
       <div class="info-layer-buttons">
         <base-button id="nuxt-speedkit-button-init-nojs">
           <label for="nuxt-speedkit-layer-close">
-            OK
+            Yes
           </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-font" onclick="window.__NUXT_SPEEDKIT_FONT_INIT__ = true;">
+        <base-button id="nuxt-speedkit-button-init-reduced-view">
           <label for="nuxt-speedkit-layer-close">
             No
           </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-app" label="Yes" onclick="window.__NUXT_SPEEDKIT_AUTO_INIT__ = true;" />
+        <base-button id="nuxt-speedkit-button-init-app" label="Yes" />
       </div>
     </div>
   </speedkit-layer>
@@ -46,6 +46,7 @@ export default {
     BaseButton,
     SpeedkitLayer
   },
+  inheritAttrs: false,
   data () {
     return {
       hydrate: false

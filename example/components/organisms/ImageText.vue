@@ -13,6 +13,7 @@
           :title="picture.title"
           :alt="picture.alt"
           :sources="picture.sources"
+          :hydrate="picture.hydrate !== undefined ? picture.hydrate : true"
         />
       </div>
       <div class="text">
