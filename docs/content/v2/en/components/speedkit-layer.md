@@ -29,6 +29,15 @@ Messages and buttons are defined with an `id`, these are set to `display: none;`
 
 <alert>For the closing mechanism of the layer, see [Hide Layer](/components/speedkit-layer#hide-layer).</alert>
 
+## Properties
+
+### `maxIdleDuration`
+- Type: `Number`
+
+Can be used to override the `maxIdleDuration` defined in the module options.
+
+[More about `maxIdleDuration`](/options#maxidleduration)
+
 ## Messages
 
 The messages are elements that are displayed for the relevant events.
