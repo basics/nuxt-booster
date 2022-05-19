@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.13-beta.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.7...v2.0.13-beta.8) (2022-05-19)
+
+
+### Bug Fixes
+
+* **entry:** changed `maxIdleTries` to `maxIdleDuration` ([534653a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/534653a4238d87a0bd2f657455a6677b915bb54a))
+
 ## [2.0.13-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13-beta.6...v2.0.13-beta.7) (2022-05-18)
 
 
