@@ -1,7 +1,7 @@
 <template>
   <document-section tag="main">
     <component-image-text v-bind="imageTextA" />
-    <speedkit-layer />
+    <speedkit-layer :max-idle-duration="0" />
   </document-section>
 </template>
 

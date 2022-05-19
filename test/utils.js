@@ -22,9 +22,6 @@ export const generate = async (buildDir, distDir) => {
     generate: { cache: false, dir: distDir, crawler: false },
     dir: {
       pages: 'pages/tests'
-    },
-    speedkit: {
-      maxIdleTries: 0
     }
   }, nuxtConfig);
   const nuxt = new Nuxt(config);

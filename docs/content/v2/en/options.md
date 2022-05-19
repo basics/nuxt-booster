@@ -291,11 +291,12 @@ Defines the global built-in [LoadingSpinner](/components/speedkit-image#loadings
  | `size`            | `String` | no       | Defines the size of the loader. Use css `background-size` definition.         | `100px`     |
  | `backgroundColor` | `String` | no       | Defines the background color of the loader. Use css `color` definition.       | `grey`      |
 
-## `maxIdleTries`
+## `maxIdleDuration`
 - Type: `Number`
-  - Default: `1000`
+  - Default: `16`
 
-Sets the number of times `IdleDeadline.timeRemaining()` is called, the retrieved period must be at least `10ms`.
+Defines the duration (seconds), which is tried to determine a free slot by `IdleDeadline.timeRemaining()`. Free slot must be at least `10ms`.
+
 
 When reaching the max. value, 
 

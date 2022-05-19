@@ -1,5 +1,5 @@
 <template>
-  <speedkit-layer class="info-layer">
+  <speedkit-layer class="info-layer" v-bind="$attrs" v-on="$listeners">
     <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
@@ -46,6 +46,7 @@ export default {
     BaseButton,
     SpeedkitLayer
   },
+  inheritAttrs: false,
   data () {
     return {
       hydrate: false
