@@ -77,7 +77,7 @@
     "playwright": "1.22.2",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.4.1",
-    "postcss-nesting": "10.1.7",
+    "postcss-nesting": "10.1.8",
     "postcss-preset-env": "7.7.1",
     "serve-static": "1.15.0",
     "stylelint": "14.8.5",
