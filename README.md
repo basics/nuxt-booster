@@ -104,6 +104,9 @@ or look here
 - [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/modern.html)
 - [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/server.html)
 
+## Consulting & Support
+Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: dev@grabarzundpartner.de. We are looking forward to your request.
+
 ## License
 
 [MIT License](./LICENSE)
