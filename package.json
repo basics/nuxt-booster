@@ -67,7 +67,7 @@
     "eslint-plugin-sonarjs": "0.13.0",
     "eslint-plugin-xss": "0.1.11",
     "get-port-please": "2.5.0",
-    "h3": "0.7.9",
+    "h3": "0.7.10",
     "husky": "8.0.1",
     "jsdom": "19.0.0",
     "lint-staged": "13.0.2",
