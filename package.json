@@ -65,7 +65,7 @@
     "eslint-plugin-no-unsanitized": "4.0.1",
     "eslint-plugin-security": "1.5.0",
     "eslint-plugin-sonarjs": "0.13.0",
-    "eslint-plugin-xss": "0.1.11",
+    "eslint-plugin-xss": "0.1.12",
     "get-port-please": "2.5.0",
     "h3": "0.7.10",
     "husky": "8.0.1",
