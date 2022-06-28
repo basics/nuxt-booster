@@ -143,3 +143,4 @@ Do you need further support, a consultation or a code review for an appropriate 
 
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-speedkit.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/nuxt-speedkit
+
