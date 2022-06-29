@@ -105,7 +105,7 @@ More about `@nuxt/image` module options can be found [here](https://image.nuxtjs
       ]
     }],
 
-    pictureFormats: ['webp', 'avif', 'jpg|jpeg|png|gif'],
+    targetFormats: ['webp', 'avif', 'jpg|jpeg|png|gif'],
 
     componentAutoImport: false,
     componentPrefix: undefined,
