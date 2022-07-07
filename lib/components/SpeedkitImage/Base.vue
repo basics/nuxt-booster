@@ -57,10 +57,13 @@ export default {
   },
 
   fetchKey () {
+    const key = [this.$parent?._fetchKey];
     if (this.source) {
-      return `image-${(new Source(this.source))?.key}`;
+      key.push(`image-${(new Source(this.source))?.key}`);
+    } else {
+      key.push('image');
     }
-    return 'image';
+    return key.filter(Boolean).join('-');
   },
 
   async fetch () {
