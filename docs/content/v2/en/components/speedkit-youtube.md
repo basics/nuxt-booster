@@ -17,9 +17,9 @@ The `url` of the Youtube video must be specified.
 
 The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/components/speedkit-picture#sources). 
 
-
-
 [Learn more about `SpeedkitPicture`](/components/speedkit-picture)
+
+<alert type="warning">Important: For using `SpeedkitYoutube` do not disable `@nuxt/image` via `disableNuxtImage`.</alert>
 
 ### Example
 

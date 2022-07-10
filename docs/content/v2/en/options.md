@@ -297,8 +297,18 @@ Defines the global built-in [LoadingSpinner](/components/speedkit-image#loadings
 
 Defines the duration (seconds), which is tried to determine a free slot by `IdleDeadline.timeRemaining()`. Free slot must be at least `10ms`.
 
-
 When reaching the max. value, 
 
 - the SpeedkitLayer is shown if available or the app is 
 - or the app is initialized automatically.
+
+
+## `disableNuxtImage`
+- Type: `Boolean`
+  - Default: `false`
+
+If set, `@nuxt/image` will not be integrated.
+
+<alert type="danger">Note that the use of `SpeedkitImage`, `SpeedkitPicture`, `SpeedkitVimeo` and `SpeedkitYoutube` is not supported if `@nuxt/image` is not integrated.</alert>
+
+

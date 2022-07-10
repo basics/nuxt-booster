@@ -30,6 +30,8 @@ The `SpeedkitPicture` is used to automatically generate and display different im
 
 The specified resources can be given by absolute path (static folder) or complete URL. [`nuxt/image`](https://image.nuxtjs.org/) downloads the resources fully automatically and stores the generated and optimized renditions in the destination folder.
 
+<alert type="warning">Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disableNuxtImage`.</alert>
+
 ### Example
 
 ````vue

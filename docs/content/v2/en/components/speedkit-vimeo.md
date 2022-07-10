@@ -18,9 +18,9 @@ The `url` of the Vimeo video must be specified.
 
 The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/components/speedkit-image#source). 
 
-
-
 [Learn more about `SpeedkitPicture`](/components/speedkit-picture)
+
+<alert type="warning">Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNuxtImage`.</alert>
 
 ### Example
 
