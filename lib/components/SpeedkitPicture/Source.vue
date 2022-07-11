@@ -12,6 +12,14 @@ export default {
     source: {
       type: Source,
       required: true
+    },
+
+    crossorigin: {
+      type: [Boolean, String],
+      default () {
+        return this.$speedkit.crossorigin;
+      },
+      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
   },
 
@@ -37,7 +45,7 @@ export default {
     const imageSource = new Source(this.source);
     if (this.config && imageSource.preload) {
       return {
-        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, this.$speedkit.crossorigin)]
+        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, this.crossorigin)]
       };
     }
     return {};

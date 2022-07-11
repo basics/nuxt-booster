@@ -11,7 +11,7 @@
     :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
-    :crossorigin="$speedkit.crossorigin"
+    :crossorigin="crossorigin"
     v-on="{...$listeners, load: onLoad}"
   >
 </template>
@@ -37,6 +37,14 @@ export default {
     alt: {
       type: String,
       default: null
+    },
+
+    crossorigin: {
+      type: [Boolean, String],
+      default () {
+        return this.$speedkit.crossorigin;
+      },
+      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     },
 
     loadingSpinner: {
@@ -136,7 +144,7 @@ export default {
       if (!this.config || !this.isCritical) {
         return [];
       }
-      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes)];
+      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, this.crossorigin)];
     }
   },
 
