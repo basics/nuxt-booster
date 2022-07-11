@@ -11,7 +11,7 @@
     :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
-    :crossorigin="crossorigin"
+    :crossorigin="getCrossorigin(crossorigin)"
     v-on="{...$listeners, load: onLoad}"
   >
 </template>
@@ -19,6 +19,7 @@
 <script>
 import Source from 'nuxt-speedkit/components/SpeedkitImage/classes/Source';
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import { getCrossorigin } from 'nuxt-speedkit/utils';
 
 export default {
   inheritAttrs: false,
@@ -144,7 +145,7 @@ export default {
       if (!this.config || !this.isCritical) {
         return [];
       }
-      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, this.crossorigin)];
+      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, getCrossorigin(this.crossorigin))];
     }
   },
 
@@ -153,6 +154,7 @@ export default {
   },
 
   methods: {
+    getCrossorigin,
     onLoad (e) {
       this.loading = false;
       this.$emit('load', e.target.currentSrc);
