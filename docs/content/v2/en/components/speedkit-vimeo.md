@@ -96,10 +96,10 @@ When set starts video in autoplay. It is required that the component is integrat
 When set the player is muted.
 
 ### posterLoadingSpinner
-- Type: [`LoadingSpinner`](#)
+- Type: [`LoadingSpinner`](/classes/loading-spinner)
   - Default: `undefined`
 
-Sets a loading spinner definition of type [`LoadingSpinner`](#), this describes the visual appearance of the loading state of the `SpeedkitImage` contained in the `SpeedkitPicture`.
+Sets a loading spinner definition of type [`LoadingSpinner`](/classes/loading-spinner), this describes the visual appearance of the loading state of the `SpeedkitImage` contained in the `SpeedkitPicture`.
 
 ### `posterSizes`
 - Type: `String`
