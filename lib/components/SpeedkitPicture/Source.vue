@@ -43,7 +43,6 @@ export default {
   },
 
   head () {
-    console.log(this);
     const imageSource = new Source(this.source);
     if (this.config && imageSource.preload) {
       return {
