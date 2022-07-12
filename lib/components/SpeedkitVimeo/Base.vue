@@ -152,8 +152,7 @@ export default {
           sizes: this.posterSizes,
           media: 'all'
         }],
-        loadingSpinner: this.posterLoadingSpinner,
-        crossorigin: 'anonymous'
+        loadingSpinner: this.posterLoadingSpinner
       };
     },
 
