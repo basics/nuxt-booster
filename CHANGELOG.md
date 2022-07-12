@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.14...v2.0.15) (2022-07-12)
+
+
+### Bug Fixes
+
+* **options:** added option `disableNuxtImage` to disable `@nuxt/image` ([cd80b4e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cd80b4e9f2c075de25a7639cd0df64783a9513ea))
+
 ## [2.0.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.13...v2.0.14) (2022-06-28)
 
 
