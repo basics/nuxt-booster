@@ -178,6 +178,15 @@ Image Title.
 
 [MDN - HTMLElement.title](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/title)
 
+### `crossorigin`
+- Type: `String`, `Boolean`
+
+If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
+
+[Learn more about `crossorigin` option](https://nuxt-speedkit.grabarzundpartner.dev/options#crossorigin)
+
+[MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
+
 ### `critical`
 - Type: `Boolean`
   -  Default: `$parent.isCritical`
