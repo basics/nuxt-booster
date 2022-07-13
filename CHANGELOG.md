@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.0.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.15...v2.0.16) (2022-07-13)
+
+
+### Bug Fixes
+
+* **crossorigin:** `crossorigin` can be overridden globally or directly on the component ([ededf96](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ededf964a35221f0067f75529693dcae44f0443e))
+* **crossorigin:** `crossorigin` set improved ([d8f6aae](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d8f6aaeec8684dc1ee185fb0d427c601942d9eb2))
+
 ## [2.0.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.14...v2.0.15) (2022-07-12)
 
 
