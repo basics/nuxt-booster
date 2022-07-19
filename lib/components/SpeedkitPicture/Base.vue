@@ -75,8 +75,8 @@ export default {
     };
   },
 
-  fetchKey () {
-    return `picture-${this.sourceList.key}`;
+  fetchKey (getCounter) {
+    return `picture-${this.sourceList.key}-${getCounter()}`;
   },
 
   computed: {

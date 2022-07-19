@@ -56,14 +56,14 @@ export default {
     };
   },
 
-  fetchKey () {
-    const key = [this.$parent?._fetchKey];
+  fetchKey (getCounter) {
+    let key;
     if (this.source) {
-      key.push(`image-${(new Source(this.source))?.key}`);
+      key = `image-${(new Source(this.source))?.key}`;
     } else {
-      key.push('image');
+      key = 'image';
     }
-    return key.filter(Boolean).join('-');
+    return `${key}-${getCounter()}`;
   },
 
   async fetch () {
