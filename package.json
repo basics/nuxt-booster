@@ -49,7 +49,7 @@
     "vue-lazy-hydration": "2.0.0-beta.4"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.18.2",
+    "@babel/eslint-parser": "7.18.9",
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "@fullhuman/postcss-purgecss": "4.1.3",
