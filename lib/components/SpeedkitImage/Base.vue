@@ -65,11 +65,14 @@ export default {
     };
   },
 
-  fetchKey () {
+  fetchKey (getCounter) {
+    let key;
     if (this.source) {
-      return `image-${(new Source(this.source))?.key}`;
+      key = `image-${(new Source(this.source))?.key}`;
+    } else {
+      key = 'image';
     }
-    return 'image';
+    return `${key}-${getCounter(key)}`;
   },
 
   async fetch () {
