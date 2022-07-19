@@ -63,7 +63,7 @@ export default {
     } else {
       key = 'image';
     }
-    return `${key}-${getCounter()}`;
+    return `${key}-${getCounter(key)}`;
   },
 
   async fetch () {
