@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [2.0.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.16...v2.0.17) (2022-07-19)
+
+
+### Bug Fixes
+
+* **fetch-key:** added counter ([12aaf78](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/12aaf78a2f593669ba4afd769497b66f12e00f34))
+* **fetch-key:** added counter key ([b336cb7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b336cb7ae5e5382cbd3a05025406954e49972a51))
+* **speedkit-image:** added parent `fetchKey` prefix ([6dda371](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6dda3716bbd19a07b29d21c6d147f937a65bce00))
+
 ## [2.0.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.15...v2.0.16) (2022-07-13)
 
 
