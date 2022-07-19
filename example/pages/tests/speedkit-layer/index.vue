@@ -10,12 +10,13 @@ import speedkitHydrate from 'nuxt-speedkit/hydrate';
 import SpeedkitLayer from 'nuxt-speedkit/components/SpeedkitLayer';
 
 export default {
-  layout: 'blank',
 
   components: {
     SpeedkitLayer,
     ComponentImageText: speedkitHydrate(() => import('@/components/organisms/ImageText'))
   },
+
+  layout: 'blank',
 
   data () {
     return {

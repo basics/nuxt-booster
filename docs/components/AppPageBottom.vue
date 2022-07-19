@@ -32,7 +32,6 @@ export default {
       'githubUrls'
     ]),
     link () {
-      console.log(this.settings);
       if (!this.settings.github) {
         return;
       }
