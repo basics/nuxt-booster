@@ -42,7 +42,7 @@ The specified resources can be given by absolute path (static folder) or complet
 </template>
 
 <script>
-import SpeedkitImage from 'nuxt-speedkit/components/experimental/SpeedkitImage';
+import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
 export default {
   components: { SpeedkitImage },
   data () {
