@@ -83,7 +83,7 @@
     "stylelint": "14.9.1",
     "stylelint-config-recess-order": "3.0.0",
     "stylelint-config-standard": "26.0.0",
-    "vitest": "0.19.0",
+    "vitest": "0.19.1",
     "vue-headings": "1.0.0",
     "vue-svg-loader": "0.16.0",
     "webpack-bundle-analyzer": "4.5.0",
