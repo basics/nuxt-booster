@@ -65,7 +65,7 @@ export default {
 
 <style lang="postcss" scoped>
 .info-layer {
-  & >>> #nuxt-speedkit-layer-content {
+  & :deep(#nuxt-speedkit-layer-content) {
     position: fixed;
     top: 0;
     left: 0;
@@ -95,7 +95,7 @@ export default {
   }
 
   &.nuxt-speedkit-layer-visible {
-    & >>> #nuxt-speedkit-layer-content {
+    & :deep(#nuxt-speedkit-layer-content) {
       animation-delay: initial;
     }
   }

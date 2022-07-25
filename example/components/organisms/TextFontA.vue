@@ -30,7 +30,7 @@ export default {
 .component-text-font-a {
   padding: 0 10%;
 
-  & >>> p {
+  & :deep(p) {
     line-height: 1.6;
   }
 }

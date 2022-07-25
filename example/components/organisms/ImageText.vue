@@ -47,12 +47,12 @@ export default {
     padding: 0 10%;
   }
 
-  & >>> img {
+  & :deep(img) {
     width: 100%;
     height: 100%;
   }
 
-  & >>> p {
+  & :deep(p) {
     line-height: 1.6;
   }
 
