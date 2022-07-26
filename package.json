@@ -74,7 +74,7 @@
     "listhen": "0.2.13",
     "nuxt": "2.15.8",
     "pinst": "3.0.0",
-    "playwright": "1.24.0",
+    "playwright": "1.24.1",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.5.0",
     "postcss-nesting": "10.1.10",
