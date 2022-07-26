@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.17...v2.0.18) (2022-07-26)
+
+
+### Bug Fixes
+
+* **hydrate:** ignore `speedkitHydrate` by server ([d5ee14f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d5ee14fd749d80aaf5de5fb54182aa6783ef4b80))
+
 ## [2.0.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.16...v2.0.17) (2022-07-19)
 
 
