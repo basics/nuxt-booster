@@ -42,7 +42,7 @@
     "browserslist-useragent-regexp": "3.0.2",
     "buffer-image-size": "0.6.4",
     "deepmerge": "4.2.2",
-    "defu": "6.0.0",
+    "defu": "6.1.0",
     "dynamic-class-list": "2.0.1",
     "serialize-to-js": "3.1.2",
     "sort-css-media-queries": "2.0.4",
@@ -83,10 +83,10 @@
     "stylelint": "14.10.0",
     "stylelint-config-recess-order": "3.0.0",
     "stylelint-config-standard": "27.0.0",
-    "vitest": "0.22.0",
+    "vitest": "0.22.1",
     "vue-headings": "1.0.0",
     "vue-svg-loader": "0.16.0",
-    "webpack-bundle-analyzer": "4.5.0",
+    "webpack-bundle-analyzer": "4.6.0",
     "wicg-inert": "3.1.2"
   }
 }
