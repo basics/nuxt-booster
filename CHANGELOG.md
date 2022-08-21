@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.0.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.18...v2.0.19) (2022-08-21)
+
+
+### Bug Fixes
+
+* **component:** added `getCounter` to `Source` `fetchKey` ([544e108](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/544e10850cc2e399eb5f6d8fec4756c28fc3fbdd))
+* **postcss:** replaced deep selector ([86ea8fb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/86ea8fb002f77fe7c96a305d2f1a2c788b2253e3))
+
 ## [2.0.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.17...v2.0.18) (2022-07-26)
 
 
