@@ -95,7 +95,7 @@ export default {
 
     &:first-child {
       fill: var(--color-background);
-      fill-opacity: 0.8;
+      fill-opacity: 80%;
     }
 
     &:last-child {
