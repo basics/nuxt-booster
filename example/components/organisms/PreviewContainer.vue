@@ -90,14 +90,13 @@ export default {};
     }
 
     & img,
-    & >>> img,
-    & >>> picture img {
+    & :deep(img, picture img) {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    & >>> picture {
+    & :deep(picture) {
       width: 100%;
       height: 100%;
     }
@@ -120,7 +119,7 @@ export default {};
       width: 100%;
       height: 100%;
 
-      & >>> .list {
+      & :deep(.list) {
         padding: 0;
         margin: 0;
         list-style: none;
@@ -130,7 +129,7 @@ export default {};
         }
       }
 
-      & >>> .test-iframe {
+      & :deep(.test-iframe) {
         position: relative;
         width: 100%;
         height: 100%;

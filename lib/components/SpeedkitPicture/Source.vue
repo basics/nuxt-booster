@@ -30,8 +30,9 @@ export default {
     };
   },
 
-  fetchKey () {
-    return `source-${this.source.key}`;
+  fetchKey (getCounter) {
+    const key = `source-${this.source.key}`;
+    return `${key}-${getCounter(key)}`;
   },
 
   fetch () {

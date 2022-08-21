@@ -67,7 +67,7 @@ export default {
   }
 }
 
->>> button {
+:deep(button) {
   --color-background: #212121;
   --color-foreground: #fff;
   --transition-duration: 0.1s;
