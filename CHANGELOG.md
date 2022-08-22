@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.19...v2.0.20) (2022-08-21)
+
+
+### Bug Fixes
+
+* **source:** fix external `basePath` ([31a4522](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/31a45229c79566ced024758c6b5aee0a54354692))
+
 ## [2.0.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.18...v2.0.19) (2022-08-21)
 
 
