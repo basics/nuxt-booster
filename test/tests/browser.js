@@ -63,8 +63,7 @@ export default (runtime) => {
       await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-app').click());
       await page.waitForLoadState('networkidle');
 
-      // picture transformed
-      await page.waitForSelector('.nuxt-speedkit-picture');
+      await page.waitForSelector('.ready');
 
       // active font
       await page.waitForSelector('[data-font].font-active');

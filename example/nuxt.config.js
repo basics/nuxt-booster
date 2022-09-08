@@ -139,7 +139,7 @@ export default {
       xxl: 1600,
       '4k': 1921
     },
-    domains: ['picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'i.pickadummy.com'],
+    domains: ['https://picsum.photos', 'https://img.youtube.com', 'https://i.vimeocdn.com', 'https://i.pickadummy.com'],
     alias: {
       picsum: 'https://picsum.photos',
       youtube: 'https://img.youtube.com',
@@ -324,7 +324,6 @@ export default {
 
   modules: [
     '@/modules/svg',
-    '@nuxt/image',
     resolve(__dirname, '..') // nuxt-speedkit
   ],
 

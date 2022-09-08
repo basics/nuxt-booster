@@ -4,6 +4,7 @@
 
 <script>
 import Source from 'nuxt-speedkit/components/SpeedkitImage/classes/Source';
+import { getCrossorigin } from 'nuxt-speedkit/utils';
 
 const types = new Map([['jpg', 'jpeg']]);
 
@@ -12,6 +13,14 @@ export default {
     source: {
       type: Source,
       required: true
+    },
+
+    crossorigin: {
+      type: [Boolean, String],
+      default () {
+        return this.$speedkit.crossorigin;
+      },
+      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
   },
 
@@ -21,8 +30,9 @@ export default {
     };
   },
 
-  fetchKey () {
-    return `source-${this.source.key}`;
+  fetchKey (getCounter) {
+    const key = `source-${this.source.key}`;
+    return `${key}-${getCounter(key)}`;
   },
 
   fetch () {
@@ -37,7 +47,7 @@ export default {
     const imageSource = new Source(this.source);
     if (this.config && imageSource.preload) {
       return {
-        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, this.$speedkit.crossorigin)]
+        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, getCrossorigin(this.crossorigin))]
       };
     }
     return {};

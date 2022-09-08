@@ -11,7 +11,7 @@
     :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
-    :crossorigin="$speedkit.crossorigin"
+    :crossorigin="getCrossorigin(crossorigin)"
     v-on="{...$listeners, load: onLoad}"
   >
 </template>
@@ -19,6 +19,7 @@
 <script>
 import Source from 'nuxt-speedkit/components/SpeedkitImage/classes/Source';
 import LoadingSpinner from 'nuxt-speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import { getCrossorigin } from 'nuxt-speedkit/utils';
 
 export default {
   inheritAttrs: false,
@@ -39,6 +40,14 @@ export default {
       default: null
     },
 
+    crossorigin: {
+      type: [Boolean, String],
+      default () {
+        return this.$speedkit.crossorigin;
+      },
+      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
+    },
+
     loadingSpinner: {
       type: LoadingSpinner,
       default () {
@@ -56,11 +65,14 @@ export default {
     };
   },
 
-  fetchKey () {
+  fetchKey (getCounter) {
+    let key;
     if (this.source) {
-      return `image-${(new Source(this.source))?.key}`;
+      key = `image-${(new Source(this.source))?.key}`;
+    } else {
+      key = 'image';
     }
-    return 'image';
+    return `${key}-${getCounter(key)}`;
   },
 
   async fetch () {
@@ -136,7 +148,7 @@ export default {
       if (!this.config || !this.isCritical) {
         return [];
       }
-      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes)];
+      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, getCrossorigin(this.crossorigin))];
     }
   },
 
@@ -145,6 +157,7 @@ export default {
   },
 
   methods: {
+    getCrossorigin,
     onLoad (e) {
       this.loading = false;
       this.$emit('load', e.target.currentSrc);

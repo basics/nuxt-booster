@@ -30,6 +30,8 @@ The `SpeedkitImage` is used to automatically generate and display different imag
 
 The specified resources can be given by absolute path (static folder) or complete URL. [`nuxt/image`](https://image.nuxtjs.org/) downloads the resources fully automatically and stores the generated and optimized renditions in the destination folder.
 
+<alert type="warning">Important: For using `SpeedkitImage` do not disable `@nuxt/image` via `disableNuxtImage`.</alert>
+
 ### Example
 
 ````vue
@@ -40,7 +42,7 @@ The specified resources can be given by absolute path (static folder) or complet
 </template>
 
 <script>
-import SpeedkitImage from 'nuxt-speedkit/components/experimental/SpeedkitImage';
+import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
 export default {
   components: { SpeedkitImage },
   data () {
@@ -175,6 +177,15 @@ Image alternative Text.
 Image Title. 
 
 [MDN - HTMLElement.title](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/title)
+
+### `crossorigin`
+- Type: `String`, `Boolean`
+
+If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
+
+[Learn more about `crossorigin` option](https://nuxt-speedkit.grabarzundpartner.dev/options#crossorigin)
+
+[MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
 ### `critical`
 - Type: `Boolean`

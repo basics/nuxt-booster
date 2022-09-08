@@ -1,11 +1,12 @@
 <template>
   <picture :class="classNames.picture" class="nuxt-speedkit-picture">
-    <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" />
+    <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" :crossorigin="crossorigin" />
     <base-image
       :class="classNames.image"
       :title="title"
       :alt="alt"
       :loading-spinner="loadingSpinner"
+      :crossorigin="crossorigin"
       width="0"
       height="0"
       @load="onLoad"
@@ -53,7 +54,16 @@ export default {
     alt: {
       type: String,
       default: null
+    },
+
+    crossorigin: {
+      type: [Boolean, String],
+      default () {
+        return this.$speedkit.crossorigin;
+      },
+      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
+
   },
 
   data () {
@@ -75,8 +85,9 @@ export default {
     };
   },
 
-  fetchKey () {
-    return `picture-${this.sourceList.key}`;
+  fetchKey (getCounter) {
+    const key = `picture-${this.sourceList.key}`;
+    return `${key}-${getCounter(key)}`;
   },
 
   computed: {

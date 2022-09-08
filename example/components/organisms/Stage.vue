@@ -129,7 +129,7 @@ export default {
   & .background {
     aspect-ratio: auto;
 
-    & >>> img {
+    & :deep(img) {
       position: absolute;
       top: 0;
       left: 0;
