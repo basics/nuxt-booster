@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.1...v2.0.21-beta.2) (2022-09-08)
+
+
+### Bug Fixes
+
+* **hydrate:** add max idle tries for `speedkitHydrate` ([d365c2f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
+
 ## [2.0.21-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.20...v2.0.21-beta.1) (2022-09-08)
 
 
