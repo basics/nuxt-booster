@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.20...v2.0.21-beta.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* **hydrate:** removed redundant render wrapper ([794fdcc](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/794fdcc8c421edfd3f6242ff5fd6f1f024cfcde2))
+
 ## [2.0.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.19...v2.0.20) (2022-08-21)
 
 
