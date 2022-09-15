@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.2...v2.0.21-beta.3) (2022-09-15)
+
+
+### Bug Fixes
+
+* **vimeo:** fix wrong embed url ([5023df0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5023df0c460d1f50ca5d631b80888af02bea16c3))
+
 ## [2.0.21-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.1...v2.0.21-beta.2) (2022-09-08)
 
 
