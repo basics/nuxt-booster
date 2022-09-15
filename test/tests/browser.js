@@ -256,39 +256,39 @@ export default (runtime) => {
 
     // #endregion
 
-    // // #region /tests/vimeo
+    // #region /tests/vimeo
 
-    // it('vimeo ready & play', async () => {
-    //   const page = await createPage('/vimeo/');
-    //   await page.waitForLoadState('networkidle');
+    it('vimeo ready & play', async () => {
+      const page = await createPage('/vimeo/');
+      await page.waitForLoadState('networkidle');
 
-    //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
-    //   if (browser === BROWSERS.CHROMIUM) {
-    //     // start first player
-    //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
-    //     await page.waitForLoadState('networkidle');
+      // Other Vimeo tests not working in chromium, codec H.264 is unsupport
+      if (browser === BROWSERS.CHROMIUM) {
+        // start first player
+        await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+        await page.waitForLoadState('networkidle');
 
-    //     // wait for player ready
-    //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready');
-    //   } else {
-    //     // start first player
-    //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
-    //     await page.waitForLoadState('networkidle');
+        // wait for player ready
+        await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready');
+      } else {
+        // start first player
+        await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+        await page.waitForLoadState('networkidle');
 
-    //     // wait for playing first player playing
-    //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready.playing');
+        // wait for playing first player playing
+        await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready.playing');
 
-    //     // // wait for playing first player playing
-    //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-    //     // // start second player
-    //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
-    //     await page.waitForLoadState('networkidle');
+        // // wait for playing first player playing
+        await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+        // // start second player
+        await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
+        await page.waitForLoadState('networkidle');
 
-    //     await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready:not(.playing)');
-    //     await page.waitForSelector('#vimeo-1 .nuxt-speedkit-vimeo.ready.playing');
-    //   }
-    // });
+        await page.waitForSelector('#vimeo-0 .nuxt-speedkit-vimeo.ready:not(.playing)');
+        await page.waitForSelector('#vimeo-1 .nuxt-speedkit-vimeo.ready.playing');
+      }
+    });
 
-    // // #endregion
+    // #endregion
   }
 };
