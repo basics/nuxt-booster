@@ -175,6 +175,11 @@ export default {
   },
 
   watch: {
+    videoData (videoData) {
+      if (videoData && this.autoplay) {
+        this.onInit();
+      }
+    },
     ready () {
       this.inert = false;
     }
@@ -182,9 +187,6 @@ export default {
 
   mounted () {
     this.inert = true;
-    if (this.autoplay) {
-      this.onInit();
-    }
   },
 
   destroyed () {
