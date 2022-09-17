@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.4...v2.0.21-beta.5) (2022-09-17)
+
+
+### Bug Fixes
+
+* **vimeo:** fix missing fetch data ([f5050a6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f5050a6209702f7c461fa6a538064dc76799ccbf))
+
 ## [2.0.21-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.3...v2.0.21-beta.4) (2022-09-17)
 
 
