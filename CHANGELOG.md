@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.3...v2.0.21-beta.4) (2022-09-17)
+
+
+### Bug Fixes
+
+* **intersection:** fix element-observer inView state ([d393b11](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d393b1128f10661802c8b83e1144d83182311c0e))
+
 ## [2.0.21-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.2...v2.0.21-beta.3) (2022-09-15)
 
 
