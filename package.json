@@ -71,7 +71,7 @@
     "husky": "8.0.1",
     "jsdom": "20.0.0",
     "lint-staged": "13.0.3",
-    "listhen": "0.3.1",
+    "listhen": "0.3.4",
     "nuxt": "2.15.8",
     "pinst": "3.0.0",
     "playwright": "1.25.2",
