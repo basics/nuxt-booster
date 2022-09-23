@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.5...v2.0.21-beta.6) (2022-09-23)
+
+
+### Bug Fixes
+
+* **v-font:** added `isCritical` check in `inserted` ([242c221](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/242c2216c123a4ed03d27489de3e89125234be18))
+
 ## [2.0.21-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.4...v2.0.21-beta.5) (2022-09-17)
 
 
