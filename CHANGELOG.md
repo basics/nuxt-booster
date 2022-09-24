@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.6...v2.0.21-beta.7) (2022-09-24)
+
+
+### Bug Fixes
+
+* **directive:** fix missing `load:font` event on vnode ([d8b8a0a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d8b8a0a776f5d1e00ecbc29516784a226002aba0))
+
 ## [2.0.21-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.5...v2.0.21-beta.6) (2022-09-23)
 
 
