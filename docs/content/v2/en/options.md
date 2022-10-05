@@ -303,14 +303,14 @@ Defines the duration (seconds), which is tried to determine a free slot by `Idle
 ````js
 {
   entry: 16,
-  hyrdate: 8
+  hydrate: 8
 }
 ````
 
  | Key       | Type     | Required | Description                                                                                                                                                                           | Default |
  | --------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
  | `entry`   | `Number` | yes      | Refers to the initialization of the main javascript. <br>When reaching the max. value, the SpeedkitLayer is shown if available or the app is or the app is initialized automatically. | `16`    |
- | `hyrdate` | `Number` | yes      | Refers to the initialization of components import with `speedkitHydrate`.                                                                                                             | `8`     |
+ | `hydrate` | `Number` | yes      | Refers to the initialization of components import with `speedkitHydrate`.                                                                                                             | `8`     |
 
 ## `disableNuxtImage`
 - Type: `Boolean`
