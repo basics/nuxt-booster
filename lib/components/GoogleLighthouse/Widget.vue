@@ -154,7 +154,7 @@ export default {
 
       &.ready {
         fill: var(--color-status);
-        fill-opacity: 10%;
+        fill-opacity: 0.1;
         stroke-dasharray: calc(2 * var(--pi) * 45);
         stroke-dashoffset: calc(2 * var(--pi) * 45);
         animation: nuxt-speedkit-lighthouse-stroke var(--duration) ease-out forwards;
