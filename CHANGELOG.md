@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.7...v2.0.21-beta.8) (2022-10-05)
+
+
+### Bug Fixes
+
+* **typo:** fix `maxIdleDurations` fallback options and typo in docs ([12acd79](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/12acd7960b4512b30572f87db8fca3dcb5254c47))
+
 ## [2.0.21-beta.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.6...v2.0.21-beta.7) (2022-09-24)
 
 
