@@ -26,7 +26,7 @@
       "always"
     ],
     "vue/no-v-html": "off",
-    "vue/name-property-casing": [
+    "vue/component-definition-name-casing": [
       "error",
       "PascalCase"
     ],
