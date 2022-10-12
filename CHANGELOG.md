@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21-beta.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.8...v2.0.21-beta.9) (2022-10-12)
+
+
+### Bug Fixes
+
+* **entry:** added customEvent for idle waiting duration ([847334a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/847334a9cc33f166a292173436fdd67d0fcbc4e1))
+
 ## [2.0.21-beta.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.7...v2.0.21-beta.8) (2022-10-05)
 
 
