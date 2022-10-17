@@ -1,5 +1,20 @@
 # Project Changelog
 
+## [2.0.22-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21...v2.0.22-beta.1) (2022-10-17)
+
+
+### Bug Fixes
+
+* **directive:** fix missing `load:font` event on vnode ([d8b8a0a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d8b8a0a776f5d1e00ecbc29516784a226002aba0))
+* **entry:** added customEvent for idle waiting duration ([847334a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/847334a9cc33f166a292173436fdd67d0fcbc4e1))
+* **hydrate:** add max idle tries for `speedkitHydrate` ([d365c2f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
+* **hydrate:** removed redundant render wrapper ([794fdcc](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/794fdcc8c421edfd3f6242ff5fd6f1f024cfcde2))
+* **intersection:** fix element-observer inView state ([d393b11](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d393b1128f10661802c8b83e1144d83182311c0e))
+* **typo:** fix `maxIdleDurations` fallback options and typo in docs ([12acd79](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/12acd7960b4512b30572f87db8fca3dcb5254c47))
+* **v-font:** added `isCritical` check in `inserted` ([242c221](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/242c2216c123a4ed03d27489de3e89125234be18))
+* **vimeo:** fix missing fetch data ([f5050a6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f5050a6209702f7c461fa6a538064dc76799ccbf))
+* **vimeo:** fix wrong embed url ([5023df0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5023df0c460d1f50ca5d631b80888af02bea16c3))
+
 ## [2.0.21-beta.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21-beta.8...v2.0.21-beta.9) (2022-10-12)
 
 
