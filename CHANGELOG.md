@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.0.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.20...v2.0.21) (2022-10-17)
+
+
+### Bug Fixes
+
+* **update:** replaced `axios` with `native-fetch` ([e6abecc](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e6abecc3d6f6a730e977df9eecfc0e2b9830dc52))
+
 ## [2.0.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.19...v2.0.20) (2022-08-21)
 
 
