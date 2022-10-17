@@ -108,16 +108,18 @@ export default {
 
   async fetch () {
     const { withQuery } = await import('ufo');
-    const { get } = await import('axios');
+    const { fetch } = await import('native-fetch');
     try {
       const url = withQuery('https://vimeo.com/api/oembed.json', {
         url: this.url,
         width: 1920,
         height: 1080
       });
-      const { data } = await get(url);
-      this.videoData = data;
+      const response = await fetch(url);
+      this.videoData = await response.json();
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
       this.iframeMode = true;
       this.src = this.playerSrc;
     }

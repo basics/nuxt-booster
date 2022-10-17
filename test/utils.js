@@ -1,9 +1,9 @@
 import { resolve as fsResolve } from 'path';
 import fs, { readFile } from 'fs';
+import http from 'http';
 import { JSDOM } from 'jsdom';
 import rimraf from 'rimraf';
-import { createApp } from 'h3';
-import { listen } from 'listhen';
+import finalhandler from 'finalhandler';
 import serveStatic from 'serve-static';
 import { defu } from 'defu';
 import { Nuxt, Builder, Generator } from 'nuxt';
@@ -68,10 +68,12 @@ export const getHTML = (path = '') => {
   }));
 };
 
-export const startStaticServer = (dist, port, hostname) => {
-  const app = createApp();
-  app.use(serveStatic(dist));
-  return listen(app, {
-    hostname, port
+export const startStaticServer = async (dist, port, hostname = 'localhost') => {
+  port = port || await getPort();
+  const serve = serveStatic(dist);
+  const server = http.createServer(function onRequest (req, res) {
+    serve(req, res, finalhandler(req, res));
   });
+  server.listen({ port, hostname });
+  return { server, url: (new URL(`http://${hostname}:${port}`)).toString() };
 };
