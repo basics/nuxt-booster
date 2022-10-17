@@ -11,7 +11,7 @@ So that no empty space is visible to the user, we use the functionality of the [
 
 ## Usage
 
-The `SpeedkitVimeo`is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
+The `SpeedkitVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
 <alert>The SDK is not part of `nuxt-speedkit` and will be loaded by an external script.</alert>
 
 The `url` of the Vimeo video must be specified.  
@@ -42,7 +42,7 @@ export default {
         title: 'Vimeo Title',
         loadingSpinner: undefined,
         options: {
-          controls: false // use boolean instead of 0 or 1
+          controls: false
         },
         posterSizes: {
           default: '100vw',
@@ -113,8 +113,6 @@ Sets the image sizes of the poster.
 - Type: `Object`
 
 Overrides the vimeo player options. These will be the same as the vimeo player embed options.
-
-Use `boolean` values instead of integers (e.g. `0`, `1`).
 
 [Learn more about Vimeo Player Parameters](https://developer.vimeo.com/player/sdk/embed)
 

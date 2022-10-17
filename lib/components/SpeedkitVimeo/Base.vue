@@ -113,7 +113,8 @@ export default {
       const url = withQuery('https://vimeo.com/api/oembed.json', {
         url: this.url,
         width: 1920,
-        height: 1080
+        height: 1080,
+        ...this.playerOptions
       });
       const response = await fetch(url);
       this.videoData = await response.json();
@@ -137,6 +138,21 @@ export default {
       return this.title || (this.videoData && this.videoData.title);
     },
 
+    playerOptions () {
+      return {
+        dnt: true,
+        autopause: false,
+        ...this.options,
+        playsinline: true,
+        autoplay: this.autoplay,
+        muted: this.isTouchDevice || this.mute
+      };
+    },
+
+    playerSrc () {
+      return this.videoData?.html.replace(/.*src="([^"]*)".*/, '$1').replace(/&amp;/g, '&') || `https://player.vimeo.com/video/${this.videoId}`;
+    },
+
     pictureComponent () {
       return this.videoData ? SpeedkitPicture : 'picture';
     },
@@ -156,24 +172,16 @@ export default {
         }],
         loadingSpinner: this.posterLoadingSpinner
       };
-    },
-
-    playerSrc () {
-      const params = {
-        dnt: 1,
-        autopause: 0,
-        ...this.options,
-        playsinline: 1,
-        autoplay: Number(this.autoplay),
-        muted: Number(this.isTouchDevice || this.mute || false)
-      };
-
-      return `https://player.vimeo.com/video/${this.videoId}?` + Object.entries(params).map(([name, value]) => `${name}=${value}`).join('&');
     }
 
   },
 
   watch: {
+    videoData (videoData) {
+      if (videoData && this.autoplay) {
+        this.onInit();
+      }
+    },
     ready () {
       this.inert = false;
     }
@@ -181,9 +189,6 @@ export default {
 
   mounted () {
     this.inert = true;
-    if (this.autoplay) {
-      this.onInit();
-    }
   },
 
   destroyed () {
