@@ -4,6 +4,7 @@ description: ''
 position: 14
 category: Guide
 ---
+
 ## `v-font` and custom head
 
 When a `v-font` directive is called in a component with a custom head, the directive specific head settings must be applied in the `head`.
@@ -133,3 +134,55 @@ An older `IPX` version is needed because of the Issues:
 
 - https://github.com/unjs/ohmyfetch/issues/57
 - https://github.com/node-fetch/node-fetch/pull/1474
+
+
+## Prevent `SPEEDINDEX_OF_ZERO ` and `NO_LCP `
+
+The `window` event `nuxt-speedkit:run` is provided which can be used to run code outside the app during initialization.
+
+In the callback it can be checked via `e.detail.success` if the performance of the client was sufficient during initialization.
+
+If `success` equals `true`, it is a client without performance weaknesses.
+
+### Example
+
+Viewport is initially blank and only after initialization start an animation with fade-ins. 
+
+In this case, when measuring with Lighhouse, errors (`SPEEDINDEX_OF_ZERO`, `NO_LCP`) can occur, due to not visible content.
+
+To solve this case, the value `e.detail.success` can be used in the `window` event `nuxt-speedkit:run` to allow content to be faded in via CSS or JS.  
+If `success` is equal to `false`.
+
+
+**Component Example**
+
+```vue
+<template>
+  <div class="stage">…</div>
+</template>
+
+<script>
+  export default {
+    head () {
+      return {
+        script: [
+          {
+            hid: 'prevent-script',
+            innerHTML: `
+              window.addEventListener("nuxt-speedkit:run", function (e) {
+                if (!e.detail.success) {
+                  document.querySelector('.stage').classList.add('visible')
+                }
+              });
+            `
+          }
+        ],
+        __dangerouslyDisableSanitizers: [
+          'script'
+        ]
+      };
+    }
+  };
+</script>
+```
+

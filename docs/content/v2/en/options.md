@@ -295,23 +295,6 @@ Defines the global built-in [LoadingSpinner](/components/speedkit-image#loadings
  | `size`            | `String` | no       | Defines the size of the loader. Use css `background-size` definition.         | `100px`     |
  | `backgroundColor` | `String` | no       | Defines the background color of the loader. Use css `color` definition.       | `grey`      |
 
-## `maxIdleDurations`
-- Type: `Object`
-
-Defines the duration (seconds), which is tried to determine a free slot by `IdleDeadline.timeRemaining()`. Free slot must be at least `10ms`.
-
-````js
-{
-  entry: 16,
-  hydrate: 8
-}
-````
-
- | Key       | Type     | Required | Description                                                                                                                                                                           | Default |
- | --------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `entry`   | `Number` | yes      | Refers to the initialization of the main javascript. <br>When reaching the max. value, the SpeedkitLayer is shown if available or the app is or the app is initialized automatically. | `16`    |
- | `hydrate` | `Number` | yes      | Refers to the initialization of components import with `speedkitHydrate`.                                                                                                             | `8`     |
-
 ## `disableNuxtImage`
 - Type: `Boolean`
   - Default: `false`

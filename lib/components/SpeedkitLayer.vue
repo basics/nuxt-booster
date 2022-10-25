@@ -67,18 +67,11 @@ export default {
       default () {
         return true;
       }
-    },
-    maxIdleDuration: {
-      type: Number,
-      default: undefined
     }
   },
 
   head () {
     return {
-      script: [
-         this.maxIdleDuration !== undefined && { type: 'text/javascript', innerHTML: `window.__NUXT_SPEEDKIT_MAX_IDLE_DURATION__ = ${this.maxIdleDuration};`}
-      ].filter(Boolean),
       noscript: [
         getStyleDescription('#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }', true)
       ],
