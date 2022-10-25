@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.1.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.22...v2.1.0-beta.1) (2022-10-25)
+
+
+### Features
+
+* **entry:** revision of the initial performance check ([af3e89b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/af3e89b8738953e49852712eb92cfacbe9003c77))
+
 ## [2.0.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.21...v2.0.22) (2022-10-17)
 
 
