@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.1.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2022-10-25)
+
+
+### Features
+
+* **clean:** clean hydrate, remove unused code ([1ceb81d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1ceb81d55ae6f82702429c9aa9157aa486507338))
+
 # [2.1.0-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.22...v2.1.0-beta.1) (2022-10-25)
 
 
