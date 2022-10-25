@@ -108,34 +108,6 @@ polyfills ();
 }
 ````
 
-
-## Use latest `@nuxt/image` version
-
-
-In case the latest `@nuxt/image` version is needed, the following modifications can be made in the `package.json`:
-
-> https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides
-
-```js
-{
-  "overrides": {
-    "nuxt-speedkit": {
-      "@nuxt/image": "latest"
-    },
-    "@nuxt/image": {
-      "ipx": "0.8.1"
-    }
-  }
-}
-```
-
-
-An older `IPX` version is needed because of the Issues:
-
-- https://github.com/unjs/ohmyfetch/issues/57
-- https://github.com/node-fetch/node-fetch/pull/1474
-
-
 ## Prevent `SPEEDINDEX_OF_ZERO ` and `NO_LCP `
 
 The `window` event `nuxt-speedkit:run` is provided which can be used to run code outside the app during initialization.
