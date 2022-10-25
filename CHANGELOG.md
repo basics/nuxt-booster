@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.1.0-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2022-10-25)
+
+
+### Features
+
+* **emtry:** changed `timeRange` start time from 0 to 100 ([3df7fd9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3df7fd9e96fe0ea0fcff0e24a03984664e9ffc8d))
+
 # [2.1.0-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2022-10-25)
 
 
