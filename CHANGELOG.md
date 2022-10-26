@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.1.0-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.5...v2.1.0-beta.6) (2022-10-26)
+
+
+### Features
+
+* **entry:** renamed event property `success` to `sufficient` ([af870fe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/af870fe880f69a645ce750c064ba15bc4854783f))
+
 # [2.1.0-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2022-10-26)
 
 
