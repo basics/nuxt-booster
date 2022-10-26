@@ -118,12 +118,13 @@ If `success` equals `true`, it is a client without performance weaknesses.
 
 ### Example
 
-Viewport is initially blank and only after initialization start an animation with fade-ins. 
+We have a website on which the content of the stage is only displayed after initializing the Javascript.
 
-In this case, when measuring with Lighhouse, errors (`SPEEDINDEX_OF_ZERO`, `NO_LCP`) can occur, due to not visible content.
+In this case, measurements with Lighthouse can lead to these errors `SPEEDINDEX_OF_ZERO` and `NO_LCP`. 
 
-To solve this case, the value `e.detail.success` can be used in the `window` event `nuxt-speedkit:run` to allow content to be faded in via CSS or JS.  
-If `success` is equal to `false`.
+In order to solve this case, it can be provided that the content of the stage can already be displayed outside of the app initialization in the case of a slow initialization.
+
+For this the event `nuxt-speedkit:run` can be used, this returns with `e.detail.success` a value, with which it can be decided whether content is already made visible to the user in the stage.
 
 
 **Component Example**
@@ -143,6 +144,7 @@ If `success` is equal to `false`.
             innerHTML: `
               window.addEventListener("nuxt-speedkit:run", function (e) {
                 if (!e.detail.success) {
+                  // added style class to display the content
                   document.querySelector('.stage').classList.add('visible')
                 }
               });
