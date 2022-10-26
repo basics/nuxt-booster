@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.1.0-beta.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2022-10-26)
+
+
+### Features
+
+* **entry:** ignore `run` in dev mode ([295b931](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/295b93131cff87fdabada649e25edfaecead4358))
+
 # [2.1.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.3...v2.1.0-beta.4) (2022-10-26)
 
 
