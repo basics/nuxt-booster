@@ -110,21 +110,19 @@ polyfills ();
 
 ## Prevent `SPEEDINDEX_OF_ZERO ` and `NO_LCP `
 
-The `window` event `nuxt-speedkit:run` is provided which can be used to run code outside the app during initialization.
+The `window` event `nuxt-speedkit:run` is provided and useable to run code outside the app during initialization.
 
-In the callback it can be checked via `e.detail.success` if the performance of the client was sufficient during initialization.
-
-If `success` equals `true`, it is a client without performance weaknesses.
+If the performance is not sufficient on the client side, this can be retrieved with the help of the event object `e.detail.sufficient`.
 
 ### Example
 
-We have a website on which the content of the stage is only displayed after initializing the Javascript.
+A case where the event may be needed would be when the initial viewport on a website is blank and it is not displayed until the initialization is complete.
 
 In this case, measurements with Lighthouse can lead to these errors `SPEEDINDEX_OF_ZERO` and `NO_LCP`. 
 
 In order to solve this case, it can be provided that the content of the stage can already be displayed outside of the app initialization in the case of a slow initialization.
 
-For this the event `nuxt-speedkit:run` can be used, this returns with `e.detail.success` a value, with which it can be decided whether content is already made visible to the user in the stage.
+For this the event `nuxt-speedkit:run` can be used, this returns with `e.detail.sufficient` a value, with which it can be decided whether content is already made visible to the user in the stage.
 
 
 **Component Example**
@@ -143,7 +141,7 @@ For this the event `nuxt-speedkit:run` can be used, this returns with `e.detail.
             hid: 'prevent-script',
             innerHTML: `
               window.addEventListener("nuxt-speedkit:run", function (e) {
-                if (!e.detail.success) {
+                if (!e.detail.sufficient) {
                   // added style class to display the content
                   document.querySelector('.stage').classList.add('visible')
                 }
