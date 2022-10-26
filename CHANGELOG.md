@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.1.0-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.3...v2.1.0-beta.4) (2022-10-26)
+
+
+### Features
+
+* **entry:** added onload event ([a3b2bda](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a3b2bdaea04aae0b10f7cc696ba580f448157f57))
+
 # [2.1.0-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2022-10-25)
 
 
