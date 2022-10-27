@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0...v2.1.1) (2022-10-27)
+
+
+### Bug Fixes
+
+* **performance:** fix missing `requestIdleCallback` ([76905f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/76905f9f3da3db0222e88eeadd07bedc1175e65a))
+
 # [2.1.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.22...v2.1.0) (2022-10-27)
 
 
