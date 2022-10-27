@@ -122,8 +122,7 @@ In this case, measurements with Lighthouse can lead to these errors `SPEEDINDEX_
 
 In order to solve this case, it can be provided that the content of the stage can already be displayed outside of the app initialization in the case of a slow initialization.
 
-For this the event `nuxt-speedkit:run` can be used, this returns with `e.detail.sufficient` a value, with which it can be decided whether content is already made visible to the user in the stage.
-
+In this case the global event `nuxt-speedkit:run` can be used. It will return an event object with `e.detail.sufficient` as value. With the help of this status you can decide whether the stage should be displayed in advance.
 
 **Component Example**
 
