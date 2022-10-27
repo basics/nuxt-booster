@@ -85,7 +85,7 @@
     "vitest": "0.24.3",
     "vue-headings": "1.0.0",
     "vue-svg-loader": "0.16.0",
-    "webpack-bundle-analyzer": "4.6.1",
+    "webpack-bundle-analyzer": "4.7.0",
     "wicg-inert": "3.1.2"
   }
 }
