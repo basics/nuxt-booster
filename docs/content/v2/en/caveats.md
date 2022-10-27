@@ -4,6 +4,7 @@ description: ''
 position: 14
 category: Guide
 ---
+
 ## `v-font` and custom head
 
 When a `v-font` directive is called in a component with a custom head, the directive specific head settings must be applied in the `head`.
@@ -107,29 +108,52 @@ polyfills ();
 }
 ````
 
+## Prevent `SPEEDINDEX_OF_ZERO ` and `NO_LCP `
 
-## Use latest `@nuxt/image` version
+The `window` event `nuxt-speedkit:run` is provided and useable to run code outside the app during initialization.
 
+If the performance is not sufficient on the client side, this can be retrieved with the help of the event object `e.detail.sufficient`.
 
-In case the latest `@nuxt/image` version is needed, the following modifications can be made in the `package.json`:
+### Example
 
-> https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides
+A case where the event may be needed would be when the initial viewport on a website is blank and it is not displayed until the initialization is complete.
 
-```js
-{
-  "overrides": {
-    "nuxt-speedkit": {
-      "@nuxt/image": "latest"
-    },
-    "@nuxt/image": {
-      "ipx": "0.8.1"
+In this case, measurements with Lighthouse can lead to these errors `SPEEDINDEX_OF_ZERO` and `NO_LCP`. 
+
+In order to solve this case, it can be provided that the content of the stage can already be displayed outside of the app initialization in the case of a slow initialization.
+
+In this case the global event `nuxt-speedkit:run` can be used. It will return an event object with `e.detail.sufficient` as value. With the help of this status you can decide whether the stage should be displayed in advance.
+
+**Component Example**
+
+```vue
+<template>
+  <div class="stage">…</div>
+</template>
+
+<script>
+  export default {
+    head () {
+      return {
+        script: [
+          {
+            hid: 'prevent-script',
+            innerHTML: `
+              window.addEventListener("nuxt-speedkit:run", function (e) {
+                if (!e.detail.sufficient) {
+                  // added style class to display the content
+                  document.querySelector('.stage').classList.add('visible')
+                }
+              });
+            `
+          }
+        ],
+        __dangerouslyDisableSanitizers: [
+          'script'
+        ]
+      };
     }
-  }
-}
+  };
+</script>
 ```
 
-
-An older `IPX` version is needed because of the Issues:
-
-- https://github.com/unjs/ohmyfetch/issues/57
-- https://github.com/node-fetch/node-fetch/pull/1474

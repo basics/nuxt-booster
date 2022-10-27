@@ -8,6 +8,16 @@
         "@nuxt/image"
       ],
       "groupName": "@nuxt/image"
+    },
+    {
+      "packageNames": [
+        "node"
+      ],
+      "major": {
+        "enabled": true
+      },
+      "separateMultipleMajor": true,
+      "allowedVersions": "^16"
     }
   ],
   "baseBranches": [
