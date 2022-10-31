@@ -69,7 +69,7 @@
     "finalhandler": "1.2.0",
     "get-port-please": "2.6.1",
     "husky": "8.0.1",
-    "jsdom": "20.0.1",
+    "jsdom": "20.0.2",
     "lint-staged": "13.0.3",
     "nuxt": "2.15.8",
     "pinst": "3.0.0",
