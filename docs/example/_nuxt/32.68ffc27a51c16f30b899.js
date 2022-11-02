@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[32],{523:function(e,o,l){"use strict";Object.defineProperty(o,"__esModule",{value:!0});const n=globalThis.fetch,t=globalThis.Headers,c=globalThis.Request,h=globalThis.Response;o.Headers=t,o.Request=c,o.Response=h,o.fetch=n}}]);
