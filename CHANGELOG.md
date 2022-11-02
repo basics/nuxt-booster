@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.1.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.1...v2.1.2) (2022-11-02)
+
+
+### Bug Fixes
+
+* **entry:** added average check ([7823d80](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7823d8055a0ccbe170f59fcabb0ff8837a9edd75))
+* **entry:** added default value ([178ca52](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/178ca5254476ca11a77950e9ad46f1bf3cfef31e))
+
 ## [2.1.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0...v2.1.1) (2022-10-27)
 
 
