@@ -1,5 +1,32 @@
 # Project Changelog
 
+## [2.1.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.1...v2.1.2) (2022-11-02)
+
+
+### Bug Fixes
+
+* **entry:** added average check ([7823d80](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7823d8055a0ccbe170f59fcabb0ff8837a9edd75))
+* **entry:** added default value ([178ca52](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/178ca5254476ca11a77950e9ad46f1bf3cfef31e))
+
+## [2.1.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0...v2.1.1) (2022-10-27)
+
+
+### Bug Fixes
+
+* **performance:** fix missing `requestIdleCallback` ([76905f9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/76905f9f3da3db0222e88eeadd07bedc1175e65a))
+
+# [2.1.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.0.22...v2.1.0) (2022-10-27)
+
+
+### Features
+
+* **clean:** clean hydrate, remove unused code ([1ceb81d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1ceb81d55ae6f82702429c9aa9157aa486507338))
+* **emtry:** changed `timeRange` start time from 0 to 100 ([3df7fd9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3df7fd9e96fe0ea0fcff0e24a03984664e9ffc8d))
+* **entry:** added onload event ([a3b2bda](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a3b2bdaea04aae0b10f7cc696ba580f448157f57))
+* **entry:** ignore `run` in dev mode ([295b931](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/295b93131cff87fdabada649e25edfaecead4358))
+* **entry:** renamed event property `success` to `sufficient` ([af870fe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/af870fe880f69a645ce750c064ba15bc4854783f))
+* **entry:** revision of the initial performance check ([af3e89b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/af3e89b8738953e49852712eb92cfacbe9003c77))
+
 # [2.1.0-beta.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.0-beta.5...v2.1.0-beta.6) (2022-10-26)
 
 
