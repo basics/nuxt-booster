@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.3-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.2...v2.1.3-beta.1) (2022-12-17)
+
+
+### Bug Fixes
+
+* **entry:** added callback for `document.hidden` ([fe5ccfe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/fe5ccfead557092901a78171e4c6b55acdf6de92))
+
 ## [2.1.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.1...v2.1.2) (2022-11-02)
 
 
