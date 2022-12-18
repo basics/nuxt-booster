@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.3-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3-beta.1...v2.1.3-beta.2) (2022-12-18)
+
+
+### Bug Fixes
+
+* **entry:** replaced 1document.hidden1 with `document.visibilityState` ([06d4fb8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/06d4fb84e82b57ca761886eaeca06bc8d90a4a24))
+
 ## [2.1.3-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.2...v2.1.3-beta.1) (2022-12-17)
 
 
