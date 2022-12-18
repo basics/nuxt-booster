@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.3-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3-beta.2...v2.1.3-beta.3) (2022-12-18)
+
+
+### Bug Fixes
+
+* **entry:** revert the initialization ([7e89cef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7e89cefc7d09276f32e210845ce1458e7c4602e9))
+
 ## [2.1.3-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3-beta.1...v2.1.3-beta.2) (2022-12-18)
 
 
