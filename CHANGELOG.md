@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.3-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3-beta.3...v2.1.3-beta.4) (2022-12-19)
+
+
+### Bug Fixes
+
+* **entry:** added global var for force init ([e3c56a1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e3c56a1c87b761434ebb645247aa1cefaa5fbf93))
+
 ## [2.1.3-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3-beta.2...v2.1.3-beta.3) (2022-12-18)
 
 
