@@ -58,7 +58,7 @@
     "@nuxtjs/eslint-module": "3.1.0",
     "@nuxtjs/stylelint-module": "4.1.0",
     "commitlint": "17.3.0",
-    "core-js": "3.26.1",
+    "core-js": "3.27.0",
     "eslint": "8.30.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-no-secrets": "0.8.9",
