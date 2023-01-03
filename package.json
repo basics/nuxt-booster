@@ -68,7 +68,7 @@
     "eslint-plugin-xss": "0.1.12",
     "finalhandler": "1.2.0",
     "get-port-please": "2.6.1",
-    "husky": "8.0.2",
+    "husky": "8.0.3",
     "jsdom": "20.0.3",
     "lint-staged": "13.1.0",
     "nuxt": "2.15.8",
