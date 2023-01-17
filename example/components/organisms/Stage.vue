@@ -1,16 +1,11 @@
 <template>
   <document-section class="component-stage" :level="-1">
-    <speedkit-picture
-      class="background"
-      :title="picture.title"
-      :alt="picture.alt"
-      :sources="picture.sources"
-    />
+    <speedkit-picture class="background" :title="picture.title" :alt="picture.alt" :sources="picture.sources" />
     <document-heading class="headline">
       <span
         v-font="[
-          $getFont('Montserrat Alternates', 700, 'normal', {selector: '.content'}),
-          $getFont('Merriweather', 300, 'italic', {selector: '.claim'})
+          $getFont('Montserrat Alternates', 700, 'normal', { selector: '.content' }),
+          $getFont('Merriweather', 300, 'italic', { selector: '.claim' })
         ]"
       >
         <span class="content">{{ content }}</span>
@@ -18,13 +13,11 @@
       </span>
     </document-heading>
 
-    <span class="arrow"><svg-chevron-down /></span>
+    <transition name="fade">
+      <span v-if="ready" class="arrow"><svg-chevron-down /></span>
+    </transition>
 
-    <speedkit-image
-      class="logo"
-      v-bind="image"
-      :loading-spinner="null"
-    />
+    <speedkit-image class="logo" v-bind="image" :loading-spinner="null" />
   </document-section>
 </template>
 
@@ -56,6 +49,16 @@ export default {
     },
     content: { type: String, default () { return 'Headline'; } },
     claim: { type: String, default () { return 'Claim'; } }
+  },
+
+  data () {
+    return {
+      ready: false
+    };
+  },
+
+  mounted () {
+    this.ready = true;
   }
 
 };
@@ -164,12 +167,42 @@ export default {
 }
 
 @keyframes bounce-6 {
-  0% { transform: scale(1, 1)      translateY(0); }
-  10% { transform: scale(1.1, 0.9)   translateY(0); }
-  30% { transform: scale(0.9, 1.1)   translateY(-50%); }
-  50% { transform: scale(1.05, 0.95) translateY(0); }
-  57% { transform: scale(1, 1)      translateY(-5%); }
-  64% { transform: scale(1, 1)      translateY(0); }
-  100% { transform: scale(1, 1)      translateY(0); }
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+
+  30% {
+    transform: scale(0.9, 1.1) translateY(-50%);
+  }
+
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+
+  57% {
+    transform: scale(1, 1) translateY(-5%);
+  }
+
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
