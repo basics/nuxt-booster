@@ -38,7 +38,7 @@
   "dependencies": {
     "@nuxt/image": "0.7.1",
     "bowser": "2.11.0",
-    "browserslist-useragent-regexp": "3.0.2",
+    "browserslist-useragent-regexp": "4.0.0",
     "buffer-image-size": "0.6.4",
     "deepmerge": "4.2.2",
     "defu": "6.1.2",
