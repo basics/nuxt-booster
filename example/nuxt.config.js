@@ -324,7 +324,7 @@ export default {
 
   modules: [
     '@/modules/svg',
-    resolve(__dirname, '..') // nuxt-speedkit
+    '../lib/module'
   ],
 
   head: {

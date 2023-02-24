@@ -11,7 +11,6 @@
     "breadcrumbs.enabled": true,
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "phase",
-    "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.minimap.renderCharacters": false,
     "editor.minimap.maxColumn": 200,
@@ -20,7 +19,6 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     },
-    "eslint.alwaysShowStatus": true,
     "eslint.validate": [
       "javascript",
       "javascriptreact",
@@ -63,9 +61,6 @@
       "@@": "${workspaceRoot}"
     },
     "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "vetur.format.enable": false,
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
     "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
     "workbench.settings.enableNaturalLanguageSearch": false
   },
