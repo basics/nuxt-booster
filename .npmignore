@@ -38,6 +38,6 @@ renovate.json
 vetur.config.json
 
 /docs
-/lib
-/example
+/src
+/playground
 /test

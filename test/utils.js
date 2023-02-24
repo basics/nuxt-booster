@@ -8,8 +8,8 @@ import serveStatic from 'serve-static';
 import { defu } from 'defu';
 import { Nuxt, Builder, Generator } from 'nuxt';
 import { getPort } from 'get-port-please';
-import nuxtConfig from '../example/nuxt.config';
-import { toHashHex } from '../lib/utils/string';
+import nuxtConfig from '../playground/nuxt.config';
+import { toHashHex } from '../src/runtime/utils/string';
 
 export const generate = async (buildDir, distDir) => {
   const config = defu({
