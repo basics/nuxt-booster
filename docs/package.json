@@ -27,6 +27,6 @@
   "dependencies": {
     "@nuxt/content-theme-docs": "0.11.1",
     "@nuxtjs/robots": "3.0.0",
-    "nuxt": "2.16.0"
+    "nuxt": "2.16.3"
   }
 }
