@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getCrossorigin } from 'nuxt-speedkit/utils';
+import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);

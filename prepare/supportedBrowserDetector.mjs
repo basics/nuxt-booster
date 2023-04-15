@@ -1,2 +1,1 @@
-import { getUserAgentRegex } from 'browserslist-useragent-regexp';
-export { getUserAgentRegex };
+export { getUserAgentRegex } from 'browserslist-useragent-regexp';

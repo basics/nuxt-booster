@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import { toHashHex } from 'nuxt-speedkit/utils/string';
-import { isTouchSupported } from 'nuxt-speedkit/utils/browser';
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
+import { isTouchSupported } from '#speedkit/utils/browser';
+import { toHashHex } from '#speedkit/utils/string';
 import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 

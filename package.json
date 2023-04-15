@@ -18,7 +18,7 @@
     "url": "https://github.com/GrabarzUndPartner/nuxt-speedkit"
   },
   "scripts": {
-    "prepare": "esbuild prepare/supportedBrowserDetector.mjs --platform=node --bundle --outfile=prepare/dist/supportedBrowserDetector.mjs",
+    "prepare": "esbuild prepare/supportedBrowserDetector.mjs --platform=node --bundle --outfile=prepare/dist/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors",
     "prepack": "npm run prepare && nuxt-module-build",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",

@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import { isTouchSupported } from 'nuxt-speedkit/utils/browser';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
+import { isTouchSupported } from '#speedkit/utils/browser';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 

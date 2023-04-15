@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { getStyleDescription } from 'nuxt-speedkit/utils/description';
+import { getStyleDescription } from '#speedkit/utils/description';
 import OnlySsr from '#speedkit/components/abstracts/OnlySsr';
 
 export default {
