@@ -84,7 +84,7 @@ export default {
   },
 
   watch: {
-    $route (to, from) {
+    $route () {
       if ('lh' in this.$route.query) {
         this.getMetrics();
       }

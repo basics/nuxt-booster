@@ -1,8 +1,7 @@
 
-const fs = require('fs');
-const yaml = require('js-yaml');
+import fs from 'fs';
+import yaml from 'js-yaml';
 
-// eslint-disable-next-line security/detect-non-literal-fs-filename
 const svgoConfig = Object.assign({}, yaml.load(fs.readFileSync(process.cwd() + '/.svgorc.yml', 'utf8')));
 
 module.exports = function () {

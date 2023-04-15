@@ -35,9 +35,7 @@ export default {
         picture: {
           title: 'Stage',
           sources: [
-            // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/stage-landscape.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
-            // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/stage-portrait.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
           ]
         }
@@ -54,7 +52,6 @@ export default {
         picture: {
           title: 'Image Text A',
           sources: [
-            // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/image-text-a.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
           ]
         }
@@ -73,7 +70,6 @@ export default {
         picture: {
           title: 'Image Text B',
           sources: [
-            // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/pickadummy/image-text-b.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
           ]
         }

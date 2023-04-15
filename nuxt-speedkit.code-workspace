@@ -57,7 +57,8 @@
     },
     "javascript.format.enable": false,
     "path-intellisense.mappings": {
-      "@": "${workspaceRoot}/example",
+      "#speedkit": "${workspaceRoot}/src/runtime",
+      "@": "${workspaceRoot}/playground",
       "@@": "${workspaceRoot}"
     },
     "telemetry.enableCrashReporter": false,

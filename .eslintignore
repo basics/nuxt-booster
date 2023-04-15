@@ -6,6 +6,7 @@ coverage
 .reports
 publish
 sw.js
+.output
 
 src/runtime/tmpl/**/*
 src/runtime/components/SpeedkitLayer.vue

@@ -18,6 +18,6 @@ function addBundleRendererDirective (bundleRenderer) {
   };
 }
 
-module.exports = {
+export {
   addBundleRendererDirective
 };

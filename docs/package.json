@@ -19,14 +19,15 @@
   },
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview"
   },
-  "dependencies": {
-    "@nuxt/content-theme-docs": "0.11.1",
-    "@nuxtjs/robots": "3.0.0",
-    "nuxt": "2.16.0"
+  "devDependencies": {
+    "@nuxt-themes/docus": "^1.8.3",
+    "@nuxtjs/robots": "^3.0.0",
+    "@nuxtlabs/github-module": "^1.6.1",
+    "nuxt": "^3.2.2"
   }
 }

@@ -6,10 +6,13 @@
     "baseUrl": ".",
     "paths": {
       "nuxt-speedkit/*": [
-        "lib/*"
+        "src/*"
+      ],
+      "#speedkit": [
+        "src/runtime/*"
       ],
       "@/*": [
-        "example/*"
+        "playground/*"
       ],
       "@@/*": [
         "./*"

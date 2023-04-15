@@ -7,7 +7,7 @@ function autoImportComponents (nuxt, componentsDir, componentPrefix) {
       { path: join(componentsDir, 'abstracts'), pattern: '*', prefix: `${componentPrefix || ''}Abstract` }
     );
   });
-};
+}
 
 function preloadOptimization () {
   return (resources) => {
@@ -39,8 +39,7 @@ const registerAppEntry = (filePath) => {
       });
   };
 };
-
-module.exports = {
+export {
   autoImportComponents,
   preloadOptimization,
   registerAppEntry

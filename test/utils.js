@@ -62,6 +62,7 @@ export const deleteDir = (path) => {
 };
 
 export const getHTML = (path = '') => {
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   return new Promise(resolve => readFile(fsResolve(path, 'index.html'), 'utf-8', (err, data) => {
     if (err) { throw err; }
     resolve(data);

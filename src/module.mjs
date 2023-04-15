@@ -16,7 +16,7 @@ import { addBundleRendererDirective } from './bundleRenderer.mjs';
 import { registerAppEntry, autoImportComponents } from './hookFunctions.mjs';
 import { getComponentFiles, setEnvironments, optimizePreloads, getNuxtImageModuleOptions, getDefaultOptions, deprecationsNotification, MODULE_NAME } from './utils/index.mjs';
 import { getCrossorigin } from './runtime/utils';
-import { getSupportedBrowserDetector } from './utils/browser';
+import { getSupportedBrowserDetector } from './utils/browser.mjs';
 
 export default defineNuxtModule({
   meta: {
@@ -143,4 +143,4 @@ function addNuxtImage (nuxt) {
 function getModuleName (m) {
   if (Array.isArray(m)) { m = m[0]; }
   return m.meta ? m.meta.name : m;
-};
+}

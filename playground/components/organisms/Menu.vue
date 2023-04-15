@@ -87,7 +87,7 @@ export default {
 
   mounted () {
     this.withInert = true;
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach(() => {
       this.$emit('input', false);
     });
   },
