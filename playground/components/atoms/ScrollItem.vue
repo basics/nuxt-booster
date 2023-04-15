@@ -27,7 +27,7 @@ div {
   font-size: 16px;
   text-align: center;
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     font-size: 20px;
   }
 

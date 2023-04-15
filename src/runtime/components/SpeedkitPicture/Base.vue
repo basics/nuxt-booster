@@ -129,10 +129,7 @@ export default {
 
   & img {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     box-sizing: border-box;
   }
 

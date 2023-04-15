@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
   extends: '@nuxt-themes/docus',
   ssr: true,
@@ -7,6 +9,8 @@ export default defineNuxtConfig({
       routes: ['/', '/404.html']
     }
   },
+
+  runtimeConfig: {},
 
   // @ts-ignore
   modules: [
@@ -19,6 +23,7 @@ export default defineNuxtConfig({
       }
     ]
   ],
+  // @ts-ignore
   github: {
     owner: 'GrabarzUndPartner',
     repo: 'nuxt-speedkit',

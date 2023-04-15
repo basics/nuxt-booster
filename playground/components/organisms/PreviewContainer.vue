@@ -39,7 +39,7 @@ export default {};
     flex-direction: row;
   }
 
-  @media (min-width: 992px) {
+  @media (width >= 992px) {
     flex-direction: row;
   }
 
@@ -58,7 +58,7 @@ export default {};
       height: 100vh;
     }
 
-    @media (min-width: 992px) {
+    @media (width >= 992px) {
       width: 50vw;
       height: 100vh;
     }

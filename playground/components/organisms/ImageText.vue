@@ -57,7 +57,7 @@ export default {
   }
 
   & > div {
-    @media (orientation: landscape) and (min-width: 768px) {
+    @media (orientation: landscape) and (width >= 768px) {
       display: flex;
       align-items: center;
 

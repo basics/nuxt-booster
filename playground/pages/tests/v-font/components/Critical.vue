@@ -63,7 +63,7 @@ export default {
 
 <style lang="postcss" scoped>
 .preview-container {
-  @media (max-width: 767px) {
+  @media (width <= 767px) {
     & :deep(.preview) {
       height: 70vh;
     }

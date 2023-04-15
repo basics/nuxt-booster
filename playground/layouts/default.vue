@@ -110,23 +110,23 @@ body {
     background-color: #333;
   }
 
-  @media (min-width: 375px) {
+  @media (width >= 375px) {
     font-size: vw(16, 375);
   }
 
-  @media (min-width: 576px) {
+  @media (width >= 576px) {
     font-size: vw(16, 576);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     font-size: vw(16, 768);
   }
 
-  @media (min-width: 992px) {
+  @media (width >= 992px) {
     font-size: vw(16, 992);
   }
 
-  @media (min-width: 1200px) {
+  @media (width >= 1200px) {
     font-size: 16px;
   }
 }

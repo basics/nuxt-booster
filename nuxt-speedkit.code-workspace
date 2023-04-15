@@ -25,6 +25,12 @@
       "vue",
       "html"
     ],
+    "stylelint.validate": [
+      "css",
+      "less",
+      "postcss",
+      "vue"
+    ],
     "files.exclude": {
       "docs/": true,
       ".nuxt/": false,

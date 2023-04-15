@@ -85,10 +85,7 @@ export default {
     margin-left: calc(em(-96px) / 2);
 
     @media (orientation: landscape) {
-      top: auto;
-      right: 0;
-      bottom: 0;
-      left: auto;
+      inset: auto 0 0 auto;
     }
   }
 
@@ -104,7 +101,7 @@ export default {
     font-size: em(30px);
     line-height: 2;
 
-    @media (orientation: landscape) and (min-width: 992px) {
+    @media (orientation: landscape) and (width >= 992px) {
       font-size: em(40px);
     }
   }
@@ -156,10 +153,7 @@ export default {
 
     @media (orientation: landscape) {
       position: absolute;
-      top: 50px;
-      right: 0;
-      bottom: auto;
-      left: auto;
+      inset: 50px 0 auto auto;
       width: auto;
       padding: em(20px) em(40px);
     }

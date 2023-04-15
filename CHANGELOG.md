@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3...v2.1.4) (2023-03-29)
+
+
+### Bug Fixes
+
+* upgrade sort-css-media-queries from 2.1.0 to 2.1.1 ([2e6d7ed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2e6d7edaaa853edc92a884a702c19ab6cfef4dca))
+
 ## [2.1.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.2...v2.1.3) (2023-01-17)
 
 
