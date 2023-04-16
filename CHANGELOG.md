@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.5-beta.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.5-beta.2...v2.1.5-beta.3) (2023-04-16)
+
+
+### Bug Fixes
+
+* **ci:** test 1 ([1f85332](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1f853326723cec1283848bf9bc37aca9e8b419cf))
+
 ## [2.1.5-beta.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.5-beta.1...v2.1.5-beta.2) (2023-04-16)
 
 
