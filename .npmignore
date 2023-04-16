@@ -22,7 +22,6 @@ publish
 !.vscode/launch.json
 .DS_Store
 coverage
-dist
 .husky
 .*
 *.code-workspace
@@ -38,6 +37,6 @@ renovate.json
 vetur.config.json
 
 /docs
-/lib
-/example
+/src
+/playground
 /test

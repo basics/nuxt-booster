@@ -8,8 +8,8 @@ import serveStatic from 'serve-static';
 import { defu } from 'defu';
 import { Nuxt, Builder, Generator } from 'nuxt';
 import { getPort } from 'get-port-please';
-import nuxtConfig from '../example/nuxt.config';
-import { toHashHex } from '../lib/utils/string';
+import nuxtConfig from '../playground/nuxt.config';
+import { toHashHex } from '../src/runtime/utils/string';
 
 export const generate = async (buildDir, distDir) => {
   const config = defu({
@@ -62,6 +62,7 @@ export const deleteDir = (path) => {
 };
 
 export const getHTML = (path = '') => {
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   return new Promise(resolve => readFile(fsResolve(path, 'index.html'), 'utf-8', (err, data) => {
     if (err) { throw err; }
     resolve(data);

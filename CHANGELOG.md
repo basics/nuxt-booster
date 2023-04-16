@@ -1,5 +1,22 @@
 # Project Changelog
 
+## [2.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3...v2.1.4) (2023-03-29)
+
+
+### Bug Fixes
+
+* upgrade sort-css-media-queries from 2.1.0 to 2.1.1 ([2e6d7ed](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2e6d7edaaa853edc92a884a702c19ab6cfef4dca))
+
+## [2.1.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.2...v2.1.3) (2023-01-17)
+
+
+### Bug Fixes
+
+* **entry:** added callback for `document.hidden` ([fe5ccfe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/fe5ccfead557092901a78171e4c6b55acdf6de92))
+* **entry:** added global var for force init ([e3c56a1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e3c56a1c87b761434ebb645247aa1cefaa5fbf93))
+* **entry:** replaced 1document.hidden1 with `document.visibilityState` ([06d4fb8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/06d4fb84e82b57ca761886eaeca06bc8d90a4a24))
+* **entry:** revert the initialization ([7e89cef](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7e89cefc7d09276f32e210845ce1458e7c4602e9))
+
 ## [2.1.3-beta.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3-beta.3...v2.1.3-beta.4) (2022-12-19)
 
 

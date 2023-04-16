@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug (generate)",
-      "runtimeVersion": "14.18.0",
+      "runtimeVersion": "16.19.0",
       "runtimeArgs": [
         "--inspect"
       ],
@@ -14,7 +14,7 @@
       "args": [
         "generate",
         "--config-file",
-        "example/nuxt.config.js",
+        "playground/nuxt.config.js",
         "--target",
         "static"
       ]
@@ -23,7 +23,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug (build)",
-      "runtimeVersion": "14.18.0",
+      "runtimeVersion": "16.19.0",
       "runtimeArgs": [
         "--inspect"
       ],
@@ -32,14 +32,14 @@
       "args": [
         "build",
         "--config-file",
-        "example/nuxt.config.js"
+        "playground/nuxt.config.js"
       ]
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Debug (nuxt)",
-      "runtimeVersion": "14.18.0",
+      "runtimeVersion": "16.19.0",
       "runtimeArgs": [
         "--inspect"
       ],
@@ -47,7 +47,7 @@
       "outputCapture": "std",
       "args": [
         "--config-file",
-        "example/nuxt.config.js"
+        "playground/nuxt.config.js"
       ]
     }
   ]

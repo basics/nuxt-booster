@@ -6,7 +6,7 @@ coverage
 .reports
 publish
 sw.js
+.output
 
-lib/templates/**/*
-lib/components/SpeedkitLayer.vue
-lib/components/SpeedkitYoutube/test/**/*
+src/runtime/tmpl/**/*
+src/runtime/components/SpeedkitLayer.vue
