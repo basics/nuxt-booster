@@ -36,13 +36,13 @@ jobs:
       - name: Test
         run: npm run test
       - name: Prepare
-        run: npm run prepare
+        run: npm run esbuild
       - name: Upload Prepare Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
           name: prepareArtifact
           path: prepare/dist
-        
+
 
   semantic-version:
     name: Semantic Release
