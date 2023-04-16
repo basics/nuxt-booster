@@ -52,11 +52,20 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v3
+      - name: cache node_modules
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Versioning
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx -p esbuild -p browserslist-useragent-regexp esbuild prepare/supportedBrowserDetector.mjs --platform=node --bundle --outfile=prepare/dist/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors
+          npm run prepare
           npx -p pinst -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github
