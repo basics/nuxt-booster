@@ -1,5 +1,16 @@
 # Project Changelog
 
+## [2.1.5-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.4...v2.1.5-beta.1) (2023-04-16)
+
+
+### Bug Fixes
+
+* **module:** prepare for rollout ([33bf9b1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/33bf9b193919c9684bdaecb2a5196212a39607e8))
+* **update:** added rollup; repalced docs with docus ([597ad15](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/597ad151e4f8eac38e462dc01dbd35ffb7bdb4ab))
+* **update:** improve prepack ([d7b4c6a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d7b4c6ab73ae2f6d7e07050725c1d68560363826))
+* **update:** update dependencies ([0f4202c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0f4202c8d229667cc8dbde17eb9193a2a1b705e1))
+* **update:** update package-lock ([49be02c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/49be02cc9260e0931bbb8a778be25d10d9b72a7d))
+
 ## [2.1.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.3...v2.1.4) (2023-03-29)
 
 
