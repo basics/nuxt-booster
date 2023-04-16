@@ -58,5 +58,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx -p browserslist-useragent-regexp -p esbuild npm run prepare
+          npx -p esbuild esbuild -p browserslist-useragent-regexp prepare/supportedBrowserDetector.mjs --platform=node --bundle --outfile=prepare/dist/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors
           npx -p pinst -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github
