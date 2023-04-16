@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v3
@@ -26,6 +26,7 @@ jobs:
         id: cache
         with:
           path: |
+            prepare/dist
             node_modules
             ~/.cache/ms-playwright/
             ~\AppData\Local\ms-playwright\
@@ -35,13 +36,6 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run test
-      - name: Prepare
-        run: npm run esbuild
-      - name: Upload Prepare Artifact
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: prepareArtifact
-          path: prepare/dist
 
 
   semantic-version:
@@ -60,11 +54,15 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v3
-      - name: Download Prepare Artifact
-        uses: actions/download-artifact@v2.1.1
+      - name: cache node_modules
+        uses: actions/cache@v3
+        id: cache
         with:
-          name: prepareArtifact
-          path: prepare/dist
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Versioning
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
