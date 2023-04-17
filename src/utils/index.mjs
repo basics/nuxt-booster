@@ -97,11 +97,11 @@ function getNuxtImageModuleOptions (moduleContainer) {
   if ('image' in moduleContainer.options) {
     imageOptions = moduleContainer.options.image;
   } else {
-    imageOptions = [].concat(
+    const module = [].concat(
       moduleContainer.options.modules,
       moduleContainer.options.buildModules
     ).find(module => Array.isArray(module) && module[0] === '@nuxt/image' && module[1]);
-    return module && module[1];
+    imageOptions = (module && module[1]) || {};
   }
 
   return defu({
@@ -109,7 +109,7 @@ function getNuxtImageModuleOptions (moduleContainer) {
     alias: {},
     screens: {}
   }, imageOptions);
-};
+}
 
 export {
   MODULE_NAME,
