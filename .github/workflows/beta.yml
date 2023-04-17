@@ -26,7 +26,6 @@ jobs:
         id: cache
         with:
           path: |
-            prepare/dist
             node_modules
             ~/.cache/ms-playwright/
             ~\AppData\Local\ms-playwright\
