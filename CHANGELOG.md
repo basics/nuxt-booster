@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [2.1.5-beta.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.5-beta.13...v2.1.5-beta.14) (2023-04-19)
+
+
+### Bug Fixes
+
+* **docs:** fix colors ([3c13d4e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3c13d4e241f873e0d9696ef9070554d8e2b41e25))
+* **module:** fix transpiles ([cbb3cb3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cbb3cb350345b534369243fd1c00de56d9cf626f))
+
 ## [2.1.5-beta.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.5-beta.12...v2.1.5-beta.13) (2023-04-19)
 
 
