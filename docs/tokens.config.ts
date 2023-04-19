@@ -1,7 +1,8 @@
-import { defineTheme, palette } from 'pinceau';
+import { defineTheme } from 'pinceau';
+import { getColors } from 'theme-colors';
 
 export default defineTheme({
   color: {
-    primary: palette('#E83162')
+    primary: getColors('#E83162')
   }
 });
