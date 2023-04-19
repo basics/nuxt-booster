@@ -20,9 +20,10 @@ export default async function (moduleOptions) {
 
   const runtimeDir = path.resolve(__dirname, 'runtime');
   this.nuxt.options.alias['#speedkit'] = runtimeDir;
+  this.nuxt.options.build.transpile.push('#speedkit');
   // @deprecated Alias `nuxt-speedkit` is replaced by #speedkit for runtime only
   this.nuxt.options.alias['nuxt-speedkit'] = runtimeDir;
-  this.nuxt.options.build.transpile.push(runtimeDir);
+  this.nuxt.options.build.transpile.push('nuxt-speedkit');
 
   setEnvironments(this.nuxt, options);
 
