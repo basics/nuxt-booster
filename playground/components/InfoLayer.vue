@@ -47,11 +47,6 @@ export default {
     SpeedkitLayer
   },
   inheritAttrs: false,
-  data () {
-    return {
-      hydrate: false
-    };
-  },
   head () {
     return this.$speedkit.head({
       noscript: [
