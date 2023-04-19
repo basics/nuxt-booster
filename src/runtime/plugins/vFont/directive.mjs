@@ -1,5 +1,5 @@
 
-import { isElementOutViewport, getElementObserver } from 'nuxt-speedkit/classes/intersection';
+import { isElementOutViewport, getElementObserver } from '#speedkit/classes/intersection';
 const CLASS_FONT_ACTIVE = 'font-active';
 
 const obervers = new Map();

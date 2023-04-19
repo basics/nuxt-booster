@@ -37,21 +37,13 @@ const getProvider = (context) => {
 export const getMeta = async (source, compiledSrc, ssrNuxtImage) => {
   if (global.Image) {
     source = source.modify({ src: compiledSrc });
-    const result = await new Promise((resolve) => {
-      const img = new global.Image();
-      img.onload = () => resolve(img);
-      img.src = source.src;
-    });
-    return source.modify({ width: result.naturalWidth, height: result.naturalHeight });
   } else {
     let src = compiledSrc;
     if (Object.entries(ssrNuxtImage || {}).length) {
       src = Object.entries(ssrNuxtImage || {}).find(([, compiledPath]) => compiledPath.endsWith(src))[0];
     }
     source = source.modify({ src: hasProtocol(src) ? src : withBase(src, process.env.NUXT_SPEEDKIT_INTERAL_URL) });
-    const resp = await fetch(source.src);
-    const sizeOf = (await import('buffer-image-size')).default;
-    const { width, height } = sizeOf(await resp.buffer());
-    return source.modify({ width, height });
   }
+  const { width, height } = await global.nuxtSpeedkit_getImageSize(source.src);
+  return source.modify({ width, height });
 };

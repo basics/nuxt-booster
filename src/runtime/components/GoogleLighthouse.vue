@@ -5,7 +5,7 @@
 <script>
 export default {
   components: {
-    LighthouseWidget: () => import('#speedkit/components/GoogleLighthouse/Widget.vue')
+    LighthouseWidget: () => import('nuxt-speedkit/components/GoogleLighthouse/Widget.vue')
   },
 
   created () {

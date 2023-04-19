@@ -7,7 +7,6 @@
   },
   "extends": [
     "@nuxtjs",
-    "@nuxtjs/eslint-config-typescript",
     "plugin:security/recommended",
     "plugin:sonarjs/recommended",
     "plugin:no-unsanitized/DOM"

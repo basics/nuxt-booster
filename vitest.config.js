@@ -9,7 +9,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'nuxt-speedkit': path.resolve(__dirname, './src'),
+      'nuxt-speedkit': path.resolve(__dirname, './src/runtime'),
       '#speedkit': path.resolve(__dirname, './src/runtime')
     }
   }

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import speedkitHydrate from 'nuxt-speedkit/hydrate';
+import speedkitHydrate from '#speedkit/hydrate';
 
 export default {
   components: {

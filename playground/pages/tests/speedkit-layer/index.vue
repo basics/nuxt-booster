@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import speedkitHydrate from 'nuxt-speedkit/hydrate';
+import speedkitHydrate from '#speedkit/hydrate';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
 
 export default {

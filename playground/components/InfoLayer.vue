@@ -37,7 +37,7 @@
 
 <script>
 
-import { getStyleDescription } from 'nuxt-speedkit/utils/description';
+import { getStyleDescription } from '#speedkit/utils/description';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
 import BaseButton from '@/components/atoms/BaseButton';
 

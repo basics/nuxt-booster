@@ -21,3 +21,4 @@ stream/A
 stream/B
 stream/C
 stream/source
+src/supportedBrowserDetector.mjs

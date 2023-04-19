@@ -63,7 +63,7 @@
     },
     "javascript.format.enable": false,
     "path-intellisense.mappings": {
-      "#speedkit": "${workspaceRoot}/src/runtime",
+      "nuxt-speedkit": "${workspaceRoot}/src/runtime",
       "@": "${workspaceRoot}/playground",
       "@@": "${workspaceRoot}"
     },

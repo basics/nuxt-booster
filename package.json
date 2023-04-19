@@ -18,8 +18,8 @@
     "url": "https://github.com/GrabarzUndPartner/nuxt-speedkit"
   },
   "scripts": {
-    "prepare": "esbuild prepare/supportedBrowserDetector.mjs --platform=node --bundle --outfile=prepare/dist/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors",
-    "prepack": "npm run prepare && nuxt-module-build",
+    "prepare": "esbuild src/runtime/tmpl/supportedBrowserDetector.mjs --platform=node --bundle --outfile=src/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors",
+    "prepack": "npm run prepare",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
@@ -36,29 +36,15 @@
     "start": "nuxt start --config-file playground/nuxt.config.js --target static",
     "start:generate": "npm run generate && npm run start"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
-    }
-  },
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "index.js",
   "dependencies": {
     "@nuxt/image": "0.7.1",
-    "@nuxt/kit": "^3.4.1",
-    "@nuxt/module-builder": "^0.3.0",
-    "bowser": "2.11.0",
     "browserslist-useragent-regexp": "4.0.0",
-    "buffer-image-size": "0.6.4",
     "deepmerge": "4.3.1",
     "defu": "6.1.2",
     "dynamic-class-list": "2.0.2",
-    "native-fetch": "4.0.2",
     "pathe": "^1.1.0",
+    "probe-image-size": "^7.2.3",
     "serialize-to-js": "3.1.2",
     "sort-css-media-queries": "2.1.1",
     "vue-lazy-hydration": "2.0.0-beta.4"
@@ -72,7 +58,6 @@
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/stylelint-module": "4.1.0",
-    "@rollup/plugin-commonjs": "^24.1.0",
     "commitlint": "17.6.1",
     "core-js": "3.30.1",
     "eslint": "8.38.0",

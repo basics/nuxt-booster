@@ -1,6 +1,6 @@
 
 import serialize from 'serialize-to-js';
-import { getUserAgentRegex } from '../../prepare/dist/supportedBrowserDetector.mjs';
+import { getUserAgentRegex } from '../supportedBrowserDetector.mjs'; // generate by prepare task
 
 function getSupportedBrowserDetector (ignore) {
   if (ignore) {

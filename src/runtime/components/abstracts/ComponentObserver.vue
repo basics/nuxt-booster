@@ -1,6 +1,6 @@
 <script>
 
-import { getElementObserver } from 'nuxt-speedkit/classes/intersection';
+import { getElementObserver } from '#speedkit/classes/intersection';
 
 export default {
   abstract: true,

@@ -108,7 +108,6 @@ export default {
 
   async fetch () {
     const { withQuery } = await import('ufo');
-    const { fetch } = await import('native-fetch');
     try {
       const url = withQuery('https://vimeo.com/api/oembed.json', {
         url: this.url,
@@ -116,7 +115,7 @@ export default {
         height: 1080,
         ...this.playerOptions
       });
-      const response = await fetch(url);
+      const response = await global.fetch(url);
       this.videoData = await response.json();
     } catch (error) {
       // eslint-disable-next-line no-console

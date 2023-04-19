@@ -10,14 +10,14 @@
 
 <script>
 import 'wicg-inert';
-import speedkitHydrate from 'nuxt-speedkit/hydrate';
+import speedkitHydrate from '#speedkit/hydrate';
 import InfoLayer from '@/components/InfoLayer';
 
 export default {
   components: {
     InfoLayer,
     GithubCorner: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/atoms/GithubCorner')),
-    GoogleLighthouse: speedkitHydrate(() => import(/* webpackMode: "eager" */ '#speedkit/components/GoogleLighthouse')),
+    GoogleLighthouse: speedkitHydrate(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
     OrganismPageHeader: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
   },
 

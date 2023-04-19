@@ -8,6 +8,8 @@ import FontList from '#speedkit/classes/FontList'
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 <% if (options.loader && options.loader.dataUri) { %>import loaderDataUri from '<%= options.loader.dataUri %>';<% } %>
+<% if (options.mode === 'server') { %>import probe from 'probe-image-size';<% } %>
+
 
 Vue.use(vFont)
 
@@ -24,6 +26,24 @@ const speedkit = Object.freeze({
 });
 
 const fontList = new FontList(<%= options.fonts %>);
+
+
+global.nuxtSpeedkit_getImageSize = async (src) => {
+
+<% if (options.mode === 'client') { %>
+  const { width, height } =await new Promise((resolve) => {
+    const img = new global.Image();
+    img.onload = () => resolve({width: img.naturalWidth, height: img.naturalHeight});
+    img.src = src;
+  });
+<% } else { %>
+  const { width, height } = await probe(src);
+<% } %>
+
+  return {width, height};
+
+};
+
 
 export default (context, inject) => {
   inject('getFont', fontList.getFont.bind(fontList));

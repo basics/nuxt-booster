@@ -5,7 +5,7 @@
       "nuxt-speedkit/*": [
         "./src/*"
       ],
-      "#speedkit/*": [
+      "nuxt-speedkit/*": [
         "./src/runtime*"
       ]
     }
