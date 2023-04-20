@@ -81,7 +81,7 @@
     "postcss-nesting": "11.2.2",
     "postcss-preset-env": "8.3.2",
     "serve-static": "1.15.0",
-    "stylelint": "14.16.1",
+    "stylelint": "15.5.0",
     "stylelint-config-recess-order": "3.1.0",
     "stylelint-config-standard": "29.0.0",
     "vite": "4.3.0",
