@@ -15,9 +15,10 @@ dist
 test/.*
 eslint-report.json
 video
-example/static/stream
-example/assets/proxy
+playground/static/stream
+playground/assets/proxy
 stream/A
 stream/B
 stream/C
 stream/source
+src/supportedBrowserDetector.mjs

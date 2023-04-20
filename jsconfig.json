@@ -1,4 +1,7 @@
 {
+  "vueCompilerOptions": {
+    "target": 2.7
+  },
   "compilerOptions": {
     "target": "esnext",
     "module": "es2015",
@@ -6,10 +9,13 @@
     "baseUrl": ".",
     "paths": {
       "nuxt-speedkit/*": [
-        "lib/*"
+        "src/runtime/*"
+      ],
+      "#speedkit": [
+        "src/runtime/*"
       ],
       "@/*": [
-        "example/*"
+        "playground/*"
       ],
       "@@/*": [
         "./*"

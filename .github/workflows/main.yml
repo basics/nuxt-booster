@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18]
 
     steps:
       - uses: actions/setup-node@v3
@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v3
-      - name: cache node_modules (Example)
+      - name: cache node_modules (Playground)
         uses: actions/cache@v3
         id: cache
         with:
@@ -30,7 +30,7 @@ jobs:
             ~/.cache/ms-playwright/
             ~\AppData\Local\ms-playwright\
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-      - name: Install Dependencies (Example)
+      - name: Install Dependencies (Playground)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test
@@ -53,7 +53,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [19]
+        node: [18]
 
     steps:
       - uses: actions/setup-node@v3
@@ -67,18 +67,18 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          rsync -r --exclude ./lib ./lib/* .
+          rsync -r --exclude ./src ./src/* .
           npx -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
 
-  build-example:
-    name: Build (Example)
+  build-playground:
+    name: Build (Playground)
     needs: semantic-version
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18]
 
     steps:
       - uses: actions/setup-node@v3
@@ -97,7 +97,7 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate --build-analyze --base=/example/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
+          npm run generate --build-analyze --base=/playground/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
@@ -106,7 +106,7 @@ jobs:
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
-          name: exampleArtifact
+          name: playgroundArtifact
           path: dist
 
   build-docs:
@@ -117,7 +117,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18]
 
     steps:
       - uses: actions/setup-node@v3
@@ -131,29 +131,18 @@ jobs:
         with:
           path: docs/node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
-      - name: Build v2
+      - name: Build
         run: |
           cd ./docs
-          npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
-          touch dist/.nojekyll
+          npm run generate
+          touch docs/.output/public/.nojekyll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DIST_PATH: dist
-          CONTENT_DIR: "content/v2"
-      - name: Build v1
-        run: |
-          cd ./docs
-          npm run generate --website-host=https://nuxt-speedkit.grabarzundpartner.dev
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DIST_PATH: dist/v1
-          BASE_PATH: "/v1/"
-          CONTENT_DIR: "content/v1"
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: docsArtifact
-          path: docs/dist
+          path: docs/.output/public
 
   sitespeed:
     runs-on: ${{ matrix.os }}
@@ -162,7 +151,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18]
 
     steps:
       - name: docker pull
@@ -176,7 +165,7 @@ jobs:
           throttle 3g
       - name: Running sitespeed.io container with arguments and optional Docker options
         run: |
-          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/example/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
           docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarzundpartner.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarzundpartner
           docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarz-group.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarz-group
       - name: Stop throttle 3g
@@ -191,23 +180,23 @@ jobs:
 
   deploy-ghpages:
     name: Deploy (GH-Pages)
-    needs: [build-example, build-docs, sitespeed]
+    needs: [build-playground, build-docs, sitespeed]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18]
     steps:
       - name: Download Artifact (Docs)
         uses: actions/download-artifact@master
         with:
           name: docsArtifact
           path: public/docs
-      - name: Download Artifact (Example)
+      - name: Download Artifact (Playground)
         uses: actions/download-artifact@master
         with:
-          name: exampleArtifact
-          path: public/docs/example
+          name: playgroundArtifact
+          path: public/docs/playground
       - name: Download Artifact (Sitespeed)
         uses: actions/download-artifact@master
         with:

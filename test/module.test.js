@@ -1,5 +1,5 @@
-import { getCrossorigin } from 'nuxt-speedkit/utils';
 import { describe, it, expect } from 'vitest';
+import { getCrossorigin } from '#speedkit/utils';
 
 describe('🧐 inspect module utils', () => {
   it('getCrossorigin', () => {

@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "nuxt-speedkit/*": [
-        "./lib/*"
+        "./src/*"
+      ],
+      "nuxt-speedkit/*": [
+        "./src/runtime*"
       ]
     }
   }

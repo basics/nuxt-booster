@@ -8,4 +8,5 @@ node_modules
 coverage
 dist
 sw.*
-.history
+.env
+.output

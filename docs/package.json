@@ -19,14 +19,17 @@
   },
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview"
   },
-  "dependencies": {
-    "@nuxt/content-theme-docs": "0.11.1",
-    "@nuxtjs/robots": "3.0.0",
-    "nuxt": "2.16.3"
+  "devDependencies": {
+    "@nuxt-themes/docus": "^1.10.1",
+    "@nuxtjs/eslint-module": "^3.1.0",
+    "@nuxtjs/robots": "^3.0.0",
+    "@nuxtlabs/github-module": "^1.6.2",
+    "nuxt": "^3.4.1",
+    "theme-colors": "^0.0.5"
   }
 }
