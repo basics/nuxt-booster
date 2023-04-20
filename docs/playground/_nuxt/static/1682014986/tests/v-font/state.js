@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fplayground\u002F_nuxt\u002Fstatic\u002F1682014986",layout:"default",error:a,serverRendered:true,routePath:"\u002Ftests\u002Fv-font",config:{_app:{basePath:"\u002Fplayground\u002F",assetsPath:"\u002Fplayground\u002F_nuxt\u002F",cdnURL:a}}}}(null));
