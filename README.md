@@ -47,7 +47,7 @@ All used components and resources are loaded on demand based on the viewport.
 
 - [Grabarz & Partner](https://grabarzundpartner.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarzundpartner.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarzundpartner/))
 - [Grabarz Group](https://grabarz-group.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarz-group.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarz-group/))
-- [Nuxt Speedkit Example](https://nuxt-speedkit.grabarzundpartner.dev/example/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fexample%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/nuxt-speedkit/))
+- [Nuxt Speedkit Example](https://nuxt-speedkit.grabarzundpartner.dev/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fexample%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/nuxt-speedkit/))
 
 ## Getting Started
 
@@ -102,10 +102,10 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.gra
 
 or look here
 
-- [Preview](https://nuxt-speedkit.grabarzundpartner.dev/example)
-- [Report Client](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/client.html)
-- [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/modern.html)
-- [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/example/reports/webpack/server.html)
+- [Preview](https://nuxt-speedkit.grabarzundpartner.dev/playground)
+- [Report Client](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/client.html)
+- [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/modern.html)
+- [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/server.html)
 
 ## Consulting & Support
 
