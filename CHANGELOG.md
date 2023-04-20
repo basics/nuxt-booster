@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.1.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.5...v2.1.6) (2023-04-20)
+
+
+### Bug Fixes
+
+* **build:** split install task ([727d9bf](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/727d9bf13d56806950a75bc1286e669bdd61074d))
+
 ## [2.1.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.4...v2.1.5) (2023-04-20)
 
 
