@@ -160,7 +160,7 @@ jobs:
         run: |
           cd ./docs
           npm run generate
-          touch docs/.output/public/.nojekyll
+          touch .output/public/.nojekyll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Production Artifact
