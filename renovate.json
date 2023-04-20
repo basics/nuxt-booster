@@ -18,6 +18,19 @@
       },
       "separateMultipleMajor": true,
       "allowedVersions": "^16"
+    },
+    {
+      "matchPackagePatterns": [
+        "@nuxtjs/eslint-module",
+        "@nuxtjs/stylelint-module"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchBaseBranches": [
+        "stable"
+      ],
+      "enabled": false
     }
   ],
   "baseBranches": [

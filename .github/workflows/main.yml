@@ -78,13 +78,21 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
         uses: actions/checkout@v3
+      - name: cache node_modules
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright/
+            ~\AppData\Local\ms-playwright\
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Versioning
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          rsync -r --exclude ./src ./src/* .
           npx -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
 
   build-playground:
@@ -144,7 +152,7 @@ jobs:
         uses: actions/checkout@v3
       - name: cache docs/node_modules
         uses: actions/cache@v3
-        id: cacheDocs
+        id: cache
         with:
           path: docs/node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/docs/package-lock.json')) }}-docs
