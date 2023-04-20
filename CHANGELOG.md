@@ -1,5 +1,34 @@
 # Project Changelog
 
+## [2.1.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.4...v2.1.5) (2023-04-20)
+
+
+### Bug Fixes
+
+* **ci:** fix task ([960f1ae](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/960f1aee671c71087d36230182b5f2b818456e3c))
+* **ci:** test 1 ([6301cd6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6301cd6ebc5eaa1aebb726defd58a54a4565bf96))
+* **ci:** test 1 ([1f85332](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1f853326723cec1283848bf9bc37aca9e8b419cf))
+* **ci:** test 2 ([094ce9c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/094ce9ccf832e5db9210330edb3e4a52a68305fa))
+* **ci:** test 2 ([5e3fc79](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5e3fc79fe4dcf1f5de9188978261b953621845ce))
+* **ci:** test 3 ([10837bc](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/10837bc406b9bb193f07212ab0773e9f8c7ac007))
+* **ci:** test 4 ([1dbe58a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1dbe58a42180f04163e25ab8157af0727d198c55))
+* **ci:** test 5 ([7323ea8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7323ea80b4f8a3d0b43743e03a82ae160d5f35bd))
+* **ci:** test 5 ([76f047c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/76f047c4af60c697ed2e52b2acec1c782a1bcb9b))
+* **ci:** test 6 ([b3c615b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b3c615b2dc36c78ee602a4b3e4b73bb009497dc1))
+* **ci:** test 6 ([34b6455](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/34b6455899d50acd02fcaf2cc0ab674f2a94db84))
+* **ci:** test 7 ([54e7049](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/54e70498607748aef7e5c9cc470f04df212de13e))
+* **ci:** test 8 ([2f59e63](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/2f59e63ce28c0142c1c8009f5fc2d656217ed0d3))
+* **docs:** fix colors ([3c13d4e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/3c13d4e241f873e0d9696ef9070554d8e2b41e25))
+* **module:** fix transpiles ([cbb3cb3](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cbb3cb350345b534369243fd1c00de56d9cf626f))
+* **module:** prepare for rollout ([33bf9b1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/33bf9b193919c9684bdaecb2a5196212a39607e8))
+* **publish:** force publish ([d92ef7b](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d92ef7b79ee50afc4f54f51a6dd984d4c4aeb60e))
+* **test:** fix test ([a0bad9e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a0bad9ef1e68bb7c77b2469485eb7b341537cc48))
+* **update:** added rollup; repalced docs with docus ([597ad15](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/597ad151e4f8eac38e462dc01dbd35ffb7bdb4ab))
+* **update:** improve prepack ([d7b4c6a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d7b4c6ab73ae2f6d7e07050725c1d68560363826))
+* **update:** replaced module build ([49b1c97](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/49b1c97976c477e393fce0a8922bcf015773bd69))
+* **update:** update dependencies ([0f4202c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0f4202c8d229667cc8dbde17eb9193a2a1b705e1))
+* **update:** update package-lock ([49be02c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/49be02cc9260e0931bbb8a778be25d10d9b72a7d))
+
 ## [2.1.5-beta.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.5-beta.13...v2.1.5-beta.14) (2023-04-19)
 
 
