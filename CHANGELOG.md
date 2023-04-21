@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [2.2.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.7...v2.2.0) (2023-04-21)
+
+
+### Features
+
+* **codespace:** added codespace config ([9a155a9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9a155a99c1de0ae19754931aae263319a942ad41))
+
 ## [2.1.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.6...v2.1.7) (2023-04-20)
 
 
