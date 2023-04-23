@@ -1,6 +1,6 @@
 <template>
   <picture :class="classNames.picture" class="nuxt-speedkit-picture">
-    <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" :crossorigin="crossorigin" />
+    <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" :crossorigin="$speedkit.getCrossorigin(crossorigin)" />
     <base-image
       :class="classNames.image"
       :title="title"
@@ -37,7 +37,7 @@ export default {
     formats: {
       type: Array,
       default () {
-        return this.$speedkit.targetFormats;
+        return [];
       }
     },
 
@@ -59,12 +59,14 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default () {
-        return this.$speedkit.crossorigin;
+        return '';
       },
       validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
 
   },
+
+  emits: ['load'],
 
   data () {
     return {
@@ -96,8 +98,9 @@ export default {
     },
 
     formatSources () {
-      const sortedFormatsByPriority = Array.from(new Set(TARGET_FORMAT_PRIORITY.map(v => this.formats.find(format => format.includes(v))))).filter(Boolean);
-      const preloadFormat = TARGET_FORMAT_PRIORITY.find(v => this.formats.find(format => format.includes(v)));
+      const formats = this.$speedkit.getFormats(this.formats);
+      const sortedFormatsByPriority = Array.from(new Set(TARGET_FORMAT_PRIORITY.map(v => formats.find(format => format.includes(v))))).filter(Boolean);
+      const preloadFormat = TARGET_FORMAT_PRIORITY.find(v => formats.find(format => format.includes(v)));
       return this.sourceList.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
     },
 

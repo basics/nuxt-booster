@@ -67,10 +67,10 @@ function deprecationsNotification (options) {
   }
 }
 
-function setEnvironments (nuxt, options) {
-  nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_COMPONENT = options.lazyOffset.component;
-  nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_ASSET = options.lazyOffset.asset;
-}
+const setPublicRuntimeConfig = (nuxt, options) => {
+  nuxt.options.runtimeConfig.public.nuxtSpeedkitLazyOffsetComponent = options.lazyOffset.component;
+  nuxt.options.runtimeConfig.public.nuxtSpeedkitLazyOffsetAsset = options.lazyOffset.asset;
+};
 
 function optimizePreloads (nuxt) {
   nuxt.options.generate.manifest = false;
@@ -116,7 +116,7 @@ export {
   MODULE_NAME,
   deprecationsNotification,
   getDefaultOptions,
-  setEnvironments,
+  setPublicRuntimeConfig,
   optimizePreloads,
   getComponentFiles,
   getNuxtImageModuleOptions

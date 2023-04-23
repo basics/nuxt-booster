@@ -24,7 +24,7 @@ export function hasSufficientPerformance () {
 }
 
 export function hasSufficientDownloadPerformance () {
-  if (global.performance) {
+  if (window.performance) {
     const paint = performance.getEntriesByName('first-contentful-paint');
     const resources = performance.getEntriesByType('resource');
     if (paint.length) {
@@ -76,7 +76,7 @@ export const waitForVisibleDocument = () => {
 };
 
 export const run = async (options = {}) => {
-  if (global.requestIdleCallback) {
+  if (window.requestIdleCallback) {
     await waitForVisibleDocument();
 
     const { maxTime, threshold } = { ...getDefaultRunOptions(), ...options };
@@ -111,10 +111,10 @@ const idleTime = (callback) => {
   const loop = (deadline) => {
     const running = callback(deadline.timeRemaining());
     if (running) {
-      global.requestIdleCallback(loop);
+      window.requestIdleCallback(loop);
     }
   };
-  global.requestIdleCallback(loop);
+  window.requestIdleCallback(loop);
 };
 
 class ValueBuffer {

@@ -1,5 +1,5 @@
 <template>
-  <speedkit-layer class="info-layer" v-bind="$attrs" v-on="$listeners">
+  <speedkit-layer class="info-layer" v-bind="$attrs">
     <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…

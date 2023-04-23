@@ -4,17 +4,40 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug (generate)",
-      "runtimeVersion": "16.19.0",
+      "name": "Express-Server (dist)",
+      "runtimeVersion": "16.14.2",
+      "program": "${workspaceFolder}/tools/express-server",
+      "outputCapture": "std",
+      "args": [
+        "--dist",
+        "dist/nuxt-custom-elements"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Express-Server (build/dist)",
+      "runtimeVersion": "16.14.2",
+      "program": "${workspaceFolder}/tools/express-server",
+      "outputCapture": "std",
+      "args": [
+        "--dist",
+        "playground/.nuxt/nuxt-custom-elements/dist"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug (nuxi:generate)",
+      "runtimeVersion": "19.5.0",
       "runtimeArgs": [
         "--inspect"
       ],
-      "program": "${workspaceFolder}/node_modules/.bin/nuxt",
+      "program": "${workspaceFolder}/node_modules/.bin/nuxi",
       "outputCapture": "std",
       "args": [
         "generate",
-        "--config-file",
-        "playground/nuxt.config.js",
+        "playground",
         "--target",
         "static"
       ]
@@ -22,8 +45,55 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug (build)",
-      "runtimeVersion": "16.19.0",
+      "name": "Debug (nuxi:build)",
+      "runtimeVersion": "19.5.0",
+      "runtimeArgs": [
+        "--inspect"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/nuxi",
+      "outputCapture": "std",
+      "args": [
+        "build",
+        "playground"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug (nuxi:dev)",
+      "runtimeVersion": "19.5.0",
+      "runtimeArgs": [
+        "--inspect"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/nuxi",
+      "outputCapture": "std",
+      "args": [
+        "dev",
+        "playground"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug (nuxt:generate)",
+      "runtimeVersion": "19.5.0",
+      "runtimeArgs": [
+        "--inspect"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/nuxt",
+      "outputCapture": "std",
+      "args": [
+        "generate",
+        "playground",
+        "--target",
+        "static"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug (nuxt:build)",
+      "runtimeVersion": "19.5.0",
       "runtimeArgs": [
         "--inspect"
       ],
@@ -31,24 +101,38 @@
       "outputCapture": "std",
       "args": [
         "build",
-        "--config-file",
-        "playground/nuxt.config.js"
+        "playground"
       ]
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug (nuxt)",
-      "runtimeVersion": "16.19.0",
+      "name": "Debug (nuxt:dev)",
+      "runtimeVersion": "19.5.0",
       "runtimeArgs": [
         "--inspect"
       ],
       "program": "${workspaceFolder}/node_modules/.bin/nuxt",
       "outputCapture": "std",
       "args": [
-        "--config-file",
-        "playground/nuxt.config.js"
+        "dev",
+        "playground"
       ]
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug (nuxi:prepare)",
+      "runtimeVersion": "19.5.0",
+      "runtimeArgs": [
+        "--inspect"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/nuxt",
+      "outputCapture": "std",
+      "args": [
+        "prepare",
+        "playground"
+      ]
+    },
   ]
 }

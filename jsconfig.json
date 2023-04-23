@@ -9,7 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "nuxt-speedkit/*": [
-        "src/runtime/*"
+        "src/*"
       ],
       "#speedkit": [
         "src/runtime/*"

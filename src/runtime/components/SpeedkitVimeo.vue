@@ -2,7 +2,6 @@
   <base-vimeo
     class="nuxt-speedkit-vimeo"
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <template #loading-spinner>
       <slot name="loading-spinner">

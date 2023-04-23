@@ -35,7 +35,7 @@ const getProvider = (context) => {
 };
 
 export const getMeta = async (source, compiledSrc, ssrNuxtImage) => {
-  if (global.Image) {
+  if (window.Image) {
     source = source.modify({ src: compiledSrc });
   } else {
     let src = compiledSrc;
@@ -44,6 +44,6 @@ export const getMeta = async (source, compiledSrc, ssrNuxtImage) => {
     }
     source = source.modify({ src: hasProtocol(src) ? src : withBase(src, process.env.NUXT_SPEEDKIT_INTERAL_URL) });
   }
-  const { width, height } = await global.nuxtSpeedkit_getImageSize(source.src);
+  const { width, height } = await window.nuxtSpeedkit_getImageSize(source.src);
   return source.modify({ width, height });
 };

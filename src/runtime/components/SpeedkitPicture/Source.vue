@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);
@@ -18,7 +17,7 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default () {
-        return this.$speedkit.crossorigin;
+        return '';
       },
       validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
@@ -47,7 +46,7 @@ export default {
     const imageSource = new Source(this.source);
     if (this.config && imageSource.preload) {
       return {
-        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, getCrossorigin(this.crossorigin))]
+        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, this.$speedkit.getCrossorigin(this.crossorigin))]
       };
     }
     return {};

@@ -1,107 +1,101 @@
-import { <% if (!options.isDev) { %>run, <% } %>hasSufficientPerformance, hasSufficientDownloadPerformance, setup } from '#speedkit/utils/performance';
+import { <% if (options.performanceCheck) { %>run, <% } %>hasSufficientPerformance, setup } from '#speedkit/utils/performance';
+import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage } from '#speedkit/utils/entry';
+import Deferred from '#speedkit/classes/Deferred.mjs';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 
-let initialized = false
-const layerEl = global.document.getElementById('nuxt-speedkit-layer');
+<% if (options.webpack) { %>
+// webpack
+(async () => {
+  await client()
+  console.log('resolved…')
+  return getEntry();
+})()
+<% } else {%>
+  // vite
+export default await entryWrapper()
 
-const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in global && global.__NUXT_SPEEDKIT_FORCE_INIT__);
+ async function entryWrapper(){
 
-const triggerRunCallback = sufficient => global.dispatchEvent(new CustomEvent('nuxt-speedkit:run', { detail: { sufficient } }))
-
-async function initApp(force) {
-  if (initialized) {
-    return;
+  if (!process.server) {
+    await client()
+    return getEntry();
+  } else {
+    return async (ctx) => (await getEntry())(ctx)
   }
 
-  document.documentElement.classList.remove('nuxt-speedkit-reduced-view');
-
-  try {
-
-    <% if (!options.isDev) { %>
-    if (!force) {
-      await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
-    }
-    <% } %>
-
-
-    initialized = true;
-
-    triggerRunCallback(true);
-
-    return import(<% if (!options.ssr) { %>/* webpackMode: "eager" */<% } %>'../client');
-
-  } catch (error) {
-    triggerRunCallback(false);
-
-    if (!!layerEl) {
-      // User must interact via the layer.
-      updateSpeedkitLayerMessage('nuxt-speedkit-message-weak-hardware');
-      return null;
-    }
-  }
-
-  return null;
 };
 
-function observeSpeedkitButton (id, callback) {
-  Array.from(document.querySelectorAll(`#${id}`)).forEach(el => {
-    el.addEventListener('click', callback, { capture: true, once: true, passive: true })
-  })
+    <%} %>
+
+
+function getEntry(){
+  return import('<%= options.entry %>.js').then(module => module.default);
 }
 
-function updateSpeedkitLayerMessage(id) {
-  const el = global.document.getElementById(id)
-  if (!el) {
-    throw new Error(`Can\'t update speedkit-layer, message ${id} missing.`);
-  } else {
-    el.style.display = 'block'
-    layerEl.className += ' nuxt-speedkit-layer-visible';
-  }
-}
 
-function initReducedView () {
-  document.documentElement.classList.add('nuxt-speedkit-reduced-view');
+function client () {
+  const deferred = new Deferred();
 
-  // activate fonts
-  global.document.querySelectorAll('[data-font]').forEach((node) => {
-    node.classList.add('font-active');
-  })
+  let initialized = false
+  const layerEl = window.document.getElementById('nuxt-speedkit-layer');
 
-  // transform noscript>picture to picture
-  Array.from(document.querySelectorAll('noscript.nuxt-speedkit-picture-noscript')).forEach(el => {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = el.innerHTML;
-    el.parentNode.replaceChild(tmp.children[0], el);
-    tmp.remove();
-  })
-}
+  const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in window && window.__NUXT_SPEEDKIT_FORCE_INIT__);
 
-function setupSpeedkitLayer(supportedBrowser) {
-  if(!supportedBrowser) {
-    updateSpeedkitLayerMessage('nuxt-speedkit-message-unsupported-browser');
-  }
-  if(!hasSufficientDownloadPerformance()) {
-    updateSpeedkitLayerMessage('nuxt-speedkit-message-reduced-bandwidth');
-  }
-}
 
-const supportedBrowser = isSupportedBrowser(<%= options.supportedBrowserDetector %>);
-
-window.addEventListener('load', function () {
-  if (!document.getElementById('nuxt-speedkit-layer')) {
-    initApp(forceInit);
-  } else {
-
-    observeSpeedkitButton('nuxt-speedkit-button-init-reduced-view', initReducedView);
-    observeSpeedkitButton('nuxt-speedkit-button-init-app', () => initApp(true));
-
-    setup(<%= options.performanceMetrics %>);
-
-    if(('__NUXT_SPEEDKIT_AUTO_INIT__' in global && global.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
-      initApp();
-    } else {
-      setupSpeedkitLayer(supportedBrowser)
+  async function initApp(force) {
+    if (initialized) {
+      deferred.resolve();
     }
 
-  }
-});
+    document.documentElement.classList.remove('nuxt-speedkit-reduced-view');
+
+    try {
+
+      <% if (options.performanceCheck) { %>if (!force) {
+        await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
+      }<% } %>
+
+      initialized = true;
+
+      triggerRunCallback(true);
+
+      console.log('resolve?')
+      deferred.resolve();
+
+    } catch (error) {
+      triggerRunCallback(false);
+
+      if (!!layerEl) {
+        // User must interact via the layer.
+        updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-weak-hardware');
+        return null;
+      }
+    }
+
+    return null;
+  };
+
+  const supportedBrowser = isSupportedBrowser(<%= options.supportedBrowserDetector %>);
+
+  window.addEventListener('load', function () {
+    if (!document.getElementById('nuxt-speedkit-layer')) {
+      initApp(forceInit);
+    } else {
+
+      observeSpeedkitButton('nuxt-speedkit-button-init-reduced-view', initReducedView);
+      observeSpeedkitButton('nuxt-speedkit-button-init-app', () => initApp(true));
+
+      setup(<%= options.performanceMetrics %>);
+
+      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in global && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
+        initApp();
+      } else {
+        setupSpeedkitLayer(supportedBrowser)
+      }
+
+    }
+  });
+
+return deferred.promise;
+
+}

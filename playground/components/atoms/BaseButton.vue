@@ -6,12 +6,15 @@
 
 <script>
 export default {
+
   props: {
     label: {
       type: String,
       default: 'Button Label'
     }
   },
+
+  emits: ['click'],
   methods: {
     onClick (e) {
       this.$emit('click', e);

@@ -11,13 +11,12 @@
     :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
-    :crossorigin="getCrossorigin(crossorigin)"
-    v-on="{...$listeners, load: onLoad}"
+    :crossorigin="$speedkit.getCrossorigin(crossorigin)"
+    v-on="{load: onLoad}"
   >
 </template>
 
 <script>
-import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 
@@ -43,7 +42,7 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default () {
-        return this.$speedkit.crossorigin;
+        return '';
       },
       validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
     },
@@ -51,10 +50,12 @@ export default {
     loadingSpinner: {
       type: LoadingSpinner,
       default () {
-        return this.$speedkit.loader();
+        return null;
       }
     }
   },
+
+  emits: ['load'],
 
   data () {
     return {
@@ -101,9 +102,14 @@ export default {
   },
 
   computed: {
+
+    resolvedLoadingSpinner () {
+      return this.loadingSpinner || this.$speedkit.loader();
+    },
+
     classNames () {
       const classNames = [{ loading: this.loading }].concat(this.className);
-      this.loadingSpinner && classNames.push(this.loadingSpinner.className);
+      this.resolvedLoadingSpinner && classNames.push(this.resolvedLoadingSpinner.className);
       return classNames;
     },
 
@@ -139,7 +145,7 @@ export default {
 
     style () {
       return [
-        this.loadingSpinner && { hid: this.loadingSpinner.className, type: 'text/css', cssText: this.loadingSpinner.style },
+        this.resolvedLoadingSpinner && { hid: this.resolvedLoadingSpinner.className, type: 'text/css', cssText: this.resolvedLoadingSpinner.style },
         this.meta && { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
       ].filter(Boolean);
     },
@@ -148,7 +154,7 @@ export default {
       if (!this.config || !this.isCritical) {
         return [];
       }
-      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, getCrossorigin(this.crossorigin))];
+      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, this.$speedkit.getCrossorigin(this.crossorigin))];
     }
   },
 
@@ -157,7 +163,6 @@ export default {
   },
 
   methods: {
-    getCrossorigin,
     onLoad (e) {
       this.loading = false;
       this.$emit('load', e.target.currentSrc);

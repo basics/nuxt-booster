@@ -18,11 +18,11 @@ export default {
         h('noscript', {
           class: 'nuxt-speedkit-picture-noscript'
         }, [
-          h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.hydrate }, on: this.$listeners })
+          h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.hydrate } })
         ])
       ]);
     }
-    return h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.isCritical }, on: this.$listeners });
+    return h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.isCritical } });
   }
 };
 </script>

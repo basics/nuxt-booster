@@ -1,5 +1,5 @@
 <template>
-  <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs">
     <template #loading-spinner>
       <slot name="loading-spinner">
         <svg class="loader loading-spinner" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">

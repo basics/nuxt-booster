@@ -39,6 +39,7 @@
 import Headline from '@/components/atoms/Headline';
 import LinkList from '@/components/molecules/LinkList';
 export default {
+
   components: {
     Headline,
     LinkList
@@ -66,6 +67,8 @@ export default {
       }
     }
   },
+
+  emits: ['input'],
 
   data () {
     return {

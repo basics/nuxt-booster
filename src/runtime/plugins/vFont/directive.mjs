@@ -7,18 +7,21 @@ const obervers = new Map();
 export default {
   install (Vue, name) {
     Vue.directive(name, {
-      bind (el, binding, vnode) {
-        const rootSelector = vnode.context.fontCollection.add(vnode, [].concat(binding.value));
-        vnode.elm.setAttribute(rootSelector.name, rootSelector.value);
+
+      getSSRProps (binding) {
+        const rootSelector = binding.instance.fontCollection.add(binding.instance.$.vnode, [].concat(binding.value));
+        return {
+          [rootSelector.name]: rootSelector.value
+        };
       },
 
-      update (el, binding, vnode) {
+      updated (el, binding, vnode) {
         if (vnode.context.fontActive) {
           el.classList.add(CLASS_FONT_ACTIVE);
         }
       },
 
-      async inserted (el, binding, vnode) {
+      async mounted (el, binding, vnode) {
         if (vnode.context.isCritical || !isElementOutViewport(el)) {
           activateFonts(el, binding, vnode);
         } else {
@@ -31,7 +34,7 @@ export default {
         }
       },
 
-      unbind (el) {
+      unmounted (el) {
         obervers.has(el) && obervers.get(el).destroy();
       }
     });
@@ -43,7 +46,7 @@ async function activateFonts (el, binding, vnode) {
 
   await Promise.all(
     fonts
-      .filter(font => !font.media || global.matchMedia(font.media).matches)
+      .filter(font => !font.media || window.matchMedia(font.media).matches)
       .map(font => font.load())
   );
 

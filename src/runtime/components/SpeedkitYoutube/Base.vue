@@ -27,7 +27,7 @@
 
 <script>
 import DefaultButton from '../Button';
-import { load } from './utils/loader';
+import { load, setCallback } from './utils/loader';
 import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#speedkit/utils/browser';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
@@ -40,7 +40,6 @@ export default {
     SpeedkitPicture,
     DefaultButton
   },
-
   inheritAttrs: false,
 
   props: {
@@ -90,6 +89,8 @@ export default {
     }
   },
 
+  emits: ['ready', 'play', 'playing'],
+
   data () {
     return {
       src: null,
@@ -126,12 +127,13 @@ export default {
   },
 
   mounted () {
+    setCallback();
     if (this.autoplay) {
       this.onInit();
     }
   },
 
-  destroyed () {
+  unmounted () {
     this.player && youtube.remove(this.player);
   },
 

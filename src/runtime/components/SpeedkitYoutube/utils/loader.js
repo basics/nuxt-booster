@@ -2,8 +2,8 @@ import Deferred from '../../../classes/Deferred';
 
 const youtubeAPI = new Deferred();
 
-global.onYouTubeIframeAPIReady = () => {
-  youtubeAPI.resolve(global.YT);
+export const setCallback = () => {
+  window.onYouTubeIframeAPIReady = window.onYouTubeIframeAPIReady || (() => youtubeAPI.resolve(window.YT));
 };
 
 export const load = () => {

@@ -86,6 +86,8 @@ export default {
     }
   },
 
+  emits: ['ready', 'play', 'playing'],
+
   data () {
     return {
       inert: false,
@@ -190,7 +192,7 @@ export default {
     this.inert = true;
   },
 
-  destroyed () {
+  unmounted () {
     this.player && vimeo.remove(this.player);
   },
 

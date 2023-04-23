@@ -21,7 +21,7 @@ export default {
 
   render () {
     if ((this.disabled || this.isServer) && this.$slots.default) {
-      return this.$slots.default[0];
+      return this.$slots.default();
     }
     return null;
   }

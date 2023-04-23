@@ -1,6 +1,6 @@
 <template>
   <header class="page-header">
-    <organism-menu v-bind="$attrs" v-on="$listeners" />
+    <organism-menu v-bind="$attrs" />
   </header>
 </template>
 

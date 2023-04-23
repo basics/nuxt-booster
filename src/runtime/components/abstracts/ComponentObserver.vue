@@ -28,6 +28,7 @@ export default {
       default: 0
     }
   },
+  emits: ['enterView'],
 
   async mounted () {
     if (this.isCritical) {
@@ -47,7 +48,7 @@ export default {
 
   render () {
     try {
-      return this.$slots.default[0];
+      return this.$slots.default();
     } catch (e) {
       throw new Error('IntersectionObserver.vue can only render one, and exactly one child component.');
     }

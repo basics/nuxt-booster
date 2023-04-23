@@ -1,3 +1,5 @@
+
+import { defineNuxtConfig } from 'nuxt/config';
 import { readPackage } from 'read-pkg';
 
 import * as postcssFunctions from './postcss/functions';
@@ -10,7 +12,7 @@ export default defineNuxtConfig(async () => {
   return {
     dev: isDev,
 
-    // builder: '@nuxt/webpack-builder',
+    builder: '@nuxt/webpack-builder',
 
     baseUrl: getBaseUrl(),
     ssr: hasTargetStatic(),
@@ -97,9 +99,9 @@ export default defineNuxtConfig(async () => {
       }
     },
 
-    plugins: [
-      '@/plugins/vue-headings'
-    ],
+    // plugins: [
+    //   '@/plugins/vue-headings'
+    // ],
 
     buildModules: [
       '@nuxtjs/eslint-module',
@@ -313,9 +315,10 @@ function getDistPath () {
   return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
 }
 
-function hasBuildAnalyze () {
-  return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE;
-}
+// function hasBuildAnalyze () {
+// eslint-disable-next-line no-secrets/no-secrets
+//   return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE;
+// }
 
 function hasTargetStatic () {
   return (process.argv.indexOf('--target') && process.argv[process.argv.indexOf('--target') + 1] === 'static') || process.env.npm_config_target_static || process.env.TARGET_STATIC;

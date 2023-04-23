@@ -2,7 +2,7 @@
 <template>
   <component-observer
     v-bind="componentObserver"
-    @enterView="onEnterView"
+    @enter-view="onEnterView"
   >
     <iframe
       :src="lazySrc"
@@ -44,6 +44,8 @@ export default {
     }
 
   },
+
+  emits: ['load', 'enter'],
 
   data () {
     return {

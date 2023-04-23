@@ -3,6 +3,6 @@ pages/**/components/**/*.vue
 # pages/**/*.vue
 # !pages/tests/image/*.vue
 pages/**/*.vue
-!pages/test.vue
+!pages/index.vue
 layouts/**/*.vue
 !layouts/default.vue
