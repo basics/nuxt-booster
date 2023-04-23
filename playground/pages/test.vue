@@ -1,3 +1,3 @@
 <template>
-  <nuxt />
+  <div>test</div>
 </template>

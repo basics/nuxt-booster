@@ -8,7 +8,7 @@ import serveStatic from 'serve-static';
 import { defu } from 'defu';
 import { Nuxt, Builder, Generator } from 'nuxt';
 import { getPort } from 'get-port-please';
-import nuxtConfig from '../playground/nuxt.config';
+import nuxtConfig from '../playground/nuxt.config.mjs';
 import { toHashHex } from '../src/runtime/utils/string';
 
 export const generate = async (buildDir, distDir) => {

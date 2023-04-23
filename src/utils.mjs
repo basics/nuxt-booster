@@ -1,7 +1,7 @@
 import { defu } from 'defu';
 import consola from 'consola';
 import glob from 'glob';
-import { preloadOptimization } from './hookFunctions';
+import { preloadOptimization } from './hookFunctions.mjs';
 
 const DEFAULT_TARGET_FORMATS = ['webp', 'avif', 'jpg|jpeg|png|gif'];
 
@@ -9,8 +9,8 @@ const MODULE_NAME = 'nuxt-speedkit';
 
 export const logger = consola.withTag(MODULE_NAME);
 
-function getOptions (options) {
-  options = defu(options, {
+const getDefaultOptions = () => {
+  return {
 
     debug: false,
 
@@ -51,10 +51,8 @@ function getOptions (options) {
       backgroundColor: 'grey'
     }
 
-  });
-  options.targetFormats = options.targetFormats || DEFAULT_TARGET_FORMATS;
-  return options;
-}
+  };
+};
 
 function deprecationsNotification (options) {
   if ('pictureFormats' in options) {
@@ -114,9 +112,10 @@ function getNuxtImageModuleOptions (moduleContainer) {
 }
 
 export {
+  DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
   deprecationsNotification,
-  getOptions,
+  getDefaultOptions,
   setEnvironments,
   optimizePreloads,
   getComponentFiles,

@@ -25,17 +25,17 @@ function preloadOptimization () {
 const registerAppEntry = (filePath) => {
   return (configs) => {
     configs
-      .filter(({ name }) => ['client', 'modern'].includes(name))
+      .filter(({ name }) => ['client'].includes(name))
       .forEach((config) => {
         config.entry.app = config.entry.app.map((file) => {
-          if (file.endsWith('client.js')) {
+          if (file.endsWith('entry')) {
             return filePath;
           }
           return file;
         });
-        config.optimization.runtimeChunk = {
-          name: 'app'
-        };
+        // config.optimization.runtimeChunk = {
+        //   name: 'app'
+        // };
       });
   };
 };
