@@ -18,9 +18,13 @@
       },
       "separateMultipleMajor": true,
       "allowedVersions": "^16"
-    },
-    {
-      "matchPackagePatterns": [
+    }
+  ],
+  "baseBranches": [
+    "main"
+  ],
+  "rangeStrategy": "pin",
+  "ignoreDeps": [
         "@nuxtjs/eslint-config",
         "@nuxtjs/eslint-config-typescript",
         "@nuxtjs/eslint-module",
@@ -28,15 +32,5 @@
         "nuxt",
         "eslint",
         "stylelint"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "enabled": false
-    }
-  ],
-  "baseBranches": [
-    "main"
-  ],
-  "rangeStrategy": "pin"
+      ]
 }
