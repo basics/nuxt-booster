@@ -161,6 +161,15 @@ If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
+### `sortSources`
+
+- Type: `Boolean`
+  - Default: `true`
+
+If set, the sources are sorted by the `media` properties.
+
+This is made possible by [`sort-css-media-queries`](https://www.npmjs.com/package/sort-css-media-queries).
+
 ### `critical`
 
 - Type: `Boolean`

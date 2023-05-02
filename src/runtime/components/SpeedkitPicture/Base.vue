@@ -62,6 +62,11 @@ export default {
         return this.$speedkit.crossorigin;
       },
       validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
+    },
+
+    sortSources: {
+      type: Boolean,
+      default: true
     }
 
   },
@@ -92,7 +97,7 @@ export default {
 
   computed: {
     sourceList () {
-      return SourceList.create(this.sources);
+      return SourceList.create(this.sources, { sort: this.sortSources });
     },
 
     formatSources () {
