@@ -107,5 +107,10 @@
     "vue-svg-loader": "0.16.0",
     "webpack-bundle-analyzer": "4.8.0",
     "wicg-inert": "3.1.2"
+  },
+  "overrides": {
+    "@nuxtjs/stylelint-module": {
+      "stylelint": "15.6.2"
+    }
   }
 }
