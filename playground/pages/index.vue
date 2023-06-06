@@ -6,6 +6,6 @@
 </template>
 
 <script setup>
-import ComponentMerriweather from '@/components/Component/Merriweather';
-import ComponentQuicksand from '@/components/Component/Quicksand';
+import ComponentMerriweather from '@/components/FontTests/Merriweather';
+import ComponentQuicksand from '@/components/FontTests/Quicksand';
 </script>

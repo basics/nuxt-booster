@@ -24,7 +24,7 @@ export default defineNuxtConfig(async () => {
     runtimeConfig: {
       public: {
         githubRepoUrl: repository.url,
-        disableInfoLayer: false
+        disableInfoLayer: true
       }
     },
     app: {
@@ -37,42 +37,26 @@ export default defineNuxtConfig(async () => {
     },
 
     build: {
-      cache: false,
-
-      // transpile: ['vue-headings'],
-
       filenames: {
         app: ({ isDev }) => (isDev ? '[name].js' : '[name].[chunkhash].js'),
         chunk: ({ isDev }) => (isDev ? '[name].js' : '[name].[chunkhash].js')
-      },
-
-      postcss: {
-        postcssOptions: {
-          plugins: {
-            'postcss-preset-env': {
-              preserve: true,
-              stage: 0,
-              features: {
-                'nesting-rules': true
-              }
-            },
-            'postcss-functions': {
-              functions: postcssFunctions
-            }
-            // '@fullhuman/postcss-purgecss': {
-            //   content: [
-            //     'playground/pages/**/*.vue',
-            //     'playground/layouts/**/*.vue',
-            //     'playground/components/**/*.vue'
-            //   ],
-            //   safelist: [
-            //     'html', 'body', /^nuxt/
-            //   ]
-            // }
-          },
-          order: 'cssnanoLast'
-        }
       }
+    },
+
+    postcss: {
+      plugins: {
+        'postcss-preset-env': {
+          preserve: true,
+          stage: 0,
+          features: {
+            'nesting-rules': true
+          }
+        },
+        'postcss-functions': {
+          functions: postcssFunctions
+        }
+      },
+      order: 'cssnanoLast'
     },
 
     generate: {
@@ -82,33 +66,6 @@ export default defineNuxtConfig(async () => {
     router: {
       base: getBasePath(),
       strict: undefined
-    },
-
-    image: {
-      // The screen sizes predefined by `@nuxt/image`:
-      screens: {
-        default: 320,
-        xxs: 480,
-        xs: 576,
-        sm: 768,
-        md: 996,
-        lg: 1200,
-        xl: 1367,
-        xxl: 1600,
-        '4k': 1921
-      },
-      domains: [
-        'https://picsum.photos',
-        'https://img.youtube.com',
-        'https://i.vimeocdn.com',
-        'https://i.pickadummy.com'
-      ],
-      alias: {
-        picsum: 'https://picsum.photos',
-        youtube: 'https://img.youtube.com',
-        vimeo: 'https://i.vimeocdn.com',
-        pickadummy: 'https://i.pickadummy.com'
-      }
     },
 
     buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'].filter(
@@ -441,11 +398,6 @@ function getPort() {
 function getDistPath() {
   return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
 }
-
-// function hasBuildAnalyze () {
-// eslint-disable-next-line no-secrets/no-secrets
-//   return process.env.npm_config_build_analyze || process.env.BUILD_ANALYZE;
-// }
 
 function hasTargetStatic() {
   return (

@@ -1,6 +1,5 @@
 <template>
-  <only-ssr>
-    <div id="nuxt-speedkit-layer">
+    <div id="nuxt-speedkit-layer" v-if="isServer">
       <input id="nuxt-speedkit-layer-close" name="close" type="checkbox">
       <div id="nuxt-speedkit-layer-content">
         <slot>
@@ -48,38 +47,25 @@
         </slot>
       </div>
     </div>
-  </only-ssr>
 </template>
 
-<script>
+
+<script setup>
+
 import { getStyleDescription } from '#speedkit/utils/description';
-import OnlySsr from '#speedkit/components/abstracts/OnlySsr';
+import {useHead} from '#imports'
 
-export default {
 
-  components: {
-    OnlySsr
-  },
+const isServer = ref(true);
 
-  props: {
-    critical: {
-      type: Boolean,
-      default () {
-        return true;
-      }
-    }
-  },
+onMounted(() => isServer = false)
 
-  head () {
-    return {
-      noscript: [
-        getStyleDescription('#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }', true)
-      ],
-      __dangerouslyDisableSanitizers: ['noscript']
-    };
-  }
+useHead({
+  noscript: [
+    getStyleDescription('#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }', true)
+  ]
+})
 
-};
 </script>
 
 <style>

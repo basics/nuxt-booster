@@ -6,5 +6,12 @@
       <NuxtLink to="/page-2"> Page 2 </NuxtLink>
     </nav>
     <slot />
+    <info-layer v-if="!$config.public.disableInfoLayer" />
   </div>
 </template>
+
+<script>
+import InfoLayer from '@/components/InfoLayer.vue';
+
+export default { components: { InfoLayer } };
+</script>

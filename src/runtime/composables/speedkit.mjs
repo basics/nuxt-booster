@@ -13,7 +13,7 @@ import FontCollection from '#speedkit/classes/FontCollection';
 
 const criticalContextKey = Symbol('criticalContext');
 
-export function useSpeedkit() {
+export function useSpeedkit({ critical } = {}) {
   const attrs = useAttrs();
 
   const { speedkit: runtimeConfig } = useRuntimeConfig().public;
@@ -22,16 +22,19 @@ export function useSpeedkit() {
 
   const currentCritical = ref(
     !('critical' in attrs)
-      ? undefined
+      ? critical
       : attrs.critical === '' || String(attrs.critical) === 'true'
   );
 
-  const critical = inject(criticalContextKey, currentCritical.value || false);
+  const criticalInject = inject(
+    criticalContextKey,
+    currentCritical.value || false
+  );
 
   const isCritical = computed(() => {
     return typeof currentCritical.value === 'boolean'
       ? currentCritical.value
-      : critical;
+      : criticalInject;
   });
 
   provide(criticalContextKey, isCritical.value || critical);
@@ -42,7 +45,7 @@ export function useSpeedkit() {
 
   return {
     isCritical,
-    critical,
+    critical: criticalInject,
     $getFont: (...args) => {
       return {
         runtimeConfig,

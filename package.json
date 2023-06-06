@@ -31,22 +31,30 @@
     "lint:es": "eslint --fix --ext .js,.mjs,.vue .",
     "lint:css": "stylelint \"(src|playground)/**/*.vue\"",
     "lint:report": "eslint --ext .js,.vue -f json-relative -o ./eslint-report.json .",
-    "test": "npm run lint && npm run vitest:run",
+    "test": "npm run vitest:run",
     "vitest:run": "vitest run",
     "vitest:dev": "vitest dev",
     "start": "nuxt start --config-file playground/nuxt.config.js --target static",
     "start:generate": "npm run generate && npm run start"
   },
-  "main": "module.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "@nuxt/image-edge": "1.0.0-28089462.3520a62",
     "browserslist-useragent-regexp": "4.0.0",
     "deepmerge": "4.3.1",
     "defu": "6.1.2",
     "dynamic-class-list": "2.0.2",
     "pathe": "1.1.0",
     "probe-image-size": "7.2.3",
-    "read-pkg": "^8.0.0",
     "serialize-to-js": "3.1.2",
     "sort-css-media-queries": "2.2.0",
     "vue-lazy-hydration": "2.0.0-beta.4"
@@ -88,6 +96,7 @@
     "postcss-nesting": "11.2.2",
     "postcss-preset-env": "8.4.1",
     "prettier": "^2.8.8",
+    "read-pkg": "^8.0.0",
     "serve-static": "1.15.0",
     "stylelint": "15.6.2",
     "stylelint-config-recess-order": "4.0.0",

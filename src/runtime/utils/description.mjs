@@ -7,6 +7,7 @@ export function getImagePreloadDescription(
 ) {
   return {
     tagPriority: 2,
+    fetchpriority: 'low',
     key: toHashHex(srcset),
     rel: 'preload',
     as: 'image',
@@ -26,6 +27,8 @@ export function getFontPreloadDescription(
 ) {
   return {
     tagPriority: 2,
+    fetchpriority: 'low',
+    // blocking: 'render',
     key: toHashHex(
       `${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()
     ),
@@ -50,8 +53,8 @@ export function getStyleDescription(children, noScript = false) {
   }
 }
 
-export function getNoScriptDescription(html) {
+export function getNoScriptDescription(innerHTML) {
   return {
-    children: html
+    innerHTML
   };
 }

@@ -1,15 +1,12 @@
 import { <% if (options.performanceCheck) { %>run, <% } %>hasSufficientPerformance, setup } from '#speedkit/utils/performance';
-import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage } from '#speedkit/utils/entry';
+import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView } from '#speedkit/utils/entry';
 import Deferred from '#speedkit/classes/Deferred.mjs';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 
 <% if (options.webpack) { %>
 // webpack
 (async () => {
-  return await client().then(() => {
-    console.log('resolved…')
-    return getEntry();
-  });
+  return await client().then(() => getEntry());
 })()
 <% } else {%>
   // vite
@@ -18,10 +15,7 @@ export default entryWrapper();
 function entryWrapper(){
 
   if (!process.server) {
-    return client().then(() => {
-      console.log('resolved…');
-      return getEntry();
-    });
+    return client().then(() => getEntry());
   } else {
     return async (ctx) => (await getEntry())(ctx)
   }
@@ -85,7 +79,7 @@ function client () {
 
       setup(<%= options.performanceMetrics %>);
 
-      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in global && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
+      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
         initApp();
       } else {
         setupSpeedkitLayer(supportedBrowser)

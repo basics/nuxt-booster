@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Is Critical? {{ isCritical }}</div>
+    <blockquote>Is Critical? {{ isCritical }}</blockquote>
     <h1 v-font="$getFont('Merriweather')">Headline</h1>
     <p v-font="$getFont('Quicksand')">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
@@ -40,7 +40,7 @@
 
 <script setup>
 import { useSpeedkit } from '#speedkit/composables/speedkit';
-const { $getFont, isCritical } = useSpeedkit();
+const { $getFont, isCritical } = useSpeedkit({ critical: true });
 </script>
 
 <script>
