@@ -9,17 +9,17 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       isServer: true
     };
   },
 
-  mounted () {
+  mounted() {
     this.isServer = false;
   },
 
-  render () {
+  render() {
     if ((this.disabled || this.isServer) && this.$slots.default) {
       return this.$slots.default();
     }

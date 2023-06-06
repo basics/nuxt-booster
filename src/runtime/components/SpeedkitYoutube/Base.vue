@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="{ready, playing}"
-    :show="ready"
-  >
+  <div :class="{ ready, playing }" :show="ready">
     <iframe
       v-if="src"
       ref="player"
@@ -11,14 +8,9 @@
       :src="src"
       frameborder="0"
       allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      @load="onLoad"
-    />
+      @load="onLoad" />
     <default-button @click="onInit">
-      <speedkit-picture
-        class="poster"
-        v-bind="pictureDataset"
-        :title="title"
-      />
+      <speedkit-picture class="poster" v-bind="pictureDataset" :title="title" />
       <slot v-if="loading" name="loading-spinner" />
       <slot v-if="!ready && !loading" name="play" />
     </default-button>
@@ -43,7 +35,6 @@ export default {
   inheritAttrs: false,
 
   props: {
-
     autoplay: {
       type: Boolean,
       default: false
@@ -71,7 +62,7 @@ export default {
 
     options: {
       type: Object,
-      default () {
+      default() {
         return {};
       }
     },
@@ -83,15 +74,24 @@ export default {
 
     posterSizes: {
       type: Object,
-      default () {
-        return { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' };
+      default() {
+        return {
+          default: '100vw',
+          xxs: '100vw',
+          xs: '100vw',
+          sm: '100vw',
+          md: '100vw',
+          lg: '100vw',
+          xl: '100vw',
+          xxl: '100vw'
+        };
       }
     }
   },
 
   emits: ['ready', 'play', 'playing'],
 
-  data () {
+  data() {
     return {
       src: null,
       videoId: new URL(this.url).searchParams.get('v'),
@@ -105,46 +105,47 @@ export default {
     };
   },
 
-  head () {
+  head() {
     return {
       script: this.script
     };
   },
 
   computed: {
-    pictureDataset () {
+    pictureDataset() {
       return {
         formats: this.$speedkit.targetFormats,
         title: this.title,
-        sources: [{
-          src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
-          sizes: this.posterSizes,
-          media: 'all'
-        }],
+        sources: [
+          {
+            src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
+            sizes: this.posterSizes,
+            media: 'all'
+          }
+        ],
         loadingSpinner: this.posterLoadingSpinner
       };
     }
   },
 
-  mounted () {
+  mounted() {
     setCallback();
     if (this.autoplay) {
       this.onInit();
     }
   },
 
-  unmounted () {
+  unmounted() {
     this.player && youtube.remove(this.player);
   },
 
   methods: {
-
-    reset () {
+    reset() {
       this.src = null;
       this.ready = false;
       this.playing = false;
     },
-    onInit () {
+    onInit() {
       this.loading = true;
 
       const params = {
@@ -159,16 +160,20 @@ export default {
         mute: Number(this.isTouchDevice) || Number(this.mute)
       };
 
-      this.src = `${this.host}/embed/${this.videoId}?` + Object.entries(params).map(([name, value]) => `${name}=${value}`).join('&');
+      this.src =
+        `${this.host}/embed/${this.videoId}?` +
+        Object.entries(params)
+          .map(([name, value]) => `${name}=${value}`)
+          .join('&');
       this.script = [load()];
     },
 
-    async onLoad () {
+    async onLoad() {
       this.player = await youtube.createPlayer(this.$refs.player, {
         videoId: this.videoId,
         host: this.host,
         events: {
-          onReady: (e) => {
+          onReady: e => {
             e.target.mute();
             youtube.play(e.target);
             this.loading = false;
@@ -183,18 +188,19 @@ export default {
       });
     },
 
-    onPlayerStateChange (YT, state) {
+    onPlayerStateChange(YT, state) {
       if (state === YT.PlayerState.PLAYING) {
         this.playing = true;
-      } else if (state === YT.PlayerState.ENDED || state === YT.PlayerState.PAUSED) {
+      } else if (
+        state === YT.PlayerState.ENDED ||
+        state === YT.PlayerState.PAUSED
+      ) {
         this.playing = false;
       }
       this.$emit('playing', this.playing);
     }
-
   }
 };
-
 </script>
 
 <style lang="postcss" scoped>

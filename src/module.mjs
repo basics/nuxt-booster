@@ -1,4 +1,3 @@
-
 import { resolve, join } from 'pathe';
 
 import {
@@ -11,10 +10,23 @@ import {
 } from '@nuxt/kit';
 import { getCrossorigin } from './runtime/utils.mjs';
 import FontConfig from './runtime/classes/FontConfig.mjs';
-import { MODULE_NAME, getDefaultOptions, setPublicRuntimeConfig } from './utils.mjs';
+import {
+  MODULE_NAME,
+  getDefaultOptions,
+  isWebpackBuild,
+  optimizeNuxtOptions,
+  optimizePreloads,
+  setPublicRuntimeConfig
+} from './utils.mjs';
 import { getSupportedBrowserDetector } from './utils/browser.mjs';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.mjs';
+
+import {
+  getFontConfigTemplate,
+  getFontConfigCSSTemplate
+} from './utils/template.mjs';
+
 const resolver = createResolver(import.meta.url);
 
 export default defineNuxtModule({
@@ -27,7 +39,7 @@ export default defineNuxtModule({
   },
   defaults: getDefaultOptions(),
 
-  async setup (moduleOptions, nuxt) {
+  async setup(moduleOptions, nuxt) {
     const runtimeDir = resolver.resolve('./runtime');
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
@@ -41,21 +53,35 @@ export default defineNuxtModule({
 
     if (moduleOptions.detection.performance && nuxt.options.ssr) {
       if (isWebpackBuild(nuxt)) {
-        nuxt.hook('webpack:config', registerAppEntryWebpack(resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')));
+        nuxt.hook(
+          'webpack:config',
+          registerAppEntryWebpack(
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+          )
+        );
       } else {
-        nuxt.hook('vite:extend', registerAppEntryVite(resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')));
+        nuxt.hook(
+          'vite:extend',
+          registerAppEntryVite(
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+          )
+        );
       }
     } else {
-      logger(`[${MODULE_NAME}] module functionality is limited without ssr and performance check`);
+      logger(
+        `[${MODULE_NAME}] module functionality is limited without ssr and performance check`
+      );
     }
 
-    // if (options.optimizePreloads) {
-    //   optimizePreloads(this.nuxt);
-    // } else {
-    //   consola.warn(`[${MODULE_NAME}] preload optimization is disabled by module option \`optimizePreloads\`.`);
-    // }
+    optimizeNuxtOptions(nuxt);
 
-    // addBundleRendererDirective(this.options.render.bundleRenderer);
+    if (moduleOptions.optimizePreloads) {
+      optimizePreloads(nuxt);
+    } else {
+      logger.warn(
+        `[${MODULE_NAME}] preload optimization is disabled by module option \`optimizePreloads\`.`
+      );
+    }
 
     // const componentsDir = path.join(this.nuxt.options.buildDir, MODULE_NAME, 'components');
 
@@ -66,15 +92,40 @@ export default defineNuxtModule({
   }
 });
 
-async function addBuildTemplates (nuxt, options) {
-  const supportedBrowserDetector = await getSupportedBrowserDetector(!options.detection.browserSupport);
+async function addBuildTemplates(nuxt, options) {
+  const supportedBrowserDetector = await getSupportedBrowserDetector(
+    !options.detection.browserSupport
+  );
   const fontConfig = new FontConfig(options.fonts, nuxt.options.alias);
 
   nuxt.hook('listen', (_, listener) => {
-    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${listener.https ? 'https' : 'http'}://${listener.host || 'localhost'}:${listener.port}`;
+    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${
+      listener.https ? 'https' : 'http'
+    }://${listener.host || 'localhost'}:${listener.port}`;
   });
 
-  ['client', 'server'].forEach((mode) => {
+  addTemplate({
+    src: resolver.resolve('runtime/tmpl', 'fontConfig.mjs'),
+    fileName: MODULE_NAME + '/fontConfig.mjs',
+    write: true,
+    options: { content: getFontConfigTemplate(fontConfig) }
+  });
+
+  addTemplate({
+    src: resolver.resolve('runtime/tmpl', 'fonts.mjs'),
+    fileName: MODULE_NAME + '/fonts.mjs',
+    write: true,
+    options: { content: getFontConfigCSSTemplate(fontConfig) }
+  });
+
+  addTemplate({
+    src: resolver.resolve('runtime/tmpl', 'fonts.css'),
+    fileName: MODULE_NAME + '/fonts.css',
+    write: true,
+    options: { content: fontConfig.toCSS() }
+  });
+
+  ['client', 'server'].forEach(mode => {
     addPluginTemplate({
       src: resolver.resolve('runtime/tmpl', 'plugin.mjs'),
       fileName: MODULE_NAME + `/plugin.${mode}.js`,
@@ -82,7 +133,6 @@ async function addBuildTemplates (nuxt, options) {
       mode,
       options: {
         mode,
-        fonts: fontConfig.toJSON(),
         targetFormats: options.targetFormats,
         crossorigin: getCrossorigin(options.crossorigin),
         supportedBrowserDetector,
@@ -137,5 +187,3 @@ async function addBuildTemplates (nuxt, options) {
 //   if (Array.isArray(m)) { m = m[0]; }
 //   return m.meta ? m.meta.name : m;
 // }
-
-const isWebpackBuild = nuxt => nuxt.options.builder === '@nuxt/webpack-builder';

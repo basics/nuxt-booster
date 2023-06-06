@@ -1,6 +1,6 @@
 import { isFirefox } from './browser';
 
-function hasWebpSupport () {
+function hasWebpSupport() {
   if (process.server) {
     return true;
   }
@@ -14,23 +14,26 @@ function hasWebpSupport () {
 
 export const webpSupport = hasWebpSupport();
 
-export function isPreloadSupported () {
+export function isPreloadSupported() {
   if (isFirefox()) {
     // Attribute imageSrcset is Supported, but does not appear to be active. No preload is started.
     return false;
   } else if (process.client) {
     const relList = window.document.createElement('link').relList;
-    return elementSupportsAttribute('link', 'imageSrcset') && !!(relList && relList.supports && relList.supports('preload'));
+    return (
+      elementSupportsAttribute('link', 'imageSrcset') &&
+      !!(relList && relList.supports && relList.supports('preload'))
+    );
   } else {
     return true;
   }
 }
 
-export function isPictureSupported () {
+export function isPictureSupported() {
   return 'HTMLPictureElement' in global;
 }
 
-export function elementSupportsAttribute (element, attribute) {
+export function elementSupportsAttribute(element, attribute) {
   let test = {};
   if (window.document) {
     test = window.document.createElement(element);

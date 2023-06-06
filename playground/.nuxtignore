@@ -1,8 +1,13 @@
-pages/**/components/**/*.vue
-####
+# pages/**/components/**/*.vue
+# ####
+# # pages/**/*.vue
+# # !pages/tests/image/*.vue
 # pages/**/*.vue
-# !pages/tests/image/*.vue
-pages/**/*.vue
-!pages/index.vue
-layouts/**/*.vue
-!layouts/default.vue
+# !pages/index.vue
+# !pages/test.vue
+# layouts/**/*.vue
+# !layouts/default.vue
+
+
+# pages/page-1.vue
+# pages/page-2.vue

@@ -6,32 +6,31 @@ import { isSupportedBrowser } from '#speedkit/utils/browser';
 <% if (options.webpack) { %>
 // webpack
 (async () => {
-  await client()
-  console.log('resolved…')
-  return getEntry();
+  return await client().then(() => {
+    console.log('resolved…')
+    return getEntry();
+  });
 })()
 <% } else {%>
   // vite
-export default await entryWrapper()
+export default entryWrapper();
 
- async function entryWrapper(){
+function entryWrapper(){
 
   if (!process.server) {
-    await client()
-    return getEntry();
+    return client().then(() => {
+      console.log('resolved…');
+      return getEntry();
+    });
   } else {
     return async (ctx) => (await getEntry())(ctx)
   }
 
 };
-
-    <%} %>
-
-
+<%} %>
 function getEntry(){
   return import('<%= options.entry %>.js').then(module => module.default);
 }
-
 
 function client () {
   const deferred = new Deferred();
@@ -40,7 +39,6 @@ function client () {
   const layerEl = window.document.getElementById('nuxt-speedkit-layer');
 
   const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in window && window.__NUXT_SPEEDKIT_FORCE_INIT__);
-
 
   async function initApp(force) {
     if (initialized) {

@@ -1,18 +1,12 @@
 <template>
-  <base-vimeo
-    class="nuxt-speedkit-vimeo"
-    v-bind="$attrs"
-  >
+  <base-vimeo class="nuxt-speedkit-vimeo" v-bind="$attrs">
     <template #loading-spinner>
       <slot name="loading-spinner">
-        <div
-          class="loading-spinner"
-        >
+        <div class="loading-spinner">
           <svg
             viewBox="0 0 38 38"
             xmlns="http://www.w3.org/2000/svg"
-            stroke="#fff"
-          >
+            stroke="#fff">
             <g fill="none" fill-rule="evenodd">
               <g transform="translate(1 1)" stroke-width="2">
                 <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
@@ -23,8 +17,7 @@
                     from="0 18 18"
                     to="360 18 18"
                     dur="1s"
-                    repeatCount="indefinite"
-                  />
+                    repeatCount="indefinite" />
                 </path>
               </g>
             </g>
@@ -36,7 +29,10 @@
       <slot name="play">
         <div class="play">
           <span>
-            <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" focusable="false">
+            <svg
+              viewBox="0 0 20 20"
+              preserveAspectRatio="xMidYMid"
+              focusable="false">
               <polygon class="fill" points="1,0 20,10 1,20" />
             </svg>
           </span>
@@ -107,7 +103,9 @@ export default {
     color: var(--color-foreground);
     background: var(--color-background);
     border-radius: 0.5em;
-    transition: opacity var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
+    transition: opacity var(--transition-duration),
+      background-color var(--transition-duration),
+      color var(--transition-duration);
     transform: translate(-50%, -50%);
 
     & svg {

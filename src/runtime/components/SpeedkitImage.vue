@@ -12,15 +12,19 @@ export default {
     }
   },
 
-  render (h) {
+  render(h) {
     if (!this.hydrate) {
       return h(LazyHydrate, { props: { never: true } }, [
         h('noscript', {}, [
-          h(SpeedkitImage, { props: { ...this.$attrs, critical: this.hydrate } })
+          h(SpeedkitImage, {
+            props: { ...this.$attrs, critical: this.hydrate }
+          })
         ])
       ]);
     }
-    return h(SpeedkitImage, { props: { ...this.$attrs, critical: this.isCritical } });
+    return h(SpeedkitImage, {
+      props: { ...this.$attrs, critical: this.isCritical }
+    });
   }
 };
 </script>

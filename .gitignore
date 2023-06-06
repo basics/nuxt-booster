@@ -14,11 +14,5 @@ coverage
 dist
 test/.*
 eslint-report.json
-video
-playground/static/stream
-playground/assets/proxy
-stream/A
-stream/B
-stream/C
-stream/source
-src/supportedBrowserDetector.mjs
+.output
+.env

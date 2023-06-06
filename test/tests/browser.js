@@ -10,9 +10,13 @@ const browsers = new Map([
   [BROWSERS.FIREFOX, firefox.launch()]
 ]);
 
-export default (runtime) => {
+export default runtime => {
   afterAll(async () => {
-    await Promise.all(Array.from(browsers.values()).map(async browser => (await browser).close()));
+    await Promise.all(
+      Array.from(browsers.values()).map(async browser =>
+        (await browser).close()
+      )
+    );
   });
 
   describe('🧐 inspect browser (chromium)', () => {
@@ -23,7 +27,7 @@ export default (runtime) => {
     browserTests({ browser: BROWSERS.FIREFOX, runtime });
   });
 
-  function browserTests ({ browser = false, runtime }) {
+  function browserTests({ browser = false, runtime }) {
     const createPage = async (path, nojs) => {
       let context = await browsers.get(browser);
       if (nojs) {
@@ -41,9 +45,17 @@ export default (runtime) => {
     it('SpeedkitLayer (Apply without scripts)', async () => {
       const page = await createPage('/speedkit-layer/');
 
-      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document.getElementById('nuxt-speedkit-layer')
+        )
+      ).not.toBeFalsy();
 
-      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-reduced-view').click());
+      await page.evaluate(() =>
+        document
+          .getElementById('nuxt-speedkit-button-init-reduced-view')
+          .click()
+      );
       await page.waitForLoadState('networkidle');
 
       await page.waitForSelector('html.nuxt-speedkit-reduced-view');
@@ -58,9 +70,15 @@ export default (runtime) => {
     it('SpeedkitLayer (Apply with scripts)', async () => {
       const page = await createPage('/speedkit-layer/');
 
-      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document.getElementById('nuxt-speedkit-layer')
+        )
+      ).not.toBeFalsy();
 
-      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-app').click());
+      await page.evaluate(() =>
+        document.getElementById('nuxt-speedkit-button-init-app').click()
+      );
       await page.waitForLoadState('networkidle');
 
       await page.waitForSelector('.ready');
@@ -72,11 +90,21 @@ export default (runtime) => {
     it('SpeedkitLayer (No Javascript)', async () => {
       const page = await createPage('/speedkit-layer/', true);
 
-      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer'))).not.toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document.getElementById('nuxt-speedkit-layer')
+        )
+      ).not.toBeFalsy();
 
-      await page.evaluate(() => document.getElementById('nuxt-speedkit-button-init-nojs').click());
+      await page.evaluate(() =>
+        document.getElementById('nuxt-speedkit-button-init-nojs').click()
+      );
 
-      expect(await page.evaluate(() => document.getElementById('nuxt-speedkit-layer-close').checked)).toBeFalsy();
+      expect(
+        await page.evaluate(
+          () => document.getElementById('nuxt-speedkit-layer-close').checked
+        )
+      ).toBeFalsy();
     });
 
     // #endregion /tests/speedkit-layer
@@ -86,7 +114,13 @@ export default (runtime) => {
     it('speedkitHydrate', async () => {
       const page = await createPage('/speedkit-loader/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazySpeedkitHydrate').classList.contains('.active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector('#lazySpeedkitHydrate')
+            .classList.contains('.active')
+        )
+      ).toBeFalsy();
       await page.waitForSelector('#criticalSpeedkitHydrate.active');
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
@@ -101,51 +135,99 @@ export default (runtime) => {
     it('v-font (font assign simple) (element class)', async () => {
       const page = await createPage('/v-font/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimple[data-font="-7d2b6285"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector('#lazyFontAssignSimple[data-font="-7d2b6285"]')
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignSimple.font-active[data-font="-7d2b6285"]');
+      await page.waitForSelector(
+        '#lazyFontAssignSimple.font-active[data-font="-7d2b6285"]'
+      );
     });
 
     it('v-font (font assign by single selector) (element class)', async () => {
       const page = await createPage('/v-font/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignBySingleSelector[data-font="-65bc6cec"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector(
+              '#lazyFontAssignBySingleSelector[data-font="-65bc6cec"]'
+            )
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignBySingleSelector.font-active[data-font="-65bc6cec"]');
+      await page.waitForSelector(
+        '#lazyFontAssignBySingleSelector.font-active[data-font="-65bc6cec"]'
+      );
     });
 
     it('v-font (font assign by multiple variances) (element class)', async () => {
       const page = await createPage('/v-font/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleVariances[data-font="-1f925c6c"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector(
+              '#lazyFontAssignByMultipleVariances[data-font="-1f925c6c"]'
+            )
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignByMultipleVariances.font-active[data-font="-1f925c6c"]');
+      await page.waitForSelector(
+        '#lazyFontAssignByMultipleVariances.font-active[data-font="-1f925c6c"]'
+      );
     });
 
     it('v-font (font assign by multiple selectors) (element class)', async () => {
       const page = await createPage('/v-font/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByMultipleSelectors[data-font="-691980b2"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector(
+              '#lazyFontAssignByMultipleSelectors[data-font="-691980b2"]'
+            )
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignByMultipleSelectors.font-active[data-font="-691980b2"]');
+      await page.waitForSelector(
+        '#lazyFontAssignByMultipleSelectors.font-active[data-font="-691980b2"]'
+      );
     });
 
     it('v-font (font assign by deep selector) (element class)', async () => {
       const page = await createPage('/v-font/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignByDeepSelector[data-font="-26857299"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector(
+              '#lazyFontAssignByDeepSelector[data-font="-26857299"]'
+            )
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignByDeepSelector.font-active[data-font="-26857299"]');
+      await page.waitForSelector(
+        '#lazyFontAssignByDeepSelector.font-active[data-font="-26857299"]'
+      );
     });
 
     // #endregion
@@ -155,41 +237,77 @@ export default (runtime) => {
     it('v-font (media) (font assign simple by max 479px) (element class)', async () => {
       const page = await createPage('/v-font-media');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleByMax479[data-font="--4db87f5"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector(
+              '#lazyFontAssignSimpleByMax479[data-font="--4db87f5"]'
+            )
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignSimpleByMax479.font-active[data-font="--4db87f5"]');
+      await page.waitForSelector(
+        '#lazyFontAssignSimpleByMax479.font-active[data-font="--4db87f5"]'
+      );
     });
 
     it('v-font (media) (font assign simple by 480px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy480[data-font="-5e7c91e5"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector('#lazyFontAssignSimpleBy480[data-font="-5e7c91e5"]')
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignSimpleBy480.font-active[data-font="-5e7c91e5"]');
+      await page.waitForSelector(
+        '#lazyFontAssignSimpleBy480.font-active[data-font="-5e7c91e5"]'
+      );
     });
 
     it('v-font (media) (font assign simple by 960px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontAssignSimpleBy960[data-font="-2df4a2e0"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector('#lazyFontAssignSimpleBy960[data-font="-2df4a2e0"]')
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontAssignSimpleBy960.font-active[data-font="-2df4a2e0"]');
+      await page.waitForSelector(
+        '#lazyFontAssignSimpleBy960.font-active[data-font="-2df4a2e0"]'
+      );
     });
 
     it('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
       // element has no font class?
-      expect(await page.evaluate(() => document.querySelector('#lazyFontBySingleSelectorBy1440[data-font="-5f6b8217"]').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector(
+              '#lazyFontBySingleSelectorBy1440[data-font="-5f6b8217"]'
+            )
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
       // scroll to element
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
       // element has font class?
-      await page.waitForSelector('#lazyFontBySingleSelectorBy1440.font-active[data-font="-5f6b8217"]');
+      await page.waitForSelector(
+        '#lazyFontBySingleSelectorBy1440.font-active[data-font="-5f6b8217"]'
+      );
     });
 
     // #endregion
@@ -198,7 +316,13 @@ export default (runtime) => {
 
     it('v-font (scroll) (font assign simple with horizontal & vertical offset scroll)', async () => {
       const page = await createPage('/v-font-scroll');
-      expect(await page.evaluate(() => document.querySelector('#horizontalScroll .item-5').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector('#horizontalScroll .item-5')
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
 
       await page.evaluate(() => {
         const containerEl = document.querySelector('#horizontalScroll');
@@ -207,7 +331,13 @@ export default (runtime) => {
 
       await page.waitForSelector('#horizontalScroll .item-5.font-active');
 
-      expect(await page.evaluate(() => document.querySelector('#verticalScroll .item-5').classList.contains('.font-active'))).toBeFalsy();
+      expect(
+        await page.evaluate(() =>
+          document
+            .querySelector('#verticalScroll .item-5')
+            .classList.contains('.font-active')
+        )
+      ).toBeFalsy();
 
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
 
@@ -239,18 +369,26 @@ export default (runtime) => {
       await page.waitForLoadState('networkidle');
 
       // start first player
-      await page.evaluate(() => document.querySelector('#youtube-0 button').click());
+      await page.evaluate(() =>
+        document.querySelector('#youtube-0 button').click()
+      );
       await page.waitForLoadState('networkidle');
 
       // wait for playing first player playing
-      await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready.playing');
+      await page.waitForSelector(
+        '#youtube-0 .nuxt-speedkit-youtube.ready.playing'
+      );
 
       // scroll to second player for autoplay
       await page.evaluate(() => window.scrollBy(0, window.innerHeight));
 
       // wait for playing first player playing
-      await page.waitForSelector('#youtube-0 .nuxt-speedkit-youtube.ready:not(.playing)');
-      await page.waitForSelector('#youtube-1 .nuxt-speedkit-youtube.ready.playing');
+      await page.waitForSelector(
+        '#youtube-0 .nuxt-speedkit-youtube.ready:not(.playing)'
+      );
+      await page.waitForSelector(
+        '#youtube-1 .nuxt-speedkit-youtube.ready.playing'
+      );
     });
 
     // #endregion

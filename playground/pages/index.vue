@@ -1,13 +1,11 @@
 <template>
-  <div>test</div>
+  <div>
+    <component-quicksand critical />
+    <component-merriweather />
+  </div>
 </template>
 
-<script>
-
-export default {
-  mounted () {
-    console.log('mounted', this);
-  }
-};
-
+<script setup>
+import ComponentMerriweather from '@/components/Component/Merriweather';
+import ComponentQuicksand from '@/components/Component/Quicksand';
 </script>

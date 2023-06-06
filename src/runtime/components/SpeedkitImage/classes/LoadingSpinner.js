@@ -5,17 +5,17 @@ export default class LoadingSpinner {
   #size;
   #backgroundColor;
 
-  constructor ({ dataUri, size = '100px', backgroundColor = 'transparent' }) {
+  constructor({ dataUri, size = '100px', backgroundColor = 'transparent' }) {
     this.#dataUri = dataUri;
     this.#size = size;
     this.#backgroundColor = backgroundColor;
   }
 
-  get className () {
+  get className() {
     return `spinner-${toHashHex(this.#dataUri)}`;
   }
 
-  get style () {
+  get style() {
     return `
       .${this.className}.loading {
         background-image: url(${this.#dataUri});
@@ -27,7 +27,7 @@ export default class LoadingSpinner {
     `;
   }
 
-  toJSON () {
+  toJSON() {
     return {
       dataUri: this.#dataUri,
       size: this.#size,
@@ -35,7 +35,7 @@ export default class LoadingSpinner {
     };
   }
 
-  static create (...args) {
+  static create(...args) {
     return new this(...args);
   }
 }

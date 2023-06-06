@@ -1,5 +1,9 @@
 <template>
-  <source :srcset="srcset" :sizes="config.sizes" :media="source.media" :type="type">
+  <source
+    :srcset="srcset"
+    :sizes="config.sizes"
+    :media="source.media"
+    :type="type" />
 </template>
 
 <script>
@@ -16,25 +20,26 @@ export default {
 
     crossorigin: {
       type: [Boolean, String],
-      default () {
+      default() {
         return '';
       },
-      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
+      validator: val =>
+        ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
   },
 
-  data () {
+  data() {
     return {
       config: null
     };
   },
 
-  fetchKey (getCounter) {
+  fetchKey(getCounter) {
     const key = `source-${this.source.key}`;
     return `${key}-${getCounter(key)}`;
   },
 
-  fetch () {
+  fetch() {
     this.config = this.$img.getSizes(this.source.src, {
       sizes: this.source.sizes,
       modifiers: this.source.getModifiers(),
@@ -42,22 +47,28 @@ export default {
     });
   },
 
-  head () {
+  head() {
     const imageSource = new Source(this.source);
     if (this.config && imageSource.preload) {
       return {
-        link: [imageSource.getPreload(this.config.srcset, this.config.sizes, this.$speedkit.getCrossorigin(this.crossorigin))]
+        link: [
+          imageSource.getPreload(
+            this.config.srcset,
+            this.config.sizes,
+            this.$speedkit.getCrossorigin(this.crossorigin)
+          )
+        ]
       };
     }
     return {};
   },
 
   computed: {
-    srcset () {
+    srcset() {
       return this.config.srcset || this.config.src;
     },
 
-    type () {
+    type() {
       return `image/${types.get(this.source.format) || this.source.format}`;
     }
   }

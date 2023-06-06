@@ -12,8 +12,7 @@
     :loading="loadingMode"
     :decoding="decodingMode"
     :crossorigin="$speedkit.getCrossorigin(crossorigin)"
-    v-on="{load: onLoad}"
-  >
+    v-on="{ load: onLoad }" />
 </template>
 
 <script>
@@ -41,15 +40,16 @@ export default {
 
     crossorigin: {
       type: [Boolean, String],
-      default () {
+      default() {
         return '';
       },
-      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
+      validator: val =>
+        ['anonymous', 'use-credentials', '', true, false].includes(val)
     },
 
     loadingSpinner: {
       type: LoadingSpinner,
-      default () {
+      default() {
         return null;
       }
     }
@@ -57,7 +57,7 @@ export default {
 
   emits: ['load'],
 
-  data () {
+  data() {
     return {
       className: null,
       loading: true,
@@ -66,17 +66,17 @@ export default {
     };
   },
 
-  fetchKey (getCounter) {
+  fetchKey(getCounter) {
     let key;
     if (this.source) {
-      key = `image-${(new Source(this.source))?.key}`;
+      key = `image-${new Source(this.source)?.key}`;
     } else {
       key = 'image';
     }
     return `${key}-${getCounter(key)}`;
   },
 
-  async fetch () {
+  async fetch() {
     if (this.source) {
       const source = new Source(this.source);
       this.config = this.$img.getSizes(source.src, {
@@ -85,85 +85,106 @@ export default {
         ...source.getOptions()
       });
       const { ssrContext } = this.$nuxt.context;
-      this.meta = await source.getMeta(this.config.src, ssrContext?.nuxt?._img || {});
+      this.meta = await source.getMeta(
+        this.config.src,
+        ssrContext?.nuxt?._img || {}
+      );
       this.className = this.meta.className;
     }
   },
 
-  head () {
+  head() {
     return {
       style: this.style,
       link: this.preload,
       noscript: [
-        { hid: 'img-nojs', innerHTML: '<style>img { content-visibility: unset !important; }</style>' }
+        {
+          hid: 'img-nojs',
+          innerHTML:
+            '<style>img { content-visibility: unset !important; }</style>'
+        }
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     };
   },
 
   computed: {
-
-    resolvedLoadingSpinner () {
+    resolvedLoadingSpinner() {
       return this.loadingSpinner || this.$speedkit.loader();
     },
 
-    classNames () {
+    classNames() {
       const classNames = [{ loading: this.loading }].concat(this.className);
-      this.resolvedLoadingSpinner && classNames.push(this.resolvedLoadingSpinner.className);
+      this.resolvedLoadingSpinner &&
+        classNames.push(this.resolvedLoadingSpinner.className);
       return classNames;
     },
 
-    srcset () {
-      return (this.config?.srcset || this.config?.src);
+    srcset() {
+      return this.config?.srcset || this.config?.src;
     },
 
-    sizes () {
+    sizes() {
       return this.config?.sizes;
     },
 
-    width () {
+    width() {
       return this.$attrs.width || this.meta?.width;
     },
 
-    height () {
+    height() {
       return this.$attrs.height || this.meta?.height;
     },
 
-    loadingMode () {
+    loadingMode() {
       if (this.isCritical) {
         return 'eager';
       }
       return 'lazy';
     },
 
-    decodingMode () {
-      if (!this.source || (new Source(this.source)).format !== 'svg') {
+    decodingMode() {
+      if (!this.source || new Source(this.source).format !== 'svg') {
         return 'async';
       }
       return 'sync';
     },
 
-    style () {
+    style() {
       return [
-        this.resolvedLoadingSpinner && { hid: this.resolvedLoadingSpinner.className, type: 'text/css', cssText: this.resolvedLoadingSpinner.style },
-        this.meta && { hid: this.className, type: 'text/css', cssText: new Source(this.meta).style }
+        this.resolvedLoadingSpinner && {
+          hid: this.resolvedLoadingSpinner.className,
+          type: 'text/css',
+          cssText: this.resolvedLoadingSpinner.style
+        },
+        this.meta && {
+          hid: this.className,
+          type: 'text/css',
+          cssText: new Source(this.meta).style
+        }
       ].filter(Boolean);
     },
 
-    preload () {
+    preload() {
       if (!this.config || !this.isCritical) {
         return [];
       }
-      return [new Source(this.source).getPreload(this.config.srcset, this.config.sizes, this.$speedkit.getCrossorigin(this.crossorigin))];
+      return [
+        new Source(this.source).getPreload(
+          this.config.srcset,
+          this.config.sizes,
+          this.$speedkit.getCrossorigin(this.crossorigin)
+        )
+      ];
     }
   },
 
-  mounted () {
+  mounted() {
     this.loading = !this.$el.complete;
   },
 
   methods: {
-    onLoad (e) {
+    onLoad(e) {
       this.loading = false;
       this.$emit('load', e.target.currentSrc);
     }

@@ -1,8 +1,8 @@
 export class CallbackObserver {
   #listeners = [];
   #destroyed = false;
-  constructor (fn) {
-    fn((value) => {
+  constructor(fn) {
+    fn(value => {
       if (this.#destroyed) {
         return false;
       }
@@ -11,23 +11,23 @@ export class CallbackObserver {
     });
   }
 
-  subscribe (listener) {
+  subscribe(listener) {
     this.#listeners.push(listener);
     return {
       unsubscribe: () => {
-        this.#listeners = this.#listeners.filter(v => (v === listener));
+        this.#listeners = this.#listeners.filter(v => v === listener);
       }
     };
   }
 
-  destroy () {
+  destroy() {
     this.#destroyed = true;
   }
 }
 
 export const combineCallbackObserver = (callback, observers) => {
   let values = [];
-  const observerCallback = index => (value) => {
+  const observerCallback = index => value => {
     values[Number(index)] = value;
     if (values.filter(Boolean).length >= observers.length) {
       callback(values);

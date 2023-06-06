@@ -1,5 +1,7 @@
-
-import { CallbackObserver, combineCallbackObserver } from '#speedkit/classes/CallbackObserver';
+import {
+  CallbackObserver,
+  combineCallbackObserver
+} from '#speedkit/classes/CallbackObserver';
 
 const defaultConfig = {
   timing: {
@@ -9,33 +11,32 @@ const defaultConfig = {
 };
 let customConfig = defaultConfig;
 
-export function setup (config = {}) {
+export function setup(config = {}) {
   customConfig = {
     timing: Object.assign({}, defaultConfig.timing, config.timing || {})
   };
   customConfig = Object.assign({}, defaultConfig, config);
 }
 
-export function hasSufficientPerformance () {
-  return (
-    hasSufficientDownloadPerformance() &&
-    !process.server
-  );
+export function hasSufficientPerformance() {
+  return hasSufficientDownloadPerformance() && !process.server;
 }
 
-export function hasSufficientDownloadPerformance () {
+export function hasSufficientDownloadPerformance() {
   if (window.performance) {
     const paint = performance.getEntriesByName('first-contentful-paint');
     const resources = performance.getEntriesByType('resource');
     if (paint.length) {
       return paint[0].startTime < customConfig.timing.fcp;
     } else if (resources.length) {
-      return resources.reduce((result, resource) => {
-        if (!result || result < resource.responseEnd) {
-          result = resource.responseEnd;
-        }
-        return result;
-      }, null) < customConfig.timing.dcl;
+      return (
+        resources.reduce((result, resource) => {
+          if (!result || result < resource.responseEnd) {
+            result = resource.responseEnd;
+          }
+          return result;
+        }, null) < customConfig.timing.dcl
+      );
     }
   }
   return false;
@@ -46,8 +47,8 @@ let startTime;
 const resolveTimes = (maxTime, threshold, resolve, reject) => {
   const buffer = new ValueBuffer(10, threshold / 2);
   return ([raf, idle]) => {
-    const time = (window.performance.now() - startTime);
-    const value = (idle / raf);
+    const time = window.performance.now() - startTime;
+    const value = idle / raf;
 
     if (value <= 1) {
       buffer.add(value);
@@ -66,9 +67,11 @@ export const getDefaultRunOptions = () => {
 };
 
 export const waitForVisibleDocument = () => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     if (document.visibilityState === 'hidden') {
-      document.addEventListener('visibilitychange', () => resolve(), { once: true });
+      document.addEventListener('visibilitychange', () => resolve(), {
+        once: true
+      });
     } else {
       resolve();
     }
@@ -85,7 +88,10 @@ export const run = async (options = {}) => {
 
     return new Promise((resolve, reject) => {
       startTime = window.performance.now();
-      combineCallbackObserver(resolveTimes(maxTime, threshold, resolve, reject), [fpsObserver, idleObserver]);
+      combineCallbackObserver(
+        resolveTimes(maxTime, threshold, resolve, reject),
+        [fpsObserver, idleObserver]
+      );
     }).finally(() => {
       fpsObserver.destroy();
       idleObserver.destroy();
@@ -93,11 +99,11 @@ export const run = async (options = {}) => {
   }
 };
 
-const rafTime = (fn) => {
+const rafTime = fn => {
   let prevTime = performance.now();
   const loop = () => {
     const time = performance.now();
-    const offset = (time - prevTime);
+    const offset = time - prevTime;
     prevTime = time;
     const running = fn(offset);
     if (running) {
@@ -107,8 +113,8 @@ const rafTime = (fn) => {
   requestAnimationFrame(loop);
 };
 
-const idleTime = (callback) => {
-  const loop = (deadline) => {
+const idleTime = callback => {
+  const loop = deadline => {
     const running = callback(deadline.timeRemaining());
     if (running) {
       window.requestIdleCallback(loop);
@@ -120,16 +126,16 @@ const idleTime = (callback) => {
 class ValueBuffer {
   list;
   index = 0;
-  constructor (count = 10, defaultValue = 0) {
+  constructor(count = 10, defaultValue = 0) {
     this.list = Array(count).fill(defaultValue);
   }
 
-  add (value) {
+  add(value) {
     this.list[this.index] = value;
     this.index = (this.index + 1) % this.list.length;
   }
 
-  get avg () {
+  get avg() {
     return this.list.reduce((r, v) => (r += v), 0) / this.list.length;
   }
 }

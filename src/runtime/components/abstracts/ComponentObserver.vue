@@ -1,5 +1,4 @@
 <script>
-
 import { getElementObserver } from '#speedkit/classes/intersection';
 
 export default {
@@ -15,7 +14,7 @@ export default {
     },
     threshold: {
       type: Array,
-      default () {
+      default() {
         return [0];
       }
     },
@@ -30,27 +29,35 @@ export default {
   },
   emits: ['enterView'],
 
-  async mounted () {
+  async mounted() {
     if (this.isCritical) {
       this.onEnterView();
     } else {
-      const options = (({ root, rootMargin, threshold, trackVisibility, delay }) => ({ root, rootMargin, threshold, trackVisibility, delay }))(this);
+      const options = (({
+        root,
+        rootMargin,
+        threshold,
+        trackVisibility,
+        delay
+      }) => ({ root, rootMargin, threshold, trackVisibility, delay }))(this);
       await getElementObserver(this.$el, options).enterViewOnce();
       this.onEnterView();
     }
   },
 
   methods: {
-    onEnterView () {
+    onEnterView() {
       this.$emit('enterView');
     }
   },
 
-  render () {
+  render() {
     try {
       return this.$slots.default();
     } catch (e) {
-      throw new Error('IntersectionObserver.vue can only render one, and exactly one child component.');
+      throw new Error(
+        'IntersectionObserver.vue can only render one, and exactly one child component.'
+      );
     }
   }
 };

@@ -4,20 +4,16 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Express-Server (dist)",
-      "runtimeVersion": "16.14.2",
-      "program": "${workspaceFolder}/tools/express-server",
-      "outputCapture": "std",
-      "args": [
-        "--dist",
-        "dist/nuxt-custom-elements"
-      ]
+      "name": "Test",
+      "runtimeVersion": "19.5.0",
+      "program": "${workspaceFolder}/test.mjs",
+      "outputCapture": "std"
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Express-Server (build/dist)",
-      "runtimeVersion": "16.14.2",
+      "runtimeVersion": "19.5.0",
       "program": "${workspaceFolder}/tools/express-server",
       "outputCapture": "std",
       "args": [

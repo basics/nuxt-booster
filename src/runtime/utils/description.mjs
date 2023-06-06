@@ -1,8 +1,13 @@
 import { toHashHex } from '#speedkit/utils/string';
 
-export function getImagePreloadDescription ({ srcset, sizes, type }, crossorigin, callback = () => {}) {
+export function getImagePreloadDescription(
+  { srcset, sizes, type },
+  crossorigin,
+  callback = () => {}
+) {
   return {
-    hid: toHashHex(srcset),
+    tagPriority: 2,
+    key: toHashHex(srcset),
     rel: 'preload',
     as: 'image',
     crossorigin,
@@ -13,9 +18,17 @@ export function getImagePreloadDescription ({ srcset, sizes, type }, crossorigin
   };
 }
 
-export function getFontPreloadDescription (font, media, crossorigin, callback = () => {}) {
+export function getFontPreloadDescription(
+  font,
+  media,
+  crossorigin,
+  callback = () => {}
+) {
   return {
-    hid: toHashHex(`${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()),
+    tagPriority: 2,
+    key: toHashHex(
+      `${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()
+    ),
     rel: 'preload',
     as: 'font',
     crossorigin,
@@ -26,20 +39,19 @@ export function getFontPreloadDescription (font, media, crossorigin, callback = 
   };
 }
 
-export function getStyleDescription (cssText, noScript = false) {
+export function getStyleDescription(children, noScript = false) {
   if (noScript) {
-    return getNoScriptDescription(`<style>${cssText}</style>`);
+    return getNoScriptDescription(`<style>${children}</style>`);
   } else {
     return {
-      hid: toHashHex(cssText),
-      cssText
+      type: 'text/css',
+      children
     };
   }
 }
 
-export function getNoScriptDescription (html) {
+export function getNoScriptDescription(html) {
   return {
-    hid: toHashHex(html),
-    innerHTML: html
+    children: html
   };
 }

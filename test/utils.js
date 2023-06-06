@@ -12,18 +12,21 @@ import nuxtConfig from '../playground/nuxt.config.mjs';
 import { toHashHex } from '../src/runtime/utils/string';
 
 export const generate = async (buildDir, distDir) => {
-  const config = defu({
-    target: 'static',
-    modern: true,
-    buildDir,
-    env: {
-      DISABLE_INFO_LAYER: true
+  const config = defu(
+    {
+      target: 'static',
+      modern: true,
+      buildDir,
+      env: {
+        DISABLE_INFO_LAYER: true
+      },
+      generate: { cache: false, dir: distDir, crawler: false },
+      dir: {
+        pages: 'pages/tests'
+      }
     },
-    generate: { cache: false, dir: distDir, crawler: false },
-    dir: {
-      pages: 'pages/tests'
-    }
-  }, nuxtConfig);
+    nuxtConfig
+  );
   const nuxt = new Nuxt(config);
   nuxt.server.listen(await getPort({ random: true }));
   await nuxt.ready();
@@ -35,46 +38,62 @@ export const generate = async (buildDir, distDir) => {
 
 export const getDom = html => new JSDOM(html).window.document;
 
-export const getFontFaceSnippet = (family = 'Merriweather', style = 'italic', weight = 300) => {
-  return ['      @font-face {',
+export const getFontFaceSnippet = (
+  family = 'Merriweather',
+  style = 'italic',
+  weight = 300
+) => {
+  return [
+    '      @font-face {',
     `        font-family: '${family}';`,
     `        font-style: ${style};`,
-    `        font-weight: ${weight};`].join('\n');
+    `        font-weight: ${weight};`
+  ].join('\n');
 
   // return `@font-face{font-family:'${family}';font-style:${style};font-weight:${weight};`
 };
 
-export const getLinkPreloadHid = (family, weight = 400, style = 'normal', media = 'all') => {
+export const getLinkPreloadHid = (
+  family,
+  weight = 400,
+  style = 'normal',
+  media = 'all'
+) => {
   return toHashHex(`${family}-${weight}-${style}-${media}`.toLowerCase());
 };
 
-export const makeDir = (path) => {
+export const makeDir = path => {
   /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
   return fs.promises.mkdir(path);
 };
-export const deleteDir = (path) => {
-  return new Promise((resolve) => {
+export const deleteDir = path => {
+  return new Promise(resolve => {
     /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
     if (fs.existsSync(path)) {
       rimraf(path, resolve);
-    } else { resolve(); }
+    } else {
+      resolve();
+    }
   });
 };
 
 export const getHTML = (path = '') => {
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
-  return new Promise(resolve => readFile(fsResolve(path, 'index.html'), 'utf-8', (err, data) => {
-    if (err) { throw err; }
-    resolve(data);
-  }));
+  return new Promise(resolve =>
+    readFile(fsResolve(path, 'index.html'), 'utf-8', (err, data) => {
+      if (err) {
+        throw err;
+      }
+      resolve(data);
+    })
+  );
 };
 
 export const startStaticServer = async (dist, port, hostname = 'localhost') => {
-  port = port || await getPort();
+  port = port || (await getPort());
   const serve = serveStatic(dist);
-  const server = http.createServer(function onRequest (req, res) {
+  const server = http.createServer(function onRequest(req, res) {
     serve(req, res, finalhandler(req, res));
   });
   server.listen({ port, hostname });
-  return { server, url: (new URL(`http://${hostname}:${port}`)).toString() };
+  return { server, url: new URL(`http://${hostname}:${port}`).toString() };
 };
