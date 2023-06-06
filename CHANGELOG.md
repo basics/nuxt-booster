@@ -1,5 +1,17 @@
 # Project Changelog
 
+# [3.0.0-next.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.1-next.1...v3.0.0-next.1) (2023-06-06)
+
+
+### chore
+
+* **readme:** updated readme ([d593082](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/d5930828f368c486e8b6e67b10bfbe5bbfa03a49))
+
+
+### BREAKING CHANGES
+
+* **readme:** version change for nuxt3
+
 ## [2.2.1-next.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.0...v2.2.1-next.1) (2023-06-06)
 
 
