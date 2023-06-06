@@ -1,5 +1,16 @@
 # Project Changelog
 
+## [2.2.1-next.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.0...v2.2.1-next.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* **entry:** prepare entry for vite and webpack ([04ee52e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/04ee52e304f83cc1168da8b9d362f9ebbadd029f))
+* **next:** prepare for next ([31a32d2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/31a32d25fe8ea5cd032d54a57a5bd9d015b55dd6))
+* **plugin:** speedkit provide completed ([963fb44](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/963fb4474959bb3ac57438211b440c1611629e8b))
+* **update:** composable and directive ([ea7ea8e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ea7ea8ed72af97b05292d16d500cebc21f02d811))
+* **update:** prepare 1 ([5632c68](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5632c6854567fbc3587448886c7e922b2424fbf4))
+
 # [2.2.0](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.1.7...v2.2.0) (2023-04-21)
 
 
