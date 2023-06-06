@@ -7,4 +7,4 @@ coverage
 
 # Files
 **/*.js
-src/runtime/css/fonts.css
+src/runtime/tmpl/fonts.css
