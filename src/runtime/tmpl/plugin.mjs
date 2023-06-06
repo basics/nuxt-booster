@@ -1,4 +1,6 @@
 import vFont from '#speedkit/directives/vFont';
+import { isSupportedBrowser } from '#speedkit/utils/browser';
+import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 
 export default defineNuxtPlugin({
   name: 'speedkit-plugin',
@@ -15,7 +17,17 @@ export default defineNuxtPlugin({
       module => module.default || module
     );
 
-    nuxtApp.provide('speedkit', { getFont: fontList.getFont.bind(fontList) });
+    nuxtApp.provide('speedkit', {
+      getFont: fontList.getFont.bind(fontList),
+      crossorigin: <%= JSON.stringify(options.crossorigin) %>,
+      isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>),
+      loader: () => <% if (options.loader.dataUri) { %>new LoadingSpinner({
+      dataUri: loaderDataUri,
+      size: '<%= options.loader.size %>',
+      backgroundColor: '<%= options.loader.backgroundColor %>'
+      })<% } else { %>undefined<% } %>,
+      targetFormats: <%= JSON.stringify(options.targetFormats) %>
+    });
 
     useHead({
       style: [
