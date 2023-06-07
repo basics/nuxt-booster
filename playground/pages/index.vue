@@ -6,6 +6,13 @@
 </template>
 
 <script setup>
-import ComponentMerriweather from '@/components/FontTests/Merriweather';
-import ComponentQuicksand from '@/components/FontTests/Quicksand';
+import { defineAsyncComponent } from 'vue';
+import speedkitHydrate from '#speedkit/hydrate';
+
+const ComponentMerriweather = speedkitHydrate(() =>
+  import('@/components/FontTests/Merriweather')
+);
+const ComponentQuicksand = speedkitHydrate(
+  defineAsyncComponent(() => import('@/components/FontTests/Quicksand'))
+);
 </script>

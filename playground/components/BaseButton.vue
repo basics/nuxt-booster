@@ -9,8 +9,8 @@
 </template>
 
 <script setup>
-import { useSpeedkit } from '#speedkit/composables/speedkit';
-const { $getFont } = useSpeedkit();
+import { useFonts } from '#speedkit/composables/fonts';
+const { $getFont } = useFonts();
 </script>
 
 <script>

@@ -1,6 +1,7 @@
 import vFont from '#speedkit/directives/vFont';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 import FontList from '#speedkit/classes/FontList';
+import hydrate from '#speedkit/hydrate';
 
 export default defineNuxtPlugin({
   name: 'speedkit-plugin',
@@ -12,6 +13,7 @@ export default defineNuxtPlugin({
     const fontList = new FontList(fontConfig);
 
     nuxtApp.provide('speedkit', {
+      hydrate,
       getFont: fontList.getFont.bind(fontList),
       crossorigin: <%= JSON.stringify(options.crossorigin) %>,
       isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>)

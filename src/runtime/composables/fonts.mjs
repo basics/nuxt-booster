@@ -13,7 +13,7 @@ import FontCollection from '#speedkit/classes/FontCollection';
 
 const criticalContextKey = Symbol('criticalContext');
 
-export function useSpeedkit({ critical } = {}) {
+export function useFonts({ critical } = {}) {
   const attrs = useAttrs();
 
   const { speedkit: runtimeConfig } = useRuntimeConfig().public;

@@ -1,5 +1,8 @@
 <template>
-  <div class="montserrat-alternates" style="height: 100vh">
+  <div
+    class="montserrat-alternates"
+    :class="{ hydrated }"
+    style="height: 100vh">
     <div>
       <p>Is Critical: {{ isCritical }}</p>
       <p>
@@ -28,8 +31,8 @@
 </template>
 
 <script setup>
-import { useSpeedkit } from '#speedkit/composables/speedkit';
-const { $getFont, isCritical } = useSpeedkit();
+import { useFonts } from '#speedkit/composables/fonts';
+const { $getFont, isCritical } = useFonts();
 </script>
 
 <script>
@@ -37,8 +40,12 @@ export default {
   data() {
     return {
       updateText: 'Update me!',
-      active: false
+      active: false,
+      hydrated: false
     };
+  },
+  mounted() {
+    this.hydrated = true;
   }
 };
 </script>
