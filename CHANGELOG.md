@@ -1,5 +1,15 @@
 # Project Changelog
 
+# [3.0.0-next.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.2...v3.0.0-next.3) (2023-06-07)
+
+
+### Bug Fixes
+
+* **publish:** added overrides ([6fed38c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6fed38c0990ca2558c8cbbfd91baa9bb59f4362d))
+* **publish:** remove stylelint ([cac41fb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/cac41fbdb484640a6fc7f192967f217100883aa9))
+* **publish:** test 2 ([ddb9c8d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ddb9c8d2237942f7c435cc986baa2fd9f7af4a48))
+* **publish:** update package-lock ([344bb8f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/344bb8ffeecd4aa8b588d80635fe77c51a6a9c3c))
+
 # [3.0.0-next.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.1...v3.0.0-next.2) (2023-06-06)
 
 
