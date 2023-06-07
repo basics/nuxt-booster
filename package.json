@@ -26,7 +26,6 @@
     "dev": "nuxt dev playground",
     "generate": "nuxt generate playground",
     "preview": "nuxt preview",
-    "prepare": "nuxt-module-build --stub && nuxt prepare playground",
     "lint": "npm run lint:css && npm run lint:es",
     "lint:es": "eslint --fix --ext .js,.mjs,.vue .",
     "lint:css": "stylelint \"(src|playground)/**/*.vue\"",
