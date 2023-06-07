@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import InfoLayer from '@/components/InfoLayer.vue';
+import InfoLayer from '@/components/InfoLayer';
 
 export default { components: { InfoLayer } };
 </script>

@@ -45,7 +45,7 @@ const { $getFont, isCritical } = useSpeedkit({ critical: true });
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       externalContent:
         '<p><strong>Lorem ipsum dolor sit amet</strong>, <br><em>consetetur sadipscing elitr</em>, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>'
