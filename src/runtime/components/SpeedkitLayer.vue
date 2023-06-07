@@ -53,8 +53,6 @@
 <script setup>
 
 import { getStyleDescription } from '#speedkit/utils/description';
-import {useHead} from '#imports'
-
 
 const isServer = ref(true);
 

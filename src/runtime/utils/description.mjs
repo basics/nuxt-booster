@@ -2,12 +2,13 @@ import { toHashHex } from '#speedkit/utils/string';
 
 export function getImagePreloadDescription(
   { srcset, sizes, type },
+  fetchpriority = 'high',
   crossorigin,
   callback = () => {}
 ) {
   return {
     tagPriority: 2,
-    fetchpriority: 'low',
+    fetchpriority,
     key: toHashHex(srcset),
     rel: 'preload',
     as: 'image',
@@ -22,13 +23,13 @@ export function getImagePreloadDescription(
 export function getFontPreloadDescription(
   font,
   media,
+  fetchpriority = 'high',
   crossorigin,
   callback = () => {}
 ) {
   return {
     tagPriority: 2,
-    fetchpriority: 'low',
-    // blocking: 'render',
+    fetchpriority,
     key: toHashHex(
       `${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()
     ),

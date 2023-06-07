@@ -11,6 +11,7 @@
 <script setup>
 import { useFonts } from '#speedkit/composables/fonts';
 const { $getFont } = useFonts();
+defineEmits(['click']);
 </script>
 
 <script>
@@ -24,8 +25,7 @@ export default {
       type: String,
       default: 'Button Label'
     }
-  },
-  emits: ['click']
+  }
 };
 </script>
 
