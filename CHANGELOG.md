@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.3...v3.0.0-next.4) (2023-06-07)
+
+
+### Bug Fixes
+
+* **publish:** test 3 ([93410f8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/93410f89b1acf85dd96ed0e4ad948b338fa2902e))
+
 # [3.0.0-next.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.2...v3.0.0-next.3) (2023-06-07)
 
 
