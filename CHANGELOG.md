@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.4...v3.0.0-next.5) (2023-06-07)
+
+
+### Bug Fixes
+
+* **publish:** remove prepare task ([53c9791](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/53c9791a86b1f4c48e1ff7332db3fab815ed9bd0))
+
 # [3.0.0-next.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.3...v3.0.0-next.4) (2023-06-07)
 
 
