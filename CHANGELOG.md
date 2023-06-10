@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.0...v2.2.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* **speedkit-picture:** added prop for disable source sorting ([98e5b3f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/98e5b3fe90971b281bbe555c564c5bd5cf127164))
+
 ## [2.2.1-beta.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.0...v2.2.1-beta.1) (2023-05-02)
 
 
