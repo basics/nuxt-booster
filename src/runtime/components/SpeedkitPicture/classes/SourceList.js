@@ -6,8 +6,11 @@ const sortByMediaQueries = createSort();
 
 export default class SourceList {
   list = [];
+  sort = false;
 
-  constructor(list) {
+  constructor(list, options = {}) {
+    options = options || {};
+    this.sort = options.sort || false;
     this.list = this.list.concat(
       Array.from(list || this.list).map(item => new Source(item))
     );
@@ -26,7 +29,11 @@ export default class SourceList {
   }
 
   get sorted() {
-    return this.list.sort((a, b) => sortByMediaQueries(a.media, b.media));
+    if (this.sort) {
+      return this.list.sort((a, b) => sortByMediaQueries(a.media, b.media));
+    } else {
+      return this.list;
+    }
   }
 
   get style() {

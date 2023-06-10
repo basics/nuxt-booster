@@ -68,6 +68,11 @@ export default {
         return null;
       },
       validator: validatorCrossorigin
+    },
+
+    sortSources: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -78,7 +83,9 @@ export default {
     const $img = useImage();
     const $speedkit = useNuxtApp().$speedkit;
 
-    const sourceList = SourceList.create(props.sources);
+    const sourceList = SourceList.create(props.sources, {
+      sort: props.sortSources
+    });
 
     const metaSources = await sourceList.getMeta($img, $speedkit);
     const classNames = metaSources.classNames;
