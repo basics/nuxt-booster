@@ -51,7 +51,6 @@ function client () {
 
       triggerRunCallback(true);
 
-      console.log('resolve?')
       deferred.resolve();
 
     } catch (error) {

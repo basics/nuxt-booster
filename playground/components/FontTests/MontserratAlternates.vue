@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { useFonts } from '#speedkit/composables/fonts';
+import useFonts from '#speedkit/composables/fonts';
 const { $getFont, isCritical } = useFonts();
 </script>
 

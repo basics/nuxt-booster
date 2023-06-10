@@ -3,7 +3,7 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    include: ['test/module.test.js'],
+    include: ['test/*.test.mjs'],
     testTimeout: 60_000,
     hookTimeout: 140_000
   },

@@ -9,13 +9,10 @@ export default class FontCollection {
     this.list = [];
   }
 
-  add(vnode, fonts) {
+  add(fonts) {
     const rootSelector = {
       name: 'data-font',
-      value: `${toFontHex(
-        vnode.tag,
-        JSON.stringify(fonts.map(font => font.getKey()))
-      )}`
+      value: `${toFontHex(JSON.stringify(fonts.map(font => font.getKey())))}`
     };
     this.list = [].concat(this.list).concat(
       fonts.map(font => {

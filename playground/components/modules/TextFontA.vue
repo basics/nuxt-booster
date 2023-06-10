@@ -1,0 +1,36 @@
+<template>
+  <section class="component-text-font-a">
+    <div
+      v-font="[
+        $getFont('Merriweather', 300, 'normal'),
+        $getFont('Merriweather', 700, 'normal', { selector: 'h1,h2' }),
+        $getFont('Merriweather', 300, 'italic', { selector: 'em' }),
+        $getFont('Merriweather', 700, 'normal', { selector: 'strong' }),
+        $getFont('Merriweather', 700, 'italic', {
+          selector: 'em strong, strong em'
+        })
+      ]">
+      <h2>{{ headline }}</h2>
+      <div v-html="content" />
+    </div>
+  </section>
+</template>
+
+<script setup>
+import useFonts from '#speedkit/composables/fonts';
+const { $getFont } = useFonts();
+defineProps({
+  headline: { type: String, default: 'Headline' },
+  content: { type: String, default: 'Text' }
+});
+</script>
+
+<style lang="postcss" scoped>
+.component-text-font-a {
+  padding: 0 10%;
+
+  & :deep(p) {
+    line-height: 1.6;
+  }
+}
+</style>

@@ -6,13 +6,16 @@ import {
   addPluginTemplate,
   addTemplate,
   // isNuxt3,
+  installModule,
   logger
 } from '@nuxt/kit';
 import { getCrossorigin } from './runtime/utils.mjs';
 import FontConfig from './runtime/classes/FontConfig.mjs';
 import {
+  DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
   getDefaultOptions,
+  getNuxtImageModuleOptions,
   isWebpackBuild,
   optimizeNuxtOptions,
   optimizePreloads,
@@ -44,10 +47,11 @@ export default defineNuxtModule({
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
 
-    // if (!options.disableNuxtImage) {
-    // options.targetFormats = options.targetFormats || DEFAULT_TARGET_FORMATS;
-    //   await addNuxtImage(this);
-    // }
+    if (!moduleOptions.disableNuxtImage) {
+      moduleOptions.targetFormats =
+        moduleOptions.targetFormats || DEFAULT_TARGET_FORMATS;
+      await addNuxtImage(nuxt);
+    }
 
     setPublicRuntimeConfig(nuxt, moduleOptions);
 
@@ -166,24 +170,33 @@ async function addBuildTemplates(nuxt, options) {
   });
 }
 
-// async function addNuxtImage ({ addModule, nuxt }) {
-//   // Check if @nuxt/image exists, if not, module is registered in nuxt.
-//   const modules = [...nuxt.options.modules, ...nuxt.options.buildModules];
-//   if (!modules.find(module => getModuleName(module) === '@nuxt/image')) {
-//     consola.info(`[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``);
-//     await addModule('@nuxt/image');
-//   }
+async function addNuxtImage(nuxt) {
+  // Check if @nuxt/image exists, if not, module is registered in nuxt.
+  const modules = [...nuxt.options.modules, ...nuxt.options.buildModules];
+  if (!modules.find(module => getModuleName(module) === '@nuxt/image')) {
+    logger.info(
+      `[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
+    );
+    await installModule('@nuxt/image');
+  }
 
-//   // Check @nuxt/image Options
-//   nuxt.hook('modules:done', (moduleContainer) => {
-//     const nuxtImageOptions = getNuxtImageModuleOptions(moduleContainer);
-//     if (nuxtImageOptions && ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))) {
-//       consola.warn('For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage');
-//     }
-//   });
-// }
+  // Check @nuxt/image Options
+  nuxt.hook('modules:done', () => {
+    const nuxtImageOptions = getNuxtImageModuleOptions(nuxt);
+    if (
+      nuxtImageOptions &&
+      ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
+    ) {
+      logger.warn(
+        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
+      );
+    }
+  });
+}
 
-// function getModuleName (m) {
-//   if (Array.isArray(m)) { m = m[0]; }
-//   return m.meta ? m.meta.name : m;
-// }
+function getModuleName(m) {
+  if (Array.isArray(m)) {
+    m = m[0];
+  }
+  return m.meta ? m.meta.name : m;
+}

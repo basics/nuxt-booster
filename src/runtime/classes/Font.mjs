@@ -42,8 +42,9 @@ export default class Font {
 
   getKey() {
     const data = Object.assign({}, this);
-    // Remove src from font-object for key generation
+    // Remove `src` and `rootSelector` from font-object for key generation
     delete data.src;
+    delete data.rootSelector;
     return btoa(JSON.stringify(data));
   }
 

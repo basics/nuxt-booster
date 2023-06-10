@@ -8,7 +8,8 @@ export function isFirefox() {
 }
 
 export const isTouchSupported = () =>
+  typeof window !== 'undefined' &&
   !!(
-    'ontouchstart' in global ||
+    'ontouchstart' in window ||
     (window.DocumentTouch && document instanceof window.DocumentTouch)
   );

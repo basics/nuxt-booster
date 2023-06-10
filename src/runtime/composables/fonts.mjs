@@ -1,43 +1,14 @@
-import {
-  computed,
-  reactive,
-  ref,
-  inject,
-  provide,
-  useAttrs,
-  useNuxtApp,
-  useHead,
-  useRuntimeConfig
-} from '#imports';
+import { computed, reactive, useNuxtApp, useHead } from '#imports';
 import FontCollection from '#speedkit/classes/FontCollection';
+import useCritical from '#speedkit/composables/critical';
+import useConfig from '#speedkit/composables/config';
 
-const criticalContextKey = Symbol('criticalContext');
+export default function useFonts(context) {
+  const { isCritical, critical } = useCritical(context);
 
-export function useFonts({ critical } = {}) {
-  const attrs = useAttrs();
-
-  const { speedkit: runtimeConfig } = useRuntimeConfig().public;
+  const runtimeConfig = useConfig();
 
   const nuxtApp = useNuxtApp();
-
-  const currentCritical = ref(
-    !('critical' in attrs)
-      ? critical
-      : attrs.critical === '' || String(attrs.critical) === 'true'
-  );
-
-  const criticalInject = inject(
-    criticalContextKey,
-    currentCritical.value || false
-  );
-
-  const isCritical = computed(() => {
-    return typeof currentCritical.value === 'boolean'
-      ? currentCritical.value
-      : criticalInject;
-  });
-
-  provide(criticalContextKey, isCritical.value || critical);
 
   const fontCollection = reactive(new FontCollection());
 
@@ -45,7 +16,7 @@ export function useFonts({ critical } = {}) {
 
   return {
     isCritical,
-    critical: criticalInject,
+    critical,
     $getFont: (...args) => {
       return {
         runtimeConfig,
@@ -58,7 +29,6 @@ export function useFonts({ critical } = {}) {
 }
 
 function writeHead(isCritical, fontCollection) {
-  // const head = fontCollection.getHeadDescription ? fontCollection.getHeadDescription(isCritical) : {};
   useHead({
     link: computed(() => {
       return fontCollection.getPreloadDescriptions(isCritical.value);
@@ -69,6 +39,5 @@ function writeHead(isCritical, fontCollection) {
     noscript: computed(() => {
       return fontCollection.getNoScriptStyleDescriptions();
     })
-    // __dangerouslyDisableSanitizers: ['style', 'noscript']
   });
 }

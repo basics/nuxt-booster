@@ -14,9 +14,9 @@ export default {
         binding.instance.fontsReady = binding.instance.fontsReady || new Map();
         const values = [].concat(binding.value);
         if (values.length) {
-          const { isCritical, fontCollection } = values[0];
+          const { isCritical, fontCollection } = getFirstFont(values);
           const definitions = values.map(({ definition }) => definition);
-          const rootSelector = fontCollection.add(vnode, definitions);
+          const rootSelector = fontCollection.add(definitions);
           vnode.el.setAttribute(rootSelector.name, rootSelector.value);
           binding.instance.fontsReady.set(el, true);
           vnode.fontActive = isCritical;
@@ -26,14 +26,11 @@ export default {
       getSSRProps(binding) {
         const values = [].concat(binding.value);
         if (values.length) {
-          const { isCritical, fontCollection } = values[0];
+          const { isCritical, fontCollection } = getFirstFont(values);
 
           const definitions = values.map(({ definition }) => definition);
 
-          const rootSelector = fontCollection.add(
-            binding.instance.$.vnode,
-            definitions
-          );
+          const rootSelector = fontCollection.add(definitions);
 
           return {
             [rootSelector.name]: rootSelector.value,
@@ -42,23 +39,23 @@ export default {
         }
       },
 
-      updated(el, binding, vnode) {
+      updated(el, binding) {
         if (binding.instance.fontsReady.get(el)) {
           el.classList.add(CLASS_FONT_ACTIVE);
         }
       },
 
-      async mounted(el, binding, vnode) {
-        const { isCritical } = binding.value;
+      async mounted(el, binding) {
+        const { isCritical, runtimeConfig } = getFirstFont(binding.value);
         if (isCritical || !isElementOutViewport(el)) {
-          activateFonts(el, binding, vnode);
+          activateFonts(el, binding);
         } else {
           const observer = getElementObserver(el, {
-            rootMargin: binding.value.runtimeConfig.lazyOffsetAsset
+            rootMargin: runtimeConfig.lazyOffsetAsset
           });
           observers.set(el, observer);
           await observer.enterViewOnce();
-          activateFonts(el, binding, vnode);
+          activateFonts(el, binding);
         }
       },
 
@@ -69,9 +66,12 @@ export default {
   }
 };
 
-async function activateFonts(el, binding, vnode) {
+function getFirstFont(value) {
+  return [].concat(value)[0];
+}
+
+async function activateFonts(el, binding) {
   const fonts = [].concat(binding.value).map(({ definition }) => definition);
-  console.log('fonts', fonts);
   await Promise.all(
     fonts
       .filter(font => !font.media || window.matchMedia(font.media).matches)

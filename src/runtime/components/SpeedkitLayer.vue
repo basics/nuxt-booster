@@ -49,14 +49,13 @@
     </div>
 </template>
 
-
 <script setup>
 
 import { getStyleDescription } from '#speedkit/utils/description';
 
 const isServer = ref(true);
 
-onMounted(() => isServer = false)
+onMounted(() => isServer.value = false)
 
 useHead({
   noscript: [

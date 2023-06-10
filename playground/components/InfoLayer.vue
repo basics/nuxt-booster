@@ -32,8 +32,8 @@
 import { getStyleDescription } from '#speedkit/utils/description';
 import { useHead } from '#imports';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
-import BaseButton from '@/components/BaseButton';
-import { useFonts } from '#speedkit/composables/fonts';
+import BaseButton from '@/components/base/Button';
+import useFonts from '#speedkit/composables/fonts';
 
 const { $getFont } = useFonts();
 

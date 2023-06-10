@@ -13,11 +13,14 @@ export default defineNuxtPlugin({
     const fontList = new FontList(fontConfig);
 
     nuxtApp.provide('speedkit', {
+      getImageSize,
       hydrate,
       getFont: fontList.getFont.bind(fontList),
-      crossorigin: <%= JSON.stringify(options.crossorigin) %>,
-      isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>)
+      crossorigin: <%= options.crossorigin ? `'${options.crossorigin}'` : null %>,
+      isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>),
+      targetFormats: <%= JSON.stringify(options.targetFormats) %>
     });
+
 
     const fonts = await import('./fonts.mjs').then(
       module => module.default || module
@@ -40,3 +43,40 @@ export default defineNuxtPlugin({
     }
   }
 });
+
+
+async function getImageSize (src) {
+
+<% if (options.mode === 'client') { %>
+  const { width, height } = await new Promise((resolve) => {
+    const img = new global.Image();
+    img.onload = () => resolve({width: img.naturalWidth, height: img.naturalHeight});
+    img.src = src;
+  });
+  return {width, height};
+<% } else { %>
+
+  const isNitroPrerender = 'x-nitro-prerender' in useRequestHeaders()
+
+  try {
+    // Nur im Generate!
+    let url = src;
+    if (isNitroPrerender) {
+      url = url.replace(useRequestURL().origin, '');
+    }
+    const blob = await useRequestFetch()(url);
+    const { imageMeta } = await import('image-meta').then(
+      module => module.default || module
+    );
+    const data = await fetch(URL.createObjectURL(blob)).then(async res =>
+      Buffer.from(await res.arrayBuffer())
+    );
+    const { width, height } = await imageMeta(data);
+    return { width, height };
+  } catch (error) {
+    console.error(`getImageSize: ` + src, error);
+    return { width: 0, height: 0 };
+  }
+
+<% } %>
+};

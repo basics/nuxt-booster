@@ -1,10 +1,26 @@
 import { toHashHex } from '#speedkit/utils/string';
 
+export function getImageStyleDescription(meta, className) {
+  return {
+    key: className,
+    type: 'text/css',
+    children: new Source(meta.value).style
+  };
+}
+
+export function getPictureStyleDescription(metaSources, classNames) {
+  return {
+    key: classNames.picture,
+    type: 'text/css',
+    children: metaSources.style
+  };
+}
+
 export function getImagePreloadDescription(
   { srcset, sizes, type },
   fetchpriority = 'high',
   crossorigin,
-  callback = () => {}
+  onload = () => {}
 ) {
   return {
     tagPriority: 2,
@@ -16,7 +32,7 @@ export function getImagePreloadDescription(
     imageSrcset: srcset,
     imageSizes: sizes,
     type,
-    callback
+    onload
   };
 }
 
@@ -25,11 +41,14 @@ export function getFontPreloadDescription(
   media,
   fetchpriority = 'high',
   crossorigin,
-  callback = () => {}
+  onload = () => {}
 ) {
   return {
     tagPriority: 2,
     fetchpriority,
+    'data-key': toHashHex(
+      `${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()
+    ),
     key: toHashHex(
       `${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()
     ),
@@ -39,7 +58,7 @@ export function getFontPreloadDescription(
     href: font.src,
     type: font.type,
     media,
-    callback
+    onload
   };
 }
 

@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import { readPackage } from 'read-pkg';
+import svgLoader from 'vite-svg-loader';
 
 import * as postcssFunctions from './postcss/functions';
 
@@ -43,6 +44,14 @@ export default defineNuxtConfig(async () => {
       }
     },
 
+    vite: {
+      plugins: [
+        svgLoader({
+          defaultImport: 'component' // or 'raw'
+        })
+      ]
+    },
+
     postcss: {
       plugins: {
         'postcss-preset-env': {
@@ -71,6 +80,33 @@ export default defineNuxtConfig(async () => {
     buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'].filter(
       v => v
     ),
+
+    image: {
+      // The screen sizes predefined by `@nuxt/image`:
+      screens: {
+        default: 320,
+        xxs: 480,
+        xs: 576,
+        sm: 768,
+        md: 996,
+        lg: 1200,
+        xl: 1367,
+        xxl: 1600,
+        '4k': 1921
+      },
+      domains: [
+        'https://picsum.photos',
+        'https://img.youtube.com',
+        'https://i.vimeocdn.com',
+        'https://i.pickadummy.com'
+      ],
+      alias: {
+        picsum: 'https://picsum.photos',
+        youtube: 'https://img.youtube.com',
+        vimeo: 'https://i.vimeocdn.com',
+        pickadummy: 'https://i.pickadummy.com'
+      }
+    },
 
     speedkit: {
       detection: {
@@ -347,19 +383,10 @@ export default defineNuxtConfig(async () => {
             }
           ]
         }
-      ],
-
-      loader: {
-        dataUri: '@/assets/spinner/three-circles.svg',
-        size: '100px',
-        backgroundColor: 'transparent'
-      }
+      ]
     },
 
-    modules: [
-      // '@/modules/svg', TODO: fix svg module
-      '../src/module'
-    ],
+    modules: ['../src/module', '@nuxtjs/fontaine'],
 
     head: {
       htmlAttrs: {

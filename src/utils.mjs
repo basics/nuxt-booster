@@ -1,6 +1,5 @@
-/* eslint-disable no-secrets/no-secrets */
-// import { defu } from 'defu';
-import consola from 'consola';
+import { defu } from 'defu';
+import { consola } from 'consola';
 import glob from 'glob';
 import { preloadOptimization } from './hookFunctions.mjs';
 
@@ -41,41 +40,22 @@ const getDefaultOptions = () => {
 
     targetFormats: null,
 
-    componentAutoImport: false,
-    componentPrefix: undefined,
-
     /**
      * IntersectionObserver rootMargin for Compoennts and Assets
      */
     lazyOffset: {
       component: '0%',
       asset: '0%'
-    },
-
-    loader: {
-      dataUri: undefined,
-      size: '100px',
-      backgroundColor: 'grey'
     }
   };
 };
 
 function deprecationsNotification(options) {
-  if ('pictureFormats' in options) {
+  if ('loader' in options) {
     logger.warn(
-      `[${MODULE_NAME}] Option \`pictureFormats\` is deprecated, use \`targetFormats\` instead. \`https://nuxt-speedkit.grabarzundpartner.dev/options#targetformats\``
+      `[${MODULE_NAME}] Option \`loader\` is deprecated, There is no integrated loader anymore.`
     );
-    options.targetFormats = options.pictureFormats;
-  }
-  if ('maxIdleDuration' in options) {
-    logger.warn(
-      `[${MODULE_NAME}] Option \`maxIdleDuration\` is deprecated and not necessary anymore. Specification can be removed from the configuration.`
-    );
-  }
-  if ('maxIdleDurations' in options) {
-    logger.warn(
-      `[${MODULE_NAME}] Option \`maxIdleDurations\` is deprecated and not necessary anymore. Specification can be removed from the configuration.`
-    );
+    delete options.loader;
   }
 }
 
@@ -120,24 +100,32 @@ function getComponentFiles(cwd) {
   );
 }
 
-// function getNuxtImageModuleOptions (moduleContainer) {
-//   let imageOptions;
-//   if ('image' in moduleContainer.options) {
-//     imageOptions = moduleContainer.options.image;
-//   } else {
-//     const module = [].concat(
-//       moduleContainer.options.modules,
-//       moduleContainer.options.buildModules
-//     ).find(module => Array.isArray(module) && module[0] === '@nuxt/image' && module[1]);
-//     imageOptions = (module && module[1]) || {};
-//   }
+function getNuxtImageModuleOptions(moduleContainer) {
+  let imageOptions;
+  if ('image' in moduleContainer.options) {
+    imageOptions = moduleContainer.options.image;
+  } else {
+    const module = []
+      .concat(
+        moduleContainer.options.modules,
+        moduleContainer.options.buildModules
+      )
+      .find(
+        module =>
+          Array.isArray(module) && module[0] === '@nuxt/image' && module[1]
+      );
+    imageOptions = (module && module[1]) || {};
+  }
 
-//   return defu({
-//     domains: [],
-//     alias: {},
-//     screens: {}
-//   }, imageOptions);
-// }
+  return defu(
+    {
+      domains: [],
+      alias: {},
+      screens: {}
+    },
+    imageOptions
+  );
+}
 
 export {
   DEFAULT_TARGET_FORMATS,
@@ -148,7 +136,7 @@ export {
   optimizePreloads,
   optimizeNuxtOptions,
   getComponentFiles,
-  // getNuxtImageModuleOptions,
+  getNuxtImageModuleOptions,
   isWebpackBuild,
   isViteBuild
 };
