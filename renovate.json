@@ -17,20 +17,11 @@
         "enabled": true
       },
       "separateMultipleMajor": true,
-      "allowedVersions": "^16"
+      "allowedVersions": "^19"
     }
   ],
   "baseBranches": [
-    "main"
+    "next"
   ],
-  "rangeStrategy": "pin",
-  "ignoreDeps": [
-        "@nuxtjs/eslint-config",
-        "@nuxtjs/eslint-config-typescript",
-        "@nuxtjs/eslint-module",
-        "@nuxtjs/stylelint-module",
-        "nuxt",
-        "eslint",
-        "stylelint"
-      ]
+  "rangeStrategy": "pin"
 }
