@@ -48,7 +48,7 @@
     "dist"
   ],
   "dependencies": {
-    "@nuxt/image": "^1.0.0-rc.1",
+    "@nuxt/image": "1.0.0-rc.1",
     "browserslist-useragent-regexp": "4.0.0",
     "deepmerge": "4.3.1",
     "defu": "6.1.2",
