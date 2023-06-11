@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "3.0.0-next.9",
+  "version": "3.0.0-next.10",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [

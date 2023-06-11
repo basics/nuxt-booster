@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.9...v3.0.0-next.10) (2023-06-11)
+
+
+### Bug Fixes
+
+* **update:** fix missing imports by external use ([a29e4af](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a29e4af73a00209ed29e06e7dcc2ed7fc9a7ea87))
+
 # [3.0.0-next.9](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.8...v3.0.0-next.9) (2023-06-10)
 
 
