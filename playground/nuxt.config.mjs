@@ -28,6 +28,7 @@ export default defineNuxtConfig(async () => {
         disableInfoLayer: true
       }
     },
+
     app: {
       baseURL: getBaseUrl()
     },
@@ -77,9 +78,10 @@ export default defineNuxtConfig(async () => {
       strict: undefined
     },
 
-    buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'].filter(
-      v => v
-    ),
+    buildModules: [
+      isDev && '@nuxtjs/eslint-module',
+      isDev && '@nuxtjs/stylelint-module'
+    ].filter(Boolean),
 
     image: {
       // The screen sizes predefined by `@nuxt/image`:

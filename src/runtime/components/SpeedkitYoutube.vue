@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+import { defineOptions } from 'vue';
 import BaseYoutube from '#speedkit/components/SpeedkitYoutube/Base';
 
 defineOptions({

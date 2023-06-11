@@ -22,11 +22,14 @@
 </template>
 
 <script>
+import { markRaw, ref, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#speedkit/utils/browser';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+
+import { useHead } from '#imports';
 
 const vimeo = new Vimeo();
 

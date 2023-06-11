@@ -27,6 +27,7 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg';

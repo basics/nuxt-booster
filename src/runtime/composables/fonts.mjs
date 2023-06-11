@@ -1,4 +1,6 @@
-import { computed, reactive, useNuxtApp, useHead } from '#imports';
+import { computed, reactive } from 'vue';
+import { useHead } from '#imports';
+import { useNuxtApp } from '#app';
 import FontCollection from '#speedkit/classes/FontCollection';
 import useCritical from '#speedkit/composables/critical';
 import useConfig from '#speedkit/composables/config';

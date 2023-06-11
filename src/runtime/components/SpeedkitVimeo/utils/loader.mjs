@@ -1,5 +1,4 @@
 import Deferred from '../../../classes/Deferred';
-import { nextTick } from '#imports';
 const vimeoAPI = new Deferred();
 
 export const load = () => {

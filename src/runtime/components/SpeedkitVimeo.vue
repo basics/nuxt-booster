@@ -46,6 +46,7 @@
 </template>
 
 <script setup>
+import { defineOptions } from 'vue';
 import BaseVimeo from '#speedkit/components/SpeedkitVimeo/Base';
 
 defineOptions({

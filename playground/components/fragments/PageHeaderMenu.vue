@@ -42,8 +42,11 @@
 </template>
 
 <script>
+import { watch } from 'vue';
+import { useRoute } from '#app';
 import Headline from '@/components/base/Headline';
 import LinkList from '@/components/base/LinkList';
+
 export default {
   components: {
     Headline,

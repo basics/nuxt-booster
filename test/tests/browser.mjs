@@ -1,9 +1,8 @@
 /* eslint-disable no-secrets/no-secrets */
 
-import { chromium, firefox } from 'playwright';
+import { chromium } from 'playwright';
 import { afterAll, describe, it, expect } from 'vitest';
 import { joinURL } from 'ufo';
-import { scroll } from '../utils';
 
 const browser = chromium.launch();
 

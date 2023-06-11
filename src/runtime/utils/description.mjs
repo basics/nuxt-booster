@@ -1,4 +1,5 @@
 import { toHashHex } from '#speedkit/utils/string';
+import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 
 export function getImageStyleDescription(meta, className) {
   return {

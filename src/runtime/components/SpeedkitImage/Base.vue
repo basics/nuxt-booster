@@ -27,6 +27,8 @@ import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 import useCritical from '#speedkit/composables/critical';
 
+import { useImage, useNuxtApp, useHead, computed } from '#imports';
+
 export default {
   inheritAttrs: false,
 
@@ -92,7 +94,7 @@ export default {
         noscript: [
           {
             key: 'img-nojs',
-            innerHTML:
+            children:
               '<style>img { content-visibility: unset !important; }</style>'
           }
         ]

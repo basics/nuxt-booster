@@ -1,3 +1,4 @@
+import { onMounted, ref } from 'vue';
 import { getElementObserver } from '#speedkit/classes/intersection';
 import useCritical from '#speedkit/composables/critical';
 

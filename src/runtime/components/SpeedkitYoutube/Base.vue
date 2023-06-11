@@ -18,11 +18,14 @@
 </template>
 
 <script>
+import { ref, markRaw, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#speedkit/utils/browser';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+
+import { useHead } from '#imports';
 
 const youtube = new Youtube();
 

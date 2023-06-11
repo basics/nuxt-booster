@@ -6,6 +6,8 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue';
+import { definePageMeta } from '#imports';
 import speedkitHydrate from '#speedkit/hydrate';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
 

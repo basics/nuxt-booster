@@ -5,6 +5,8 @@
 </template>
 
 <script setup>
+import { defineOptions } from 'vue';
+
 defineOptions({
   inheritAttrs: false
 });

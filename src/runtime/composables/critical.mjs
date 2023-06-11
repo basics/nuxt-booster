@@ -1,4 +1,4 @@
-import { computed, ref, inject, provide, useAttrs } from '#imports';
+import { computed, ref, inject, provide, useAttrs } from 'vue';
 
 const criticalContextKey = Symbol('criticalContext');
 

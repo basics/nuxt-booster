@@ -26,6 +26,8 @@ import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList'
 import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
 
+import { useImage, useHead, useNuxtApp } from '#imports';
+
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
 export default {

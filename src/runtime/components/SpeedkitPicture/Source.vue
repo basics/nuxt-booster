@@ -7,8 +7,11 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
+
+import { useImage, useNuxtApp, useHead } from '#imports';
 
 const types = new Map([['jpg', 'jpeg']]);
 
