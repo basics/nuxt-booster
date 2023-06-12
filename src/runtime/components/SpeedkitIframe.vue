@@ -32,19 +32,19 @@ const props = defineProps({
 const emit = defineEmits(['load', 'enter']);
 
 const lazySrc = ref(null);
-const { el: iframe, inView } = useComponentObserver();
-
-watch(inView, () => {
-  lazySrc.value = props.src;
-  emit('enter');
-});
-
 const loaded = ref(false);
 
 watch(loaded, e => {
   if (e.target.src) {
     emit('load', e);
   }
+});
+
+const { el: iframe, inView } = useComponentObserver();
+
+watch(inView, () => {
+  lazySrc.value = props.src;
+  emit('enter');
 });
 </script>
 

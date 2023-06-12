@@ -4,15 +4,14 @@
   </header>
 </template>
 
-<script>
+<script setup>
+import { defineOptions } from 'vue';
+
 import PageHeaderMenu from './fragments/PageHeaderMenu';
 
-export default {
-  components: {
-    PageHeaderMenu
-  },
+defineOptions({
   inheritAttrs: false
-};
+});
 </script>
 
 <style scoped>

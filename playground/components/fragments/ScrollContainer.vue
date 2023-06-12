@@ -10,23 +10,18 @@
       v-bind="item" />
   </div>
 </template>
-<script>
+<script setup>
 import ScrollItem from '../elements/ScrollItem';
-export default {
-  components: {
-    ScrollItem
+defineProps({
+  directionHorizontal: {
+    type: Boolean,
+    default: false
   },
-  props: {
-    directionHorizontal: {
-      type: Boolean,
-      default: false
-    },
-    items: {
-      type: Array,
-      required: true
-    }
+  items: {
+    type: Array,
+    required: true
   }
-};
+});
 </script>
 <style lang="postcss" scoped>
 .scroll-container {

@@ -41,85 +41,57 @@
   </div>
 </template>
 
-<script>
-import { watch } from 'vue';
+<script setup>
+import { watch, computed } from 'vue';
 import { useRoute } from '#app';
 import Headline from '@/components/base/Headline';
 import LinkList from '@/components/base/LinkList';
 
-export default {
-  components: {
-    Headline,
-    LinkList
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    default: false
   },
-
-  props: {
-    modelValue: {
-      type: Boolean,
-      default: false
-    },
-    lists: {
-      type: Array,
-      default() {
-        return [
-          {
-            headline: 'Preview',
-            links: [
-              {
-                title: 'Item',
-                to: '/'
-              }
-            ]
-          }
-        ];
-      }
-    }
-  },
-
-  emits: ['update:modelValue'],
-
-  setup(props, { emit }) {
-    const route = useRoute();
-
-    watch(
-      route,
-      () => {
-        emit('update:modelValue', false);
-      },
-      { deep: true, immediate: true }
-    );
-  },
-
-  data() {
-    return {
-      withInert: false
-    };
-  },
-
-  computed: {
-    inert() {
-      return this.withInert && !this.modelValue;
-    }
-  },
-
-  watch: {
-    modelValue(modelValue) {
-      document.documentElement.classList.toggle('js-menu-open', modelValue);
-    }
-  },
-
-  // mounted() {
-  //   this.withInert = true;
-  //   this.$router.afterEach(() => {
-  //     this.$emit('update:modelValue', false);
-  //   });
-  // },
-
-  methods: {
-    onInput(e) {
-      this.$emit('update:modelValue', e.target.checked);
+  lists: {
+    type: Array,
+    default() {
+      return [
+        {
+          headline: 'Preview',
+          links: [
+            {
+              title: 'Item',
+              to: '/'
+            }
+          ]
+        }
+      ];
     }
   }
+});
+
+const inert = computed(() => props.modelValue);
+const emit = defineEmits(['update:modelValue']);
+
+const route = useRoute();
+
+watch(
+  () => props.modelValue,
+  modelValue => {
+    document.documentElement.classList.toggle('js-menu-open', modelValue);
+  }
+);
+
+watch(
+  route,
+  () => {
+    emit('update:modelValue', false);
+  },
+  { deep: true, immediate: true }
+);
+
+const onInput = e => {
+  emit('update:modelValue', e.target.checked);
 };
 </script>
 

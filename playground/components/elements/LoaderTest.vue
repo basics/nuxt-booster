@@ -4,17 +4,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      active: false
-    };
-  },
-  mounted() {
-    this.active = true;
-  }
-};
+<script setup>
+import { ref } from 'vue';
+import { onMounted } from '#imports';
+
+const active = ref(false);
+
+onMounted(() => (active.value = true));
 </script>
 
 <style lang="postcss" scoped>
