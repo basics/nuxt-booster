@@ -28,7 +28,7 @@ Examples for defining the resources can be found in the [example](https://github
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 export default {
   components: { SpeedkitPicture },
   data () {

@@ -35,7 +35,7 @@ Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNu
 </template>
 
 <script>
-import SpeedkitVimeo from 'nuxt-speedkit/components/SpeedkitVimeo';
+import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
 export default {
   components: { SpeedkitVimeo },
   data () {

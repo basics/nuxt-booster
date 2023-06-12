@@ -42,7 +42,7 @@ Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disable
 </template>
 
 <script>
-import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 export default {
   components: { SpeedkitPicture },
   data () {
