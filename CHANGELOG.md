@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.11...v3.0.0-next.12) (2023-06-12)
+
+
+### Bug Fixes
+
+* **components:** added WeakHardwareOverlay ([43f255e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/43f255ee81e5706379ec6b5c6edf0a5dc71a242d))
+
 # [3.0.0-next.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.10...v3.0.0-next.11) (2023-06-12)
 
 
