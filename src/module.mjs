@@ -91,11 +91,6 @@ export default defineNuxtModule({
       );
     }
 
-    // const componentsDir = path.join(this.nuxt.options.buildDir, MODULE_NAME, 'components');
-
-    // // @nuxt/components
-    // options.componentAutoImport && autoImportComponents(this.nuxt, componentsDir, options.componentPrefix);
-
     await addBuildTemplates(nuxt, moduleOptions);
   }
 });

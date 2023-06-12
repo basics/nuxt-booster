@@ -56,7 +56,7 @@ export default class Source {
     return `
       @supports (aspect-ratio: 1) {
         @media ${this.media} { .${this.className} { aspect-ratio: ${this.width} / ${this.height}; } }
-      }S
+      }
     `;
   }
 
