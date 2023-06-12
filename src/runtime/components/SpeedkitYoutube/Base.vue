@@ -1,5 +1,6 @@
 <template>
   <div :class="{ ready, playing }">
+    <slot name="beforePlayer" />
     <iframe
       v-if="src"
       ref="player"
@@ -14,6 +15,7 @@
       <slot v-if="loading" name="loading-spinner" />
       <slot v-if="!ready && !loading" name="play" />
     </default-button>
+    <slot name="afterPlayer" />
   </div>
 </template>
 

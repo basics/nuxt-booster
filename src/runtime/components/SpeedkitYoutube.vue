@@ -1,5 +1,8 @@
 <template>
   <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs">
+    <template #beforePlayer>
+      <slot name="beforePlayer" />
+    </template>
     <template #loading-spinner>
       <slot name="loading-spinner">
         <svg
@@ -35,6 +38,9 @@
           <path d="M 45,24 27,14 27,34" fill="#fff" />
         </svg>
       </slot>
+    </template>
+    <template #afterPlayer>
+      <slot name="afterPlayer" />
     </template>
   </base-youtube>
 </template>

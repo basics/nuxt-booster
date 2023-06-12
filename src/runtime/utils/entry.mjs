@@ -25,12 +25,15 @@ export function updateSpeedkitLayerMessage(layerEl, id) {
   }
 }
 
-export function setupSpeedkitLayer(supportedBrowser) {
+export function setupSpeedkitLayer(layerEl, supportedBrowser) {
   if (!supportedBrowser) {
     updateSpeedkitLayerMessage('nuxt-speedkit-message-unsupported-browser');
   }
   if (!hasSufficientDownloadPerformance()) {
-    updateSpeedkitLayerMessage('nuxt-speedkit-message-reduced-bandwidth');
+    updateSpeedkitLayerMessage(
+      layerEl,
+      'nuxt-speedkit-message-reduced-bandwidth'
+    );
   }
 }
 

@@ -81,7 +81,7 @@ function client () {
       if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
         initApp();
       } else {
-        setupSpeedkitLayer(supportedBrowser)
+        setupSpeedkitLayer(layerEl, supportedBrowser)
       }
 
     }

@@ -31,13 +31,16 @@ export default {
 
 <style lang="postcss" scoped>
 .base-button {
-  padding: em(8px) em(16px);
+  --font-size: 16;
+
+  padding: em(8px, var(--font-size)) em(16px, var(--font-size));
+  font-size: em(var(--font-size));
   color: currentColor;
   appearance: none;
   cursor: pointer;
   background: transparent;
-  border: solid currentColor em(1px);
-  border-radius: em(5px);
+  border: solid currentColor em(1px, var(--font-size));
+  border-radius: em(5px, var(--font-size));
   outline: none;
   transition: transform 0.1s ease-in;
   will-change: transform;

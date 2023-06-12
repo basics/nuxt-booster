@@ -1,5 +1,8 @@
 <template>
   <base-vimeo class="nuxt-speedkit-vimeo" v-bind="$attrs">
+    <template #beforePlayer>
+      <slot name="beforePlayer" />
+    </template>
     <template #loading-spinner>
       <slot name="loading-spinner">
         <div class="loading-spinner">
@@ -41,6 +44,9 @@
     </template>
     <template #default="context">
       <slot name="default" v-bind="context" />
+    </template>
+    <template #afterPlayer>
+      <slot name="afterPlayer" />
     </template>
   </base-vimeo>
 </template>

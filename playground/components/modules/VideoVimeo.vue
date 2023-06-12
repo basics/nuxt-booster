@@ -4,12 +4,16 @@
       <template #default="{ videoData }">
         <div class="description" v-html="videoData && videoData.description" />
       </template>
+      <template #afterPlayer>
+        <weak-hardware-overlay />
+      </template>
     </speedkit-vimeo>
   </section>
 </template>
 
 <script setup>
 import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
+import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
 import useFonts from '#speedkit/composables/fonts';
 const { $getFont } = useFonts();
 defineProps({

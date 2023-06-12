@@ -13,12 +13,12 @@
       <div class="info-layer-buttons">
         <base-button
           id="nuxt-speedkit-button-init-nojs"
-          tag="label"
           for="nuxt-speedkit-layer-close">
           Yes
         </base-button>
         <base-button
           id="nuxt-speedkit-button-init-reduced-view"
+          tag="label"
           for="nuxt-speedkit-layer-close">
           No
         </base-button>
