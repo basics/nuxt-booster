@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import useComponentObserver from '#speedkit/composables/componentObserver';
 
 const props = defineProps({

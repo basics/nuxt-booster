@@ -9,7 +9,6 @@
       :class="classNames.image"
       :title="title"
       :alt="alt"
-      :loading-spinner="loadingSpinner"
       :crossorigin="crossorigin"
       width="0"
       height="0"
@@ -23,7 +22,6 @@ import { crossorigin as validatorCrossorigin } from '../../utils/validators.mjs'
 import useCritical from '#speedkit/composables/critical';
 import BaseImage from '#speedkit/components/SpeedkitImage/Base';
 import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';
-import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
 
 import { useImage, useHead, useNuxtApp } from '#imports';
@@ -47,11 +45,6 @@ export default {
       default() {
         return null;
       }
-    },
-
-    loadingSpinner: {
-      type: LoadingSpinner,
-      default: undefined
     },
 
     title: {

@@ -16,11 +16,6 @@
 </template>
 
 <script>
-/**
- * TODO: LoadingSpinner
- * suspense?
- */
-
 import { crossorigin as validatorCrossorigin } from '../../utils/validators.mjs';
 import { getImageStyleDescription } from '#speedkit/utils/description.mjs';
 import { getCrossorigin } from '#speedkit/utils';
