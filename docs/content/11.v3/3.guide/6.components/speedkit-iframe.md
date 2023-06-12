@@ -1,7 +1,5 @@
 ---
 title: SpeedkitIframe
-
-
 ---
 
 # {{title}}
@@ -49,20 +47,18 @@ The `SpeedkitIframe` is used like a normal [HTML Iframe](https://www.w3schools.c
   <speedkit-iframe v-bind="iframe" @load="onLoadIframe" />
 </template>
 
-<script>
-  export default {
-    data: {
-      iframe: {
-       src: '…',
-       componentObserver: { trackVisibility: true, delay: 350 }
-      }
-    },
-    methods: {
-      onLoadIframe (){
-        console.log('iframe loaded!');
-      }
+<script setup>
+const src = defineProps({
+  src: String,
+  componentObserver: {
+    type: Object,
+    default() {
+      return { trackVisibility: true, delay: 350 };
     }
-  };
+  }
+});
+
+const onLoadIframe = () => console.log('iframe loaded!');
 </script>
 ````
 

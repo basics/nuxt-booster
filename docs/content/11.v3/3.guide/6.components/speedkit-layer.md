@@ -1,6 +1,5 @@
 ---
 title: SpeedkitLayer
-
 ---
 # {{title}}
 

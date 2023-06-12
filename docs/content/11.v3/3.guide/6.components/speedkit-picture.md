@@ -37,33 +37,44 @@ Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disable
 ````vue
 <template>
   <div>
-    <speedkit-picture v-bind="picture" @load="onLoadPicture"  />
+    <speedkit-picture v-bind="{ sources, title, alt }" @load="onLoadPicture" />
   </div>
 </template>
 
-<script>
+<script setup>
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
-export default {
-  components: { SpeedkitPicture },
-  data () {
-    return {
-      picture: {
-        sources: [
-          { src: '/img/landscape.png', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
-          { src: '/img/portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
-        ],
-        title: 'Image Title',
-        alt: 'Image Alt'
-      }
-    };
-  },
-  methods: {
-    onLoadPicture() {
-      console.log('Picture loaded!');
+
+defineProps({
+  sources: {
+    type: Object,
+    default() {
+      return [
+        {
+          src: '/img/landscape.png',
+          sizes: {
+            sm: '100vw',
+            md: '100vw',
+            lg: '100vw',
+            xl: '100vw',
+            xxl: '100vw'
+          },
+          media: '(orientation: landscape)'
+        },
+        {
+          src: '/img/portrait.png',
+          sizes: { default: '100vw', xxs: '100vw', xs: '100vw' },
+          media: '(orientation: portrait)'
+        }
+      ];
     }
-  }
-};
+  },
+  title: String,
+  alt: String
+});
+
+const onLoadPicture = () => console.log('Picture loaded!');
 </script>
+
 ````
 
 ## Properties

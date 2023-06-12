@@ -27,37 +27,48 @@ Important: For using `SpeedkitYoutube` do not disable `@nuxt/image` via `disable
 ````vue
 <template>
   <div>
-    <speedkit-youtube v-bind="youtube" @playing="onPlaying"  />
+    <speedkit-youtube v-bind="youtube" @playing="onPlaying" />
   </div>
 </template>
 
-<script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitYoutube';
-export default {
-  components: { SpeedkitPicture },
-  data () {
-    return {
-      youtube: {
-        url: '<youtube-url>',
-        title: 'Youtube Title',
-        host: 'https://www.youtube.com',
-        options: {
-          fs: false // use boolean instead of 0 or 1
-        },
-        posterSizes: {
-          default: '100vw',
-          md: '50vw'
-        }
-      }
-    };
+<script setup>
+import SpeedkitYoutube from '#speedkit/components/SpeedkitYoutube';
+
+defineProps({
+  url: {
+    type: String,
+    default: '<youtube-url>'
   },
-  methods: {
-    onPlaying () {
-      console.log('Youtube Player playing!');
+  title: {
+    type: String,
+    default: 'Youtube Title'
+  },
+  host: {
+    type: String,
+    default: 'https://www.youtube.com'
+  },
+  options: {
+    type: Object,
+    default() {
+      return {
+        fs: false // use boolean instead of 0 or 1
+      };
+    }
+  },
+  posterSizes: {
+    type: Object,
+    default() {
+      return {
+        default: '100vw',
+        md: '50vw'
+      };
     }
   }
-};
+});
+
+const onPlaying = () => console.log('Youtube Player playing!');
 </script>
+
 ````
 
 ## Properties

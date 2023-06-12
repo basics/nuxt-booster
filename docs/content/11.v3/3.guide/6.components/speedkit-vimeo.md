@@ -30,36 +30,45 @@ Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNu
 ````vue
 <template>
   <div>
-    <speedkit-vimeo v-bind="vimeo" @playing="onPlaying"  />
+    <speedkit-vimeo
+      v-bind="{
+        url,
+        title,
+        options,
+        posterSizes
+      }"
+      @playing="onPlaying" />
   </div>
 </template>
 
-<script>
+<script setup>
 import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
-export default {
-  components: { SpeedkitVimeo },
-  data () {
-    return {
-      vimeo: {
-        url: '<vimeo-url>',
-        title: 'Vimeo Title',
-        options: {
-          controls: false
-        },
-        posterSizes: {
-          default: '100vw',
-          md: '50vw'
-        }
-      }
-    };
+
+defineProps({
+  url: { type: String, default: '<vimeo-url>' },
+  title: { type: String, default: 'Vimeo Title' },
+  options: {
+    type: String,
+    default() {
+      return {
+        controls: false
+      };
+    }
   },
-  methods: {
-    onPlaying () {
-      console.log('Vimeo Player playing!');
+  posterSizes: {
+    type: Object,
+    default() {
+      return {
+        default: '100vw',
+        md: '50vw'
+      };
     }
   }
-};
+});
+
+const onPlaying = () => console.log('Vimeo Player playing!');
 </script>
+
 ````
 
 ## Properties

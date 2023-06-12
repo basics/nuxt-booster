@@ -1,7 +1,5 @@
 ---
 title: SpeedkitImage
-features:
-
 ---
 
 # {{title}}
@@ -39,29 +37,38 @@ Important: For using `SpeedkitImage` do not disable `@nuxt/image` via `disableNu
 ````vue
 <template>
   <div>
-    <speedkit-image v-bind="image" @load="onLoadImage"  />
+    <speedkit-image v-bind="{ source, title, alt }" @load="onLoadImage"  />
   </div>
 </template>
 
-<script>
+<script setup>
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
-export default {
-  components: { SpeedkitImage },
-  data () {
-    return {
-      image: {
-        source: { format: 'jpg', src: '/img/image.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } },
-        title: 'Image Title',
-        alt: 'Image Alt'
-      }
-    };
-  },
-  methods: {
-    onLoadImage() {
-      console.log('Image loaded!');
+
+defineProps({
+  source: {
+    type: Object,
+    default() {
+      return {
+        format: 'jpg',
+        src: '/img/image.jpg',
+        sizes: {
+          default: '100vw',
+          xxs: '100vw',
+          xs: '100vw',
+          sm: '100vw',
+          md: '100vw',
+          lg: '100vw',
+          xl: '100vw',
+          xxl: '100vw'
+        }
+      };
     }
-  }
-};
+  },
+  title: String,
+  alt: String
+});
+
+const onLoadImage = () => console.log('Image loaded!');
 </script>
 ````
 
