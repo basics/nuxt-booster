@@ -151,11 +151,11 @@ This is important for autoplay on mobile devices.
 </template>
 ````
 
-| Name              | Description                                                                                                                                                                                                                              |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name              | Description                                                                                                                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `default`         | Used to display more information about the video below the player.<br>The slot has a scoped property `videoData`. <br>This contains the result from the Vimeo `oembed` api.<br><br><https://developer.vimeo.com/api/oembed/videos#table-2> |
-| `loading-spinner` | Overwrites the loading spinner.                                                                                                                                                                                                          |
-| `play`            | Overwrites the play button.                                                                                                                                                                                                              |
+| `loading-spinner` | Overwrites the loading spinner.                                                                                                                                                                                                            |
+| `play`            | Overwrites the play button.                                                                                                                                                                                                                |
 
 ## Events
 
@@ -166,7 +166,9 @@ This is important for autoplay on mobile devices.
 />
 ````
 
-| Name      | Description                                             |
-| --------- | ------------------------------------------------------- |
-| `ready`   | Triggered when `Vimeo Player-SDK` is completely loaded. |
-| `playing` | Triggered when video is finished loading and playing.   |
+| Name           | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `ready`        | Triggered when `Vimeo Player-SDK` is completely loaded.  |
+| `playing`      | Triggered when video is finished loading and playing.    |
+| `beforePlayer` | Used to place elements in the player container (before). |
+| `afterPlayer`  | Used to place elements in the player container (after).  |

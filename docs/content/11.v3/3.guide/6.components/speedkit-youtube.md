@@ -174,7 +174,9 @@ It is recommended to use the default (<https://www.youtube-nocookie.com>).
 />
 ````
 
-| Name      | Description                                           |
-| --------- | ----------------------------------------------------- |
-| `ready`   | Triggered when `Youtube-API` is completely loaded.    |
-| `playing` | Triggered when video is finished loading and playing. |
+| Name           | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `ready`        | Triggered when `Youtube-API` is completely loaded.       |
+| `playing`      | Triggered when video is finished loading and playing.    |
+| `beforePlayer` | Used to place elements in the player container (before). |
+| `afterPlayer`  | Used to place elements in the player container (after).  |
