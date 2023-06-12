@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.12...v3.0.0-next.13) (2023-06-12)
+
+
+### Bug Fixes
+
+* **source:** remove S char ([72c1fb2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/72c1fb2c4f84ee076e383a671529830c0a5e1783))
+
 # [3.0.0-next.12](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.11...v3.0.0-next.12) (2023-06-12)
 
 
