@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [3.0.0-next.11](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.10...v3.0.0-next.11) (2023-06-12)
+
+
+### Bug Fixes
+
+* **update:** fix createSort import by external use ([afa335d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/afa335d760e72987d246f2c0187a97b22eb09164))
+* **update:** improved playground ([5507418](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/55074180456da56ccec8f115bef1160a276f086f))
+
 # [3.0.0-next.10](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.9...v3.0.0-next.10) (2023-06-11)
 
 
