@@ -21,23 +21,21 @@
   </a>
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      default: 'View source on GitHub'
-    },
-    target: {
-      type: String,
-      default: '_blank'
-    },
-    url: {
-      type: String,
-      default: 'https://your-url'
-    }
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: 'View source on GitHub'
+  },
+  target: {
+    type: String,
+    default: '_blank'
+  },
+  url: {
+    type: String,
+    default: 'https://your-url'
   }
-};
+});
 </script>
 
 <style lang="postcss" scoped>

@@ -9,38 +9,26 @@
   </organism-preview-container>
 </template>
 
-<script>
+<script setup>
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
-
 import OrganismPreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    SpeedkitPicture,
-    OrganismPreviewContainer
-  },
-
-  data() {
-    return {
-      picture: {
-        title: 'Lazy',
-        sources: [
-          {
-            src: '/img/lazy.jpg',
-            sizes: {
-              default: '100vw',
-              xxs: '100vw',
-              xs: '100vw',
-              sm: '100vw',
-              md: '100vw',
-              lg: '100vw',
-              xl: '100vw',
-              xxl: '100vw'
-            }
-          }
-        ]
+const picture = {
+  title: 'Lazy',
+  sources: [
+    {
+      src: '/img/lazy.jpg',
+      sizes: {
+        default: '100vw',
+        xxs: '100vw',
+        xs: '100vw',
+        sm: '100vw',
+        md: '100vw',
+        lg: '100vw',
+        xl: '100vw',
+        xxl: '100vw'
       }
-    };
-  }
+    }
+  ]
 };
 </script>

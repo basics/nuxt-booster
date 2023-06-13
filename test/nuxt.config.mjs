@@ -11,8 +11,9 @@ const rootDir = resolver.resolve(`.`);
 export const distDir = join(rootDir, 'dist');
 
 export default defineNuxtConfig(async () => {
+  const defaultConfig = await nuxtConfig();
   return {
-    ...(await nuxtConfig()),
+    ...defaultConfig,
     srcDir: resolver.resolve('../playground'),
     buildDir: join(rootDir, '.nuxt'),
     distDir: resolve(rootDir, 'dist'),
@@ -30,6 +31,11 @@ export default defineNuxtConfig(async () => {
     generate: { cache: false },
     dir: {
       pages: 'pages/tests'
+    },
+
+    speedkit: {
+      ...defaultConfig.speedkit,
+      targetFormats: ['jpg|jpeg|png|gif']
     }
   };
 });

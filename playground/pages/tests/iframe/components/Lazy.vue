@@ -1,7 +1,7 @@
 <template>
   <preview-container id="lazyContainer">
     <template #default>
-      <default-iframe class="test-iframe" v-bind="iframe" />
+      <default-iframe class="test-iframe" :src="iframeSrc" />
     </template>
     <template #title>
       <p>Lazy<br />Iframe</p>
@@ -9,22 +9,9 @@
   </preview-container>
 </template>
 
-<script>
+<script setup>
 import DefaultIframe from '#speedkit/components/SpeedkitIframe';
 import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    DefaultIframe,
-    PreviewContainer
-  },
-
-  data() {
-    return {
-      iframe: {
-        src: 'https://grabarzundpartner.de'
-      }
-    };
-  }
-};
+const iframeSrc = 'https://grabarzundpartner.de';
 </script>

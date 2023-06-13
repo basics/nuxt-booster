@@ -1,7 +1,9 @@
 <template>
   <div>
     <page-header v-model="menuOpened" v-bind="pageHeaderData" />
-    <slot :inert="menuOpened" />
+    <main :inert="menuOpened">
+      <slot />
+    </main>
     <info-layer v-if="!$config.public.disableInfoLayer" critical />
     <github-corner :url="$config.public.githubRepoUrl" />
   </div>

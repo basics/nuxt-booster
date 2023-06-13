@@ -1,8 +1,8 @@
 <template>
-  <main :class="{ ready }">
+  <div :class="{ ready }">
     <component-image-text v-bind="imageTextA" />
     <speedkit-layer :max-idle-duration="0" />
-  </main>
+  </div>
 </template>
 
 <script setup>

@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { watch, computed } from 'vue';
+import { watch, computed, ref, onMounted } from 'vue';
 import { useRoute } from '#app';
 import Headline from '@/components/base/Headline';
 import LinkList from '@/components/base/LinkList';
@@ -70,7 +70,12 @@ const props = defineProps({
   }
 });
 
-const inert = computed(() => props.modelValue);
+const mounted = ref(false);
+onMounted(() => {
+  mounted.value = true;
+});
+
+const inert = computed(() => mounted.value && !props.modelValue);
 const emit = defineEmits(['update:modelValue']);
 
 const route = useRoute();

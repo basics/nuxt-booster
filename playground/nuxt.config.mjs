@@ -25,12 +25,27 @@ export default defineNuxtConfig(async () => {
     runtimeConfig: {
       public: {
         githubRepoUrl: repository.url,
-        disableInfoLayer: true
+        disableInfoLayer: false
       }
     },
 
     app: {
-      baseURL: getBaseUrl()
+      baseURL: getBaseUrl(),
+      head: {
+        htmlAttrs: {
+          lang: 'en'
+        },
+        meta: [
+          {
+            charset: 'utf-8'
+          },
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1'
+          }
+        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      }
     },
 
     devServer: {
@@ -385,23 +400,7 @@ export default defineNuxtConfig(async () => {
       ]
     },
 
-    modules: ['../src/module'],
-
-    head: {
-      htmlAttrs: {
-        lang: 'en'
-      },
-      meta: [
-        {
-          charset: 'utf-8'
-        },
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1'
-        }
-      ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-    }
+    modules: ['../src/module']
   };
 });
 

@@ -9,14 +9,7 @@
   </preview-container>
 </template>
 
-<script>
+<script setup>
 import LoaderTest from '@/components/elements/LoaderTest';
 import PreviewContainer from '@/components/PreviewContainer';
-
-export default {
-  components: {
-    PreviewContainer,
-    LoaderTest
-  }
-};
 </script>

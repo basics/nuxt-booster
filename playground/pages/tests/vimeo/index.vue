@@ -1,19 +1,17 @@
 <template>
-  <main>
+  <div>
     <default
       v-for="(item, index) in items"
       :id="`vimeo-${index}`"
       v-bind="item"
       :key="item.vimeoUrl"
       :critical="index < 1" />
-  </main>
+  </div>
 </template>
 
 <script setup>
 import speedkitHydrate from '#speedkit/hydrate';
-
 const Default = speedkitHydrate(() => import('./components/Default'));
-
 const items = [
   {
     vimeoUrl: 'https://vimeo.com/440265549',

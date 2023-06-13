@@ -11,40 +11,32 @@
   </preview-container>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import DefaultVimeo from '#speedkit/components/SpeedkitVimeo';
 import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    DefaultVimeo,
-    PreviewContainer
+const props = defineProps({
+  vimeoUrl: {
+    type: String,
+    default: 'https://vimeo.com/440265549'
   },
 
-  props: {
-    vimeoUrl: {
-      type: String,
-      default: 'https://vimeo.com/440265549'
-    },
-
-    title: {
-      type: String,
-      default: 'Vimeo'
-    },
-
-    autoplay: {
-      type: Boolean,
-      default: false
-    }
+  title: {
+    type: String,
+    default: 'Vimeo'
   },
 
-  computed: {
-    vimeo() {
-      return {
-        url: this.vimeoUrl,
-        autoplay: this.autoplay
-      };
-    }
+  autoplay: {
+    type: Boolean,
+    default: false
   }
-};
+});
+
+const vimeo = computed(() => {
+  return {
+    url: props.vimeoUrl,
+    autoplay: props.autoplay
+  };
+});
 </script>

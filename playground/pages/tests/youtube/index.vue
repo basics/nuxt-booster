@@ -1,12 +1,12 @@
 <template>
-  <main>
+  <div>
     <default
       v-for="(item, index) in items"
       :id="`youtube-${index}`"
       v-bind="item"
       :key="item.youtubeUrl"
       :critical="index < 1" />
-  </main>
+  </div>
 </template>
 
 <script setup>

@@ -9,36 +9,25 @@
   </preview-container>
 </template>
 
-<script>
+<script setup>
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
 import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    SpeedkitImage,
-    PreviewContainer
-  },
-
-  data() {
-    return {
-      image: {
-        title: 'Critical - Image',
-        source: {
-          format: 'jpg',
-          src: '/img/critical.jpg',
-          sizes: {
-            default: '100vw',
-            xxs: '100vw',
-            xs: '100vw',
-            sm: '100vw',
-            md: '100vw',
-            lg: '100vw',
-            xl: '100vw',
-            xxl: '100vw'
-          }
-        }
-      }
-    };
+const image = {
+  title: 'Critical - Image',
+  source: {
+    format: 'jpg',
+    src: '/img/critical.jpg',
+    sizes: {
+      default: '100vw',
+      xxs: '100vw',
+      xs: '100vw',
+      sm: '100vw',
+      md: '100vw',
+      lg: '100vw',
+      xl: '100vw',
+      xxl: '100vw'
+    }
   }
 };
 </script>

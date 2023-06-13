@@ -34,7 +34,6 @@ import { useHead } from '#imports';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
 import BaseButton from '@/components/base/Button';
 import useFonts from '#speedkit/composables/fonts';
-
 const { $getFont } = useFonts();
 
 useHead({
@@ -45,12 +44,8 @@ useHead({
     )
   ]
 });
-</script>
 
-<script>
-export default {
-  inheritAttrs: false
-};
+defineOptions({ inheritAttrs: false });
 </script>
 
 <style lang="postcss" scoped>

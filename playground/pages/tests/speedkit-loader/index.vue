@@ -1,18 +1,18 @@
 <template>
-  <main>
+  <div>
     <critical critical />
     <lazy />
-  </main>
+  </div>
 </template>
 
-<script>
+<script setup>
 import speedkitHydrate from '#speedkit/hydrate';
+import { definePageMeta } from '#imports';
 
-export default {
-  components: {
-    Critical: speedkitHydrate(() => import('./components/Critical')),
-    Lazy: speedkitHydrate(() => import('./components/Lazy'))
-  },
+const Critical = speedkitHydrate(() => import('./components/Critical'));
+const Lazy = speedkitHydrate(() => import('./components/Lazy'));
+
+definePageMeta({
   layout: 'blank'
-};
+});
 </script>

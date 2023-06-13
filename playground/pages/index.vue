@@ -1,5 +1,5 @@
 <template>
-  <main class="page-index">
+  <div>
     <module-stage v-bind="stage" />
     <module-text-a v-bind="textA" />
     <module-image-text v-bind="imageTextA" />
@@ -9,7 +9,7 @@
     <module-image-text v-bind="imageTextB" />
     <module-text-b v-bind="textB" />
     <module-video-vimeo v-bind="videoVimeoB" />
-  </main>
+  </div>
 </template>
 
 <script setup>

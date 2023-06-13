@@ -113,7 +113,7 @@ export default runtime => {
           .querySelector('.nuxt-speedkit-weak-hardware-overlay button')
           .click()
       );
-      await page.waitForSelector('main.mounted');
+      await page.waitForSelector('div.mounted');
 
       expect(
         await page.evaluate(() =>
