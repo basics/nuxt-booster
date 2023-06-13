@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [3.0.0-next.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.13...v3.0.0-next.14) (2023-06-13)
+
+
+### Bug Fixes
+
+* **options:** added missing default options ([1b5a56c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/1b5a56c5a09155eee383f48b1700018c54af327d))
+* **update:** update preload optimization ([f384973](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f384973fe64a72d3d76ca605270fb2344c79f3d9))
+
 # [3.0.0-next.13](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.12...v3.0.0-next.13) (2023-06-12)
 
 
