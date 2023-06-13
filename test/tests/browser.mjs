@@ -169,6 +169,7 @@ export default runtime => {
 
     it('v-font (font assign by single selector) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -190,6 +191,7 @@ export default runtime => {
 
     it('v-font (font assign by multiple variances) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -211,6 +213,7 @@ export default runtime => {
 
     it('v-font (font assign by multiple selectors) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -232,6 +235,7 @@ export default runtime => {
 
     it('v-font (font assign by deep selector) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -257,6 +261,7 @@ export default runtime => {
 
     it('v-font (media) (font assign simple by max 479px) (element class)', async () => {
       const page = await createPage('/v-font-media');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -278,6 +283,7 @@ export default runtime => {
 
     it('v-font (media) (font assign simple by 480px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -297,6 +303,7 @@ export default runtime => {
 
     it('v-font (media) (font assign simple by 960px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -316,6 +323,7 @@ export default runtime => {
 
     it('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
@@ -341,6 +349,7 @@ export default runtime => {
 
     it('v-font (scroll) (font assign simple with horizontal & vertical offset scroll)', async () => {
       const page = await createPage('/v-font-scroll');
+      await page.waitForLoadState('networkidle');
       expect(
         await page.evaluate(() =>
           document
