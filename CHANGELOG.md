@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.14...v3.0.0-next.15) (2023-06-13)
+
+
+### Bug Fixes
+
+* **update:** update components & pages ([27daf75](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/27daf75b552f213b3c8772e77087e4d94afdcf62))
+
 # [3.0.0-next.14](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.13...v3.0.0-next.14) (2023-06-13)
 
 
