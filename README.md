@@ -53,12 +53,14 @@ All used components and resources are loaded on demand based on the viewport.
 ## Getting Started
 
 Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
-> Nuxt Speedkit (v1) documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).
+
+- **v2**: [nuxt-speedkit.grabarzundpartner.dev/v2/](https://nuxt-speedkit.grabarzundpartner.dev/v2/)
+- **v1**: [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/)
 
 ## Requirements
 
-- NodeJS `>= 12.x.x`
-- NuxtJS `>= 2.15.0`
+- NodeJS `>= 19`
+- NuxtJS `>= 3.5.0`
 
 ## Features
 
