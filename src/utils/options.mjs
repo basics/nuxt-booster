@@ -4,6 +4,8 @@ export function getDefaultOptions() {
   return {
     debug: false,
 
+    disableNuxtCritters: false, // If set, `@nuxtjs/critters` will not be integrated.
+    disableNuxtFontaine: false, // If set, `@nuxtjs/fontaine` will not be integrated.
     disableNuxtImage: false, // If set, `@nuxt/image` will not be integrated.
 
     optimizePreloads: true,
