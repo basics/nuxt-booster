@@ -4,15 +4,23 @@ export default {
     'glob',
     'consola',
     'change-case',
-    'pathe',
     'hash-sum',
-    'browserslist-useragent-regexp',
-    'deepmerge',
-    'defu',
-    'dynamic-class-list',
     'probe-image-size',
+    'vue3-lazy-hydration',
+
+    // package
+    '@nuxt/image',
+    '@nuxtjs/critters',
+    'browserslist-useragent-regexp',
+    'cheerio',
+    'defu',
+    'dom-serializer',
+    'dynamic-class-list',
+    'htmlparser2',
+    'image-meta',
+    'pathe',
     'serialize-to-js',
     'sort-css-media-queries',
-    'vue-lazy-hydration'
+    'vue3-lazy-hydration'
   ]
 };

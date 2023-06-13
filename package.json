@@ -49,10 +49,13 @@
   ],
   "dependencies": {
     "@nuxt/image": "1.0.0-rc.1",
+    "@nuxtjs/critters": "^0.4.1",
     "browserslist-useragent-regexp": "4.0.0",
-    "deepmerge": "4.3.1",
+    "cheerio": "^1.0.0-rc.12",
     "defu": "6.1.2",
+    "dom-serializer": "^2.0.0",
     "dynamic-class-list": "2.0.2",
+    "htmlparser2": "^9.0.0",
     "image-meta": "0.1.1",
     "pathe": "1.1.1",
     "serialize-to-js": "3.1.2",
@@ -102,9 +105,6 @@
     "stylelint-config-standard": "33.0.0",
     "vite-svg-loader": "4.0.0",
     "vitest": "0.32.0",
-    "vue-headings": "1.0.0",
-    "vue-svg-loader": "0.16.0",
-    "webpack-bundle-analyzer": "4.9.0",
     "wicg-inert": "3.1.2"
   }
 }

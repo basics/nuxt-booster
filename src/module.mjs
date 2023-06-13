@@ -4,31 +4,29 @@ import {
   createResolver,
   defineNuxtModule,
   addPluginTemplate,
-  addTemplate,
-  // isNuxt3,
-  installModule,
-  logger
+  addTemplate
 } from '@nuxt/kit';
 import { getCrossorigin } from './runtime/utils.mjs';
 import FontConfig from './runtime/classes/FontConfig.mjs';
 import {
   DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
-  getDefaultOptions,
-  getNuxtImageModuleOptions,
+  addNuxtCritters,
+  addNuxtFontaine,
+  addNuxtImage,
   isWebpackBuild,
-  optimizeNuxtOptions,
-  optimizePreloads,
+  logger,
   setPublicRuntimeConfig
 } from './utils.mjs';
-import { getSupportedBrowserDetector } from './utils/browser.mjs';
-import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
-import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.mjs';
-
+import { getDefaultOptions } from './utils/options.mjs';
 import {
   getFontConfigTemplate,
   getFontConfigCSSTemplate
 } from './utils/template.mjs';
+import { optimizePreloads } from './utils/preload.mjs';
+import { getSupportedBrowserDetector } from './utils/browser.mjs';
+import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
+import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.mjs';
 
 const resolver = createResolver(import.meta.url);
 
@@ -51,11 +49,7 @@ export default defineNuxtModule({
     nuxt.options.alias['speedkit-create-sort'] =
       'sort-css-media-queries/lib/create-sort.js';
 
-    if (!moduleOptions.disableNuxtImage) {
-      moduleOptions.targetFormats =
-        moduleOptions.targetFormats || DEFAULT_TARGET_FORMATS;
-      await addNuxtImage(nuxt);
-    }
+    await addModules(nuxt, moduleOptions);
 
     setPublicRuntimeConfig(nuxt, moduleOptions);
 
@@ -77,17 +71,15 @@ export default defineNuxtModule({
       }
     } else {
       logger(
-        `[${MODULE_NAME}] module functionality is limited without ssr and performance check`
+        `Module functionality is limited without ssr and performance check`
       );
     }
-
-    optimizeNuxtOptions(nuxt);
 
     if (moduleOptions.optimizePreloads) {
       optimizePreloads(nuxt);
     } else {
       logger.warn(
-        `[${MODULE_NAME}] preload optimization is disabled by module option \`optimizePreloads\`.`
+        `Preload optimization is disabled by module option \`optimizePreloads\`.`
       );
     }
 
@@ -169,33 +161,16 @@ async function addBuildTemplates(nuxt, options) {
   });
 }
 
-async function addNuxtImage(nuxt) {
-  // Check if @nuxt/image exists, if not, module is registered in nuxt.
-  const modules = [...nuxt.options.modules, ...nuxt.options.buildModules];
-  if (!modules.find(module => getModuleName(module) === '@nuxt/image')) {
-    logger.info(
-      `[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
-    );
-    await installModule('@nuxt/image');
+async function addModules(nuxt, moduleOptions) {
+  if (!moduleOptions.disableNuxtCritters) {
+    await addNuxtCritters(nuxt);
   }
-
-  // Check @nuxt/image Options
-  nuxt.hook('modules:done', () => {
-    const nuxtImageOptions = getNuxtImageModuleOptions(nuxt);
-    if (
-      nuxtImageOptions &&
-      ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
-    ) {
-      logger.warn(
-        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
-      );
-    }
-  });
-}
-
-function getModuleName(m) {
-  if (Array.isArray(m)) {
-    m = m[0];
+  if (!moduleOptions.disableNuxtFontaine) {
+    await addNuxtFontaine(nuxt);
   }
-  return m.meta ? m.meta.name : m;
+  if (!moduleOptions.disableNuxtImage) {
+    moduleOptions.targetFormats =
+      moduleOptions.targetFormats || DEFAULT_TARGET_FORMATS;
+    await addNuxtImage(nuxt);
+  }
 }

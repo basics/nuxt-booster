@@ -20,7 +20,7 @@ export default defineNuxtConfig(async () => {
 
     builder: getBuilder(),
 
-    ssr: hasTargetStatic(),
+    ssr: true,
 
     runtimeConfig: {
       public: {
@@ -69,10 +69,6 @@ export default defineNuxtConfig(async () => {
       order: 'cssnanoLast'
     },
 
-    generate: {
-      dir: getDistPath()
-    },
-
     router: {
       base: getBasePath(),
       strict: undefined
@@ -111,6 +107,7 @@ export default defineNuxtConfig(async () => {
     },
 
     speedkit: {
+      // targetFormats: ['jpg|jpeg|png|gif'],
       detection: {
         performance: true,
         browserSupport: true
@@ -388,7 +385,7 @@ export default defineNuxtConfig(async () => {
       ]
     },
 
-    modules: ['../src/module', '@nuxtjs/fontaine'],
+    modules: ['../src/module'],
 
     head: {
       htmlAttrs: {
@@ -422,17 +419,4 @@ function getHost() {
 
 function getPort() {
   return process.env.npm_config_port || process.env.PORT || 3000;
-}
-
-function getDistPath() {
-  return process.env.npm_config_dist || process.env.DIST_PATH || 'dist';
-}
-
-function hasTargetStatic() {
-  return (
-    (process.argv.indexOf('--target') &&
-      process.argv[process.argv.indexOf('--target') + 1] === 'static') ||
-    process.env.npm_config_target_static ||
-    process.env.TARGET_STATIC
-  );
 }

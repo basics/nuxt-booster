@@ -23,7 +23,7 @@ export const getFontFaceSnippet = (
   ].join('\n');
 };
 
-export const getLinkPreloadHid = (
+export const getLinkPreloadKey = (
   family,
   weight = 400,
   style = 'normal',

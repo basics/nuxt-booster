@@ -2,7 +2,7 @@
 
 import { join } from 'path';
 import { describe, it, expect } from 'vitest';
-import { getDom, getLinkPreloadHid, getHTML } from '../utils';
+import { getDom, getLinkPreloadKey, getHTML } from '../utils.mjs';
 
 export default distDir => {
   describe('🧐 inspect html', () => {
@@ -24,7 +24,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid('Merriweather', 400, 'normal')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 400, 'normal')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
@@ -44,7 +44,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid('Merriweather', 700, 'normal')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 700, 'normal')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
@@ -69,12 +69,12 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid('Merriweather', 700, 'normal')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 700, 'normal')}"]`
       )
     ).not.toBeNull();
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid('Merriweather', 400, 'italic')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 400, 'italic')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
@@ -96,7 +96,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid('Merriweather', 400, 'italic')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 400, 'italic')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
@@ -118,7 +118,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid('Merriweather', 700, 'italic')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 700, 'italic')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
@@ -142,7 +142,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           700,
           'italic',
@@ -167,7 +167,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           400,
           'normal',
@@ -190,7 +190,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           400,
           'italic',
@@ -215,7 +215,7 @@ function markupTests(distDir) {
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-key="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           700,
           'normal',

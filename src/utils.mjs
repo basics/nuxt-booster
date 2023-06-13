@@ -1,109 +1,104 @@
 import { defu } from 'defu';
-import { consola } from 'consola';
-import glob from 'glob';
-import { preloadOptimization } from './hookFunctions.mjs';
+import { installModule, useLogger } from '@nuxt/kit';
 
-const DEFAULT_TARGET_FORMATS = ['webp', 'avif', 'jpg|jpeg|png|gif'];
+export const DEFAULT_TARGET_FORMATS = ['webp', 'avif', 'jpg|jpeg|png|gif'];
 
-const MODULE_NAME = 'nuxt-speedkit';
+export const MODULE_NAME = 'nuxt-speedkit';
 
-export const logger = consola.withTag(MODULE_NAME);
+export const logger = useLogger(MODULE_NAME);
 
-function isWebpackBuild(nuxt) {
+function getModuleName(m) {
+  if (Array.isArray(m)) {
+    m = m[0];
+  }
+  return m.meta ? m.meta.name : m;
+}
+
+export function isWebpackBuild(nuxt) {
   return nuxt.options.builder === '@nuxt/webpack-builder';
 }
-function isViteBuild(nuxt) {
+export function isViteBuild(nuxt) {
   return !isWebpackBuild(nuxt);
 }
 
-const getDefaultOptions = () => {
-  return {
-    debug: false,
-
-    disableNuxtImage: false, // If set, `@nuxt/image` will not be integrated.
-
-    optimizePreloads: true,
-
-    detection: {
-      performance: true,
-      browserSupport: true
-    },
-
-    performanceMetrics: {
-      timing: {
-        fcp: 800,
-        dcl: 1200 // fallback if fcp is not available (safari)
-      }
-    },
-
-    fonts: [],
-
-    targetFormats: null,
-
-    /**
-     * IntersectionObserver rootMargin for Compoennts and Assets
-     */
-    lazyOffset: {
-      component: '0%',
-      asset: '0%'
-    }
-  };
-};
-
-function deprecationsNotification(options) {
-  if ('loader' in options) {
-    logger.warn(
-      `[${MODULE_NAME}] Option \`loader\` is deprecated, There is no integrated loader anymore.`
-    );
-    delete options.loader;
-  }
-}
-
-const setPublicRuntimeConfig = (nuxt, options) => {
+export const setPublicRuntimeConfig = (nuxt, options) => {
   nuxt.options.runtimeConfig.public.speedkit = {
     lazyOffsetComponent: options.lazyOffset.component,
     lazyOffsetAsset: options.lazyOffset.asset
   };
 };
 
-function optimizePreloads(nuxt) {
-  if (isViteBuild(nuxt)) {
-    nuxt.options.vite.build.manifest = false;
-  }
-  nuxt.options.noScripts = false;
-  nuxt.hook('build:manifest', preloadOptimization());
-}
-
-function optimizeNuxtOptions(nuxt) {
-  // TODO: https://github.com/nuxt/nuxt/issues/21381
-  // if (isWebpackBuild(nuxt)) {
-  //   nuxt.options.webpack.extractCSS = false;
-  // } else {
-  //   nuxt.options.vite.build.cssCodeSplit = false;
-  // }
-}
-
-function getComponentFiles(cwd) {
-  return new Promise(resolve =>
-    glob(
-      '**/*.vue',
-      {
-        cwd
-      },
-      (err, files) => {
-        if (err) {
-          throw err;
-        }
-        resolve(files);
-      }
-    )
+function moduleExists(nuxt, moduleName) {
+  return (
+    nuxt.options.modules &&
+    nuxt.options.modules.find(module => getModuleName(module) === moduleName)
   );
 }
 
-function getNuxtImageModuleOptions(moduleContainer) {
-  let imageOptions;
-  if ('image' in moduleContainer.options) {
-    imageOptions = moduleContainer.options.image;
+export async function addNuxtCritters(nuxt) {
+  if (!moduleExists(nuxt, '@nuxtjs/critters')) {
+    logger.info(
+      `[${MODULE_NAME}] added module \`@nuxtjs/critters\`, for more configuration learn more at \`https://github.com/nuxt-modules/critters\``
+    );
+    nuxt.options.critters = defu(
+      {
+        config: {
+          preload: false
+        }
+      },
+      nuxt.options.critters
+    );
+
+    await installModule('@nuxtjs/critters');
+  }
+}
+
+export async function addNuxtFontaine(nuxt) {
+  if (!moduleExists(nuxt, '@nuxtjs/fontaine')) {
+    logger.info(
+      `[${MODULE_NAME}] added module \`@nuxtjs/fontaine\`, for more configuration learn more at \`https://github.com/nuxt-modules/fontaine\``
+    );
+    await installModule('@nuxtjs/fontaine');
+  }
+}
+
+export async function addNuxtImage(nuxt) {
+  if (!moduleExists(nuxt, '@nuxt/image')) {
+    logger.info(
+      `[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
+    );
+    await installModule('@nuxt/image');
+  }
+
+  // Check @nuxt/image Options
+  nuxt.hook('modules:done', () => {
+    const nuxtImageOptions = getNuxtImageModuleOptions(nuxt);
+    if (
+      nuxtImageOptions &&
+      ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
+    ) {
+      logger.warn(
+        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
+      );
+    }
+  });
+}
+
+export function getNuxtImageModuleOptions(moduleContainer) {
+  return defu(
+    {
+      domains: [],
+      alias: {},
+      screens: {}
+    },
+    getModuleOptions(moduleContainer, '@nuxt/image', 'image')
+  );
+}
+
+export function getModuleOptions(moduleContainer, packageName, configKey) {
+  let options;
+  if (configKey in moduleContainer.options) {
+    options = moduleContainer.options[configKey];
   } else {
     const module = []
       .concat(
@@ -112,31 +107,9 @@ function getNuxtImageModuleOptions(moduleContainer) {
       )
       .find(
         module =>
-          Array.isArray(module) && module[0] === '@nuxt/image' && module[1]
+          Array.isArray(module) && module[0] === packageName && module[1]
       );
-    imageOptions = (module && module[1]) || {};
+    options = (module && module[1]) || {};
   }
-
-  return defu(
-    {
-      domains: [],
-      alias: {},
-      screens: {}
-    },
-    imageOptions
-  );
+  return options;
 }
-
-export {
-  DEFAULT_TARGET_FORMATS,
-  MODULE_NAME,
-  deprecationsNotification,
-  getDefaultOptions,
-  setPublicRuntimeConfig,
-  optimizePreloads,
-  optimizeNuxtOptions,
-  getComponentFiles,
-  getNuxtImageModuleOptions,
-  isWebpackBuild,
-  isViteBuild
-};
