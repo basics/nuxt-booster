@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.16...v3.0.0-next.17) (2023-06-14)
+
+
+### Bug Fixes
+
+* **package:** fix missing dep `@nuxtjs/fontaine` ([163c86e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/163c86e7bd6d773588164dd50ae62aaeb5a4a9db))
+
 # [3.0.0-next.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.15...v3.0.0-next.16) (2023-06-14)
 
 
