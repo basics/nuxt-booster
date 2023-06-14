@@ -76,7 +76,6 @@
     "commitlint": "17.6.5",
     "core-js": "3.31.0",
     "esbuild": "0.18.2",
-    "eslint": "8.42.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-jsonc": "2.9.0",
