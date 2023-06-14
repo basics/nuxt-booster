@@ -84,11 +84,6 @@ export default defineNuxtConfig(async () => {
       order: 'cssnanoLast'
     },
 
-    router: {
-      base: getBasePath(),
-      strict: undefined
-    },
-
     buildModules: [
       isDev && '@nuxtjs/eslint-module',
       isDev && '@nuxtjs/stylelint-module'
@@ -406,10 +401,6 @@ export default defineNuxtConfig(async () => {
 
 function getBaseUrl() {
   return process.env.npm_config_base_url || process.env.BASE_URL || '/';
-}
-
-function getBasePath() {
-  return process.env.npm_config_base || process.env.BASE_PATH || '/';
 }
 
 function getHost() {
