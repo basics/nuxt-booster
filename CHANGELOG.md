@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.16](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.15...v3.0.0-next.16) (2023-06-14)
+
+
+### Bug Fixes
+
+* **eslint:** remove eslint dep ([85753a7](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/85753a7acc600e11b8a69212ec8e460402039922))
+
 # [3.0.0-next.15](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.14...v3.0.0-next.15) (2023-06-13)
 
 
