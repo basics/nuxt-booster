@@ -50,6 +50,7 @@
   "dependencies": {
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/critters": "0.4.1",
+    "@nuxtjs/fontaine": "^0.4.0",
     "browserslist-useragent-regexp": "4.0.0",
     "cheerio": "1.0.0-rc.12",
     "defu": "6.1.2",
@@ -71,7 +72,6 @@
     "@nuxt/webpack-builder": "3.5.3",
     "@nuxtjs/eslint-config": "12.0.0",
     "@nuxtjs/eslint-module": "4.1.0",
-    "@nuxtjs/fontaine": "0.4.0",
     "@nuxtjs/stylelint-module": "5.1.0",
     "commitlint": "17.6.5",
     "core-js": "3.31.0",
