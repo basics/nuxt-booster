@@ -101,7 +101,7 @@
     "read-pkg": "8.0.0",
     "serve-static": "1.15.0",
     "stylelint-config-recess-order": "4.2.0",
-    "stylelint-config-standard": "33.0.0",
+    "stylelint-config-standard": "34.0.0",
     "vite-svg-loader": "4.0.0",
     "vitest": "0.32.2",
     "wicg-inert": "3.1.2"
