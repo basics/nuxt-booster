@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.1...v2.2.2) (2023-07-07)
+
+
+### Bug Fixes
+
+* upgrade pathe from 1.1.0 to 1.1.1 ([053b2b0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/053b2b0c9efba571480a145b491de5179e1c34c8))
+
 ## [2.2.1](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.0...v2.2.1) (2023-06-10)
 
 
