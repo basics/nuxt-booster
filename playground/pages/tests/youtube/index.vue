@@ -5,7 +5,8 @@
       :id="`youtube-${index}`"
       v-bind="item"
       :key="item.youtubeUrl"
-      :critical="index < 1" />
+      :critical="index < 1"
+    />
   </div>
 </template>
 

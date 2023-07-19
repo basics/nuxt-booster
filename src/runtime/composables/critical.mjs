@@ -2,7 +2,7 @@ import { computed, ref, inject, provide, useAttrs } from 'vue';
 
 const criticalContextKey = Symbol('criticalContext');
 
-export default function useFonts({ critical } = {}) {
+export default function useFonts ({ critical } = {}) {
   const attrs = useAttrs();
 
   const currentCritical = ref(

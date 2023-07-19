@@ -6,7 +6,7 @@ import { joinURL } from 'ufo';
 
 const browser = chromium.launch();
 
-export default runtime => {
+export default (runtime) => {
   afterAll(async () => {
     await (await browser).close();
   });
@@ -15,7 +15,7 @@ export default runtime => {
     browserTests(runtime);
   });
 
-  function browserTests(runtime) {
+  function browserTests (runtime) {
     const createPage = async (path, nojs) => {
       let context = await browser;
       if (nojs) {
@@ -483,7 +483,7 @@ export default runtime => {
   }
 };
 
-function waitForSelector(page, selector) {
+function waitForSelector (page, selector) {
   const locator = page.locator(selector);
   return locator.waitFor({
     state: 'attached'

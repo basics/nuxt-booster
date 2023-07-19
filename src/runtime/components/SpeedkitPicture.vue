@@ -13,14 +13,14 @@ export default {
       default: true
     }
   },
-  setup() {
+  setup () {
     const { isCritical } = useCritical();
     return {
       isCritical
     };
   },
 
-  render() {
+  render () {
     if (!this.hydrate) {
       return h(LazyHydrationWrapper, { never: true }, [
         h(

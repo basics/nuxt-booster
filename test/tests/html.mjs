@@ -4,13 +4,13 @@ import { join } from 'path';
 import { describe, it, expect } from 'vitest';
 import { getDom, getLinkPreloadKey, getHTML } from '../utils.mjs';
 
-export default distDir => {
+export default (distDir) => {
   describe('🧐 inspect html', () => {
     markupTests(distDir);
   });
 };
 
-function markupTests(distDir) {
+function markupTests (distDir) {
   let html, dom;
 
   // #region /tests/v-font

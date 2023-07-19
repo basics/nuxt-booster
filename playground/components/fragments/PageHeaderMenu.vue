@@ -5,7 +5,8 @@
       type="checkbox"
       name="menu-control"
       :checked="modelValue"
-      @input="onInput" />
+      @input="onInput"
+    >
     <div class="content" aria-label="Menu" :inert="inert">
       <label for="menu-control" />
       <div>
@@ -17,7 +18,8 @@
                 tag="span"
                 class="headline"
                 type="menu"
-                :content="headline" />
+                :content="headline"
+              />
               <link-list :items="links" aria-label="Menu" />
             </div>
           </nav>
@@ -54,7 +56,7 @@ const props = defineProps({
   },
   lists: {
     type: Array,
-    default() {
+    default () {
       return [
         {
           headline: 'Preview',
@@ -82,7 +84,7 @@ const route = useRoute();
 
 watch(
   () => props.modelValue,
-  modelValue => {
+  (modelValue) => {
     document.documentElement.classList.toggle('js-menu-open', modelValue);
   }
 );
@@ -95,7 +97,7 @@ watch(
   { deep: true, immediate: true }
 );
 
-const onInput = e => {
+const onInput = (e) => {
   emit('update:modelValue', e.target.checked);
 };
 </script>

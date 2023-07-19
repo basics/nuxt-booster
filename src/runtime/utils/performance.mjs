@@ -11,18 +11,18 @@ const defaultConfig = {
 };
 let customConfig = defaultConfig;
 
-export function setup(config = {}) {
+export function setup (config = {}) {
   customConfig = {
     timing: Object.assign({}, defaultConfig.timing, config.timing || {})
   };
   customConfig = Object.assign({}, defaultConfig, config);
 }
 
-export function hasSufficientPerformance() {
+export function hasSufficientPerformance () {
   return hasSufficientDownloadPerformance() && !process.server;
 }
 
-export function hasSufficientDownloadPerformance() {
+export function hasSufficientDownloadPerformance () {
   if (window.performance) {
     const paint = performance.getEntriesByName('first-contentful-paint');
     const resources = performance.getEntriesByType('resource');
@@ -67,7 +67,7 @@ export const getDefaultRunOptions = () => {
 };
 
 export const waitForVisibleDocument = () => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (document.visibilityState === 'hidden') {
       document.addEventListener('visibilitychange', () => resolve(), {
         once: true
@@ -99,7 +99,7 @@ export const run = async (options = {}) => {
   }
 };
 
-const rafTime = fn => {
+const rafTime = (fn) => {
   let prevTime = performance.now();
   const loop = () => {
     const time = performance.now();
@@ -113,8 +113,8 @@ const rafTime = fn => {
   requestAnimationFrame(loop);
 };
 
-const idleTime = callback => {
-  const loop = deadline => {
+const idleTime = (callback) => {
+  const loop = (deadline) => {
     const running = callback(deadline.timeRemaining());
     if (running) {
       window.requestIdleCallback(loop);
@@ -126,16 +126,16 @@ const idleTime = callback => {
 class ValueBuffer {
   list;
   index = 0;
-  constructor(count = 10, defaultValue = 0) {
+  constructor (count = 10, defaultValue = 0) {
     this.list = Array(count).fill(defaultValue);
   }
 
-  add(value) {
+  add (value) {
     this.list[this.index] = value;
     this.index = (this.index + 1) % this.list.length;
   }
 
-  get avg() {
+  get avg () {
     return this.list.reduce((r, v) => (r += v), 0) / this.list.length;
   }
 }

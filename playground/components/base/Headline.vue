@@ -2,7 +2,8 @@
   <component
     :is="tag"
     v-font="$getFont('Quicksand', 700, 'normal')"
-    class="element-headline">
+    class="element-headline"
+  >
     <slot>{{ content }}</slot>
   </component>
 </template>

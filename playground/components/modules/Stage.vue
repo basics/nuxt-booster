@@ -4,7 +4,8 @@
       class="background"
       :title="picture.title"
       :alt="picture.alt"
-      :sources="picture.sources" />
+      :sources="picture.sources"
+    />
     <h1 class="headline">
       <span
         v-font="[
@@ -12,7 +13,8 @@
             selector: '.content'
           }),
           $getFont('Merriweather', 300, 'italic', { selector: '.claim' })
-        ]">
+        ]"
+      >
         <span class="content">{{ content }}</span>
         <span class="claim">{{ claim }}</span>
       </span>
@@ -42,7 +44,7 @@ defineProps({
   picture: { type: Object, required: true },
   image: {
     type: Object,
-    default() {
+    default () {
       return {
         source: {
           src: '/icon.png',
@@ -64,13 +66,13 @@ defineProps({
   },
   content: {
     type: String,
-    default() {
+    default () {
       return 'Headline';
     }
   },
   claim: {
     type: String,
-    default() {
+    default () {
       return 'Claim';
     }
   }

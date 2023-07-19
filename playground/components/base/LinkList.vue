@@ -18,7 +18,7 @@ export default {
   props: {
     items: {
       type: Array,
-      default() {
+      default () {
         return [
           {
             title: 'Link 1.'

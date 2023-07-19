@@ -4,6 +4,6 @@ const mimeTypes = {
   png: 'image/png'
 };
 
-export function getMimeTypeByFormat(format) {
+export function getMimeTypeByFormat (format) {
   return mimeTypes[String(format)];
 }

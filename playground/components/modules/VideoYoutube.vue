@@ -1,8 +1,10 @@
 <template>
   <section v-font="[$getFont('Merriweather', 400)]" class="video-youtube">
     <speedkit-youtube v-bind="$attrs">
-      <template #afterPlayer> <weak-hardware-overlay /> </template
-    ></speedkit-youtube>
+      <template #afterPlayer>
+        <weak-hardware-overlay />
+      </template>
+    </speedkit-youtube>
     <p v-if="text" v-html="text" />
   </section>
 </template>

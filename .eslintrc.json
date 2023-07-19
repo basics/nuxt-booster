@@ -34,7 +34,6 @@
       2,
       "always"
     ],
-    "prettier/prettier": "error",
     "no-secrets/no-secrets": [
       "error"
     ],

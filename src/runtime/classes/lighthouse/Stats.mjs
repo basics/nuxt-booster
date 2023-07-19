@@ -15,29 +15,29 @@ const STATECOLORS = new Map([
   [PENDING, '#BDBDBD']
 ]);
 export class LighthouseStats {
-  constructor(state, data) {
+  constructor (state, data) {
     this.state = state;
     this.data = data || { lhrSlim: [] };
   }
 
-  isPending() {
+  isPending () {
     return this.state === PENDING;
   }
 
-  isFailed() {
+  isFailed () {
     return this.state === FAIL;
   }
 
-  isReady() {
+  isReady () {
     return this.state === READY;
   }
 
-  getScoreOfMetric(metric) {
+  getScoreOfMetric (metric) {
     return (this.data.lhrSlim.find(item => item.id === metric) || { score: -1 })
       .score;
   }
 
-  getStateColorByMetric(metric) {
+  getStateColorByMetric (metric) {
     switch (this.state) {
       case READY:
         return getColorByScore(this.getScoreOfMetric(metric));
@@ -49,7 +49,7 @@ export class LighthouseStats {
   }
 }
 
-function getColorByScore(score) {
+function getColorByScore (score) {
   if (score >= 0.9) {
     return STATECOLORS.get(READY).pass;
   } else if (score >= 0.5) {

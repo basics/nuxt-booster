@@ -1,5 +1,5 @@
-export const registerAppEntry = filePath => {
-  return context => {
+export const registerAppEntry = (filePath) => {
+  return (context) => {
     const config = context.config;
     if (!('ssr' in config)) {
       config.build.rollupOptions.input = filePath;

@@ -4,7 +4,7 @@ import { useRequestURL } from '#app';
 const SOURCE_FORMATS = ['avif', 'webp', 'png', 'jpg', 'gif'];
 const FALLBACK_FORMAT = 'jpg';
 
-export const getExtension = url => {
+export const getExtension = (url) => {
   const { pathname } = parseURL(url);
   const value = /[.]/.exec(pathname) && /[^.]+$/.exec(pathname)[0];
   if (SOURCE_FORMATS.includes(value)) {
@@ -37,11 +37,11 @@ export const resolveUrl = (context, url) => {
   return url;
 };
 
-const getProvider = context => {
+const getProvider = (context) => {
   return context.options.providers[context.options.provider].provider;
 };
 
-export async function getMeta(source, compiledSrc, $speedkit) {
+export async function getMeta (source, compiledSrc, $speedkit) {
   if (!process.server && window.Image) {
     source = source.modify({ src: compiledSrc });
   } else {

@@ -12,7 +12,8 @@
     :loading="loadingMode"
     :decoding="decodingMode"
     :crossorigin="resolvedCrossorigin"
-    @load="onLoad" />
+    @load="onLoad"
+  >
 </template>
 
 <script>
@@ -45,7 +46,7 @@ export default {
 
     crossorigin: {
       type: [Boolean, String],
-      default() {
+      default () {
         return null;
       },
       validator: validatorCrossorigin
@@ -54,7 +55,7 @@ export default {
 
   emits: ['load'],
 
-  async setup(props) {
+  async setup (props) {
     const $img = useImage();
     const $speedkit = useNuxtApp().$speedkit;
     const { isCritical } = useCritical();
@@ -109,7 +110,7 @@ export default {
     };
   },
 
-  data() {
+  data () {
     return {
       className: null,
       loading: true,
@@ -119,34 +120,34 @@ export default {
   },
 
   computed: {
-    classNames() {
+    classNames () {
       return [{ loading: this.loading }].concat(this.className);
     },
 
-    srcset() {
+    srcset () {
       return this.config?.srcset || this.config?.src;
     },
 
-    sizes() {
+    sizes () {
       return this.config?.sizes;
     },
 
-    width() {
+    width () {
       return this.$attrs.width || this.meta?.width;
     },
 
-    height() {
+    height () {
       return this.$attrs.height || this.meta?.height;
     },
 
-    loadingMode() {
+    loadingMode () {
       if (this.isCritical) {
         return 'eager';
       }
       return 'lazy';
     },
 
-    decodingMode() {
+    decodingMode () {
       if (!this.source || new Source(this.source).format !== 'svg') {
         return 'async';
       }
@@ -154,12 +155,12 @@ export default {
     }
   },
 
-  mounted() {
+  mounted () {
     this.loading = !this.$el.complete;
   },
 
   methods: {
-    onLoad(e) {
+    onLoad (e) {
       this.loading = false;
       this.$emit('load', e.target.currentSrc);
     }

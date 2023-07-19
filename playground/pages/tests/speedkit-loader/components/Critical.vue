@@ -4,7 +4,7 @@
       <loader-test id="criticalSpeedkitHydrate" />
     </template>
     <template #title>
-      <p>Critical<br />SpeedkitHydrate</p>
+      <p>Critical<br>SpeedkitHydrate</p>
     </template>
   </preview-container>
 </template>

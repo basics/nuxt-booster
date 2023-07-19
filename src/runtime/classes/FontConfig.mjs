@@ -8,12 +8,12 @@ const fontDeclarationOrder = [
 ];
 
 export default class FontConfig {
-  constructor(fonts, aliases) {
+  constructor (fonts, aliases) {
     this.fonts = fonts;
     this.aliases = aliases;
   }
 
-  toJSON() {
+  toJSON () {
     return this.fonts.map(font =>
       Object.assign({}, font, {
         variances: getVariances(font, this.aliases)
@@ -21,10 +21,10 @@ export default class FontConfig {
     );
   }
 
-  toCSS() {
+  toCSS () {
     return [
       ...Array.from(this.fonts)
-        .map(font => {
+        .map((font) => {
           return font.variances.map(variance =>
             getFontFaceDeclaration(font, variance)
           );
@@ -34,8 +34,8 @@ export default class FontConfig {
   }
 }
 
-function getVariances(font, aliases) {
-  return font.variances.map(variance => {
+function getVariances (font, aliases) {
+  return font.variances.map((variance) => {
     variance = Object.assign({}, variance);
     const source = getPrioritizedFontPreloadSource(variance.sources);
     if (Object.keys(aliases).find(alias => source.src.startsWith(alias))) {
@@ -46,7 +46,7 @@ function getVariances(font, aliases) {
   });
 }
 
-function getFontFaceDeclaration(font, variance) {
+function getFontFaceDeclaration (font, variance) {
   return `
     @font-face {
       font-family: '${font.family}';
@@ -58,7 +58,7 @@ function getFontFaceDeclaration(font, variance) {
   `;
 }
 
-function getPrioritizedFontPreloadSource(sources) {
+function getPrioritizedFontPreloadSource (sources) {
   return [
     ...sources.sort(function (a, b) {
       return (
@@ -69,7 +69,7 @@ function getPrioritizedFontPreloadSource(sources) {
   ].shift();
 }
 
-function getPrioritizedFontSources(sources, locals = []) {
+function getPrioritizedFontSources (sources, locals = []) {
   return locals
     .map(local => `local('${local}')`)
     .concat(
@@ -80,7 +80,7 @@ function getPrioritizedFontSources(sources, locals = []) {
             fontDeclarationOrder.indexOf(b.type)
           );
         })
-        .map(source => {
+        .map((source) => {
           return `url('${source.src}') format('${source.type}')`;
         })
     )

@@ -4,7 +4,8 @@
       v-for="source in formatSources"
       :key="source.key"
       :source="source"
-      :crossorigin="crossorigin" />
+      :crossorigin="crossorigin"
+    />
     <base-image
       :class="classNames.image"
       :title="title"
@@ -12,7 +13,8 @@
       :crossorigin="crossorigin"
       width="0"
       height="0"
-      @load="onLoad" />
+      @load="onLoad"
+    />
   </picture>
 </template>
 
@@ -42,7 +44,7 @@ export default {
 
     formats: {
       type: Array,
-      default() {
+      default () {
         return null;
       }
     },
@@ -59,7 +61,7 @@ export default {
 
     crossorigin: {
       type: [Boolean, String],
-      default() {
+      default () {
         return null;
       },
       validator: validatorCrossorigin
@@ -73,7 +75,7 @@ export default {
 
   emits: ['load'],
 
-  async setup(props) {
+  async setup (props) {
     const { isCritical } = useCritical();
     const $img = useImage();
     const $speedkit = useNuxtApp().$speedkit;
@@ -101,7 +103,7 @@ export default {
   },
 
   computed: {
-    formatSources() {
+    formatSources () {
       const sortedFormatsByPriority = Array.from(
         new Set(
           TARGET_FORMAT_PRIORITY.map(v =>
@@ -121,7 +123,7 @@ export default {
   },
 
   methods: {
-    onLoad(e) {
+    onLoad (e) {
       this.$emit('load', e);
     }
   }

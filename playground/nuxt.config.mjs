@@ -6,7 +6,7 @@ import * as postcssFunctions from './postcss/functions';
 
 const isDev = process.env.NODE_ENV === 'development';
 
-function getBuilder() {
+function getBuilder () {
   const builder =
     process.env.npm_config_builder || process.env.BUILDER || undefined;
   return builder === 'webpack' ? '@nuxt/webpack-builder' : undefined;
@@ -399,14 +399,14 @@ export default defineNuxtConfig(async () => {
   };
 });
 
-function getBaseUrl() {
+function getBaseUrl () {
   return process.env.npm_config_base_url || process.env.BASE_URL || '/';
 }
 
-function getHost() {
+function getHost () {
   return process.env.npm_config_host || process.env.HOST || 'localhost';
 }
 
-function getPort() {
+function getPort () {
   return process.env.npm_config_port || process.env.PORT || 3000;
 }
