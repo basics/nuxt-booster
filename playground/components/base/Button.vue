@@ -3,7 +3,8 @@
     :is="tag"
     v-font="$getFont('Quicksand', 400, 'normal')"
     class="base-button"
-    @click="$emit('click', e)">
+    @click="$emit('click', e)"
+  >
     <slot>{{ label }}</slot>
   </component>
 </template>

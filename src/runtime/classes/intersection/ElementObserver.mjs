@@ -10,20 +10,20 @@ export default class ElementObserver {
   #inViewDeferrer = new Deferred();
   #outViewDeferrer = new Deferred();
 
-  constructor(observable, el) {
+  constructor (observable, el) {
     this.#observer = observable.register(el, this.onIntersecting.bind(this));
     this.#unregister = () => observable.unregister(el);
   }
 
-  get observer() {
+  get observer () {
     return this.#observer;
   }
 
-  get inView() {
+  get inView () {
     return this.#inView;
   }
 
-  onIntersecting(isIntersecting) {
+  onIntersecting (isIntersecting) {
     if (isIntersecting) {
       this.#inViewDeferrer.resolve();
       this.#inView = true;
@@ -35,23 +35,23 @@ export default class ElementObserver {
     }
   }
 
-  enterViewOnce() {
+  enterViewOnce () {
     return this.#inViewDeferrer.promise;
   }
 
-  enterView(fn) {
+  enterView (fn) {
     this.#inViewListeners.push(fn);
   }
 
-  leaveViewOnce() {
+  leaveViewOnce () {
     return this.#outViewDeferrer.promise;
   }
 
-  leaveView(fn) {
+  leaveView (fn) {
     this.#outViewListeners.push(fn);
   }
 
-  destroy() {
+  destroy () {
     this.#unregister();
   }
 }

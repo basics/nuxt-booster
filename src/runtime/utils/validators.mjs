@@ -1,3 +1,3 @@
-export function crossorigin(value) {
+export function crossorigin (value) {
   return ['anonymous', 'use-credentials'].includes(value);
 }

@@ -7,17 +7,17 @@ export const MODULE_NAME = 'nuxt-speedkit';
 
 export const logger = useLogger(MODULE_NAME);
 
-function getModuleName(m) {
+function getModuleName (m) {
   if (Array.isArray(m)) {
     m = m[0];
   }
   return m.meta ? m.meta.name : m;
 }
 
-export function isWebpackBuild(nuxt) {
+export function isWebpackBuild (nuxt) {
   return nuxt.options.builder === '@nuxt/webpack-builder';
 }
-export function isViteBuild(nuxt) {
+export function isViteBuild (nuxt) {
   return !isWebpackBuild(nuxt);
 }
 
@@ -28,14 +28,14 @@ export const setPublicRuntimeConfig = (nuxt, options) => {
   };
 };
 
-function moduleExists(nuxt, moduleName) {
+function moduleExists (nuxt, moduleName) {
   return (
     nuxt.options.modules &&
     nuxt.options.modules.find(module => getModuleName(module) === moduleName)
   );
 }
 
-export async function addNuxtCritters(nuxt) {
+export async function addNuxtCritters (nuxt) {
   if (!moduleExists(nuxt, '@nuxtjs/critters')) {
     logger.info(
       `[${MODULE_NAME}] added module \`@nuxtjs/critters\`, for more configuration learn more at \`https://github.com/nuxt-modules/critters\``
@@ -53,7 +53,7 @@ export async function addNuxtCritters(nuxt) {
   }
 }
 
-export async function addNuxtFontaine(nuxt) {
+export async function addNuxtFontaine (nuxt) {
   if (!moduleExists(nuxt, '@nuxtjs/fontaine')) {
     logger.info(
       `[${MODULE_NAME}] added module \`@nuxtjs/fontaine\`, for more configuration learn more at \`https://github.com/nuxt-modules/fontaine\``
@@ -62,7 +62,7 @@ export async function addNuxtFontaine(nuxt) {
   }
 }
 
-export async function addNuxtImage(nuxt) {
+export async function addNuxtImage (nuxt) {
   if (!moduleExists(nuxt, '@nuxt/image')) {
     logger.info(
       `[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
@@ -84,7 +84,7 @@ export async function addNuxtImage(nuxt) {
   });
 }
 
-export function getNuxtImageModuleOptions(moduleContainer) {
+export function getNuxtImageModuleOptions (moduleContainer) {
   return defu(
     {
       domains: [],
@@ -95,7 +95,7 @@ export function getNuxtImageModuleOptions(moduleContainer) {
   );
 }
 
-export function getModuleOptions(moduleContainer, packageName, configKey) {
+export function getModuleOptions (moduleContainer, packageName, configKey) {
   let options;
   if (configKey in moduleContainer.options) {
     options = moduleContainer.options[configKey];

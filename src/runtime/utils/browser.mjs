@@ -1,9 +1,9 @@
-export function isSupportedBrowser(browserSupport) {
+export function isSupportedBrowser (browserSupport) {
   // eslint-disable-next-line security/detect-non-literal-regexp
   return new RegExp(browserSupport.regex).test(window.navigator.userAgent);
 }
 
-export function isFirefox() {
+export function isFirefox () {
   return typeof InstallTrigger !== 'undefined';
 }
 

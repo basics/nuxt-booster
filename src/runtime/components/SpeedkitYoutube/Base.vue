@@ -9,7 +9,8 @@
       :src="src"
       frameborder="0"
       allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      @load="onLoad" />
+      @load="onLoad"
+    />
     <default-button @click="onInit">
       <speedkit-picture class="poster" v-bind="pictureDataset" :title="title" />
       <slot v-if="loading" name="loading-spinner" />
@@ -65,14 +66,14 @@ export default {
 
     options: {
       type: Object,
-      default() {
+      default () {
         return {};
       }
     },
 
     posterSizes: {
       type: Object,
-      default() {
+      default () {
         return {
           default: '100vw',
           xxs: '100vw',
@@ -89,7 +90,7 @@ export default {
 
   emits: ['ready', 'playing'],
 
-  setup() {
+  setup () {
     const script = ref([]);
     useHead({
       script: computed(() => {
@@ -99,7 +100,7 @@ export default {
     return { script };
   },
 
-  data() {
+  data () {
     return {
       src: null,
       videoId: new URL(this.url).searchParams.get('v'),
@@ -113,7 +114,7 @@ export default {
   },
 
   computed: {
-    pictureDataset() {
+    pictureDataset () {
       return {
         formats: this.$speedkit.targetFormats,
         title: this.title,
@@ -128,23 +129,23 @@ export default {
     }
   },
 
-  mounted() {
+  mounted () {
     if (this.autoplay) {
       this.onInit();
     }
   },
 
-  unmounted() {
+  unmounted () {
     this.player && youtube.remove(this.player);
   },
 
   methods: {
-    reset() {
+    reset () {
       this.src = null;
       this.ready = false;
       this.playing = false;
     },
-    onInit() {
+    onInit () {
       this.loading = true;
 
       const params = {
@@ -167,13 +168,13 @@ export default {
       this.script = [load()];
     },
 
-    async onLoad() {
+    async onLoad () {
       this.player = markRaw(
         await youtube.createPlayer(this.$refs.player, {
           videoId: this.videoId,
           host: this.host,
           events: {
-            onReady: e => {
+            onReady: (e) => {
               e.target.mute();
               youtube.play(e.target);
               this.loading = false;
@@ -189,7 +190,7 @@ export default {
       );
     },
 
-    onPlayerStateChange(YT, state) {
+    onPlayerStateChange (YT, state) {
       if (state === YT.PlayerState.PLAYING) {
         this.playing = true;
       } else if (

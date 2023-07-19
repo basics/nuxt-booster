@@ -11,7 +11,8 @@
         $getFont('Montserrat Alternates', 700, 'italic', {
           selector: 'em strong, strong em'
         })
-      ]">
+      ]"
+    >
       <h2>{{ headline }}</h2>
       <div v-html="content" />
     </div>

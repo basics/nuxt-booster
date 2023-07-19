@@ -6,7 +6,7 @@ import nuxtConfig from '../playground/nuxt.config.mjs';
 
 const resolver = createResolver(import.meta.url);
 
-const rootDir = resolver.resolve(`.`);
+const rootDir = resolver.resolve('.');
 
 export const distDir = join(rootDir, 'dist');
 

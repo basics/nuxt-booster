@@ -1,13 +1,15 @@
 <template>
   <div
     class="scroll-container"
-    :class="{ 'direction-horizontal': directionHorizontal }">
+    :class="{ 'direction-horizontal': directionHorizontal }"
+  >
     <scroll-item
       v-for="(item, index) in items"
       :key="index"
       :class="`item item-${index}`"
       :index="index"
-      v-bind="item" />
+      v-bind="item"
+    />
   </div>
 </template>
 <script setup>

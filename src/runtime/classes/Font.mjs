@@ -3,7 +3,7 @@ import Deferred from './Deferred';
 
 export default class Font {
   rootSelector;
-  constructor(
+  constructor (
     family,
     { src, type, fallbackFamily },
     { media, selector },
@@ -22,14 +22,14 @@ export default class Font {
     this.loaded = new Deferred();
   }
 
-  async load() {
+  async load () {
     const fonts =
       'fonts' in window.document && (await window.document.fonts.ready);
     if (
       fonts &&
       !fonts.check(`${this.style} ${this.weight} 12px '${this.family}'`)
     ) {
-      const result = Array.from(fonts).find(f => {
+      const result = Array.from(fonts).find((f) => {
         return (
           fontFamilyNormalize(f.family) === this.family &&
           f.style === this.style &&
@@ -40,7 +40,7 @@ export default class Font {
     }
   }
 
-  getKey() {
+  getKey () {
     const data = Object.assign({}, this);
     // Remove `src` and `rootSelector` from font-object for key generation
     delete data.src;
@@ -48,7 +48,7 @@ export default class Font {
     return btoa(JSON.stringify(data));
   }
 
-  getCSSText() {
+  getCSSText () {
     const selector = createSelector(this.rootSelector, this.selector);
     const family = `"${this.family}"`;
     return wrapByMedia(
@@ -64,7 +64,7 @@ export default class Font {
     );
   }
 
-  getNoScriptCSSText() {
+  getNoScriptCSSText () {
     const selector = createSelector(this.rootSelector, this.selector);
     const family = `"${this.family}"`;
     return wrapByMedia(
@@ -77,41 +77,41 @@ export default class Font {
     );
   }
 
-  setRootSelector(rootSelector) {
+  setRootSelector (rootSelector) {
     this.rootSelector = `${rootSelector.name}="${rootSelector.value}"`;
   }
 }
 
-function createSelector(rootSelector, selector) {
+function createSelector (rootSelector, selector) {
   return joinSelectors(
-    splitSelector(selector).map(splittedSelector => {
+    splitSelector(selector).map((splittedSelector) => {
       return `[${rootSelector}] ${splittedSelector}`;
     })
   );
 }
 
-function addFontActive(selector) {
+function addFontActive (selector) {
   return joinSelectors(
     splitSelector(selector).map(value => `.font-active${value}`)
   );
 }
 
-function splitSelector(selector) {
+function splitSelector (selector) {
   return selector.split(',').map(value => value.trim());
 }
-function joinSelectors(selectors) {
+function joinSelectors (selectors) {
   return selectors.join(', ').trim();
 }
 
-function wrapByMedia(style, media) {
+function wrapByMedia (style, media) {
   return (media && `@media ${media} { ${style} }`) || style;
 }
 
-function fontFamilyNormalize(fontFamily) {
+function fontFamilyNormalize (fontFamily) {
   return fontFamily.replace(/"(.*)"/, '$1');
 }
 
-function weightNormalize(weight) {
+function weightNormalize (weight) {
   weight = String(weight);
   switch (weight) {
     case '400':

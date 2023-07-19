@@ -5,7 +5,8 @@
       :id="`vimeo-${index}`"
       v-bind="item"
       :key="item.vimeoUrl"
-      :critical="index < 1" />
+      :critical="index < 1"
+    />
   </div>
 </template>
 

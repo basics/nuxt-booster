@@ -1,6 +1,6 @@
 <template>
   <div v-if="isServer" id="nuxt-speedkit-layer">
-    <input id="nuxt-speedkit-layer-close" name="close" type="checkbox" />
+    <input id="nuxt-speedkit-layer-close" name="close" type="checkbox">
     <div id="nuxt-speedkit-layer-content">
       <slot>
         <div>
@@ -8,7 +8,9 @@
 
           <ul style="padding: 0; list-style: none">
             <!-- Displayed when javascript is disabled. -->
-            <li id="nuxt-speedkit-message-nojs">disabled javascript</li>
+            <li id="nuxt-speedkit-message-nojs">
+              disabled javascript
+            </li>
             <!-- Displayed when browser does not support. -->
             <li id="nuxt-speedkit-message-unsupported-browser">
               outdated browser
@@ -18,7 +20,9 @@
               slow connection
             </li>
             <!-- Displayed when user hardware are not sufficient.  -->
-            <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
+            <li id="nuxt-speedkit-message-weak-hardware">
+              weak hardware
+            </li>
           </ul>
 
           <!-- Button to hide the layer with no javascript -->

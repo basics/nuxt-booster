@@ -9,8 +9,7 @@
           <span
             id="criticalFontAssignSimple"
             v-font="$getFont('Merriweather', 400, 'normal')"
-            >font assign simple</span
-          >
+          >font assign simple</span>
         </li>
         <li>
           <ul>
@@ -21,8 +20,7 @@
             v-font="
               $getFont('Merriweather', 700, 'normal', { selector: 'strong' })
             "
-            >font assign by <strong>single selector</strong></span
-          >
+          >font assign by <strong>single selector</strong></span>
         </li>
         <li>
           <ul>
@@ -34,9 +32,9 @@
             v-font="[
               $getFont('Merriweather', 700, 'normal', { selector: 'strong' }),
               $getFont('Merriweather', 400, 'italic', { selector: 'em' })
-            ]">
-            font assign by <strong>multiple</strong> <em>variances</em></span
+            ]"
           >
+            font assign by <strong>multiple</strong> <em>variances</em></span>
         </li>
         <li>
           <ul>
@@ -47,8 +45,7 @@
             v-font="
               $getFont('Merriweather', 400, 'italic', { selector: 'em, span' })
             "
-            >font assign by <em>multiple</em> <span>selectors</span></span
-          >
+          >font assign by <em>multiple</em> <span>selectors</span></span>
         </li>
         <li>
           <ul>
@@ -61,8 +58,7 @@
                 selector: 'strong > em'
               })
             "
-            >font assign by <strong><em>deep</em></strong> selector</span
-          >
+          >font assign by <strong><em>deep</em></strong> selector</span>
         </li>
       </ul>
     </template>

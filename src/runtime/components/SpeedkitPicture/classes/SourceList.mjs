@@ -9,7 +9,7 @@ export default class SourceList {
   list = [];
   sort = false;
 
-  constructor(list, options = {}) {
+  constructor (list, options = {}) {
     options = options || {};
     this.sort = options.sort || false;
     this.list = this.list.concat(
@@ -17,19 +17,19 @@ export default class SourceList {
     );
   }
 
-  get length() {
+  get length () {
     return this.list.length;
   }
 
-  [Symbol.iterator]() {
+  [Symbol.iterator] () {
     return this.list.values();
   }
 
-  get key() {
+  get key () {
     return this.list.map(source => source.key).join('-');
   }
 
-  get sorted() {
+  get sorted () {
     if (this.sort) {
       return this.list.sort((a, b) => sortByMediaQueries(a.media, b.media));
     } else {
@@ -37,7 +37,7 @@ export default class SourceList {
     }
   }
 
-  get style() {
+  get style () {
     return this.list
       .map(
         ({ media, width, height, style: sourceStyle }) => `
@@ -52,22 +52,22 @@ export default class SourceList {
       .join(' ');
   }
 
-  get className() {
+  get className () {
     return `picture-${toHashHex(this.sorted.map(({ src }) => src).join(','))}`;
   }
 
-  get classNames() {
+  get classNames () {
     return {
       picture: this.className,
       image: this.list.map(source => source.className)
     };
   }
 
-  getFormats(formats, preloadFormat, isCritical) {
+  getFormats (formats, preloadFormat, isCritical) {
     return this.sorted.reduce(
       (result, source) =>
         result.concat(
-          formats.map(format => {
+          formats.map((format) => {
             return source.modify({
               format,
               preload: format.includes(preloadFormat) && isCritical
@@ -78,9 +78,9 @@ export default class SourceList {
     );
   }
 
-  async getMeta($img, $speedkit) {
+  async getMeta ($img, $speedkit) {
     const result = await Promise.all(
-      this.sorted.map(source => {
+      this.sorted.map((source) => {
         const config = $img.getSizes(source.src, {
           sizes: source.sizes,
           modifiers: source.getModifiers(),
@@ -92,11 +92,11 @@ export default class SourceList {
     return new SourceList(result);
   }
 
-  toJSON() {
+  toJSON () {
     return this.list;
   }
 
-  static create(...args) {
+  static create (...args) {
     return new this(...args);
   }
 }

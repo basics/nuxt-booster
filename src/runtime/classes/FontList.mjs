@@ -1,9 +1,9 @@
 import Font from './Font';
 
 export default class FontList {
-  constructor(list = []) {
-    this.list = list.map(item => {
-      item.variances = item.variances.map(variance => {
+  constructor (list = []) {
+    this.list = list.map((item) => {
+      item.variances = item.variances.map((variance) => {
         return Object.assign(
           {
             style: 'normal',
@@ -16,7 +16,7 @@ export default class FontList {
     });
   }
 
-  getFont(
+  getFont (
     family,
     weight = 400,
     style = 'normal',
@@ -32,7 +32,7 @@ export default class FontList {
   }
 }
 
-function getFontVariance(
+function getFontVariance (
   config,
   weight,
   style,

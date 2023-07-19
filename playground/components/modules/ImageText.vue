@@ -1,18 +1,21 @@
 <template>
   <section
     class="component-image-text"
-    :class="{ ['component-image-text-right']: alignRight }">
+    :class="{ ['component-image-text-right']: alignRight }"
+  >
     <div
       v-font="[
         $getFont('Merriweather', 300, 'normal'),
         $getFont('Montserrat Alternates', 700, 'normal', { selector: 'h2' })
-      ]">
+      ]"
+    >
       <div class="image">
         <speedkit-picture
           :title="picture.title"
           :alt="picture.alt"
           :sources="picture.sources"
-          :hydrate="picture.hydrate !== undefined ? picture.hydrate : true" />
+          :hydrate="picture.hydrate !== undefined ? picture.hydrate : true"
+        />
       </div>
       <div class="text">
         <h2>{{ headline }}</h2>
