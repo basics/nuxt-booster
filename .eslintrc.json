@@ -30,6 +30,7 @@
     "prettier"
   ],
   "rules": {
+    "prettier/prettier": "error",
     "semi": [
       2,
       "always"

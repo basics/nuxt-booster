@@ -66,14 +66,14 @@ export default {
 
     options: {
       type: Object,
-      default () {
+      default() {
         return {};
       }
     },
 
     posterSizes: {
       type: Object,
-      default () {
+      default() {
         return {
           default: '100vw',
           xxs: '100vw',
@@ -89,7 +89,7 @@ export default {
   },
   emits: ['playing', 'ready'],
 
-  async setup (props) {
+  async setup(props) {
     const { withQuery } = await import('ufo');
     const videoData = ref(null);
     const iframeMode = ref(false);
@@ -134,7 +134,7 @@ export default {
     };
   },
 
-  data () {
+  data() {
     return {
       inert: false,
       player: null,
@@ -146,11 +146,11 @@ export default {
   },
 
   computed: {
-    playerTitle () {
+    playerTitle() {
       return this.title || (this.videoData && this.videoData.title);
     },
 
-    playerOptions () {
+    playerOptions() {
       return {
         dnt: true,
         autopause: false,
@@ -161,11 +161,11 @@ export default {
       };
     },
 
-    pictureComponent () {
+    pictureComponent() {
       return this.videoData ? SpeedkitPicture : 'picture';
     },
 
-    poster () {
+    poster() {
       if (!this.videoData) {
         return null;
       }
@@ -190,26 +190,26 @@ export default {
   },
 
   watch: {
-    videoData (videoData) {
+    videoData(videoData) {
       if (videoData && this.autoplay) {
         this.onInit();
       }
     },
-    ready () {
+    ready() {
       this.inert = false;
     }
   },
 
-  mounted () {
+  mounted() {
     this.inert = true;
   },
 
-  unmounted () {
+  unmounted() {
     this.player && vimeo.remove(this.player);
   },
 
   methods: {
-    onInit () {
+    onInit() {
       this.loading = true;
       this.src = this.playerSrc;
       this.script = [load()];
@@ -219,7 +219,7 @@ export default {
       }
     },
 
-    onPlayerStateChange (state) {
+    onPlayerStateChange(state) {
       if (state.playing) {
         this.playing = true;
       } else if (state.ended || state.pause) {
@@ -228,7 +228,7 @@ export default {
       this.$emit('playing', this.playing);
     },
 
-    async onLoad (e) {
+    async onLoad(e) {
       if (!e.target.src || !this.script.length) {
         return;
       }

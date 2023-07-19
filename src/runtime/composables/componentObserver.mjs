@@ -2,7 +2,7 @@ import { onMounted, ref } from 'vue';
 import { getElementObserver } from '#speedkit/classes/intersection';
 import useCritical from '#speedkit/composables/critical';
 
-export default function useComponentObserver (options) {
+export default function useComponentObserver(options) {
   const el = ref(null);
   const inView = ref(false);
 

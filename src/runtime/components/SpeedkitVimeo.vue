@@ -109,7 +109,8 @@ defineOptions({
     color: var(--color-foreground);
     background: var(--color-background);
     border-radius: 0.5em;
-    transition: opacity var(--transition-duration),
+    transition:
+      opacity var(--transition-duration),
       background-color var(--transition-duration),
       color var(--transition-duration);
     transform: translate(-50%, -50%);

@@ -1,11 +1,11 @@
 import Deferred from './Deferred';
 
 export default class Cache {
-  constructor () {
+  constructor() {
     this.map = new Map();
   }
 
-  getPromise (hash, fn) {
+  getPromise(hash, fn) {
     if (!this.map.has(hash)) {
       const deferred = new Deferred();
       this.map.set(hash, deferred.promise);

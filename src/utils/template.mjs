@@ -1,10 +1,10 @@
 import hashSum from 'hash-sum';
 
-function prepareFontsConfiguartion (fontConfig) {
+function prepareFontsConfiguartion(fontConfig) {
   const fonts = fontConfig.toJSON();
   const imports = new Map();
-  const preparedFonts = fonts.map((font) => {
-    font.variances = font.variances.map((variance) => {
+  const preparedFonts = fonts.map(font => {
+    font.variances = font.variances.map(variance => {
       const hash = `Font${hashSum(variance.src)}`;
       imports.set(hash, variance.src);
 
@@ -16,19 +16,19 @@ function prepareFontsConfiguartion (fontConfig) {
   return { fonts: preparedFonts, imports };
 }
 
-function renderImports (imports) {
+function renderImports(imports) {
   return Array.from(imports.entries()).map(([hash, src]) => {
     return `import ${hash} from '${src}';`;
   });
 }
 
-function renderFonts (fonts) {
+function renderFonts(fonts) {
   let json = JSON.stringify(fonts, null, 2);
   json = json.replace(/"HASH\(([^)]+)\)"/g, '$1');
   return `export default ${json};`;
 }
 
-export function getFontConfigTemplate (fontConfig) {
+export function getFontConfigTemplate(fontConfig) {
   const { imports, fonts } = prepareFontsConfiguartion(fontConfig);
 
   return `${renderImports(imports).join('\n')}
@@ -36,12 +36,12 @@ export function getFontConfigTemplate (fontConfig) {
 ${renderFonts(fonts)}`;
 }
 
-export function getFontConfigCSSTemplate (fontConfig) {
-  function getImports (css) {
+export function getFontConfigCSSTemplate(fontConfig) {
+  function getImports(css) {
     return Array.from(css.matchAll(/url\(([^\\(]+)\)/g));
   }
 
-  function renderImports (imports) {
+  function renderImports(imports) {
     return imports.map(
       ([key, src]) => `import Font${hashSum(src)} from ${src};`
     );

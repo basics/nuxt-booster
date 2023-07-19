@@ -89,5 +89,5 @@ css({
       height: '{space.7}'
     }
   }
-})
+});
 </style>

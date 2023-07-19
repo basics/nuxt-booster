@@ -1,7 +1,7 @@
 import serialize from 'serialize-to-js';
 import { getUserAgentRegex } from 'browserslist-useragent-regexp';
 
-function getSupportedBrowserDetector (ignore) {
+function getSupportedBrowserDetector(ignore) {
   if (ignore) {
     return JSON.stringify({ regex: '' });
   } else {

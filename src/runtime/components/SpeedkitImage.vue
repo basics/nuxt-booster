@@ -14,14 +14,14 @@ export default {
     }
   },
 
-  setup () {
+  setup() {
     const { isCritical } = useCritical();
     return {
       isCritical
     };
   },
 
-  render () {
+  render() {
     if (!this.hydrate) {
       return h(LazyHydrationWrapper, { props: { never: true } }, [
         h('noscript', {}, [

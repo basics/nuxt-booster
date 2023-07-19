@@ -1,10 +1,8 @@
 <template>
   <div v-if="isServer" class="nuxt-speedkit-weak-hardware-overlay">
     <slot>
-      Area is disabled for performance reasons.<br>
-      <button id="nuxt-speedkit-button-init-app">
-        Click for activation
-      </button>
+      Area is disabled for performance reasons.<br />
+      <button id="nuxt-speedkit-button-init-app">Click for activation</button>
     </slot>
   </div>
 </template>

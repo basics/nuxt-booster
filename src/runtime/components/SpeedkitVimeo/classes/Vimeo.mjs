@@ -4,24 +4,24 @@ export default class Vimeo {
   api;
   players = [];
 
-  play (player) {
+  play(player) {
     this.pausePlayers(player);
     return player.play();
   }
 
-  pausePlayers (ignorePlayer) {
+  pausePlayers(ignorePlayer) {
     return Promise.all(
       this.players
         .filter(
           player => !ignorePlayer || (ignorePlayer && player !== ignorePlayer)
         )
-        .map(async (player) => {
+        .map(async player => {
           !(await player.getPaused()) && player.pause();
         })
     );
   }
 
-  async createPlayer (...args) {
+  async createPlayer(...args) {
     this.api = await ready();
     const player = new this.api.Player(...args);
 
@@ -31,11 +31,11 @@ export default class Vimeo {
     return player;
   }
 
-  add (player) {
+  add(player) {
     this.players.push(player);
   }
 
-  remove (player) {
+  remove(player) {
     this.players = this.players.filter(p => p !== player);
     player.destroy();
   }

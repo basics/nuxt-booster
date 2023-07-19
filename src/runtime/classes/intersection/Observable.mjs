@@ -2,14 +2,14 @@ export default class IntersectionObservable {
   #intersectionObserver;
   #listeners = new Map();
 
-  constructor (options) {
+  constructor(options) {
     this.#intersectionObserver = new window.IntersectionObserver(
       entries => this.next(entries),
       options
     );
   }
 
-  next (entries) {
+  next(entries) {
     entries.forEach(({ target, isIntersecting }) => {
       if (this.#listeners.has(target)) {
         this.#listeners.get(target)(isIntersecting);
@@ -17,18 +17,18 @@ export default class IntersectionObservable {
     });
   }
 
-  register (el, callback) {
+  register(el, callback) {
     this.#listeners.set(el, callback);
     this.#intersectionObserver.observe(el);
   }
 
-  unregister (el) {
+  unregister(el) {
     this.#listeners.delete(el);
     this.#intersectionObserver.unobserve(el);
   }
 }
 
-export const getIntersectionObservable = (options) => {
+export const getIntersectionObservable = options => {
   const { node, key } = getNodeAndKey(options);
 
   if (!node.observables.has(key)) {

@@ -8,9 +8,9 @@ const CLASS_FONT_ACTIVE = 'font-active';
 const observers = new Map();
 
 export default {
-  install (vueApp) {
+  install(vueApp) {
     vueApp.directive('font', {
-      beforeMount (el, binding, vnode) {
+      beforeMount(el, binding, vnode) {
         binding.instance.fontsReady = binding.instance.fontsReady || new Map();
         const values = [].concat(binding.value);
         if (values.length) {
@@ -23,7 +23,7 @@ export default {
         }
       },
 
-      getSSRProps (binding) {
+      getSSRProps(binding) {
         const values = [].concat(binding.value);
         if (values.length) {
           const { isCritical, fontCollection } = getFirstFont(values);
@@ -39,13 +39,13 @@ export default {
         }
       },
 
-      updated (el, binding) {
+      updated(el, binding) {
         if (binding.instance.fontsReady.get(el)) {
           el.classList.add(CLASS_FONT_ACTIVE);
         }
       },
 
-      async mounted (el, binding) {
+      async mounted(el, binding) {
         const { isCritical, runtimeConfig } = getFirstFont(binding.value);
         if (isCritical || !isElementOutViewport(el)) {
           activateFonts(el, binding);
@@ -59,18 +59,18 @@ export default {
         }
       },
 
-      unmounted (el) {
+      unmounted(el) {
         observers.delete(el);
       }
     });
   }
 };
 
-function getFirstFont (value) {
+function getFirstFont(value) {
   return [].concat(value)[0];
 }
 
-async function activateFonts (el, binding) {
+async function activateFonts(el, binding) {
   const fonts = [].concat(binding.value).map(({ definition }) => definition);
   await Promise.all(
     fonts

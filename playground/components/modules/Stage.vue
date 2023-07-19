@@ -44,7 +44,7 @@ defineProps({
   picture: { type: Object, required: true },
   image: {
     type: Object,
-    default () {
+    default() {
       return {
         source: {
           src: '/icon.png',
@@ -66,13 +66,13 @@ defineProps({
   },
   content: {
     type: String,
-    default () {
+    default() {
       return 'Headline';
     }
   },
   claim: {
     type: String,
-    default () {
+    default() {
       return 'Claim';
     }
   }

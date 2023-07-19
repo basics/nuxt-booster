@@ -4,7 +4,7 @@ import { useRuntimeConfig } from '#imports';
 
 const isDev = false; // process.env.NODE_ENV === 'development';
 
-export default (component) => {
+export default component => {
   if (isDev || process.server) {
     if (typeof component === 'function') {
       component = defineAsyncComponent(component);

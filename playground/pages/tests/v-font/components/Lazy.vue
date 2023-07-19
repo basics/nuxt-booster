@@ -9,9 +9,10 @@
           <span
             id="lazyFontAssignSimple"
             v-font="$getFont('Montserrat Alternates', 400, 'normal')"
-          >font assign simple</span>
+            >font assign simple</span
+          >
         </li>
-        <hr>
+        <hr />
         <li>
           <ul>
             <li>Montserrat Alternates - 700 - normal</li>
@@ -23,7 +24,8 @@
                 selector: 'strong'
               })
             "
-          >font assign by <strong>single selector</strong></span>
+            >font assign by <strong>single selector</strong></span
+          >
         </li>
         <li>
           <ul>
@@ -40,9 +42,10 @@
                 selector: 'em'
               })
             ]"
-          >font assign by <strong>multiple</strong> <em>variances</em></span>
+            >font assign by <strong>multiple</strong> <em>variances</em></span
+          >
         </li>
-        <hr>
+        <hr />
         <li>
           <ul>
             <li>Montserrat Alternates - 400 - italic - em, span</li>
@@ -54,9 +57,10 @@
                 selector: 'em, span'
               })
             "
-          >font assign by <em>multiple</em> <span>selectors</span></span>
+            >font assign by <em>multiple</em> <span>selectors</span></span
+          >
         </li>
-        <hr>
+        <hr />
         <li>
           <ul>
             <li>Montserrat Alternates - 700 - italic - strong > em</li>
@@ -68,7 +72,8 @@
                 selector: 'strong > em'
               })
             "
-          >font assign by <strong><em>deep</em></strong> selector</span>
+            >font assign by <strong><em>deep</em></strong> selector</span
+          >
         </li>
       </ul>
     </template>

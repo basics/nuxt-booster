@@ -4,7 +4,7 @@
     :sizes="config.sizes"
     :media="source.media"
     :type="type"
-  >
+  />
 </template>
 
 <script>
@@ -25,7 +25,7 @@ export default {
 
     crossorigin: {
       type: [Boolean, String],
-      default () {
+      default() {
         return null;
       },
       validator: val =>
@@ -33,7 +33,7 @@ export default {
     }
   },
 
-  setup (props) {
+  setup(props) {
     const $img = useImage();
     const $speedkit = useNuxtApp().$speedkit;
     const config = $img.getSizes(props.source.src, {
@@ -63,11 +63,11 @@ export default {
   },
 
   computed: {
-    srcset () {
+    srcset() {
       return this.config.srcset || this.config.src;
     },
 
-    type () {
+    type() {
       return `image/${types.get(this.source.format) || this.source.format}`;
     }
   }

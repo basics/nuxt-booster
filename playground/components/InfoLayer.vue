@@ -5,18 +5,10 @@
         Sorry, but you will have a limited user experience due to a…
       </p>
       <ul v-font="$getFont('Quicksand', 700, 'normal')">
-        <li id="nuxt-speedkit-message-nojs">
-          disabled javascript
-        </li>
-        <li id="nuxt-speedkit-message-unsupported-browser">
-          outdated browser
-        </li>
-        <li id="nuxt-speedkit-message-reduced-bandwidth">
-          reduced-bandwidth
-        </li>
-        <li id="nuxt-speedkit-message-weak-hardware">
-          weak hardware
-        </li>
+        <li id="nuxt-speedkit-message-nojs">disabled javascript</li>
+        <li id="nuxt-speedkit-message-unsupported-browser">outdated browser</li>
+        <li id="nuxt-speedkit-message-reduced-bandwidth">reduced-bandwidth</li>
+        <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
       </ul>
       <div class="info-layer-buttons">
         <base-button
@@ -68,11 +60,11 @@ defineOptions({ inheritAttrs: false });
     width: 100%;
     height: 100%;
     background-color: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(em(7px));
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 0.2s;
     animation-delay: 3s;
-    backdrop-filter: blur(em(7px));
     animation-fill-mode: forwards;
 
     & > div {

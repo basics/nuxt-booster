@@ -1,7 +1,7 @@
 import { toHashHex } from '#speedkit/utils/string';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 
-export function getImageStyleDescription (meta, className) {
+export function getImageStyleDescription(meta, className) {
   return {
     key: className,
     type: 'text/css',
@@ -9,7 +9,7 @@ export function getImageStyleDescription (meta, className) {
   };
 }
 
-export function getPictureStyleDescription (metaSources, classNames) {
+export function getPictureStyleDescription(metaSources, classNames) {
   return {
     key: classNames.picture,
     type: 'text/css',
@@ -17,7 +17,7 @@ export function getPictureStyleDescription (metaSources, classNames) {
   };
 }
 
-export function getImagePreloadDescription (
+export function getImagePreloadDescription(
   { srcset, sizes, type },
   fetchpriority = 'high',
   crossorigin,
@@ -37,7 +37,7 @@ export function getImagePreloadDescription (
   };
 }
 
-export function getFontPreloadDescription (
+export function getFontPreloadDescription(
   font,
   media,
   fetchpriority = 'high',
@@ -63,7 +63,7 @@ export function getFontPreloadDescription (
   };
 }
 
-export function getStyleDescription (children, noScript = false) {
+export function getStyleDescription(children, noScript = false) {
   if (noScript) {
     return getNoScriptDescription(`<style>${children}</style>`);
   } else {
@@ -74,7 +74,7 @@ export function getStyleDescription (children, noScript = false) {
   }
 }
 
-export function getNoScriptDescription (innerHTML) {
+export function getNoScriptDescription(innerHTML) {
   return {
     innerHTML
   };
