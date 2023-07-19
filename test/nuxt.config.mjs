@@ -19,7 +19,9 @@ export default defineNuxtConfig(async () => {
     distDir: resolve(rootDir, 'dist'),
 
     nitro: {
-      crawlLinks: false
+      prerender: {
+        crawlLinks: false
+      }
     },
 
     ssr: true,
@@ -28,7 +30,7 @@ export default defineNuxtConfig(async () => {
         disableInfoLayer: true
       }
     },
-    generate: { cache: false },
+
     dir: {
       pages: 'pages/tests'
     },
