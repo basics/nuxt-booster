@@ -20,10 +20,7 @@ export default defineNuxtConfig(async () => {
 
     nitro: {
       prerender: {
-        crawlLinks: false,
-        ignore: [
-          '/'
-        ]
+        crawlLinks: false
       }
     },
 
