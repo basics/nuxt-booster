@@ -25,11 +25,11 @@
     "preview": "nuxi preview"
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "1.12.3",
+    "@nuxt-themes/docus": "1.14.3",
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/robots": "3.0.0",
     "@nuxtlabs/github-module": "1.6.3",
-    "nuxt": "3.5.3",
+    "nuxt": "3.6.4",
     "theme-colors": "0.0.5"
   }
 }
