@@ -68,11 +68,11 @@ defineOptions({ inheritAttrs: false });
     width: 100%;
     height: 100%;
     background-color: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(em(7px));
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 0.2s;
     animation-delay: 3s;
-    backdrop-filter: blur(em(7px));
     animation-fill-mode: forwards;
 
     & > div {
