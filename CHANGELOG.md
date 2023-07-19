@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.2...v2.2.3) (2023-07-19)
+
+
+### Bug Fixes
+
+* upgrade browserslist-useragent-regexp from 4.0.0 to 4.1.0 ([77ac14e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/77ac14ea3b552a866fdf3ef20d974dc3efd30065))
+
 ## [2.2.2](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.1...v2.2.2) (2023-07-07)
 
 
