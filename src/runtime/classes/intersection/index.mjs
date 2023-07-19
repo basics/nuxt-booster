@@ -10,7 +10,7 @@ export const getElementObserver = (el, options) => {
   return new ElementObserver(getIntersectionObservable(observerOptions), el);
 };
 
-const getDefaultOptions = (scrollContainer) => {
+const getDefaultOptions = scrollContainer => {
   return {
     root:
       (scrollContainer !== window.document.documentElement &&

@@ -40,7 +40,7 @@ export default defineNuxtModule({
   },
   defaults: getDefaultOptions(),
 
-  async setup (moduleOptions, nuxt) {
+  async setup(moduleOptions, nuxt) {
     const runtimeDir = resolver.resolve('./runtime');
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
@@ -87,7 +87,7 @@ export default defineNuxtModule({
   }
 });
 
-async function addBuildTemplates (nuxt, options) {
+async function addBuildTemplates(nuxt, options) {
   const supportedBrowserDetector = await getSupportedBrowserDetector(
     !options.detection.browserSupport
   );
@@ -120,7 +120,7 @@ async function addBuildTemplates (nuxt, options) {
     options: { content: fontConfig.toCSS() }
   });
 
-  ['client', 'server'].forEach((mode) => {
+  ['client', 'server'].forEach(mode => {
     addPluginTemplate({
       src: resolver.resolve('runtime/tmpl', 'plugin.mjs'),
       fileName: MODULE_NAME + `/plugin.${mode}.js`,
@@ -161,7 +161,7 @@ async function addBuildTemplates (nuxt, options) {
   });
 }
 
-async function addModules (nuxt, moduleOptions) {
+async function addModules(nuxt, moduleOptions) {
   if (!moduleOptions.disableNuxtCritters) {
     await addNuxtCritters(nuxt);
   }

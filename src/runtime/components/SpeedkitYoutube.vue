@@ -95,7 +95,8 @@ defineOptions({
   pointer-events: none;
 
   & path {
-    transition: fill var(--transition-duration) cubic-bezier(0.4, 0, 1, 1),
+    transition:
+      fill var(--transition-duration) cubic-bezier(0.4, 0, 1, 1),
       fill-opacity var(--transition-duration) cubic-bezier(0.4, 0, 1, 1);
 
     &:first-child {

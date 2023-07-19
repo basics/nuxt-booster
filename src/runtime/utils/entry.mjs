@@ -5,8 +5,8 @@ export const triggerRunCallback = sufficient =>
     new CustomEvent('nuxt-speedkit:run', { detail: { sufficient } })
   );
 
-export function observeSpeedkitButton (id, callback) {
-  Array.from(document.querySelectorAll('#' + id)).forEach((el) => {
+export function observeSpeedkitButton(id, callback) {
+  Array.from(document.querySelectorAll('#' + id)).forEach(el => {
     el.addEventListener('click', callback, {
       capture: true,
       once: true,
@@ -15,7 +15,7 @@ export function observeSpeedkitButton (id, callback) {
   });
 }
 
-export function updateSpeedkitLayerMessage (layerEl, id) {
+export function updateSpeedkitLayerMessage(layerEl, id) {
   const el = window.document.getElementById(id);
   if (!el) {
     throw new Error("Can't update speedkit-layer, message " + id + ' missing.');
@@ -25,7 +25,7 @@ export function updateSpeedkitLayerMessage (layerEl, id) {
   }
 }
 
-export function setupSpeedkitLayer (layerEl, supportedBrowser) {
+export function setupSpeedkitLayer(layerEl, supportedBrowser) {
   if (!supportedBrowser) {
     updateSpeedkitLayerMessage('nuxt-speedkit-message-unsupported-browser');
   }
@@ -37,18 +37,18 @@ export function setupSpeedkitLayer (layerEl, supportedBrowser) {
   }
 }
 
-export function initReducedView () {
+export function initReducedView() {
   document.documentElement.classList.add('nuxt-speedkit-reduced-view');
 
   // activate fonts
-  window.document.querySelectorAll('[data-font]').forEach((node) => {
+  window.document.querySelectorAll('[data-font]').forEach(node => {
     node.classList.add('font-active');
   });
 
   // transform noscript>picture to picture
   Array.from(
     document.querySelectorAll('noscript.nuxt-speedkit-picture-noscript')
-  ).forEach((el) => {
+  ).forEach(el => {
     const tmp = document.createElement('div');
     // eslint-disable-next-line no-unsanitized/property
     tmp.innerHTML = el.innerHTML;

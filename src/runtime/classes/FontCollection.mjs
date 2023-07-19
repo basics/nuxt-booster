@@ -5,17 +5,17 @@ import {
 } from '../utils/description';
 
 export default class FontCollection {
-  constructor () {
+  constructor() {
     this.list = [];
   }
 
-  add (fonts) {
+  add(fonts) {
     const rootSelector = {
       name: 'data-font',
       value: `${toFontHex(JSON.stringify(fonts.map(font => font.getKey())))}`
     };
     this.list = [].concat(this.list).concat(
-      fonts.map((font) => {
+      fonts.map(font => {
         font.setRootSelector(rootSelector);
         return font;
       })
@@ -23,7 +23,7 @@ export default class FontCollection {
     return rootSelector;
   }
 
-  getHeadDescription (critical, crossorigin) {
+  getHeadDescription(critical, crossorigin) {
     return {
       link: this.getPreloadDescriptions(critical, crossorigin),
       style: this.getStyleDescriptions(),
@@ -32,7 +32,7 @@ export default class FontCollection {
     };
   }
 
-  getPreloadDescriptions (critical, crossorigin = 'anonymous') {
+  getPreloadDescriptions(critical, crossorigin = 'anonymous') {
     return Array.from(
       this.list
         .reduce((result, font) => {
@@ -51,13 +51,13 @@ export default class FontCollection {
     );
   }
 
-  getStyleDescriptions () {
+  getStyleDescriptions() {
     return getRelevantDescriptions([
       getStyleDescription(this.list.map(font => font.getCSSText()).join(' '))
     ]);
   }
 
-  getNoScriptStyleDescriptions () {
+  getNoScriptStyleDescriptions() {
     return getRelevantDescriptions([
       getStyleDescription(
         this.list.map(font => font.getNoScriptCSSText()).join(' '),
@@ -67,15 +67,15 @@ export default class FontCollection {
   }
 
   // has to be declared -> https://github.com/vuex-orm/vuex-orm/issues/255
-  toJSON () {
+  toJSON() {
     return this.list;
   }
 }
 
-function toFontHex (tag, fonts) {
+function toFontHex(tag, fonts) {
   return toHashHex(`${tag}_${fonts}`).padStart(9, '-');
 }
 
-function getRelevantDescriptions (descriptions) {
+function getRelevantDescriptions(descriptions) {
   return descriptions.filter(item => item.key !== '0');
 }

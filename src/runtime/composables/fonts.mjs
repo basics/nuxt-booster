@@ -5,7 +5,7 @@ import FontCollection from '#speedkit/classes/FontCollection';
 import useCritical from '#speedkit/composables/critical';
 import useConfig from '#speedkit/composables/config';
 
-export default function useFonts (context) {
+export default function useFonts(context) {
   const { isCritical, critical } = useCritical(context);
 
   const runtimeConfig = useConfig();
@@ -30,7 +30,7 @@ export default function useFonts (context) {
   };
 }
 
-function writeHead (isCritical, fontCollection) {
+function writeHead(isCritical, fontCollection) {
   useHead({
     link: computed(() => {
       return fontCollection.getPreloadDescriptions(isCritical.value);

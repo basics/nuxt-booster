@@ -8,9 +8,7 @@
           </h2>
         </div>
         <div class="content">
-          <h3 class="sr-only">
-            Description
-          </h3>
+          <h3 class="sr-only">Description</h3>
 
           <ContentRenderer :value="release">
             <template #empty>
@@ -32,7 +30,7 @@ css({
     flex: '1',
     padding: '{space.4} {space.8}',
     paddingBottom: '{space.8}',
-    overflowY: 'auto',
+    overflowY: 'auto'
   },
   '.release-name': {
     position: 'relative',
@@ -42,7 +40,7 @@ css({
     justifyContent: 'space-between',
     gap: '{space.4}',
     paddingBottom: '{space.4}',
-    'h2': {
+    h2: {
       fontSize: '{fontSize.2xl}',
       fontWeight: '{fontWeight.bold}',
       color: '{color.gray.900}',
@@ -55,7 +53,7 @@ css({
   '.content': {
     paddingLeft: '{space.8}',
     paddingRight: '{space.8}',
-    paddingBottom: '{space.24}',
+    paddingBottom: '{space.24}'
   }
-})
+});
 </style>

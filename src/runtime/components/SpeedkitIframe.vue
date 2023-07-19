@@ -21,7 +21,7 @@ const props = defineProps({
 
   componentObserver: {
     type: Object,
-    default () {
+    default() {
       return {
         trackVisibility: true,
         delay: 350
@@ -35,7 +35,7 @@ const emit = defineEmits(['load', 'enter']);
 const lazySrc = ref(null);
 const loaded = ref(false);
 
-watch(loaded, (e) => {
+watch(loaded, e => {
   if (e.target.src) {
     emit('load', e);
   }

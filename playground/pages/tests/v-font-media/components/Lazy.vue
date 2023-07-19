@@ -15,7 +15,8 @@
                 media: '(orientation: portrait)'
               })
             "
-          >font assign simple by portrait</span>
+            >font assign simple by portrait</span
+          >
         </li>
         <li>
           <ul>
@@ -30,7 +31,8 @@
                 media: '(orientation: landscape)'
               })
             "
-          >font assign simple by landscape</span>
+            >font assign simple by landscape</span
+          >
         </li>
         <li>
           <ul>
@@ -43,7 +45,8 @@
                 media: '(max-width: 479px)'
               })
             "
-          >font assign simple by max 479px</span>
+            >font assign simple by max 479px</span
+          >
         </li>
         <li>
           <ul>
@@ -56,7 +59,8 @@
                 media: '(min-width: 480px)'
               })
             "
-          >font assign simple by 480px</span>
+            >font assign simple by 480px</span
+          >
         </li>
         <li>
           <ul>
@@ -69,7 +73,8 @@
                 media: '(min-width: 960px)'
               })
             "
-          >font assign simple by 960px</span>
+            >font assign simple by 960px</span
+          >
         </li>
         <li>
           <ul>
@@ -86,7 +91,8 @@
                 media: '(min-width: 1440px)'
               })
             "
-          >font assign with <strong>selector by 1440px</strong></span>
+            >font assign with <strong>selector by 1440px</strong></span
+          >
         </li>
       </ul>
     </template>

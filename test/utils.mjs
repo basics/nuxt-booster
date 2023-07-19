@@ -32,12 +32,12 @@ export const getLinkPreloadKey = (
   return toHashHex(`${family}-${weight}-${style}-${media}`.toLowerCase());
 };
 
-export const makeDir = (path) => {
+export const makeDir = path => {
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   return fsPromises.mkdir(path);
 };
-export const deleteDir = (path) => {
-  return new Promise((resolve) => {
+export const deleteDir = path => {
+  return new Promise(resolve => {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(path)) {
       rimraf(path, resolve);
@@ -55,7 +55,7 @@ export const getHTML = (path = '') => {
 export const startStaticServer = async (dist, port, hostname = 'localhost') => {
   port = port || (await getPort());
   const serve = serveStatic(dist);
-  const server = http.createServer(function onRequest (req, res) {
+  const server = http.createServer(function onRequest(req, res) {
     serve(req, res, finalhandler(req, res));
   });
   server.listen({ port, hostname });

@@ -4,24 +4,24 @@ export default class Youtube {
   api;
   players = new Map();
 
-  play (player) {
+  play(player) {
     this.pausePlayers();
     return player.playVideo();
   }
 
-  pausePlayers (ignorePlayer) {
+  pausePlayers(ignorePlayer) {
     Array.from(this.players.values())
       .filter(
         player => !ignorePlayer || (ignorePlayer && player !== ignorePlayer)
       )
       .filter(player => player.getPlayerState)
-      .forEach((player) => {
+      .forEach(player => {
         player.getPlayerState() === this.api.PlayerState.PLAYING &&
           player.pauseVideo();
       });
   }
 
-  async createPlayer (...args) {
+  async createPlayer(...args) {
     this.api = await ready();
     const player = new this.api.Player(...args);
 
@@ -35,11 +35,11 @@ export default class Youtube {
     return player;
   }
 
-  add (player) {
+  add(player) {
     this.players.set(player.id, player);
   }
 
-  remove (player) {
+  remove(player) {
     this.players.delete(player.id);
     player.destroy();
   }

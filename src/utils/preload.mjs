@@ -3,14 +3,16 @@ import { load } from 'cheerio';
 import { render } from 'dom-serializer';
 import { isViteBuild } from '../utils.mjs';
 
-export function optimizePreloads (nuxt) {
+export function optimizePreloads(nuxt) {
   if (isViteBuild(nuxt)) {
     nuxt.options.vite.build.manifest = false;
   }
 
-  nuxt.hook('nitro:init', (nitro) => {
-    nitro.hooks.hook('prerender:generate', (route) => {
-      if (!route.fileName?.endsWith('.html') || !route.contents) { return; }
+  nuxt.hook('nitro:init', nitro => {
+    nitro.hooks.hook('prerender:generate', route => {
+      if (!route.fileName?.endsWith('.html') || !route.contents) {
+        return;
+      }
 
       const document = parseDocument(route.contents);
       const $ = load(document);

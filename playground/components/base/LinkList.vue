@@ -18,7 +18,7 @@ export default {
   props: {
     items: {
       type: Array,
-      default () {
+      default() {
         return [
           {
             title: 'Link 1.'
@@ -55,7 +55,9 @@ a {
   border-radius: em(3px);
   outline: none;
   opacity: 0.8;
-  transition: opacity 0.2s linear, background 0.2s linear;
+  transition:
+    opacity 0.2s linear,
+    background 0.2s linear;
 
   &:focus {
     background: rgb(255 255 255 / 20%);

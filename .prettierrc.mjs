@@ -4,7 +4,8 @@ export default {
   "trailingComma": "none",
   "singleQuote": true,
   "semi": true,
-  "printWidth": 80
+  "printWidth": 80,
+  "bracketSameLine": false
 };
 
 

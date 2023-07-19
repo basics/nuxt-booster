@@ -1,6 +1,6 @@
 import { MODULE_NAME, logger } from '../utils.mjs';
 
-export function getDefaultOptions () {
+export function getDefaultOptions() {
   return {
     debug: false,
 
@@ -36,7 +36,7 @@ export function getDefaultOptions () {
   };
 }
 
-export function deprecationsNotification (options) {
+export function deprecationsNotification(options) {
   if ('loader' in options) {
     logger.warn(
       `[${MODULE_NAME}] Option \`loader\` is deprecated, There is no integrated loader anymore.`
