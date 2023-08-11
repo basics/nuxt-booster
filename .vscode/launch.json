@@ -4,14 +4,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test",
-      "runtimeVersion": "19.5.0",
-      "program": "${workspaceFolder}/test.mjs",
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "Express-Server (build/dist)",
       "runtimeVersion": "19.5.0",
       "program": "${workspaceFolder}/tools/express-server",

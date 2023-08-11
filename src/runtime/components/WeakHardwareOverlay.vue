@@ -17,7 +17,7 @@ onMounted(() => (isServer.value = false));
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 .nuxt-speedkit-weak-hardware-overlay {
-  @nest html:not(.nuxt-speedkit-reduced-view) & {
+  html:not(.nuxt-speedkit-reduced-view) & {
     display: none;
   }
 }

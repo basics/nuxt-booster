@@ -220,7 +220,7 @@ button {
   width: 100%;
   cursor: pointer;
 
-  @nest .ready & {
+  .ready & {
     pointer-events: none;
     visibility: hidden;
   }

@@ -9,6 +9,7 @@ const runtime = { serverUrl: null };
 
 beforeAll(async () => {
   runtime.serverUrl = (await startStaticServer(distDir)).url;
+  // eslint-disable-next-line no-console
   console.log(runtime.serverUrl);
 });
 

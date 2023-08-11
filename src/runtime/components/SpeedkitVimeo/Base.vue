@@ -273,7 +273,7 @@ export default {
     cursor: pointer;
   }
 
-  @nest .ready & {
+  .ready & {
     & button {
       pointer-events: none;
       visibility: hidden;
@@ -288,7 +288,7 @@ export default {
     margin: auto;
   }
 
-  @nest .iframe-mode & {
+  .iframe-mode & {
     aspect-ratio: 16 / 9;
   }
 }

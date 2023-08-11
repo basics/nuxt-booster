@@ -98,7 +98,7 @@ export function getNuxtImageModuleOptions(moduleContainer) {
 export function getModuleOptions(moduleContainer, packageName, configKey) {
   let options;
   if (configKey in moduleContainer.options) {
-    options = moduleContainer.options[configKey];
+    options = moduleContainer.options[String(configKey)];
   } else {
     const module = []
       .concat(
