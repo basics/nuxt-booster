@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.17...v3.0.0-next.18) (2023-08-11)
+
+
+### Bug Fixes
+
+* **lint:** resolve warnings ([42907b9](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/42907b98ba461b826cba7e6aceac357df85dee6f))
+
 # [3.0.0-next.17](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.16...v3.0.0-next.17) (2023-06-14)
 
 
