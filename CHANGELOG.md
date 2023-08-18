@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.18...v3.0.0-next.19) (2023-08-18)
+
+
+### Bug Fixes
+
+* **head:** fix noscript content attribute ([e580fe2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/e580fe2272a8fe66cf84ef9d60f3b86f295f554d))
+
 # [3.0.0-next.18](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.17...v3.0.0-next.18) (2023-08-11)
 
 
