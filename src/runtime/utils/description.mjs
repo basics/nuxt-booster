@@ -74,8 +74,8 @@ export function getStyleDescription(children, noScript = false) {
   }
 }
 
-export function getNoScriptDescription(innerHTML) {
+export function getNoScriptDescription(textContent) {
   return {
-    innerHTML
+    textContent
   };
 }

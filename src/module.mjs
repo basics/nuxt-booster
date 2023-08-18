@@ -53,6 +53,13 @@ export default defineNuxtModule({
 
     setPublicRuntimeConfig(nuxt, moduleOptions);
 
+    // TODO: Remove in future
+    if (isWebpackBuild(nuxt)) {
+      logger.warn(
+        `[${MODULE_NAME}]: Webpack build is not usable yet.\nOpen Issues:\n- Inline Styles (\`https://nuxt.com/docs/api/configuration/nuxt-config#inlinessrstyles\`)`
+      );
+    }
+
     if (moduleOptions.detection.performance && nuxt.options.ssr) {
       if (isWebpackBuild(nuxt)) {
         nuxt.hook(

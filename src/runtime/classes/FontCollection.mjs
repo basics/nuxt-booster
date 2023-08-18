@@ -23,15 +23,6 @@ export default class FontCollection {
     return rootSelector;
   }
 
-  getHeadDescription(critical, crossorigin) {
-    return {
-      link: this.getPreloadDescriptions(critical, crossorigin),
-      style: this.getStyleDescriptions(),
-      noscript: this.getNoScriptStyleDescriptions(),
-      __dangerouslyDisableSanitizers: ['style', 'noscript']
-    };
-  }
-
   getPreloadDescriptions(critical, crossorigin = 'anonymous') {
     return Array.from(
       this.list
