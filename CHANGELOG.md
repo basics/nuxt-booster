@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.19...v3.0.0-next.20) (2023-09-11)
+
+
+### Bug Fixes
+
+* **setup:** fix await call ([f0a9e86](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/f0a9e86ac6af2e7fc41b2e90c8fa22b20ecbd67f))
+
 # [3.0.0-next.19](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.18...v3.0.0-next.19) (2023-08-18)
 
 
