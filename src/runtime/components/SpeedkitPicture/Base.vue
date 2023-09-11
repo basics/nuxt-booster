@@ -26,7 +26,7 @@ import BaseImage from '#speedkit/components/SpeedkitImage/Base';
 import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';
 import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
 
-import { useImage, useHead, useNuxtApp } from '#imports';
+import { ref, useImage, useHead, useNuxtApp } from '#imports';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
@@ -84,21 +84,25 @@ export default {
       sort: props.sortSources
     });
 
-    const metaSources = await sourceList.getMeta($img, $speedkit);
-    const classNames = metaSources.classNames;
+    const metaSources = ref(null);
 
-    if (metaSources.length) {
-      useHead({
-        style: [getPictureStyleDescription(metaSources, classNames)]
-      });
-    }
+    useHead(() => {
+      if (metaSources.value && metaSources.value.length) {
+        const classNames = metaSources.value.classNames;
+        return {
+          style: [getPictureStyleDescription(metaSources.value, classNames)]
+        };
+      }
+    });
+
+    metaSources.value = await sourceList.getMeta($img, $speedkit);
 
     return {
       isCritical,
       resolvedFormats: props.formats || $speedkit.targetFormats,
       sourceList,
       metaSources,
-      classNames
+      classNames: metaSources.value.classNames
     };
   },
 

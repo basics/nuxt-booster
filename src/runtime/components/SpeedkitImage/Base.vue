@@ -23,7 +23,7 @@ import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 import useCritical from '#speedkit/composables/critical';
 
-import { useImage, useNuxtApp, useHead, computed } from '#imports';
+import { ref, useImage, useNuxtApp, useHead, computed } from '#imports';
 
 export default {
   inheritAttrs: false,
@@ -72,35 +72,40 @@ export default {
         ...source.getOptions()
       });
 
-      const meta = await source.getMeta(config.src, $speedkit);
-      const className = meta.className;
+      const meta = ref(null);
 
-      useHead({
-        style: [meta.value && getImageStyleDescription(meta, className)].filter(
-          Boolean
-        ),
-        link: [
-          !(!config || !isCritical.value) &&
-            new Source(source).getPreload(
-              config.srcset,
-              config.sizes,
-              resolvedCrossorigin.value
-            )
-        ].filter(Boolean),
-        noscript: [
-          {
-            key: 'img-nojs',
-            children:
-              '<style>img { content-visibility: unset !important; }</style>'
-          }
-        ]
+      useHead(() => {
+        if (meta.value) {
+          return {
+            style: [
+              meta.value && getImageStyleDescription(meta, meta.value.className)
+            ].filter(Boolean),
+            link: [
+              !(!config || !isCritical.value) &&
+                new Source(source).getPreload(
+                  config.srcset,
+                  config.sizes,
+                  resolvedCrossorigin.value
+                )
+            ].filter(Boolean),
+            noscript: [
+              {
+                key: 'img-nojs',
+                children:
+                  '<style>img { content-visibility: unset !important; }</style>'
+              }
+            ]
+          };
+        }
       });
+
+      meta.value = await source.getMeta(config.src, $speedkit);
 
       return {
         isCritical,
         config,
         meta,
-        className,
+        className: meta.value.className,
         resolvedCrossorigin
       };
     }
