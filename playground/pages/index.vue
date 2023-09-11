@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-index">
     <module-stage v-bind="stage" />
     <module-text-a v-bind="textA" />
     <module-image-text v-bind="imageTextA" />
