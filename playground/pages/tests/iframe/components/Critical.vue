@@ -1,7 +1,7 @@
 <template>
   <preview-container>
     <template #default>
-      <default-iframe class="test-iframe" :iframe-src="iframeSrc" />
+      <default-iframe class="test-iframe" :src="iframeSrc" />
     </template>
     <template #title>
       <p>Critical<br />Iframe</p>

@@ -90,6 +90,13 @@ export default {
   emits: ['playing', 'ready'],
 
   async setup(props) {
+    const script = ref([]);
+    useHead({
+      script: computed(() => {
+        return script.value;
+      })
+    });
+
     const { withQuery } = await import('ufo');
     const videoData = ref(null);
     const iframeMode = ref(false);
@@ -102,12 +109,6 @@ export default {
           .replace(/&amp;/g, '&') ||
         `https://player.vimeo.com/video/${props.videoId}`
     );
-    const script = ref([]);
-    useHead({
-      script: computed(() => {
-        return script.value;
-      })
-    });
 
     try {
       const url = withQuery('https://vimeo.com/api/oembed.json', {
