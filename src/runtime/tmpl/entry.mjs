@@ -35,33 +35,45 @@ function client () {
   const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in window && window.__NUXT_SPEEDKIT_FORCE_INIT__);
 
   async function initApp(force) {
+
     if (initialized) {
       deferred.resolve();
     }
 
     document.documentElement.classList.remove('nuxt-speedkit-reduced-view');
 
-    try {
-
-      <% if (options.performanceCheck) { %>if (!force) {
-        await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
-      }<% } %>
-
-      initialized = true;
-
-      triggerRunCallback(true);
-
-      deferred.resolve();
-
-    } catch (error) {
+    if (<%= !options.ignoreBattery %> && await hasBatteryPerformanceIssue()) {
       triggerRunCallback(false);
 
       if (!!layerEl) {
         // User must interact via the layer.
-        updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-weak-hardware');
+        updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-low-battery');
         return null;
       }
-    }
+    } else {
+
+      try {
+        <% if (options.performanceCheck) { %>if (!force) {
+          await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
+        }<% } %>
+
+        initialized = true;
+
+        triggerRunCallback(true);
+
+        deferred.resolve();
+
+      } catch (error) {
+        triggerRunCallback(false);
+
+        if (!!layerEl) {
+          // User must interact via the layer.
+          updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-weak-hardware');
+          return null;
+        }
+      }
+
+    };
 
     return null;
   };

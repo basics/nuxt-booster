@@ -19,6 +19,9 @@
             </li>
             <!-- Displayed when user hardware are not sufficient.  -->
             <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
+
+            <!-- Displayed when the user batteries are not sufficient.  -->
+            <li id="nuxt-speedkit-message-low-battery">low battery</li>
           </ul>
 
           <!-- Button to hide the layer with no javascript -->
@@ -95,6 +98,10 @@ useHead({
 }
 
 #nuxt-speedkit-message-weak-hardware {
+  display: none;
+}
+
+#nuxt-speedkit-message-low-battery {
   display: none;
 }
 

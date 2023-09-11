@@ -9,6 +9,7 @@
         <li id="nuxt-speedkit-message-unsupported-browser">outdated browser</li>
         <li id="nuxt-speedkit-message-reduced-bandwidth">reduced-bandwidth</li>
         <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
+        <li id="nuxt-speedkit-message-low-battery">low battery</li>
       </ul>
       <div class="info-layer-buttons">
         <base-button

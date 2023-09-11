@@ -12,7 +12,8 @@ export function getDefaultOptions() {
 
     detection: {
       performance: true,
-      browserSupport: true
+      browserSupport: true,
+      battery: true
     },
 
     performanceMetrics: {

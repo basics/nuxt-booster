@@ -56,3 +56,17 @@ export function initReducedView() {
     tmp.remove();
   });
 }
+
+const MIN_BATTERY_LEVEL = 0.2;
+// https://blog.google/products/chrome/new-chrome-features-to-save-battery-and-make-browsing-smoother/
+export async function hasBatteryPerformanceIssue() {
+  try {
+    const battery = await window.navigator.getBattery();
+    if (!battery.charging && battery.level <= MIN_BATTERY_LEVEL) {
+      return true;
+    }
+  } catch (error) {
+    // Ignore Check
+  }
+  return false;
+}
