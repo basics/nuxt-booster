@@ -107,24 +107,21 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'fontConfig.mjs'),
-    fileName: MODULE_NAME + '/fontConfig.mjs',
-    write: true,
-    options: { content: getFontConfigTemplate(fontConfig) }
+    filename: MODULE_NAME + '/fontConfig.mjs',
+    getContents: () => getFontConfigTemplate(fontConfig),
+    write: true
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'fonts.mjs'),
-    fileName: MODULE_NAME + '/fonts.mjs',
-    write: true,
-    options: { content: getFontConfigCSSTemplate(fontConfig) }
+    filename: MODULE_NAME + '/fonts.mjs',
+    getContents: () => getFontConfigCSSTemplate(fontConfig),
+    write: true
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'fonts.css'),
-    fileName: MODULE_NAME + '/fonts.css',
-    write: true,
-    options: { content: fontConfig.toCSS() }
+    filename: MODULE_NAME + '/fonts.css',
+    getContents: () => fontConfig.toCSS(),
+    write: true
   });
 
   ['client', 'server'].forEach(mode => {
@@ -158,13 +155,6 @@ async function addBuildTemplates(nuxt, options) {
       performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
       supportedBrowserDetector
     }
-  });
-
-  addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'fonts.css'),
-    fileName: MODULE_NAME + '/fonts.css',
-    write: true,
-    options: { content: fontConfig.toCSS() }
   });
 }
 
