@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.20...v3.0.0-next.21) (2023-09-12)
+
+
+### Bug Fixes
+
+* **module:** remove unnecessary templates ([a205139](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a205139d1deaa36089e0c684661e39ab2a6559c6))
+
 # [3.0.0-next.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.19...v3.0.0-next.20) (2023-09-11)
 
 
