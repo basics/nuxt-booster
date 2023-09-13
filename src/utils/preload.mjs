@@ -6,7 +6,7 @@ import { render } from 'dom-serializer';
 import { isViteBuild, logger } from '../utils.mjs';
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
-export function optimizePreloads(nuxt) {
+export function optimizePreloads(moduleOptions, nuxt) {
   if (isViteBuild(nuxt)) {
     nuxt.options.vite.build.manifest = false;
     if (nuxt.options.speedkit.disableNuxtCritters) {
@@ -48,7 +48,7 @@ export function optimizePreloads(nuxt) {
               const filepath = join(publicDir, basename($el.attr('href')));
               const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
-              if (nuxt.options.speedkit.disableNuxtCritters) {
+              if (moduleOptions.disableNuxtCritters) {
                 const css = fileContent.replace(/url\(.\//g, `url(${dir}/`);
                 $el.remove();
                 logger.info(

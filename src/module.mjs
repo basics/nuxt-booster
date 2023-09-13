@@ -80,7 +80,7 @@ export default defineNuxtModule({
     }
 
     if (moduleOptions.optimizePreloads) {
-      optimizePreloads(nuxt);
+      optimizePreloads(moduleOptions, nuxt);
     } else {
       logger.warn(
         'Preload optimization is disabled by module option `optimizePreloads`.'
