@@ -1,7 +1,8 @@
 import { <% if (options.performanceCheck) { %>run, <% } %>hasSufficientPerformance, setup } from '#speedkit/utils/performance';
-import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView } from '#speedkit/utils/entry';
+import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView, hasBatteryPerformanceIssue } from '#speedkit/utils/entry';
 import Deferred from '#speedkit/classes/Deferred.mjs';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
+import {video as videoBlob} from './blobs.mjs';
 
 <% if (options.webpack) { %>
 // webpack
@@ -42,7 +43,12 @@ function client () {
 
     document.documentElement.classList.remove('nuxt-speedkit-reduced-view');
 
-    if (<%= !options.ignoreBattery %> && await hasBatteryPerformanceIssue()) {
+    <% if (!options.ignoreBattery) {  %>
+    try {
+      if (!force) {
+        await hasBatteryPerformanceIssue(videoBlob)
+      }
+    } catch (error) {
       triggerRunCallback(false);
 
       if (!!layerEl) {
@@ -50,30 +56,29 @@ function client () {
         updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-low-battery');
         return null;
       }
-    } else {
+    }
+    <% } %>
 
-      try {
-        <% if (options.performanceCheck) { %>if (!force) {
-          await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
-        }<% } %>
+    try {
+      <% if (options.performanceCheck) { %>if (!force) {
+        await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
+      }<% } %>
 
-        initialized = true;
+      initialized = true;
 
-        triggerRunCallback(true);
+      triggerRunCallback(true);
 
-        deferred.resolve();
+      deferred.resolve();
 
-      } catch (error) {
-        triggerRunCallback(false);
+    } catch (error) {
+      triggerRunCallback(false);
 
-        if (!!layerEl) {
-          // User must interact via the layer.
-          updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-weak-hardware');
-          return null;
-        }
+      if (!!layerEl) {
+        // User must interact via the layer.
+        updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-weak-hardware');
+        return null;
       }
-
-    };
+    }
 
     return null;
   };

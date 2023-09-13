@@ -24,6 +24,7 @@ import { optimizePreloads } from './utils/preload.mjs';
 import { getSupportedBrowserDetector } from './utils/browser.mjs';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.mjs';
+import { getTemplate as getBlobFileTemplate } from './utils/blob.mjs';
 
 const resolver = createResolver(import.meta.url);
 
@@ -147,6 +148,14 @@ async function addBuildTemplates(nuxt, options) {
       performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
       supportedBrowserDetector
     }
+  });
+
+  const files = [['video', resolver.resolve('media/video.mp4')]];
+  const mediaContent = await getBlobFileTemplate(files);
+  addTemplate({
+    getContents: () => mediaContent,
+    filename: MODULE_NAME + '/blobs.mjs',
+    write: true
   });
 }
 

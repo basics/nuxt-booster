@@ -57,16 +57,56 @@ export function initReducedView() {
   });
 }
 
-const MIN_BATTERY_LEVEL = 0.2;
-// https://blog.google/products/chrome/new-chrome-features-to-save-battery-and-make-browsing-smoother/
-export async function hasBatteryPerformanceIssue() {
+export async function hasBatteryPerformanceIssue(videoBlob) {
+  await isBatteryLow();
+  await canVideoPlay(videoBlob);
+}
+
+/**
+ * Checks if battery still has enough energy.
+ * This check is for Chrome and all other browsers that support this setting.
+ *
+ * Condition is: The device is not charging and Battery is below <= 20%.
+ * @see https://blog.google/products/chrome/new-chrome-features-to-save-battery-and-make-browsing-smoother/
+ * @see https://developer.chrome.com/blog/memory-and-energy-saver-mode/
+ **/
+async function isBatteryLow() {
+  const MIN_BATTERY_LEVEL = 0.2;
+
   try {
     const battery = await window.navigator.getBattery();
     if (!battery.charging && battery.level <= MIN_BATTERY_LEVEL) {
-      return true;
+      throw new Error('Battery is low.');
     }
   } catch (error) {
     // Ignore Check
   }
-  return false;
+}
+
+/**
+ * Checking whether a video can be played.
+ * This check is for IOS and checks if the power saving mode is enabled.
+ *
+ * In this case no video will be played automatically.
+ */
+export async function canVideoPlay(blob) {
+  const VIDEO_TIMEOUT = 250;
+
+  const video = document.createElement('video');
+  video.muted = true;
+  video.setAttribute('muted', 'muted');
+  video.setAttribute('playsinline', 'playsinline');
+  video.src = URL.createObjectURL(blob);
+
+  const timeout = setTimeout(() => {
+    throw new Error('Video playback not possible. Reason: timeout');
+  }, VIDEO_TIMEOUT);
+
+  try {
+    await video.play();
+    clearTimeout(timeout);
+  } catch (error) {
+    clearTimeout(timeout);
+    throw new Error("Video playback not possible. Reason: can't play video");
+  }
 }
