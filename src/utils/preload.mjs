@@ -7,9 +7,11 @@ import { isViteBuild, logger } from '../utils.mjs';
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export function optimizePreloads(moduleOptions, nuxt) {
+  const disableNuxtCritters = moduleOptions.disableNuxtCritters;
+
   if (isViteBuild(nuxt)) {
     nuxt.options.vite.build.manifest = false;
-    if (nuxt.options.speedkit.disableNuxtCritters) {
+    if (disableNuxtCritters) {
       nuxt.options.vite.build.cssCodeSplit = false;
     }
   }
@@ -48,7 +50,7 @@ export function optimizePreloads(moduleOptions, nuxt) {
               const filepath = join(publicDir, basename($el.attr('href')));
               const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
-              if (moduleOptions.disableNuxtCritters) {
+              if (disableNuxtCritters) {
                 const css = fileContent.replace(/url\(.\//g, `url(${dir}/`);
                 $el.remove();
                 logger.info(
