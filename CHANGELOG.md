@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.24...v3.0.0-next.25) (2023-09-13)
+
+
+### Bug Fixes
+
+* **module:** fix preloads ([91e6897](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/91e6897a0394cbb4dd424f30cff63abbd15198a5))
+
 # [3.0.0-next.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.23...v3.0.0-next.24) (2023-09-13)
 
 
