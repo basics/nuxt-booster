@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.23...v3.0.0-next.24) (2023-09-13)
+
+
+### Bug Fixes
+
+* **font:** update fallback font ([b49fa7c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b49fa7c2fb8a6b02285f191b2bcc2c0f61f6161b))
+
 # [3.0.0-next.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.22...v3.0.0-next.23) (2023-09-13)
 
 
