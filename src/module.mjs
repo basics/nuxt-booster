@@ -111,7 +111,8 @@ async function addBuildTemplates(nuxt, options) {
 
   addTemplate({
     filename: MODULE_NAME + '/fonts.css',
-    getContents: () => fontConfig.toCSS(),
+    getContents: () =>
+      `/*! speedkit-font-faces start */${fontConfig.toCSS()}/*! speedkit-font-faces end */`,
     write: true
   });
 
