@@ -40,7 +40,7 @@ function writeHead(isCritical, fontCollection, runtimeConfig) {
       return fontCollection.getStyleDescriptions(options);
     }),
     noscript: computed(() => {
-      return fontCollection.getNoScriptStyleDescriptions(options);
+      return fontCollection.getNoScriptStyleDescriptions();
     })
   });
 }

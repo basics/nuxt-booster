@@ -50,10 +50,12 @@ export default class Font {
 
   getCSSText({ usedFontaine = false } = {}) {
     const selector = createSelector(this.rootSelector, this.selector);
-    const family = prepareFamily(this.family, { usedFontaine });
+    const family = `"${this.family}"`;
     return wrapByMedia(
       `${selector} {
-        font-family: ${this.fallbackFamily.join(', ')};
+        font-family: ${[getFontaineFallback(this.family, usedFontaine)]
+          .filter(Boolean)
+          .concat(this.fallbackFamily.join(', '))};
         font-weight: ${this.weight};
         font-style: ${this.style};
       }
@@ -64,9 +66,9 @@ export default class Font {
     );
   }
 
-  getNoScriptCSSText({ usedFontaine = false } = {}) {
+  getNoScriptCSSText() {
     const selector = createSelector(this.rootSelector, this.selector);
-    const family = prepareFamily(this.family, { usedFontaine });
+    const family = `"${this.family}"`;
     return wrapByMedia(
       `${selector} {
         font-family: ${[family].concat(this.fallbackFamily).join(', ')};
@@ -123,9 +125,9 @@ function weightNormalize(weight) {
   }
 }
 
-function prepareFamily(family, { usedFontaine = false } = {}) {
-  if (!usedFontaine) {
-    return `"${family}"`;
+function getFontaineFallback(family, usedFontaine) {
+  if (usedFontaine) {
+    return `"${family} fallback"`;
   }
-  return `"${family}", "${family} fallback"`;
+  return '';
 }

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "3.0.0-next.22",
+  "version": "3.0.0-next.23",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -69,7 +69,7 @@
     "@commitlint/config-conventional": "17.7.0",
     "@fullhuman/postcss-purgecss": "5.0.0",
     "@nuxt/module-builder": "0.5.1",
-    "@nuxt/webpack-builder": "3.7.1",
+    "@nuxt/webpack-builder": "3.7.2",
     "@nuxtjs/eslint-config": "12.0.0",
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/stylelint-module": "5.1.0",
@@ -90,7 +90,7 @@
     "husky": "8.0.3",
     "jsdom": "22.1.0",
     "lint-staged": "14.0.1",
-    "nuxt": "^3.7.2",
+    "nuxt": "3.7.2",
     "pinst": "3.0.0",
     "playwright": "1.37.1",
     "postcss-functions": "4.0.2",

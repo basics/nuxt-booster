@@ -50,10 +50,10 @@ export default class FontCollection {
     ]);
   }
 
-  getNoScriptStyleDescriptions(options) {
+  getNoScriptStyleDescriptions() {
     return getRelevantDescriptions([
       getStyleDescription(
-        this.list.map(font => font.getNoScriptCSSText(options)).join(' '),
+        this.list.map(font => font.getNoScriptCSSText()).join(' '),
         true
       )
     ]);

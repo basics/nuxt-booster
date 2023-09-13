@@ -5,13 +5,16 @@ import { load } from 'cheerio';
 import { render } from 'dom-serializer';
 import { isViteBuild, logger } from '../utils.mjs';
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export function optimizePreloads(nuxt) {
   if (isViteBuild(nuxt)) {
     nuxt.options.vite.build.manifest = false;
-    nuxt.options.vite.build.cssCodeSplit = false;
+    if (nuxt.options.speedkit.disableNuxtCritters) {
+      nuxt.options.vite.build.cssCodeSplit = false;
+    }
   }
 
-  nuxt.options.experimental.inlineSSRStyles = false;
+  nuxt.options.experimental.inlineSSRStyles = true;
 
   nuxt.hook('nitro:init', nitro => {
     nitro.hooks.hook('prerender:generate', async route => {
@@ -30,7 +33,7 @@ export function optimizePreloads(nuxt) {
 
       // embed css files
       try {
-        await Promise.all(
+        const css = await Promise.all(
           Array.from($('link[rel="stylesheet"]'))
             .map(el => $(el))
             .map(async $el => {
@@ -43,19 +46,35 @@ export function optimizePreloads(nuxt) {
                 nuxt.options.vite.build.assetsDir
               );
               const filepath = join(publicDir, basename($el.attr('href')));
+              const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
-              let css = await fsPromises.readFile(filepath, 'utf-8');
-              logger.info(
-                `Embed CSS File \`${basename($el.attr('href'))}\`; Route: \`${
-                  route.route
-                }\``
-              );
-
-              css = css.replace(/url\(.\//g, `url(${dir}/`);
-              $('head').append(`<style>${css}</style>`);
-              $el.remove();
+              if (nuxt.options.speedkit.disableNuxtCritters) {
+                const css = fileContent.replace(/url\(.\//g, `url(${dir}/`);
+                $el.remove();
+                logger.info(
+                  `Embed CSS File \`${basename($el.attr('href'))}\`; Route: \`${
+                    route.route
+                  }\``
+                );
+                return css;
+              } else {
+                const matches = fileContent.match(
+                  /\/\*! speedkit-font-faces start \*\/(.*)\/\*! speedkit-font-faces end \*\//
+                );
+                if (matches) {
+                  logger.info(
+                    `Embed Font-Faces CSS \`${basename(
+                      $el.attr('href')
+                    )}\`; Route: \`${route.route}\``
+                  );
+                  return matches[1].replace(/url\(.\//g, `url(${dir}/`);
+                }
+              }
             })
         );
+        if (css.length) {
+          $('head').append(`<style>${css.join('')}</style>`);
+        }
       } catch (error) {
         logger.error("can't embed css file.", error);
       }
