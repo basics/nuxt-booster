@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.25...v3.0.0-next.26) (2023-09-13)
+
+
+### Bug Fixes
+
+* **module:** fix missing var ([0bf9cf0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0bf9cf0c392d959dfa360547cb4441fdcbdc8a4f))
+
 # [3.0.0-next.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.24...v3.0.0-next.25) (2023-09-13)
 
 
