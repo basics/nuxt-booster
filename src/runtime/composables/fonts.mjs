@@ -14,7 +14,7 @@ export default function useFonts(context) {
 
   const fontCollection = reactive(new FontCollection());
 
-  writeHead(isCritical, fontCollection);
+  writeHead(isCritical, fontCollection, runtimeConfig);
 
   return {
     isCritical,
@@ -30,16 +30,17 @@ export default function useFonts(context) {
   };
 }
 
-function writeHead(isCritical, fontCollection) {
+function writeHead(isCritical, fontCollection, runtimeConfig) {
+  const options = { usedFontaine: runtimeConfig.usedFontaine };
   useHead({
     link: computed(() => {
       return fontCollection.getPreloadDescriptions(isCritical.value);
     }),
     style: computed(() => {
-      return fontCollection.getStyleDescriptions();
+      return fontCollection.getStyleDescriptions(options);
     }),
     noscript: computed(() => {
-      return fontCollection.getNoScriptStyleDescriptions();
+      return fontCollection.getNoScriptStyleDescriptions(options);
     })
   });
 }

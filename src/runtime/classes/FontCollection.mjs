@@ -42,16 +42,18 @@ export default class FontCollection {
     );
   }
 
-  getStyleDescriptions() {
+  getStyleDescriptions(options) {
     return getRelevantDescriptions([
-      getStyleDescription(this.list.map(font => font.getCSSText()).join(' '))
+      getStyleDescription(
+        this.list.map(font => font.getCSSText(options)).join(' ')
+      )
     ]);
   }
 
-  getNoScriptStyleDescriptions() {
+  getNoScriptStyleDescriptions(options) {
     return getRelevantDescriptions([
       getStyleDescription(
-        this.list.map(font => font.getNoScriptCSSText()).join(' '),
+        this.list.map(font => font.getNoScriptCSSText(options)).join(' '),
         true
       )
     ]);

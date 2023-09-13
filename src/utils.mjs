@@ -24,7 +24,8 @@ export function isViteBuild(nuxt) {
 export const setPublicRuntimeConfig = (nuxt, options) => {
   nuxt.options.runtimeConfig.public.speedkit = {
     lazyOffsetComponent: options.lazyOffset.component,
-    lazyOffsetAsset: options.lazyOffset.asset
+    lazyOffsetAsset: options.lazyOffset.asset,
+    usedFontaine: !options.disableNuxtFontaine
   };
 };
 
@@ -43,7 +44,8 @@ export async function addNuxtCritters(nuxt) {
     nuxt.options.critters = defu(
       {
         config: {
-          preload: false
+          preload: false,
+          fonts: false
         }
       },
       nuxt.options.critters

@@ -48,9 +48,9 @@ export default class Font {
     return btoa(JSON.stringify(data));
   }
 
-  getCSSText() {
+  getCSSText({ usedFontaine = false } = {}) {
     const selector = createSelector(this.rootSelector, this.selector);
-    const family = `"${this.family}"`;
+    const family = prepareFamily(this.family, { usedFontaine });
     return wrapByMedia(
       `${selector} {
         font-family: ${this.fallbackFamily.join(', ')};
@@ -64,9 +64,9 @@ export default class Font {
     );
   }
 
-  getNoScriptCSSText() {
+  getNoScriptCSSText({ usedFontaine = false } = {}) {
     const selector = createSelector(this.rootSelector, this.selector);
-    const family = `"${this.family}"`;
+    const family = prepareFamily(this.family, { usedFontaine });
     return wrapByMedia(
       `${selector} {
         font-family: ${[family].concat(this.fallbackFamily).join(', ')};
@@ -121,4 +121,11 @@ function weightNormalize(weight) {
     default:
       return weight;
   }
+}
+
+function prepareFamily(family, { usedFontaine = false } = {}) {
+  if (!usedFontaine) {
+    return `"${family}"`;
+  }
+  return `"${family}", "${family} fallback"`;
 }
