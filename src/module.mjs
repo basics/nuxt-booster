@@ -19,10 +19,7 @@ import {
   setPublicRuntimeConfig
 } from './utils.mjs';
 import { getDefaultOptions } from './utils/options.mjs';
-import {
-  getFontConfigTemplate,
-  getFontConfigCSSTemplate
-} from './utils/template.mjs';
+import { getFontConfigTemplate } from './utils/template.mjs';
 import { optimizePreloads } from './utils/preload.mjs';
 import { getSupportedBrowserDetector } from './utils/browser.mjs';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
