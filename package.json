@@ -69,7 +69,7 @@
     "@commitlint/config-conventional": "17.7.0",
     "@fullhuman/postcss-purgecss": "5.0.0",
     "@nuxt/module-builder": "0.5.1",
-    "@nuxt/webpack-builder": "3.7.1",
+    "@nuxt/webpack-builder": "3.7.2",
     "@nuxtjs/eslint-config": "12.0.0",
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/stylelint-module": "5.1.0",
