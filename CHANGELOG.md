@@ -1,5 +1,20 @@
 # Project Changelog
 
+# [3.0.0-next.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.21...v3.0.0-next.22) (2023-09-13)
+
+
+### Bug Fixes
+
+* **font:**  fix missing fontaine fallback family ([c793fd5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c793fd5a3665133f92480a4d1ac6bd4cc039d1e5))
+* **ssr:** added style embed in prerenderer ([5abdc58](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5abdc58a3bb7329729e0535dea1ac22e6f911a6c))
+
+# [3.0.0-next.21](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.20...v3.0.0-next.21) (2023-09-12)
+
+
+### Bug Fixes
+
+* **module:** remove unnecessary templates ([a205139](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a205139d1deaa36089e0c684661e39ab2a6559c6))
+
 # [3.0.0-next.20](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.19...v3.0.0-next.20) (2023-09-11)
 
 
