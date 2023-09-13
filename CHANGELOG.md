@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.22...v3.0.0-next.23) (2023-09-13)
+
+
+### Bug Fixes
+
+* **module:** improve critters handling ([315e2fe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/315e2fe5aa764ba9da424e26d14eb5bb088ddb70))
+
 # [3.0.0-next.22](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.21...v3.0.0-next.22) (2023-09-13)
 
 
