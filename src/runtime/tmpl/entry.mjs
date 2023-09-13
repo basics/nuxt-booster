@@ -43,7 +43,7 @@ function client () {
 
     document.documentElement.classList.remove('nuxt-speedkit-reduced-view');
 
-    <% if (!options.ignoreBattery) {  %>
+    <% if (!options.ignore.battery) {  %>
     try {
       if (!force) {
         await hasBatteryPerformanceIssue(videoBlob)
@@ -95,7 +95,7 @@ function client () {
 
       setup(<%= options.performanceMetrics %>);
 
-      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
+      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignore.performance %> && hasSufficientPerformance()) && supportedBrowser)) {
         initApp();
       } else {
         setupSpeedkitLayer(layerEl, supportedBrowser)

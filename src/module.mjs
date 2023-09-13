@@ -144,8 +144,10 @@ async function addBuildTemplates(nuxt, options) {
       entry: join(nuxt.options.appDir, 'entry'),
       runOptions: options.runOptions,
       ssr: nuxt.options.ssr,
-      ignorePerformance: !options.detection.performance,
-      ignoreBattery: !options.detection.battery,
+      ignore: {
+        battery: !options.detection.battery,
+        performance: !options.detection.performance
+      },
       performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
       supportedBrowserDetector
     }
