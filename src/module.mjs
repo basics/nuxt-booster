@@ -113,12 +113,6 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   addTemplate({
-    filename: MODULE_NAME + '/fonts.mjs',
-    getContents: () => getFontConfigCSSTemplate(fontConfig),
-    write: true
-  });
-
-  addTemplate({
     filename: MODULE_NAME + '/fonts.css',
     getContents: () => fontConfig.toCSS(),
     write: true

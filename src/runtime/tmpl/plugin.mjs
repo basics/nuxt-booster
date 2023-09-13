@@ -2,11 +2,13 @@ import vFont from '#speedkit/directives/vFont';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 import FontList from '#speedkit/classes/FontList';
 import hydrate from '#speedkit/hydrate';
+import './fonts.css';
 
 export default defineNuxtPlugin({
   name: 'speedkit-plugin',
   enforce: 'post',
   async setup(nuxtApp) {
+
     const fontConfig = await import('./fontConfig.mjs').then(
       module => module.default || module
     );
@@ -21,20 +23,6 @@ export default defineNuxtPlugin({
       targetFormats: <%= JSON.stringify(options.targetFormats) %>
     });
 
-
-    const fonts = await import('./fonts.mjs').then(
-      module => module.default || module
-    );
-
-    useHead({
-      style: [
-        {
-          key: 'speedkit-fonts',
-          type: 'text/css',
-          children: fonts
-        }
-      ]
-    });
   },
   hooks: {
     'app:created'() {

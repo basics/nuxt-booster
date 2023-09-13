@@ -43,7 +43,8 @@ export async function addNuxtCritters(nuxt) {
     nuxt.options.critters = defu(
       {
         config: {
-          preload: false
+          preload: false,
+          fonts: false
         }
       },
       nuxt.options.critters
