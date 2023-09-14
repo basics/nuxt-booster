@@ -29,7 +29,7 @@
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/robots": "3.0.0",
     "@nuxtlabs/github-module": "1.6.3",
-    "nuxt": "3.7.2",
+    "nuxt": "3.7.3",
     "theme-colors": "0.0.5"
   }
 }
