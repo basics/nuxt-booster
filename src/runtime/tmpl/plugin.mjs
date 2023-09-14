@@ -56,7 +56,8 @@ async function getImageSize (src) {
     const blob = await useRequestFetch()(url);
     const { imageMeta } = await import('image-meta').then(
       module => module.default || module
-    );console.error(URL.createObjectURL(blob))
+    );
+    console.error('blob?',blob)
     const data = await fetch(URL.createObjectURL(blob)).then(async res =>
       Buffer.from(await res.arrayBuffer())
     );
