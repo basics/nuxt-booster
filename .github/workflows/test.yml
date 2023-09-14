@@ -36,6 +36,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Install Playwright
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+
       - name: Lint
         run: npm run lint
 
