@@ -51,13 +51,12 @@ async function getImageSize (src) {
     let url = src;
     if (isNitroPrerender) {
       url = url.replace(useRequestURL().origin, '');
-      console.error('url',url)
     }
     const blob = await useRequestFetch()(url);
     const { imageMeta } = await import('image-meta').then(
       module => module.default || module
     );
-    console.error('blob?',blob)
+
     const data = await fetch(URL.createObjectURL(blob)).then(async res =>
       Buffer.from(await res.arrayBuffer())
     );
