@@ -49,6 +49,9 @@ function client () {
         await hasBatteryPerformanceIssue(videoBlob)
       }
     } catch (error) {
+
+      console.warn(error)
+
       triggerRunCallback(false);
 
       if (!!layerEl) {
@@ -71,6 +74,9 @@ function client () {
       deferred.resolve();
 
     } catch (error) {
+
+      console.warn(error)
+
       triggerRunCallback(false);
 
       if (!!layerEl) {

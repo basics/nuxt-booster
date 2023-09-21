@@ -72,14 +72,9 @@ export async function hasBatteryPerformanceIssue(videoBlob) {
  **/
 async function isBatteryLow() {
   const MIN_BATTERY_LEVEL = 0.2;
-
-  try {
-    const battery = await window.navigator.getBattery();
-    if (!battery.charging && battery.level <= MIN_BATTERY_LEVEL) {
-      throw new Error('Battery is low.');
-    }
-  } catch (error) {
-    // Ignore Check
+  const battery = await window.navigator.getBattery();
+  if (!battery.charging && battery.level <= MIN_BATTERY_LEVEL) {
+    throw new Error('Battery is low.');
   }
 }
 
@@ -90,23 +85,14 @@ async function isBatteryLow() {
  * In this case no video will be played automatically.
  */
 export async function canVideoPlay(blob) {
-  const VIDEO_TIMEOUT = 250;
-
   const video = document.createElement('video');
   video.muted = true;
-  video.setAttribute('muted', 'muted');
-  video.setAttribute('playsinline', 'playsinline');
+  video.playsinline = true;
   video.src = URL.createObjectURL(blob);
-
-  const timeout = setTimeout(() => {
-    throw new Error('Video playback not possible. Reason: timeout');
-  }, VIDEO_TIMEOUT);
 
   try {
     await video.play();
-    clearTimeout(timeout);
   } catch (error) {
-    clearTimeout(timeout);
     throw new Error("Video playback not possible. Reason: can't play video");
   }
 }
