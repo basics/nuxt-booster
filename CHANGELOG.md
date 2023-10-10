@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.26...v3.0.0-next.27) (2023-10-10)
+
+
+### Bug Fixes
+
+* **module:** fix missing warn ([eb1602d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/eb1602d6070ee8c30cdcb4cbf7ce3b8dd001a6df))
+
 # [3.0.0-next.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.25...v3.0.0-next.26) (2023-09-13)
 
 
