@@ -84,15 +84,10 @@ async function isBatteryLow() {
  *
  * In this case no video will be played automatically.
  */
-export async function canVideoPlay(blob) {
+export function canVideoPlay(blob) {
   const video = document.createElement('video');
   video.muted = true;
   video.playsinline = true;
   video.src = URL.createObjectURL(blob);
-
-  try {
-    await video.play();
-  } catch (error) {
-    throw new Error("Video playback not possible. Reason: can't play video");
-  }
+  return video.play();
 }
