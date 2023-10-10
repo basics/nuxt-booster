@@ -74,7 +74,7 @@ export default defineNuxtModule({
         );
       }
     } else {
-      logger(
+      logger.warn(
         'Module functionality is limited without ssr and performance check'
       );
     }
