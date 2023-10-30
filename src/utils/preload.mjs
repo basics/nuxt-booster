@@ -1,5 +1,5 @@
 import { promises as fsPromises } from 'fs';
-import { basename, dirname, join } from 'path';
+import { basename, dirname, join, resolve } from 'path';
 import { parseDocument } from 'htmlparser2';
 import { load } from 'cheerio';
 import { render } from 'dom-serializer';
@@ -16,7 +16,7 @@ export function optimizePreloads(moduleOptions, nuxt) {
     }
   }
 
-  nuxt.options.experimental.inlineSSRStyles = true;
+  nuxt.options.experimental.inlineSSRStyles = false;
 
   nuxt.hook('nitro:init', nitro => {
     nitro.hooks.hook('prerender:generate', async route => {
@@ -50,8 +50,15 @@ export function optimizePreloads(moduleOptions, nuxt) {
               const filepath = join(publicDir, basename($el.attr('href')));
               const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
+              let urls = getUrlValues(fileContent);
+              urls = prepareUrls(urls, dir);
+
               if (disableNuxtCritters) {
-                const css = fileContent.replace(/url\(.\//g, `url(${dir}/`);
+                const css = urls.reduce(
+                  (result, [a, b]) => result.replace(a, b),
+                  fileContent
+                );
+
                 $el.remove();
                 logger.info(
                   `Embed CSS File \`${basename($el.attr('href'))}\`; Route: \`${
@@ -83,5 +90,18 @@ export function optimizePreloads(moduleOptions, nuxt) {
 
       route.contents = render(document);
     });
+  });
+}
+
+function getUrlValues(css) {
+  return css.match(/url\(([^)]+)\)/g);
+}
+
+function prepareUrls(urls, relativeDir) {
+  return urls.map(url => {
+    return [
+      url,
+      `url(${resolve(relativeDir, url.replace(/^url\((.*)\)$/, '$1'))})`
+    ];
   });
 }
