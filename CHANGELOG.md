@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.29...v3.0.0-next.30) (2023-10-30)
+
+
+### Bug Fixes
+
+* **preload:** ignore url link tags ([3188864](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/31888645a9614c8b280b3dcc2d874eca39a13101))
+
 # [3.0.0-next.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.28...v3.0.0-next.29) (2023-10-30)
 
 
