@@ -48,7 +48,7 @@
     "dist"
   ],
   "dependencies": {
-    "@nuxt/image": "1.0.0-rc.3",
+    "@nuxt/image": "1.0.0",
     "@nuxtjs/critters": "0.5.1",
     "@nuxtjs/fontaine": "0.4.1",
     "browserslist-useragent-regexp": "4.1.0",
