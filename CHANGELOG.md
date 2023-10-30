@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.27...v3.0.0-next.28) (2023-10-30)
+
+
+### Bug Fixes
+
+* **preload:** fix invalid css url paths and … ([961c4b2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/961c4b20da6204127b22d1838033db9b01539cf5))
+
 # [3.0.0-next.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.26...v3.0.0-next.27) (2023-10-10)
 
 
