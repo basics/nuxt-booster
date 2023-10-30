@@ -26,6 +26,7 @@ export default (nuxt, disableNuxtCritters = true) =>
         const css = await Promise.all(
           Array.from($('link[rel="stylesheet"]'))
             .map(el => $(el))
+            .filter($el => !isURL($el.attr('href')))
             .map(async $el => {
               const dir = dirname($el.attr('href'));
 
@@ -91,10 +92,17 @@ function prepareUrls(urls, relativeDir) {
         .trim()
         .replace(/^url\((.*)\)$/, '$1')
         .trim();
-      if (value.startsWith('http') || value.startsWith('data')) {
+      if (isURL(value) || isDataURI(value)) {
         return false;
       }
       return [url, `url(${resolve(relativeDir, value)})`];
     })
     .filter(Boolean);
+}
+
+function isURL(value) {
+  return value.startsWith('http') || value.startsWith('//');
+}
+function isDataURI(value) {
+  return value.startsWith('data:');
 }
