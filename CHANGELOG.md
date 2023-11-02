@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.30...v3.0.0-next.31) (2023-11-02)
+
+
+### Bug Fixes
+
+* **jsconfig:** nuxt inherit -> working autosuggest ([9953a9e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9953a9e38c52498090bc81952567a8953b15ace0))
+
 # [3.0.0-next.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.29...v3.0.0-next.30) (2023-10-30)
 
 
