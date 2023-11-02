@@ -30,6 +30,6 @@
     "@nuxtjs/robots": "3.0.0",
     "@nuxtlabs/github-module": "1.6.3",
     "nuxt": "3.8.0",
-    "theme-colors": "0.0.5"
+    "theme-colors": "0.1.0"
   }
 }
