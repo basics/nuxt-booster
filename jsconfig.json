@@ -1,8 +1,5 @@
 {
   "extends": "./playground/.nuxt/tsconfig.json",
-  "vueCompilerOptions": {
-    "target": 2.7
-  },
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
