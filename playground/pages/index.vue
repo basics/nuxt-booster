@@ -49,12 +49,14 @@ const stage = {
           xl: '100vw',
           xxl: '100vw'
         },
-        media: '(orientation: landscape)'
+        media: '(orientation: landscape)',
+        densities: ['x1', 'x2']
       },
       {
         src: '/img/stage-portrait.jpg',
         sizes: { default: '100vw', xxs: '100vw', xs: '100vw' },
-        media: '(orientation: portrait)'
+        media: '(orientation: portrait)',
+        densities: ['x1', 'x2']
       }
     ]
   }
@@ -86,7 +88,8 @@ const imageTextA = {
           xxl: '100vw'
         }
       }
-    ]
+    ],
+    densities: ['x1', 'x2']
   }
 };
 
@@ -117,7 +120,8 @@ const imageTextB = {
           xxl: '100vw'
         }
       }
-    ]
+    ],
+    densities: ['x1', 'x2']
   }
 };
 

@@ -10,9 +10,10 @@ export default class Source {
   format = null;
   quality = null;
   preload = false;
-  modifiers = {};
-  provider = undefined; // https://image.nuxtjs.org/api/optionsproviders
-  preset = undefined; // https://image.nuxtjs.org/api/optionspresets
+  modifiers = {}; // https://image.nuxt.com/usage/nuxt-img#modifiers
+  provider = undefined; // https://image.nuxt.com/usage/nuxt-img#provider
+  preset = undefined; // https://image.nuxt.com/usage/nuxt-img#preset
+  densities = undefined; // https://image.nuxt.com/usage/nuxt-img#densities
 
   constructor({
     src,
@@ -25,7 +26,8 @@ export default class Source {
     preload = false,
     modifiers = {},
     provider = undefined,
-    preset = undefined
+    preset = undefined,
+    densities = undefined
   }) {
     this.src = src;
     this.sizes = sizes;
@@ -38,6 +40,7 @@ export default class Source {
     this.modifiers = modifiers;
     this.provider = provider;
     this.preset = preset;
+    this.densities = densities;
   }
 
   get key() {
@@ -65,7 +68,14 @@ export default class Source {
   }
 
   getOptions() {
-    return { provider: this.provider, preset: this.preset };
+    return {
+      provider: this.provider,
+      preset: this.preset,
+      densities: []
+        .concat(this.densities || 1)
+        .map(v => String(v).trim())
+        .join(' ')
+    };
   }
 
   getMeta(compiledSrc, $speedkit) {
@@ -100,7 +110,8 @@ export default class Source {
       preload: this.preload,
       modifiers: this.modifiers,
       provider: this.provider,
-      preset: this.preset
+      preset: this.preset,
+      densities: this.densities
     };
   }
 
