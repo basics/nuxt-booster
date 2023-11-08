@@ -1,5 +1,5 @@
 import { promises as fsPromises } from 'fs';
-import { basename, dirname, join, resolve } from 'path';
+import { basename, dirname, join, resolve } from 'pathe';
 import { parseDocument } from 'htmlparser2';
 import { load } from 'cheerio';
 import { render } from 'dom-serializer';

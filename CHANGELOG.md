@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.31...v3.0.0-next.32) (2023-11-08)
+
+
+### Bug Fixes
+
+* **update:** replaced `path` with `pathe` ([a9755eb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a9755eb8dd066fa2c69e3eb87361891b5496d75c))
+
 # [3.0.0-next.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.30...v3.0.0-next.31) (2023-11-02)
 
 

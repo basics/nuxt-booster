@@ -1,6 +1,6 @@
-import { resolve as fsResolve } from 'path';
 import { existsSync, promises as fsPromises } from 'fs';
 import http from 'http';
+import pathe from 'pathe';
 import { JSDOM } from 'jsdom';
 import rimraf from 'rimraf';
 import finalhandler from 'finalhandler';
@@ -49,7 +49,7 @@ export const deleteDir = path => {
 
 export const getHTML = (path = '') => {
   // eslint-disable-next-line security/detect-non-literal-fs-filename
-  return fsPromises.readFile(fsResolve(path, 'index.html'), 'utf-8');
+  return fsPromises.readFile(pathe.resolve(path, 'index.html'), 'utf-8');
 };
 
 export const startStaticServer = async (dist, port, hostname = 'localhost') => {
