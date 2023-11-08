@@ -124,6 +124,7 @@ async function addBuildTemplates(nuxt, options) {
       mode,
       options: {
         mode,
+        densities: options.densities,
         targetFormats: options.targetFormats,
         crossorigin: getCrossorigin(options.crossorigin),
         supportedBrowserDetector,

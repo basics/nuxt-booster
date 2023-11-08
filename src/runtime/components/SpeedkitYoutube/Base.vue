@@ -88,10 +88,8 @@ export default {
     },
 
     posterDensities: {
-      type: [Array, String],
-      default() {
-        return ['x1', 'x2'];
-      }
+      type: [String, Number],
+      default: undefined
     }
   },
 

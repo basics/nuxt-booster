@@ -25,6 +25,7 @@ export function getDefaultOptions() {
     fonts: [],
 
     targetFormats: null,
+    densities: 'x1 x2',
 
     /**
      * IntersectionObserver rootMargin for Compoennts and Assets

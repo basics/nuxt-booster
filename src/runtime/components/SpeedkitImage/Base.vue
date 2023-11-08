@@ -69,7 +69,7 @@ export default {
       const config = $img.getSizes(source.src, {
         sizes: source.sizes,
         modifiers: source.getModifiers(),
-        ...source.getOptions()
+        ...source.getOptions($speedkit)
       });
 
       const meta = ref(null);

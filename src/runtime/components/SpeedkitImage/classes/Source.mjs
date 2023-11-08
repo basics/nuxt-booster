@@ -67,14 +67,11 @@ export default class Source {
     return { ...this.modifiers, format: this.format, quality: this.quality };
   }
 
-  getOptions() {
+  getOptions($speedkit) {
     return {
       provider: this.provider,
       preset: this.preset,
-      densities: []
-        .concat(this.densities || 1)
-        .map(v => String(v).trim())
-        .join(' ')
+      densities: this.densities || $speedkit.densities
     };
   }
 

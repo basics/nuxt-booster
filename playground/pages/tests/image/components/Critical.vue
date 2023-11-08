@@ -27,8 +27,7 @@ const image = {
       lg: '100vw',
       xl: '100vw',
       xxl: '100vw'
-    },
-    densities: ['x1', 'x2']
+    }
   }
 };
 </script>

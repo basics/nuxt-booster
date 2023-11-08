@@ -84,7 +84,7 @@ export default class SourceList {
         const config = $img.getSizes(source.src, {
           sizes: source.sizes,
           modifiers: source.getModifiers(),
-          ...source.getOptions()
+          ...source.getOptions($speedkit)
         });
         return source.getMeta(config.src, $speedkit);
       })
