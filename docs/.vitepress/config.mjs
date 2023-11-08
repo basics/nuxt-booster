@@ -34,7 +34,31 @@ export default defineConfig({
         items: [
           {text: 'Setup', link: '/guide/setup'},
           {text: 'Options', link: '/guide/options'},
-          {text: 'Usage', link: '/guide/usage'}
+          {text: 'Usage', link: '/guide/usage'},
+          {text: 'Caveats', link: '/guide/caveats'}
+        ]
+      },
+      {
+        text: 'Composables',
+        items: [
+          {text: 'useFont', link: '/composables/useFont'},
+          {text: 'useCritical', link: '/composables/useCritical'},
+          {text: 'useConfig', link: '/composables/useConfig'},
+          {text: 'useComponentObserver', link: '/composables/useComponentObserver'}
+
+
+        ]
+      },
+      {
+        text: 'Directives',
+        items:[
+          {text: 'v-font', link: '/directives/v-font'},
+        ]
+      },
+      {
+        text: 'Components',
+        items: [
+          {text: 'SpeedkitLayer', link: '/components/speedkit-layer'},
         ]
       }
     ],

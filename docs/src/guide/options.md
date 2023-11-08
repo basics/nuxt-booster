@@ -34,7 +34,7 @@ The following NuxtJS settings are made or overwritten in the `nuxt.config`:
 
 - Type: `Object`
 
-These options can be used to define the initial checks to display the [`SpeedkitLayer`](/v3/guide/components/speedkit-layer). The prerequisite are that the [`SpeedkitLayer`](/v3/guide/components/speedkit-layer) has been embedded into the layout.
+These options can be used to define the initial checks to display the [`SpeedkitLayer`](/guide/components/speedkit-layer). The prerequisite are that the [`SpeedkitLayer`](/components/speedkit-layer) has been embedded into the layout.
   
 ````js
 {
@@ -45,8 +45,8 @@ These options can be used to define the initial checks to display the [`Speedkit
 
  | Key              | Type      | Required | Description                                                                                                                                                                                        | Default |
  | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/v3/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/v3/guide/components/speedkit-layer) will be displayed. | `true`  |
- | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/v3/guide/components/speedkit-layer) will be displayed.                                            | `true`  |
+ | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/guide/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed. | `true`  |
+ | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed.                                            | `true`  |
 
 ::: info
 For the browser support detection, the default [Browserslist](https://github.com/browserslist/browserslist) of the NuxtJS configuration is used.
@@ -93,7 +93,7 @@ Definition of the minimum hardware requirements for visiting the website.
 
 - Type: `Object`
 
-Definition of the max. FCP duration (ms). If the specified value is exceeded, the [`SpeedkitLayer`](/v3/guide/components/speedkit-layer) will be displayed. If the browser does not grant access to the FCP, as fallback the DCL will be evaluated.
+Definition of the max. FCP duration (ms). If the specified value is exceeded, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed. If the browser does not grant access to the FCP, as fallback the DCL will be evaluated.
 
 ````js
 {
@@ -111,7 +111,7 @@ Definition of the max. FCP duration (ms). If the specified value is exceeded, th
 
 - Type: `Array`
 
-List of all font families used in the project. Only the fonts that are listed in the configuration can be retrieved and integrated via [`$fonts.getFont(...)`](/v3/directives/v-font).
+List of all font families used in the project. Only the fonts that are listed in the configuration can be retrieved and integrated via [`$fonts.getFont(...)`](/directives/v-font).
 
 ````js
 [
@@ -205,7 +205,7 @@ List of all available font files of a font family variation.
 
 Sets the default formats for the `SpeedkitPicture`.
 
-Can be overridden in the `SpeedkitPicture` via the [`formats`](/v3/guide/components/speedkit-picture#formats) property.
+Can be overridden in the `SpeedkitPicture` via the [`formats`](/components/speedkit-picture#formats) property.
 
 For `png`, `jpeg` and `gif` formats we have added the `|` operator in the declaration.  
 This adjusts the destination format to the source format.
@@ -251,7 +251,7 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
  | Key         | Type     | Required | Description                                                                                                                                                                       | Default |
  | ----------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/v3/usage#import-components).                         | `0%`    |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/guide/usage#import-components).                         | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `SpeedkitPicture` & `SpeedkitImage`). | `0%`    |
 
 ## `disableNuxtCritters`

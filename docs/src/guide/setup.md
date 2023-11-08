@@ -144,4 +144,4 @@ More about `@nuxt/image` module options can be found [here](https://image.nuxtjs
 
 :::
 
-See [module options](/v3/guide/options).
+See [module options](/guide/options).

@@ -1,6 +1,7 @@
 ---
 title: Usage
 ---
+
 # {{$frontmatter.title}}
 
 The following tools are provided to optimize your webpage:
@@ -26,7 +27,7 @@ The cool thing about this is that it saves the additional declaration in the CSS
 <element v-font="$getFont(…)" />
 ````
 
-[Learn more](/v3/directives/v-font) about directive `v-font`.
+[Learn more](/directives/v-font) about directive `v-font`.
 
 ::: warning
 Fonts are no longer explicitly defined via CSS, otherwise the loading behavior of the fonts cannot be controlled and an optimized loading behavior of the page can no longer be guaranteed.
@@ -51,7 +52,7 @@ export default {
 };
 ````
 
-Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the [nuxt.config](/v3/options#lazyoffset).
+Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the [nuxt.config](/guide/options#lazyoffset).
 
 ::: warning
 Although the <code>#speedkit/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
@@ -65,12 +66,12 @@ With <code>NODE-ENV (development)</code>, the components are included directly. 
 
 In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `#speedkit/components`.
 
-- [SpeedkitLayer](/v3/guide/components/speedkit-layer)
-- [SpeedkitPicture](/v3/guide/components/speedkit-picture)
-- [SpeedkitImage](/v3/guide/components/speedkit-image)
-- [SpeedkitIframe](/v3/guide/components/speedkit-iframe)
-- [SpeedkitVimeo](/v3/guide/components/speedkit-vimeo)
-- [SpeedkitYoutube](/v3/guide/components/speedkit-youtube)
+- [SpeedkitLayer](/components/speedkit-layer)
+- [SpeedkitPicture](/components/speedkit-picture)
+- [SpeedkitImage](/components/speedkit-image)
+- [SpeedkitIframe](/components/speedkit-iframe)
+- [SpeedkitVimeo](/components/speedkit-vimeo)
+- [SpeedkitYoutube](/components/speedkit-youtube)
 
 ````html
 <template>
@@ -95,4 +96,4 @@ The speedkit components will be expanded in the future. If you have explicit wis
 
 You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
 
-<iframe border="0" style="width: " src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark"></iframe>
+<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark"></iframe>
