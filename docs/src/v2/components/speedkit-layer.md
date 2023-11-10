@@ -6,14 +6,17 @@ title: SpeedkitLayer
 
 If the SpeedkitLayer is implemented, the javascript initialisation is automatically monitored. If one of the events
 
-- ✅ reduced bandwidth
-- ✅ weak hardware
-- ✅ unsupported browser
+::: info
+
+- reduced bandwidth
+- weak hardware
+- unsupported browser
+:::
 
 occurs, the process is paused and only continued or cancelled after a user interaction in the layer.
 
 The layer is placed once in the layout (e.g. `layouts/default.vue`).
-The included SpeedkitLayer serves as a wrapper and must be filled according to the [template](/components/speedkit-layer#template), see [example component](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
+The included SpeedkitLayer serves as a wrapper and must be filled according to the [template](/v2/v2/components/speedkit-layer#template), see [example component](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
 
 The content contains messages and buttons that are displayed in the respective event.
 Messages and buttons are defined with an `id`, these are set to `display: none;` by default via CSS.
@@ -21,8 +24,8 @@ Messages and buttons are defined with an `id`, these are set to `display: none;`
 - e.g. `nuxt-speedkit-message-unsupported-browser` for message
 - e.g. `nuxt-speedkit-button-init-app` for button
 
-::: info
-For the closing mechanism of the layer, see [Hide Layer](/components/speedkit-layer#hide-layer).
+::: tip
+For the closing mechanism of the layer, see [Hide Layer](/v2/v2/components/speedkit-layer#hide-layer).
 :::
 
 ## Messages
@@ -37,7 +40,7 @@ When an event is triggered, the relevant message is displayed via the ID using t
 | <nobr>`nuxt-speedkit-message-nojs`</nobr>                | Javascript is disabled.                                                     |
 | <nobr>`nuxt-speedkit-message-reduced-bandwidth`</nobr>   | Connection bandwidth is too low.                                            |
 | <nobr>`nuxt-speedkit-message-weak-hardware`</nobr>       | User hardware are not sufficient.                                           |
-| <nobr>`nuxt-speedkit-message-unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/guide/options#browsersupport). |
+| <nobr>`nuxt-speedkit-message-unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/v2/options#browsersupport). |
 
 **Example**
 
@@ -62,12 +65,12 @@ When an event is triggered, the relevant button is displayed via the ID using th
 
 | ID                                                    | Description                                                                                                                                                       |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <nobr>`nuxt-speedkit-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/speedkit-layer#hide-layer) implementation. |
+| <nobr>`nuxt-speedkit-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/v2/components/speedkit-layer#hide-layer) implementation. |
 | <nobr>`nuxt-speedkit-button-init-reduced-view`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts and images. Other initialisations of the Javascript are prevented.          |
 | <nobr>`nuxt-speedkit-button-init-app`</nobr>          | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                       |
 
 ::: info
-It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-speedkit-button-init-reduced-view` and `#nuxt-speedkit-button-init-app`.<br><br>More information under [Force App initialization](/components/speedkit-layer#force-app-initialization)
+It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-speedkit-button-init-reduced-view` and `#nuxt-speedkit-button-init-app`.<br><br>More information under [Force App initialization](/v2/components/speedkit-layer#force-app-initialization)
 :::
 
 ## Hide Layer
@@ -80,7 +83,9 @@ It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-s
 
 The layer can be closed via a `for` attribute with the `id` `nuxt-speedkit-layer-close`.
 
-- ✅ Closing mechanics does not require javascript.
+::: tip
+Closing mechanics does not require javascript.
+:::
 
 ## Template
 

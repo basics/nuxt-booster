@@ -12,12 +12,9 @@ Iframes have a tendency, in the special case of the initial page load, to disrup
 
 **For the user, this is particularly visible by:**
 
-::: warning
-
 - Freeze (Short freeze of the page)
-- Delayed loading of resources  (images, fonts)
+- Delayed loading of resources  (Bilder, Fonts)
 - Unnecessarily generated traffic
-:::
 
 ## Solution
 
@@ -27,12 +24,9 @@ This sets the source on the iframe only when the visible viewport has been reach
 
 **The following conditions can thus be fulfilled:**
 
-::: tip
-
 - Iframe load is reactive.
 - No resources are blocked during loading.
 - Traffic is only generated when the iframe is visible.
-:::
 
 The strategy mentioned above is provided by the `SpeedkitIframe`, which can be used in the same way as a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 The included [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) is configured via the `intersectionObserver` property.
@@ -45,29 +39,31 @@ The `SpeedkitIframe` is used like a normal [HTML Iframe](https://www.w3schools.c
 
 ````vue
 <template>
-  <speedkit-iframe v-bind="iframe" @load="onLoadIframe" />
+  <speedkit-iframe v-bind="iframe" @load="onIFrameLoaded" />
 </template>
 
-<script setup>
-const src = defineProps({
-  src: String,
-  componentObserver: {
-    type: Object,
-    default() {
-      return { trackVisibility: true, delay: 350 };
+<script>
+  export default {
+    data: {
+      iframe: {
+       src: '…',
+       intersectionObserver: { trackVisibility: true, delay: 350 }
+      }
+    },
+    methods: {
+      onIFrameLoaded (){
+        console.log('iframe loaded!');
+      }
     }
-  }
-});
-
-const onLoadIframe = () => console.log('iframe loaded!');
+  };
 </script>
 ````
 
 ## Properties
 
 > Use native attributes from [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
->
-### `componentObserver`
+
+### `intersectionObserver`
 
 - Type: `Object` [IntersectionObserver Properties](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties)
   - Default: `{ trackVisibility: true, delay: 350 }`
@@ -80,8 +76,8 @@ For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about
 
 ````html
 <speedkit-iframe 
-  @load="console.log('Iframe Loaded!')" 
-  @enter="console.log('Iframe enter viewport!')" 
+  @load="console.log('Loaded!')" 
+  @enter="console.log('Enter Viewport!')" 
 />
 ````
 

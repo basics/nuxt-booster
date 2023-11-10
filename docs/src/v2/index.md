@@ -1,5 +1,6 @@
 ---
 outline: deep
+
 title: Introduction
 ---
 
@@ -11,10 +12,14 @@ title: Introduction
 
 [Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
 
-::: tip You are reading the documentation for Nuxt Speedkit (v3)!
+::: warning
+You are reading Nuxt Speedkit v2 docs. [For Nuxt 3 go to the v3 docs](/v3/)
+:::
 
-- **Nuxt Speedkit (v2)** documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v2/](https://nuxt-speedkit.grabarzundpartner.dev/v2/).  
-- Upgrading from **Nuxt Speedkit (v2)** ? Check out the [Migration Guide](/migration/v3/).
+::: tip You are reading the documentation for Nuxt Speedkit (v2)!
+
+- **Nuxt Speedkit (v1)** documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).  
+- Upgrading from **Nuxt Speedkit (v1)** ? Check out the [Migration Guide](/migration/v2).
 :::
 
 **Nuxt Speedkit** takes over the lighthouse performance optimization of your generated website.
@@ -27,8 +32,8 @@ We didn't reinvent the whole wheel. We adapt the lazy hydration concept of [Mark
 
 ## Requirements
 
-- NodeJS `>= 19`
-- NuxtJS `>= 3.5.0`
+- NodeJS >= 12.x.x
+- NuxtJS >= 2.15.0
 
 ## Features
 

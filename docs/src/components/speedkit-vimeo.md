@@ -1,25 +1,26 @@
 ---
 title: SpeedkitVimeo
 ---
-# {{title}}
+
+# {{$frontmatter.title}}
 
 We have integrated `SpeedkitVimeo`  as an example to show how iFrame content must be integrated in a performance-optimized manner.
 For this purpose, a separate IntersectionObserver has been implemented, which detects a longer dwell time of the component in the viewport. The iFrame is initialized only after a positive detection. This prevents immense data from having to be loaded when simply scrolling through the page.
-So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture`](/v3/guide/components/speedkit-picture) and preload the corresponding Vimeo poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
+So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture`](/components/speedkit-picture) and preload the corresponding Vimeo poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
 
 ## Usage
 
 The `SpeedkitVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
 
-::alert
+::: info
 The SDK is not part of `nuxt-speedkit` and will be loaded by an external script.
-::
+:::
 
 The `url` of the Vimeo video must be specified.  
 
-The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/v3/guide/components/speedkit-image#source).
+The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/components/speedkit-image#source).
 
-[Learn more about `SpeedkitPicture`](/v3/guide/components/speedkit-picture)
+[Learn more about `SpeedkitPicture`](/components/speedkit-picture)
 
 ::alert{type="warning"}
 Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNuxtImage`
@@ -101,7 +102,7 @@ Sets the title for the player iframe and poster.
 - Type: `Boolean`
   - Default: `false`
 
-When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/v3/usage#import-components) or is only activated when entering the visible area.
+When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/guide/usage#import-components) or is only activated when entering the visible area.
 
 ### `mute`
 
@@ -117,7 +118,7 @@ When set the player is muted.
 
 Sets the image sizes of the poster.
 
-[Learn more about `sizes`](/v3/guide/components/speedkit-image#source)
+[Learn more about `sizes`](/components/speedkit-image#source)
 
 ### `options`
 
@@ -127,13 +128,12 @@ Overrides the vimeo player options. These will be the same as the vimeo player e
 
 [Learn more about Vimeo Player Parameters](https://developer.vimeo.com/player/sdk/embed)
 
-::alert{type="warning"}
-
+::: warning
 For `autoplay` and `mute` the component properties are used.
 
 Option `playsinline` is always set, `mute` is set automatically for touch devices.  
 This is important for autoplay on mobile devices.
-::
+:::
 
 ## Slots
 

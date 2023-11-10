@@ -35,44 +35,33 @@ Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disable
 ````vue
 <template>
   <div>
-    <speedkit-picture v-bind="{ sources, title, alt }" @load="onLoadPicture" />
+    <speedkit-picture v-bind="picture" @load="onLoadPicture"  />
   </div>
 </template>
 
-<script setup>
+<script>
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
-
-defineProps({
-  sources: {
-    type: Object,
-    default() {
-      return [
-        {
-          src: '/img/landscape.png',
-          sizes: {
-            sm: '100vw',
-            md: '100vw',
-            lg: '100vw',
-            xl: '100vw',
-            xxl: '100vw'
-          },
-          media: '(orientation: landscape)'
-        },
-        {
-          src: '/img/portrait.png',
-          sizes: { default: '100vw', xxs: '100vw', xs: '100vw' },
-          media: '(orientation: portrait)'
-        }
-      ];
-    }
+export default {
+  components: { SpeedkitPicture },
+  data () {
+    return {
+      picture: {
+        sources: [
+          { src: '/img/landscape.png', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
+          { src: '/img/portrait.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+        ],
+        title: 'Image Title',
+        alt: 'Image Alt'
+      }
+    };
   },
-  title: String,
-  alt: String
-});
-
-const onLoadPicture = () => console.log('Picture loaded!');
+  methods: {
+    onLoadPicture() {
+      console.log('Picture loaded!');
+    }
+  }
+};
 </script>
-
 ````
 
 ## Properties
@@ -81,6 +70,7 @@ const onLoadPicture = () => console.log('Picture loaded!');
 {
   sources: [ … ],
   formats: ['avif', 'webp', 'jpg|jpeg|png'],
+  loadingSpinner: new LoadingSpinner( … ),
   alt: 'Image Alt',
   title: 'Image Title',
 }
@@ -101,7 +91,7 @@ If `true` the `SpeedkitPicture` is initialized.
 
 List of resources used.
 
-The definitions in the `sources` are equivalent to the [`SpeedkitImage (source)`](/components/speedkit-image#source).
+The definitions in the `sources` are equivalent to the [`SpeedkitImage (source)`](/v2/components/speedkit-image#source).
 
 The only differences are:
 
@@ -127,7 +117,7 @@ In the following example, two different image ratios are used.
 - Type: `Array`
   - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 
-> Overrides the [`pictureFormats`](/guide/options#pictureformats) property defined in the module options.
+> Overrides the [`pictureFormats`](/v2/options#pictureformats) property defined in the module options.
 
 Defines the formats that are to be generated and provided as source in the Picture.  
 Is used to offer the correct image type for the browser.
@@ -135,6 +125,13 @@ Is used to offer the correct image type for the browser.
 ::: warning
 Formats can also be specified as OR condition (`jpg|jpeg|png|gif`). This is important when using JPGs and PNGs with the same `format` configuration.
 :::
+
+### `loadingSpinner`
+
+- Type: [`LoadingSpinner`](/v2/classes/loading-spinner)
+  - Default: `undefined`
+
+Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading-spinner), this describes the visual appearance of the loading state of the `SpeedkitImage` contained in the `SpeedkitPicture`.
 
 ### `alt`
 
@@ -178,7 +175,7 @@ This is made possible by [`sort-css-media-queries`](https://www.npmjs.com/packag
 
 Set component as critical component.
 
-[Learn more about critical components](/guide/usage#critical-prop-for-critical-components)
+[Learn more about critical components](/v2/usage#critical-prop-for-critical-components)
 
 ## Events
 

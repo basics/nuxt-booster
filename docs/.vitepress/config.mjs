@@ -1,70 +1,53 @@
-import { defineConfig } from 'vitepress'
+import { fileURLToPath } from 'url';
+import { defineConfig } from 'vitepress';
+import markdownItInlineComments from 'markdown-it-inline-comments';
+import navigation from './navigation.mjs';
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default defineConfig(() => ({
+  markdown: {
+    config: md => {
+      md.use(markdownItInlineComments);
+    }
+  },
 
+  base: getBaseUrl(),
+
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPNavBarTitle\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./components/VPNavBarTitle.vue', import.meta.url)
+          )
+        }
+      ]
+    }
+  },
 
   srcDir: 'src',
 
-  title: "Nuxt Speedkit",
-  description: "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
+  title: 'Nuxt Speedkit',
+  description:
+    'Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
+    logoComponent: true,
 
-    sidebar: [
-      {
-        text: 'Home',
-        link: '/',
-        // items: [
-        //   { text: 'Markdown Examples', link: '/markdown-examples' },
-        //   { text: 'Runtime API Examples', link: '/api-examples' }
-        // ]
-      },
-      {
-        text: 'Concept',
-        link: '/concept'
-      },
-      {
-        text: 'Guide',
-        items: [
-          {text: 'Setup', link: '/guide/setup'},
-          {text: 'Options', link: '/guide/options'},
-          {text: 'Usage', link: '/guide/usage'},
-          {text: 'Caveats', link: '/guide/caveats'}
-        ]
-      },
-      {
-        text: 'Composables',
-        items: [
-          {text: 'useFont', link: '/composables/useFont'},
-          {text: 'useCritical', link: '/composables/useCritical'},
-          {text: 'useConfig', link: '/composables/useConfig'},
-          {text: 'useComponentObserver', link: '/composables/useComponentObserver'}
-
-
-        ]
-      },
-      {
-        text: 'Directives',
-        items:[
-          {text: 'v-font', link: '/directives/v-font'},
-        ]
-      },
-      {
-        text: 'Components',
-        items: [
-          {text: 'SpeedkitLayer', link: '/components/speedkit-layer'},
-        ]
-      }
-    ],
+    ...navigation,
 
     socialLinks: [
       { icon: 'github', link: 'https://nuxt-speedkit.grabarzundpartner.dev/' }
     ]
+  },
+
+  sitemap: {
+    hostname: 'https://example.com'
   }
-})
+}));
+
+function getBaseUrl() {
+  return process.env.npm_config_base_url || process.env.BASE_URL || '/';
+}

@@ -2,16 +2,16 @@
 title: WeakHardwareOverlay
 ---
 
-# {{title}}
+# {{$frontmatter.title}}
 
 The `WeakHardwareOverlay` is used in components that are affected by the SpeedkitLayer event `Weak Hardware`. (*Example: Component requires the execution of `mounted` for functionality.*)
 
-::alert{type="info"}
+::: info
 The **performance issue event** occurs when initialization determines that the client is overloaded with execution and the user has confirmed the `#nuxt-speedkit-button-init-reduced-view` button in the SpeedkitLayer.
 
-- [Learn more about SpeedkitLayer interactions)](/v3/components/speedkit-layer#buttons)
+- [Learn more about SpeedkitLayer interactions)](/components/speedkit-layer#buttons)
 
-::
+:::
 
 Basically, the overlay is used to make content visible when the `Weak Hardware` has occurred, if this does not occur, the overlay is not visible.
 
@@ -22,6 +22,8 @@ It is recommended to include an interaction element in the overlay that allows t
 Example of defining a custom `WeakHardwareOverlay` component and placing it in a target component that is affected by the `Weak Hardware` event.
 
 ### Customize Overlay
+
+::: code-group
 
 ````vue[@/components/WeakHardwareOverlay.vue]
 <template>
@@ -51,7 +53,11 @@ export default {
 </style>
 ````
 
+:::
+
 ### Usage Overlay
+
+::: code-group
 
 ````vue[@/components/Player.vue]
 <template>
@@ -81,3 +87,5 @@ export default {
 }
 </style>
 ````
+
+:::

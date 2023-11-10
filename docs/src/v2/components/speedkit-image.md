@@ -1,5 +1,6 @@
 ---
 title: SpeedkitImage
+
 ---
 
 # {{$frontmatter.title}}
@@ -35,38 +36,29 @@ Important: For using `SpeedkitImage` do not disable `@nuxt/image` via `disableNu
 ````vue
 <template>
   <div>
-    <speedkit-image v-bind="{ source, title, alt }" @load="onLoadImage"  />
+    <speedkit-image v-bind="image" @load="onLoadImage"  />
   </div>
 </template>
 
-<script setup>
+<script>
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
-
-defineProps({
-  source: {
-    type: Object,
-    default() {
-      return {
-        format: 'jpg',
-        src: '/img/image.jpg',
-        sizes: {
-          default: '100vw',
-          xxs: '100vw',
-          xs: '100vw',
-          sm: '100vw',
-          md: '100vw',
-          lg: '100vw',
-          xl: '100vw',
-          xxl: '100vw'
-        }
-      };
-    }
+export default {
+  components: { SpeedkitImage },
+  data () {
+    return {
+      image: {
+        source: { format: 'jpg', src: '/img/image.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } },
+        title: 'Image Title',
+        alt: 'Image Alt'
+      }
+    };
   },
-  title: String,
-  alt: String
-});
-
-const onLoadImage = () => console.log('Image loaded!');
+  methods: {
+    onLoadImage() {
+      console.log('Image loaded!');
+    }
+  }
+};
 </script>
 ````
 
@@ -76,7 +68,8 @@ const onLoadImage = () => console.log('Image loaded!');
 {
   source: { … },
   title: 'Image Title',
-  alt: 'Image Alt'
+  alt: 'Image Alt',
+  loadingSpinner: new LoadingSpinner( … ),
 }
 ````
 
@@ -127,7 +120,7 @@ Information on property `src` can be found at [here](https://image.nuxtjs.org/co
 
 Describes the image sizes in which the resource should be displayed. The image `sizes` are passed as an `object` and describe with the key-value pairs the image width and the width of the viewport depending on it, e.g. `ImageWidth:MinWidth`.
 
-The image width, is definied by [`screens`](https://image.nuxtjs.org/configuration/#screens) option from `@nuxt/image`
+The image width, is definied by [`screens`](https://image.nuxtjs.org/api/options#screens) option from `@nuxt/image`
 
 **Example**
 
@@ -148,7 +141,7 @@ This overwrites the global ones of the preset if available.
 
 Learn more about `modifiers`:
 
-- <https://image.nuxtjs.org/configuration//#presets>
+- <https://image.nuxtjs.org/api/options/#presets>
 
 #### `preset`
 
@@ -160,7 +153,8 @@ This means that a separate preset can be specified for each source.
 
 Learn more about `preset`:
 
-- <https://image.nuxtjs.org/configuration//#presets>
+- <https://image.nuxtjs.org/api/$img#imggetsizes>
+- <https://image.nuxtjs.org/api/options/#presets>
 
 #### `provider`
 
@@ -172,7 +166,15 @@ This means that a separate provider can be specified for each source.
 
 Learn more about `provider`:
 
-- <https://image.nuxtjs.org/configuration//#providers>
+- <https://image.nuxtjs.org/api/$img#imggetsizes>
+- <https://image.nuxtjs.org/api/options/#providers>
+
+### `loadingSpinner`
+
+- Type: [`LoadingSpinner`](/v2/classes/loading-spinner)
+  - Default: `this.$speedkit.loader()`
+
+Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading-spinner), this describes the visual appearance of the loading state.
 
 ### `alt`
 
@@ -196,7 +198,7 @@ Image Title.
 
 If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
 
-[Learn more about `crossorigin` option](https://nuxt-speedkit.grabarzundpartner.dev/options#crossorigin)
+[Learn more about `crossorigin` option](/v2/options#crossorigin)
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
@@ -207,7 +209,7 @@ If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
 
 Set component as critical component.
 
-[Learn more about critical components](/guide/usage#critical-prop-for-critical-components)
+[Learn more about critical components](/v2/usage#critical-prop-for-critical-components)
 
 ## Events
 
