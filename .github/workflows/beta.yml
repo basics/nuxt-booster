@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
@@ -44,7 +44,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
