@@ -6,13 +6,13 @@ title: SpeedkitYoutube
 
 > Please note the privacy policy when using. [Google Youtube-API](https://developers.google.com/youtube/v3) is integrated via dependency [`youtube-player`](https://www.npmjs.com/package/youtube-player).
 
-Since the [`SpeedkitYoutube` (Experimental)](/v1/components/experimental-speedkit-youtube) is still marked as experimental, we still offer the simplified version called `SpeedkitYoutube`. Here, all resources that are generated fully automatically in the experimental module must be defined manually.
+Since the [`SpeedkitYoutube` (Experimental)](/v1/components/experimental/speedkit-youtube) is still marked as experimental, we still offer the simplified version called `SpeedkitYoutube`. Here, all resources that are generated fully automatically in the experimental module must be defined manually.
 
-Except for the manual resource definition for the poster, all other [features](/v1/components/experimental-speedkit-youtube#features) of [`SpeedkitYoutube` (Experimental)](/v1/components/experimental-speedkit-youtube) are identical.
+Except for the manual resource definition for the poster, all other [features](/v1/components/experimental/speedkit-youtube#features) of [`SpeedkitYoutube` (Experimental)](/v1/components/experimental/speedkit-youtube) are identical.
 
 ## Usage
 
-The `SpeedkitYoutube` differs from the [`SpeedkitYoutube` (Experimental)](/v1/components/experimental-speedkit-youtube) in the definition of the `poster`.  
+The `SpeedkitYoutube` differs from the [`SpeedkitYoutube` (Experimental)](/v1/components/experimental/speedkit-youtube) in the definition of the `poster`.  
 A `SpeedkitPicture` must be additionally defined in the `poster` property.
 
 [Learn more about `SpeedkitPicture`](/v1/components/speedkit-picture)
@@ -93,7 +93,7 @@ export default {
 
 All properties except `poster` are identical to `SpeedkitYoutube`.
 
-Learn more about [`SpeedkitYoutube` (Experimental) - Properties](/v1/components/experimental-speedkit-youtube#events).
+Learn more about [`SpeedkitYoutube` (Experimental) - Properties](/v1/components/experimental/speedkit-youtube#events).
 
 ### `poster`
 
@@ -104,4 +104,4 @@ Poster is displayed as long as the player is not playing.
 
 ## Events
 
-More on events at [`SpeedkitYoutube` (Experimental) - Events](/v1/components/experimental-speedkit-youtube#events).
+More on events at [`SpeedkitYoutube` (Experimental) - Events](/v1/components/experimental/speedkit-youtube#events).

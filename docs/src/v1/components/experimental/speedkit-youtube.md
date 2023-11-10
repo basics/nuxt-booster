@@ -8,20 +8,20 @@ title: SpeedkitYoutube (Experimental)
 
 We have integrated `SpeedkitYoutube` (Experimental) as an example to show how iFrame content must be integrated in a performance-optimized manner.
 For this purpose, a separate IntersectionObserver has been implemented, which detects a longer dwell time of the component in the viewport. The iFrame is initialized only after a positive detection. This prevents immense data from having to be loaded when simply scrolling through the page.
-So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture` (Experimental)](/v1/components/experimental-speedkit-picture) and preload the corresponding Youtube poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
+So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture` (Experimental)](/v1/components/experimental/speedkit-picture) and preload the corresponding Youtube poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
 
 ::: warning
-`SpeedkitYoutube` (Experimental) is based on the component [`SpeedkitPicture` (Experimental)](/v1/components/experimental-speedkit-picture). We hope that with the final completion of [`@nuxt/image`](https://image.nuxtjs.org/) we will be able to modify this component and can use `@nuxt/image` & `NuxtPicture` with full functionality.
+`SpeedkitYoutube` (Experimental) is based on the component [`SpeedkitPicture` (Experimental)](/v1/components/experimental/speedkit-picture). We hope that with the final completion of [`@nuxt/image`](https://image.nuxtjs.org/) we will be able to modify this component and can use `@nuxt/image` & `NuxtPicture` with full functionality.
 :::
 
 ## Usage
 
 The `SpeedkitYoutube` (Experimental) is used to initialise Youtube videos with Youtube-API only when they are in the visible viewport.
 
-The `id` of the Youtube video and the appropriate viewport dependent widths must be specified in [`sizes` (What is `sizes`?)](/v1/components/experimental-speedkit-picture#sources).
+The `id` of the Youtube video and the appropriate viewport dependent widths must be specified in [`sizes` (What is `sizes`?)](/v1/components/experimental/speedkit-picture#sources).
 The `SpeedkitPicture` (Experimental) is used for the poster, so the generation of the poster is automated.
 
-[Learn more about `SpeedkitPicture` (Experimental)](/v1/components/experimental-speedkit-picture)
+[Learn more about `SpeedkitPicture` (Experimental)](/v1/components/experimental/speedkit-picture)
 
 ### Example
 

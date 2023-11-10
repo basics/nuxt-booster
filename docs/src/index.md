@@ -14,7 +14,7 @@ title: Introduction
 ::: tip You are reading the documentation for Nuxt Speedkit (v3)!
 
 - **Nuxt Speedkit (v2)** documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v2/](https://nuxt-speedkit.grabarzundpartner.dev/v2/).  
-- Upgrading from **Nuxt Speedkit (v2)** ? Check out the [Migration Guide](/migration/v3/).
+- Upgrading from **Nuxt Speedkit (v2)** ? Check out the [Migration Guide](/migration/v3).
 :::
 
 **Nuxt Speedkit** takes over the lighthouse performance optimization of your generated website.

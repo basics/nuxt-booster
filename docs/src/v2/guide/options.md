@@ -47,7 +47,7 @@ These options can be used to define the initial checks to display the [`Speedkit
 
  | Key              | Type      | Required | Description                                                                                                                                                                                        | Default |
  | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/v2/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/v2/components/speedkit-layer) will be displayed. | `true`  |
+ | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/v2/guide/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/v2/components/speedkit-layer) will be displayed. | `true`  |
  | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/v2/components/speedkit-layer) will be displayed.                                            | `true`  |
 
 :::info
@@ -285,7 +285,7 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
  | Key         | Type     | Required | Description                                                                                                                                                                       | Default |
  | ----------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/v2/usage#import-components).                         | `0%`    |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/v2/guide/usage#import-components).                         | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `SpeedkitPicture` & `SpeedkitImage`). | `0%`    |
 
 ## `loader`

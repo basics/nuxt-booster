@@ -107,7 +107,7 @@ In the following example, two different image ratios are used.
 
 Set component as critical component.
 
-[Learn more about critical components](/usage#critical-prop-for-critical-components)
+[Learn more about critical components](/guide/usage#critical-prop-for-critical-components)
 
 ### `alt`
 

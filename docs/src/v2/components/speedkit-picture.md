@@ -117,7 +117,7 @@ In the following example, two different image ratios are used.
 - Type: `Array`
   - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 
-> Overrides the [`pictureFormats`](/v2/options#pictureformats) property defined in the module options.
+> Overrides the [`pictureFormats`](/v2/guide/options#pictureformats) property defined in the module options.
 
 Defines the formats that are to be generated and provided as source in the Picture.  
 Is used to offer the correct image type for the browser.
@@ -175,7 +175,7 @@ This is made possible by [`sort-css-media-queries`](https://www.npmjs.com/packag
 
 Set component as critical component.
 
-[Learn more about critical components](/v2/usage#critical-prop-for-critical-components)
+[Learn more about critical components](/v2/guide/usage#critical-prop-for-critical-components)
 
 ## Events
 

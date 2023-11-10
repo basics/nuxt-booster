@@ -4,7 +4,7 @@ title: v-font
 
 # {{$frontmatter.title}}
 
-The directive `v-font` is used to integrate the fonts defined in the [module options](/v2/options#fonts) into the website.
+The directive `v-font` is used to integrate the fonts defined in the [module options](/v2/guide/options#fonts) into the website.
 
 To do this, the respective font must be retrieved via the `$getFont` method contained in the component scope (e.g. `this`).
 
@@ -14,7 +14,7 @@ Normally the directive activates the fonts only when the viewport is reached.
 It is recommended to use the property `critical` for components that are already initially contained in the viewport.
 
 With critical component the fonts are preloaded and are initially active.  
-More information on critical components can be found [here](/v2/usage#critical-prop-for-critical-components).
+More information on critical components can be found [here](/v2/guide/usage#critical-prop-for-critical-components).
 
 For multiple fonts, a list (`Array`) can be passed.
 

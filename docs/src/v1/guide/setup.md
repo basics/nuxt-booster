@@ -103,4 +103,4 @@ Then, add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 }
 ````
 
-See [module options](/v1/options).
+See [module options](/v1/guide/options).

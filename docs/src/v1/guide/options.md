@@ -28,7 +28,7 @@ These options can be used to define which initial checks are to be carried out w
 
  | Key              | Type      | Required | Description                                                                                                                                                                                      | Default |
  | ---------------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
- | `performance`    | `Boolean` | yes      | Checks whether the minimum [performance requirement](/v1/options#performancemetrics) has been met. If this is not the case, the [`SpeedkitLayer`](/v1/components/speedkit-layer) is displayed.         | `true`  |
+ | `performance`    | `Boolean` | yes      | Checks whether the minimum [performance requirement](/v1/guide/options#performancemetrics) has been met. If this is not the case, the [`SpeedkitLayer`](/v1/components/speedkit-layer) is displayed.         | `true`  |
  | `browserSupport` | `Boolean` | yes      | Überprüft, ob die Webseite über einen supported Browser besucht wird. Handelt es sich hierbei um einen unsupported Browser, wird der [`SpeedkitLayer`](/v1/components/speedkit-layer) eingeblendet. | `true`  |
 
 ::alert{type="info"}
@@ -252,5 +252,5 @@ If set, `@nuxt/image` will not be integrated.
 
 ⚠️&nbsp;&nbsp;The following components can no longer be used:<br>
 
-- [SpeedkitPicture (Experimental)](/v1/components/experimental-speedkit-picture)
-- [SpeedkitYoutube (Experimental)](/v1/components/experimental-speedkit-youtube)
+- [SpeedkitPicture (Experimental)](/v1/components/experimental/speedkit-picture)
+- [SpeedkitYoutube (Experimental)](/v1/components/experimental/speedkit-youtube)

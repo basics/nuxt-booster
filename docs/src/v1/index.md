@@ -13,7 +13,7 @@ title: Introduction
 [Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
 
 ::: warning
-You are reading Nuxt Speedkit v1 docs. [For Nuxt 3 go to the v3 docs](/v3)
+You are reading Nuxt Speedkit v1 docs. [For Nuxt 3 go to the v3 docs](/)
 :::
 
 Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.

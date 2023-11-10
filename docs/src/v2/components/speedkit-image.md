@@ -198,7 +198,7 @@ Image Title.
 
 If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
 
-[Learn more about `crossorigin` option](/v2/options#crossorigin)
+[Learn more about `crossorigin` option](/v2/guide/options#crossorigin)
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
@@ -209,7 +209,7 @@ If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
 
 Set component as critical component.
 
-[Learn more about critical components](/v2/usage#critical-prop-for-critical-components)
+[Learn more about critical components](/v2/guide/usage#critical-prop-for-critical-components)
 
 ## Events
 

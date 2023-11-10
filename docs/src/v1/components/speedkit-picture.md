@@ -4,9 +4,9 @@ title: SpeedkitPicture
 
 # {{$frontmatter.title}}
 
-Since the [`SpeedkitPicture` (Experimental)](/v1/components/experimental-speedkit-picture) is still marked as experimental, we still offer the simplified version called `SpeedkitPicture`. Here, all resources that are generated fully automatically in the experimental module must be defined manually.
+Since the [`SpeedkitPicture` (Experimental)](/v1/components/experimental/speedkit-picture) is still marked as experimental, we still offer the simplified version called `SpeedkitPicture`. Here, all resources that are generated fully automatically in the experimental module must be defined manually.
 
-Except for the manual resource definition, all other [features](/v1/components/experimental-speedkit-picture#features) of [`SpeedkitPicture` (Experimental)](/v1/components/experimental-speedkit-picture) are identical.
+Except for the manual resource definition, all other [features](/v1/components/experimental/speedkit-picture#features) of [`SpeedkitPicture` (Experimental)](/v1/components/experimental/speedkit-picture) are identical.
 
 ## Usage
 
@@ -89,7 +89,7 @@ export default {
 
 All properties except [`sources`](/v1/components/speedkit-picture#sources) and [`placeholders`](/v1/components/speedkit-picture#placeholders) are identical to the `SpeedkitPicture` (Experimental).
 
-Learn more about [`ExperimentalSpeedkitPicture` - Properties](/v1/components/experimental-speedkit-picture#properties).
+Learn more about [`ExperimentalSpeedkitPicture` - Properties](/v1/components/experimental/speedkit-picture#properties).
 
 ### `sources`
 
@@ -225,4 +225,4 @@ Make sure that the placeholders have a width of `30px` and are optimized.
 
 ## Events
 
-More on events at [`SpeedkitPicture` (Experimental) - Events](/v1/components/experimental-speedkit-picture#events).
+More on events at [`SpeedkitPicture` (Experimental) - Events](/v1/components/experimental/speedkit-picture#events).

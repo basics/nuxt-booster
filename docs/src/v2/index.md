@@ -13,7 +13,7 @@ title: Introduction
 [Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
 
 ::: warning
-You are reading Nuxt Speedkit v2 docs. [For Nuxt 3 go to the v3 docs](/v3/)
+You are reading Nuxt Speedkit v2 docs. [For Nuxt 3 go to the v3 docs](/)
 :::
 
 ::: tip You are reading the documentation for Nuxt Speedkit (v2)!

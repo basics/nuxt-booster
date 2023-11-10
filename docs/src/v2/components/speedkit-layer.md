@@ -16,7 +16,7 @@ If the SpeedkitLayer is implemented, the javascript initialisation is automatica
 occurs, the process is paused and only continued or cancelled after a user interaction in the layer.
 
 The layer is placed once in the layout (e.g. `layouts/default.vue`).
-The included SpeedkitLayer serves as a wrapper and must be filled according to the [template](/v2/v2/components/speedkit-layer#template), see [example component](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
+The included SpeedkitLayer serves as a wrapper and must be filled according to the [template](/v2/components/speedkit-layer#template), see [example component](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/example/components/InfoLayer.vue).
 
 The content contains messages and buttons that are displayed in the respective event.
 Messages and buttons are defined with an `id`, these are set to `display: none;` by default via CSS.
@@ -25,7 +25,7 @@ Messages and buttons are defined with an `id`, these are set to `display: none;`
 - e.g. `nuxt-speedkit-button-init-app` for button
 
 ::: tip
-For the closing mechanism of the layer, see [Hide Layer](/v2/v2/components/speedkit-layer#hide-layer).
+For the closing mechanism of the layer, see [Hide Layer](/v2/components/speedkit-layer#hide-layer).
 :::
 
 ## Messages
@@ -40,7 +40,7 @@ When an event is triggered, the relevant message is displayed via the ID using t
 | <nobr>`nuxt-speedkit-message-nojs`</nobr>                | Javascript is disabled.                                                     |
 | <nobr>`nuxt-speedkit-message-reduced-bandwidth`</nobr>   | Connection bandwidth is too low.                                            |
 | <nobr>`nuxt-speedkit-message-weak-hardware`</nobr>       | User hardware are not sufficient.                                           |
-| <nobr>`nuxt-speedkit-message-unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/v2/options#browsersupport). |
+| <nobr>`nuxt-speedkit-message-unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/v2/guide/options#browsersupport). |
 
 **Example**
 

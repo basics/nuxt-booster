@@ -58,7 +58,7 @@ When an event is triggered, the relevant message is displayed via the ID using t
 
 | ID                                                         | Description                                                                 |
 | ---------------------------------------------------------- | --------------------------------------------------------------------------- |
-| <nobr>`nuxt-speedkit__message__unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/v1/options#browsersupport). |
+| <nobr>`nuxt-speedkit__message__unsupported-browser`</nobr> | User Browser is not supported by [`Browserslist`](/v1/guide/options#browsersupport). |
 | <nobr>`nuxt-speedkit__message__outdated-device`</nobr>     | User hardware (number of processor & RAM) are not sufficient.               |
 | <nobr>`nuxt-speedkit__message__slow-connection`</nobr>     | Connection speed is too low.                                                |
 

@@ -94,7 +94,7 @@ Sets the title for the player iframe and poster.
 - Type: `Boolean`
   - Default: `false`
 
-When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/v2/usage#import-components) or is only activated when entering the visible area.
+When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/v2/guide/usage#import-components) or is only activated when entering the visible area.
 
 ### `mute`
 

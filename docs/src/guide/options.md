@@ -34,7 +34,7 @@ The following NuxtJS settings are made or overwritten in the `nuxt.config`:
 
 - Type: `Object`
 
-These options can be used to define the initial checks to display the [`SpeedkitLayer`](/guide/components/speedkit-layer). The prerequisite are that the [`SpeedkitLayer`](/components/speedkit-layer) has been embedded into the layout.
+These options can be used to define the initial checks to display the [`SpeedkitLayer`](/components/speedkit-layer). The prerequisite are that the [`SpeedkitLayer`](/components/speedkit-layer) has been embedded into the layout.
   
 ````js
 {
