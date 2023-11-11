@@ -2,9 +2,6 @@
   "folders": [
     {
       "path": "."
-    },
-    {
-      "path": "docs"
     }
   ],
   "settings": {
@@ -32,7 +29,6 @@
       "vue"
     ],
     "files.exclude": {
-      "docs/": true,
       ".nuxt/": false,
       ".scannerwork/": true,
       "dist/": false,
