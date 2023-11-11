@@ -31,12 +31,12 @@ export default (nuxt, disableNuxtCritters = true) =>
               const dir = dirname($el.attr('href'));
 
               // https://nuxt.com/docs/guide/directory-structure/output
-              const publicDir = join(
-                nuxt.options.rootDir,
-                '.output/public',
-                nuxt.options.vite.build.assetsDir
+              const distNuxt = join(
+                nuxt.options.buildDir,
+                'dist/client',
+                nuxt.options.app.buildAssetsDir
               );
-              const filepath = join(publicDir, basename($el.attr('href')));
+              const filepath = join(distNuxt, basename($el.attr('href')));
               const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
               let urls = getUrlValues(fileContent);
