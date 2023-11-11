@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.32...v3.0.0-next.33) (2023-11-11)
+
+
+### Bug Fixes
+
+* **nitro:** fix asset path ([a325b7f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a325b7fc9b5d6316b5806782b1e850d8058b90f3))
+
 # [3.0.0-next.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.31...v3.0.0-next.32) (2023-11-08)
 
 
