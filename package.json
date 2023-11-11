@@ -34,7 +34,10 @@
     "vitest:run": "nuxt generate test && vitest run",
     "vitest:dev": "nuxt generate test && vitest dev",
     "start": "npx serve playground/dist",
-    "start:generate": "npm run generate && npx serve playground/dist"
+    "start:generate": "npm run generate && npx serve playground/dist",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "exports": {
     ".": {
@@ -91,6 +94,7 @@
     "husky": "8.0.3",
     "jsdom": "22.1.0",
     "lint-staged": "15.0.2",
+    "markdown-it-inline-comments": "^1.0.1",
     "nuxt": "3.8.1",
     "pinst": "3.0.0",
     "playwright": "1.39.0",
@@ -104,6 +108,7 @@
     "stylelint-config-recess-order": "4.3.0",
     "stylelint-config-standard": "34.0.0",
     "vite-svg-loader": "4.0.0",
+    "vitepress": "^1.0.0-rc.25",
     "vitest": "0.34.6",
     "wicg-inert": "3.1.2"
   }

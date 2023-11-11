@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
@@ -44,7 +44,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
@@ -70,7 +70,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
@@ -103,7 +103,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
@@ -142,7 +142,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - uses: actions/setup-node@v4
@@ -159,15 +159,15 @@ jobs:
       - name: Build
         run: |
           cd ./docs
-          npm run generate
-          touch .output/public/.nojekyll
+          npm run docs:build
+          touch docs/.vitepress/dist/.nojekyll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: docsArtifact
-          path: docs/.output/public
+          path: docs/.vitepress/dist
 
   sitespeed:
     runs-on: ${{ matrix.os }}
@@ -176,7 +176,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
 
     steps:
       - name: docker pull
@@ -210,7 +210,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [19]
     steps:
       - name: Download Artifact (Docs)
         uses: actions/download-artifact@master

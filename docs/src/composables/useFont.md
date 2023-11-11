@@ -1,0 +1,35 @@
+---
+title: useFont
+---
+
+# {{$frontmatter.title}}
+
+## Options
+
+| Property   | Type      | Description                       | Default Value          |
+| ---------- | --------- | --------------------------------- | ---------------------- |
+| `critical` | `Boolean` | Override critical from component. | inherit from component |
+
+```js
+const { $getFont } = useFonts({critical: true});
+```
+
+## Return
+
+| Property     | Description |
+| ------------ | ----------- |
+| `isCritical` |             |
+| `$getFont`   |             |
+
+## Example
+
+```html
+<template>
+  <span v-font="$getFont(…)"></span>
+</template>
+
+<script setup>
+  import useFonts from '#speedkit/composables/fonts';
+  const { $getFont } = useFonts();
+</script>
+```
