@@ -36,25 +36,6 @@ function moduleExists(nuxt, moduleName) {
   );
 }
 
-export async function addNuxtCritters(nuxt) {
-  if (!moduleExists(nuxt, '@nuxtjs/critters')) {
-    logger.info(
-      `Added module \`@nuxtjs/critters\`, for more configuration learn more at \`https://github.com/nuxt-modules/critters\``
-    );
-    nuxt.options.critters = defu(
-      {
-        config: {
-          preload: false,
-          fonts: false
-        }
-      },
-      nuxt.options.critters
-    );
-
-    await installModule('@nuxtjs/critters');
-  }
-}
-
 export async function addNuxtFontaine(nuxt) {
   if (!moduleExists(nuxt, '@nuxtjs/fontaine')) {
     logger.info(

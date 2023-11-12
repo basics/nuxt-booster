@@ -5,13 +5,10 @@ import { load } from 'cheerio';
 import { render } from 'dom-serializer';
 import { isWebpackBuild, logger } from '../../utils.mjs';
 
-export default (nuxt, options = {}) =>
+export default (nuxt, options = { manifest: [] }) =>
   nitro => {
     nitro.hooks.hook('prerender:generate', async route => {
-      const { manifest, disableNuxtCritters } = {
-        disableNuxtCritters: true,
-        ...options
-      };
+      const { manifest } = options;
 
       if (!route.fileName?.endsWith('.html') || !route.contents) {
         return;
@@ -43,7 +40,7 @@ export default (nuxt, options = {}) =>
       $('[rel="prefetch"][as="style"]').remove();
 
       // embed css files
-      await prepareLinkStylesheets($, { disableNuxtCritters, distNuxt, route });
+      await prepareLinkStylesheets($, { distNuxt, route });
 
       route.contents = render(document);
     });
@@ -75,10 +72,7 @@ function isDataURI(value) {
   return value.startsWith('data:');
 }
 
-async function prepareLinkStylesheets(
-  $,
-  { disableNuxtCritters, distNuxt, route }
-) {
+async function prepareLinkStylesheets($, { distNuxt, route }) {
   try {
     const css = await Promise.all(
       Array.from($('link[rel="stylesheet"]'))
@@ -93,32 +87,18 @@ async function prepareLinkStylesheets(
           let urls = getUrlValues(fileContent);
           urls = prepareUrls(urls, dir);
 
-          if (disableNuxtCritters) {
-            const css = urls.reduce(
-              (result, [a, b]) => result.replace(a, b),
-              fileContent
-            );
+          const css = urls.reduce(
+            (result, [a, b]) => result.replace(a, b),
+            fileContent
+          );
 
-            $el.remove();
-            logger.info(
-              `Embed CSS File \`${basename($el.attr('href'))}\`; Route: \`${
-                route.route
-              }\``
-            );
-            return css;
-          } else {
-            const matches = fileContent.match(
-              /\/\*! speedkit-font-faces start \*\/(.*)\/\*! speedkit-font-faces end \*\//
-            );
-            if (matches) {
-              logger.info(
-                `Embed Font-Faces CSS \`${basename(
-                  $el.attr('href')
-                )}\`; Route: \`${route.route}\``
-              );
-              return matches[1].replace(/url\(.\//g, `url(${dir}/`);
-            }
-          }
+          $el.remove();
+          logger.info(
+            `Embed CSS File \`${basename($el.attr('href'))}\`; Route: \`${
+              route.route
+            }\``
+          );
+          return css;
         })
     );
     if (css.length) {

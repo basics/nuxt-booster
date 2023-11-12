@@ -11,7 +11,6 @@ import FontConfig from './runtime/classes/FontConfig.mjs';
 import {
   DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
-  addNuxtCritters,
   addNuxtFontaine,
   addNuxtImage,
   isWebpackBuild,
@@ -140,9 +139,6 @@ async function addBuildTemplates(nuxt, options) {
 }
 
 async function addModules(nuxt, moduleOptions) {
-  if (!moduleOptions.disableNuxtCritters) {
-    await addNuxtCritters(nuxt);
-  }
   if (!moduleOptions.disableNuxtFontaine) {
     await addNuxtFontaine(nuxt);
   }
