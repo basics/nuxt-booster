@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.33...v3.0.0-next.34) (2023-11-12)
+
+
+### Bug Fixes
+
+* **module:** remove alias workaround ([417d554](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/417d5541a43cdbd6272f74ae3b569f7ef600a686))
+
 # [3.0.0-next.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.32...v3.0.0-next.33) (2023-11-11)
 
 
