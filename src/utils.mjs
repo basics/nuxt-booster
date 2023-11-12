@@ -39,7 +39,7 @@ function moduleExists(nuxt, moduleName) {
 export async function addNuxtCritters(nuxt) {
   if (!moduleExists(nuxt, '@nuxtjs/critters')) {
     logger.info(
-      `[${MODULE_NAME}] added module \`@nuxtjs/critters\`, for more configuration learn more at \`https://github.com/nuxt-modules/critters\``
+      `Added module \`@nuxtjs/critters\`, for more configuration learn more at \`https://github.com/nuxt-modules/critters\``
     );
     nuxt.options.critters = defu(
       {
@@ -58,7 +58,7 @@ export async function addNuxtCritters(nuxt) {
 export async function addNuxtFontaine(nuxt) {
   if (!moduleExists(nuxt, '@nuxtjs/fontaine')) {
     logger.info(
-      `[${MODULE_NAME}] added module \`@nuxtjs/fontaine\`, for more configuration learn more at \`https://github.com/nuxt-modules/fontaine\``
+      `Added module \`@nuxtjs/fontaine\`, for more configuration learn more at \`https://github.com/nuxt-modules/fontaine\``
     );
     await installModule('@nuxtjs/fontaine');
   }
@@ -67,7 +67,7 @@ export async function addNuxtFontaine(nuxt) {
 export async function addNuxtImage(nuxt) {
   if (!moduleExists(nuxt, '@nuxt/image')) {
     logger.info(
-      `[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
+      `Added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
     );
     await installModule('@nuxt/image');
   }
