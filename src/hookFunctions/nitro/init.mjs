@@ -87,6 +87,7 @@ async function prepareLinkStylesheets(
         .map(async $el => {
           const dir = dirname($el.attr('href'));
           const filepath = join(distNuxt, basename($el.attr('href')));
+          // eslint-disable-next-line security/detect-non-literal-fs-filename
           const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
           let urls = getUrlValues(fileContent);
