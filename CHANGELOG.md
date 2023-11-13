@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [3.0.0-next.35](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.34...v3.0.0-next.35) (2023-11-13)
+
+
+### Bug Fixes
+
+* **source:** `@nuxt/image` `densities` definition ([8adfa89](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8adfa8932fc1aedd6d54858b46ef1c794e404610))
+* **source:** added `densities` option ([c8a5c55](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c8a5c55b8f04d4d61d73af3da4548a7cf863a6b7))
+
 # [3.0.0-next.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.33...v3.0.0-next.34) (2023-11-12)
 
 
