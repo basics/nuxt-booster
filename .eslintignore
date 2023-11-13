@@ -9,3 +9,5 @@ sw.js
 .output
 
 src/runtime/tmpl/**/*
+docs/.vitepress/dist
+docs/.vitepress/cache

@@ -1,5 +1,82 @@
 # Project Changelog
 
+# [3.0.0-next.34](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.33...v3.0.0-next.34) (2023-11-12)
+
+
+### Bug Fixes
+
+* **module:** remove alias workaround ([417d554](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/417d5541a43cdbd6272f74ae3b569f7ef600a686))
+
+# [3.0.0-next.33](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.32...v3.0.0-next.33) (2023-11-11)
+
+
+### Bug Fixes
+
+* **nitro:** fix asset path ([a325b7f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a325b7fc9b5d6316b5806782b1e850d8058b90f3))
+
+# [3.0.0-next.32](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.31...v3.0.0-next.32) (2023-11-08)
+
+
+### Bug Fixes
+
+* **update:** replaced `path` with `pathe` ([a9755eb](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a9755eb8dd066fa2c69e3eb87361891b5496d75c))
+
+# [3.0.0-next.31](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.30...v3.0.0-next.31) (2023-11-02)
+
+
+### Bug Fixes
+
+* **jsconfig:** nuxt inherit -> working autosuggest ([9953a9e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9953a9e38c52498090bc81952567a8953b15ace0))
+
+# [3.0.0-next.30](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.29...v3.0.0-next.30) (2023-10-30)
+
+
+### Bug Fixes
+
+* **preload:** ignore url link tags ([3188864](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/31888645a9614c8b280b3dcc2d874eca39a13101))
+
+# [3.0.0-next.29](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.28...v3.0.0-next.29) (2023-10-30)
+
+
+### Bug Fixes
+
+* **preload:** ignore other urls ([8d65f2f](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/8d65f2f4ff7872c1c759bdd8bdb7a7b384092315))
+
+# [3.0.0-next.28](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.27...v3.0.0-next.28) (2023-10-30)
+
+
+### Bug Fixes
+
+* **preload:** fix invalid css url paths and … ([961c4b2](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/961c4b20da6204127b22d1838033db9b01539cf5))
+
+# [3.0.0-next.27](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.26...v3.0.0-next.27) (2023-10-10)
+
+
+### Bug Fixes
+
+* **module:** fix missing warn ([eb1602d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/eb1602d6070ee8c30cdcb4cbf7ce3b8dd001a6df))
+
+# [3.0.0-next.26](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.25...v3.0.0-next.26) (2023-09-13)
+
+
+### Bug Fixes
+
+* **module:** fix missing var ([0bf9cf0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0bf9cf0c392d959dfa360547cb4441fdcbdc8a4f))
+
+# [3.0.0-next.25](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.24...v3.0.0-next.25) (2023-09-13)
+
+
+### Bug Fixes
+
+* **module:** fix preloads ([91e6897](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/91e6897a0394cbb4dd424f30cff63abbd15198a5))
+
+# [3.0.0-next.24](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.23...v3.0.0-next.24) (2023-09-13)
+
+
+### Bug Fixes
+
+* **font:** update fallback font ([b49fa7c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/b49fa7c2fb8a6b02285f191b2bcc2c0f61f6161b))
+
 # [3.0.0-next.23](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.22...v3.0.0-next.23) (2023-09-13)
 
 

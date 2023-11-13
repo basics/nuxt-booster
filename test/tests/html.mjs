@@ -1,6 +1,6 @@
 /* eslint-disable no-secrets/no-secrets */
 
-import { join } from 'path';
+import { join } from 'pathe';
 import { describe, it, expect } from 'vitest';
 import { getDom, getLinkPreloadKey, getHTML } from '../utils.mjs';
 

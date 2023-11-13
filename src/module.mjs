@@ -43,10 +43,6 @@ export default defineNuxtModule({
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
 
-    // Workaround for missing default function by external use.
-    nuxt.options.alias['speedkit-create-sort'] =
-      'sort-css-media-queries/lib/create-sort.js';
-
     await addModules(nuxt, moduleOptions);
 
     setPublicRuntimeConfig(nuxt, moduleOptions);
@@ -75,13 +71,13 @@ export default defineNuxtModule({
         );
       }
     } else {
-      logger(
+      logger.warn(
         'Module functionality is limited without ssr and performance check'
       );
     }
 
     if (moduleOptions.optimizePreloads) {
-      optimizePreloads(nuxt);
+      optimizePreloads(moduleOptions, nuxt);
     } else {
       logger.warn(
         'Preload optimization is disabled by module option `optimizePreloads`.'
