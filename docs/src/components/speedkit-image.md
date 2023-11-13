@@ -100,7 +100,8 @@ If `true` the `SpeedkitImage` is initialized.
   sizes: { … }, 
   modifiers: { … }, 
   preset: { … }, 
-  provider: '<provider>'
+  provider: '<provider>',
+  densities: '<densities>'
 }
 ````
 
@@ -148,31 +149,42 @@ This overwrites the global ones of the preset if available.
 
 Learn more about `modifiers`:
 
-- <https://image.nuxtjs.org/configuration//#presets>
+- <https://image.nuxt.com/usage/nuxt-img#modifiers>
 
 #### `preset`
 
 - Type: `Object`
 
-If a preset is set on a source, the globally defined one is ignored.
+If a `preset` is set on a source, the globally defined one is ignored.
 
 This means that a separate preset can be specified for each source.
 
 Learn more about `preset`:
 
-- <https://image.nuxtjs.org/configuration//#presets>
+- <https://image.nuxt.com/usage/nuxt-img#preset>
 
 #### `provider`
 
 - Type: `String`
 
-If a provider is set on a source, the globally defined one is ignored.
+If a `provider` is set on a source, the globally defined one is ignored.
 
 This means that a separate provider can be specified for each source.
 
 Learn more about `provider`:
 
-- <https://image.nuxtjs.org/configuration//#providers>
+- <https://image.nuxt.com/usage/nuxt-img#provider>
+
+#### `densities`
+
+- Type: `String`
+  - Default: 'x1 x2'
+  
+If a `densities` is set on a source, the globally defined one is ignored.
+
+Learn more about `densities`:
+
+- <https://image.nuxt.com/usage/nuxt-img#densities>
 
 ### `alt`
 

@@ -39,7 +39,7 @@ export default {
     const config = $img.getSizes(props.source.src, {
       sizes: props.source.sizes,
       modifiers: props.source.getModifiers(),
-      ...props.source.getOptions()
+      ...props.source.getOptions($speedkit)
     });
 
     const resolvedCrossorigin = computed(() => {
