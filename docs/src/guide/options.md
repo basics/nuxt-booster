@@ -39,14 +39,16 @@ These options can be used to define the initial checks to display the [`Speedkit
 ````js
 {
   performance: true,
-  browserSupport: true
+  browserSupport: true,
+  battery: true
 }
 ````
 
- | Key              | Type      | Required | Description                                                                                                                                                                                        | Default |
- | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | Key              | Type      | Required | Description                                                                                                                                                                                              | Default |
+ | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
  | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/guide/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed. | `true`  |
- | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed.                                            | `true`  |
+ | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed.                                                  | `true`  |
+ | `battery`        | `Boolean` | yes      | Check if the current user save power in browser. If the test is negative, the [`SpeedkitLayer`](/components/speedkit-layer) will be displayed.                                                           | `true`  |
 
 ::: info
 For the browser support detection, the default [Browserslist](https://github.com/browserslist/browserslist) of the NuxtJS configuration is used.
@@ -251,7 +253,7 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
  | Key         | Type     | Required | Description                                                                                                                                                                       | Default |
  | ----------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/guide/usage#import-components).                         | `0%`    |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/guide/usage#import-components).                   | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `SpeedkitPicture` & `SpeedkitImage`). | `0%`    |
 
 ## `disableNuxtCritters`

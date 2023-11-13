@@ -58,8 +58,14 @@ export function initReducedView() {
 }
 
 export async function hasBatteryPerformanceIssue(videoBlob) {
-  await isBatteryLow();
-  await canVideoPlay(videoBlob);
+  if ('BatteryManager' in window && !(await isBatteryLow())) {
+    throw new Error('Battery is low.');
+  }
+  try {
+    await canVideoPlay(videoBlob);
+  } catch (error) {
+    throw new Error('Video cannot be played.');
+  }
 }
 
 /**
@@ -73,16 +79,14 @@ export async function hasBatteryPerformanceIssue(videoBlob) {
 async function isBatteryLow() {
   const MIN_BATTERY_LEVEL = 0.2;
   const battery = await window.navigator.getBattery();
-  if (!battery.charging && battery.level <= MIN_BATTERY_LEVEL) {
-    throw new Error('Battery is low.');
-  }
+  return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
 }
 
 /**
  * Checking whether a video can be played.
  * This check is for IOS and checks if the power saving mode is enabled.
  *
- * In this case no video will be played automatically.
+ * In this case no video will be played automatically and play throws an error.
  */
 export function canVideoPlay(blob) {
   const video = document.createElement('video');
