@@ -2,6 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "envFile": "${workspaceFolder}/.env",
       "presentation": {
         "group": "nuxt"
       },
@@ -11,6 +12,7 @@
       "type": "node-terminal"
     },
     {
+      "envFile": "${workspaceFolder}/.env",
       "presentation": {
         "group": "nuxt"
       },
@@ -20,6 +22,7 @@
       "type": "node-terminal"
     },
     {
+      "envFile": "${workspaceFolder}/.env",
       "presentation": {
         "group": "nuxt"
       },
@@ -29,20 +32,21 @@
       "type": "node-terminal"
     },
     {
-      "presentation": {
-        "group": "tests"
-      },
-      "command": "npm run vitest:dev",
-      "name": "Debug: vitest:dev",
-      "request": "launch",
-      "type": "node-terminal"
-    },
-    {
+      "envFile": "${workspaceFolder}/.env",
       "presentation": {
         "group": "others"
       },
       "command": "npm run start",
       "name": "Serve (dist)",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "presentation": {
+        "group": "tests"
+      },
+      "command": "npm run vitest:dev",
+      "name": "Debug: vitest:dev",
       "request": "launch",
       "type": "node-terminal"
     }

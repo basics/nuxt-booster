@@ -4,6 +4,8 @@ export function getDefaultOptions() {
   return {
     debug: false,
 
+    crossorigin: undefined,
+
     disableNuxtCritters: true, // If set, `@nuxtjs/critters` will not be integrated.
     disableNuxtFontaine: false, // If set, `@nuxtjs/fontaine` will not be integrated.
     disableNuxtImage: false, // If set, `@nuxt/image` will not be integrated.
@@ -24,7 +26,7 @@ export function getDefaultOptions() {
 
     fonts: [],
 
-    targetFormats: null,
+    targetFormats: undefined,
     densities: 'x1 x2',
 
     /**
