@@ -15,8 +15,8 @@ const ready = ref(false);
 
 onMounted(() => (ready.value = true));
 
-const ComponentImageText = speedkitHydrate(() =>
-  import('@/components/modules/ImageText')
+const ComponentImageText = speedkitHydrate(
+  () => import('@/components/modules/ImageText')
 );
 
 const imageTextA = {
