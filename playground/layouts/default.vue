@@ -16,8 +16,8 @@ import { useRoute, useHead } from '#app';
 import speedkitHydrate from '#speedkit/hydrate';
 
 const InfoLayer = defineAsyncComponent(() => import('@/components/InfoLayer'));
-const GithubCorner = speedkitHydrate(() =>
-  import('@/components/elements/GithubCorner')
+const GithubCorner = speedkitHydrate(
+  () => import('@/components/elements/GithubCorner')
 );
 const PageHeader = speedkitHydrate(() => import('@/components/PageHeader'));
 

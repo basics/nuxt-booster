@@ -16,20 +16,20 @@
 import speedkitHydrate from '#speedkit/hydrate';
 
 const ModuleStage = speedkitHydrate(() => import('@/components/modules/Stage'));
-const ModuleTextA = speedkitHydrate(() =>
-  import('@/components/modules/TextFontA')
+const ModuleTextA = speedkitHydrate(
+  () => import('@/components/modules/TextFontA')
 );
-const ModuleImageText = speedkitHydrate(() =>
-  import('@/components/modules/ImageText')
+const ModuleImageText = speedkitHydrate(
+  () => import('@/components/modules/ImageText')
 );
-const ModuleTextB = speedkitHydrate(() =>
-  import('@/components/modules/TextFontB')
+const ModuleTextB = speedkitHydrate(
+  () => import('@/components/modules/TextFontB')
 );
-const ModuleVideoYoutube = speedkitHydrate(() =>
-  import('@/components/modules/VideoYoutube')
+const ModuleVideoYoutube = speedkitHydrate(
+  () => import('@/components/modules/VideoYoutube')
 );
-const ModuleVideoVimeo = speedkitHydrate(() =>
-  import('@/components/modules/VideoVimeo')
+const ModuleVideoVimeo = speedkitHydrate(
+  () => import('@/components/modules/VideoVimeo')
 );
 
 const stage = {
