@@ -177,8 +177,8 @@ Learn more about `provider`:
 
 #### `densities`
 
-- Type: `String`, `Number`
-  - Default: `x1 x2`
+- Type: `String`
+  - Default: 'x1 x2'
   
 If a `densities` is set on a source, the globally defined one is ignored.
 
