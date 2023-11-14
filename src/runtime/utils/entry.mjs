@@ -79,13 +79,9 @@ export async function hasBatteryPerformanceIssue(videoBlob) {
  * @see https://developer.chrome.com/blog/memory-and-energy-saver-mode/
  **/
 async function isBatteryLow() {
-  if ('BatteryManager' in window && window.navigator.getBattery) {
-    const MIN_BATTERY_LEVEL = 0.2;
-    const battery = await window.navigator.getBattery();
-    return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
-  } else {
-    throw new Error('BatteryManager not supported.');
-  }
+  const MIN_BATTERY_LEVEL = 0.2;
+  const battery = await window.navigator.getBattery();
+  return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
 }
 
 /**
