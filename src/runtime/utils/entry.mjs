@@ -58,13 +58,15 @@ export function initReducedView() {
 }
 
 export async function hasBatteryPerformanceIssue(videoBlob) {
-  if ('BatteryManager' in window && !(await isBatteryLow())) {
-    throw new Error('Battery is low.');
-  }
   try {
-    await canVideoPlay(videoBlob);
+    if (await isBatteryLow()) {
+      throw new Error('Battery is low.');
+    }
   } catch (error) {
-    throw new Error('Video cannot be played.');
+    if (error.message === 'Battery is low.') {
+      throw error;
+    }
+    await canVideoPlay(videoBlob);
   }
 }
 
@@ -77,9 +79,13 @@ export async function hasBatteryPerformanceIssue(videoBlob) {
  * @see https://developer.chrome.com/blog/memory-and-energy-saver-mode/
  **/
 async function isBatteryLow() {
-  const MIN_BATTERY_LEVEL = 0.2;
-  const battery = await window.navigator.getBattery();
-  return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
+  if ('BatteryManager' in window && window.navigator.getBattery) {
+    const MIN_BATTERY_LEVEL = 0.2;
+    const battery = await window.navigator.getBattery();
+    return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
+  } else {
+    throw new Error('BatteryManager not supported.');
+  }
 }
 
 /**
