@@ -1,6 +1,6 @@
 {
   "name": "nuxt-speedkit",
-  "version": "3.0.0-next.34",
+  "version": "3.0.0-next.36",
   "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
@@ -52,7 +52,6 @@
   ],
   "dependencies": {
     "@nuxt/image": "1.0.0",
-    "@nuxtjs/critters": "0.5.1",
     "@nuxtjs/fontaine": "0.4.1",
     "browserslist-useragent-regexp": "4.1.0",
     "cheerio": "1.0.0-rc.12",
@@ -102,7 +101,7 @@
     "postcss-html": "1.5.0",
     "postcss-nesting": "12.0.1",
     "postcss-preset-env": "9.3.0",
-    "prettier": "3.0.3",
+    "prettier": "3.1.0",
     "read-pkg": "9.0.0",
     "serve-static": "1.15.0",
     "stylelint-config-recess-order": "4.3.0",

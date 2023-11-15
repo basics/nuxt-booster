@@ -27,8 +27,6 @@ jobs:
         with:
           path: |
             node_modules
-            ~/.cache/ms-playwright/
-            ~\AppData\Local\ms-playwright\
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Install Dependencies
@@ -76,3 +74,60 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npx -p pinst -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
+
+  build-docs:
+    name: Build (Docs)
+    needs: semantic-version
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [19]
+
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: cache docs/node_modules
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: Build
+        run: |
+          npm run docs:build
+          touch docs/.vitepress/dist/.nojekyll
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: docsArtifact
+          path: docs/.vitepress/dist
+
+  deploy-ghpages:
+    name: Deploy (GH-Pages)
+    needs: [build-docs]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [19]
+    steps:
+      - name: Download Artifact (Docs)
+        uses: actions/download-artifact@master
+        with:
+          name: docsArtifact
+          path: public/docs
+      - name: Deploy to GH-Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
+          cname: nuxt-speedkit.grabarzundpartner.dev
+          keep_files: true

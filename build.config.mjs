@@ -10,7 +10,6 @@ export default {
 
     // package
     '@nuxt/image',
-    '@nuxtjs/critters',
     'browserslist-useragent-regexp',
     'cheerio',
     'defu',

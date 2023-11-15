@@ -1,4 +1,4 @@
-import { MODULE_NAME, logger } from '../utils.mjs';
+import { logger } from '../utils.mjs';
 
 export function getDefaultOptions() {
   return {
@@ -6,7 +6,6 @@ export function getDefaultOptions() {
 
     crossorigin: undefined,
 
-    disableNuxtCritters: true, // If set, `@nuxtjs/critters` will not be integrated.
     disableNuxtFontaine: false, // If set, `@nuxtjs/fontaine` will not be integrated.
     disableNuxtImage: false, // If set, `@nuxt/image` will not be integrated.
 
@@ -28,6 +27,7 @@ export function getDefaultOptions() {
     fonts: [],
 
     targetFormats: undefined,
+    densities: 'x1 x2',
 
     /**
      * IntersectionObserver rootMargin for Compoennts and Assets
@@ -42,7 +42,13 @@ export function getDefaultOptions() {
 export function deprecationsNotification(options) {
   if ('loader' in options) {
     logger.warn(
-      `[${MODULE_NAME}] Option \`loader\` is deprecated, There is no integrated loader anymore.`
+      'Option `loader` is deprecated, there is no integrated loader anymore.'
+    );
+    delete options.loader;
+  }
+  if ('disableNuxtCritters' in options) {
+    logger.warn(
+      'Option `disableNuxtCritters` is deprecated, there is no integrated critters anymore.'
     );
     delete options.loader;
   }

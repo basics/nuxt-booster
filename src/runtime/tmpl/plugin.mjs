@@ -20,7 +20,8 @@ export default defineNuxtPlugin({
       getFont: fontList.getFont.bind(fontList),
       crossorigin: <%= options.crossorigin ? `'${options.crossorigin}'` : null %>,
       isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>),
-      targetFormats: <%= JSON.stringify(options.targetFormats) %>
+      targetFormats: <%= JSON.stringify(options.targetFormats) %>,
+      densities: <%= JSON.stringify(options.densities) %>
     });
 
   },

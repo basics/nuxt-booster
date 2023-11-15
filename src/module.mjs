@@ -11,14 +11,16 @@ import FontConfig from './runtime/classes/FontConfig.mjs';
 import {
   DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
-  addNuxtCritters,
   addNuxtFontaine,
   addNuxtImage,
   isWebpackBuild,
   logger,
   setPublicRuntimeConfig
 } from './utils.mjs';
-import { getDefaultOptions } from './utils/options.mjs';
+import {
+  deprecationsNotification,
+  getDefaultOptions
+} from './utils/options.mjs';
 import { getFontConfigTemplate } from './utils/template.mjs';
 import { optimizePreloads } from './utils/preload.mjs';
 import { getSupportedBrowserDetector } from './utils/browser.mjs';
@@ -43,16 +45,11 @@ export default defineNuxtModule({
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
 
+    deprecationsNotification(moduleOptions);
+
     await addModules(nuxt, moduleOptions);
 
     setPublicRuntimeConfig(nuxt, moduleOptions);
-
-    // TODO: Remove in future
-    if (isWebpackBuild(nuxt)) {
-      logger.warn(
-        `[${MODULE_NAME}]: Webpack build is not usable yet.\nOpen Issues:\n- Inline Styles (\`https://nuxt.com/docs/api/configuration/nuxt-config#inlinessrstyles\`)`
-      );
-    }
 
     if (moduleOptions.detection.performance && nuxt.options.ssr) {
       if (isWebpackBuild(nuxt)) {
@@ -121,6 +118,7 @@ async function addBuildTemplates(nuxt, options) {
       mode,
       options: {
         mode,
+        densities: options.densities,
         targetFormats: options.targetFormats,
         crossorigin: getCrossorigin(options.crossorigin),
         supportedBrowserDetector,
@@ -159,9 +157,6 @@ async function addBuildTemplates(nuxt, options) {
 }
 
 async function addModules(nuxt, moduleOptions) {
-  if (!moduleOptions.disableNuxtCritters) {
-    await addNuxtCritters(nuxt);
-  }
   if (!moduleOptions.disableNuxtFontaine) {
     await addNuxtFontaine(nuxt);
   }

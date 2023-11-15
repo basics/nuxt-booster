@@ -85,6 +85,11 @@ export default {
           xxl: '100vw'
         };
       }
+    },
+
+    posterDensities: {
+      type: [String, Number],
+      default: undefined
     }
   },
   emits: ['playing', 'ready'],
@@ -183,7 +188,8 @@ export default {
                 'vimeo'
               ),
             sizes: this.posterSizes,
-            media: 'all'
+            media: 'all',
+            densities: this.posterDensities
           }
         ]
       };
