@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.3...v2.2.4) (2023-11-15)
+
+
+### Bug Fixes
+
+* upgrade defu from 6.1.2 to 6.1.3 ([dc01ba1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/dc01ba1712ad722c02860a9d4af6e2d6b2e4914a))
+
 ## [2.2.3](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.2...v2.2.3) (2023-07-19)
 
 
