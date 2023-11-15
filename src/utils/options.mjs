@@ -40,7 +40,13 @@ export function getDefaultOptions() {
 export function deprecationsNotification(options) {
   if ('loader' in options) {
     logger.warn(
-      `Option \`loader\` is deprecated, There is no integrated loader anymore.`
+      'Option `loader` is deprecated, there is no integrated loader anymore.'
+    );
+    delete options.loader;
+  }
+  if ('disableNuxtCritters' in options) {
+    logger.warn(
+      'Option `disableNuxtCritters` is deprecated, there is no integrated critters anymore.'
     );
     delete options.loader;
   }

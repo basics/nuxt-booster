@@ -17,7 +17,10 @@ import {
   logger,
   setPublicRuntimeConfig
 } from './utils.mjs';
-import { getDefaultOptions } from './utils/options.mjs';
+import {
+  deprecationsNotification,
+  getDefaultOptions
+} from './utils/options.mjs';
 import { getFontConfigTemplate } from './utils/template.mjs';
 import { optimizePreloads } from './utils/preload.mjs';
 import { getSupportedBrowserDetector } from './utils/browser.mjs';
@@ -40,6 +43,8 @@ export default defineNuxtModule({
     const runtimeDir = resolver.resolve('./runtime');
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
+
+    deprecationsNotification(moduleOptions);
 
     await addModules(nuxt, moduleOptions);
 
