@@ -1,5 +1,14 @@
 # Project Changelog
 
+# [3.0.0-next.36](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.35...v3.0.0-next.36) (2023-11-15)
+
+
+### Bug Fixes
+
+* **module:** added deprecation notifications ([41b1108](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/41b1108289f79da6a96024aa6175d0d93a5018c9))
+* **module:** removed `@nuxt/critters` ([be9f3e6](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/be9f3e683d71e61c98b573b2fd095c0fcb342e18))
+* **webpack:** added workaround for ssr styles ([663318d](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/663318d34ad9b9ec64251b9a8ac9a81fb5e57a8a))
+
 # [3.0.0-next.35](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.34...v3.0.0-next.35) (2023-11-13)
 
 
