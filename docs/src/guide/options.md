@@ -254,21 +254,6 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
  | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/guide/usage#import-components).                         | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `SpeedkitPicture` & `SpeedkitImage`). | `0%`    |
 
-## `disableNuxtCritters`
-
-- Type: `Boolean`
-  - Default: `false`
-
-If set, `@nuxtjs/critters` will not be integrated.
-
-::: danger
-⚠️ Note that CSS is not embedded in the page.
-:::
-
-::: info
-For more information: <https://github.com/nuxt-modules/critters>
-:::
-
 ## `disableNuxtFontaine`
 
 - Type: `Boolean`
