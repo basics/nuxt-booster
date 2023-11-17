@@ -1,5 +1,4 @@
-import createSort from 'sort-css-media-queries/lib/create-sort.js';
-
+import createSort from '../../../externals/create-sort.js';
 import Source from '../../SpeedkitImage/classes/Source';
 import { toHashHex } from '#speedkit/utils/string';
 
