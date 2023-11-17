@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.37](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.36...v3.0.0-next.37) (2023-11-17)
+
+
+### Bug Fixes
+
+* **source-list:** added workaround for create-sort ([899d971](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/899d971a47b002abe60a9d97279a5a13e5020647))
+
 # [3.0.0-next.36](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.35...v3.0.0-next.36) (2023-11-15)
 
 
