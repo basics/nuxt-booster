@@ -106,7 +106,7 @@
     "serve-static": "1.15.0",
     "stylelint-config-recess-order": "4.4.0",
     "stylelint-config-standard": "34.0.0",
-    "vite-svg-loader": "4.0.0",
+    "vite-svg-loader": "5.1.0",
     "vitepress": "1.0.0-rc.29",
     "vitest": "0.34.6",
     "wicg-inert": "3.1.2"
