@@ -19,7 +19,19 @@ export default defineConfig(() => ({
         {
           find: /^.*\/VPNavBarTitle\.vue$/,
           replacement: fileURLToPath(
-            new URL('./components/VPNavBarTitle.vue', import.meta.url)
+            new URL('../components/VPNavBarTitle.vue', import.meta.url)
+          )
+        },
+        {
+          find: /^.*\/VPNavBarMenu\.vue$/,
+          replacement: fileURLToPath(
+            new URL('../components/VPNavBarMenu.vue', import.meta.url)
+          )
+        },
+        {
+          find: /^.*\/VPNavScreenMenu\.vue$/,
+          replacement: fileURLToPath(
+            new URL('../components/VPNavScreenMenu.vue', import.meta.url)
           )
         }
       ]
