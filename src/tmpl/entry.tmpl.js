@@ -1,5 +1,4 @@
 export default options => {
-  debugger;
   let code = `import { ${
     options.performanceCheck ? `run, ` : ``
   }hasSufficientPerformance, setup } from '#speedkit/utils/performance';

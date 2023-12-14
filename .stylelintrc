@@ -8,7 +8,6 @@
     "./**/*.js"
   ],
   "rules": {
-    "max-line-length": null,
     "no-descending-specificity": null,
     "value-keyword-case": [
       "lower",
