@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Nuxt Speedkit"
-  text: "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website."
+  name: "Nuxt Booster"
+  text: "Nuxt Booster takes over the Lighthouse performance optimization of your generated website."
   tagline: My great project tagline
   actions:
     - theme: brand

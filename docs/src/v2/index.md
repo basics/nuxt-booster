@@ -4,25 +4,23 @@ outline: deep
 title: Introduction
 ---
 
-# {{$frontmatter.title}}
-
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
 <img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/> -->
-<img src="/intro-light.png" width="1280" height="640" alt=""/>
+<img src="/intro-light.jpg" width="1280" height="640" alt=""/>
 
 [Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
 
 ::: warning
-You are reading Nuxt Speedkit v2 docs. [For Nuxt 3 go to the v3 docs](/)
+You are reading Nuxt Booster v2 docs. [For Nuxt 3 go to the v3 docs](/)
 :::
 
-::: tip You are reading the documentation for Nuxt Speedkit (v2)!
+::: tip You are reading the documentation for Nuxt Booster (v2)!
 
-- **Nuxt Speedkit (v1)** documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).  
-- Upgrading from **Nuxt Speedkit (v1)** ? Check out the [Migration Guide](/migration/v2).
+- **Nuxt Booster (v1)** documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).  
+- Upgrading from **Nuxt Booster (v1)** ? Check out the [Migration Guide](/migration/v2).
 :::
 
-**Nuxt Speedkit** takes over the lighthouse performance optimization of your generated website.
+**Nuxt Booster** takes over the lighthouse performance optimization of your generated website.
 
 In order to achieve a performance score of 100/100, only the necessary resources located in the current viewport may be initialized when the page is loaded. This includes images, fonts and the js-modules. Until now, there has been no practical and usable concept to help developers maintain an overview and enable accurate targeting in NuxtJS projects.
 
@@ -59,4 +57,4 @@ We provide the following CMS-friendly features:
 
 - [Grabarz & Partner](https://grabarzundpartner.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarzundpartner.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarzundpartner/))
 - [Grabarz Group](https://grabarz-group.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarz-group.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarz-group/))
-- [Nuxt Speedkit Example](https://nuxt-speedkit.grabarzundpartner.dev/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fplayground%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/nuxt-speedkit/))
+- [Nuxt Booster Example](https://nuxt-speedkit.grabarzundpartner.dev/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fplayground%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/nuxt-speedkit/))

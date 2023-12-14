@@ -83,7 +83,7 @@ The speedkit components will be expanded in the future. If you have explicit wis
 
 ## Example
 
-You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-custom-speedkit).
+You can check out a sample integration of `nuxt-speedkit` at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-custom-speedkit).
 
 :sandbox{src="<https://codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark"}>
 
@@ -108,7 +108,7 @@ The PostCSS Plugin [`postcss-object-fit-images`](https://github.com/ronik-design
 
 For the polyfills, it is recommended to integrate them as a [plugin](https://nuxtjs.org/docs/2.x/directory-structure/plugins), polyfills loading must follow a specific order.
 
-You can see a live example at [Nuxt Speedkit Example](https://grabarzundpartner.github.io/nuxt-speedkit-example/).
+You can see a live example at [Nuxt Booster Example](https://grabarzundpartner.github.io/nuxt-speedkit-example/).
 
 ### Example
 

@@ -10,7 +10,7 @@ title: Options
   - Default: `'anonymous'`
   - Valid values: `anonymous`, `use-credentials`, `''`, `true`, `false`
 
-Sets the global `crossorigin` value of the **Nuxt Speedkit** preloads.  
+Sets the global `crossorigin` value of the **Nuxt Booster** preloads.  
 The default value is the `crossorigin` value from the [Render Configuration](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-render#crossorigin).  
 > Set `false` to disable the `crossorigin`.
 
@@ -274,7 +274,7 @@ Defines a prefix for the module components, important for auto import e.g. optio
 
 - Type: `Object`
 
-Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) built into the **Nuxt Speedkit**.
+Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) built into the **Nuxt Booster**.
 
 ````js
 {
