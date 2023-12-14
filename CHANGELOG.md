@@ -1,5 +1,13 @@
 # Project Changelog
 
+# [3.0.0-next.42](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.41...v3.0.0-next.42) (2023-12-14)
+
+
+### Bug Fixes
+
+* **module:** fix noscript style ([9ce619a](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/9ce619af409ce82f9bccfbd479070e05f3655762))
+* **module:** remove js extensions ([605e778](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/605e7781ffe19874386df06c9a2e9e0c158534c2))
+
 # [3.0.0-next.41](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.40...v3.0.0-next.41) (2023-12-14)
 
 
