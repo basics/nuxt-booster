@@ -9,7 +9,7 @@ export default defineNuxtPlugin({
   enforce: 'post',
   async setup(nuxtApp) {
 
-    const fontConfig = await import('./fontConfig.mjs').then(
+    const fontConfig = await import('./fontConfig.js').then(
       module => module.default || module
     );
     const fontList = new FontList(fontConfig);

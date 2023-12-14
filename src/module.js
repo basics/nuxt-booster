@@ -6,8 +6,8 @@ import {
   addPluginTemplate,
   addTemplate
 } from '@nuxt/kit';
-import { getCrossorigin } from './runtime/utils.mjs';
-import FontConfig from './runtime/classes/FontConfig.mjs';
+import { getCrossorigin } from './runtime/utils.js';
+import FontConfig from './runtime/classes/FontConfig.js';
 import {
   DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
@@ -16,16 +16,16 @@ import {
   isWebpackBuild,
   logger,
   setPublicRuntimeConfig
-} from './utils.mjs';
+} from './utils.js';
 import {
   deprecationsNotification,
   getDefaultOptions
-} from './utils/options.mjs';
-import { getFontConfigTemplate } from './utils/template.mjs';
-import { optimizePreloads } from './utils/preload.mjs';
-import { getSupportedBrowserDetector } from './utils/browser.mjs';
-import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
-import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.mjs';
+} from './utils/options.js';
+import { getFontConfigTemplate } from './utils/template.js';
+import { optimizePreloads } from './utils/preload.js';
+import { getSupportedBrowserDetector } from './utils/browser.js';
+import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.js';
+import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.js';
 
 const resolver = createResolver(import.meta.url);
 
@@ -55,14 +55,14 @@ export default defineNuxtModule({
         nuxt.hook(
           'webpack:config',
           registerAppEntryWebpack(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
           )
         );
       } else {
         nuxt.hook(
           'vite:extend',
           registerAppEntryVite(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
           )
         );
       }
@@ -97,7 +97,7 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   addTemplate({
-    filename: MODULE_NAME + '/fontConfig.mjs',
+    filename: MODULE_NAME + '/fontConfig.js',
     getContents: () => getFontConfigTemplate(fontConfig),
     write: true
   });
@@ -111,7 +111,7 @@ async function addBuildTemplates(nuxt, options) {
 
   ['client', 'server'].forEach(mode => {
     addPluginTemplate({
-      src: resolver.resolve('runtime/tmpl', 'plugin.mjs'),
+      src: resolver.resolve('runtime/tmpl', 'plugin.js'),
       fileName: MODULE_NAME + `/plugin.${mode}.js`,
       write: true,
       mode,
@@ -127,8 +127,8 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'entry.mjs'),
-    fileName: MODULE_NAME + '/entry.mjs',
+    src: resolver.resolve('runtime/tmpl', 'entry.js'),
+    fileName: MODULE_NAME + '/entry.js',
     write: true,
     options: {
       webpack: isWebpackBuild(nuxt),

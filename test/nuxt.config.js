@@ -2,7 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config';
 import { createResolver } from '@nuxt/kit';
 
 import { join, resolve } from 'pathe';
-import nuxtConfig from '../playground/nuxt.config.mjs';
+import nuxtConfig from '../playground/nuxt.config.js';
 
 const resolver = createResolver(import.meta.url);
 
