@@ -3,7 +3,7 @@ import { basename, dirname, join, resolve } from 'pathe';
 import { parseDocument } from 'htmlparser2';
 import { load } from 'cheerio';
 import { render } from 'dom-serializer';
-import { isWebpackBuild, logger } from '../../utils.mjs';
+import { isWebpackBuild, logger } from '../../utils.js';
 
 export default (nuxt, options = { manifest: [] }) =>
   nitro => {

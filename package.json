@@ -17,6 +17,7 @@
     "type": "git",
     "url": "https://github.com/GrabarzUndPartner/nuxt-speedkit"
   },
+  "type": "module",
   "scripts": {
     "prepack": "nuxt-module-build",
     "postinstall": "husky install",
@@ -27,7 +28,7 @@
     "generate": "nuxt generate playground",
     "preview": "nuxt preview",
     "lint": "npm run lint:css && npm run lint:es",
-    "lint:es": "eslint --fix --ext .js,.mjs,.vue .",
+    "lint:es": "eslint --fix --ext .js,.js,.vue .",
     "lint:css": "stylelint \"(src|playground)/**/*.vue\"",
     "lint:report": "eslint --ext .js,.vue -f json-relative -o ./eslint-report.json .",
     "test": "npm run vitest:run",

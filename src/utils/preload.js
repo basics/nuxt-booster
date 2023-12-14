@@ -1,5 +1,5 @@
-import initHook from '../hookFunctions/nitro/init.mjs';
-import { isViteBuild, isWebpackBuild, logger } from '../utils.mjs';
+import initHook from '../hookFunctions/nitro/init.js';
+import { isViteBuild, isWebpackBuild, logger } from '../utils.js';
 
 export function optimizePreloads(moduleOptions, nuxt) {
   nuxt.options.experimental.inlineSSRStyles = false;

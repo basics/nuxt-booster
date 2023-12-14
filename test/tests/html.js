@@ -2,7 +2,7 @@
 
 import { join } from 'pathe';
 import { describe, it, expect } from 'vitest';
-import { getDom, getLinkPreloadKey, getHTML } from '../utils.mjs';
+import { getDom, getLinkPreloadKey, getHTML } from '../utils.js';
 
 export default distDir => {
   describe('🧐 inspect html', () => {

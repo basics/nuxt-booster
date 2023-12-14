@@ -1,9 +1,9 @@
 import { beforeAll } from 'vitest';
 import { startStaticServer } from './utils';
-import html from './tests/html.mjs';
-import browser from './tests/browser.mjs';
+import html from './tests/html.js';
+import browser from './tests/browser.js';
 
-import { distDir } from './nuxt.config.mjs';
+import { distDir } from './nuxt.config.js';
 
 const runtime = { serverUrl: null };
 

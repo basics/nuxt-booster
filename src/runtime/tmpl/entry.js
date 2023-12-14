@@ -1,6 +1,6 @@
 import { <% if (options.performanceCheck) { %>run, <% } %>hasSufficientPerformance, setup } from '#speedkit/utils/performance';
 import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView } from '#speedkit/utils/entry';
-import Deferred from '#speedkit/classes/Deferred.mjs';
+import Deferred from '#speedkit/classes/Deferred.js';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 
 <% if (options.webpack) { %>
