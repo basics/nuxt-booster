@@ -14,8 +14,8 @@ import SpeedkitWeakHardwareOverlay from '#speedkit/components/WeakHardwareOverla
 
 import BaseButton from '@/components/base/Button';
 
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 defineProps({
   text: {
     type: String,

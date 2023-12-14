@@ -1,5 +1,5 @@
 ---
-title: useComponentObserver
+title: useBoosterComponentObserver
 ---
 
 # {{$frontmatter.title}}
@@ -31,9 +31,9 @@ title: useComponentObserver
 </template>
 
 <script setup>
-import useComponentObserver from '#speedkit/composables/componentObserver';
+import useBoosterComponentObserver from '#speedkit/composables/componentObserver';
 
-const { el: target, inView } = useComponentObserver({
+const { el: target, inView } = useBoosterComponentObserver({
   trackVisibility: true,
   delay: 350
 });

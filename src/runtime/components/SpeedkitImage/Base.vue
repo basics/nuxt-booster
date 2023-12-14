@@ -21,9 +21,14 @@ import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import { getImageStyleDescription } from '#speedkit/utils/description';
 import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
-import useCritical from '#speedkit/composables/critical';
-
-import { ref, useImage, useNuxtApp, useHead, computed } from '#imports';
+import {
+  useBoosterCritical,
+  ref,
+  useImage,
+  useNuxtApp,
+  useHead,
+  computed
+} from '#imports';
 
 export default {
   inheritAttrs: false,
@@ -58,7 +63,7 @@ export default {
   async setup(props) {
     const $img = useImage();
     const $speedkit = useNuxtApp().$speedkit;
-    const { isCritical } = useCritical();
+    const { isCritical } = useBoosterCritical();
 
     const resolvedCrossorigin = computed(() => {
       return getCrossorigin(props.crossorigin || $speedkit.crossorigin);

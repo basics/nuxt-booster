@@ -32,11 +32,10 @@
 
 <script setup>
 import { getStyleDescription } from '#speedkit/utils/description';
-import { useHead } from '#imports';
+import { useHead, useBoosterFonts } from '#imports';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
 import BaseButton from '@/components/base/Button';
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+const { $getFont } = useBoosterFonts();
 
 useHead({
   noscript: [

@@ -75,8 +75,8 @@
 
 <script setup>
 import PreviewContainer from '@/components/PreviewContainer';
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 </script>
 
 <style lang="postcss" scoped>

@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-import useComponentObserver from '#speedkit/composables/componentObserver';
+import useBoosterComponentObserver from '#speedkit/composables/componentObserver';
 
 const props = defineProps({
   src: {
@@ -41,7 +41,7 @@ watch(loaded, e => {
   }
 });
 
-const { el: iframe, inView } = useComponentObserver();
+const { el: iframe, inView } = useBoosterComponentObserver();
 
 watch(inView, () => {
   lazySrc.value = props.src;

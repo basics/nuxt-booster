@@ -21,12 +21,16 @@
 <script>
 import { getPictureStyleDescription } from '../../utils/description';
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
-import useCritical from '#speedkit/composables/critical';
+import {
+  useBoosterCritical,
+  ref,
+  useImage,
+  useHead,
+  useNuxtApp
+} from '#imports';
 import BaseImage from '#speedkit/components/SpeedkitImage/Base';
 import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';
 import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
-
-import { ref, useImage, useHead, useNuxtApp } from '#imports';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
@@ -76,7 +80,7 @@ export default {
   emits: ['load'],
 
   async setup(props) {
-    const { isCritical } = useCritical();
+    const { isCritical } = useBoosterCritical();
     const $img = useImage();
     const $speedkit = useNuxtApp().$speedkit;
 

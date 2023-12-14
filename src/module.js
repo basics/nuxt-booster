@@ -1,6 +1,7 @@
 import { resolve, join } from 'pathe';
 
 import {
+  addImports,
   createResolver,
   defineNuxtModule,
   addPluginTemplate,
@@ -81,6 +82,15 @@ export default defineNuxtModule({
     }
 
     await addBuildTemplates(nuxt, moduleOptions);
+
+    ['useBoosterCritical', 'useBoosterConfig', 'useBoosterFonts'].forEach(
+      name => {
+        addImports({
+          name,
+          from: resolve(runtimeDir, 'composables/index.js')
+        });
+      }
+    );
   }
 });
 

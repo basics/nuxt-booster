@@ -14,8 +14,8 @@
 <script setup>
 import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
 import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 defineProps({
   text: { type: String, default: null }
 });

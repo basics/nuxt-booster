@@ -33,8 +33,8 @@ import { onMounted, ref } from 'vue';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg';
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 
 const ready = ref(false);
 

@@ -2,7 +2,7 @@
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 import { h } from 'vue';
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture/Base';
-import useCritical from '#speedkit/composables/critical';
+import { useBoosterCritical } from '#imports';
 
 export default {
   inheritAttrs: false,
@@ -14,7 +14,7 @@ export default {
     }
   },
   setup() {
-    const { isCritical } = useCritical();
+    const { isCritical } = useBoosterCritical();
     return {
       isCritical
     };

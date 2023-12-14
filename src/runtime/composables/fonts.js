@@ -1,14 +1,12 @@
 import { computed, reactive } from 'vue';
-import { useHead } from '#imports';
+import { useHead, useBoosterCritical, useBoosterConfig } from '#imports';
 import { useNuxtApp } from '#app';
 import FontCollection from '#speedkit/classes/FontCollection';
-import useCritical from '#speedkit/composables/critical';
-import useConfig from '#speedkit/composables/config';
 
 export default function useFonts(context) {
-  const { isCritical, critical } = useCritical(context);
+  const { isCritical, critical } = useBoosterCritical(context);
 
-  const runtimeConfig = useConfig();
+  const runtimeConfig = useBoosterConfig();
 
   const nuxtApp = useNuxtApp();
 

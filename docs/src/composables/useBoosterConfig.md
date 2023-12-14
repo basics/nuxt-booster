@@ -1,5 +1,5 @@
 ---
-title: useConfig
+title: useBoosterConfig
 ---
 
 # {{$frontmatter.title}}
@@ -11,6 +11,6 @@ Returns `nuxt-speedkit` public runtime options.
 ## Example
 
 ```js
-import useConfig from '#speedkit/composables/config';
-const $speedkitOptions = useConfig();
+import { useBoosterConfig } from '#imports';
+const $speedkitOptions = useBoosterConfig();
 ```
