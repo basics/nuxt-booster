@@ -1,5 +1,15 @@
 # Project Changelog
 
+# [3.0.0-next.39](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.38...v3.0.0-next.39) (2023-12-14)
+
+
+### Bug Fixes
+
+* **pkg:** fix docs files ([ab8aa75](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/ab8aa753db9304ebf5b8603a9e284a7dcbd5cfe4))
+* **pkg:** rename mjs to js; added type module ([5072a98](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5072a981b7457140cbcbc0fe274dcba5c2ace956))
+* **pkg:** rename prettier.mjs ([0ec1ef8](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/0ec1ef8217b6dcd864f078f0a63ca47e4f0268f7))
+* **pkg:** update package-lock ([7a5b262](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7a5b262cb96e0344e88d2e9fe04026c108a405e7))
+
 # [3.0.0-next.38](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.37...v3.0.0-next.38) (2023-11-17)
 
 
