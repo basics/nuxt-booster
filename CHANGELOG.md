@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.41](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.40...v3.0.0-next.41) (2023-12-14)
+
+
+### Bug Fixes
+
+* **module:** improve templates… ([87206fc](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/87206fc74248cd0fd13787caa1d0f8ea18acbc16))
+
 # [3.0.0-next.40](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.39...v3.0.0-next.40) (2023-12-14)
 
 
