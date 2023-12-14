@@ -1,4 +1,4 @@
-import { hasSufficientDownloadPerformance } from './performance.mjs';
+import { hasSufficientDownloadPerformance } from './performance';
 
 export const triggerRunCallback = sufficient =>
   window.dispatchEvent(

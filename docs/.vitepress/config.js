@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vitepress';
 import markdownItInlineComments from 'markdown-it-inline-comments';
-import navigation from './navigation.mjs';
+import navigation from './navigation.js';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig(() => ({
