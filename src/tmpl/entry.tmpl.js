@@ -4,7 +4,7 @@ export default options => {
     options.performanceCheck ? `run, ` : ``
   }hasSufficientPerformance, setup } from '#speedkit/utils/performance';
 import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView } from '#speedkit/utils/entry';
-import Deferred from '#speedkit/classes/Deferred.js';
+import Deferred from '#speedkit/classes/Deferred';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 
 `;
@@ -35,7 +35,7 @@ function entryWrapper(){
 
   code += `
 function getEntry(){
-  return import('${options.entry}.js').then(module => module.default);
+  return import('${options.entry}').then(module => module.default);
 }
 
 function client () {

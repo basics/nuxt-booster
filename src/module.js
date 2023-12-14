@@ -6,8 +6,8 @@ import {
   addPluginTemplate,
   addTemplate
 } from '@nuxt/kit';
-import { getCrossorigin } from './runtime/utils.js';
-import FontConfig from './runtime/classes/FontConfig.js';
+import { getCrossorigin } from './runtime/utils';
+import FontConfig from './runtime/classes/FontConfig';
 import {
   DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
@@ -16,19 +16,16 @@ import {
   isWebpackBuild,
   logger,
   setPublicRuntimeConfig
-} from './utils.js';
-import {
-  deprecationsNotification,
-  getDefaultOptions
-} from './utils/options.js';
-import { getFontConfigTemplate } from './utils/template.js';
-import { optimizePreloads } from './utils/preload.js';
-import { getSupportedBrowserDetector } from './utils/browser.js';
-import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.js';
-import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.js';
+} from './utils';
+import { deprecationsNotification, getDefaultOptions } from './utils/options';
+import { getFontConfigTemplate } from './utils/template';
+import { optimizePreloads } from './utils/preload';
+import { getSupportedBrowserDetector } from './utils/browser';
+import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
+import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
 
-import pluginTemplate from './tmpl/plugin.tmpl.js';
-import entryTemplate from './tmpl/entry.tmpl.js';
+import pluginTemplate from './tmpl/plugin.tmpl';
+import entryTemplate from './tmpl/entry.tmpl';
 
 const resolver = createResolver(import.meta.url);
 
@@ -58,7 +55,7 @@ export default defineNuxtModule({
         nuxt.hook(
           'webpack:config',
           registerAppEntryWebpack(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry')
           )
         );
       } else {
