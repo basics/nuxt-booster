@@ -1,4 +1,5 @@
-import vFont from '#speedkit/directives/vFont';
+export default options => {
+  let code = `import vFont from '#speedkit/directives/vFont';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 import FontList from '#speedkit/classes/FontList';
 import hydrate from '#speedkit/hydrate';
@@ -18,10 +19,14 @@ export default defineNuxtPlugin({
       getImageSize,
       hydrate,
       getFont: fontList.getFont.bind(fontList),
-      crossorigin: <%= options.crossorigin ? `'${options.crossorigin}'` : null %>,
-      isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>),
-      targetFormats: <%= JSON.stringify(options.targetFormats) %>,
-      densities: <%= JSON.stringify(options.densities) %>
+      crossorigin: ${
+        options.crossorigin ? "'" + options.crossorigin + "'" : null
+      },
+      isBrowserSupported: () => isSupportedBrowser(${
+        options.supportedBrowserDetector
+      }),
+      targetFormats: ${JSON.stringify(options.targetFormats)},
+      densities: ${JSON.stringify(options.densities)}
     });
 
   },
@@ -36,15 +41,17 @@ export default defineNuxtPlugin({
 
 async function getImageSize (src) {
 
-<% if (options.mode === 'client') { %>
-  const { width, height } = await new Promise((resolve) => {
+`;
+
+  if (options.mode === 'client') {
+    code += `  const { width, height } = await new Promise((resolve) => {
     const img = new global.Image();
     img.onload = () => resolve({width: img.naturalWidth, height: img.naturalHeight});
     img.src = src;
   });
-  return {width, height};
-<% } else { %>
-
+  return {width, height};`;
+  } else {
+    code += `
   const isNitroPrerender = 'x-nitro-prerender' in useRequestHeaders()
 
   try {
@@ -64,9 +71,15 @@ async function getImageSize (src) {
     const { width, height } = await imageMeta(data);
     return { width, height };
   } catch (error) {
-    console.error(`getImageSize: ` + src, error);
+    console.error('getImageSize: ' + src, error);
     return { width: 0, height: 0 };
   }
+`;
+  }
 
-<% } %>
+  code += `
+}
+`;
+
+  return code;
 };

@@ -1,14 +1,23 @@
-import { <% if (options.performanceCheck) { %>run, <% } %>hasSufficientPerformance, setup } from '#speedkit/utils/performance';
+export default options => {
+  debugger;
+  let code = `import { ${
+    options.performanceCheck ? `run, ` : ``
+  }hasSufficientPerformance, setup } from '#speedkit/utils/performance';
 import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView } from '#speedkit/utils/entry';
 import Deferred from '#speedkit/classes/Deferred.js';
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 
-<% if (options.webpack) { %>
+`;
+
+  if (options.webpack) {
+    code += `
 // webpack
 (async () => {
   return await client().then(() => getEntry());
 })()
-<% } else {%>
+`;
+  } else {
+    code += `
   // vite
 export default entryWrapper();
 
@@ -21,9 +30,12 @@ function entryWrapper(){
   }
 
 };
-<%} %>
+`;
+  }
+
+  code += `
 function getEntry(){
-  return import('<%= options.entry %>.js').then(module => module.default);
+  return import('${options.entry}.js').then(module => module.default);
 }
 
 function client () {
@@ -43,9 +55,19 @@ function client () {
 
     try {
 
-      <% if (options.performanceCheck) { %>if (!force) {
-        await run(<%= options.runOptions ? JSON.stringify(options.runOptions) : '' %>);
-      }<% } %>
+      `;
+
+  if (options.performanceCheck) {
+    code += `
+if (!force) {
+        await run(${
+          options.runOptions ? JSON.stringify(options.runOptions) : ''
+        });
+      }
+`;
+  }
+
+  code += `
 
       initialized = true;
 
@@ -66,7 +88,9 @@ function client () {
     return null;
   };
 
-  const supportedBrowser = isSupportedBrowser(<%= options.supportedBrowserDetector %>);
+  const supportedBrowser = isSupportedBrowser(${
+    options.supportedBrowserDetector
+  });
 
   window.addEventListener('load', function () {
     if (!document.getElementById('nuxt-speedkit-layer')) {
@@ -76,9 +100,9 @@ function client () {
       observeSpeedkitButton('nuxt-speedkit-button-init-reduced-view', initReducedView);
       observeSpeedkitButton('nuxt-speedkit-button-init-app', () => initApp(true));
 
-      setup(<%= options.performanceMetrics %>);
+      setup(${options.performanceMetrics});
 
-      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
+      if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((${!options.ignorePerformance} && hasSufficientPerformance()) && supportedBrowser)) {
         initApp();
       } else {
         setupSpeedkitLayer(layerEl, supportedBrowser)
@@ -90,3 +114,7 @@ function client () {
 return deferred.promise;
 
 }
+`;
+
+  return code;
+};

@@ -27,6 +27,9 @@ import { getSupportedBrowserDetector } from './utils/browser.js';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.js';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.js';
 
+import pluginTemplate from './tmpl/plugin.tmpl.js';
+import entryTemplate from './tmpl/entry.tmpl.js';
+
 const resolver = createResolver(import.meta.url);
 
 export default defineNuxtModule({
@@ -55,14 +58,14 @@ export default defineNuxtModule({
         nuxt.hook(
           'webpack:config',
           registerAppEntryWebpack(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
           )
         );
       } else {
         nuxt.hook(
           'vite:extend',
           registerAppEntryVite(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
           )
         );
       }
@@ -111,36 +114,38 @@ async function addBuildTemplates(nuxt, options) {
 
   ['client', 'server'].forEach(mode => {
     addPluginTemplate({
-      src: resolver.resolve('runtime/tmpl', 'plugin.mjs'),
-      fileName: MODULE_NAME + `/plugin.${mode}.js`,
+      getContents: () => {
+        return pluginTemplate({
+          mode,
+          densities: options.densities,
+          targetFormats: options.targetFormats,
+          crossorigin: getCrossorigin(options.crossorigin),
+          supportedBrowserDetector,
+          loader: options.loader
+        });
+      },
+      filename: MODULE_NAME + `/plugin.${mode}.js`,
       write: true,
-      mode,
-      options: {
-        mode,
-        densities: options.densities,
-        targetFormats: options.targetFormats,
-        crossorigin: getCrossorigin(options.crossorigin),
-        supportedBrowserDetector,
-        loader: options.loader
-      }
+      mode
     });
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'entry.mjs'),
-    fileName: MODULE_NAME + '/entry.mjs',
-    write: true,
-    options: {
-      webpack: isWebpackBuild(nuxt),
-      performanceCheck: true,
-      isDev: !options.debug && process.env.NODE_ENV === 'development',
-      entry: join(nuxt.options.appDir, 'entry'),
-      runOptions: options.runOptions,
-      ssr: nuxt.options.ssr,
-      ignorePerformance: !options.detection.performance,
-      performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
-      supportedBrowserDetector
-    }
+    filename: MODULE_NAME + '/entry.js',
+    getContents: () => {
+      return entryTemplate({
+        webpack: isWebpackBuild(nuxt),
+        performanceCheck: true,
+        isDev: !options.debug && process.env.NODE_ENV === 'development',
+        entry: join(nuxt.options.appDir, 'entry'),
+        runOptions: options.runOptions,
+        ssr: nuxt.options.ssr,
+        ignorePerformance: !options.detection.performance,
+        performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
+        supportedBrowserDetector
+      });
+    },
+    write: true
   });
 }
 
