@@ -55,14 +55,14 @@ export default defineNuxtModule({
         nuxt.hook(
           'webpack:config',
           registerAppEntryWebpack(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
           )
         );
       } else {
         nuxt.hook(
           'vite:extend',
           registerAppEntryVite(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
           )
         );
       }
@@ -111,7 +111,7 @@ async function addBuildTemplates(nuxt, options) {
 
   ['client', 'server'].forEach(mode => {
     addPluginTemplate({
-      src: resolver.resolve('runtime/tmpl', 'plugin.js'),
+      src: resolver.resolve('runtime/tmpl', 'plugin.mjs'),
       fileName: MODULE_NAME + `/plugin.${mode}.js`,
       write: true,
       mode,
@@ -127,8 +127,8 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'entry.js'),
-    fileName: MODULE_NAME + '/entry.js',
+    src: resolver.resolve('runtime/tmpl', 'entry.mjs'),
+    fileName: MODULE_NAME + '/entry.mjs',
     write: true,
     options: {
       webpack: isWebpackBuild(nuxt),
