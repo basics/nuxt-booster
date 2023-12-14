@@ -84,11 +84,6 @@ export default defineNuxtConfig(async () => {
       order: 'cssnanoLast'
     },
 
-    buildModules: [
-      isDev && '@nuxtjs/eslint-module',
-      isDev && '@nuxtjs/stylelint-module'
-    ].filter(Boolean),
-
     image: {
       // The screen sizes predefined by `@nuxt/image`:
       screens: {
