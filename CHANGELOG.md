@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.40](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.39...v3.0.0-next.40) (2023-12-14)
+
+
+### Bug Fixes
+
+* **module:** fix missing mjs files ([7ed3467](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7ed3467440b701f4960354afc647a88e9560f59f))
+
 # [3.0.0-next.39](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.38...v3.0.0-next.39) (2023-12-14)
 
 
