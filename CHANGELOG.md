@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.43](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.42...v3.0.0-next.43) (2023-12-14)
+
+
+### Bug Fixes
+
+* **pkg:** remove unused deps; clean ([90e903e](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/90e903e9db73bfd8aede2e2ffe2f738578d8b851))
+
 # [3.0.0-next.42](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.41...v3.0.0-next.42) (2023-12-14)
 
 
