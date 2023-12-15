@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.44](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.43...v3.0.0-next.44) (2023-12-15)
+
+
+### Bug Fixes
+
+* **components:** replace ticks ([50c9150](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/50c915051327d388ec9781c551507363d3fe2bf3))
+
 # [3.0.0-next.43](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.42...v3.0.0-next.43) (2023-12-14)
 
 
