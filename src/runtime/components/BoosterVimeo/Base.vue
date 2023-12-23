@@ -29,8 +29,8 @@ import { markRaw, ref, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
-import { isTouchSupported } from '#speedkit/utils/browser';
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+import { isTouchSupported } from '#booster/utils/browser';
+import BoosterPicture from '#booster/components/BoosterPicture';
 
 import { useHead } from '#imports';
 
@@ -38,7 +38,7 @@ const vimeo = new Vimeo();
 
 export default {
   components: {
-    SpeedkitPicture,
+    BoosterPicture,
     DefaultButton
   },
 
@@ -168,7 +168,7 @@ export default {
     },
 
     pictureComponent() {
-      return this.videoData ? SpeedkitPicture : 'picture';
+      return this.videoData ? BoosterPicture : 'picture';
     },
 
     poster() {
@@ -176,7 +176,7 @@ export default {
         return null;
       }
       return {
-        formats: this.$speedkit.targetFormats,
+        formats: this.$booster.targetFormats,
         title: this.playerTitle,
         sources: [
           {

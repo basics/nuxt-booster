@@ -1,7 +1,7 @@
 <script>
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 import { h } from 'vue';
-import SpeedkitImage from '#speedkit/components/SpeedkitImage/Base';
+import BoosterPicture from '#booster/components/BoosterPicture/Base';
 import { useBoosterCritical } from '#imports';
 
 export default {
@@ -13,7 +13,6 @@ export default {
       default: true
     }
   },
-
   setup() {
     const { isCritical } = useBoosterCritical();
     return {
@@ -23,13 +22,17 @@ export default {
 
   render() {
     if (!this.hydrate) {
-      return h(LazyHydrationWrapper, { props: { never: true } }, [
-        h('noscript', {}, [
-          h(SpeedkitImage, { ...this.$attrs, critical: this.hydrate })
-        ])
+      return h(LazyHydrationWrapper, { never: true }, [
+        h(
+          'noscript',
+          {
+            class: 'nuxt-booster-picture-noscript'
+          },
+          [h(BoosterPicture, { ...this.$attrs, critical: this.hydrate })]
+        )
       ]);
     }
-    return h(SpeedkitImage, { ...this.$attrs, critical: this.isCritical });
+    return h(BoosterPicture, { ...this.$attrs, critical: this.isCritical });
   }
 };
 </script>

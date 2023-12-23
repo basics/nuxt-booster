@@ -35,8 +35,8 @@ export default defineNuxtConfig(async () => {
       pages: 'pages/tests'
     },
 
-    speedkit: {
-      ...defaultConfig.speedkit,
+    booster: {
+      ...defaultConfig.booster,
       targetFormats: ['jpg|jpeg|png|gif']
     }
   };

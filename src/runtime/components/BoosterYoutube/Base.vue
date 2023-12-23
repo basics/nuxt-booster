@@ -12,7 +12,7 @@
       @load="onLoad"
     />
     <default-button @click="onInit">
-      <speedkit-picture class="poster" v-bind="pictureDataset" :title="title" />
+      <booster-picture class="poster" v-bind="pictureDataset" :title="title" />
       <slot v-if="loading" name="loading-spinner" />
       <slot v-if="!ready && !loading" name="play" />
     </default-button>
@@ -25,8 +25,8 @@ import { ref, markRaw, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
-import { isTouchSupported } from '#speedkit/utils/browser';
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+import { isTouchSupported } from '#booster/utils/browser';
+import BoosterPicture from '#booster/components/BoosterPicture';
 
 import { useHead } from '#imports';
 
@@ -34,7 +34,7 @@ const youtube = new Youtube();
 
 export default {
   components: {
-    SpeedkitPicture,
+    BoosterPicture,
     DefaultButton
   },
 
@@ -121,7 +121,7 @@ export default {
   computed: {
     pictureDataset() {
       return {
-        formats: this.$speedkit.targetFormats,
+        formats: this.$booster.targetFormats,
         title: this.title,
         sources: [
           {

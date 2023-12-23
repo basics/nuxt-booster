@@ -35,7 +35,7 @@ Fonts are no longer explicitly defined via CSS, otherwise the loading behavior o
 
 ## Import components
 
-Until now, components were imported either statically (`import component from '@/component';`) or dynamically (`import('@/component')`). However, with these two variants, hydration cannot be controlled. As a result, all components are also initialized on initial load. `nuxt-speedkit` offers a corresponding loader for this feature request. Each async component import should be enclosed with this loader in a page or layout.
+Until now, components were imported either statically (`import component from '@/component';`) or dynamically (`import('@/component')`). However, with these two variants, hydration cannot be controlled. As a result, all components are also initialized on initial load. `nuxt-booster` offers a corresponding loader for this feature request. Each async component import should be enclosed with this loader in a page or layout.
 
 - 'Ensures that components are initialized only when needed in the visible viewport.'
 - 'Optimizes initialization of critical components on initial page load (critical components are initially in the visible viewport).'
@@ -43,11 +43,11 @@ Until now, components were imported either statically (`import component from '@
 In the background, the module [`vue3-lazy-hydration`](https://github.com/freddy38510/vue3-lazy-hydration) inspired by `vue-lazy-hydration` from [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    Stage: speedkitHydrate(() => import('@/components/organisms/Stage')),
+    Stage: boosterHydrate(() => import('@/components/organisms/Stage')),
   }
 };
 ````
@@ -55,45 +55,45 @@ export default {
 Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the [nuxt.config](/guide/options#lazyoffset).
 
 ::: warning
-Although the <code>#speedkit/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
+Although the <code>#booster/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
 :::
 
 ::: info
 With <code>NODE-ENV (development)</code>, the components are included directly. <br>This is relevant for the hot reload of the imported vue files.
 :::
 
-## Speedkit Components
+## Booster Components
 
-In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `#speedkit/components`.
+In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The booster components can be imported via the namespace `#booster/components`.
 
-- [SpeedkitLayer](/components/speedkit-layer)
-- [SpeedkitPicture](/components/speedkit-picture)
-- [SpeedkitImage](/components/speedkit-image)
-- [SpeedkitIframe](/components/speedkit-iframe)
-- [SpeedkitVimeo](/components/speedkit-vimeo)
-- [SpeedkitYoutube](/components/speedkit-youtube)
+- [BoosterLayer](/components/booster-layer)
+- [BoosterPicture](/components/booster-picture)
+- [BoosterImage](/components/booster-image)
+- [BoosterIframe](/components/booster-iframe)
+- [BoosterVimeo](/components/booster-vimeo)
+- [BoosterYoutube](/components/booster-youtube)
 
 ````html
 <template>
-  <speedkit-picture>
+  <booster-picture>
 </template>
 
 <script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture'
+import BoosterPicture from '#booster/components/BoosterPicture'
 export default {
   components: {
-    SpeedkitPicture
+    BoosterPicture
   }
 }
 </script>
 ````
 
 ::: info
-The speedkit components will be expanded in the future. If you have explicit wishes, please send us a feature request or directly a pull request with the corresponding feature :)
+The booster components will be expanded in the future. If you have explicit wishes, please send us a feature request or directly a pull request with the corresponding feature :)
 :::
 
 ## Example
 
-You can check out a sample integration of `nuxt-speedkit` at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
+You can check out a sample integration of `nuxt-booster` at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-booster-example).
 
-<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark"></iframe>
+<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-booster-example/tree/main/?hidenavigation=1&theme=dark"></iframe>

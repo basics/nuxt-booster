@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getCrossorigin } from '#speedkit/utils';
+import { getCrossorigin } from '#booster/utils';
 
 describe('🧐 inspect module utils', () => {
   it('getCrossorigin', () => {

@@ -111,7 +111,7 @@ export default defineNuxtConfig(async () => {
       }
     },
 
-    speedkit: {
+    booster: {
       // targetFormats: ['jpg|jpeg|png|gif'],
       // densities: 'x1 x2',
       detection: {

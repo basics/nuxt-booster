@@ -1,10 +1,10 @@
 <template>
   <preview-container>
     <template #default>
-      <loader-test id="lazySpeedkitHydrate" />
+      <loader-test id="lazyBoosterHydrate" />
     </template>
     <template #title>
-      <p>Critical<br />SpeedkitHydrate</p>
+      <p>Critical<br />BoosterHydrate</p>
     </template>
   </preview-container>
 </template>

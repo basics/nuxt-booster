@@ -1,6 +1,6 @@
 <template>
   <section class="component-stage" :level="-1">
-    <speedkit-picture
+    <booster-picture
       class="background"
       :title="picture.title"
       :alt="picture.alt"
@@ -24,14 +24,14 @@
       <span v-if="ready" class="arrow"><svg-chevron-down /></span>
     </transition>
 
-    <speedkit-image class="logo" v-bind="image" :loading-spinner="null" />
+    <booster-image class="logo" v-bind="image" :loading-spinner="null" />
   </section>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
-import SpeedkitImage from '#speedkit/components/SpeedkitImage';
+import BoosterPicture from '#booster/components/BoosterPicture';
+import BoosterImage from '#booster/components/BoosterImage';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg';
 import { useBoosterFonts } from '#imports';
 const { $getFont } = useBoosterFonts();

@@ -31,7 +31,7 @@ title: useBoosterComponentObserver
 </template>
 
 <script setup>
-import useBoosterComponentObserver from '#speedkit/composables/componentObserver';
+import useBoosterComponentObserver from '#booster/composables/componentObserver';
 
 const { el: target, inView } = useBoosterComponentObserver({
   trackVisibility: true,

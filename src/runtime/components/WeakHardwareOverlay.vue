@@ -1,8 +1,8 @@
 <template>
-  <div v-if="isServer" class="nuxt-speedkit-weak-hardware-overlay">
+  <div v-if="isServer" class="nuxt-booster-weak-hardware-overlay">
     <slot>
       Area is disabled for performance reasons.<br />
-      <button id="nuxt-speedkit-button-init-app">Click for activation</button>
+      <button id="nuxt-booster-button-init-app">Click for activation</button>
     </slot>
   </div>
 </template>
@@ -16,8 +16,8 @@ onMounted(() => (isServer.value = false));
 
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
-.nuxt-speedkit-weak-hardware-overlay {
-  html:not(.nuxt-speedkit-reduced-view) & {
+.nuxt-booster-weak-hardware-overlay {
+  html:not(.nuxt-booster-reduced-view) & {
     display: none;
   }
 }

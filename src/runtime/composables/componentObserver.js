@@ -1,5 +1,5 @@
 import { onMounted, ref } from 'vue';
-import { getElementObserver } from '#speedkit/classes/intersection';
+import { getElementObserver } from '#booster/classes/intersection';
 import { useBoosterCritical } from '#imports';
 
 export default function useComponentObserver(options) {

@@ -1,18 +1,18 @@
 <template>
   <section v-font="[$getFont('Merriweather', 400)]" class="video-vimeo">
-    <speedkit-vimeo v-bind="$attrs">
+    <booster-vimeo v-bind="$attrs">
       <template #default="{ videoData }">
         <div class="description" v-html="videoData && videoData.description" />
       </template>
       <template #afterPlayer>
         <weak-hardware-overlay />
       </template>
-    </speedkit-vimeo>
+    </booster-vimeo>
   </section>
 </template>
 
 <script setup>
-import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
+import BoosterVimeo from '#booster/components/BoosterVimeo';
 import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
 import { useBoosterFonts } from '#imports';
 const { $getFont } = useBoosterFonts();

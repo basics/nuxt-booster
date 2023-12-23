@@ -28,44 +28,38 @@ export default runtime => {
       return page;
     };
 
-    // #region /tests/speedkit-layer
+    // #region /tests/booster-layer
 
-    it('SpeedkitLayer (Apply without scripts)', async () => {
-      const page = await createPage('/speedkit-layer/');
+    it('BoosterLayer (Apply without scripts)', async () => {
+      const page = await createPage('/booster-layer/');
 
       expect(
-        await page.evaluate(() =>
-          document.getElementById('nuxt-speedkit-layer')
-        )
+        await page.evaluate(() => document.getElementById('nuxt-booster-layer'))
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
-        document
-          .getElementById('nuxt-speedkit-button-init-reduced-view')
-          .click()
+        document.getElementById('nuxt-booster-button-init-reduced-view').click()
       );
       await page.waitForLoadState('networkidle');
 
-      await waitForSelector(page, 'html.nuxt-speedkit-reduced-view');
+      await waitForSelector(page, 'html.nuxt-booster-reduced-view');
 
       // picture transformed
-      await waitForSelector(page, '.nuxt-speedkit-picture');
+      await waitForSelector(page, '.nuxt-booster-picture');
 
       // active font
       await waitForSelector(page, '[data-font].font-active');
     });
 
-    it('SpeedkitLayer (Apply with scripts)', async () => {
-      const page = await createPage('/speedkit-layer/');
+    it('BoosterLayer (Apply with scripts)', async () => {
+      const page = await createPage('/booster-layer/');
 
       expect(
-        await page.evaluate(() =>
-          document.getElementById('nuxt-speedkit-layer')
-        )
+        await page.evaluate(() => document.getElementById('nuxt-booster-layer'))
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
-        document.getElementById('nuxt-speedkit-button-init-app').click()
+        document.getElementById('nuxt-booster-button-init-app').click()
       );
       await page.waitForLoadState('networkidle');
 
@@ -75,27 +69,25 @@ export default runtime => {
       await waitForSelector(page, '[data-font].font-active');
     });
 
-    it('SpeedkitLayer (No Javascript)', async () => {
-      const page = await createPage('/speedkit-layer/', true);
+    it('BoosterLayer (No Javascript)', async () => {
+      const page = await createPage('/booster-layer/', true);
 
       expect(
-        await page.evaluate(() =>
-          document.getElementById('nuxt-speedkit-layer')
-        )
+        await page.evaluate(() => document.getElementById('nuxt-booster-layer'))
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
-        document.getElementById('nuxt-speedkit-button-init-nojs').click()
+        document.getElementById('nuxt-booster-button-init-nojs').click()
       );
 
       expect(
         await page.evaluate(
-          () => document.getElementById('nuxt-speedkit-layer-close').checked
+          () => document.getElementById('nuxt-booster-layer-close').checked
         )
       ).toBeFalsy();
     });
 
-    // #endregion /tests/speedkit-layer
+    // #endregion /tests/booster-layer
 
     // #region /tests/weak-hardware-overlay
 
@@ -104,46 +96,46 @@ export default runtime => {
 
       expect(
         await page.evaluate(() =>
-          document.querySelector('.nuxt-speedkit-weak-hardware-overlay')
+          document.querySelector('.nuxt-booster-weak-hardware-overlay')
         )
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
         document
-          .querySelector('.nuxt-speedkit-weak-hardware-overlay button')
+          .querySelector('.nuxt-booster-weak-hardware-overlay button')
           .click()
       );
       await page.waitForSelector('div.mounted');
 
       expect(
         await page.evaluate(() =>
-          document.querySelector('.nuxt-speedkit-weak-hardware-overlay')
+          document.querySelector('.nuxt-booster-weak-hardware-overlay')
         )
       ).toBeFalsy();
     });
 
     // #endregion /tests/weak-hardware-overlay
 
-    // #region /tests/speedkit-loader
+    // #region /tests/booster-loader
 
-    it('speedkitHydrate', async () => {
-      const page = await createPage('/speedkit-loader/');
+    it('boosterHydrate', async () => {
+      const page = await createPage('/booster-loader/');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazySpeedkitHydrate')
+            .querySelector('#lazyBoosterHydrate')
             .classList.contains('.active')
         )
       ).toBeFalsy();
-      await waitForSelector(page, '#criticalSpeedkitHydrate.active');
+      await waitForSelector(page, '#criticalBoosterHydrate.active');
       // scroll to element
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await waitForSelector(page, '#lazySpeedkitHydrate.active');
+      await waitForSelector(page, '#lazyBoosterHydrate.active');
     });
 
-    // #endregion /tests/speedkit-loader
+    // #endregion /tests/booster-loader
 
     // #region /tests/v-font
 
@@ -387,7 +379,7 @@ export default runtime => {
 
     // #region /tests/iframe
 
-    it('SpeedkitIframe', async () => {
+    it('BoosterIframe', async () => {
       const page = await createPage('/iframe/');
       await page.waitForLoadState('networkidle');
       await page.evaluate(() => {
@@ -399,7 +391,7 @@ export default runtime => {
     // #endregion
 
     // #region /tests/youtube
-    it('SpeedkitYoutube ready, play and autoplay', async () => {
+    it('BoosterYoutube ready, play and autoplay', async () => {
       const page = await createPage('/youtube/');
       await page.waitForLoadState('networkidle');
 
@@ -412,7 +404,7 @@ export default runtime => {
       // wait for playing first player playing
       await waitForSelector(
         page,
-        '#youtube-0 .nuxt-speedkit-youtube.ready.playing'
+        '#youtube-0 .nuxt-booster-youtube.ready.playing'
       );
 
       // scroll to second player for autoplay
@@ -421,14 +413,14 @@ export default runtime => {
 
       await waitForSelector(
         page,
-        '#youtube-1 .nuxt-speedkit-youtube.ready.playing'
+        '#youtube-1 .nuxt-booster-youtube.ready.playing'
       );
 
-      await waitForSelector(page, '#youtube-0 .nuxt-speedkit-youtube.ready');
+      await waitForSelector(page, '#youtube-0 .nuxt-booster-youtube.ready');
 
       // wait for playing first player playing
       // await waitForSelector(page,
-      //   '#youtube-0 .nuxt-speedkit-youtube.ready:not(.playing)'
+      //   '#youtube-0 .nuxt-booster-youtube.ready:not(.playing)'
       // );
     });
 
@@ -436,7 +428,7 @@ export default runtime => {
 
     // #region /tests/vimeo
 
-    // it('SpeedkitVimeo ready & play', async () => {
+    // it('BoosterVimeo ready & play', async () => {
     //   const page = await createPage('/vimeo/');
     //   await page.waitForLoadState('networkidle');
 
@@ -449,7 +441,7 @@ export default runtime => {
     //     await page.waitForLoadState('networkidle');
 
     //     // wait for player ready
-    //     await waitForSelector(page, '#vimeo-0 .nuxt-speedkit-vimeo.ready');
+    //     await waitForSelector(page, '#vimeo-0 .nuxt-booster-vimeo.ready');
     //   } else {
     //     // start first player
     //     await page.evaluate(() =>
@@ -459,7 +451,7 @@ export default runtime => {
 
     //     // wait for playing first player playing
     //     await waitForSelector(page,
-    //       '#vimeo-0 .nuxt-speedkit-vimeo.ready.playing'
+    //       '#vimeo-0 .nuxt-booster-vimeo.ready.playing'
     //     );
 
     //     // // wait for playing first player playing
@@ -471,10 +463,10 @@ export default runtime => {
     //     await page.waitForLoadState('networkidle');
 
     //     await waitForSelector(page,
-    //       '#vimeo-0 .nuxt-speedkit-vimeo.ready:not(.playing)'
+    //       '#vimeo-0 .nuxt-booster-vimeo.ready:not(.playing)'
     //     );
     //     await waitForSelector(page,
-    //       '#vimeo-1 .nuxt-speedkit-vimeo.ready.playing'
+    //       '#vimeo-1 .nuxt-booster-vimeo.ready.playing'
     //     );
     //   }
     // });

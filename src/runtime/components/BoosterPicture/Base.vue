@@ -1,5 +1,5 @@
 <template>
-  <picture :class="classNames.picture" class="nuxt-speedkit-picture">
+  <picture :class="classNames.picture" class="nuxt-booster-picture">
     <picture-source
       v-for="source in formatSources"
       :key="source.key"
@@ -28,9 +28,9 @@ import {
   useHead,
   useNuxtApp
 } from '#imports';
-import BaseImage from '#speedkit/components/SpeedkitImage/Base';
-import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';
-import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
+import BaseImage from '#booster/components/BoosterImage/Base';
+import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
+import PictureSource from '#booster/components/BoosterPicture/Source';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
@@ -82,7 +82,7 @@ export default {
   async setup(props) {
     const { isCritical } = useBoosterCritical();
     const $img = useImage();
-    const $speedkit = useNuxtApp().$speedkit;
+    const $booster = useNuxtApp().$booster;
 
     const sourceList = SourceList.create(props.sources, {
       sort: props.sortSources
@@ -99,11 +99,11 @@ export default {
       }
     });
 
-    metaSources.value = await sourceList.getMeta($img, $speedkit);
+    metaSources.value = await sourceList.getMeta($img, $booster);
 
     return {
       isCritical,
-      resolvedFormats: props.formats || $speedkit.targetFormats,
+      resolvedFormats: props.formats || $booster.targetFormats,
       sourceList,
       metaSources,
       classNames: metaSources.value.classNames
@@ -141,7 +141,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit-picture {
+.nuxt-booster-picture {
   position: relative;
   box-sizing: border-box;
   display: block;

@@ -1,6 +1,6 @@
-import Source from '../../SpeedkitImage/classes/Source';
-import createSort from '#speedkit/externals/create-sort';
-import { toHashHex } from '#speedkit/utils/string';
+import Source from '../../BoosterImage/classes/Source';
+import createSort from '#booster/externals/create-sort';
+import { toHashHex } from '#booster/utils/string';
 
 const sortByMediaQueries = createSort();
 
@@ -77,15 +77,15 @@ export default class SourceList {
     );
   }
 
-  async getMeta($img, $speedkit) {
+  async getMeta($img, $booster) {
     const result = await Promise.all(
       this.sorted.map(source => {
         const config = $img.getSizes(source.src, {
           sizes: source.sizes,
           modifiers: source.getModifiers(),
-          ...source.getOptions($speedkit)
+          ...source.getOptions($booster)
         });
-        return source.getMeta(config.src, $speedkit);
+        return source.getMeta(config.src, $booster);
       })
     );
     return new SourceList(result);

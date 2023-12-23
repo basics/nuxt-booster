@@ -2,9 +2,9 @@
   <div :class="{ mounted }">
     <div>
       WeakHardwareOverlay
-      <speedkit-weak-hardware-overlay />
+      <booster-weak-hardware-overlay />
     </div>
-    <speedkit-layer />
+    <booster-layer />
   </div>
 </template>
 
@@ -12,8 +12,8 @@
 import { ref, onMounted } from 'vue';
 import { definePageMeta } from '#imports';
 
-import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
-import SpeedkitWeakHardwareOverlay from '#speedkit/components/WeakHardwareOverlay';
+import BoosterLayer from '#booster/components/BoosterLayer';
+import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay';
 
 const mounted = ref(false);
 

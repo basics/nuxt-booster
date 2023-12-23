@@ -1,12 +1,12 @@
 export default options => {
-  let code = `import vFont from '#speedkit/directives/vFont';
-import { isSupportedBrowser } from '#speedkit/utils/browser';
-import FontList from '#speedkit/classes/FontList';
-import hydrate from '#speedkit/hydrate';
+  let code = `import vFont from '#booster/directives/vFont';
+import { isSupportedBrowser } from '#booster/utils/browser';
+import FontList from '#booster/classes/FontList';
+import hydrate from '#booster/hydrate';
 import './fonts.css';
 
 export default defineNuxtPlugin({
-  name: 'speedkit-plugin',
+  name: 'booster-plugin',
   enforce: 'post',
   async setup(nuxtApp) {
 
@@ -15,7 +15,7 @@ export default defineNuxtPlugin({
     );
     const fontList = new FontList(fontConfig);
 
-    nuxtApp.provide('speedkit', {
+    nuxtApp.provide('booster', {
       getImageSize,
       hydrate,
       getFont: fontList.getFont.bind(fontList),

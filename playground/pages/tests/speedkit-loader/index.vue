@@ -6,11 +6,11 @@
 </template>
 
 <script setup>
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 import { definePageMeta } from '#imports';
 
-const Critical = speedkitHydrate(() => import('./components/Critical'));
-const Lazy = speedkitHydrate(() => import('./components/Lazy'));
+const Critical = boosterHydrate(() => import('./components/Critical'));
+const Lazy = boosterHydrate(() => import('./components/Lazy'));
 
 definePageMeta({
   layout: 'blank'

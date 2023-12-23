@@ -13,20 +13,20 @@
 import 'wicg-inert';
 import { ref, defineAsyncComponent, computed } from 'vue';
 import { useRoute, useHead } from '#app';
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 const InfoLayer = defineAsyncComponent(() => import('@/components/InfoLayer'));
-const GithubCorner = speedkitHydrate(
+const GithubCorner = boosterHydrate(
   () => import('@/components/elements/GithubCorner')
 );
-const PageHeader = speedkitHydrate(() => import('@/components/PageHeader'));
+const PageHeader = boosterHydrate(() => import('@/components/PageHeader'));
 
 const route = useRoute();
 
 useHead(
   computed(() => {
     return {
-      title: `${route.name} | nuxt-speedkit`,
+      title: `${route.name} | nuxt-booster`,
       meta: [
         {
           hid: 'description',

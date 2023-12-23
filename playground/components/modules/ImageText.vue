@@ -10,7 +10,7 @@
       ]"
     >
       <div class="image">
-        <speedkit-picture
+        <booster-picture
           :title="picture.title"
           :alt="picture.alt"
           :sources="picture.sources"
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+import BoosterPicture from '#booster/components/BoosterPicture';
 import { useBoosterFonts } from '#imports';
 const { $getFont } = useBoosterFonts();
 defineProps({

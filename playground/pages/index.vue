@@ -13,28 +13,28 @@
 </template>
 
 <script setup>
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
-const ModuleStage = speedkitHydrate(() => import('@/components/modules/Stage'));
-const ModuleTextA = speedkitHydrate(
+const ModuleStage = boosterHydrate(() => import('@/components/modules/Stage'));
+const ModuleTextA = boosterHydrate(
   () => import('@/components/modules/TextFontA')
 );
-const ModuleImageText = speedkitHydrate(
+const ModuleImageText = boosterHydrate(
   () => import('@/components/modules/ImageText')
 );
-const ModuleTextB = speedkitHydrate(
+const ModuleTextB = boosterHydrate(
   () => import('@/components/modules/TextFontB')
 );
-const ModuleVideoYoutube = speedkitHydrate(
+const ModuleVideoYoutube = boosterHydrate(
   () => import('@/components/modules/VideoYoutube')
 );
-const ModuleVideoVimeo = speedkitHydrate(
+const ModuleVideoVimeo = boosterHydrate(
   () => import('@/components/modules/VideoVimeo')
 );
 
 const stage = {
   critical: true,
-  content: 'nuxt-speedkit',
+  content: 'nuxt-booster',
   claim: 'powered by Grabarz & Partner',
 
   picture: {

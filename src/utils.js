@@ -3,7 +3,7 @@ import { installModule, useLogger } from '@nuxt/kit';
 
 export const DEFAULT_TARGET_FORMATS = ['webp', 'avif', 'jpg|jpeg|png|gif'];
 
-export const MODULE_NAME = 'nuxt-speedkit';
+export const MODULE_NAME = 'nuxt-booster';
 
 export const logger = useLogger(MODULE_NAME);
 
@@ -22,7 +22,7 @@ export function isViteBuild(nuxt) {
 }
 
 export const setPublicRuntimeConfig = (nuxt, options) => {
-  nuxt.options.runtimeConfig.public.speedkit = {
+  nuxt.options.runtimeConfig.public.booster = {
     lazyOffsetComponent: options.lazyOffset.component,
     lazyOffsetAsset: options.lazyOffset.asset,
     usedFontaine: !options.disableNuxtFontaine
@@ -61,7 +61,7 @@ export async function addNuxtImage(nuxt) {
       ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
     ) {
       logger.warn(
-        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
+        'For using `BoosterYoutube` and `BoosterVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-booster.grabarzundpartner.dev/setup#nuxtimage'
       );
     }
   });

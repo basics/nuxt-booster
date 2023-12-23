@@ -1,5 +1,5 @@
 <template>
-  <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs">
+  <base-youtube class="nuxt-booster-youtube" v-bind="$attrs">
     <template #beforePlayer>
       <slot name="beforePlayer" />
     </template>
@@ -51,7 +51,7 @@
 
 <script setup>
 import { defineOptions } from 'vue';
-import BaseYoutube from '#speedkit/components/SpeedkitYoutube/Base';
+import BaseYoutube from '#booster/components/BoosterYoutube/Base';
 
 defineOptions({
   inheritAttrs: false

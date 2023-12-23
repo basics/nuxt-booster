@@ -1,7 +1,7 @@
 import { computed, reactive } from 'vue';
 import { useHead, useBoosterCritical, useBoosterConfig } from '#imports';
 import { useNuxtApp } from '#app';
-import FontCollection from '#speedkit/classes/FontCollection';
+import FontCollection from '#booster/classes/FontCollection';
 
 export default function useFonts(context) {
   const { isCritical, critical } = useBoosterCritical(context);
@@ -22,7 +22,7 @@ export default function useFonts(context) {
         runtimeConfig,
         isCritical: isCritical.value,
         fontCollection,
-        definition: nuxtApp.$speedkit.getFont(...args)
+        definition: nuxtApp.$booster.getFont(...args)
       };
     }
   };

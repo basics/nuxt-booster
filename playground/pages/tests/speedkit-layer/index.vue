@@ -1,30 +1,30 @@
 <template>
   <div :class="{ ready }">
     <component-image-text v-bind="imageTextA" />
-    <speedkit-layer :max-idle-duration="0" />
+    <booster-layer :max-idle-duration="0" />
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
 import { definePageMeta } from '#imports';
-import speedkitHydrate from '#speedkit/hydrate';
-import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
+import boosterHydrate from '#booster/hydrate';
+import BoosterLayer from '#booster/components/BoosterLayer';
 
 const ready = ref(false);
 
 onMounted(() => (ready.value = true));
 
-const ComponentImageText = speedkitHydrate(
+const ComponentImageText = boosterHydrate(
   () => import('@/components/modules/ImageText')
 );
 
 const imageTextA = {
-  headline: 'SpeedkitLayer Test',
+  headline: 'BoosterLayer Test',
   content:
     '<p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
   picture: {
-    title: 'SpeedkitLayer Test',
+    title: 'BoosterLayer Test',
     sources: [
       {
         src: '/img/image-text-a.jpg',

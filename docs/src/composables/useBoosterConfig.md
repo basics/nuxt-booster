@@ -6,11 +6,11 @@ title: useBoosterConfig
 
 ## Return
 
-Returns `nuxt-speedkit` public runtime options.
+Returns `nuxt-booster` public runtime options.
 
 ## Example
 
 ```js
 import { useBoosterConfig } from '#imports';
-const $speedkitOptions = useBoosterConfig();
+const $boosterOptions = useBoosterConfig();
 ```

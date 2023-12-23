@@ -1,7 +1,7 @@
 <template>
   <preview-container id="lazyContainer">
     <template #default>
-      <speedkit-image v-bind="image" />
+      <booster-image v-bind="image" />
     </template>
     <template #title>
       <p>Lazy - Image</p>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import SpeedkitImage from '#speedkit/components/SpeedkitImage';
+import BoosterImage from '#booster/components/BoosterImage';
 import PreviewContainer from '@/components/PreviewContainer';
 
 const image = {

@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import DefaultIframe from '#speedkit/components/SpeedkitIframe';
+import DefaultIframe from '#booster/components/BoosterIframe';
 import PreviewContainer from '@/components/PreviewContainer';
 
 const iframeSrc = 'https://grabarzundpartner.de';
