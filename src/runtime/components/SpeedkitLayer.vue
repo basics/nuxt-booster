@@ -58,7 +58,7 @@ onMounted(() => (isServer.value = false));
 useHead({
   noscript: [
     getStyleDescription(
-      '#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }',
+      `#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }`,
       true
     )
   ]

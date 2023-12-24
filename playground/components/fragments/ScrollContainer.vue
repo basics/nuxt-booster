@@ -29,8 +29,7 @@ defineProps({
 .scroll-container {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden scroll;
 
   & .item + .item {
     margin-top: em(20px);
@@ -38,8 +37,7 @@ defineProps({
 
   &.direction-horizontal {
     display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: scroll hidden;
 
     & .item {
       flex: 0 0 50vw;

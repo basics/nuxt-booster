@@ -1,4 +1,4 @@
-import { ready } from '../utils/loader.mjs';
+import { ready } from '../utils/loader.js';
 
 export default class Youtube {
   api;

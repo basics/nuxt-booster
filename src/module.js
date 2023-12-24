@@ -6,8 +6,8 @@ import {
   addPluginTemplate,
   addTemplate
 } from '@nuxt/kit';
-import { getCrossorigin } from './runtime/utils.mjs';
-import FontConfig from './runtime/classes/FontConfig.mjs';
+import { getCrossorigin } from './runtime/utils';
+import FontConfig from './runtime/classes/FontConfig';
 import {
   DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
@@ -16,17 +16,17 @@ import {
   isWebpackBuild,
   logger,
   setPublicRuntimeConfig
-} from './utils.mjs';
-import {
-  deprecationsNotification,
-  getDefaultOptions
-} from './utils/options.mjs';
-import { getFontConfigTemplate } from './utils/template.mjs';
-import { optimizePreloads } from './utils/preload.mjs';
-import { getSupportedBrowserDetector } from './utils/browser.mjs';
-import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack.mjs';
-import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite.mjs';
-import { getTemplate as getBlobFileTemplate } from './utils/blob.mjs';
+} from './utils';
+import { deprecationsNotification, getDefaultOptions } from './utils/options';
+import { getFontConfigTemplate } from './utils/template';
+import { optimizePreloads } from './utils/preload';
+import { getSupportedBrowserDetector } from './utils/browser';
+import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
+import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
+import { getTemplate as getBlobFileTemplate } from './utils/blob';
+
+import pluginTemplate from './tmpl/plugin.tmpl';
+import entryTemplate from './tmpl/entry.tmpl';
 
 const resolver = createResolver(import.meta.url);
 
@@ -56,14 +56,14 @@ export default defineNuxtModule({
         nuxt.hook(
           'webpack:config',
           registerAppEntryWebpack(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry')
           )
         );
       } else {
         nuxt.hook(
           'vite:extend',
           registerAppEntryVite(
-            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.mjs')
+            resolve(nuxt.options.buildDir, MODULE_NAME, 'entry.js')
           )
         );
       }
@@ -98,7 +98,7 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   addTemplate({
-    filename: MODULE_NAME + '/fontConfig.mjs',
+    filename: MODULE_NAME + '/fontConfig.js',
     getContents: () => getFontConfigTemplate(fontConfig),
     write: true
   });
@@ -112,39 +112,41 @@ async function addBuildTemplates(nuxt, options) {
 
   ['client', 'server'].forEach(mode => {
     addPluginTemplate({
-      src: resolver.resolve('runtime/tmpl', 'plugin.mjs'),
-      fileName: MODULE_NAME + `/plugin.${mode}.js`,
+      getContents: () => {
+        return pluginTemplate({
+          mode,
+          densities: options.densities,
+          targetFormats: options.targetFormats,
+          crossorigin: getCrossorigin(options.crossorigin),
+          supportedBrowserDetector,
+          loader: options.loader
+        });
+      },
+      filename: MODULE_NAME + `/plugin.${mode}.js`,
       write: true,
-      mode,
-      options: {
-        mode,
-        densities: options.densities,
-        targetFormats: options.targetFormats,
-        crossorigin: getCrossorigin(options.crossorigin),
-        supportedBrowserDetector,
-        loader: options.loader
-      }
+      mode
     });
   });
 
   addTemplate({
-    src: resolver.resolve('runtime/tmpl', 'entry.mjs'),
-    fileName: MODULE_NAME + '/entry.mjs',
-    write: true,
-    options: {
-      webpack: isWebpackBuild(nuxt),
-      performanceCheck: true,
-      isDev: !options.debug && process.env.NODE_ENV === 'development',
-      entry: join(nuxt.options.appDir, 'entry'),
-      runOptions: options.runOptions,
-      ssr: nuxt.options.ssr,
-      ignore: {
-        battery: !options.detection.battery,
-        performance: !options.detection.performance
-      },
-      performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
-      supportedBrowserDetector
-    }
+    filename: MODULE_NAME + '/entry.js',
+    getContents: () => {
+      return entryTemplate({
+        webpack: isWebpackBuild(nuxt),
+        performanceCheck: true,
+        isDev: !options.debug && process.env.NODE_ENV === 'development',
+        entry: join(nuxt.options.appDir, 'entry'),
+        runOptions: options.runOptions,
+        ssr: nuxt.options.ssr,
+        ignore: {
+          battery: !options.detection.battery,
+          performance: !options.detection.performance
+        },
+        performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
+        supportedBrowserDetector
+      });
+    },
+    write: true
   });
 
   const files = [['video', resolver.resolve('media/video.mp4')]];

@@ -1,4 +1,4 @@
-import { logger } from '../utils.mjs';
+import { logger } from '../utils';
 
 export function getDefaultOptions() {
   return {

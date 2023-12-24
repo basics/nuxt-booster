@@ -7,7 +7,7 @@
   },
   "extends": [
     "@nuxtjs",
-    "plugin:security/recommended",
+    "plugin:security/recommended-legacy",
     "plugin:sonarjs/recommended",
     "plugin:no-unsanitized/DOM",
     "plugin:jsonc/recommended-with-json",

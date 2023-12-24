@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { crossorigin as validatorCrossorigin } from '../../utils/validators.mjs';
-import { getImageStyleDescription } from '#speedkit/utils/description.mjs';
+import { crossorigin as validatorCrossorigin } from '../../utils/validators';
+import { getImageStyleDescription } from '#speedkit/utils/description';
 import { getCrossorigin } from '#speedkit/utils';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 import useCritical from '#speedkit/composables/critical';
@@ -91,8 +91,7 @@ export default {
             noscript: [
               {
                 key: 'img-nojs',
-                children:
-                  '<style>img { content-visibility: unset !important; }</style>'
+                children: `<style>img { content-visibility: unset !important; }</style>`
               }
             ]
           };

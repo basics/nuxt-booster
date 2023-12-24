@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { getPictureStyleDescription } from '../../utils/description.mjs';
-import { crossorigin as validatorCrossorigin } from '../../utils/validators.mjs';
+import { getPictureStyleDescription } from '../../utils/description';
+import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import useCritical from '#speedkit/composables/critical';
 import BaseImage from '#speedkit/components/SpeedkitImage/Base';
 import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';

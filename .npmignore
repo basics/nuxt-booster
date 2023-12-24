@@ -31,7 +31,7 @@ commitlint.config.js
 renovate.json
 vetur.config.json
 sandbox.config.json
-build.config.mjs
+build.config.js
 .output
 
 /docs
