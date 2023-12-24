@@ -84,16 +84,13 @@ const route = useRoute();
 
 watch(
   () => props.modelValue,
-  modelValue => {
-    document.documentElement.classList.toggle('js-menu-open', modelValue);
-  }
+  modelValue =>
+    document.documentElement.classList.toggle('js-menu-open', modelValue)
 );
 
 watch(
-  route,
-  () => {
-    emit('update:modelValue', false);
-  },
+  () => route.path,
+  () => emit('update:modelValue', false),
   { deep: true, immediate: true }
 );
 
