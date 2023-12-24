@@ -9,8 +9,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'nuxt-speedkit': path.resolve(__dirname, './src/runtime'),
-      '#speedkit': path.resolve(__dirname, './src/runtime')
+      'nuxt-booster': path.resolve(__dirname, './src/runtime'),
+      '#booster': path.resolve(__dirname, './src/runtime')
     }
   }
 });

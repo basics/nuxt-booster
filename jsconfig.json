@@ -6,7 +6,7 @@
       "nuxt-speedkit/*": [
         "src/*"
       ],
-      "#speedkit": [
+      "#booster": [
         "src/runtime/*"
       ],
       "@/*": [

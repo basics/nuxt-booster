@@ -96,8 +96,7 @@ export default {
             noscript: [
               {
                 key: 'img-nojs',
-                children:
-                  '<style>img { content-visibility: unset !important; }</style>'
+                children: `<style>img { content-visibility: unset !important; }</style>`
               }
             ]
           };
