@@ -54,7 +54,7 @@
   "dependencies": {
     "@nuxt/image": "1.1.0",
     "@nuxtjs/fontaine": "0.4.1",
-    "browserslist-useragent-regexp": "4.1.0",
+    "browserslist-useragent-regexp": "4.1.1",
     "cheerio": "1.0.0-rc.12",
     "defu": "6.1.3",
     "dom-serializer": "2.0.0",
