@@ -87,7 +87,7 @@ export default defineNuxtModule({
       name => {
         addImports({
           name,
-          from: resolve(runtimeDir, 'composables/index.js')
+          from: resolve(runtimeDir, 'composables/index')
         });
       }
     );
