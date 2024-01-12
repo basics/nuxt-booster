@@ -33,6 +33,8 @@ jobs:
       - name: Install Dependencies (Playground)
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Install Playwright
+        run: npx playwright install --with-deps
       - name: Test
         run: npm run test
 
