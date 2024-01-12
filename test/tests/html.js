@@ -240,7 +240,7 @@ function markupTests(distDir) {
     dom = getDom(html);
     const imageSrcset = dom
       .querySelector('#criticalContainer picture source:first-child')
-      .getAttribute('imageSrcset');
+      .getAttribute('srcset');
     expect(
       dom.querySelector(`link[imageSrcset="${imageSrcset}"][rel="preload"]`)
     ).not.toBeNull();
@@ -251,7 +251,7 @@ function markupTests(distDir) {
   // #region /tests/image
 
   it('image', async () => {
-    html = await getHTML(join(distDir, 'picture'));
+    html = await getHTML(join(distDir, 'image'));
     dom = getDom(html);
     const imageSrcset = dom
       .querySelector('#criticalContainer img')
