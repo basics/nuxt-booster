@@ -8,15 +8,15 @@ title: Introduction
 
 <!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
 <img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/> -->
-<img src="/intro-light.png" width="1280" height="640" alt=""/>
+<img src="/intro-light.jpg" width="1280" height="640" alt=""/>
 
 [Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
 
 ::: warning
-You are reading Nuxt Speedkit v1 docs. [For Nuxt 3 go to the v3 docs](/)
+You are reading Nuxt Booster v1 docs. [For Nuxt 3 go to the v3 docs](/)
 :::
 
-Nuxt Speedkit takes over the lighthouse performance optimization of your generated website.
+Nuxt Booster takes over the lighthouse performance optimization of your generated website.
 
 In order to achieve a performance score of 100/100, only the resources that are necessary in the current viewport may be loaded. Concepts already exist for the loading of javascript components and images.
 However, there is not yet a practicable concept for loading fonts dynamically. This module provides a holistic approach to load all necessary resources on demand, including fonts, based on the current viewport.

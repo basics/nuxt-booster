@@ -1,21 +1,21 @@
 <template>
-  <speedkit-weak-hardware-overlay>
+  <booster-weak-hardware-overlay>
     <div v-font="$getFont('Montserrat Alternates', 400, 'normal')">
       <p>{{ text }}</p>
-      <base-button id="nuxt-speedkit-button-init-app">
+      <base-button id="nuxt-booster-button-init-app">
         {{ buttonText }}
       </base-button>
     </div>
-  </speedkit-weak-hardware-overlay>
+  </booster-weak-hardware-overlay>
 </template>
 
 <script setup>
-import SpeedkitWeakHardwareOverlay from '#speedkit/components/WeakHardwareOverlay';
+import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay';
 
 import BaseButton from '@/components/base/Button';
 
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 defineProps({
   text: {
     type: String,
@@ -30,7 +30,7 @@ defineProps({
 </script>
 
 <style lang="postcss" scoped>
-.nuxt-speedkit-weak-hardware-overlay {
+.nuxt-booster-weak-hardware-overlay {
   position: absolute;
   top: 0;
   left: 0;

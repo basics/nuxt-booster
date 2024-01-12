@@ -6,10 +6,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import { onMounted } from '#imports';
-import useCritical from '#speedkit/composables/critical';
+import { onMounted, useBoosterCritical } from '#imports';
 
-const { isCritical } = useCritical();
+const { isCritical } = useBoosterCritical();
 const active = ref(false);
 
 onMounted(() => (active.value = true));

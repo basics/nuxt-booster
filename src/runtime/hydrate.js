@@ -16,7 +16,7 @@ export default component => {
 
   return hydrateWhenVisible(component, {
     observerOptions: {
-      rootMargin: runtimeConfig.public.speedkit.lazyOffsetComponent || '0%'
+      rootMargin: runtimeConfig.public.booster.lazyOffsetComponent || '0%'
     }
   });
 };

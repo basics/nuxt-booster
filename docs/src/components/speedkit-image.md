@@ -1,15 +1,15 @@
 ---
-title: SpeedkitImage
+title: BoosterImage
 ---
 
 # {{$frontmatter.title}}
 
-The `SpeedkitImage` is a `img` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
+The `BoosterImage` is a `img` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
 It uses the provided API `$img`.
 
 ## Features
 
-With the current implementation of `SpeedkitImage` we can cover the following functionality:
+With the current implementation of `BoosterImage` we can cover the following functionality:
 
 - generation of multiple image resolutions (srcset)
 - breakpoint-based differentiation of multiple image resolutions (srcset)
@@ -22,12 +22,12 @@ With the current implementation of `SpeedkitImage` we can cover the following fu
 
 ## Usage
 
-The `SpeedkitImage` is used to automatically generate and display different image sizes for different viewports.
+The `BoosterImage` is used to automatically generate and display different image sizes for different viewports.
 
 The specified resources can be given by absolute path (static folder) or complete URL. [`nuxt/image`](https://image.nuxtjs.org/) downloads the resources fully automatically and stores the generated and optimized renditions in the destination folder.
 
 ::: warning
-Important: For using `SpeedkitImage` do not disable `@nuxt/image` via `disableNuxtImage`.
+Important: For using `BoosterImage` do not disable `@nuxt/image` via `disableNuxtImage`.
 :::
 
 ### Example
@@ -35,12 +35,12 @@ Important: For using `SpeedkitImage` do not disable `@nuxt/image` via `disableNu
 ````vue
 <template>
   <div>
-    <speedkit-image v-bind="{ source, title, alt }" @load="onLoadImage"  />
+    <booster-image v-bind="{ source, title, alt }" @load="onLoadImage"  />
   </div>
 </template>
 
 <script setup>
-import SpeedkitImage from '#speedkit/components/SpeedkitImage';
+import BoosterImage from '#booster/components/BoosterImage';
 
 defineProps({
   source: {
@@ -85,9 +85,9 @@ const onLoadImage = () => console.log('Image loaded!');
 - Type: `Boolean`
   - Default: `true`
 
-The initialization of the `SpeedkitImage` in the client can be controlled manually.  
+The initialization of the `BoosterImage` in the client can be controlled manually.  
 Here for the property `hydrate` must be set externally.
-If `true` the `SpeedkitImage` is initialized.
+If `true` the `BoosterImage` is initialized.
 
 ### `source`
 
@@ -206,9 +206,9 @@ Image Title.
 
 - Type: `String`, `Boolean`
 
-If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
+If not set, the global crossorigin is used `this.$booster.crossorigin`.
 
-[Learn more about `crossorigin` option](https://nuxt-speedkit.grabarzundpartner.dev/options#crossorigin)
+[Learn more about `crossorigin` option](https://nuxt-booster.grabarzundpartner.dev/options#crossorigin)
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
@@ -224,7 +224,7 @@ Set component as critical component.
 ## Events
 
 ````html
-<speedkit-image 
+<booster-image 
   @load="console.log('Image Loaded!')" 
 />
 ````

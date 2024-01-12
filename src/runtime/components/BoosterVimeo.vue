@@ -1,5 +1,5 @@
 <template>
-  <base-vimeo class="nuxt-speedkit-vimeo" v-bind="$attrs">
+  <base-vimeo class="nuxt-booster-vimeo" v-bind="$attrs">
     <template #beforePlayer>
       <slot name="beforePlayer" />
     </template>
@@ -56,7 +56,7 @@
 
 <script setup>
 import { defineOptions } from 'vue';
-import BaseVimeo from '#speedkit/components/SpeedkitVimeo/Base';
+import BaseVimeo from '#booster/components/BoosterVimeo/Base';
 
 defineOptions({
   inheritAttrs: false

@@ -8,27 +8,27 @@ Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossa
 
 ## Installation
 
-Install `nuxt-speedkit` as a dependency to your project:
+Install `nuxt-booster` as a dependency to your project:
 
 ::: code-group
 
   ```bash [Yarn]
-  yarn add nuxt-speedkit@next
+  yarn add nuxt-booster@next
   ```
 
   ```bash [NPM]
-  npm install nuxt-speedkit@next
+  npm install nuxt-booster@next
   ```
 
 :::
 
-Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
+Add `nuxt-booster` to the `modules` section of `nuxt.config.js`:
 
 ### @nuxt/image
 
-**Nuxt Speedkit** uses the module `@nuxt/image`, if this is not already present, it will be integrated automatically.
+**Nuxt Booster** uses the module `@nuxt/image`, if this is not already present, it will be integrated automatically.
 
-It is necessary for the use of the components `SpeedkitYoutube` and `SpeedkitVimeo` to add aliases and domains to the `@nuxt/image` options. These are needed to retrieve the images from Youtube and Vimeo.
+It is necessary for the use of the components `BoosterYoutube` and `BoosterVimeo` to add aliases and domains to the `@nuxt/image` options. These are needed to retrieve the images from Youtube and Vimeo.
 
 ::: code-group
 
@@ -53,10 +53,10 @@ More about `@nuxt/image` module options can be found [here](https://image.nuxtjs
 ````js[nuxt.config.js]
 {
   modules: [
-    'nuxt-speedkit'
+    'nuxt-booster'
   ],
 
-  speedkit: {
+  booster: {
 
     detection: {
       performance: true,

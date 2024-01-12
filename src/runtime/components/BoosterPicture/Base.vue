@@ -1,5 +1,5 @@
 <template>
-  <picture :class="classNames.picture" class="nuxt-speedkit-picture">
+  <picture :class="classNames.picture" class="nuxt-booster-picture">
     <picture-source
       v-for="source in formatSources"
       :key="source.key"
@@ -21,12 +21,16 @@
 <script>
 import { getPictureStyleDescription } from '../../utils/description';
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
-import useCritical from '#speedkit/composables/critical';
-import BaseImage from '#speedkit/components/SpeedkitImage/Base';
-import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';
-import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
-
-import { ref, useImage, useHead, useNuxtApp } from '#imports';
+import {
+  useBoosterCritical,
+  ref,
+  useImage,
+  useHead,
+  useNuxtApp
+} from '#imports';
+import BaseImage from '#booster/components/BoosterImage/Base';
+import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
+import PictureSource from '#booster/components/BoosterPicture/Source';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
@@ -76,9 +80,9 @@ export default {
   emits: ['load'],
 
   async setup(props) {
-    const { isCritical } = useCritical();
+    const { isCritical } = useBoosterCritical();
     const $img = useImage();
-    const $speedkit = useNuxtApp().$speedkit;
+    const $booster = useNuxtApp().$booster;
 
     const sourceList = SourceList.create(props.sources, {
       sort: props.sortSources
@@ -95,11 +99,11 @@ export default {
       }
     });
 
-    metaSources.value = await sourceList.getMeta($img, $speedkit);
+    metaSources.value = await sourceList.getMeta($img, $booster);
 
     return {
       isCritical,
-      resolvedFormats: props.formats || $speedkit.targetFormats,
+      resolvedFormats: props.formats || $booster.targetFormats,
       sourceList,
       metaSources,
       classNames: metaSources.value.classNames
@@ -137,7 +141,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit-picture {
+.nuxt-booster-picture {
   position: relative;
   box-sizing: border-box;
   display: block;

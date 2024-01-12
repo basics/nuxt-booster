@@ -1,5 +1,5 @@
 ---
-title: useFont
+title: useBoosterFont
 ---
 
 # {{$frontmatter.title}}
@@ -11,7 +11,7 @@ title: useFont
 | `critical` | `Boolean` | Override critical from component. | inherit from component |
 
 ```js
-const { $getFont } = useFonts({critical: true});
+const { $getFont } = useBoosterFonts({critical: true});
 ```
 
 ## Return
@@ -29,7 +29,7 @@ const { $getFont } = useFonts({critical: true});
 </template>
 
 <script setup>
-  import useFonts from '#speedkit/composables/fonts';
-  const { $getFont } = useFonts();
+  import { useBoosterFonts } from '#imports';
+  const { $getFont } = useBoosterFonts();
 </script>
 ```

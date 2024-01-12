@@ -9,8 +9,8 @@
 
 <script>
 import { computed } from 'vue';
-import { getCrossorigin } from '#speedkit/utils';
-import Source from '#speedkit/components/SpeedkitImage/classes/Source';
+import { getCrossorigin } from '#booster/utils';
+import Source from '#booster/components/BoosterImage/classes/Source';
 
 import { useImage, useNuxtApp, useHead } from '#imports';
 
@@ -35,15 +35,15 @@ export default {
 
   setup(props) {
     const $img = useImage();
-    const $speedkit = useNuxtApp().$speedkit;
+    const $booster = useNuxtApp().$booster;
     const config = $img.getSizes(props.source.src, {
       sizes: props.source.sizes,
       modifiers: props.source.getModifiers(),
-      ...props.source.getOptions($speedkit)
+      ...props.source.getOptions($booster)
     });
 
     const resolvedCrossorigin = computed(() => {
-      return getCrossorigin(props.crossorigin || $speedkit.crossorigin);
+      return getCrossorigin(props.crossorigin || $booster.crossorigin);
     });
 
     const imageSource = new Source(props.source);

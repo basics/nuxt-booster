@@ -1,5 +1,5 @@
 import { getExtension, getMeta } from '../utils/image';
-import { toHashHex } from '#speedkit/utils/string';
+import { toHashHex } from '#booster/utils/string';
 
 export default class Source {
   src = null;
@@ -67,16 +67,16 @@ export default class Source {
     return { ...this.modifiers, format: this.format, quality: this.quality };
   }
 
-  getOptions($speedkit) {
+  getOptions($booster) {
     return {
       provider: this.provider,
       preset: this.preset,
-      densities: this.densities || $speedkit.densities
+      densities: this.densities || $booster.densities
     };
   }
 
-  getMeta(compiledSrc, $speedkit) {
-    return getMeta(new Source({ ...this.toJSON() }), compiledSrc, $speedkit);
+  getMeta(compiledSrc, $booster) {
+    return getMeta(new Source({ ...this.toJSON() }), compiledSrc, $booster);
   }
 
   getPreload(srcset, sizes, crossorigin) {

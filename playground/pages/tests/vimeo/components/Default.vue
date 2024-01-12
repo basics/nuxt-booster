@@ -13,7 +13,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import DefaultVimeo from '#speedkit/components/SpeedkitVimeo';
+import DefaultVimeo from '#booster/components/BoosterVimeo';
 import PreviewContainer from '@/components/PreviewContainer';
 
 const props = defineProps({

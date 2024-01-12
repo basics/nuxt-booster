@@ -28,7 +28,7 @@ The good news is that the NuxtJS SSR build provides the right foundation. The co
 - is a fully automated preload logic that allows component and viewport based handling and prioritization of the individual resources (FCP, LCP, CLS)
 - is a logic that enables a perfomance-oriented initialization of the javascript (TTI, TBT)
 
-These two central points are handled by **Nuxt Speedkit** and enable a fast and resource-saving loading behavior of the website.
+These two central points are handled by **Nuxt Booster** and enable a fast and resource-saving loading behavior of the website.
 
 ## Approach
 
@@ -37,7 +37,7 @@ All our thoughts are based on [HTTP/2 request prioritization](https://www.slides
 
 ## Insights & Solutions
 
-During the tests, we gained the following insights, which we would like to share with you, but which also allow us to draw conclusions regarding the performance optimization of the initial loading process and which have been incorporated into the **Nuxt Speedkit** solution.
+During the tests, we gained the following insights, which we would like to share with you, but which also allow us to draw conclusions regarding the performance optimization of the initial loading process and which have been incorporated into the **Nuxt Booster** solution.
 
 ### Critical Render Path
 
@@ -104,7 +104,7 @@ For this purpose, we provide an InfoLayer that is displayed when a minimum FCP t
 
 ### Conclusion
 
-The findings and solutions described above have been incorporated and systematized in the **Nuxt Speedkit** module. Only in combination can they unfold their full functionality and ensure an overall optimization of the loading behavior. Overall we have reduced the following timing metrics ...
+The findings and solutions described above have been incorporated and systematized in the **Nuxt Booster** module. Only in combination can they unfold their full functionality and ensure an overall optimization of the loading behavior. Overall we have reduced the following timing metrics ...
 
 - FCP
 - LCP

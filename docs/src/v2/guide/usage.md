@@ -94,6 +94,6 @@ The speedkit components will be expanded in the future. If you have explicit wis
 
 ## Example
 
-You can check out a sample integration of `nuxt-speedkit` at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
+You can check out a sample integration of `nuxt-speedkit` at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
 
 <iframe class="embed-sandbox" src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark"></iframe>

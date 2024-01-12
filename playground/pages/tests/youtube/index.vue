@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
-import speedkitHydrate from '#speedkit/hydrate';
-const Default = speedkitHydrate(() => import('./components/Default'));
+import boosterHydrate from '#booster/hydrate';
+const Default = boosterHydrate(() => import('./components/Default'));
 const items = [
   {
     youtubeUrl: 'https://www.youtube.com/watch?v=cLKvbhfVBUU',

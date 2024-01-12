@@ -1,6 +1,7 @@
 import { resolve, join } from 'pathe';
 
 import {
+  addImports,
   createResolver,
   defineNuxtModule,
   addPluginTemplate,
@@ -32,8 +33,8 @@ const resolver = createResolver(import.meta.url);
 
 export default defineNuxtModule({
   meta: {
-    name: 'nuxt-speedkit',
-    configKey: 'speedkit',
+    name: 'nuxt-booster',
+    configKey: 'booster',
     compatibility: {
       nuxt: '^3.0.x'
     }
@@ -42,7 +43,7 @@ export default defineNuxtModule({
 
   async setup(moduleOptions, nuxt) {
     const runtimeDir = resolver.resolve('./runtime');
-    nuxt.options.alias['#speedkit'] = runtimeDir;
+    nuxt.options.alias['#booster'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
 
     deprecationsNotification(moduleOptions);
@@ -82,6 +83,15 @@ export default defineNuxtModule({
     }
 
     await addBuildTemplates(nuxt, moduleOptions);
+
+    ['useBoosterCritical', 'useBoosterConfig', 'useBoosterFonts'].forEach(
+      name => {
+        addImports({
+          name,
+          from: resolve(runtimeDir, 'composables/index')
+        });
+      }
+    );
   }
 });
 
@@ -106,7 +116,7 @@ async function addBuildTemplates(nuxt, options) {
   addTemplate({
     filename: MODULE_NAME + '/fonts.css',
     getContents: () =>
-      `/*! speedkit-font-faces start */${fontConfig.toCSS()}/*! speedkit-font-faces end */`,
+      `/*! booster-font-faces start */${fontConfig.toCSS()}/*! booster-font-faces end */`,
     write: true
   });
 

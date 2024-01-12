@@ -2,7 +2,7 @@
   <iframe
     ref="iframe"
     :src="lazySrc"
-    class="nuxt-speedkit-iframe"
+    class="nuxt-booster-iframe"
     v-bind="$attrs"
     frameborder="0"
     @load="loaded = $event"
@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-import useComponentObserver from '#speedkit/composables/componentObserver';
+import useBoosterComponentObserver from '#booster/composables/componentObserver';
 
 const props = defineProps({
   src: {
@@ -41,7 +41,7 @@ watch(loaded, e => {
   }
 });
 
-const { el: iframe, inView } = useComponentObserver();
+const { el: iframe, inView } = useBoosterComponentObserver();
 
 watch(inView, () => {
   lazySrc.value = props.src;

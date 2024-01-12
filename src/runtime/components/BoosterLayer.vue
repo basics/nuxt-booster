@@ -1,43 +1,40 @@
 <template>
-  <div v-if="isServer" id="nuxt-speedkit-layer">
-    <input id="nuxt-speedkit-layer-close" name="close" type="checkbox" />
-    <div id="nuxt-speedkit-layer-content">
+  <div v-if="isServer" id="nuxt-booster-layer">
+    <input id="nuxt-booster-layer-close" name="close" type="checkbox" />
+    <div id="nuxt-booster-layer-content">
       <slot>
         <div>
           <p>Sorry, but you will have a limited user experience due to a…</p>
 
           <ul style="padding: 0; list-style: none">
             <!-- Displayed when javascript is disabled. -->
-            <li id="nuxt-speedkit-message-nojs">disabled javascript</li>
+            <li id="nuxt-booster-message-nojs">disabled javascript</li>
             <!-- Displayed when browser does not support. -->
-            <li id="nuxt-speedkit-message-unsupported-browser">
+            <li id="nuxt-booster-message-unsupported-browser">
               outdated browser
             </li>
             <!-- Displayed when connection bandwidth is too low. -->
-            <li id="nuxt-speedkit-message-reduced-bandwidth">
-              slow connection
-            </li>
+            <li id="nuxt-booster-message-reduced-bandwidth">slow connection</li>
             <!-- Displayed when user hardware are not sufficient.  -->
-            <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
-
+            <li id="nuxt-booster-message-weak-hardware">weak hardware</li>
             <!-- Displayed when the user batteries are not sufficient.  -->
-            <li id="nuxt-speedkit-message-low-battery">low battery</li>
+            <li id="nuxt-booster-message-low-battery">low battery</li>
           </ul>
 
           <!-- Button to hide the layer with no javascript -->
-          <button id="nuxt-speedkit-button-init-nojs">
-            <label for="nuxt-speedkit-layer-close"> Apply without js </label>
+          <button id="nuxt-booster-button-init-nojs">
+            <label for="nuxt-booster-layer-close"> Apply without js </label>
           </button>
 
           <!-- Button for use without javascript and with fonts -->
-          <button id="nuxt-speedkit-button-init-reduced-view">
-            <label for="nuxt-speedkit-layer-close">
+          <button id="nuxt-booster-button-init-reduced-view">
+            <label for="nuxt-booster-layer-close">
               Apply without scripts
             </label>
           </button>
 
           <!-- Button for activate javascript by bad connection or browser support -->
-          <button id="nuxt-speedkit-button-init-app">
+          <button id="nuxt-booster-button-init-app">
             Apply with all Features
           </button>
         </div>
@@ -49,7 +46,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useHead } from '#imports';
-import { getStyleDescription } from '#speedkit/utils/description';
+import { getStyleDescription } from '#booster/utils/description';
 
 const isServer = ref(true);
 
@@ -58,7 +55,7 @@ onMounted(() => (isServer.value = false));
 useHead({
   noscript: [
     getStyleDescription(
-      `#nuxt-speedkit-layer button:not(#nuxt-speedkit-button-init-nojs) { display: none !important; } #nuxt-speedkit-button-nojs, #nuxt-speedkit-button-init-nojs { display: initial !important; }`,
+      `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs { display: initial !important; }`,
       true
     )
   ]
@@ -68,36 +65,36 @@ useHead({
 <style>
 /*! purgecss start ignore */
 
-#nuxt-speedkit-layer {
+#nuxt-booster-layer {
   width: 0;
   height: 0;
 }
 
-#nuxt-speedkit-layer input {
+#nuxt-booster-layer input {
   display: none;
 }
 
-#nuxt-speedkit-layer input:checked + * {
+#nuxt-booster-layer input:checked + * {
   display: none;
 }
 
-#nuxt-speedkit-button-init-nojs {
+#nuxt-booster-button-init-nojs {
   display: none;
 }
 
-#nuxt-speedkit-message-nojs {
+#nuxt-booster-message-nojs {
   display: none;
 }
 
-#nuxt-speedkit-message-unsupported-browser {
+#nuxt-booster-message-unsupported-browser {
   display: none;
 }
 
-#nuxt-speedkit-message-reduced-bandwidth {
+#nuxt-booster-message-reduced-bandwidth {
   display: none;
 }
 
-#nuxt-speedkit-message-weak-hardware {
+#nuxt-booster-message-weak-hardware {
   display: none;
 }
 

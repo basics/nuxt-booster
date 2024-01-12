@@ -40,9 +40,9 @@ export default defineConfig(() => ({
 
   srcDir: 'src',
 
-  title: 'Nuxt Speedkit',
+  title: 'Nuxt Booster',
   description:
-    'Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.',
+    'Nuxt Booster takes over the Lighthouse performance optimization of your generated website.',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 

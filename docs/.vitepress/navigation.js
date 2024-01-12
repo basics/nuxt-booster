@@ -125,12 +125,12 @@ export default {
           text: 'Composables',
           collapsed: true,
           items: [
-            { text: 'useFont', link: '/composables/useFont' },
-            { text: 'useCritical', link: '/composables/useCritical' },
-            { text: 'useConfig', link: '/composables/useConfig' },
+            { text: 'useBoosterFont', link: '/composables/useBoosterFont' },
+            { text: 'useBoosterCritical', link: '/composables/useBoosterCritical' },
+            { text: 'useBoosterConfig', link: '/composables/useBoosterConfig' },
             {
-              text: 'useComponentObserver',
-              link: '/composables/useComponentObserver'
+              text: 'useBoosterComponentObserver',
+              link: '/composables/useBoosterComponentObserver'
             }
           ]
         },

@@ -1,7 +1,7 @@
 import {
   isElementOutViewport,
   getElementObserver
-} from '#speedkit/classes/intersection';
+} from '#booster/classes/intersection';
 const CLASS_FONT_ACTIVE = 'font-active';
 
 // eslint-disable-next-line sonarjs/no-unused-collection

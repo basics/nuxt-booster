@@ -5,7 +5,7 @@
     :sizes="sizes"
     :width="width"
     :height="height"
-    class="nuxt-speedkit-image"
+    class="nuxt-booster-image"
     :class="classNames"
     :title="title"
     :alt="alt || title"
@@ -18,12 +18,17 @@
 
 <script>
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
-import { getImageStyleDescription } from '#speedkit/utils/description';
-import { getCrossorigin } from '#speedkit/utils';
-import Source from '#speedkit/components/SpeedkitImage/classes/Source';
-import useCritical from '#speedkit/composables/critical';
-
-import { ref, useImage, useNuxtApp, useHead, computed } from '#imports';
+import { getImageStyleDescription } from '#booster/utils/description';
+import { getCrossorigin } from '#booster/utils';
+import Source from '#booster/components/BoosterImage/classes/Source';
+import {
+  useBoosterCritical,
+  ref,
+  useImage,
+  useNuxtApp,
+  useHead,
+  computed
+} from '#imports';
 
 export default {
   inheritAttrs: false,
@@ -57,11 +62,11 @@ export default {
 
   async setup(props) {
     const $img = useImage();
-    const $speedkit = useNuxtApp().$speedkit;
-    const { isCritical } = useCritical();
+    const $booster = useNuxtApp().$booster;
+    const { isCritical } = useBoosterCritical();
 
     const resolvedCrossorigin = computed(() => {
-      return getCrossorigin(props.crossorigin || $speedkit.crossorigin);
+      return getCrossorigin(props.crossorigin || $booster.crossorigin);
     });
 
     if (props.source) {
@@ -69,7 +74,7 @@ export default {
       const config = $img.getSizes(source.src, {
         sizes: source.sizes,
         modifiers: source.getModifiers(),
-        ...source.getOptions($speedkit)
+        ...source.getOptions($booster)
       });
 
       const meta = ref(null);
@@ -98,7 +103,7 @@ export default {
         }
       });
 
-      meta.value = await source.getMeta(config.src, $speedkit);
+      meta.value = await source.getMeta(config.src, $booster);
 
       return {
         isCritical,
@@ -175,7 +180,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit-image {
+.nuxt-booster-image {
   content-visibility: auto;
   display: block;
   width: 100%;

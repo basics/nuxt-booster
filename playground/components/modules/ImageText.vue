@@ -10,7 +10,7 @@
       ]"
     >
       <div class="image">
-        <speedkit-picture
+        <booster-picture
           :title="picture.title"
           :alt="picture.alt"
           :sources="picture.sources"
@@ -26,9 +26,9 @@
 </template>
 
 <script setup>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import BoosterPicture from '#booster/components/BoosterPicture';
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 defineProps({
   alignRight: { type: Boolean, default: false },
   picture: { type: Object, required: true },

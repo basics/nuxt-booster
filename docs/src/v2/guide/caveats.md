@@ -66,7 +66,7 @@ The PostCSS Plugin [`postcss-object-fit-images`](https://github.com/ronik-design
 
 For the polyfills, it is recommended to integrate them as a [plugin](https://nuxtjs.org/docs/2.x/directory-structure/plugins), polyfills loading must follow a specific order.
 
-You can see a example with live demo at [Nuxt Speedkit Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
+You can see a example with live demo at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
 
 ### Example
 

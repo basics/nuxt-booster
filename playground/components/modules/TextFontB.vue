@@ -20,8 +20,8 @@
 </template>
 
 <script setup>
-import useFonts from '#speedkit/composables/fonts';
-const { $getFont } = useFonts();
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 defineProps({
   headline: { type: String, default: 'Headline' },
   content: { type: String, default: 'Text' }

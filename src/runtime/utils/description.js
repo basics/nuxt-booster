@@ -1,5 +1,5 @@
-import { toHashHex } from '#speedkit/utils/string';
-import Source from '#speedkit/components/SpeedkitImage/classes/Source';
+import { toHashHex } from '#booster/utils/string';
+import Source from '#booster/components/BoosterImage/classes/Source';
 
 export function getImageStyleDescription(meta, className) {
   return {

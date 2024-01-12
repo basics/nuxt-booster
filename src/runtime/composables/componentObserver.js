@@ -1,12 +1,12 @@
 import { onMounted, ref } from 'vue';
-import { getElementObserver } from '#speedkit/classes/intersection';
-import useCritical from '#speedkit/composables/critical';
+import { getElementObserver } from '#booster/classes/intersection';
+import { useBoosterCritical } from '#imports';
 
 export default function useComponentObserver(options) {
   const el = ref(null);
   const inView = ref(false);
 
-  const { isCritical } = useCritical();
+  const { isCritical } = useBoosterCritical();
 
   onMounted(async () => {
     options = {

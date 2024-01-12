@@ -1,5 +1,5 @@
 ---
-title: useCritical
+title: useBoosterCritical
 ---
 
 # {{$frontmatter.title}}
@@ -11,7 +11,7 @@ title: useCritical
 | `critical` | `Boolean` | Override critical from component. | inherit from component |
 
 ```js
-const { isCritical } = useCritical({critical: true});
+const { isCritical } = useBoosterCritical({critical: true});
 ```
 
 ## Return
@@ -28,7 +28,7 @@ const { isCritical } = useCritical({critical: true});
 </template>
 
 <script setup>
-  import useCritical from '#speedkit/composables/critical';
-  const { isCritical } = useCritical();
+  import { useBoosterCritical } from '#imports';
+  const { isCritical } = useBoosterCritical();
 </script>
 ```

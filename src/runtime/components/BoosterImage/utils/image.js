@@ -41,7 +41,7 @@ const getProvider = context => {
   return context.options.providers[context.options.provider].provider;
 };
 
-export async function getMeta(source, compiledSrc, $speedkit) {
+export async function getMeta(source, compiledSrc, $booster) {
   if (!process.server && window.Image) {
     source = source.modify({ src: compiledSrc });
   } else {
@@ -52,6 +52,6 @@ export async function getMeta(source, compiledSrc, $speedkit) {
     });
   }
 
-  const { width, height } = await $speedkit.getImageSize(source.src);
+  const { width, height } = await $booster.getImageSize(source.src);
   return source.modify({ width, height });
 }

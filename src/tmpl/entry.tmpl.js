@@ -1,10 +1,10 @@
 export default options => {
   let code = `import { ${
     options.performanceCheck ? `run, ` : ``
-  }hasSufficientPerformance, setup } from '#speedkit/utils/performance';
-import { triggerRunCallback, observeSpeedkitButton, setupSpeedkitLayer, updateSpeedkitLayerMessage, initReducedView, hasBatteryPerformanceIssue } from '#speedkit/utils/entry';
-import Deferred from '#speedkit/classes/Deferred';
-import { isSupportedBrowser } from '#speedkit/utils/browser';
+  }hasSufficientPerformance, setup } from '#booster/utils/performance';
+import { triggerRunCallback, observeBoosterButton, setupBoosterLayer, updateBoosterLayerMessage, initReducedView, hasBatteryPerformanceIssue } from '#booster/utils/entry';
+import Deferred from '#booster/classes/Deferred';
+import { isSupportedBrowser } from '#booster/utils/browser';
 import {video as videoBlob} from './blobs.mjs';
 
 `;
@@ -42,7 +42,7 @@ function client () {
   const deferred = new Deferred();
 
   let initialized = false
-  const layerEl = window.document.getElementById('nuxt-speedkit-layer');
+  const layerEl = window.document.getElementById('nuxt-booster-layer');
 
   const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in window && window.__NUXT_SPEEDKIT_FORCE_INIT__);
 
@@ -52,7 +52,7 @@ function client () {
       deferred.resolve();
     }
 
-    document.documentElement.classList.remove('nuxt-speedkit-reduced-view');
+    document.documentElement.classList.remove('nuxt-booster-reduced-view');
 
     `;
 
@@ -106,7 +106,7 @@ if (!force) {
 
       if (!!layerEl) {
         // User must interact via the layer.
-        updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-weak-hardware');
+        updateBoosterLayerMessage(layerEl, 'nuxt-booster-message-weak-hardware');
         return null;
       }
     }
@@ -119,19 +119,19 @@ if (!force) {
   });
 
   window.addEventListener('load', function () {
-    if (!document.getElementById('nuxt-speedkit-layer')) {
+    if (!document.getElementById('nuxt-booster-layer')) {
       initApp(forceInit);
     } else {
 
-      observeSpeedkitButton('nuxt-speedkit-button-init-reduced-view', initReducedView);
-      observeSpeedkitButton('nuxt-speedkit-button-init-app', () => initApp(true));
+      observeBoosterButton('nuxt-booster-button-init-reduced-view', initReducedView);
+      observeBoosterButton('nuxt-booster-button-init-app', () => initApp(true));
 
       setup(${options.performanceMetrics});
 
       if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((${!options.ignorePerformance} && hasSufficientPerformance()) && supportedBrowser)) {
         initApp();
       } else {
-        setupSpeedkitLayer(layerEl, supportedBrowser)
+        setupBoosterLayer(layerEl, supportedBrowser)
       }
 
     }

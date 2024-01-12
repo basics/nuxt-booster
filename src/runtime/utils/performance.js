@@ -1,7 +1,7 @@
 import {
   CallbackObserver,
   combineCallbackObserver
-} from '#speedkit/classes/CallbackObserver';
+} from '#booster/classes/CallbackObserver';
 
 const defaultConfig = {
   timing: {

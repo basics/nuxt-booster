@@ -2,10 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "nuxt-speedkit/*": [
+      "nuxt-booster/*": [
         "./src/*"
       ],
-      "nuxt-speedkit/*": [
+      "nuxt-booster/*": [
         "./src/runtime*"
       ]
     }

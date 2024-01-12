@@ -2,10 +2,10 @@ import { hasSufficientDownloadPerformance } from './performance';
 
 export const triggerRunCallback = sufficient =>
   window.dispatchEvent(
-    new CustomEvent('nuxt-speedkit:run', { detail: { sufficient } })
+    new CustomEvent('nuxt-booster:run', { detail: { sufficient } })
   );
 
-export function observeSpeedkitButton(id, callback) {
+export function observeBoosterButton(id, callback) {
   Array.from(document.querySelectorAll('#' + id)).forEach(el => {
     el.addEventListener('click', callback, {
       capture: true,
@@ -15,30 +15,30 @@ export function observeSpeedkitButton(id, callback) {
   });
 }
 
-export function updateSpeedkitLayerMessage(layerEl, id) {
+export function updateBoosterLayerMessage(layerEl, id) {
   const el = window.document.getElementById(id);
   if (!el) {
-    throw new Error("Can't update speedkit-layer, message " + id + ' missing.');
+    throw new Error("Can't update booster-layer, message " + id + ' missing.');
   } else {
     el.style.display = 'block';
-    layerEl.className += ' nuxt-speedkit-layer-visible';
+    layerEl.className += ' nuxt-booster-layer-visible';
   }
 }
 
-export function setupSpeedkitLayer(layerEl, supportedBrowser) {
+export function setupBoosterLayer(layerEl, supportedBrowser) {
   if (!supportedBrowser) {
-    updateSpeedkitLayerMessage('nuxt-speedkit-message-unsupported-browser');
+    updateBoosterLayerMessage('nuxt-booster-message-unsupported-browser');
   }
   if (!hasSufficientDownloadPerformance()) {
-    updateSpeedkitLayerMessage(
+    updateBoosterLayerMessage(
       layerEl,
-      'nuxt-speedkit-message-reduced-bandwidth'
+      'nuxt-booster-message-reduced-bandwidth'
     );
   }
 }
 
 export function initReducedView() {
-  document.documentElement.classList.add('nuxt-speedkit-reduced-view');
+  document.documentElement.classList.add('nuxt-booster-reduced-view');
 
   // activate fonts
   window.document.querySelectorAll('[data-font]').forEach(node => {
@@ -47,7 +47,7 @@ export function initReducedView() {
 
   // transform noscript>picture to picture
   Array.from(
-    document.querySelectorAll('noscript.nuxt-speedkit-picture-noscript')
+    document.querySelectorAll('noscript.nuxt-booster-picture-noscript')
   ).forEach(el => {
     const tmp = document.createElement('div');
     // eslint-disable-next-line no-unsanitized/property

@@ -26,7 +26,7 @@ Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
 
 ### @nuxt/image
 
-**Nuxt Speedkit** uses the module `@nuxt/image`, if this is not already present, it will be integrated automatically.
+**Nuxt Booster** uses the module `@nuxt/image`, if this is not already present, it will be integrated automatically.
 
 It is necessary for the use of the components `SpeedkitYoutube` and `SpeedkitVimeo` to add aliases and domains to the `@nuxt/image` options. These are needed to retrieve the images from Youtube and Vimeo.
 
