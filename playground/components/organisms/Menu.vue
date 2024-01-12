@@ -1,11 +1,17 @@
 <template>
   <div class="menu">
-    <input id="menu-control" type="checkbox" name="menu-control" :checked="value" @input="onInput">
+    <input
+      id="menu-control"
+      type="checkbox"
+      name="menu-control"
+      :checked="value"
+      @input="onInput"
+    />
     <div class="content" aria-label="Menu" :inert="inert">
       <label for="menu-control" />
       <div>
         <div>
-          <nav v-for="({headline, links}, index) in lists" :key="index">
+          <nav v-for="({ headline, links }, index) in lists" :key="index">
             <headline
               v-if="headline"
               tag="span"
@@ -51,7 +57,7 @@ export default {
     },
     lists: {
       type: Array,
-      default () {
+      default() {
         return [
           {
             headline: 'Preview',
@@ -67,25 +73,25 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       withInert: false
     };
   },
 
   computed: {
-    inert () {
+    inert() {
       return this.withInert && !this.value;
     }
   },
 
   watch: {
-    value (value) {
+    value(value) {
       document.documentElement.classList.toggle('js-menu-open', value);
     }
   },
 
-  mounted () {
+  mounted() {
     this.withInert = true;
     this.$router.afterEach(() => {
       this.$emit('input', false);
@@ -93,11 +99,10 @@ export default {
   },
 
   methods: {
-    onInput (e) {
+    onInput(e) {
       this.$emit('input', e.target.checked);
     }
   }
-
 };
 </script>
 
@@ -136,7 +141,9 @@ html.js-menu-open {
 
     & path {
       fill: #333;
-      transition: opacity 0.2s linear, transform 0.2s linear;
+      transition:
+        opacity 0.2s linear,
+        transform 0.2s linear;
       transform-origin: center;
 
       @media (prefers-color-scheme: dark) {
@@ -316,7 +323,7 @@ html.js-menu-open {
         overflow: auto;
         text-align: left;
         background: rgb(255 255 255 / 50%);
-        transition: transform 0.2s  ease-in;
+        transition: transform 0.2s ease-in;
         transform: translateX(-100%);
 
         @media (prefers-color-scheme: dark) {
@@ -346,5 +353,4 @@ html.js-menu-open {
     }
   }
 }
-
 </style>

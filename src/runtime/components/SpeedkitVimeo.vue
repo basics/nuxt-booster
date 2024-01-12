@@ -1,14 +1,8 @@
 <template>
-  <base-vimeo
-    class="nuxt-speedkit-vimeo"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
+  <base-vimeo class="nuxt-speedkit-vimeo" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <slot name="loading-spinner">
-        <div
-          class="loading-spinner"
-        >
+        <div class="loading-spinner">
           <svg
             viewBox="0 0 38 38"
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +31,11 @@
       <slot name="play">
         <div class="play">
           <span>
-            <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" focusable="false">
+            <svg
+              viewBox="0 0 20 20"
+              preserveAspectRatio="xMidYMid"
+              focusable="false"
+            >
               <polygon class="fill" points="1,0 20,10 1,20" />
             </svg>
           </span>
@@ -108,7 +106,10 @@ export default {
     color: var(--color-foreground);
     background: var(--color-background);
     border-radius: 0.5em;
-    transition: opacity var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
+    transition:
+      opacity var(--transition-duration),
+      background-color var(--transition-duration),
+      color var(--transition-duration);
     transform: translate(-50%, -50%);
 
     & svg {

@@ -2,11 +2,11 @@ import { <% if (!options.isDev) { %>run, <% } %>hasSufficientPerformance, hasSuf
 import { isSupportedBrowser } from '#speedkit/utils/browser';
 
 let initialized = false
-const layerEl = global.document.getElementById('nuxt-speedkit-layer');
+const layerEl = window.document.getElementById('nuxt-speedkit-layer');
 
-const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in global && global.__NUXT_SPEEDKIT_FORCE_INIT__);
+const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in window && window.__NUXT_SPEEDKIT_FORCE_INIT__);
 
-const triggerRunCallback = sufficient => global.dispatchEvent(new CustomEvent('nuxt-speedkit:run', { detail: { sufficient } }))
+const triggerRunCallback = sufficient => window.dispatchEvent(new CustomEvent('nuxt-speedkit:run', { detail: { sufficient } }))
 
 async function initApp(force) {
   if (initialized) {
@@ -50,7 +50,7 @@ function observeSpeedkitButton (id, callback) {
 }
 
 function updateSpeedkitLayerMessage(id) {
-  const el = global.document.getElementById(id)
+  const el = window.document.getElementById(id)
   if (!el) {
     throw new Error(`Can\'t update speedkit-layer, message ${id} missing.`);
   } else {
@@ -63,7 +63,7 @@ function initReducedView () {
   document.documentElement.classList.add('nuxt-speedkit-reduced-view');
 
   // activate fonts
-  global.document.querySelectorAll('[data-font]').forEach((node) => {
+  window.document.querySelectorAll('[data-font]').forEach((node) => {
     node.classList.add('font-active');
   })
 
@@ -97,7 +97,7 @@ window.addEventListener('load', function () {
 
     setup(<%= options.performanceMetrics %>);
 
-    if(('__NUXT_SPEEDKIT_AUTO_INIT__' in global && global.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
+    if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
       initApp();
     } else {
       setupSpeedkitLayer(supportedBrowser)

@@ -5,10 +5,11 @@
 <script>
 export default {
   components: {
-    LighthouseWidget: () => import('nuxt-speedkit/components/GoogleLighthouse/Widget.vue')
+    LighthouseWidget: () =>
+      import('nuxt-speedkit/components/GoogleLighthouse/Widget.vue')
   },
 
-  created () {
+  created() {
     this.$router.beforeEach((to, from, next) => {
       if (!('lh' in to.query) && 'lh' in from.query) {
         to.query.lh = from.query.lh;

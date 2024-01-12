@@ -1,11 +1,14 @@
 import FontCollection from '#speedkit/classes/FontCollection';
 
 export default {
-  install (Vue) {
+  install(Vue) {
     Vue.mixin({
-      provide () {
+      provide() {
         return {
-          criticalParent: typeof this.critical === 'boolean' ? this.critical : this.criticalParent
+          criticalParent:
+            typeof this.critical === 'boolean'
+              ? this.critical
+              : this.criticalParent
         };
       },
 
@@ -13,20 +16,20 @@ export default {
         criticalParent: { default: () => this.critical || false }
       },
 
-      beforeRouteLeave (to, from, next) {
+      beforeRouteLeave(to, from, next) {
         next();
       },
 
       props: {
         critical: {
           type: Boolean,
-          default () {
+          default() {
             return null;
           }
         }
       },
 
-      data () {
+      data() {
         return {
           fontActive: false,
           fontCollection: new FontCollection()
@@ -34,11 +37,12 @@ export default {
       },
 
       computed: {
-        isCritical () {
-          return typeof this.critical === 'boolean' ? this.critical : this.criticalParent;
+        isCritical() {
+          return typeof this.critical === 'boolean'
+            ? this.critical
+            : this.criticalParent;
         }
       }
-
     });
   }
 };

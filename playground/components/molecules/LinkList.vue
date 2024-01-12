@@ -1,13 +1,6 @@
 <template>
-  <ul
-    v-font="[
-      $getFont('Quicksand', 400, 'normal'),
-    ]"
-  >
-    <li
-      v-for="(item, index) in items"
-      :key="index"
-    >
+  <ul v-font="[$getFont('Quicksand', 400, 'normal')]">
+    <li v-for="(item, index) in items" :key="index">
       <nuxt-link v-bind="item">
         {{ item.title }}
       </nuxt-link>
@@ -20,7 +13,7 @@ export default {
   props: {
     items: {
       type: Array,
-      default () {
+      default() {
         return [
           {
             title: 'Link 1.'
@@ -57,7 +50,9 @@ a {
   border-radius: em(3px);
   outline: none;
   opacity: 0.8;
-  transition: opacity 0.2s linear, background 0.2s linear;
+  transition:
+    opacity 0.2s linear,
+    background 0.2s linear;
 
   &:focus {
     background: rgb(255 255 255 / 20%);

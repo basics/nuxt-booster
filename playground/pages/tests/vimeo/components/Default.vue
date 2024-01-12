@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 import DefaultVimeo from '#speedkit/components/SpeedkitVimeo';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
@@ -40,13 +39,12 @@ export default {
   },
 
   computed: {
-    vimeo () {
+    vimeo() {
       return {
         url: this.vimeoUrl,
         autoplay: this.autoplay
       };
     }
   }
-
 };
 </script>

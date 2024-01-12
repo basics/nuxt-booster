@@ -1,4 +1,3 @@
-/* eslint-disable no-secrets/no-secrets */
 import { join, resolve } from 'path';
 import { beforeAll } from 'vitest';
 import { generate, startStaticServer } from './utils';

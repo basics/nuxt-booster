@@ -1,12 +1,13 @@
 <template>
   <document-section
     class="component-image-text"
-    :class="{['component-image-text-right']: alignRight}"
+    :class="{ ['component-image-text-right']: alignRight }"
   >
     <div
       v-font="[
         $getFont('Merriweather', 300, 'normal'),
-        $getFont('Montserrat Alternates', 700, 'normal', {selector: 'h2'})]"
+        $getFont('Montserrat Alternates', 700, 'normal', { selector: 'h2' })
+      ]"
     >
       <div class="image">
         <speedkit-picture
@@ -25,7 +26,6 @@
 </template>
 
 <script>
-
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 
 export default {

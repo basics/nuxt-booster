@@ -9,9 +9,8 @@ const MODULE_NAME = 'nuxt-speedkit';
 
 export const logger = consola.withTag(MODULE_NAME);
 
-function getOptions (options) {
+function getOptions(options) {
   options = defu(options, {
-
     debug: false,
 
     disableNuxtImage: false, // If set, `@nuxt/image` will not be integrated.
@@ -50,31 +49,37 @@ function getOptions (options) {
       size: '100px',
       backgroundColor: 'grey'
     }
-
   });
   options.targetFormats = options.targetFormats || DEFAULT_TARGET_FORMATS;
   return options;
 }
 
-function deprecationsNotification (options) {
+function deprecationsNotification(options) {
   if ('pictureFormats' in options) {
-    logger.warn(`[${MODULE_NAME}] Option \`pictureFormats\` is deprecated, use \`targetFormats\` instead. \`https://nuxt-speedkit.grabarzundpartner.dev/options#targetformats\``);
+    logger.warn(
+      `[${MODULE_NAME}] Option \`pictureFormats\` is deprecated, use \`targetFormats\` instead. \`https://nuxt-speedkit.grabarzundpartner.dev/options#targetformats\``
+    );
     options.targetFormats = options.pictureFormats;
   }
   if ('maxIdleDuration' in options) {
-    logger.warn(`[${MODULE_NAME}] Option \`maxIdleDuration\` is deprecated and not necessary anymore. Specification can be removed from the configuration.`);
+    logger.warn(
+      `[${MODULE_NAME}] Option \`maxIdleDuration\` is deprecated and not necessary anymore. Specification can be removed from the configuration.`
+    );
   }
   if ('maxIdleDurations' in options) {
-    logger.warn(`[${MODULE_NAME}] Option \`maxIdleDurations\` is deprecated and not necessary anymore. Specification can be removed from the configuration.`);
+    logger.warn(
+      `[${MODULE_NAME}] Option \`maxIdleDurations\` is deprecated and not necessary anymore. Specification can be removed from the configuration.`
+    );
   }
 }
 
-function setEnvironments (nuxt, options) {
-  nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_COMPONENT = options.lazyOffset.component;
+function setEnvironments(nuxt, options) {
+  nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_COMPONENT =
+    options.lazyOffset.component;
   nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_ASSET = options.lazyOffset.asset;
 }
 
-function optimizePreloads (nuxt) {
+function optimizePreloads(nuxt) {
   nuxt.options.generate.manifest = false;
   nuxt.options.render.resourceHints = true;
   nuxt.options.render.asyncScripts = true;
@@ -83,34 +88,48 @@ function optimizePreloads (nuxt) {
   nuxt.hook('render:resourcesLoaded', preloadOptimization());
 }
 
-function getComponentFiles (cwd) {
-  return new Promise(resolve => glob('**/*.vue', {
-    cwd
-  }, (err, files) => {
-    if (err) {
-      throw err;
-    }
-    resolve(files);
-  }));
+function getComponentFiles(cwd) {
+  return new Promise(resolve =>
+    glob(
+      '**/*.vue',
+      {
+        cwd
+      },
+      (err, files) => {
+        if (err) {
+          throw err;
+        }
+        resolve(files);
+      }
+    )
+  );
 }
 
-function getNuxtImageModuleOptions (moduleContainer) {
+function getNuxtImageModuleOptions(moduleContainer) {
   let imageOptions;
   if ('image' in moduleContainer.options) {
     imageOptions = moduleContainer.options.image;
   } else {
-    const module = [].concat(
-      moduleContainer.options.modules,
-      moduleContainer.options.buildModules
-    ).find(module => Array.isArray(module) && module[0] === '@nuxt/image' && module[1]);
+    const module = []
+      .concat(
+        moduleContainer.options.modules,
+        moduleContainer.options.buildModules
+      )
+      .find(
+        module =>
+          Array.isArray(module) && module[0] === '@nuxt/image' && module[1]
+      );
     imageOptions = (module && module[1]) || {};
   }
 
-  return defu({
-    domains: [],
-    alias: {},
-    screens: {}
-  }, imageOptions);
+  return defu(
+    {
+      domains: [],
+      alias: {},
+      screens: {}
+    },
+    imageOptions
+  );
 }
 
 export {

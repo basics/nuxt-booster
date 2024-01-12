@@ -1,6 +1,6 @@
 import { cl } from 'dynamic-class-list';
 
-function addBundleRendererDirective (bundleRenderer) {
+function addBundleRendererDirective(bundleRenderer) {
   bundleRenderer.directives = bundleRenderer.directives || {};
   if ('font' in bundleRenderer.directives) {
     throw new Error('font bundleRenderer directive exists…');
@@ -8,7 +8,10 @@ function addBundleRendererDirective (bundleRenderer) {
 
   // INFO: Directive is not executed on HTML ELement with other directive (e.g. v-html)
   bundleRenderer.directives.font = function (vnode, binding) {
-    const rootSelector = vnode.context.fontCollection.add(vnode, [].concat(binding.value));
+    const rootSelector = vnode.context.fontCollection.add(
+      vnode,
+      [].concat(binding.value)
+    );
     vnode.data.attrs = vnode.data.attrs || {};
     vnode.data.attrs[String(rootSelector.name)] = rootSelector.value;
 
@@ -18,6 +21,4 @@ function addBundleRendererDirective (bundleRenderer) {
   };
 }
 
-export {
-  addBundleRendererDirective
-};
+export { addBundleRendererDirective };

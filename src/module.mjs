@@ -3,7 +3,14 @@ import consola from 'consola';
 
 import { addBundleRendererDirective } from './bundleRenderer';
 import { registerAppEntry, autoImportComponents } from './hookFunctions';
-import { getOptions, getComponentFiles, setEnvironments, optimizePreloads, getNuxtImageModuleOptions, MODULE_NAME } from './utils';
+import {
+  getOptions,
+  getComponentFiles,
+  setEnvironments,
+  optimizePreloads,
+  getNuxtImageModuleOptions,
+  MODULE_NAME
+} from './utils';
 import FontConfig from './runtime/classes/FontConfig';
 import { getCrossorigin } from './runtime/utils';
 import { getSupportedBrowserDetector } from './utils/browser';
@@ -28,23 +35,37 @@ export default async function (moduleOptions) {
   setEnvironments(this.nuxt, options);
 
   if (options.detection.performance && this.options.ssr) {
-    this.nuxt.hook('webpack:config', registerAppEntry(path.resolve(this.options.buildDir, MODULE_NAME, 'entry.js')));
+    this.nuxt.hook(
+      'webpack:config',
+      registerAppEntry(
+        path.resolve(this.options.buildDir, MODULE_NAME, 'entry.js')
+      )
+    );
   } else {
-    consola.warn(`[${MODULE_NAME}] module functionality is limited without ssr and performance check`);
+    consola.warn(
+      `[${MODULE_NAME}] module functionality is limited without ssr and performance check`
+    );
   }
 
   if (options.optimizePreloads) {
     optimizePreloads(this.nuxt);
   } else {
-    consola.warn(`[${MODULE_NAME}] preload optimization is disabled by module option \`optimizePreloads\`.`);
+    consola.warn(
+      `[${MODULE_NAME}] preload optimization is disabled by module option \`optimizePreloads\`.`
+    );
   }
 
   addBundleRendererDirective(this.options.render.bundleRenderer);
 
-  const componentsDir = path.join(this.nuxt.options.buildDir, MODULE_NAME, 'components');
+  const componentsDir = path.join(
+    this.nuxt.options.buildDir,
+    MODULE_NAME,
+    'components'
+  );
 
   // @nuxt/components
-  options.componentAutoImport && autoImportComponents(this.nuxt, componentsDir, options.componentPrefix);
+  options.componentAutoImport &&
+    autoImportComponents(this.nuxt, componentsDir, options.componentPrefix);
 
   await addBuildTemplates(this, options);
 }
@@ -53,15 +74,19 @@ export const meta = {
   name: MODULE_NAME
 };
 
-async function addBuildTemplates (scope, options) {
-  const supportedBrowserDetector = await getSupportedBrowserDetector(!options.detection.browserSupport);
+async function addBuildTemplates(scope, options) {
+  const supportedBrowserDetector = await getSupportedBrowserDetector(
+    !options.detection.browserSupport
+  );
   const fontConfig = new FontConfig(options.fonts, scope.nuxt.options.alias);
 
   scope.nuxt.hook('listen', (_, listener) => {
-    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${listener.https ? 'https' : 'http'}://${listener.host || 'localhost'}:${listener.port}`;
+    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${
+      listener.https ? 'https' : 'http'
+    }://${listener.host || 'localhost'}:${listener.port}`;
   });
 
-  ['client', 'server'].forEach((mode) => {
+  ['client', 'server'].forEach(mode => {
     scope.addPlugin({
       src: path.resolve(__dirname, 'runtime/tmpl', 'plugin.mjs'),
       fileName: MODULE_NAME + `/plugin.${mode}.js`,
@@ -70,7 +95,10 @@ async function addBuildTemplates (scope, options) {
         mode,
         fonts: fontConfig.toJSON(),
         targetFormats: options.targetFormats,
-        crossorigin: getCrossorigin(options.crossorigin, scope.nuxt.options.render.crossorigin),
+        crossorigin: getCrossorigin(
+          options.crossorigin,
+          scope.nuxt.options.render.crossorigin
+        ),
         supportedBrowserDetector,
         loader: options.loader
       }
@@ -99,7 +127,7 @@ async function addBuildTemplates (scope, options) {
   // copy components for alias usage.
   const libComponentsDir = path.join(__dirname, 'components');
   const components = await getComponentFiles(libComponentsDir);
-  components.forEach((file) => {
+  components.forEach(file => {
     scope.addTemplate({
       src: path.join(libComponentsDir, file),
       fileName: `${MODULE_NAME}/components/${file}`
@@ -107,24 +135,33 @@ async function addBuildTemplates (scope, options) {
   });
 }
 
-async function addNuxtImage ({ addModule, nuxt }) {
+async function addNuxtImage({ addModule, nuxt }) {
   // Check if @nuxt/image exists, if not, module is registered in nuxt.
   const modules = [...nuxt.options.modules, ...nuxt.options.buildModules];
   if (!modules.find(module => getModuleName(module) === '@nuxt/image')) {
-    consola.info(`[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``);
+    consola.info(
+      `[${MODULE_NAME}] added module \`@nuxt/image\`, for more configuration learn more at \`https://image.nuxtjs.org/setup#configure\``
+    );
     await addModule('@nuxt/image');
   }
 
   // Check @nuxt/image Options
-  nuxt.hook('modules:done', (moduleContainer) => {
+  nuxt.hook('modules:done', moduleContainer => {
     const nuxtImageOptions = getNuxtImageModuleOptions(moduleContainer);
-    if (nuxtImageOptions && ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))) {
-      consola.warn('For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage');
+    if (
+      nuxtImageOptions &&
+      ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
+    ) {
+      consola.warn(
+        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
+      );
     }
   });
 }
 
-function getModuleName (m) {
-  if (Array.isArray(m)) { m = m[0]; }
+function getModuleName(m) {
+  if (Array.isArray(m)) {
+    m = m[0];
+  }
   return m.meta ? m.meta.name : m;
 }

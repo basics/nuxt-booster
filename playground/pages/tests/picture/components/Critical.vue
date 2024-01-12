@@ -10,30 +10,37 @@
 </template>
 
 <script>
-
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
-
   components: {
     SpeedkitPicture,
     OrganismPreviewContainer
   },
 
-  data () {
+  data() {
     return {
-
       picture: {
         title: 'Critical',
         sources: [
-          { src: '/img/pickadummy/critical.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+          {
+            src: '/img/pickadummy/critical.jpg',
+            sizes: {
+              default: '100vw',
+              xxs: '100vw',
+              xs: '100vw',
+              sm: '100vw',
+              md: '100vw',
+              lg: '100vw',
+              xl: '100vw',
+              xxl: '100vw'
+            }
+          }
         ]
       }
-
     };
   }
 };
-
 </script>

@@ -16,17 +16,27 @@ import InfoLayer from '@/components/InfoLayer';
 export default {
   components: {
     InfoLayer,
-    GithubCorner: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/atoms/GithubCorner')),
-    GoogleLighthouse: speedkitHydrate(() => import(/* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse')),
-    OrganismPageHeader: speedkitHydrate(() => import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader'))
+    GithubCorner: speedkitHydrate(
+      () => import(/* webpackMode: "eager" */ '@/components/atoms/GithubCorner')
+    ),
+    GoogleLighthouse: speedkitHydrate(
+      () =>
+        import(
+          /* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'
+        )
+    ),
+    OrganismPageHeader: speedkitHydrate(
+      () =>
+        import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
+    )
   },
 
-  data () {
+  data() {
     return {
-      disableInfoLayer: String(process.env.DISABLE_INFO_LAYER).toLowerCase() === 'true',
+      disableInfoLayer:
+        String(process.env.DISABLE_INFO_LAYER).toLowerCase() === 'true',
       menuOpened: false,
       pageHeader: {
-
         lists: [
           {
             links: [
@@ -78,7 +88,7 @@ export default {
     };
   },
 
-  head () {
+  head() {
     return {
       title: `${this.$route.name} | nuxt-speedkit`,
       meta: [
@@ -140,5 +150,4 @@ body {
 .page-leave-to {
   opacity: 0;
 }
-
 </style>

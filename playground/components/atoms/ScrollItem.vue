@@ -1,7 +1,5 @@
 <template>
-  <div
-    v-font="$getFont(...font)"
-  >
+  <div v-font="$getFont(...font)">
     {{ font.join(' - ') }}
   </div>
 </template>
@@ -31,7 +29,9 @@ div {
     font-size: 20px;
   }
 
-  transition: background 1s linear, color 1s linear;
+  transition:
+    background 1s linear,
+    color 1s linear;
 
   &.font-active {
     color: #000;

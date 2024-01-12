@@ -5,8 +5,10 @@ import head from '#speedkit/plugins/vFont/head';
 let _installed = false;
 
 export default {
-  install (Vue, options) {
-    if (_installed) { return; }
+  install(Vue, options) {
+    if (_installed) {
+      return;
+    }
     _installed = true;
 
     directive.install(Vue, 'font');

@@ -1,29 +1,43 @@
 const fontPrioritizationPreloadOrder = ['woff2', 'woff', 'truetype', 'svg'];
-const fontDeclarationOrder = ['embedded-opentype', 'woff2', 'woff', 'truetype', 'svg'];
+const fontDeclarationOrder = [
+  'embedded-opentype',
+  'woff2',
+  'woff',
+  'truetype',
+  'svg'
+];
 
 export default class FontConfig {
-  constructor (fonts, aliases) {
+  constructor(fonts, aliases) {
     this.fonts = fonts;
     this.aliases = aliases;
   }
 
-  toJSON () {
-    return JSON.stringify(this.fonts.map(font => Object.assign({}, font, {
-      variances: getVariances(font, this.aliases)
-    }))).replace(/"require\(\\"([^)]+)\\"\)"/g, 'require("$1")');
+  toJSON() {
+    return JSON.stringify(
+      this.fonts.map(font =>
+        Object.assign({}, font, {
+          variances: getVariances(font, this.aliases)
+        })
+      )
+    ).replace(/"require\(\\"([^)]+)\\"\)"/g, 'require("$1")');
   }
 
-  toCSS () {
+  toCSS() {
     return [
-      ...Array.from(this.fonts).map((font) => {
-        return font.variances.map(variance => getFontFaceDeclaration(font, variance));
-      }).flat()
+      ...Array.from(this.fonts)
+        .map(font => {
+          return font.variances.map(variance =>
+            getFontFaceDeclaration(font, variance)
+          );
+        })
+        .flat()
     ].join(' ');
   }
 }
 
-function getVariances (font, aliases) {
-  return font.variances.map((variance) => {
+function getVariances(font, aliases) {
+  return font.variances.map(variance => {
     variance = Object.assign({}, variance);
     const source = getPrioritizedFontPreloadSource(variance.sources);
     // TODO: How do you deal with absolute paths, without webpack? (e.g. /fonts/…)
@@ -35,7 +49,7 @@ function getVariances (font, aliases) {
   });
 }
 
-function getFontFaceDeclaration (font, variance) {
+function getFontFaceDeclaration(font, variance) {
   return `
     @font-face {
       font-family: '${font.family}';
@@ -47,17 +61,33 @@ function getFontFaceDeclaration (font, variance) {
   `;
 }
 
-function getPrioritizedFontPreloadSource (sources) {
-  return [...sources.sort(function (a, b) {
-    return fontPrioritizationPreloadOrder.indexOf(a.type) - fontPrioritizationPreloadOrder.indexOf(b.type);
-  })].shift();
+function getPrioritizedFontPreloadSource(sources) {
+  return [
+    ...sources.sort(function (a, b) {
+      return (
+        fontPrioritizationPreloadOrder.indexOf(a.type) -
+        fontPrioritizationPreloadOrder.indexOf(b.type)
+      );
+    })
+  ].shift();
 }
 
-function getPrioritizedFontSources (sources, locals = []) {
-  return locals.map(local => `local('${local}')`).concat(
-    sources.sort(function (a, b) {
-      return fontDeclarationOrder.indexOf(a.type) - fontDeclarationOrder.indexOf(b.type);
-    }).map((source) => {
-      return `url('${source.src.replace(/@\//, '~')}') format('${source.type}')`;
-    })).join(',');
+function getPrioritizedFontSources(sources, locals = []) {
+  return locals
+    .map(local => `local('${local}')`)
+    .concat(
+      sources
+        .sort(function (a, b) {
+          return (
+            fontDeclarationOrder.indexOf(a.type) -
+            fontDeclarationOrder.indexOf(b.type)
+          );
+        })
+        .map(source => {
+          return `url('${source.src.replace(/@\//, '~')}') format('${
+            source.type
+          }')`;
+        })
+    )
+    .join(',');
 }

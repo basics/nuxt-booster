@@ -10,7 +10,9 @@ describe('🧐 inspect module utils', () => {
     expect(getCrossorigin('anonymous', false)).toBe('anonymous');
     expect(getCrossorigin(true)).toBe('anonymous');
     expect(getCrossorigin(true, 'anonymous')).toBe('anonymous');
-    expect(getCrossorigin(undefined, 'use-credentials')).toBe('use-credentials');
+    expect(getCrossorigin(undefined, 'use-credentials')).toBe(
+      'use-credentials'
+    );
     expect(getCrossorigin('use-credentials')).toBe('use-credentials');
     expect(getCrossorigin('', 'use-credentials')).toBe('');
     expect(getCrossorigin('')).toBe('');

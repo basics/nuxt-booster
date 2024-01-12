@@ -1,20 +1,24 @@
 <template>
   <document-section tag="main">
-    <default v-for="(item, index) in items" :id="`vimeo-${index}`" v-bind="item" :key="item.vimeoUrl" :critical="index < 1" />
+    <default
+      v-for="(item, index) in items"
+      :id="`vimeo-${index}`"
+      v-bind="item"
+      :key="item.vimeoUrl"
+      :critical="index < 1"
+    />
   </document-section>
 </template>
 
 <script>
-
 import speedkitHydrate from '#speedkit/hydrate';
 
 export default {
-
   components: {
     Default: speedkitHydrate(() => import('./components/Default'))
   },
 
-  asyncData () {
+  asyncData() {
     return {
       items: [
         {
@@ -29,7 +33,5 @@ export default {
       ]
     };
   }
-
 };
-
 </script>

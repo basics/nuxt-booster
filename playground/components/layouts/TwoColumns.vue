@@ -1,16 +1,16 @@
 <template>
-  <div v-font="$getFont('Merriweather', 300, 'italic')" class="layout-two-columns">
+  <div
+    v-font="$getFont('Merriweather', 300, 'italic')"
+    class="layout-two-columns"
+  >
     <div><slot name="left" /></div>
     <div><slot name="right" /></div>
   </div>
 </template>
 
 <script>
-
 export default {
-  components: {
-
-  }
+  components: {}
 };
 </script>
 

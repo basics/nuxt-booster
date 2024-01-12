@@ -1,6 +1,7 @@
 {
   "extends": [
-    "@nuxtjs"
+    "@nuxtjs",
+    ":semanticCommits"
   ],
   "packageRules": [
     {

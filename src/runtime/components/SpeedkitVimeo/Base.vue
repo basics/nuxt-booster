@@ -1,8 +1,6 @@
 <template>
-  <div
-    :class="{ready, playing, 'iframe-mode': iframeMode}"
-  >
-    <slot name="background" v-bind="{playing, videoData}" />
+  <div :class="{ ready, playing, 'iframe-mode': iframeMode }">
+    <slot name="background" v-bind="{ playing, videoData }" />
     <div class="player">
       <iframe
         ref="player"
@@ -20,7 +18,7 @@
         <slot v-if="!ready && !loading" name="play" />
       </default-button>
     </div>
-    <slot v-bind="{playing, videoData}" />
+    <slot v-bind="{ playing, videoData }" />
   </div>
 </template>
 
@@ -44,7 +42,6 @@ export default {
   inheritAttrs: false,
 
   props: {
-
     autoplay: {
       type: Boolean,
       default: false
@@ -68,7 +65,7 @@ export default {
 
     options: {
       type: Object,
-      default () {
+      default() {
         return {};
       }
     },
@@ -80,13 +77,22 @@ export default {
 
     posterSizes: {
       type: Object,
-      default () {
-        return { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' };
+      default() {
+        return {
+          default: '100vw',
+          xxs: '100vw',
+          xs: '100vw',
+          sm: '100vw',
+          md: '100vw',
+          lg: '100vw',
+          xl: '100vw',
+          xxl: '100vw'
+        };
       }
     }
   },
 
-  data () {
+  data() {
     return {
       inert: false,
       videoData: null,
@@ -102,11 +108,11 @@ export default {
     };
   },
 
-  fetchKey () {
+  fetchKey() {
     return `vimeo-${toHashHex(this.videoId)}`;
   },
 
-  async fetch () {
+  async fetch() {
     const { withQuery } = await import('ufo');
     try {
       const url = withQuery('https://vimeo.com/api/oembed.json', {
@@ -115,7 +121,7 @@ export default {
         height: 1080,
         ...this.playerOptions
       });
-      const response = await global.fetch(url);
+      const response = await fetch(url);
       this.videoData = await response.json();
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -125,19 +131,18 @@ export default {
     }
   },
 
-  head () {
+  head() {
     return {
       script: this.script
     };
   },
 
   computed: {
-
-    playerTitle () {
+    playerTitle() {
       return this.title || (this.videoData && this.videoData.title);
     },
 
-    playerOptions () {
+    playerOptions() {
       return {
         dnt: true,
         autopause: false,
@@ -148,55 +153,65 @@ export default {
       };
     },
 
-    playerSrc () {
-      return this.videoData?.html.replace(/.*src="([^"]*)".*/, '$1').replace(/&amp;/g, '&') || `https://player.vimeo.com/video/${this.videoId}`;
+    playerSrc() {
+      return (
+        this.videoData?.html
+          .replace(/.*src="([^"]*)".*/, '$1')
+          .replace(/&amp;/g, '&') ||
+        `https://player.vimeo.com/video/${this.videoId}`
+      );
     },
 
-    pictureComponent () {
+    pictureComponent() {
       return this.videoData ? SpeedkitPicture : 'picture';
     },
 
-    poster () {
+    poster() {
       if (!this.videoData) {
         return null;
       }
       return {
         formats: this.$speedkit.targetFormats,
         title: this.playerTitle,
-        sources: [{
-          format: 'jpg',
-          src: this.videoData && this.videoData.thumbnail_url?.replace('https://i.vimeocdn.com', 'vimeo'),
-          sizes: this.posterSizes,
-          media: 'all'
-        }],
+        sources: [
+          {
+            format: 'jpg',
+            src:
+              this.videoData &&
+              this.videoData.thumbnail_url?.replace(
+                'https://i.vimeocdn.com',
+                'vimeo'
+              ),
+            sizes: this.posterSizes,
+            media: 'all'
+          }
+        ],
         loadingSpinner: this.posterLoadingSpinner
       };
     }
-
   },
 
   watch: {
-    videoData (videoData) {
+    videoData(videoData) {
       if (videoData && this.autoplay) {
         this.onInit();
       }
     },
-    ready () {
+    ready() {
       this.inert = false;
     }
   },
 
-  mounted () {
+  mounted() {
     this.inert = true;
   },
 
-  destroyed () {
+  destroyed() {
     this.player && vimeo.remove(this.player);
   },
 
   methods: {
-
-    onInit () {
+    onInit() {
       this.loading = true;
       this.src = this.playerSrc;
       this.script = [load()];
@@ -206,7 +221,7 @@ export default {
       }
     },
 
-    onPlayerStateChange (state) {
+    onPlayerStateChange(state) {
       if (state.playing) {
         this.playing = true;
       } else if (state.ended || state.pause) {
@@ -215,7 +230,7 @@ export default {
       this.$emit('playing', this.playing);
     },
 
-    async onLoad (e) {
+    async onLoad(e) {
       if (!e.target.src || !this.script.length) {
         return;
       }
@@ -223,7 +238,9 @@ export default {
       await ready();
 
       this.player = await vimeo.createPlayer(this.$refs.player);
-      this.player.on('playing', () => this.onPlayerStateChange({ playing: true }));
+      this.player.on('playing', () =>
+        this.onPlayerStateChange({ playing: true })
+      );
       this.player.on('pause', () => this.onPlayerStateChange({ pause: true }));
       this.player.on('ended', () => this.onPlayerStateChange({ ended: true }));
 
@@ -238,10 +255,8 @@ export default {
         player: this.player
       });
     }
-
   }
 };
-
 </script>
 
 <style lang="postcss" scoped>
@@ -259,7 +274,7 @@ export default {
     cursor: pointer;
   }
 
-  @nest .ready & {
+  .ready & {
     & button {
       pointer-events: none;
       visibility: hidden;
@@ -274,7 +289,7 @@ export default {
     margin: auto;
   }
 
-  @nest .iframe-mode & {
+  .iframe-mode & {
     aspect-ratio: 16 / 9;
   }
 }
