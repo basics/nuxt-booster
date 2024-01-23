@@ -80,7 +80,7 @@
     "esbuild": "0.19.11",
     "eslint-config-prettier": "9.1.0",
     "eslint-formatter-json-relative": "0.1.0",
-    "eslint-plugin-jsonc": "2.12.2",
+    "eslint-plugin-jsonc": "2.13.0",
     "eslint-plugin-no-secrets": "0.8.9",
     "eslint-plugin-no-unsanitized": "4.0.2",
     "eslint-plugin-prettier": "5.1.3",
