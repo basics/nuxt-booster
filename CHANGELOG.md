@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.6...v2.2.7) (2024-01-27)
+
+
+### Bug Fixes
+
+* **main:** fix missing dep ([19acdbe](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/19acdbec4e6e2007d5b6cd6fc75017120de6b3d8))
+
 ## [2.2.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.5...v2.2.6) (2024-01-27)
 
 
