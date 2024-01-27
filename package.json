@@ -76,8 +76,6 @@
     "@nuxtjs/eslint-config": "12.0.0",
     "@types/node": "20.11.8",
     "commitlint": "18.6.0",
-    "core-js": "3.35.1",
-    "esbuild": "0.20.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-jsonc": "2.13.0",
