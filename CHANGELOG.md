@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.4...v2.2.5) (2024-01-27)
+
+
+### Bug Fixes
+
+* **main:** remove global variable ([5ec62aa](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5ec62aa4eb222d256e4f296723acb29232b19374))
+
 ## [2.2.4](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.3...v2.2.4) (2023-11-15)
 
 
