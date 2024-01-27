@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.8](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.7...v2.2.8) (2024-01-27)
+
+
+### Bug Fixes
+
+* **browser:** added compiled detector ([233fc62](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/233fc62b70a1593765c4d8c80f1031c020eceed4))
+
 ## [2.2.7](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.6...v2.2.7) (2024-01-27)
 
 
