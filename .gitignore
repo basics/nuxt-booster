@@ -16,4 +16,3 @@ test/.*
 eslint-report.json
 video
 .env
-src/supportedBrowserDetector.mjs

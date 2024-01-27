@@ -10,3 +10,4 @@ sw.js
 
 src/runtime/tmpl/**/*
 src/runtime/components/SpeedkitLayer.vue
+src/supportedBrowserDetector.mjs
