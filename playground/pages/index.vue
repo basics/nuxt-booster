@@ -17,16 +17,27 @@ import speedkitHydrate from '#speedkit/hydrate';
 
 export default {
   components: {
-    ComponentStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
-    ComponentTextA: speedkitHydrate(() => import('@/components/organisms/TextFontA')),
-    ComponentImageText: speedkitHydrate(() => import('@/components/organisms/ImageText')),
-    ComponentTextB: speedkitHydrate(() => import('@/components/organisms/TextFontB')),
-    ComponentVideoYoutube: speedkitHydrate(() => import('@/components/organisms/VideoYoutube')),
-    ComponentVideoVimeo: speedkitHydrate(() => import('@/components/organisms/VideoVimeo'))
+    ComponentStage: speedkitHydrate(
+      () => import('@/components/organisms/Stage')
+    ),
+    ComponentTextA: speedkitHydrate(
+      () => import('@/components/organisms/TextFontA')
+    ),
+    ComponentImageText: speedkitHydrate(
+      () => import('@/components/organisms/ImageText')
+    ),
+    ComponentTextB: speedkitHydrate(
+      () => import('@/components/organisms/TextFontB')
+    ),
+    ComponentVideoYoutube: speedkitHydrate(
+      () => import('@/components/organisms/VideoYoutube')
+    ),
+    ComponentVideoVimeo: speedkitHydrate(
+      () => import('@/components/organisms/VideoVimeo')
+    )
   },
-  data () {
+  data() {
     return {
-
       stage: {
         critical: true,
         content: 'nuxt-speedkit',
@@ -35,24 +46,52 @@ export default {
         picture: {
           title: 'Stage',
           sources: [
-            { src: '/img/pickadummy/stage-landscape.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
-            { src: '/img/pickadummy/stage-portrait.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw' }, media: '(orientation: portrait)' }
+            {
+              src: '/img/pickadummy/stage-landscape.jpg',
+              sizes: {
+                sm: '100vw',
+                md: '100vw',
+                lg: '100vw',
+                xl: '100vw',
+                xxl: '100vw'
+              },
+              media: '(orientation: landscape)'
+            },
+            {
+              src: '/img/pickadummy/stage-portrait.jpg',
+              sizes: { default: '100vw', xxs: '100vw', xs: '100vw' },
+              media: '(orientation: portrait)'
+            }
           ]
         }
       },
 
       textA: {
         headline: 'Text A',
-        content: '<p>Aliqua odit <strong>anim vehicula</strong> varius eget feugiat beatae. <em><strong>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</strong></em>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
+        content:
+          '<p>Aliqua odit <strong>anim vehicula</strong> varius eget feugiat beatae. <em><strong>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</strong></em>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
       },
 
       imageTextA: {
         headline: 'Image Text A',
-        content: '<p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
+        content:
+          '<p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
           title: 'Image Text A',
           sources: [
-            { src: '/img/pickadummy/image-text-a.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+            {
+              src: '/img/pickadummy/image-text-a.jpg',
+              sizes: {
+                default: '100vw',
+                xxs: '100vw',
+                xs: '100vw',
+                sm: '100vw',
+                md: '100vw',
+                lg: '100vw',
+                xl: '100vw',
+                xxl: '100vw'
+              }
+            }
           ]
         }
       },
@@ -66,11 +105,24 @@ export default {
       imageTextB: {
         alignRight: true,
         headline: 'Image Text B',
-        content: '<p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
+        content:
+          '<p>Aliqua odit anim vehicula varius eget feugiat beatae. Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>',
         picture: {
           title: 'Image Text B',
           sources: [
-            { src: '/img/pickadummy/image-text-b.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+            {
+              src: '/img/pickadummy/image-text-b.jpg',
+              sizes: {
+                default: '100vw',
+                xxs: '100vw',
+                xs: '100vw',
+                sm: '100vw',
+                md: '100vw',
+                lg: '100vw',
+                xl: '100vw',
+                xxl: '100vw'
+              }
+            }
           ]
         }
       },
@@ -82,7 +134,8 @@ export default {
 
       textB: {
         headline: 'Text B',
-        content: '<p>Aliqua odit <strong>anim vehicula</strong> varius eget feugiat beatae. <em><strong>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</strong></em>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
+        content:
+          '<p>Aliqua odit <strong>anim vehicula</strong> varius eget feugiat beatae. <em><strong>Fringilla cumque, nulla pulvinar necessitatibus pharetra vehicula ultricies egestas rhoncus justo occaecati amet</strong></em>, fames quod. Similique! Ornare nesciunt inventore nulla, montes doloribus, erat, parturient! Accumsan omnis doloribus perspiciatis, blanditiis ullamcorper adipisicing quisquam. Nobis placerat. Eget do sagittis elit wisi voluptates, facilisis veritatis.</p><p>Laboriosam recusandae blandit nunc tempor urna veniam? Etiam perferendis, quisquam class ea eos habitasse quis tempora nulla? Non, facilis consectetuer suspendisse tortor, etiam dolor? Blanditiis suspendisse, massa. Tempus consequatur bibendum magnam? Praesentium, posuere consequuntur, tenetur tempus quod suscipit nibh? Voluptate ratione justo! Ullamcorper! Cursus auctor magna. Beatae corporis. Inceptos nisi.</p>'
       },
 
       videoVimeoB: {
@@ -91,7 +144,6 @@ export default {
       }
     };
   }
-
 };
 </script>
 
@@ -108,5 +160,4 @@ export default {
     }
   }
 }
-
 </style>

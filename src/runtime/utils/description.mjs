@@ -1,6 +1,10 @@
 import { toHashHex } from '#speedkit/utils/string';
 
-export function getImagePreloadDescription ({ srcset, sizes, type }, crossorigin, callback = () => {}) {
+export function getImagePreloadDescription(
+  { srcset, sizes, type },
+  crossorigin,
+  callback = () => {}
+) {
   return {
     hid: toHashHex(srcset),
     rel: 'preload',
@@ -13,9 +17,16 @@ export function getImagePreloadDescription ({ srcset, sizes, type }, crossorigin
   };
 }
 
-export function getFontPreloadDescription (font, media, crossorigin, callback = () => {}) {
+export function getFontPreloadDescription(
+  font,
+  media,
+  crossorigin,
+  callback = () => {}
+) {
   return {
-    hid: toHashHex(`${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()),
+    hid: toHashHex(
+      `${font.family}-${font.weight}-${font.style}-${media}`.toLowerCase()
+    ),
     rel: 'preload',
     as: 'font',
     crossorigin,
@@ -26,7 +37,7 @@ export function getFontPreloadDescription (font, media, crossorigin, callback = 
   };
 }
 
-export function getStyleDescription (cssText, noScript = false) {
+export function getStyleDescription(cssText, noScript = false) {
   if (noScript) {
     return getNoScriptDescription(`<style>${cssText}</style>`);
   } else {
@@ -37,7 +48,7 @@ export function getStyleDescription (cssText, noScript = false) {
   }
 }
 
-export function getNoScriptDescription (html) {
+export function getNoScriptDescription(html) {
   return {
     hid: toHashHex(html),
     innerHTML: html

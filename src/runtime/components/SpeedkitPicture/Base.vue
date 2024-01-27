@@ -1,6 +1,11 @@
 <template>
   <picture :class="classNames.picture" class="nuxt-speedkit-picture">
-    <picture-source v-for="(source) in formatSources" :key="source.key" :source="source" :crossorigin="crossorigin" />
+    <picture-source
+      v-for="source in formatSources"
+      :key="source.key"
+      :source="source"
+      :crossorigin="crossorigin"
+    />
     <base-image
       :class="classNames.image"
       :title="title"
@@ -36,7 +41,7 @@ export default {
 
     formats: {
       type: Array,
-      default () {
+      default() {
         return this.$speedkit.targetFormats;
       }
     },
@@ -58,65 +63,85 @@ export default {
 
     crossorigin: {
       type: [Boolean, String],
-      default () {
+      default() {
         return this.$speedkit.crossorigin;
       },
-      validator: val => ['anonymous', 'use-credentials', '', true, false].includes(val)
+      validator: val =>
+        ['anonymous', 'use-credentials', '', true, false].includes(val)
     },
 
     sortSources: {
       type: Boolean,
       default: true
     }
-
   },
 
-  data () {
+  data() {
     return {
       metaSources: {},
       classNames: {}
     };
   },
 
-  async fetch () {
+  async fetch() {
     const { ssrContext } = this.$nuxt.context;
     this.metaSources = await this.sourceList.getMeta(this.$img, ssrContext);
     this.classNames = this.metaSources.classNames;
   },
 
-  head () {
+  head() {
     return {
       style: this.style
     };
   },
 
-  fetchKey (getCounter) {
+  fetchKey(getCounter) {
     const key = `picture-${this.sourceList.key}`;
     return `${key}-${getCounter(key)}`;
   },
 
   computed: {
-    sourceList () {
+    sourceList() {
       return SourceList.create(this.sources, { sort: this.sortSources });
     },
 
-    formatSources () {
-      const sortedFormatsByPriority = Array.from(new Set(TARGET_FORMAT_PRIORITY.map(v => this.formats.find(format => format.includes(v))))).filter(Boolean);
-      const preloadFormat = TARGET_FORMAT_PRIORITY.find(v => this.formats.find(format => format.includes(v)));
-      return this.sourceList.getFormats(sortedFormatsByPriority, preloadFormat, this.isCritical);
+    formatSources() {
+      const sortedFormatsByPriority = Array.from(
+        new Set(
+          TARGET_FORMAT_PRIORITY.map(v =>
+            this.formats.find(format => format.includes(v))
+          )
+        )
+      ).filter(Boolean);
+      const preloadFormat = TARGET_FORMAT_PRIORITY.find(v =>
+        this.formats.find(format => format.includes(v))
+      );
+      return this.sourceList.getFormats(
+        sortedFormatsByPriority,
+        preloadFormat,
+        this.isCritical
+      );
     },
 
-    style () {
+    style() {
       if (!this.metaSources) {
         return [];
       }
-      const metaSources = (this.metaSources.length && new SourceList(this.metaSources)) || this.metaSources;
-      return [{ hid: this.classNames.picture, type: 'text/css', cssText: metaSources.style }];
+      const metaSources =
+        (this.metaSources.length && new SourceList(this.metaSources)) ||
+        this.metaSources;
+      return [
+        {
+          hid: this.classNames.picture,
+          type: 'text/css',
+          cssText: metaSources.style
+        }
+      ];
     }
   },
 
   methods: {
-    onLoad (e) {
+    onLoad(e) {
       this.$emit('load', e);
     }
   }
@@ -142,7 +167,7 @@ export default {
     position: relative;
     box-sizing: border-box;
     display: block;
-    content: "";
+    content: '';
   }
 
   @supports (aspect-ratio: 1) {

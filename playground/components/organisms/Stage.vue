@@ -1,10 +1,17 @@
 <template>
   <document-section class="component-stage" :level="-1">
-    <speedkit-picture class="background" :title="picture.title" :alt="picture.alt" :sources="picture.sources" />
+    <speedkit-picture
+      class="background"
+      :title="picture.title"
+      :alt="picture.alt"
+      :sources="picture.sources"
+    />
     <document-heading class="headline">
       <span
         v-font="[
-          $getFont('Montserrat Alternates', 700, 'normal', { selector: '.content' }),
+          $getFont('Montserrat Alternates', 700, 'normal', {
+            selector: '.content'
+          }),
           $getFont('Merriweather', 300, 'italic', { selector: '.claim' })
         ]"
       >
@@ -22,13 +29,11 @@
 </template>
 
 <script>
-
 import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg?vue-template';
 
 export default {
-
   components: {
     SpeedkitPicture,
     SpeedkitImage,
@@ -39,30 +44,50 @@ export default {
     picture: { type: Object, required: true },
     image: {
       type: Object,
-      default () {
+      default() {
         return {
-          source: { src: '/icon.png', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } },
+          source: {
+            src: '/icon.png',
+            sizes: {
+              default: '100vw',
+              xxs: '100vw',
+              xs: '100vw',
+              sm: '100vw',
+              md: '100vw',
+              lg: '100vw',
+              xl: '100vw',
+              xxl: '100vw'
+            }
+          },
           title: 'Image Title',
           alt: 'Image Alt'
         };
       }
     },
-    content: { type: String, default () { return 'Headline'; } },
-    claim: { type: String, default () { return 'Claim'; } }
+    content: {
+      type: String,
+      default() {
+        return 'Headline';
+      }
+    },
+    claim: {
+      type: String,
+      default() {
+        return 'Claim';
+      }
+    }
   },
 
-  data () {
+  data() {
     return {
       ready: false
     };
   },
 
-  mounted () {
+  mounted() {
     this.ready = true;
   }
-
 };
-
 </script>
 
 <style lang="postcss" scoped>

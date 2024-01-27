@@ -14,8 +14,18 @@ export default class Source {
   #provider = undefined; // https://image.nuxtjs.org/api/options#providers
   #preset = undefined; // https://image.nuxtjs.org/api/options#presets
 
-  constructor ({
-    src, sizes, width, height, media = 'all', quality = 70, format = null, preload = false, modifiers = {}, provider = undefined, preset = undefined
+  constructor({
+    src,
+    sizes,
+    width,
+    height,
+    media = 'all',
+    quality = 70,
+    format = null,
+    preload = false,
+    modifiers = {},
+    provider = undefined,
+    preset = undefined
   }) {
     this.#src = src;
     this.#sizes = sizes;
@@ -30,35 +40,35 @@ export default class Source {
     this.#preset = preset;
   }
 
-  get key () {
+  get key() {
     return toHashHex(JSON.stringify(this.toJSON()));
   }
 
-  get src () {
+  get src() {
     return this.#src;
   }
 
-  get sizes () {
+  get sizes() {
     return this.#sizes;
   }
 
-  get media () {
+  get media() {
     return this.#media;
   }
 
-  get width () {
+  get width() {
     return this.#width;
   }
 
-  get height () {
+  get height() {
     return this.#height;
   }
 
-  get ratio () {
+  get ratio() {
     return this.#width / this.#height;
   }
 
-  get format () {
+  get format() {
     const extension = getExtension(this.#src);
     if (this.#format?.includes(extension)) {
       return extension;
@@ -66,31 +76,31 @@ export default class Source {
     return this.#format || extension;
   }
 
-  get quality () {
+  get quality() {
     return this.#quality;
   }
 
-  get preload () {
+  get preload() {
     return this.#preload;
   }
 
-  get modifiers () {
+  get modifiers() {
     return this.#modifiers;
   }
 
-  get provider () {
+  get provider() {
     return this.#provider;
   }
 
-  get preset () {
+  get preset() {
     return this.#preset;
   }
 
-  get className () {
+  get className() {
     return `image-${toHashHex(this.src)}`;
   }
 
-  get style () {
+  get style() {
     return `
       @supports (aspect-ratio: 1) {
         @media ${this.media} { .${this.className} { aspect-ratio: ${this.width} / ${this.height}; } }
@@ -98,29 +108,35 @@ export default class Source {
     `;
   }
 
-  getModifiers () {
+  getModifiers() {
     return { ...this.modifiers, format: this.format, quality: this.quality };
   }
 
-  getOptions () {
+  getOptions() {
     return { provider: this.provider, preset: this.preset };
   }
 
-  getMeta (compiledSrc, ssrNuxtImage) {
+  getMeta(compiledSrc, ssrNuxtImage) {
     return getMeta(new Source({ ...this.toJSON() }), compiledSrc, ssrNuxtImage);
   }
 
-  getPreload (srcset, sizes, crossorigin) {
-    const preload = { rel: 'preload', as: 'image', imagesrcset: srcset, imagesizes: sizes, media: this.media };
+  getPreload(srcset, sizes, crossorigin) {
+    const preload = {
+      rel: 'preload',
+      as: 'image',
+      imagesrcset: srcset,
+      imagesizes: sizes,
+      media: this.media
+    };
     crossorigin && (preload.crossorigin = crossorigin);
     return preload;
   }
 
-  modify (config) {
+  modify(config) {
     return new Source({ ...this.toJSON(), ...config });
   }
 
-  toJSON () {
+  toJSON() {
     return {
       src: this.#src,
       sizes: this.#sizes,
@@ -136,7 +152,7 @@ export default class Source {
     };
   }
 
-  static create (...args) {
+  static create(...args) {
     return new this(...args);
   }
 }

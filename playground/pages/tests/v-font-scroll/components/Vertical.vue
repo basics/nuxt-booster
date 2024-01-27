@@ -14,7 +14,7 @@ import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 import ScrollContainer from '@/components/organisms/ScrollContainer';
 export default {
   components: { OrganismPreviewContainer, ScrollContainer },
-  data () {
+  data() {
     return {
       scrollContainer: {
         items: [

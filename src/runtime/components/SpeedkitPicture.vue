@@ -12,17 +12,27 @@ export default {
     }
   },
 
-  render (h) {
+  render(h) {
     if (!this.hydrate) {
       return h(LazyHydrate, { props: { never: true } }, [
-        h('noscript', {
-          class: 'nuxt-speedkit-picture-noscript'
-        }, [
-          h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.hydrate }, on: this.$listeners })
-        ])
+        h(
+          'noscript',
+          {
+            class: 'nuxt-speedkit-picture-noscript'
+          },
+          [
+            h(SpeedkitPicture, {
+              props: { ...this.$attrs, critical: this.hydrate },
+              on: this.$listeners
+            })
+          ]
+        )
       ]);
     }
-    return h(SpeedkitPicture, { props: { ...this.$attrs, critical: this.isCritical }, on: this.$listeners });
+    return h(SpeedkitPicture, {
+      props: { ...this.$attrs, critical: this.isCritical },
+      on: this.$listeners
+    });
   }
 };
 </script>

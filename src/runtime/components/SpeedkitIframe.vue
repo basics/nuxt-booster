@@ -1,9 +1,5 @@
-
 <template>
-  <component-observer
-    v-bind="componentObserver"
-    @enterView="onEnterView"
-  >
+  <component-observer v-bind="componentObserver" @enterView="onEnterView">
     <iframe
       :src="lazySrc"
       class="nuxt-speedkit-iframe"
@@ -15,11 +11,9 @@
 </template>
 
 <script>
-
 import ComponentObserver from '#speedkit/components/abstracts/ComponentObserver';
 
 export default {
-
   components: {
     ComponentObserver
   },
@@ -27,7 +21,6 @@ export default {
   inheritAttrs: false,
 
   props: {
-
     src: {
       type: String,
       default: null
@@ -35,37 +28,34 @@ export default {
 
     componentObserver: {
       type: Object,
-      default () {
+      default() {
         return {
           trackVisibility: true,
           delay: 350
         };
       }
     }
-
   },
 
-  data () {
+  data() {
     return {
       lazySrc: null
     };
   },
 
   methods: {
-    onLoad (e) {
+    onLoad(e) {
       if (e.target.src) {
         this.$emit('load', e);
       }
     },
 
-    onEnterView (e) {
+    onEnterView(e) {
       this.lazySrc = this.src;
       this.$emit('enter', e);
     }
   }
-
 };
-
 </script>
 
 <style lang="postcss" scoped>

@@ -5,29 +5,17 @@
         Sorry, but you will have a limited user experience due to a…
       </p>
       <ul v-font="$getFont('Quicksand', 700, 'normal')">
-        <li id="nuxt-speedkit-message-nojs">
-          disabled javascript
-        </li>
-        <li id="nuxt-speedkit-message-unsupported-browser">
-          outdated browser
-        </li>
-        <li id="nuxt-speedkit-message-reduced-bandwidth">
-          reduced-bandwidth
-        </li>
-        <li id="nuxt-speedkit-message-weak-hardware">
-          weak hardware
-        </li>
+        <li id="nuxt-speedkit-message-nojs">disabled javascript</li>
+        <li id="nuxt-speedkit-message-unsupported-browser">outdated browser</li>
+        <li id="nuxt-speedkit-message-reduced-bandwidth">reduced-bandwidth</li>
+        <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
       </ul>
       <div class="info-layer-buttons">
         <base-button id="nuxt-speedkit-button-init-nojs">
-          <label for="nuxt-speedkit-layer-close">
-            Yes
-          </label>
+          <label for="nuxt-speedkit-layer-close"> Yes </label>
         </base-button>
         <base-button id="nuxt-speedkit-button-init-reduced-view">
-          <label for="nuxt-speedkit-layer-close">
-            No
-          </label>
+          <label for="nuxt-speedkit-layer-close"> No </label>
         </base-button>
         <base-button id="nuxt-speedkit-button-init-app" label="Yes" />
       </div>
@@ -36,7 +24,6 @@
 </template>
 
 <script>
-
 import { getStyleDescription } from '#speedkit/utils/description';
 import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
 import BaseButton from '@/components/atoms/BaseButton';
@@ -47,10 +34,13 @@ export default {
     SpeedkitLayer
   },
   inheritAttrs: false,
-  head () {
+  head() {
     return this.$speedkit.head({
       noscript: [
-        getStyleDescription('.info-layer > div { animation-delay: initial !important; }', true)
+        getStyleDescription(
+          '.info-layer > div { animation-delay: initial !important; }',
+          true
+        )
       ],
       __dangerouslyDisableSanitizers: ['noscript']
     });
@@ -68,11 +58,11 @@ export default {
     width: 100%;
     height: 100%;
     background-color: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(em(7px));
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 0.2s;
     animation-delay: 3s;
-    backdrop-filter: blur(em(7px));
     animation-fill-mode: forwards;
 
     & > div {
@@ -124,5 +114,4 @@ ul {
     transform: translateY(0%);
   }
 }
-
 </style>

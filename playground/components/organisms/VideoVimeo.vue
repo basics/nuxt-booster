@@ -1,12 +1,10 @@
 <template>
   <document-section
-    v-font="[
-      $getFont('Merriweather', 400),
-    ]"
+    v-font="[$getFont('Merriweather', 400)]"
     class="video-vimeo"
   >
     <speedkit-vimeo v-bind="$attrs">
-      <template #default="{videoData}">
+      <template #default="{ videoData }">
         <div class="description" v-html="videoData && videoData.description" />
       </template>
     </speedkit-vimeo>
@@ -14,7 +12,6 @@
 </template>
 
 <script>
-
 import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
 
 export default {
@@ -28,7 +25,6 @@ export default {
       default: null
     }
   }
-
 };
 </script>
 

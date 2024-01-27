@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 import Horizontal from './components/Horizontal';
 import Vertical from './components/Vertical';
 
@@ -16,5 +15,4 @@ export default {
     Vertical
   }
 };
-
 </script>

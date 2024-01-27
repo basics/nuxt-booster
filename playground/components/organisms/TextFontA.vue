@@ -1,14 +1,14 @@
 <template>
-  <document-section
-    class="component-text-font-a"
-  >
+  <document-section class="component-text-font-a">
     <div
       v-font="[
         $getFont('Merriweather', 300, 'normal'),
-        $getFont('Merriweather', 700, 'normal', {selector: 'h1,h2'}),
-        $getFont('Merriweather', 300, 'italic', {selector: 'em'}),
-        $getFont('Merriweather', 700, 'normal', {selector: 'strong'}),
-        $getFont('Merriweather', 700, 'italic', {selector: 'em strong, strong em'})
+        $getFont('Merriweather', 700, 'normal', { selector: 'h1,h2' }),
+        $getFont('Merriweather', 300, 'italic', { selector: 'em' }),
+        $getFont('Merriweather', 700, 'normal', { selector: 'strong' }),
+        $getFont('Merriweather', 700, 'italic', {
+          selector: 'em strong, strong em'
+        })
       ]"
     >
       <document-heading>{{ headline }}</document-heading>

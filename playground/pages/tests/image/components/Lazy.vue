@@ -10,27 +10,34 @@
 </template>
 
 <script>
-
 import SpeedkitImage from '#speedkit/components/SpeedkitImage';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
-
   components: {
     SpeedkitImage,
     OrganismPreviewContainer
   },
 
-  data () {
+  data() {
     return {
-
       image: {
         title: 'Lazy - Image',
-        source: { src: '/img/pickadummy/lazy.jpg', sizes: { default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' } }
+        source: {
+          src: '/img/pickadummy/lazy.jpg',
+          sizes: {
+            default: '100vw',
+            xxs: '100vw',
+            xs: '100vw',
+            sm: '100vw',
+            md: '100vw',
+            lg: '100vw',
+            xl: '100vw',
+            xxl: '100vw'
+          }
+        }
       }
-
     };
   }
 };
-
 </script>

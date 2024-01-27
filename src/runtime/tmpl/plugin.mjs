@@ -6,6 +6,7 @@ import { head } from '#speedkit/plugins/vFont/head'
 import vFont from '#speedkit/plugins/vFont'
 import FontList from '#speedkit/classes/FontList'
 import { isSupportedBrowser } from '#speedkit/utils/browser';
+import globals from '#speedkit/utils/globals';
 import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
 <% if (options.loader && options.loader.dataUri) { %>import loaderDataUri from '<%= options.loader.dataUri %>';<% } %>
 <% if (options.mode === 'server') { %>import probe from 'probe-image-size';<% } %>
@@ -28,11 +29,11 @@ const speedkit = Object.freeze({
 const fontList = new FontList(<%= options.fonts %>);
 
 
-global.nuxtSpeedkit_getImageSize = async (src) => {
+globals.getImageSize = async (src) => {
 
 <% if (options.mode === 'client') { %>
   const { width, height } =await new Promise((resolve) => {
-    const img = new global.Image();
+    const img = new window.Image();
     img.onload = () => resolve({width: img.naturalWidth, height: img.naturalHeight});
     img.src = src;
   });

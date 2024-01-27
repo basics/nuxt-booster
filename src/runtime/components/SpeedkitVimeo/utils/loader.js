@@ -8,7 +8,7 @@ export const load = () => {
     src: 'https://player.vimeo.com/api/player.js',
     async: true,
     defer: true,
-    callback: () => vimeoAPI.resolve(global.Vimeo)
+    callback: () => vimeoAPI.resolve(window.Vimeo)
   };
 };
 

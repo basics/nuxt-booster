@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 import speedkitHydrate from '#speedkit/hydrate';
 
 export default {
@@ -15,7 +14,5 @@ export default {
     Lazy: speedkitHydrate(() => import('./components/Lazy'))
   },
   layout: 'blank'
-
 };
-
 </script>

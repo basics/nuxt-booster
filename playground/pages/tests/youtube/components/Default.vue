@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 import DefaultYoutube from '#speedkit/components/SpeedkitYoutube';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
@@ -20,7 +19,6 @@ export default {
   components: {
     OrganismPreviewContainer,
     DefaultYoutube
-
   },
 
   props: {
@@ -41,7 +39,7 @@ export default {
   },
 
   computed: {
-    youtube () {
+    youtube() {
       return {
         url: this.youtubeUrl,
         title: this.title,
@@ -49,6 +47,5 @@ export default {
       };
     }
   }
-
 };
 </script>

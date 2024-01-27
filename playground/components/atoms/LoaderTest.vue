@@ -1,17 +1,17 @@
 <template>
-  <div class="loader-test" :class="{active, 'critical': isCritical}">
-    <span>{{ active ? 'active': 'inactive' }}</span>
+  <div class="loader-test" :class="{ active, critical: isCritical }">
+    <span>{{ active ? 'active' : 'inactive' }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       active: false
     };
   },
-  mounted () {
+  mounted() {
     this.active = true;
   }
 };
@@ -31,5 +31,4 @@ export default {
     background: green;
   }
 }
-
 </style>

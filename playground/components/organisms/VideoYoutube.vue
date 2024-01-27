@@ -1,8 +1,6 @@
 <template>
   <document-section
-    v-font="[
-      $getFont('Merriweather', 400),
-    ]"
+    v-font="[$getFont('Merriweather', 400)]"
     class="video-youtube"
   >
     <speedkit-youtube v-bind="$attrs" />
@@ -11,7 +9,6 @@
 </template>
 
 <script>
-
 import SpeedkitYoutube from '#speedkit/components/SpeedkitYoutube';
 
 export default {
@@ -25,7 +22,6 @@ export default {
       default: null
     }
   }
-
 };
 </script>
 

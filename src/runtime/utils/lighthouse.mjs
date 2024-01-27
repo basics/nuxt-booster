@@ -1,9 +1,14 @@
-import { LighthouseStats, READY, FAIL, PENDING } from '../classes/lighthouse/Stats';
+import {
+  LighthouseStats,
+  READY,
+  FAIL,
+  PENDING
+} from '../classes/lighthouse/Stats';
 import LighthouseError from '../classes/lighthouse/Error';
 
 let controller = null;
 
-export function getLighthouseMetrics (url) {
+export function getLighthouseMetrics(url) {
   return fetch('https://lighthouse-dot-webdotdevsite.appspot.com/lh/newaudit', {
     method: 'POST',
     mode: 'cors',
@@ -21,7 +26,7 @@ export function getLighthouseMetrics (url) {
     signal: getAbortSignal()
   })
     .then(handleResponse)
-    .catch((e) => {
+    .catch(e => {
       if (e.state) {
         return e;
       }
@@ -29,11 +34,11 @@ export function getLighthouseMetrics (url) {
     });
 }
 
-export function getPendingStats () {
+export function getPendingStats() {
   return new LighthouseError(PENDING);
 }
 
-function getAbortSignal () {
+function getAbortSignal() {
   if (controller) {
     controller.abort();
   }
@@ -41,7 +46,7 @@ function getAbortSignal () {
   return controller.signal;
 }
 
-async function handleResponse (response) {
+async function handleResponse(response) {
   if (!response.ok) {
     throw new LighthouseError(FAIL);
   }

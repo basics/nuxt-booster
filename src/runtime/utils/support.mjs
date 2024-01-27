@@ -1,10 +1,10 @@
 import { isFirefox } from './browser';
 
-function hasWebpSupport () {
+function hasWebpSupport() {
   if (process.server) {
     return true;
   }
-  const elem = global.document.createElement('canvas');
+  const elem = window.document.createElement('canvas');
   if (elem.getContext && elem.getContext('2d')) {
     return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
   } else {
@@ -14,26 +14,29 @@ function hasWebpSupport () {
 
 export const webpSupport = hasWebpSupport();
 
-export function isPreloadSupported () {
+export function isPreloadSupported() {
   if (isFirefox()) {
     // Attribute imageSrcset is Supported, but does not appear to be active. No preload is started.
     return false;
   } else if (process.client) {
-    const relList = global.document.createElement('link').relList;
-    return elementSupportsAttribute('link', 'imageSrcset') && !!(relList && relList.supports && relList.supports('preload'));
+    const relList = window.document.createElement('link').relList;
+    return (
+      elementSupportsAttribute('link', 'imageSrcset') &&
+      !!(relList && relList.supports && relList.supports('preload'))
+    );
   } else {
     return true;
   }
 }
 
-export function isPictureSupported () {
-  return 'HTMLPictureElement' in global;
+export function isPictureSupported() {
+  return 'HTMLPictureElement' in window;
 }
 
-export function elementSupportsAttribute (element, attribute) {
+export function elementSupportsAttribute(element, attribute) {
   let test = {};
-  if (global.document) {
-    test = global.document.createElement(element);
+  if (window.document) {
+    test = window.document.createElement(element);
   }
 
   return attribute in test;

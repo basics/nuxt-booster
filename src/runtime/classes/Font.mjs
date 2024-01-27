@@ -3,7 +3,13 @@ import Deferred from './Deferred';
 
 export default class Font {
   #rootSelector;
-  constructor (family, { src, type, fallbackFamily }, { media, selector }, weight = 400, style = 'normal') {
+  constructor(
+    family,
+    { src, type, fallbackFamily },
+    { media, selector },
+    weight = 400,
+    style = 'normal'
+  ) {
     this.family = family;
     this.style = style;
     this.weight = weight;
@@ -16,77 +22,95 @@ export default class Font {
     this.loaded = new Deferred();
   }
 
-  async load () {
-    const fonts = 'fonts' in global.document && await global.document.fonts.ready;
-    if (fonts && !fonts.check(`${this.style} ${this.weight} 12px '${this.family}'`)) {
-      const result = Array.from(fonts).find((f) => {
-        return fontFamilyNormalize(f.family) === this.family && f.style === this.style && weightNormalize(f.weight) === weightNormalize(this.weight);
+  async load() {
+    const fonts =
+      'fonts' in window.document && (await window.document.fonts.ready);
+    if (
+      fonts &&
+      !fonts.check(`${this.style} ${this.weight} 12px '${this.family}'`)
+    ) {
+      const result = Array.from(fonts).find(f => {
+        return (
+          fontFamilyNormalize(f.family) === this.family &&
+          f.style === this.style &&
+          weightNormalize(f.weight) === weightNormalize(this.weight)
+        );
       });
       await result.load();
     }
   }
 
-  getKey () {
+  getKey() {
     const data = Object.assign({}, this);
     // Remove src from font-object for key generation
     delete data.src;
     return btoa(JSON.stringify(data));
   }
 
-  getCSSText () {
+  getCSSText() {
     const selector = createSelector(this.#rootSelector, this.selector);
     const family = `"${this.family}"`;
-    return wrapByMedia(`${selector} {
+    return wrapByMedia(
+      `${selector} {
         font-family: ${this.fallbackFamily.join(', ')};
         font-weight: ${this.weight};
         font-style: ${this.style};
       }
       ${addFontActive(selector)} {
         font-family: ${[family].concat(this.fallbackFamily).join(', ')};
-      }`, this.media);
+      }`,
+      this.media
+    );
   }
 
-  getNoScriptCSSText () {
+  getNoScriptCSSText() {
     const selector = createSelector(this.#rootSelector, this.selector);
     const family = `"${this.family}"`;
-    return wrapByMedia(`${selector} {
+    return wrapByMedia(
+      `${selector} {
         font-family: ${[family].concat(this.fallbackFamily).join(', ')};
         font-weight: ${this.weight};
         font-style: ${this.style};
-      }`, this.media);
+      }`,
+      this.media
+    );
   }
 
-  setRootSelector (rootSelector) {
+  setRootSelector(rootSelector) {
     this.#rootSelector = `${rootSelector.name}="${rootSelector.value}"`;
   }
 }
 
-function createSelector (rootSelector, selector) {
-  return joinSelectors(splitSelector(selector).map((splittedSelector) => {
-    return `[${rootSelector}] ${splittedSelector}`;
-  }));
+function createSelector(rootSelector, selector) {
+  return joinSelectors(
+    splitSelector(selector).map(splittedSelector => {
+      return `[${rootSelector}] ${splittedSelector}`;
+    })
+  );
 }
 
-function addFontActive (selector) {
-  return joinSelectors(splitSelector(selector).map(value => `.font-active${value}`));
+function addFontActive(selector) {
+  return joinSelectors(
+    splitSelector(selector).map(value => `.font-active${value}`)
+  );
 }
 
-function splitSelector (selector) {
+function splitSelector(selector) {
   return selector.split(',').map(value => value.trim());
 }
-function joinSelectors (selectors) {
+function joinSelectors(selectors) {
   return selectors.join(', ').trim();
 }
 
-function wrapByMedia (style, media) {
+function wrapByMedia(style, media) {
   return (media && `@media ${media} { ${style} }`) || style;
 }
 
-function fontFamilyNormalize (fontFamily) {
+function fontFamilyNormalize(fontFamily) {
   return fontFamily.replace(/"(.*)"/, '$1');
 }
 
-function weightNormalize (weight) {
+function weightNormalize(weight) {
   weight = String(weight);
   switch (weight) {
     case '400':

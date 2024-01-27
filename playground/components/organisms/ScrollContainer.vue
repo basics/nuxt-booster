@@ -1,5 +1,8 @@
 <template>
-  <div class="scroll-container" :class="{'direction-horizontal': directionHorizontal}">
+  <div
+    class="scroll-container"
+    :class="{ 'direction-horizontal': directionHorizontal }"
+  >
     <scroll-item
       v-for="(item, index) in items"
       :key="index"
@@ -31,8 +34,7 @@ export default {
 .scroll-container {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden scroll;
 
   & .item + .item {
     margin-top: em(20px);
@@ -40,8 +42,7 @@ export default {
 
   &.direction-horizontal {
     display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: scroll hidden;
 
     & .item {
       flex: 0 0 50vw;

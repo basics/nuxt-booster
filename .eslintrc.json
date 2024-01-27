@@ -7,24 +7,23 @@
   },
   "extends": [
     "@nuxtjs",
-    "plugin:security/recommended",
+    "plugin:security/recommended-legacy",
     "plugin:sonarjs/recommended",
-    "plugin:no-unsanitized/DOM"
+    "plugin:no-unsanitized/DOM",
+    "prettier"
   ],
   "plugins": [
-    "no-secrets",
-    "xss"
+    "xss",
+    "prettier"
   ],
   "rules": {
-    "no-secrets/no-secrets": [
-      "error"
-    ],
-    "xss/no-location-href-assign": 2,
-    "xss/no-mixed-html": 0,
     "semi": [
       2,
       "always"
     ],
+    "prettier/prettier": "error",
+    "xss/no-location-href-assign": 2,
+    "xss/no-mixed-html": 0,
     "vue/no-v-html": "off",
     "vue/component-definition-name-casing": [
       "error",
@@ -39,6 +38,7 @@
       }
     ],
     "sonarjs/no-duplicate-string": 0,
-    "vue/multi-word-component-names": "off"
+    "vue/multi-word-component-names": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }
