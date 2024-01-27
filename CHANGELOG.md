@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.45](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.44...v3.0.0-next.45) (2024-01-27)
+
+
+### Bug Fixes
+
+* **package:** update package-lock ([a31c821](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a31c8212af89ffd46e3b57215250cae9bd701895))
+
 # [3.0.0-next.44](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.43...v3.0.0-next.44) (2023-12-15)
 
 
