@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.6](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.5...v2.2.6) (2024-01-27)
+
+
+### Bug Fixes
+
+* **publish:** force publish ([6931a34](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/6931a34a4e54fc575d16580933f7c2236bdf7f26))
+
 ## [2.2.5](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v2.2.4...v2.2.5) (2024-01-27)
 
 
