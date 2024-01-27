@@ -27,8 +27,6 @@ jobs:
         with:
           path: |
             node_modules
-            ~/.cache/ms-playwright/
-            ~\AppData\Local\ms-playwright\
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Install Dependencies (Playground)
         if: steps.cache.outputs.cache-hit != 'true'
@@ -60,8 +58,6 @@ jobs:
         with:
           path: |
             node_modules
-            ~/.cache/ms-playwright/
-            ~\AppData\Local\ms-playwright\
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Versioning
         env:
@@ -69,4 +65,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
+          npx -p esbuild -p pinst -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
