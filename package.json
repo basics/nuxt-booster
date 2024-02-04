@@ -98,7 +98,7 @@
     "postcss-html": "1.6.0",
     "postcss-nesting": "12.0.2",
     "postcss-preset-env": "9.3.0",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "read-pkg": "9.0.1",
     "serve-static": "1.15.0",
     "stylelint-config-recess-order": "4.4.0",
