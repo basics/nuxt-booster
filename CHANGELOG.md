@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.46](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.45...v3.0.0-next.46) (2024-02-08)
+
+
+### Bug Fixes
+
+* **source:** fix invalid hash ssr/client ([5ba987c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5ba987cef6735d9d0cbec27c844c8eaf7b0552de))
+
 # [3.0.0-next.45](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.44...v3.0.0-next.45) (2024-01-27)
 
 
