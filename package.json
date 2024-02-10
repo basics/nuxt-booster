@@ -74,7 +74,7 @@
     "@nuxt/module-builder": "0.5.5",
     "@nuxt/webpack-builder": "3.10.1",
     "@nuxtjs/eslint-config": "12.0.0",
-    "@types/node": "20.11.16",
+    "@types/node": "20.11.17",
     "commitlint": "18.6.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-formatter-json-relative": "0.1.0",
