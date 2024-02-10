@@ -1,3 +1,4 @@
+import { minify } from './string';
 import { toHashHex } from '#speedkit/utils/string';
 import Source from '#speedkit/components/SpeedkitImage/classes/Source';
 
@@ -5,7 +6,7 @@ export function getImageStyleDescription(meta, className) {
   return {
     key: className,
     type: 'text/css',
-    children: new Source(meta.value).style
+    children: minify(new Source(meta.value).style)
   };
 }
 
@@ -13,7 +14,7 @@ export function getPictureStyleDescription(metaSources, classNames) {
   return {
     key: classNames.picture,
     type: 'text/css',
-    children: metaSources.style
+    children: minify(metaSources.style)
   };
 }
 
@@ -69,13 +70,13 @@ export function getStyleDescription(children, noScript = false) {
   } else {
     return {
       type: 'text/css',
-      children
+      children: minify(children)
     };
   }
 }
 
 export function getNoScriptDescription(textContent) {
   return {
-    innerHTML: textContent
+    innerHTML: minify(textContent)
   };
 }
