@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.47](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.46...v3.0.0-next.47) (2024-02-10)
+
+
+### Bug Fixes
+
+* **head:** minify tags ([7f870f5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7f870f5551adf445d69e75aa113d085e876a9b4f))
+
 # [3.0.0-next.46](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.45...v3.0.0-next.46) (2024-02-08)
 
 
