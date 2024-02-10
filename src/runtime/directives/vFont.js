@@ -10,16 +10,24 @@ const observers = new Map();
 export default {
   install(vueApp) {
     vueApp.directive('font', {
-      beforeMount(el, binding, vnode) {
+      created(el, binding, vnode) {
         binding.instance.fontsReady = binding.instance.fontsReady || new Map();
         const values = [].concat(binding.value);
         if (values.length) {
           const { isCritical, fontCollection } = getFirstFont(values);
           const definitions = values.map(({ definition }) => definition);
           const rootSelector = fontCollection.add(definitions);
-          vnode.el.setAttribute(rootSelector.name, rootSelector.value);
+          el.setAttribute(rootSelector.name, rootSelector.value);
           binding.instance.fontsReady.set(el, true);
           vnode.fontActive = isCritical;
+          if (typeof vnode.props.class === 'string') {
+            vnode.props.class = [
+              ...vnode.props.class.split(' '),
+              isCritical && CLASS_FONT_ACTIVE
+            ]
+              .filter(Boolean)
+              .join(' ');
+          }
         }
       },
 
