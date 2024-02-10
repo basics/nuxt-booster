@@ -1,4 +1,4 @@
-import Source from '../../BoosterImage/classes/Source';
+import Source, { normalizeSrc } from '../../BoosterImage/classes/Source';
 import createSort from '#booster/externals/create-sort';
 import { toHashHex } from '#booster/utils/string';
 
@@ -52,7 +52,7 @@ export default class SourceList {
   }
 
   get className() {
-    return `picture-${toHashHex(this.sorted.map(({ src }) => src).join(','))}`;
+    return `picture-${toHashHex(this.sorted.map(({ src }) => normalizeSrc(src)).join(','))}`;
   }
 
   get classNames() {

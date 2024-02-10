@@ -1,5 +1,26 @@
 # Project Changelog
 
+# [3.0.0-next.47](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.46...v3.0.0-next.47) (2024-02-10)
+
+
+### Bug Fixes
+
+* **head:** minify tags ([7f870f5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/7f870f5551adf445d69e75aa113d085e876a9b4f))
+
+# [3.0.0-next.46](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.45...v3.0.0-next.46) (2024-02-08)
+
+
+### Bug Fixes
+
+* **source:** fix invalid hash ssr/client ([5ba987c](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/5ba987cef6735d9d0cbec27c844c8eaf7b0552de))
+
+# [3.0.0-next.45](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.44...v3.0.0-next.45) (2024-01-27)
+
+
+### Bug Fixes
+
+* **package:** update package-lock ([a31c821](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a31c8212af89ffd46e3b57215250cae9bd701895))
+
 # [3.0.0-next.44](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.43...v3.0.0-next.44) (2023-12-15)
 
 

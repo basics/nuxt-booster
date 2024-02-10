@@ -52,7 +52,7 @@ export default class Source {
   }
 
   get className() {
-    return `image-${toHashHex(this.src)}`;
+    return `image-${toHashHex(normalizeSrc(this.src))}`;
   }
 
   get style() {
@@ -123,4 +123,12 @@ function getFormat(src, format) {
     return extension;
   }
   return format || extension;
+}
+
+export function normalizeSrc(src) {
+  if (src.startsWith('/')) {
+    return src;
+  }
+  const url = new URL(src);
+  return url.pathname + url.search + url.hash;
 }

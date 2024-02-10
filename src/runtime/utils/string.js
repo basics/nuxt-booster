@@ -14,3 +14,10 @@ export function toHashCode(value) {
 export function toHashHex(value) {
   return toHashCode(value).toString(16);
 }
+
+export function minify(style) {
+  return style
+    .split('\n')
+    .map(line => line.trim())
+    .join(' ');
+}
