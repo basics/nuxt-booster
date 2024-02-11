@@ -161,11 +161,11 @@ jobs:
       #   with:
       #     name: playgroundArtifact
       #     path: public/docs/playground
-      - name: Download Artifact (Sitespeed)
-        uses: actions/download-artifact@master
-        with:
-          name: sitespeedReportArtifact
-          path: public/docs/reports/sitespeed
+      # - name: Download Artifact (Sitespeed)
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: sitespeedReportArtifact
+      #     path: public/docs/reports/sitespeed
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
