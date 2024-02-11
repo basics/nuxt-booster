@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.49](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.48...v3.0.0-next.49) (2024-02-11)
+
+
+### Bug Fixes
+
+* **plugin:** improve image size fetch ([546bae1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/546bae1316efdf22cd482fa0b15773aeb464db9a))
+
 # [3.0.0-next.48](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.47...v3.0.0-next.48) (2024-02-10)
 
 
