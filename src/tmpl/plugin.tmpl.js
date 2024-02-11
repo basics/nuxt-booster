@@ -39,6 +39,14 @@ export default defineNuxtPlugin({
 });
 
 
+function fetchRetry(url, options, retries = 3, delay = 300) {
+  return fetch(url, options).catch(function (error) {
+    if (retries <= 0) throw error;
+    return new Promise(resolve => setTimeout(resolve, delay)).then(() => fetchRetry(url, options, retries - 1, delay));
+  });
+}
+
+const dimensionCache = {};
 async function getImageSize (src) {
 
 `;
@@ -60,16 +68,26 @@ async function getImageSize (src) {
     if (isNitroPrerender) {
       url = url.replace(useRequestURL().origin, '');
     }
-    const blob = await useRequestFetch()(url);
-    const { imageMeta } = await import('image-meta').then(
-      module => module.default || module
-    );
 
-    const data = await fetch(URL.createObjectURL(blob)).then(async res =>
-      Buffer.from(await res.arrayBuffer())
-    );
-    const { width, height } = await imageMeta(data);
-    return { width, height };
+    if (!isNitroPrerender || !(url in dimensionCache)) {
+      const blob = await useRequestFetch()(url);
+      const { imageMeta } = await import('image-meta').then(
+        module => module.default || module
+      );
+
+      const data = await fetchRetry(URL.createObjectURL(blob), undefined, 3).then(async res =>
+        Buffer.from(await res.arrayBuffer())
+      );
+      const dimension = await imageMeta(data);
+
+      if (isNitroPrerender) {
+        dimensionCache[url] = dimension;
+      } else {
+        return dimension;
+      }
+    }
+
+    return dimensionCache[url];
   } catch (error) {
     console.error('getImageSize: ' + src, error);
     return { width: 0, height: 0 };

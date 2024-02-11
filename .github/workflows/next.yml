@@ -72,40 +72,39 @@ jobs:
         run: |
           npx -p pinst -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
 
-  # build-playground:
-  #   name: Build (Playground)
-  #   needs: semantic-version
-  #   runs-on: ${{ matrix.os }}
+  build-playground:
+    name: Build (Playground)
+    needs: semantic-version
+    runs-on: ${{ matrix.os }}
 
-  #   strategy:
-  #     matrix:
-  #       os: [ubuntu-latest]
-  #       node: [20]
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [20]
 
-  #   steps:
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: ${{ matrix.node }}
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@v4
-  #     - name: cache node_modules
-  #       uses: actions/cache@v4
-  #       id: cache
-  #       with:
-  #         path: node_modules
-  #         key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-  #     - name: Build
-  #       run: |
-  #         npm run generate
-  #         touch dist/.nojekyll
-  #       env:
-  #         BASE_URL: /playground/
-  #     - name: Archive Production Artifact
-  #       uses: actions/upload-artifact@master
-  #       with:
-  #         name: playgroundArtifact
-  #         path: dist
-
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: cache node_modules
+        uses: actions/cache@v4
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: Build
+        run: |
+          npm run generate
+          touch dist/.nojekyll
+        env:
+          BASE_URL: /playground/
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: playgroundArtifact
+          path: dist
 
   build-docs:
     name: Build (Docs)
@@ -156,16 +155,11 @@ jobs:
         with:
           name: docsArtifact
           path: public/docs
-      # - name: Download Artifact (Playground)
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: playgroundArtifact
-      #     path: public/docs/playground
-      # - name: Download Artifact (Sitespeed)
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: sitespeedReportArtifact
-      #     path: public/docs/reports/sitespeed
+      - name: Download Artifact (Playground)
+        uses: actions/download-artifact@master
+        with:
+          name: playgroundArtifact
+          path: public/docs/playground
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -174,35 +168,58 @@ jobs:
           cname: nuxt-speedkit.grabarzundpartner.dev
           keep_files: true
 
-  # sitespeed:
-  #   needs: deploy-ghpages
-  #   runs-on: ${{ matrix.os }}
-  #   name: Running sitespeed.io
 
-  #   strategy:
-  #     matrix:
-  #       os: [ubuntu-latest]
-  #       node: [20]
+  report-sitespeed:
+    needs: deploy-ghpages
+    runs-on: ${{ matrix.os }}
+    name: Running sitespeed.io
 
-  #   steps:
-  #     - name: docker pull
-  #       run: |
-  #         docker pull sitespeedio/sitespeed.io:20.0.0
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@v4
-  #     - name: Start throttle 3g
-  #       run: |
-  #         npm install @sitespeed.io/throttle -g
-  #         throttle 3g
-  #     - name: Running sitespeed.io container with arguments and optional Docker options
-  #       run: |
-  #         docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
-  #     - name: Stop throttle 3g
-  #       run: |
-  #         npm install @sitespeed.io/throttle -g
-  #         throttle stop
-  #     - name: Archive Sitespeed Report
-  #       uses: actions/upload-artifact@master
-  #       with:
-  #         name: sitespeedReportArtifact
-  #         path: sitespeed-report
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [20]
+
+    steps:
+      - name: docker pull
+        run: |
+          docker pull sitespeedio/sitespeed.io:20.0.0
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Start throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle 3g
+      - name: Running sitespeed.io container with arguments and optional Docker options
+        run: |
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
+      - name: Stop throttle 3g
+        run: |
+          npm install @sitespeed.io/throttle -g
+          throttle stop
+      - name: Archive Sitespeed Report
+        uses: actions/upload-artifact@master
+        with:
+          name: sitespeedReportArtifact
+          path: sitespeed-report
+
+  deploy-ghpages-report:
+    name: Deploy (GH-Pages Report)
+    needs: [report-sitespeed]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [20]
+    steps:
+      - name: Download Artifact (Sitespeed)
+        uses: actions/download-artifact@master
+        with:
+          name: sitespeedReportArtifact
+          path: public/docs/reports/sitespeed
+      - name: Deploy to GH-Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
+          cname: nuxt-speedkit.grabarzundpartner.dev
+          keep_files: true
