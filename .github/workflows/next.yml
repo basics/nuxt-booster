@@ -73,38 +73,38 @@ jobs:
           npx -p pinst -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
 
   # build-playground:
-    name: Build (Playground)
-    needs: semantic-version
-    runs-on: ${{ matrix.os }}
+    # name: Build (Playground)
+    # needs: semantic-version
+    # runs-on: ${{ matrix.os }}
 
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [20]
+    # strategy:
+    #   matrix:
+    #     os: [ubuntu-latest]
+    #     node: [20]
 
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-      - name: cache node_modules
-        uses: actions/cache@v4
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-      - name: Build
-        run: |
-          npm run generate
-          touch dist/.nojekyll
-        env:
-          BASE_URL: /playground/
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: playgroundArtifact
-          path: dist
+    # steps:
+    #   - uses: actions/setup-node@v4
+    #     with:
+    #       node-version: ${{ matrix.node }}
+    #   - name: Checkout Repo
+    #     uses: actions/checkout@v4
+    #   - name: cache node_modules
+    #     uses: actions/cache@v4
+    #     id: cache
+    #     with:
+    #       path: node_modules
+    #       key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+    #   - name: Build
+    #     run: |
+    #       npm run generate
+    #       touch dist/.nojekyll
+    #     env:
+    #       BASE_URL: /playground/
+    #   - name: Archive Production Artifact
+    #     uses: actions/upload-artifact@master
+    #     with:
+    #       name: playgroundArtifact
+    #       path: dist
 
   build-docs:
     name: Build (Docs)
