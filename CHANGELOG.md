@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.50](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.49...v3.0.0-next.50) (2024-02-19)
+
+
+### Bug Fixes
+
+* **image:** added load trigger for mounted with complete ([dc5bfd5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/dc5bfd550b9c2eefe27c413266216a050b302cbd))
+
 # [3.0.0-next.49](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.48...v3.0.0-next.49) (2024-02-11)
 
 
