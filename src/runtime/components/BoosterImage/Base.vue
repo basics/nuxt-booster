@@ -166,12 +166,15 @@ export default {
 
   mounted() {
     this.loading = !this.$el.complete;
+    if (!this.loading) {
+      this.onLoad({ target: this.$el });
+    }
   },
 
   methods: {
     onLoad(e) {
       this.loading = false;
-      this.$emit('load', e.target.currentSrc);
+      this.$emit('load', e.target);
     }
   }
 };
