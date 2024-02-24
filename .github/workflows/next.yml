@@ -101,7 +101,7 @@ jobs:
     #     env:
     #       BASE_URL: /playground/
     #   - name: Archive Production Artifact
-    #     uses: actions/upload-artifact@master
+    #     uses: actions/upload-artifact@v4
     #     with:
     #       name: playgroundArtifact
     #       path: dist
@@ -136,7 +136,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: docsArtifact
           path: docs/.vitepress/dist
@@ -151,12 +151,12 @@ jobs:
         node: [20]
     steps:
       - name: Download Artifact (Docs)
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v4
         with:
           name: docsArtifact
           path: public/docs
       # - name: Download Artifact (Playground)
-      #   uses: actions/download-artifact@master
+      #   uses: actions/download-artifact@v4
       #   with:
       #     name: playgroundArtifact
       #     path: public/docs/playground
@@ -196,7 +196,7 @@ jobs:
   #         npm install @sitespeed.io/throttle -g
   #         throttle stop
   #     - name: Archive Sitespeed Report
-  #       uses: actions/upload-artifact@master
+  #       uses: actions/upload-artifact@v4
   #       with:
   #         name: sitespeedReportArtifact
   #         path: sitespeed-report
@@ -211,7 +211,7 @@ jobs:
   #       node: [20]
   #   steps:
   #     - name: Download Artifact (Sitespeed)
-  #       uses: actions/download-artifact@master
+  #       uses: actions/download-artifact@v4
   #       with:
   #         name: sitespeedReportArtifact
   #         path: public/docs/reports/sitespeed
