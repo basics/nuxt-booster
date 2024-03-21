@@ -54,16 +54,19 @@ export default {
       },
 
       async mounted(el, binding) {
-        const { isCritical, runtimeConfig } = getFirstFont(binding.value);
-        if (isCritical || !isElementOutViewport(el)) {
-          activateFonts(el, binding);
-        } else {
-          const observer = getElementObserver(el, {
-            rootMargin: runtimeConfig.lazyOffsetAsset
-          });
-          observers.set(el, observer);
-          await observer.enterViewOnce();
-          activateFonts(el, binding);
+        const firstFont = getFirstFont(binding.value);
+        if (firstFont) {
+          const { isCritical, runtimeConfig } = getFirstFont(binding.value);
+          if (isCritical || !isElementOutViewport(el)) {
+            activateFonts(el, binding);
+          } else {
+            const observer = getElementObserver(el, {
+              rootMargin: runtimeConfig.lazyOffsetAsset
+            });
+            observers.set(el, observer);
+            await observer.enterViewOnce();
+            activateFonts(el, binding);
+          }
         }
       },
 
