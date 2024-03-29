@@ -70,7 +70,7 @@
     "@babel/eslint-parser": "7.23.10",
     "@commitlint/cli": "19.0.3",
     "@commitlint/config-conventional": "19.0.3",
-    "@fullhuman/postcss-purgecss": "5.0.0",
+    "@fullhuman/postcss-purgecss": "6.0.0",
     "@nuxt/module-builder": "0.5.5",
     "@nuxt/webpack-builder": "3.10.3",
     "@nuxtjs/eslint-config": "12.0.0",
