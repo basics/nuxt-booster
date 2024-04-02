@@ -52,7 +52,7 @@
     "dist"
   ],
   "dependencies": {
-    "@nuxt/image": "1.3.0",
+    "@nuxt/image": "1.5.0",
     "@nuxtjs/fontaine": "0.4.1",
     "browserslist-useragent-regexp": "4.1.1",
     "cheerio": "1.0.0-rc.12",
