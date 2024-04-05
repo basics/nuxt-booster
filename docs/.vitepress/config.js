@@ -51,12 +51,12 @@ export default defineConfig(() => ({
     ...navigation,
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/GrabarzUndPartner/nuxt-speedkit' }
+      { icon: 'github', link: 'https://github.com/basics/nuxt-booster' }
     ]
   },
 
   sitemap: {
-    hostname: 'https://nuxt-speedkit.grabarzundpartner.dev'
+    hostname: 'https://nuxt-booster.grabarzundpartner.dev'
   }
 }));
 

@@ -13,7 +13,7 @@ If the BoosterLayer is implemented, the javascript initialisation is automatical
 occurs, the process is paused and only continued or cancelled after a user interaction in the layer.
 
 The layer is placed once in the layout (e.g. `layouts/default.vue`).
-The included BoosterLayer serves as a wrapper and must be filled according to the [template](/components/booster-layer#template), see [example component](https://github.com/GrabarzUndPartner/nuxt-booster/blob/main/example/components/InfoLayer.vue).
+The included BoosterLayer serves as a wrapper and must be filled according to the [template](/components/booster-layer#template), see [example component](https://github.com/basics/nuxt-booster/blob/main/example/components/InfoLayer.vue).
 
 The content contains messages and buttons that are displayed in the respective event.
 Messages and buttons are defined with an `id`, these are set to `display: none;` by default via CSS.

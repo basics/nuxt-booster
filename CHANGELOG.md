@@ -1,5 +1,26 @@
 # Project Changelog
 
+# [3.0.0-next.50](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.49...v3.0.0-next.50) (2024-02-19)
+
+
+### Bug Fixes
+
+* **image:** added load trigger for mounted with complete ([dc5bfd5](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/dc5bfd550b9c2eefe27c413266216a050b302cbd))
+
+# [3.0.0-next.49](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.48...v3.0.0-next.49) (2024-02-11)
+
+
+### Bug Fixes
+
+* **plugin:** improve image size fetch ([546bae1](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/546bae1316efdf22cd482fa0b15773aeb464db9a))
+
+# [3.0.0-next.48](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.47...v3.0.0-next.48) (2024-02-10)
+
+
+### Bug Fixes
+
+* **v-font:** fix missing font-active class ([a16c688](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/a16c688a8dc194b29d79cf41d0f3744a84f266fd))
+
 # [3.0.0-next.47](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.46...v3.0.0-next.47) (2024-02-10)
 
 

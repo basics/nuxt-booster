@@ -8,21 +8,21 @@ Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossa
 
 ## Installation
 
-Install `nuxt-speedkit` as a dependency to your project:
+Install `nuxt-booster` as a dependency to your project:
 
 ::: code-group
 
   ```bash [Yarn]
-  yarn add nuxt-speedkit
+  yarn add nuxt-booster
   ```
 
   ```bash [NPM]
-  npm install nuxt-speedkit
+  npm install nuxt-booster
   ```
 
 :::
 
-Add `nuxt-speedkit` to the `modules` section of `nuxt.config.js`:
+Add `nuxt-booster` to the `modules` section of `nuxt.config.js`:
 
 ### @nuxt/image
 
@@ -53,7 +53,7 @@ More about `@nuxt/image` module options can be found [here](https://image.nuxtjs
 ````js[nuxt.config.js]
 {
   modules: [
-    'nuxt-speedkit'
+    'nuxt-booster'
   ],
 
   speedkit: {

@@ -243,7 +243,7 @@ For the <code>avif</code> and <code>webp</code> formats the <code>|</code> opera
 - Type: `Boolean`
   - Default: `false`
 
-With this attribute all components that can be found under `#speedkit/components` can be registered globally.
+With this attribute all components that can be found under `#booster/components` can be registered globally.
 [Learn more @nuxt/components](https://github.com/nuxt/components).
 
 ::: warning
@@ -254,12 +254,12 @@ This option is not recommended if you want to achieve a lighthouse score of 100/
 
 | Global Name                 | Import Path                                            |                                                                                                                       |
 | --------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `SpeedkitIframe`            | `#speedkit/components/SpeedkitIframe`              | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitIframe.vue)              |
-| `SpeedkitLayer`             | `#speedkit/components/SpeedkitLayer`               | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitLayer.vue)               |
-| `SpeedkitPicture`           | `#speedkit/components/SpeedkitPicture`             | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitPicture.vue)             |
-| `SpeedkitYoutube`           | `#speedkit/components/SpeedkitYoutube`             | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/SpeedkitYoutube.vue)             |
-| `AbstractComponentObserver` | `#speedkit/components/abstracts/ComponentObserver` | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/ComponentObserver.vue) |
-| `AbstractOnlySsr`           | `#speedkit/components/abstracts/OnlySsr`           | [Source](https://github.com/GrabarzUndPartner/nuxt-speedkit/blob/main/lib/components/abstracts/OnlySsr.vue)           |
+| `SpeedkitIframe`            | `#booster/components/SpeedkitIframe`              | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitIframe.vue)              |
+| `SpeedkitLayer`             | `#booster/components/SpeedkitLayer`               | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitLayer.vue)               |
+| `SpeedkitPicture`           | `#booster/components/SpeedkitPicture`             | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitPicture.vue)             |
+| `SpeedkitYoutube`           | `#booster/components/SpeedkitYoutube`             | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitYoutube.vue)             |
+| `AbstractComponentObserver` | `#booster/components/abstracts/ComponentObserver` | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/abstracts/ComponentObserver.vue) |
+| `AbstractOnlySsr`           | `#booster/components/abstracts/OnlySsr`           | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/abstracts/OnlySsr.vue)           |
 
 ## `componentPrefix`
 
