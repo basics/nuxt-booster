@@ -47,7 +47,7 @@ By passing the `headAddition` argument, additional head settings can be applied.
 
 ## Browser compatibility
 
-You can use `nuxt-speedkit` with **Internet Explorer 11** browser.
+You can use `nuxt-booster` with **Internet Explorer 11** browser.
 
 ::: info
 Note that there is no optimization based on preloads in IE 11.
@@ -66,7 +66,7 @@ The PostCSS Plugin [`postcss-object-fit-images`](https://github.com/ronik-design
 
 For the polyfills, it is recommended to integrate them as a [plugin](https://nuxtjs.org/docs/2.x/directory-structure/plugins), polyfills loading must follow a specific order.
 
-You can see a example with live demo at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
+You can see a example with live demo at [Nuxt Booster Example](https://github.com/basics/nuxt-booster-example).
 
 ### Example
 
@@ -123,7 +123,7 @@ polyfills ();
 
 ## Prevent `SPEEDINDEX_OF_ZERO` and `NO_LCP`
 
-The `window` event `nuxt-speedkit:run` is provided and useable to run code outside the app during initialization.
+The `window` event `nuxt-booster:run` is provided and useable to run code outside the app during initialization.
 
 If the performance is not sufficient on the client side, this can be retrieved with the help of the event object `e.detail.sufficient`.
 
@@ -135,7 +135,7 @@ In this case, measurements with Lighthouse can lead to these errors `SPEEDINDEX_
 
 In order to solve this case, it can be provided that the content of the stage can already be displayed outside of the app initialization in the case of a slow initialization.
 
-In this case the global event `nuxt-speedkit:run` can be used. It will return an event object with `e.detail.sufficient` as value. With the help of this status you can decide whether the stage should be displayed in advance.
+In this case the global event `nuxt-booster:run` can be used. It will return an event object with `e.detail.sufficient` as value. With the help of this status you can decide whether the stage should be displayed in advance.
 
 **Component Example**
 
@@ -152,7 +152,7 @@ In this case the global event `nuxt-speedkit:run` can be used. It will return an
           {
             hid: 'prevent-script',
             innerHTML: `
-              window.addEventListener("nuxt-speedkit:run", function (e) {
+              window.addEventListener("nuxt-booster:run", function (e) {
                 if (!e.detail.sufficient) {
                   // added style class to display the content
                   document.querySelector('.stage').classList.add('visible')

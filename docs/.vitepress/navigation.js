@@ -1,64 +1,11 @@
 export default {
-  version: [{ version: 3, isDefault: true }, { version: 2 }, { version: 1 }],
+  version: [{ version: 3, isDefault: true }, { version: 2 }],
 
   sidebar: {
-    '/v1/': [
-      {
-        text: 'Home',
-        link: '/v1/'
-      },
-      {
-        text: 'Concept',
-        link: '/v1/concept'
-      },
-      {
-        text: 'Guide',
-        collapsed: false,
-        items: [
-          { text: 'Setup', link: '/v1/guide/setup' },
-          { text: 'Options', link: '/v1/guide/options' },
-          { text: 'Usage', link: '/v1/guide/usage' }
-        ]
-      },
-      {
-        text: 'Directives',
-        collapsed: true,
-        items: [{ text: 'v-font', link: '/v1/directives/v-font' }]
-      },
-      {
-        text: 'Components',
-        collapsed: true,
-        items: [
-          {
-            text: 'Experimental',
-            items: [
-              {
-                text: 'SpeedkitPicture',
-                link: '/v1/components/experimental/speedkit-picture'
-              },
-              {
-                text: 'SpeedkitYoutube',
-                link: '/v1/components/experimental/speedkit-youtube'
-              }
-            ]
-          },
-          { text: 'SpeedkitPicture', link: '/v1/components/speedkit-picture' },
-          { text: 'SpeedkitYoutube', link: '/v1/components/speedkit-youtube' },
-          { text: 'SpeedkitLayer', link: '/v1/components/speedkit-layer' },
-          { text: 'SpeedkitPicture', link: '/v1/components/speedkit-picture' },
-          { text: 'SpeedkitYoutube', link: '/v1/components/speedkit-youtube' },
-          { text: 'SpeedkitIframe', link: '/v1/components/speedkit-iframe' }
-          // {
-          //   text: '[PR] WeakHardwareOverlay',
-          //   link: '/v1/components/weak-hardware-overlay'
-          // }
-        ]
-      }
-    ],
     '/v2/': [
       {
         text: 'Home',
-        link: '/v2'
+        link: '/v2/'
       },
       {
         text: 'Concept',
@@ -159,7 +106,6 @@ export default {
           text: 'Migration',
           collapsed: true,
           items: [
-            { text: 'v1 to v2', link: '/migration/v2' },
             { text: 'v2.0.x to v2.0.13', link: '/migration/v2-0-13' },
             { text: 'v2.0.13 to v2.2.0', link: '/migration/v2-2-0' },
             { text: 'v2 to v3', link: '/migration/v3' }

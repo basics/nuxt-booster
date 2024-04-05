@@ -40,7 +40,7 @@ Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disable
 </template>
 
 <script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+import SpeedkitPicture from '#booster/components/SpeedkitPicture';
 export default {
   components: { SpeedkitPicture },
   data () {
@@ -155,7 +155,7 @@ Image Title.
 
 If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
 
-[Learn more about `crossorigin` option](https://nuxt-speedkit.grabarzundpartner.dev/options#crossorigin)
+[Learn more about `crossorigin` option](https://nuxt-booster.grabarzundpartner.dev/options#crossorigin)
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 

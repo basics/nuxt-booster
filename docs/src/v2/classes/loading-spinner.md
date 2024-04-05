@@ -4,7 +4,7 @@ title: LoadingSpinner
 
 # {{$frontmatter.title}}
 
-Path: `#speedkit/components/SpeedkitImage/classes/LoadingSpinner.js`
+Path: `#booster/components/SpeedkitImage/classes/LoadingSpinner.js`
 
 The LoadingSpinner instance describes the visual appearance of the loading state in the [`SpeedkitImage`](/v2/components/speedkit-image). This can be defined globally via the module settings or at the specific components.
 

@@ -33,7 +33,7 @@ Important: For using `SpeedkitYoutube` do not disable `@nuxt/image` via `disable
 </template>
 
 <script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitYoutube';
+import SpeedkitPicture from '#booster/components/SpeedkitYoutube';
 export default {
   components: { SpeedkitPicture },
   data () {

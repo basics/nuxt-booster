@@ -3,14 +3,14 @@ outline: deep
 title: Introduction
 ---
 
+<img class="poster-dark" src="/poster-dark.jpg" width="1280" height="640" alt="nuxt booster" title="nuxt booster"/>
+<img class="poster-light" src="/poster-light.jpg" width="1280" height="640" alt="nuxt booster" title="nuxt booster"/>
 
-<img src="/intro-light.jpg" width="1280" height="640" alt="nuxt booster" title="nuxt booster"/>
-
-[Module](https://www.npmjs.com/package/nuxt-speedkit) for [NuxtJS](https://nuxtjs.org).
+[Module](https://www.npmjs.com/package/nuxt-booster) for [NuxtJS](https://nuxtjs.org).
 
 ::: tip You are reading the documentation for Nuxt Booster (v3)!
 
-- **Nuxt Booster (v2)** documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v2/](https://nuxt-speedkit.grabarzundpartner.dev/v2/).  
+- **Nuxt Booster (v2)** documentation has been moved to [nuxt-booster.grabarzundpartner.dev/v2/](https://nuxt-booster.grabarzundpartner.dev/v2/).  
 - Upgrading from **Nuxt Booster (v2)** ? Check out the [Migration Guide](/migration/v3).
 :::
 

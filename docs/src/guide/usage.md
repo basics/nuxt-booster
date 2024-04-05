@@ -94,6 +94,6 @@ The booster components will be expanded in the future. If you have explicit wish
 
 ## Example
 
-You can check out a sample integration of `nuxt-booster` at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-booster-example).
+You can check out a sample integration of `nuxt-booster` at [Nuxt Booster Example](https://github.com/basics/nuxt-booster-example).
 
-<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-booster-example/tree/main/?hidenavigation=1&theme=dark"></iframe>
+<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/basics/nuxt-booster-example/tree/main/?hidenavigation=1&theme=dark"></iframe>

@@ -35,7 +35,7 @@ Fonts are no longer explicitly defined via CSS, otherwise the loading behavior o
 
 ## Import components
 
-Until now, components were imported either statically (`import component from '@/component';`) or dynamically (`import('@/component')`). However, with these two variants, hydration cannot be controlled. As a result, all components are also initialized on initial load. `nuxt-speedkit` offers a corresponding loader for this feature request. Each async component import should be enclosed with this loader in a page or layout.
+Until now, components were imported either statically (`import component from '@/component';`) or dynamically (`import('@/component')`). However, with these two variants, hydration cannot be controlled. As a result, all components are also initialized on initial load. `nuxt-booster` offers a corresponding loader for this feature request. Each async component import should be enclosed with this loader in a page or layout.
 
 - 'Ensures that components are initialized only when needed in the visible viewport.'
 - 'Optimizes initialization of critical components on initial page load (critical components are initially in the visible viewport).'
@@ -43,7 +43,7 @@ Until now, components were imported either statically (`import component from '@
 In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-import speedkitHydrate from '#speedkit/hydrate';
+import speedkitHydrate from '#booster/hydrate';
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
 Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the <nuxt-link to="/options#lazyoffset">nuxt.config</nuxt-link>.
 
 ::: warning
-Although the <code>#speedkit/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
+Although the <code>#booster/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
 :::
 
 ::: info
@@ -64,7 +64,7 @@ With <code>NODE-ENV (development)</code>, the components are included directly. 
 
 ## Speedkit Components
 
-In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `#speedkit/components`.
+In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `#booster/components`.
 
 - [SpeedkitLayer](/v2/components/speedkit-layer)
 - [SpeedkitPicture](/v2/components/speedkit-picture)
@@ -79,7 +79,7 @@ In order to be able to load further static resources such as pictures, iFrames o
 </template>
 
 <script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture'
+import SpeedkitPicture from '#booster/components/SpeedkitPicture'
 export default {
   components: {
     SpeedkitPicture
@@ -94,6 +94,6 @@ The speedkit components will be expanded in the future. If you have explicit wis
 
 ## Example
 
-You can check out a sample integration of `nuxt-speedkit` at [Nuxt Booster Example](https://github.com/GrabarzUndPartner/nuxt-speedkit-example).
+You can check out a sample integration of `nuxt-booster` at [Nuxt Booster Example](https://github.com/basics/nuxt-booster-example).
 
-<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/GrabarzUndPartner/nuxt-speedkit-example/tree/main/?hidenavigation=1&theme=dark"></iframe>
+<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/basics/nuxt-booster-example/tree/main/?hidenavigation=1&theme=dark"></iframe>

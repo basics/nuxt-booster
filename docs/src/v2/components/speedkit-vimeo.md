@@ -13,7 +13,7 @@ So that no empty space is visible to the user, we use the functionality of the [
 The `SpeedkitVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
 
 ::: tip
-The SDK is not part of `nuxt-speedkit` and will be loaded by an external script.
+The SDK is not part of `nuxt-booster` and will be loaded by an external script.
 :::
 
 The `url` of the Vimeo video must be specified.  
@@ -36,7 +36,7 @@ Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNu
 </template>
 
 <script>
-import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
+import SpeedkitVimeo from '#booster/components/SpeedkitVimeo';
 export default {
   components: { SpeedkitVimeo },
   data () {
