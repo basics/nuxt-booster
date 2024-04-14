@@ -42,9 +42,7 @@ export function getFontConfigCSSTemplate(fontConfig) {
   }
 
   function renderImports(imports) {
-    return imports.map(
-      ([key, src]) => `import Font${hashSum(src)} from ${src};`
-    );
+    return imports.map(([, src]) => `import Font${hashSum(src)} from ${src};`);
   }
 
   const css = fontConfig.toCSS();

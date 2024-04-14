@@ -4,7 +4,6 @@ import {
 } from '#booster/classes/intersection';
 const CLASS_FONT_ACTIVE = 'font-active';
 
-// eslint-disable-next-line sonarjs/no-unused-collection
 const observers = new Map();
 
 export default {

@@ -19,7 +19,7 @@ export function setup(config = {}) {
 }
 
 export function hasSufficientPerformance() {
-  return hasSufficientDownloadPerformance() && !process.server;
+  return hasSufficientDownloadPerformance() && !import.meta.server;
 }
 
 export function hasSufficientDownloadPerformance() {

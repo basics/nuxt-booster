@@ -1,4 +1,4 @@
-/* eslint-disable sonarjs/cognitive-complexity */
+/* eslint-disable complexity */
 // Script is from “https://github.com/OlehDutchenko/sort-css-media-queries/blob/master/lib/create-sort.js”, workaround because ESM import causes problems in the client.
 
 // ----------------------------------------

@@ -81,7 +81,7 @@ async function prepareLinkStylesheets($, { distNuxt, route }) {
         .map(async $el => {
           const dir = dirname($el.attr('href'));
           const filepath = join(distNuxt, basename($el.attr('href')));
-          // eslint-disable-next-line security/detect-non-literal-fs-filename
+
           const fileContent = await fsPromises.readFile(filepath, 'utf-8');
 
           let urls = getUrlValues(fileContent);
@@ -126,7 +126,6 @@ function getCSSFilesFromManifest($, manifest) {
 async function addedInlinedCSS($, files, { distNuxt, route }) {
   const css = await Promise.all(
     files.map(async filename => {
-      // eslint-disable-next-line security/detect-non-literal-fs-filename
       const css = await fsPromises.readFile(
         join(distNuxt, 'css', filename),
         'utf-8'

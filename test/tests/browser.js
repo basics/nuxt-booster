@@ -1,5 +1,3 @@
-/* eslint-disable no-secrets/no-secrets */
-
 import { chromium } from 'playwright';
 import { afterAll, describe, it, expect } from 'vitest';
 import { joinURL } from 'ufo';
