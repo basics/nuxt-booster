@@ -1,20 +1,11 @@
-import { createConfigForNuxt } from '@nuxt/eslint-config/flat';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import { withNuxt } from './playground/.nuxt/eslint.config.mjs';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintIgnores from './eslint.ignores.js';
-import eslintGlobals from './playground/.nuxt/.eslint.globals.mjs';
 import pluginSecurity from 'eslint-plugin-security';
 
-export default createConfigForNuxt(
-  {
-    features: {
-      typescript: false
-    }
-  },
+export default withNuxt(
   pluginSecurity.configs.recommended,
-  eslintConfigPrettier,
   eslintPluginPrettierRecommended,
-  eslintGlobals,
 
   {
     files: ['**/*.js', '**/*.vue'],
