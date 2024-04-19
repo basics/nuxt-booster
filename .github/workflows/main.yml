@@ -122,7 +122,7 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate --build-analyze --base=/playground/ --website-host=https://nuxt-speedkit.grabarzundpartner.dev
+          npm run generate --build-analyze --base=/playground/ --website-host=https://basics.github.io/nuxt-booster/
           mkdir dist/reports dist/reports/webpack
           cp -R .reports/webpack/* dist/reports/webpack
           touch dist/.nojekyll
@@ -190,9 +190,7 @@ jobs:
           throttle 3g
       - name: Running sitespeed.io container with arguments and optional Docker options
         run: |
-          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
-          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarzundpartner.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarzundpartner
-          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://grabarz-group.de/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/grabarz-group
+          docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://basics.github.io/nuxt-booster//playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-booster
       - name: Stop throttle 3g
         run: |
           npm install @sitespeed.io/throttle -g

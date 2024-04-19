@@ -35,7 +35,7 @@ const ModuleVideoVimeo = boosterHydrate(
 const stage = {
   critical: true,
   content: 'nuxt-booster',
-  claim: 'powered by Grabarz & Partner',
+  claim: 'powered by Basics',
 
   picture: {
     title: 'Stage',

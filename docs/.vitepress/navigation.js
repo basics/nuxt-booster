@@ -30,12 +30,12 @@ export default {
         text: 'Components',
         collapsed: true,
         items: [
-          { text: 'SpeedkitLayer', link: '/v2/components/speedkit-layer' },
-          { text: 'SpeedkitPicture', link: '/v2/components/speedkit-picture' },
-          { text: 'SpeedkitImage', link: '/v2/components/speedkit-image' },
-          { text: 'SpeedkitYoutube', link: '/v2/components/speedkit-youtube' },
-          { text: 'SpeedkitVimeo', link: '/v2/components/speedkit-vimeo' },
-          { text: 'SpeedkitIframe', link: '/v2/components/speedkit-iframe' }
+          { text: 'BoosterLayer', link: '/v2/components/booster-layer' },
+          { text: 'BoosterPicture', link: '/v2/components/booster-picture' },
+          { text: 'BoosterImage', link: '/v2/components/booster-image' },
+          { text: 'BoosterYoutube', link: '/v2/components/booster-youtube' },
+          { text: 'BoosterVimeo', link: '/v2/components/booster-vimeo' },
+          { text: 'BoosterIframe', link: '/v2/components/booster-iframe' }
           // {
           //   text: '[PR] WeakHardwareOverlay',
           //   link: '/v2/components/weak-hardware-overlay'

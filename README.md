@@ -1,30 +1,28 @@
 <p align="right">
   share me:
-  <a href="https://twitter.com/intent/tweet?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&text=nuxt-speedkit will help you to improve the lighthouse performance score of your website&via=grabarzpartner&hashtags=vue,nuxt,speedkit">
+  <a href="https://twitter.com/intent/tweet?url=https://github.com/basics/nuxt-booster&text=nuxt-booster will help you to improve the lighthouse performance score of your website&via=basics&hashtags=vue,nuxt,booster">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg?sanitize=true"/>
   </a>
-  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/GrabarzUndPartner/nuxt-speedkit&t=nuxt-speedkit will help you to improve the lighthouse performance score">
+  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/basics/nuxt-booster&t=nuxt-booster will help you to improve the lighthouse performance score">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/hackernews.svg?sanitize=true"/>
   </a>
-  <a href="https://reddit.com/submit?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
+  <a href="https://reddit.com/submit?url=https://github.com/basics/nuxt-booster&title=nuxt-booster will help you to improve the lighthouse performance score of your website">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/reddit.svg?sanitize=true"/>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https://github.com/GrabarzUndPartner/nuxt-speedkit">
+  <a href="https://www.facebook.com/sharer.php?u=https://github.com/basics/nuxt-booster">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg?sanitize=true"/>
   </a>
-  <a href="https://www.xing.com/spi/shares/new?url=https://github.com/GrabarzUndPartner/nuxt-speedkit">
+  <a href="https://www.xing.com/spi/shares/new?url=https://github.com/basics/nuxt-booster">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/xing.svg?sanitize=true"/>
   </a>
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit&summary=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/basics/nuxt-booster&title=nuxt-booster&summary=nuxt-booster will help you to improve the lighthouse performance score of your website">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg?sanitize=true"/>
   </a>
 </p>
 
-![nuxt-speedkit][logo]
+![nuxt-booster][logo]
 
 # Nuxt Booster
-
-[![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href]
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
 [![next][github-workflow-beta-src]][github-workflow-beta-href]
@@ -39,21 +37,20 @@
 [![License][license-src]][license-href]
 
 - [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
-- [👁 &nbsp;&nbsp;**Preview**](https://grabarzundpartner.github.io/nuxt-speedkit-example/)
+- [👁 &nbsp;&nbsp;**Preview**](https://basics.github.io/nuxt-booster-example/)
 
 Nuxt Booster takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
 
 ## Demos
 
-- [Nuxt Booster Example](https://nuxt-booster.grabarzundpartner.dev/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-booster.grabarzundpartner.dev%2Fexample%2F), [Sitespeed](https://nuxt-booster.grabarzundpartner.dev/reports/sitespeed/nuxt-booster/))
+- [Nuxt Booster Example](https://basics.github.io/nuxt-booster/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fbasics.github.io%2Fnuxt-booster%2Fplayground%2F), [Sitespeed](https://basics.github.io/nuxt-booster/playground/reports/sitespeed/nuxt-booster/))
 
 ## Getting Started
 
-Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
+Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://basics.github.io/nuxt-booster/)
 
-- **v2**: [nuxt-speedkit.grabarzundpartner.dev/v2/](https://nuxt-speedkit.grabarzundpartner.dev/v2/)
-- **v1**: [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/)
+- **v2**: [basics.github.io/nuxt-booster/v2/](https://basics.github.io/nuxt-booster/v2/)
 
 ## Requirements
 
@@ -78,11 +75,11 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.gra
 - delivery of the minimum required resources based on the current viewport
 - if you use the tools as specified you will get a lighthouse performance score of 100/100
 
-📖 &nbsp;&nbsp;[Read more](https://nuxt-speedkit.grabarzundpartner.dev/)
+📖 &nbsp;&nbsp;[Read more](https://basics.github.io/nuxt-booster/)
 
 ## Browsers support
 
-> You can use `nuxt-speedkit` with **Internet Explorer 11** browser. [Learn more at Browser compatibility](https://nuxt-speedkit.grabarzundpartner.dev/caveats#browser-compatibility)
+> You can use `nuxt-booster` with **Internet Explorer 11** browser. [Learn more at Browser compatibility](https://basics.github.io/nuxt-booster/caveats#browser-compatibility)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Vivaldi |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,44 +100,42 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.gra
 
 or look here
 
-- [Preview](https://nuxt-speedkit.grabarzundpartner.dev/playground)
-- [Report Client](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/client.html)
-- [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/modern.html)
-- [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/server.html)
+- [Preview](https://basics.github.io/nuxt-booster/playground)
+- [Report Client](https://basics.github.io/nuxt-booster/playground/reports/webpack/client.html)
+- [Report Modern](https://basics.github.io/nuxt-booster/playground/reports/webpack/modern.html)
+- [Report Server](https://basics.github.io/nuxt-booster/playground/reports/webpack/server.html)
 
 ## Consulting & Support
 
-Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <dev@grabarzundpartner.de>. We are looking forward to your request.
+Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <stephan.gerbeth@gmail.com>. We are looking forward to your request.
 
 ## License
 
 [MIT License](./LICENSE)
 
 <!-- Badges -->
-[logo]: https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727 "nuxt-speedkit"
-[grabarz-partner-module-src]: <https://img.shields.io/badge/Grabarz%20&%20Partner-Module-d19700>
-[grabarz-partner-href]: <https://grabarzundpartner.de>
+[logo]: https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727 "nuxt-booster"
 
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
 
-[github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
-[github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
-[github-workflow-beta-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Beta/badge.svg?branch=beta>
-[github-workflow-beta-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ABeta>
-[github-workflow-next-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Next/badge.svg?branch=next>
-[github-workflow-next-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ANext>
-[github-workflow-test-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=main>
-[github-workflow-test-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
+[github-workflow-main-src]: <https://github.com/basics/nuxt-booster/workflows/Main/badge.svg?branch=main>
+[github-workflow-main-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3AMain>
+[github-workflow-beta-src]: <https://github.com/basics/nuxt-booster/workflows/Beta/badge.svg?branch=beta>
+[github-workflow-beta-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ABeta>
+[github-workflow-next-src]: <https://github.com/basics/nuxt-booster/workflows/Next/badge.svg?branch=next>
+[github-workflow-next-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ANext>
+[github-workflow-test-src]: <https://github.com/basics/nuxt-booster/workflows/Test/badge.svg?branch=main>
+[github-workflow-test-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ATest>
 
-[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=GrabarzUndPartner_nuxt-speedkit&metric=alert_status>
-[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=GrabarzUndPartner_nuxt-speedkit>
+[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=Basics_nuxt-booster&metric=alert_status>
+[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=Basics_nuxt-booster>
 
-[license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
-[license-href]: https://npmjs.com/package/nuxt-speedkit
+[license-src]: https://img.shields.io/npm/l/nuxt-booster.svg?style=flat-square
+[license-href]: https://npmjs.com/package/nuxt-booster
 
-[npm-version-latest-src]: https://img.shields.io/npm/v/nuxt-speedkit/latest.svg?
-[npm-version-latest-href]: https://npmjs.com/package/nuxt-speedkit/v/latest
+[npm-version-latest-src]: https://img.shields.io/npm/v/nuxt-booster/latest.svg?
+[npm-version-latest-href]: https://npmjs.com/package/nuxt-booster/v/latest
 
-[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-speedkit.svg?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/nuxt-speedkit
+[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-booster.svg?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/nuxt-booster

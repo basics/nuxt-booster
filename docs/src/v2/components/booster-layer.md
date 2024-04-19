@@ -1,10 +1,10 @@
 ---
-title: SpeedkitLayer
+title: BoosterLayer
 ---
 
 # {{$frontmatter.title}}
 
-If the SpeedkitLayer is implemented, the javascript initialisation is automatically monitored. If one of the events
+If the BoosterLayer is implemented, the javascript initialisation is automatically monitored. If one of the events
 
 ::: info
 
@@ -16,7 +16,7 @@ If the SpeedkitLayer is implemented, the javascript initialisation is automatica
 occurs, the process is paused and only continued or cancelled after a user interaction in the layer.
 
 The layer is placed once in the layout (e.g. `layouts/default.vue`).
-The included SpeedkitLayer serves as a wrapper and must be filled according to the [template](/v2/components/speedkit-layer#template), see [example component](https://github.com/basics/nuxt-booster/blob/main/example/components/InfoLayer.vue).
+The included BoosterLayer serves as a wrapper and must be filled according to the [template](/v2/components/booster-layer#template), see [example component](https://github.com/basics/nuxt-booster/blob/main/example/components/InfoLayer.vue).
 
 The content contains messages and buttons that are displayed in the respective event.
 Messages and buttons are defined with an `id`, these are set to `display: none;` by default via CSS.
@@ -25,7 +25,7 @@ Messages and buttons are defined with an `id`, these are set to `display: none;`
 - e.g. `nuxt-booster-button-init-app` for button
 
 ::: tip
-For the closing mechanism of the layer, see [Hide Layer](/v2/components/speedkit-layer#hide-layer).
+For the closing mechanism of the layer, see [Hide Layer](/v2/components/booster-layer#hide-layer).
 :::
 
 ## Messages
@@ -65,12 +65,12 @@ When an event is triggered, the relevant button is displayed via the ID using th
 
 | ID                                                    | Description                                                                                                                                                       |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <nobr>`nuxt-booster-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/v2/components/speedkit-layer#hide-layer) implementation. |
+| <nobr>`nuxt-booster-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/v2/components/booster-layer#hide-layer) implementation. |
 | <nobr>`nuxt-booster-button-init-reduced-view`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts and images. Other initialisations of the Javascript are prevented.          |
 | <nobr>`nuxt-booster-button-init-app`</nobr>          | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                       |
 
 ::: info
-It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-booster-button-init-reduced-view` and `#nuxt-booster-button-init-app`.<br><br>More information under [Force App initialization](/v2/components/speedkit-layer#force-app-initialization)
+It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-booster-button-init-reduced-view` and `#nuxt-booster-button-init-app`.<br><br>More information under [Force App initialization](/v2/components/booster-layer#force-app-initialization)
 :::
 
 ## Hide Layer
@@ -90,7 +90,7 @@ Closing mechanics does not require javascript.
 ## Template
 
 ````html
-<speedkit-layer>
+<booster-layer>
   <div>
     <p>Sorry, but you will have a limited user experience due to a…</p>
 
@@ -132,7 +132,7 @@ Closing mechanics does not require javascript.
       Apply with all Features
     </button>
   </div>
-</speedkit-layer>
+</booster-layer>
 ````
 
 ## Force App initialization

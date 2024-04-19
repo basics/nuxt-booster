@@ -165,7 +165,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
-          cname: nuxt-speedkit.grabarzundpartner.dev
+          # cname:
           keep_files: true
 
   # report-sitespeed:
@@ -190,7 +190,7 @@ jobs:
   #         throttle 3g
   #     - name: Running sitespeed.io container with arguments and optional Docker options
   #       run: |
-  #         docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://nuxt-speedkit.grabarzundpartner.dev/playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-speedkit
+  #         docker run -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:20.0.0 https://basics.github.io/nuxt-booster//playground/ --budget.configPath .github/budgets/sitespeed.json -n 3 -b chrome --mobile --summary-detail --outputFolder sitespeed-report/nuxt-booster
   #     - name: Stop throttle 3g
   #       run: |
   #         npm install @sitespeed.io/throttle -g
@@ -220,5 +220,5 @@ jobs:
   #       with:
   #         github_token: ${{ secrets.GITHUB_TOKEN }}
   #         publish_dir: public
-  #         cname: nuxt-speedkit.grabarzundpartner.dev
+  #         cname:
   #         keep_files: true

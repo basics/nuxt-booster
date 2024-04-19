@@ -56,7 +56,7 @@ export default defineConfig(() => ({
   },
 
   sitemap: {
-    hostname: 'https://nuxt-booster.grabarzundpartner.dev'
+    hostname: 'https://basics.github.io/nuxt-booster/'
   }
 }));
 

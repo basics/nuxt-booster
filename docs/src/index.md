@@ -10,7 +10,7 @@ title: Introduction
 
 ::: tip You are reading the documentation for Nuxt Booster (v3)!
 
-- **Nuxt Booster (v2)** documentation has been moved to [nuxt-booster.grabarzundpartner.dev/v2/](https://nuxt-booster.grabarzundpartner.dev/v2/).  
+- **Nuxt Booster (v2)** documentation has been moved to [basics.github.io/nuxt-boosterv/v2/](https://basics.github.io/nuxt-booster/v2/).  
 - Upgrading from **Nuxt Booster (v2)** ? Check out the [Migration Guide](/migration/v3).
 :::
 
@@ -49,4 +49,4 @@ We provide the following CMS-friendly features:
 
 ## Demos
 
-- [Nuxt Booster Example](https://nuxt-booster.grabarzundpartner.dev/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-booster.grabarzundpartner.dev%2Fplayground%2F), [Sitespeed](https://nuxt-booster.grabarzundpartner.dev/reports/sitespeed/nuxt-booster/))
+- [Nuxt Booster Example](https://basics.github.io/nuxt-booster/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fbasics.github.io/nuxt-boosterv%2Fplayground%2F), [Sitespeed](https://basics.github.io/nuxt-booster/reports/sitespeed/nuxt-booster/))
