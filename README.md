@@ -20,8 +20,6 @@
   </a>
 </p>
 
-<!-- ![nuxt-booster][logo] -->
-
 # Nuxt Booster
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
