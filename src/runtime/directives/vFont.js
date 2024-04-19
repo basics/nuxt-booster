@@ -20,7 +20,7 @@ export default {
           el.setAttribute(rootSelector.name, rootSelector.value);
           binding.instance.fontsReady.set(el, true);
           vnode.fontActive = isCritical;
-          if (typeof vnode.props.class === 'string') {
+          if (typeof vnode.props?.class === 'string') {
             vnode.props.class = [
               ...vnode.props.class.split(' '),
               isCritical && CLASS_FONT_ACTIVE
