@@ -1,5 +1,19 @@
 # Project Changelog
 
+# [3.0.0-next.52](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.51...v3.0.0-next.52) (2024-04-19)
+
+
+### Bug Fixes
+
+* **v-font:** ignore missing props ([561b271](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/561b271fafb723940c1cc2cf2354eb83de4e7bc5))
+
+# [3.0.0-next.51](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.50...v3.0.0-next.51) (2024-03-21)
+
+
+### Bug Fixes
+
+* **v-font:** ignore empty v-font ([c55adab](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/c55adabfe9d093f9b6fb02b9c6e2a4cd786f1350))
+
 # [3.0.0-next.50](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.49...v3.0.0-next.50) (2024-02-19)
 
 
