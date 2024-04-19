@@ -50,7 +50,6 @@ export function initReducedView() {
     document.querySelectorAll('noscript.nuxt-booster-picture-noscript')
   ).forEach(el => {
     const tmp = document.createElement('div');
-    // eslint-disable-next-line no-unsanitized/property
     tmp.innerHTML = el.innerHTML;
     el.parentNode.replaceChild(tmp.children[0], el);
     tmp.remove();

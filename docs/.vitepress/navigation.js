@@ -73,7 +73,10 @@ export default {
           collapsed: true,
           items: [
             { text: 'useBoosterFont', link: '/composables/useBoosterFont' },
-            { text: 'useBoosterCritical', link: '/composables/useBoosterCritical' },
+            {
+              text: 'useBoosterCritical',
+              link: '/composables/useBoosterCritical'
+            },
             { text: 'useBoosterConfig', link: '/composables/useBoosterConfig' },
             {
               text: 'useBoosterComponentObserver',

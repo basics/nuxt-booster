@@ -42,7 +42,7 @@ const getProvider = context => {
 };
 
 export async function getMeta(source, compiledSrc, $booster) {
-  if (!process.server && window.Image) {
+  if (!import.meta.server && window.Image) {
     source = source.modify({ src: compiledSrc });
   } else {
     source = source.modify({

@@ -125,7 +125,6 @@ export default {
       const response = await fetch(url);
       videoData.value = await response.json();
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error(error);
       iframeMode.value = true;
       src.value = playerSrc.value;

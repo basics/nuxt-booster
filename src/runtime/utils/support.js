@@ -1,7 +1,7 @@
 import { isFirefox } from './browser';
 
 function hasWebpSupport() {
-  if (process.server) {
+  if (import.meta.server) {
     return true;
   }
   const elem = window.document.createElement('canvas');
@@ -18,7 +18,7 @@ export function isPreloadSupported() {
   if (isFirefox()) {
     // Attribute imageSrcset is Supported, but does not appear to be active. No preload is started.
     return false;
-  } else if (process.client) {
+  } else if (import.meta.client) {
     const relList = window.document.createElement('link').relList;
     return (
       elementSupportsAttribute('link', 'imageSrcset') &&

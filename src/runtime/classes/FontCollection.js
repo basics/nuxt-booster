@@ -27,7 +27,7 @@ export default class FontCollection {
     return Array.from(
       this.list
         .reduce((result, font) => {
-          if (critical && process.server) {
+          if (critical && import.meta.server) {
             const media = font.media || 'all';
             const description = getFontPreloadDescription(
               font,
