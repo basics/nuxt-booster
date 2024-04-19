@@ -6,7 +6,7 @@
 export default {
   components: {
     LighthouseWidget: () =>
-      import('nuxt-speedkit/components/GoogleLighthouse/Widget.vue')
+      import('nuxt-booster/components/GoogleLighthouse/Widget.vue')
   },
 
   created() {

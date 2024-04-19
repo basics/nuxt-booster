@@ -10,7 +10,7 @@
       ]"
     >
       <div class="image">
-        <speedkit-picture
+        <booster-picture
           :title="picture.title"
           :alt="picture.alt"
           :sources="picture.sources"
@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+import BoosterPicture from '#booster/components/BoosterPicture';
 
 export default {
   components: {
-    SpeedkitPicture
+    BoosterPicture
   },
   props: {
     alignRight: { type: Boolean, default: false },

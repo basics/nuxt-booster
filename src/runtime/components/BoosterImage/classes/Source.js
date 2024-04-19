@@ -1,5 +1,5 @@
 import { getExtension, getMeta } from '../utils/image';
-import { toHashHex } from '#speedkit/utils/string';
+import { toHashHex } from '#booster/utils/string';
 
 export default class Source {
   #src = null;

@@ -52,8 +52,8 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         with:
           args: >
-            -Dsonar.organization=grabarzundpartner
-            -Dsonar.projectKey=GrabarzUndPartner_nuxt-speedkit
+            -Dsonar.organization=basics
+            -Dsonar.projectKey=basics_nuxt-booster
             -Dsonar.eslint.reportPaths=eslint-report.json
             -Dsonar.projectVersion=${{ steps.package-version.outputs.current-version}}
         env:

@@ -1,41 +1,41 @@
 <template>
-  <speedkit-layer class="info-layer" v-bind="$attrs" v-on="$listeners">
+  <booster-layer class="info-layer" v-bind="$attrs" v-on="$listeners">
     <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
       </p>
       <ul v-font="$getFont('Quicksand', 700, 'normal')">
-        <li id="nuxt-speedkit-message-nojs">disabled javascript</li>
-        <li id="nuxt-speedkit-message-unsupported-browser">outdated browser</li>
-        <li id="nuxt-speedkit-message-reduced-bandwidth">reduced-bandwidth</li>
-        <li id="nuxt-speedkit-message-weak-hardware">weak hardware</li>
+        <li id="nuxt-booster-message-nojs">disabled javascript</li>
+        <li id="nuxt-booster-message-unsupported-browser">outdated browser</li>
+        <li id="nuxt-booster-message-reduced-bandwidth">reduced-bandwidth</li>
+        <li id="nuxt-booster-message-weak-hardware">weak hardware</li>
       </ul>
       <div class="info-layer-buttons">
-        <base-button id="nuxt-speedkit-button-init-nojs">
-          <label for="nuxt-speedkit-layer-close"> Yes </label>
+        <base-button id="nuxt-booster-button-init-nojs">
+          <label for="nuxt-booster-layer-close"> Yes </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-reduced-view">
-          <label for="nuxt-speedkit-layer-close"> No </label>
+        <base-button id="nuxt-booster-button-init-reduced-view">
+          <label for="nuxt-booster-layer-close"> No </label>
         </base-button>
-        <base-button id="nuxt-speedkit-button-init-app" label="Yes" />
+        <base-button id="nuxt-booster-button-init-app" label="Yes" />
       </div>
     </div>
-  </speedkit-layer>
+  </booster-layer>
 </template>
 
 <script>
-import { getStyleDescription } from '#speedkit/utils/description';
-import SpeedkitLayer from '#speedkit/components/SpeedkitLayer';
+import { getStyleDescription } from '#booster/utils/description';
+import BoosterLayer from '#booster/components/BoosterLayer';
 import BaseButton from '@/components/atoms/BaseButton';
 
 export default {
   components: {
     BaseButton,
-    SpeedkitLayer
+    BoosterLayer
   },
   inheritAttrs: false,
   head() {
-    return this.$speedkit.head({
+    return this.$booster.head({
       noscript: [
         getStyleDescription(
           '.info-layer > div { animation-delay: initial !important; }',
@@ -50,7 +50,7 @@ export default {
 
 <style lang="postcss" scoped>
 .info-layer {
-  & :deep(#nuxt-speedkit-layer-content) {
+  & :deep(#nuxt-booster-layer-content) {
     position: fixed;
     top: 0;
     left: 0;
@@ -79,8 +79,8 @@ export default {
     }
   }
 
-  &.nuxt-speedkit-layer-visible {
-    & :deep(#nuxt-speedkit-layer-content) {
+  &.nuxt-booster-layer-visible {
+    & :deep(#nuxt-booster-layer-content) {
       animation-delay: initial;
     }
   }

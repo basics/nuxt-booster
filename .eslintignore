@@ -9,5 +9,5 @@ sw.js
 .output
 
 src/runtime/tmpl/**/*
-src/runtime/components/SpeedkitLayer.vue
+src/runtime/components/BoosterLayer.vue
 src/supportedBrowserDetector.mjs

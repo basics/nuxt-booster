@@ -3,19 +3,19 @@
     v-font="[$getFont('Merriweather', 400)]"
     class="video-vimeo"
   >
-    <speedkit-vimeo v-bind="$attrs">
+    <booster-vimeo v-bind="$attrs">
       <template #default="{ videoData }">
         <div class="description" v-html="videoData && videoData.description" />
       </template>
-    </speedkit-vimeo>
+    </booster-vimeo>
   </document-section>
 </template>
 
 <script>
-import SpeedkitVimeo from '#speedkit/components/SpeedkitVimeo';
+import BoosterVimeo from '#booster/components/BoosterVimeo';
 
 export default {
-  components: { SpeedkitVimeo },
+  components: { BoosterVimeo },
 
   inheritAttrs: false,
 

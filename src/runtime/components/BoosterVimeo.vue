@@ -1,5 +1,5 @@
 <template>
-  <base-vimeo class="nuxt-speedkit-vimeo" v-bind="$attrs" v-on="$listeners">
+  <base-vimeo class="nuxt-booster-vimeo" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <slot name="loading-spinner">
         <div class="loading-spinner">
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import BaseVimeo from '#speedkit/components/SpeedkitVimeo/Base';
+import BaseVimeo from '#booster/components/BoosterVimeo/Base';
 
 export default {
   components: {

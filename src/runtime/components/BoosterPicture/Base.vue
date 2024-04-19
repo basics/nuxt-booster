@@ -1,5 +1,5 @@
 <template>
-  <picture :class="classNames.picture" class="nuxt-speedkit-picture">
+  <picture :class="classNames.picture" class="nuxt-booster-picture">
     <picture-source
       v-for="source in formatSources"
       :key="source.key"
@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import BaseImage from '#speedkit/components/SpeedkitImage/Base';
-import SourceList from '#speedkit/components/SpeedkitPicture/classes/SourceList';
-import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
-import PictureSource from '#speedkit/components/SpeedkitPicture/Source';
+import BaseImage from '#booster/components/BoosterImage/Base';
+import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
+import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
+import PictureSource from '#booster/components/BoosterPicture/Source';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
@@ -42,7 +42,7 @@ export default {
     formats: {
       type: Array,
       default() {
-        return this.$speedkit.targetFormats;
+        return this.$booster.targetFormats;
       }
     },
 
@@ -64,7 +64,7 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default() {
-        return this.$speedkit.crossorigin;
+        return this.$booster.crossorigin;
       },
       validator: val =>
         ['anonymous', 'use-credentials', '', true, false].includes(val)
@@ -151,7 +151,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit-picture {
+.nuxt-booster-picture {
   position: relative;
   box-sizing: border-box;
   display: block;

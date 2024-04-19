@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    Default: speedkitHydrate(() => import('./components/Default'))
+    Default: boosterHydrate(() => import('./components/Default'))
   },
 
   asyncData() {

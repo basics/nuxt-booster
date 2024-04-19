@@ -5,7 +5,7 @@ import { preloadOptimization } from './hookFunctions';
 
 const DEFAULT_TARGET_FORMATS = ['webp', 'avif', 'jpg|jpeg|png|gif'];
 
-const MODULE_NAME = 'nuxt-speedkit';
+const MODULE_NAME = 'nuxt-booster';
 
 export const logger = consola.withTag(MODULE_NAME);
 
@@ -57,7 +57,7 @@ function getOptions(options) {
 function deprecationsNotification(options) {
   if ('pictureFormats' in options) {
     logger.warn(
-      `[${MODULE_NAME}] Option \`pictureFormats\` is deprecated, use \`targetFormats\` instead. \`https://nuxt-speedkit.grabarzundpartner.dev/options#targetformats\``
+      `[${MODULE_NAME}] Option \`pictureFormats\` is deprecated, use \`targetFormats\` instead. \`https://basics.github.io/nuxt-booster/options#targetformats\``
     );
     options.targetFormats = options.pictureFormats;
   }

@@ -1,4 +1,4 @@
-import { toHashHex } from '#speedkit/utils/string';
+import { toHashHex } from '#booster/utils/string';
 
 export default class LoadingSpinner {
   #dataUri;

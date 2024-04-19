@@ -17,7 +17,7 @@ import { getSupportedBrowserDetector } from './utils/browser';
 
 export default async function (moduleOptions) {
   const options = getOptions({
-    ...this.options.speedkit,
+    ...this.options.booster,
     ...moduleOptions
   });
 
@@ -26,11 +26,11 @@ export default async function (moduleOptions) {
   }
 
   const runtimeDir = path.resolve(__dirname, 'runtime');
-  this.nuxt.options.alias['#speedkit'] = runtimeDir;
-  this.nuxt.options.build.transpile.push('#speedkit');
-  // @deprecated Alias `nuxt-speedkit` is replaced by #speedkit for runtime only
-  this.nuxt.options.alias['nuxt-speedkit'] = runtimeDir;
-  this.nuxt.options.build.transpile.push('nuxt-speedkit');
+  this.nuxt.options.alias['#booster'] = runtimeDir;
+  this.nuxt.options.build.transpile.push('#booster');
+  // @deprecated Alias `nuxt-booster` is replaced by #booster for runtime only
+  this.nuxt.options.alias['nuxt-booster'] = runtimeDir;
+  this.nuxt.options.build.transpile.push('nuxt-booster');
 
   setEnvironments(this.nuxt, options);
 
@@ -153,7 +153,7 @@ async function addNuxtImage({ addModule, nuxt }) {
       ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
     ) {
       consola.warn(
-        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
+        'For using `BoosterYoutube` and `BoosterVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://basics.github.io/nuxt-booster/setup#nuxtimage'
       );
     }
   });

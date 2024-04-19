@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-speedkit",
+  "name": "nuxt-booster",
   "version": "2.2.8",
-  "description": "Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.",
+  "description": "Nuxt Booster takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "contributors": [
     {
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/GrabarzUndPartner/nuxt-speedkit"
+    "url": "https://github.com/basics/nuxt-booster"
   },
   "scripts": {
     "build:bundle": "esbuild src/runtime/tmpl/supportedBrowserDetector.mjs --platform=node --bundle --outfile=src/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors",

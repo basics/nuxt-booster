@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DefaultVimeo from '#speedkit/components/SpeedkitVimeo';
+import DefaultVimeo from '#booster/components/BoosterVimeo';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {

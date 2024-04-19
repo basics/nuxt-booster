@@ -5,7 +5,7 @@
     :sizes="sizes"
     :width="width"
     :height="height"
-    class="nuxt-speedkit-image"
+    class="nuxt-booster-image"
     :class="classNames"
     :title="title"
     :alt="alt || title"
@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import { getCrossorigin } from '#speedkit/utils';
-import Source from '#speedkit/components/SpeedkitImage/classes/Source';
-import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import { getCrossorigin } from '#booster/utils';
+import Source from '#booster/components/BoosterImage/classes/Source';
+import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
 
 export default {
   inheritAttrs: false,
@@ -43,7 +43,7 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default() {
-        return this.$speedkit.crossorigin;
+        return this.$booster.crossorigin;
       },
       validator: val =>
         ['anonymous', 'use-credentials', '', true, false].includes(val)
@@ -52,7 +52,7 @@ export default {
     loadingSpinner: {
       type: LoadingSpinner,
       default() {
-        return this.$speedkit.loader();
+        return this.$booster.loader();
       }
     }
   },
@@ -191,7 +191,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit-image {
+.nuxt-booster-image {
   content-visibility: auto;
   display: block;
   width: 100%;

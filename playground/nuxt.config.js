@@ -155,7 +155,7 @@ export default {
 
   plugins: ['@/plugins/vue-headings'],
 
-  speedkit: {
+  booster: {
     detection: {
       performance: true,
       browserSupport: true

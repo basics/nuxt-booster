@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    Critical: speedkitHydrate(() => import('./components/Critical')),
-    Lazy: speedkitHydrate(() => import('./components/Lazy'))
+    Critical: boosterHydrate(() => import('./components/Critical')),
+    Lazy: boosterHydrate(() => import('./components/Lazy'))
   },
   layout: 'blank'
 };

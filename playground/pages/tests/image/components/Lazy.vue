@@ -1,7 +1,7 @@
 <template>
   <organism-preview-container id="lazyContainer">
     <template #default>
-      <speedkit-image v-bind="image" />
+      <booster-image v-bind="image" />
     </template>
     <template #title>
       <p>Lazy - Image</p>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import SpeedkitImage from '#speedkit/components/SpeedkitImage';
+import BoosterImage from '#booster/components/BoosterImage';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
   components: {
-    SpeedkitImage,
+    BoosterImage,
     OrganismPreviewContainer
   },
 

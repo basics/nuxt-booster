@@ -1,6 +1,6 @@
 <template>
   <document-section class="component-stage" :level="-1">
-    <speedkit-picture
+    <booster-picture
       class="background"
       :title="picture.title"
       :alt="picture.alt"
@@ -24,19 +24,19 @@
       <span v-if="ready" class="arrow"><svg-chevron-down /></span>
     </transition>
 
-    <speedkit-image class="logo" v-bind="image" :loading-spinner="null" />
+    <booster-image class="logo" v-bind="image" :loading-spinner="null" />
   </document-section>
 </template>
 
 <script>
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
-import SpeedkitImage from '#speedkit/components/SpeedkitImage';
+import BoosterPicture from '#booster/components/BoosterPicture';
+import BoosterImage from '#booster/components/BoosterImage';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg?vue-template';
 
 export default {
   components: {
-    SpeedkitPicture,
-    SpeedkitImage,
+    BoosterPicture,
+    BoosterImage,
     SvgChevronDown
   },
 
@@ -158,9 +158,9 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
-      object-fit: cover;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 

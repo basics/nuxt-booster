@@ -1,10 +1,10 @@
 <template>
   <organism-preview-container>
     <template #default>
-      <loader-test id="lazySpeedkitHydrate" />
+      <loader-test id="criticalBoosterHydrate" />
     </template>
     <template #title>
-      <p>Critical<br />SpeedkitHydrate</p>
+      <p>Critical<br />BoosterHydrate</p>
     </template>
   </organism-preview-container>
 </template>
