@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [2.2.10](https://github.com/basics/nuxt-booster/compare/v2.2.9...v2.2.10) (2024-04-20)
+
+
+### Bug Fixes
+
+* **rename:** nuxt-speedkit to nuxt-booster ([6fa269c](https://github.com/basics/nuxt-booster/commit/6fa269c43278e5f3fe2737822152cb41df62ec78))
+
 ## [2.2.9](https://github.com/GrabarzUndPartner/nuxt-booster/compare/v2.2.8...v2.2.9) (2024-04-20)
 
 
