@@ -115,7 +115,7 @@ Do you need further support, a consultation or a code review for an appropriate 
 
 <!-- Badges -->
 
-[logo]: https://github.com/basics/nuxt-booster/blob/main/docs/src/public/poster-light.jpg?raw=true "nuxt-booster"
+[logo]: https://repository-images.githubusercontent.com/265295866/5cf41209-5402-4479-a5f6-29c6b1c0d7ce "nuxt-booster"
 
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>

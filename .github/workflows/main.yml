@@ -98,9 +98,8 @@ jobs:
       - name: Build
         run: |
           npm run generate
-          touch dist/.nojekyll
         env:
-          BASE_URL: /playground/
+          BASE_URL: /nuxt-booster/playground/
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:
