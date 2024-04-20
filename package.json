@@ -20,9 +20,6 @@
   "scripts": {
     "build:bundle": "esbuild src/runtime/tmpl/supportedBrowserDetector.mjs --platform=node --bundle --outfile=src/supportedBrowserDetector.mjs --external:browserslist --external:argue-cli --external:easy-table --external:picocolors",
     "prepack": "rsync -r --exclude ./src ./src/* .",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
     "dev": "nuxt playground",
     "build": "nuxt build --config-file playground/nuxt.config.js",
     "generate": "nuxt generate --config-file playground/nuxt.config.js --target static",
