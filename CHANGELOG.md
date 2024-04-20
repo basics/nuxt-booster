@@ -1,5 +1,93 @@
 # Project Changelog
 
+# [3.0.0](https://github.com/basics/nuxt-booster/compare/v2.2.10...v3.0.0) (2024-04-20)
+
+
+### Bug Fixes
+
+* **components:** added WeakHardwareOverlay ([43f255e](https://github.com/basics/nuxt-booster/commit/43f255ee81e5706379ec6b5c6edf0a5dc71a242d))
+* **components:** replace ticks ([50c9150](https://github.com/basics/nuxt-booster/commit/50c915051327d388ec9781c551507363d3fe2bf3))
+* **composable:** fix ´addImports´ path ([71db6ce](https://github.com/basics/nuxt-booster/commit/71db6ce3317e1840a0c3283817e8e1b1a186fb6e))
+* **entry:** prepare entry for vite and webpack ([04ee52e](https://github.com/basics/nuxt-booster/commit/04ee52e304f83cc1168da8b9d362f9ebbadd029f))
+* **eslint:** remove eslint dep ([85753a7](https://github.com/basics/nuxt-booster/commit/85753a7acc600e11b8a69212ec8e460402039922))
+* **font:**  fix missing fontaine fallback family ([c793fd5](https://github.com/basics/nuxt-booster/commit/c793fd5a3665133f92480a4d1ac6bd4cc039d1e5))
+* **font:** update fallback font ([b49fa7c](https://github.com/basics/nuxt-booster/commit/b49fa7c2fb8a6b02285f191b2bcc2c0f61f6161b))
+* **head:** fix noscript content attribute ([e580fe2](https://github.com/basics/nuxt-booster/commit/e580fe2272a8fe66cf84ef9d60f3b86f295f554d))
+* **head:** minify tags ([7f870f5](https://github.com/basics/nuxt-booster/commit/7f870f5551adf445d69e75aa113d085e876a9b4f))
+* **image:** added load trigger for mounted with complete ([dc5bfd5](https://github.com/basics/nuxt-booster/commit/dc5bfd550b9c2eefe27c413266216a050b302cbd))
+* **jsconfig:** nuxt inherit -> working autosuggest ([9953a9e](https://github.com/basics/nuxt-booster/commit/9953a9e38c52498090bc81952567a8953b15ace0))
+* **lint:** resolve warnings ([42907b9](https://github.com/basics/nuxt-booster/commit/42907b98ba461b826cba7e6aceac357df85dee6f))
+* **module:** added deprecation notifications ([41b1108](https://github.com/basics/nuxt-booster/commit/41b1108289f79da6a96024aa6175d0d93a5018c9))
+* **module:** fix missing mjs files ([7ed3467](https://github.com/basics/nuxt-booster/commit/7ed3467440b701f4960354afc647a88e9560f59f))
+* **module:** fix missing var ([0bf9cf0](https://github.com/basics/nuxt-booster/commit/0bf9cf0c392d959dfa360547cb4441fdcbdc8a4f))
+* **module:** fix missing warn ([eb1602d](https://github.com/basics/nuxt-booster/commit/eb1602d6070ee8c30cdcb4cbf7ce3b8dd001a6df))
+* **module:** fix noscript style ([9ce619a](https://github.com/basics/nuxt-booster/commit/9ce619af409ce82f9bccfbd479070e05f3655762))
+* **module:** fix preloads ([91e6897](https://github.com/basics/nuxt-booster/commit/91e6897a0394cbb4dd424f30cff63abbd15198a5))
+* **module:** improve critters handling ([315e2fe](https://github.com/basics/nuxt-booster/commit/315e2fe5aa764ba9da424e26d14eb5bb088ddb70))
+* **module:** improve templates… ([87206fc](https://github.com/basics/nuxt-booster/commit/87206fc74248cd0fd13787caa1d0f8ea18acbc16))
+* **module:** remove alias workaround ([417d554](https://github.com/basics/nuxt-booster/commit/417d5541a43cdbd6272f74ae3b569f7ef600a686))
+* **module:** remove js extensions ([605e778](https://github.com/basics/nuxt-booster/commit/605e7781ffe19874386df06c9a2e9e0c158534c2))
+* **module:** remove unnecessary templates ([a205139](https://github.com/basics/nuxt-booster/commit/a205139d1deaa36089e0c684661e39ab2a6559c6))
+* **module:** removed `@nuxt/critters` ([be9f3e6](https://github.com/basics/nuxt-booster/commit/be9f3e683d71e61c98b573b2fd095c0fcb342e18))
+* **next:** prepare for next ([31a32d2](https://github.com/basics/nuxt-booster/commit/31a32d25fe8ea5cd032d54a57a5bd9d015b55dd6))
+* **nitro:** fix asset path ([a325b7f](https://github.com/basics/nuxt-booster/commit/a325b7fc9b5d6316b5806782b1e850d8058b90f3))
+* **options:** added missing default options ([1b5a56c](https://github.com/basics/nuxt-booster/commit/1b5a56c5a09155eee383f48b1700018c54af327d))
+* **package:** fix missing dep `@nuxtjs/fontaine` ([163c86e](https://github.com/basics/nuxt-booster/commit/163c86e7bd6d773588164dd50ae62aaeb5a4a9db))
+* **package:** update package-lock ([a31c821](https://github.com/basics/nuxt-booster/commit/a31c8212af89ffd46e3b57215250cae9bd701895))
+* **pkg:** fix docs files ([ab8aa75](https://github.com/basics/nuxt-booster/commit/ab8aa753db9304ebf5b8603a9e284a7dcbd5cfe4))
+* **pkg:** remove unused deps; clean ([90e903e](https://github.com/basics/nuxt-booster/commit/90e903e9db73bfd8aede2e2ffe2f738578d8b851))
+* **pkg:** rename mjs to js; added type module ([5072a98](https://github.com/basics/nuxt-booster/commit/5072a981b7457140cbcbc0fe274dcba5c2ace956))
+* **pkg:** rename prettier.mjs ([0ec1ef8](https://github.com/basics/nuxt-booster/commit/0ec1ef8217b6dcd864f078f0a63ca47e4f0268f7))
+* **pkg:** update package-lock ([7a5b262](https://github.com/basics/nuxt-booster/commit/7a5b262cb96e0344e88d2e9fe04026c108a405e7))
+* **plugin:** improve image size fetch ([546bae1](https://github.com/basics/nuxt-booster/commit/546bae1316efdf22cd482fa0b15773aeb464db9a))
+* **plugin:** speedkit provide completed ([963fb44](https://github.com/basics/nuxt-booster/commit/963fb4474959bb3ac57438211b440c1611629e8b))
+* **preload:** fix invalid css url paths and … ([961c4b2](https://github.com/basics/nuxt-booster/commit/961c4b20da6204127b22d1838033db9b01539cf5))
+* **preload:** ignore other urls ([8d65f2f](https://github.com/basics/nuxt-booster/commit/8d65f2f4ff7872c1c759bdd8bdb7a7b384092315))
+* **preload:** ignore url link tags ([3188864](https://github.com/basics/nuxt-booster/commit/31888645a9614c8b280b3dcc2d874eca39a13101))
+* **publish:** added overrides ([6fed38c](https://github.com/basics/nuxt-booster/commit/6fed38c0990ca2558c8cbbfd91baa9bb59f4362d))
+* **publish:** remove prepare task ([53c9791](https://github.com/basics/nuxt-booster/commit/53c9791a86b1f4c48e1ff7332db3fab815ed9bd0))
+* **publish:** remove stylelint ([cac41fb](https://github.com/basics/nuxt-booster/commit/cac41fbdb484640a6fc7f192967f217100883aa9))
+* **publish:** test 1 ([34a9360](https://github.com/basics/nuxt-booster/commit/34a93607b17c258e9ba25e874f2835910375e9d1))
+* **publish:** test 2 ([ddb9c8d](https://github.com/basics/nuxt-booster/commit/ddb9c8d2237942f7c435cc986baa2fd9f7af4a48))
+* **publish:** test 3 ([93410f8](https://github.com/basics/nuxt-booster/commit/93410f89b1acf85dd96ed0e4ad948b338fa2902e))
+* **publish:** update package-lock ([344bb8f](https://github.com/basics/nuxt-booster/commit/344bb8ffeecd4aa8b588d80635fe77c51a6a9c3c))
+* **setup:** fix await call ([f0a9e86](https://github.com/basics/nuxt-booster/commit/f0a9e86ac6af2e7fc41b2e90c8fa22b20ecbd67f))
+* **source-list:** added workaround for create-sort ([899d971](https://github.com/basics/nuxt-booster/commit/899d971a47b002abe60a9d97279a5a13e5020647))
+* **source-list:** fix missing import ([7ab32cf](https://github.com/basics/nuxt-booster/commit/7ab32cf5c91cbd676e1c50cc230253c90d993595))
+* **source:** `@nuxt/image` `densities` definition ([8adfa89](https://github.com/basics/nuxt-booster/commit/8adfa8932fc1aedd6d54858b46ef1c794e404610))
+* **source:** added `densities` option ([c8a5c55](https://github.com/basics/nuxt-booster/commit/c8a5c55b8f04d4d61d73af3da4548a7cf863a6b7))
+* **source:** fix invalid hash ssr/client ([5ba987c](https://github.com/basics/nuxt-booster/commit/5ba987cef6735d9d0cbec27c844c8eaf7b0552de))
+* **source:** remove S char ([72c1fb2](https://github.com/basics/nuxt-booster/commit/72c1fb2c4f84ee076e383a671529830c0a5e1783))
+* **speedkit-picture:** added `main` changes ([70bdf60](https://github.com/basics/nuxt-booster/commit/70bdf609dda56f51abc8c641ff4fce9d7243f0e3))
+* **ssr:** added style embed in prerenderer ([5abdc58](https://github.com/basics/nuxt-booster/commit/5abdc58a3bb7329729e0535dea1ac22e6f911a6c))
+* **update:** added components & improvements ([d0d8426](https://github.com/basics/nuxt-booster/commit/d0d84261ee11bf1913609b1ffd0e42e9c650b49b))
+* **update:** composable and directive ([ea7ea8e](https://github.com/basics/nuxt-booster/commit/ea7ea8ed72af97b05292d16d500cebc21f02d811))
+* **update:** fix createSort import by external use ([afa335d](https://github.com/basics/nuxt-booster/commit/afa335d760e72987d246f2c0187a97b22eb09164))
+* **update:** fix missing imports by external use ([a29e4af](https://github.com/basics/nuxt-booster/commit/a29e4af73a00209ed29e06e7dcc2ed7fc9a7ea87))
+* **update:** improved playground ([5507418](https://github.com/basics/nuxt-booster/commit/55074180456da56ccec8f115bef1160a276f086f))
+* **update:** improvements ([096a93d](https://github.com/basics/nuxt-booster/commit/096a93d517f42d5f6bd8cf1a68784f9262db14ca))
+* **update:** prepare 1 ([5632c68](https://github.com/basics/nuxt-booster/commit/5632c6854567fbc3587448886c7e922b2424fbf4))
+* **update:** replaced `path` with `pathe` ([a9755eb](https://github.com/basics/nuxt-booster/commit/a9755eb8dd066fa2c69e3eb87361891b5496d75c))
+* **update:** update ([c0fe916](https://github.com/basics/nuxt-booster/commit/c0fe916add224284cf16b213f4e0d016b32ad4b2))
+* **update:** update components & pages ([27daf75](https://github.com/basics/nuxt-booster/commit/27daf75b552f213b3c8772e77087e4d94afdcf62))
+* **update:** update preload optimization ([f384973](https://github.com/basics/nuxt-booster/commit/f384973fe64a72d3d76ca605270fb2344c79f3d9))
+* **v-font:** fix missing font-active class ([a16c688](https://github.com/basics/nuxt-booster/commit/a16c688a8dc194b29d79cf41d0f3744a84f266fd))
+* **v-font:** ignore empty v-font ([c55adab](https://github.com/basics/nuxt-booster/commit/c55adabfe9d093f9b6fb02b9c6e2a4cd786f1350))
+* **v-font:** ignore missing props ([561b271](https://github.com/basics/nuxt-booster/commit/561b271fafb723940c1cc2cf2354eb83de4e7bc5))
+* **webpack:** added workaround for ssr styles ([663318d](https://github.com/basics/nuxt-booster/commit/663318d34ad9b9ec64251b9a8ac9a81fb5e57a8a))
+
+
+### chore
+
+* **readme:** updated readme ([d593082](https://github.com/basics/nuxt-booster/commit/d5930828f368c486e8b6e67b10bfbe5bbfa03a49))
+* **v3:** release ([2ef2877](https://github.com/basics/nuxt-booster/commit/2ef2877e97089177ccc52d408a0d2cb50fa97b58))
+
+
+### BREAKING CHANGES
+
+* **v3:** - Full Nuxt 3 support
+* **readme:** version change for nuxt3
+
 # [3.0.0-next.52](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.51...v3.0.0-next.52) (2024-04-19)
 
 
