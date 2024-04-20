@@ -19,7 +19,7 @@ import PreviewContainer from '@/components/PreviewContainer';
 const props = defineProps({
   vimeoUrl: {
     type: String,
-    default: 'https://vimeo.com/440265549'
+    default: 'https://vimeo.com/288344114'
   },
 
   title: {
