@@ -107,7 +107,7 @@ or look here
 
 ## Consulting & Support
 
-Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <stephan.gerbeth@gmail.com>. We are looking forward to your request.
+Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <stephan.gerbeth@gmail.com>, <lammpee@gmail.com>. We are looking forward to your request.
 
 ## License
 
