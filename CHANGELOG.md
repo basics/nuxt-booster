@@ -671,7 +671,7 @@
 
 * **directive:** fix missing `load:font` event on vnode ([d8b8a0a](https://github.com/basics/nuxt-booster/commit/d8b8a0a776f5d1e00ecbc29516784a226002aba0))
 * **entry:** added customEvent for idle waiting duration ([847334a](https://github.com/basics/nuxt-booster/commit/847334a9cc33f166a292173436fdd67d0fcbc4e1))
-* **hydrate:** add max idle tries for `speedkitHydrate` ([d365c2f](https://github.com/basics/nuxt-booster/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
+* **hydrate:** add max idle tries for `boosterHydrate` ([d365c2f](https://github.com/basics/nuxt-booster/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
 * **hydrate:** removed redundant render wrapper ([794fdcc](https://github.com/basics/nuxt-booster/commit/794fdcc8c421edfd3f6242ff5fd6f1f024cfcde2))
 * **intersection:** fix element-observer inView state ([d393b11](https://github.com/basics/nuxt-booster/commit/d393b1128f10661802c8b83e1144d83182311c0e))
 * **typo:** fix `maxIdleDurations` fallback options and typo in docs ([12acd79](https://github.com/basics/nuxt-booster/commit/12acd7960b4512b30572f87db8fca3dcb5254c47))
@@ -686,7 +686,7 @@
 
 * **directive:** fix missing `load:font` event on vnode ([d8b8a0a](https://github.com/basics/nuxt-booster/commit/d8b8a0a776f5d1e00ecbc29516784a226002aba0))
 * **entry:** added customEvent for idle waiting duration ([847334a](https://github.com/basics/nuxt-booster/commit/847334a9cc33f166a292173436fdd67d0fcbc4e1))
-* **hydrate:** add max idle tries for `speedkitHydrate` ([d365c2f](https://github.com/basics/nuxt-booster/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
+* **hydrate:** add max idle tries for `boosterHydrate` ([d365c2f](https://github.com/basics/nuxt-booster/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
 * **hydrate:** removed redundant render wrapper ([794fdcc](https://github.com/basics/nuxt-booster/commit/794fdcc8c421edfd3f6242ff5fd6f1f024cfcde2))
 * **intersection:** fix element-observer inView state ([d393b11](https://github.com/basics/nuxt-booster/commit/d393b1128f10661802c8b83e1144d83182311c0e))
 * **typo:** fix `maxIdleDurations` fallback options and typo in docs ([12acd79](https://github.com/basics/nuxt-booster/commit/12acd7960b4512b30572f87db8fca3dcb5254c47))
@@ -748,7 +748,7 @@
 
 ### Bug Fixes
 
-* **hydrate:** add max idle tries for `speedkitHydrate` ([d365c2f](https://github.com/basics/nuxt-booster/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
+* **hydrate:** add max idle tries for `boosterHydrate` ([d365c2f](https://github.com/basics/nuxt-booster/commit/d365c2fbae249de740633a725a6ce6fa065255a5))
 
 ## [2.0.21-beta.1](https://github.com/basics/nuxt-booster/compare/v2.0.20...v2.0.21-beta.1) (2022-09-08)
 
@@ -777,7 +777,7 @@
 
 ### Bug Fixes
 
-* **hydrate:** ignore `speedkitHydrate` by server ([d5ee14f](https://github.com/basics/nuxt-booster/commit/d5ee14fd749d80aaf5de5fb54182aa6783ef4b80))
+* **hydrate:** ignore `boosterHydrate` by server ([d5ee14f](https://github.com/basics/nuxt-booster/commit/d5ee14fd749d80aaf5de5fb54182aa6783ef4b80))
 
 ## [2.0.17](https://github.com/basics/nuxt-booster/compare/v2.0.16...v2.0.17) (2022-07-19)
 
@@ -1068,7 +1068,7 @@
 * **mixin:** improve context request ([1747f0e](https://github.com/basics/nuxt-booster/commit/1747f0ea623f43d533eb2ffef1fe5d74bfa9d31a))
 * **mixin:** improve page style change ([d16ce7b](https://github.com/basics/nuxt-booster/commit/d16ce7bd0efd79896cb9b310084713e23a48efbe))
 * **mixin:** improve pageStyles ([2b13698](https://github.com/basics/nuxt-booster/commit/2b1369833e8d5c62a90c25c82130a46952a2b01f))
-* **mixin:** remove speedkitComponents; add loader function for component load ([ff69fef](https://github.com/basics/nuxt-booster/commit/ff69fefbb2d91fcdf69fe002136b22154e121edd))
+* **mixin:** remove boosterComponents; add loader function for component load ([ff69fef](https://github.com/basics/nuxt-booster/commit/ff69fefbb2d91fcdf69fe002136b22154e121edd))
 * **module:** activate `resourceHints` and `asyncScripts` ([798772b](https://github.com/basics/nuxt-booster/commit/798772be94ff3ba39d989f7b43a9373d32a1c2f0))
 * **module:** add method for nuxt option optimization ([5af68d5](https://github.com/basics/nuxt-booster/commit/5af68d538ab884835084be173fd5742eb7eb659c))
 * **module:** fix internalUrl with protocol and host ([d9e0ceb](https://github.com/basics/nuxt-booster/commit/d9e0ceba25781fc2863b1431903ed901161a5009))
@@ -1090,7 +1090,7 @@
 * **picture:** fixed default format order ([ebb8b84](https://github.com/basics/nuxt-booster/commit/ebb8b84580e79a96eb49a81160b5ec16433412c5))
 * **picture:** renamed priority format var ([38d4b8f](https://github.com/basics/nuxt-booster/commit/38d4b8f24b6ef27f822cdb8cae530218166e5e4a))
 * **plugin:** add plugin for head; clean mixin ([bffb95d](https://github.com/basics/nuxt-booster/commit/bffb95d12dcbb4db7d6c500093b5d1ffa96f7740))
-* **plugin:** changed $speedkitHead to $booster.head ([3442bc8](https://github.com/basics/nuxt-booster/commit/3442bc81d2197966b55422ece223a4f56577f9b3))
+* **plugin:** changed $boosterHead to $booster.head ([3442bc8](https://github.com/basics/nuxt-booster/commit/3442bc81d2197966b55422ece223a4f56577f9b3))
 * **plugin:** improve loading-spinner config ([151403a](https://github.com/basics/nuxt-booster/commit/151403a6fd56d4ee8081071bba2a77e82b5685fa))
 * **plugin:** move head def to head.js ([82031ef](https://github.com/basics/nuxt-booster/commit/82031eff7416a45819b84f08d7d4dfdf9ae75ffa))
 * **plugin:** remove head as plugin, add import to vFont plugin ([e3881fb](https://github.com/basics/nuxt-booster/commit/e3881fbb2ff5d22c2c84993fd523c7ebe42f54db))
@@ -1156,7 +1156,7 @@
 
 ### Bug Fixes
 
-* **plugin:** changed $speedkitHead to $booster.head ([3442bc8](https://github.com/basics/nuxt-booster/commit/3442bc81d2197966b55422ece223a4f56577f9b3))
+* **plugin:** changed $boosterHead to $booster.head ([3442bc8](https://github.com/basics/nuxt-booster/commit/3442bc81d2197966b55422ece223a4f56577f9b3))
 
 # [2.0.0-beta.45](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.44...v2.0.0-beta.45) (2022-03-16)
 
@@ -1383,7 +1383,7 @@
 ### Bug Fixes
 
 * **directive:** removing delaying import ([7ab509e](https://github.com/basics/nuxt-booster/commit/7ab509ea3e0de916ed0f3dc1dfd9ce9855b3c9b9))
-* **mixin:** remove speedkitComponents; add loader function for component load ([ff69fef](https://github.com/basics/nuxt-booster/commit/ff69fefbb2d91fcdf69fe002136b22154e121edd))
+* **mixin:** remove boosterComponents; add loader function for component load ([ff69fef](https://github.com/basics/nuxt-booster/commit/ff69fefbb2d91fcdf69fe002136b22154e121edd))
 
 # [2.0.0-beta.16](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.15...v2.0.0-beta.16) (2022-01-04)
 

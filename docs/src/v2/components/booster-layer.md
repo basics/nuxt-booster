@@ -139,10 +139,10 @@ Closing mechanics does not require javascript.
 
 For Unsupported-Browser and Insufficient Hardware events, an `onclick` event must also be set with the `id`.
 
-In the event, the global variable `__NUXT_SPEEDKIT_AUTO_INIT__` must be set to `true`.
+In the event, the global variable `__NUXT_BOOSTER_AUTO_INIT__` must be set to `true`.
 
 These are needed if the user has already reacted before the initial Javascript has been loaded. After the javascript has been successfully loaded, the app is automatically initialised.
 
 | Variable                      | Type      | Description                                                                  | Default |
 | ----------------------------- | --------- | ---------------------------------------------------------------------------- | ------- |
-| `__NUXT_SPEEDKIT_AUTO_INIT__` | `Boolean` | If set, initialisation continues after the javascript has been fully loaded. | `false` |
+| `__NUXT_BOOSTER_AUTO_INIT__` | `Boolean` | If set, initialisation continues after the javascript has been fully loaded. | `false` |

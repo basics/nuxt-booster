@@ -101,7 +101,7 @@ async function addBuildTemplates(nuxt, options) {
   const fontConfig = new FontConfig(options.fonts, nuxt.options.alias);
 
   nuxt.hook('listen', (_, listener) => {
-    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${
+    process.env.NUXT_BOOSTER_INTERAL_URL = `${
       listener.https ? 'https' : 'http'
     }://${listener.host || 'localhost'}:${listener.port}`;
   });

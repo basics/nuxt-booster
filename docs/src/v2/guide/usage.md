@@ -43,11 +43,11 @@ Until now, components were imported either statically (`import component from '@
 In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-import speedkitHydrate from '#booster/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    Stage: speedkitHydrate(() => import('@/components/organisms/Stage')),
+    Stage: boosterHydrate(() => import('@/components/organisms/Stage')),
   }
 };
 ````
