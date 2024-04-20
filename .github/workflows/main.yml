@@ -133,7 +133,6 @@ jobs:
       - name: Build
         run: |
           npm run docs:build
-          touch docs/.vitepress/dist/.nojekyll
         env:
           BASE_URL: /nuxt-booster/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
