@@ -158,7 +158,7 @@ Image Title.
 
 If not set, the global crossorigin is used `this.$booster.crossorigin`.
 
-[Learn more about `crossorigin` option](https://nuxt-booster.grabarzundpartner.dev/options#crossorigin)
+[Learn more about `crossorigin` option](https://basics.github.io/nuxt-booster/options#crossorigin)
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 

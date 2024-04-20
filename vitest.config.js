@@ -2,6 +2,7 @@ import path from 'pathe';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  base: process.env.BASE_URL || '/',
   test: {
     include: ['test/*.test.js'],
     testTimeout: 60_000,

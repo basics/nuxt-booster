@@ -1,15 +1,15 @@
 ---
-title: SpeedkitPicture
+title: BoosterPicture
 ---
 
 # {{$frontmatter.title}}
 
-The `SpeedkitPicture` is a `picture` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
+The `BoosterPicture` is a `picture` implementation based on the module [`@nuxt/image`](https://image.nuxtjs.org/).  
 It uses the provided API `$img`.
 
 ## Features
 
-With the current implementation of `SpeedkitPicture` we can cover the following functionality:
+With the current implementation of `BoosterPicture` we can cover the following functionality:
 
 - generation of multiple sources with multiple image resolutions (srcset)
 - breakpoint-based differentiation of multiple image resolutions and ratios (srcset + media-rule)
@@ -22,12 +22,12 @@ With the current implementation of `SpeedkitPicture` we can cover the following 
 
 ## Usage
 
-The `SpeedkitPicture` is used to automatically generate and display different image sizes and/or image ratios for different viewports.
+The `BoosterPicture` is used to automatically generate and display different image sizes and/or image ratios for different viewports.
 
 The specified resources can be given by absolute path (static folder) or complete URL. [`nuxt/image`](https://image.nuxtjs.org/) downloads the resources fully automatically and stores the generated and optimized renditions in the destination folder.
 
 ::: warning
-Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disableNuxtImage`.
+Important: For using `BoosterPicture` do not disable `@nuxt/image` via `disableNuxtImage`.
 :::
 
 ### Example
@@ -35,14 +35,14 @@ Important: For using `SpeedkitPicture` do not disable `@nuxt/image` via `disable
 ````vue
 <template>
   <div>
-    <speedkit-picture v-bind="picture" @load="onLoadPicture"  />
+    <booster-picture v-bind="picture" @load="onLoadPicture"  />
   </div>
 </template>
 
 <script>
-import SpeedkitPicture from '#booster/components/SpeedkitPicture';
+import BoosterPicture from '#booster/components/BoosterPicture';
 export default {
-  components: { SpeedkitPicture },
+  components: { BoosterPicture },
   data () {
     return {
       picture: {
@@ -81,9 +81,9 @@ export default {
 - Type: `Boolean`
   - Default: `true`
 
-The initialization of the `SpeedkitPicture` in the client can be controlled manually.  
+The initialization of the `BoosterPicture` in the client can be controlled manually.  
 Here for the property `hydrate` must be set externally.
-If `true` the `SpeedkitPicture` is initialized.
+If `true` the `BoosterPicture` is initialized.
 
 ### `sources`
 
@@ -91,7 +91,7 @@ If `true` the `SpeedkitPicture` is initialized.
 
 List of resources used.
 
-The definitions in the `sources` are equivalent to the [`SpeedkitImage (source)`](/v2/components/speedkit-image#source).
+The definitions in the `sources` are equivalent to the [`BoosterImage (source)`](/v2/components/booster-image#source).
 
 The only differences are:
 
@@ -131,7 +131,7 @@ Formats can also be specified as OR condition (`jpg|jpeg|png|gif`). This is impo
 - Type: [`LoadingSpinner`](/v2/classes/loading-spinner)
   - Default: `undefined`
 
-Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading-spinner), this describes the visual appearance of the loading state of the `SpeedkitImage` contained in the `SpeedkitPicture`.
+Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading-spinner), this describes the visual appearance of the loading state of the `BoosterImage` contained in the `BoosterPicture`.
 
 ### `alt`
 
@@ -153,9 +153,9 @@ Image Title.
 
 - Type: `String`, `Boolean`
 
-If not set, the global crossorigin is used `this.$speedkit.crossorigin`.
+If not set, the global crossorigin is used `this.$booster.crossorigin`.
 
-[Learn more about `crossorigin` option](https://nuxt-booster.grabarzundpartner.dev/options#crossorigin)
+[Learn more about `crossorigin` option](https://basics.github.io/nuxt-booster/options#crossorigin)
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
@@ -180,7 +180,7 @@ Set component as critical component.
 ## Events
 
 ````html
-<speedkit-picture 
+<booster-picture 
   @load="console.log('Loaded!')" 
 />
 ````

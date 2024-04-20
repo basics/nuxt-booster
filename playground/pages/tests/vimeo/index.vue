@@ -15,7 +15,7 @@ import boosterHydrate from '#booster/hydrate';
 const Default = boosterHydrate(() => import('./components/Default'));
 const items = [
   {
-    vimeoUrl: 'https://vimeo.com/440265549',
+    vimeoUrl: 'https://vimeo.com/288344114',
     title: 'Vimeo 1'
   },
   {

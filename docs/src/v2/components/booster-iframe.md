@@ -1,12 +1,12 @@
 ---
-title: SpeedkitIframe
+title: BoosterIframe
 
 
 ---
 
 # {{$frontmatter.title}}
 
-`SpeedkitIframe`, Iframe & IntersectionObserver in one.
+`BoosterIframe`, Iframe & IntersectionObserver in one.
 
 ## Exkurs
 
@@ -30,18 +30,18 @@ This sets the source on the iframe only when the visible viewport has been reach
 - No resources are blocked during loading.
 - Traffic is only generated when the iframe is visible.
 
-The strategy mentioned above is provided by the `SpeedkitIframe`, which can be used in the same way as a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+The strategy mentioned above is provided by the `BoosterIframe`, which can be used in the same way as a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 The included [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) is configured via the `intersectionObserver` property.
 
 ## Usage
 
-The `SpeedkitIframe` is used like a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
+The `BoosterIframe` is used like a normal [HTML Iframe](https://www.w3schools.com/tags/tag_iframe.asp).
 
 ### Example
 
 ````vue
 <template>
-  <speedkit-iframe v-bind="iframe" @load="onLoadIframe" />
+  <booster-iframe v-bind="iframe" @load="onLoadIframe" />
 </template>
 
 <script>
@@ -77,7 +77,7 @@ For advanced usage, [learn more](https://web.dev/intersectionobserver-v2/) about
 ## Events
 
 ````html
-<speedkit-iframe 
+<booster-iframe 
   @load="console.log('Iframe Loaded!')" 
   @enter="console.log('Iframe enter viewport!')" 
 />

@@ -1,6 +1,7 @@
 {
   "extends": [
-    "@nuxtjs"
+    "@nuxtjs",
+    ":semanticCommits"
   ],
   "packageRules": [
     {
@@ -17,22 +18,7 @@
         "enabled": true
       },
       "separateMultipleMajor": true,
-      "allowedVersions": "^16"
-    },
-    {
-      "matchPackagePatterns": [
-        "@nuxtjs/eslint-config",
-        "@nuxtjs/eslint-config-typescript",
-        "@nuxtjs/eslint-module",
-        "@nuxtjs/stylelint-module",
-        "nuxt",
-        "eslint",
-        "stylelint"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "enabled": false
+      "allowedVersions": "^20"
     }
   ],
   "baseBranches": [

@@ -36,7 +36,7 @@ The following NuxtJS settings are made or overwritten in the `nuxt.config`:
 
 - Type: `Object`
 
-These options can be used to define the initial checks to display the [`SpeedkitLayer`](/v2/components/speedkit-layer). The prerequisite are that the [`SpeedkitLayer`](/v2/components/speedkit-layer) has been embedded into the layout.
+These options can be used to define the initial checks to display the [`BoosterLayer`](/v2/components/booster-layer). The prerequisite are that the [`BoosterLayer`](/v2/components/booster-layer) has been embedded into the layout.
   
 ````js
 {
@@ -47,8 +47,8 @@ These options can be used to define the initial checks to display the [`Speedkit
 
  | Key              | Type      | Required | Description                                                                                                                                                                                        | Default |
  | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/v2/guide/options#performancemetrics) have been reached. If the test is negative, the [`SpeedkitLayer`](/v2/components/speedkit-layer) will be displayed. | `true`  |
- | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`SpeedkitLayer`](/v2/components/speedkit-layer) will be displayed.                                            | `true`  |
+ | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/v2/guide/options#performancemetrics) have been reached. If the test is negative, the [`BoosterLayer`](/v2/components/booster-layer) will be displayed. | `true`  |
+ | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`BoosterLayer`](/v2/components/booster-layer) will be displayed.                                            | `true`  |
 
 :::info
 For the browser support detection, the default [Browserslist](https://github.com/browserslist/browserslist) of the NuxtJS configuration is used.
@@ -95,7 +95,7 @@ Definition of the minimum hardware requirements for visiting the website.
 
 - Type: `Object`
 
-Definition of the max. FCP duration (ms). If the specified value is exceeded, the [`SpeedkitLayer`](/v2/components/speedkit-layer) will be displayed. If the browser does not grant access to the FCP, as fallback the DCL will be evaluated.
+Definition of the max. FCP duration (ms). If the specified value is exceeded, the [`BoosterLayer`](/v2/components/booster-layer) will be displayed. If the browser does not grant access to the FCP, as fallback the DCL will be evaluated.
 
 ````js
 {
@@ -205,9 +205,9 @@ List of all available font files of a font family variation.
 - Type: `Array`
   - Default: `['webp', 'avif', 'jpg|jpeg|png|gif']`
 
-Sets the default formats for the `SpeedkitPicture`.
+Sets the default formats for the `BoosterPicture`.
 
-Can be overridden in the `SpeedkitPicture` via the [`formats`](/v2/components/speedkit-picture#formats) property.
+Can be overridden in the `BoosterPicture` via the [`formats`](/v2/components/booster-picture#formats) property.
 
 For `png`, `jpeg` and `gif` formats we have added the `|` operator in the declaration.  
 This adjusts the destination format to the source format.
@@ -254,10 +254,10 @@ This option is not recommended if you want to achieve a lighthouse score of 100/
 
 | Global Name                 | Import Path                                            |                                                                                                                       |
 | --------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `SpeedkitIframe`            | `#booster/components/SpeedkitIframe`              | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitIframe.vue)              |
-| `SpeedkitLayer`             | `#booster/components/SpeedkitLayer`               | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitLayer.vue)               |
-| `SpeedkitPicture`           | `#booster/components/SpeedkitPicture`             | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitPicture.vue)             |
-| `SpeedkitYoutube`           | `#booster/components/SpeedkitYoutube`             | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/SpeedkitYoutube.vue)             |
+| `BoosterIframe`            | `#booster/components/BoosterIframe`              | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/BoosterIframe.vue)              |
+| `BoosterLayer`             | `#booster/components/BoosterLayer`               | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/BoosterLayer.vue)               |
+| `BoosterPicture`           | `#booster/components/BoosterPicture`             | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/BoosterPicture.vue)             |
+| `BoosterYoutube`           | `#booster/components/BoosterYoutube`             | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/BoosterYoutube.vue)             |
 | `AbstractComponentObserver` | `#booster/components/abstracts/ComponentObserver` | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/abstracts/ComponentObserver.vue) |
 | `AbstractOnlySsr`           | `#booster/components/abstracts/OnlySsr`           | [Source](https://github.com/basics/nuxt-booster/blob/main/lib/components/abstracts/OnlySsr.vue)           |
 
@@ -268,7 +268,7 @@ This option is not recommended if you want to achieve a lighthouse score of 100/
 
 Defines a prefix for the module components, important for auto import e.g. option `componentAutoImport`.
 
-**Example:** `SpeedkitPicture` => `PrefixSpeedkitPicture`
+**Example:** `BoosterPicture` => `PrefixBoosterPicture`
 
 ## `lazyOffset`
 
@@ -285,14 +285,14 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 
  | Key         | Type     | Required | Description                                                                                                                                                                       | Default |
  | ----------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`SpeedkitHydrate`](/v2/guide/usage#import-components).                         | `0%`    |
- | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `SpeedkitPicture` & `SpeedkitImage`). | `0%`    |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`BoosterHydrate`](/v2/guide/usage#import-components).                         | `0%`    |
+ | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `BoosterPicture` & `BoosterImage`). | `0%`    |
 
 ## `loader`
 
 - Type: `Object`
 
-Defines the global built-in [LoadingSpinner](/v2/components/speedkit-image#loadingspinner).
+Defines the global built-in [LoadingSpinner](/v2/components/booster-image#loadingspinner).
 
 ````js
 {
@@ -316,5 +316,5 @@ Defines the global built-in [LoadingSpinner](/v2/components/speedkit-image#loadi
 If set, `@nuxt/image` will not be integrated.
 
 ::: danger
-Note that the use of `SpeedkitImage`, `SpeedkitPicture`, `SpeedkitVimeo` and `SpeedkitYoutube` is not supported if `@nuxt/image` is not integrated.
+Note that the use of `BoosterImage`, `BoosterPicture`, `BoosterVimeo` and `BoosterYoutube` is not supported if `@nuxt/image` is not integrated.
 :::

@@ -43,11 +43,11 @@ Until now, components were imported either statically (`import component from '@
 In the background, the module by [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
 ````js
-import speedkitHydrate from '#booster/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    Stage: speedkitHydrate(() => import('@/components/organisms/Stage')),
+    Stage: boosterHydrate(() => import('@/components/organisms/Stage')),
   }
 };
 ````
@@ -62,34 +62,34 @@ Although the <code>#booster/hydrate</code> function can be used in any component
 With <code>NODE-ENV (development)</code>, the components are included directly. <br>This is relevant for the hot reload of the imported vue files.
 :::
 
-## Speedkit Components
+## Booster Components
 
-In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The speedkit components can be imported via the namespace `#booster/components`.
+In order to be able to load further static resources such as pictures, iFrames or Vimeo/Youtube videos in the iFrame in a performance-optimised way, we provide the following components. The booster components can be imported via the namespace `#booster/components`.
 
-- [SpeedkitLayer](/v2/components/speedkit-layer)
-- [SpeedkitPicture](/v2/components/speedkit-picture)
-- [SpeedkitImage](/v2/components/speedkit-image)
-- [SpeedkitIframe](/v2/components/speedkit-iframe)
-- [SpeedkitVimeo](/v2/components/speedkit-vimeo)
-- [SpeedkitYoutube](/v2/components/speedkit-youtube)
+- [BoosterLayer](/v2/components/booster-layer)
+- [BoosterPicture](/v2/components/booster-picture)
+- [BoosterImage](/v2/components/booster-image)
+- [BoosterIframe](/v2/components/booster-iframe)
+- [BoosterVimeo](/v2/components/booster-vimeo)
+- [BoosterYoutube](/v2/components/booster-youtube)
 
 ````html
 <template>
-  <speedkit-picture>
+  <booster-picture>
 </template>
 
 <script>
-import SpeedkitPicture from '#booster/components/SpeedkitPicture'
+import BoosterPicture from '#booster/components/BoosterPicture'
 export default {
   components: {
-    SpeedkitPicture
+    BoosterPicture
   }
 }
 </script>
 ````
 
 :::info
-The speedkit components will be expanded in the future. If you have explicit wishes, please send us a feature request or directly a pull request with the corresponding feature :)
+The booster components will be expanded in the future. If you have explicit wishes, please send us a feature request or directly a pull request with the corresponding feature :)
 :::
 
 ## Example

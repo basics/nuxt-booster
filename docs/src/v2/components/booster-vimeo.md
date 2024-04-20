@@ -1,16 +1,16 @@
 ---
-title: SpeedkitVimeo
+title: BoosterVimeo
 ---
 
 # {{$frontmatter.title}}
 
-We have integrated `SpeedkitVimeo`  as an example to show how iFrame content must be integrated in a performance-optimized manner.
+We have integrated `BoosterVimeo`  as an example to show how iFrame content must be integrated in a performance-optimized manner.
 For this purpose, a separate IntersectionObserver has been implemented, which detects a longer dwell time of the component in the viewport. The iFrame is initialized only after a positive detection. This prevents immense data from having to be loaded when simply scrolling through the page.
-So that no empty space is visible to the user, we use the functionality of the [`SpeedkitPicture`](/v2/components/speedkit-picture) and preload the corresponding Vimeo poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
+So that no empty space is visible to the user, we use the functionality of the [`BoosterPicture`](/v2/components/booster-picture) and preload the corresponding Vimeo poster in different renditions, so the illusion is perfect for the user and he does not notice anything of the optimized lazy load procedure.
 
 ## Usage
 
-The `SpeedkitVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
+The `BoosterVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
 
 ::: tip
 The SDK is not part of `nuxt-booster` and will be loaded by an external script.
@@ -18,12 +18,12 @@ The SDK is not part of `nuxt-booster` and will be loaded by an external script.
 
 The `url` of the Vimeo video must be specified.  
 
-The `SpeedkitPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/v2/components/speedkit-image#source).
+The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is `sizes`?)](/v2/components/booster-image#source).
 
-[Learn more about `SpeedkitPicture`](/v2/components/speedkit-picture)
+[Learn more about `BoosterPicture`](/v2/components/booster-picture)
 
 ::: warning
-Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNuxtImage`
+Important: For using `BoosterVimeo` do not disable `@nuxt/image` via `disableNuxtImage`
 :::
 
 ### Example
@@ -31,14 +31,14 @@ Important: For using `SpeedkitVimeo` do not disable `@nuxt/image` via `disableNu
 ````vue
 <template>
   <div>
-    <speedkit-vimeo v-bind="vimeo" @playing="onPlaying"  />
+    <booster-vimeo v-bind="vimeo" @playing="onPlaying"  />
   </div>
 </template>
 
 <script>
-import SpeedkitVimeo from '#booster/components/SpeedkitVimeo';
+import BoosterVimeo from '#booster/components/BoosterVimeo';
 export default {
-  components: { SpeedkitVimeo },
+  components: { BoosterVimeo },
   data () {
     return {
       vimeo: {
@@ -94,7 +94,7 @@ Sets the title for the player iframe and poster.
 - Type: `Boolean`
   - Default: `false`
 
-When set starts video in autoplay. It is required that the component is integrated via [`SpeedkitHydrate`](/v2/guide/usage#import-components) or is only activated when entering the visible area.
+When set starts video in autoplay. It is required that the component is integrated via [`BoosterHydrate`](/v2/guide/usage#import-components) or is only activated when entering the visible area.
 
 ### `mute`
 
@@ -108,7 +108,7 @@ When set the player is muted.
 - Type: [`LoadingSpinner`](/v2/classes/loading-spinner)
   - Default: `undefined`
 
-Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading-spinner), this describes the visual appearance of the loading state of the `SpeedkitImage` contained in the `SpeedkitPicture`.
+Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading-spinner), this describes the visual appearance of the loading state of the `BoosterImage` contained in the `BoosterPicture`.
 
 ### `posterSizes`
 
@@ -117,7 +117,7 @@ Sets a loading spinner definition of type [`LoadingSpinner`](/v2/classes/loading
 
 Sets the image sizes of the poster.
 
-[Learn more about `sizes`](/v2/components/speedkit-image#source)
+[Learn more about `sizes`](/v2/components/booster-image#source)
 
 ### `options`
 
@@ -160,7 +160,7 @@ This is important for autoplay on mobile devices.
 ## Events
 
 ````html
-<speedkit-vimeo 
+<booster-vimeo 
   @ready="console.log('Player Ready!')" 
   @playing="console.log('Player Playing!')" 
 />

@@ -61,7 +61,7 @@ export async function addNuxtImage(nuxt) {
       ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
     ) {
       logger.warn(
-        'For using `BoosterYoutube` and `BoosterVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-booster.grabarzundpartner.dev/setup#nuxtimage'
+        'For using `BoosterYoutube` and `BoosterVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://basics.github.io/nuxt-booster/setup#nuxtimage'
       );
     }
   });

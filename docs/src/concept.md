@@ -88,7 +88,7 @@ We use this effect by executing the intial javascript process and the component 
 
 Side effect: The timeslots in the Google Lighthouse Test are always <= 10ms, so no javascript will be initialized.
 
-### SpeedkitLayer
+### BoosterLayer
 
 With the solutions described above, the user gets a functioning webpage displayed very quickly.
 However, the following situation can also occur on the end device:
