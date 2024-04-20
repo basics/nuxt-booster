@@ -15,7 +15,15 @@ import FontConfig from './runtime/classes/FontConfig';
 import { getCrossorigin } from './runtime/utils';
 import { getSupportedBrowserDetector } from './utils/browser';
 
+const renamedNotification = () => {
+  consola.warn(
+    '`nuxt-speedkit` for `nuxt@2` will no longer be maintained. You can find it again for `nuxt@3` under `nuxt-booster`. Please update your dependencies. `https://www.npmjs.com/package/nuxt-booster`'
+  );
+};
+
 export default async function (moduleOptions) {
+  renamedNotification();
+
   const options = getOptions({
     ...this.options.speedkit,
     ...moduleOptions

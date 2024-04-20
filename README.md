@@ -20,6 +20,9 @@
   </a>
 </p>
 
+> **Note:** Nuxt Speedkit is no longer be maintained.  
+> We recommend the use of [Nuxt Booster](https://github.com/basics/nuxt-booster) for Nuxt 3.
+
 ![nuxt-speedkit][logo]
 
 # Nuxt Speedkit
@@ -109,7 +112,7 @@ or look here
 
 ## Consulting & Support
 
-Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: dev@grabarzundpartner.de. We are looking forward to your request.
+Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <dev@grabarzundpartner.de>. We are looking forward to your request.
 
 ## License
 
