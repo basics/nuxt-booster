@@ -128,7 +128,7 @@ export default {
       },
 
       videoVimeoA: {
-        url: 'https://vimeo.com/440265549',
+        url: 'https://vimeo.com/288344114',
         text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
       },
 
