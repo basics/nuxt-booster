@@ -42,10 +42,6 @@
 Nuxt Booster takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
 
-## Demos
-
-- [Nuxt Booster Example](https://basics.github.io/nuxt-booster/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fbasics.github.io%2Fnuxt-booster%2Fplayground%2F), [Sitespeed](https://basics.github.io/nuxt-booster/playground/reports/sitespeed/nuxt-booster/))
-
 ## Getting Started
 
 Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://basics.github.io/nuxt-booster/)
