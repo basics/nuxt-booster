@@ -1,7 +1,7 @@
 <p align="right">
   share me:
   <a href="https://twitter.com/intent/tweet?url=https://github.com/basics/nuxt-booster&text=nuxt-booster will help you to improve the lighthouse performance score of your website&via=basics&hashtags=vue,nuxt,booster">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg?sanitize=true"/>
+    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/x.svg?sanitize=true"/>
   </a>
   <a href="https://news.ycombinator.com/submitlink?u=https://github.com/basics/nuxt-booster&t=nuxt-booster will help you to improve the lighthouse performance score">
     <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/hackernews.svg?sanitize=true"/>
@@ -129,8 +129,8 @@ Do you need further support, a consultation or a code review for an appropriate 
 [github-workflow-test-src]: <https://github.com/basics/nuxt-booster/workflows/Test/badge.svg?branch=main>
 [github-workflow-test-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ATest>
 
-[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=Basics_nuxt-booster&metric=alert_status>
-[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=Basics_nuxt-booster>
+[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=basics_nuxt-booster&metric=alert_status>
+[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=basics_nuxt-booster>
 
 [license-src]: https://img.shields.io/npm/l/nuxt-booster.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-booster

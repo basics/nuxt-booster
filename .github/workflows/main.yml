@@ -135,6 +135,7 @@ jobs:
           npm run docs:build
           touch docs/.vitepress/dist/.nojekyll
         env:
+          BASE_URL: /nuxt-booster/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
@@ -144,7 +145,7 @@ jobs:
 
   deploy-ghpages:
     name: Deploy (GH-Pages)
-    needs: [build-docs]
+    needs: [build-docs, build-playground]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -167,7 +168,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
           # cname:
-          keep_files: true
+          keep_files: false
 
   # report-sitespeed:
   #   needs: deploy-ghpages
