@@ -1,6 +1,13 @@
 # Project Changelog
 
-## [2.2.8](https://github.com/basics/nuxt-booster/compare/v2.2.7...v2.2.8) (2024-01-27)
+## [2.2.9](https://github.com/GrabarzUndPartner/nuxt-booster/compare/v2.2.8...v2.2.9) (2024-04-20)
+
+
+### Bug Fixes
+
+* **deprecation:** added deprecation message ([4ac1c89](https://github.com/GrabarzUndPartner/nuxt-booster/commit/4ac1c89f5bfa1f0f1854d2602a2c5f1bd616b1a2))
+
+## [2.2.8](https://github.com/GrabarzUndPartner/nuxt-booster/compare/v2.2.7...v2.2.8) (2024-01-27)
 
 
 ### Bug Fixes

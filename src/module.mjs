@@ -15,7 +15,15 @@ import FontConfig from './runtime/classes/FontConfig';
 import { getCrossorigin } from './runtime/utils';
 import { getSupportedBrowserDetector } from './utils/browser';
 
+const renamedNotification = () => {
+  consola.warn(
+    '🚨 Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained.'
+  );
+};
+
 export default async function (moduleOptions) {
+  renamedNotification();
+
   const options = getOptions({
     ...this.options.booster,
     ...moduleOptions
@@ -81,7 +89,7 @@ async function addBuildTemplates(scope, options) {
   const fontConfig = new FontConfig(options.fonts, scope.nuxt.options.alias);
 
   scope.nuxt.hook('listen', (_, listener) => {
-    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${
+    process.env.NUXT_BOOSTER_INTERAL_URL = `${
       listener.https ? 'https' : 'http'
     }://${listener.host || 'localhost'}:${listener.port}`;
   });

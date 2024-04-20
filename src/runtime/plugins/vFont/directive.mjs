@@ -28,7 +28,7 @@ export default {
           activateFonts(el, binding, vnode);
         } else {
           const observer = getElementObserver(el, {
-            rootMargin: process.env.NUXT_SPEEDKIT_LAZY_OFFSET_ASSET
+            rootMargin: process.env.NUXT_BOOSTER_LAZY_OFFSET_ASSET
           });
           obervers.set(el, observer);
           await observer.enterViewOnce();

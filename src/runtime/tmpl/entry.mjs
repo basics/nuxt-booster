@@ -4,7 +4,7 @@ import { isSupportedBrowser } from '#booster/utils/browser';
 let initialized = false
 const layerEl = window.document.getElementById('nuxt-booster-layer');
 
-const forceInit = ('__NUXT_SPEEDKIT_FORCE_INIT__' in window && window.__NUXT_SPEEDKIT_FORCE_INIT__);
+const forceInit = ('__NUXT_BOOSTER_FORCE_INIT__' in window && window.__NUXT_BOOSTER_FORCE_INIT__);
 
 const triggerRunCallback = sufficient => window.dispatchEvent(new CustomEvent('nuxt-booster:run', { detail: { sufficient } }))
 
@@ -97,7 +97,7 @@ window.addEventListener('load', function () {
 
     setup(<%= options.performanceMetrics %>);
 
-    if(('__NUXT_SPEEDKIT_AUTO_INIT__' in window && window.__NUXT_SPEEDKIT_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
+    if(('__NUXT_BOOSTER_AUTO_INIT__' in window && window.__NUXT_BOOSTER_AUTO_INIT__) || ((<%= !options.ignorePerformance %> && hasSufficientPerformance()) && supportedBrowser)) {
       initApp();
     } else {
       setupBoosterLayer(supportedBrowser)

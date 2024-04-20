@@ -74,9 +74,9 @@ function deprecationsNotification(options) {
 }
 
 function setEnvironments(nuxt, options) {
-  nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_COMPONENT =
+  nuxt.options.env.NUXT_BOOSTER_LAZY_OFFSET_COMPONENT =
     options.lazyOffset.component;
-  nuxt.options.env.NUXT_SPEEDKIT_LAZY_OFFSET_ASSET = options.lazyOffset.asset;
+  nuxt.options.env.NUXT_BOOSTER_LAZY_OFFSET_ASSET = options.lazyOffset.asset;
 }
 
 function optimizePreloads(nuxt) {

@@ -1,18 +1,6 @@
+> # 🚨 Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained
+
 # Nuxt Booster
-
-[![main][github-workflow-main-src]][github-workflow-main-href]
-[![next][github-workflow-beta-src]][github-workflow-beta-href]
-[![next][github-workflow-test-src]][github-workflow-test-href]
-[![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
-
-[![npm version][npm-version-latest-src]][npm-version-latest-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-
-[![Renovate - Status][renovate-status-src]][renovate-status-href]
-[![License][license-src]][license-href]
-
-- [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
-- [👁 &nbsp;&nbsp;**Preview**](https://basics.github.io/nuxt-booster-example/)
 
 Nuxt Booster takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
@@ -71,13 +59,6 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://basics.github.io/
 3. Build and start with express `npm run start:generate` or `yarn start:generate`.
 4. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in Browser.
 
-or look here
-
-- [Preview](https://basics.github.io/nuxt-booster/playground)
-- [Report Client](https://basics.github.io/nuxt-booster/playground/reports/webpack/client.html)
-- [Report Modern](https://basics.github.io/nuxt-booster/playground/reports/webpack/modern.html)
-- [Report Server](https://basics.github.io/nuxt-booster/playground/reports/webpack/server.html)
-
 ## Consulting & Support
 
 Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <stephan.gerbeth@gmail.com>. We are looking forward to your request.
@@ -85,27 +66,3 @@ Do you need further support, a consultation or a code review for an appropriate 
 ## License
 
 [MIT License](./LICENSE)
-
-<!-- Badges -->
-
-[renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
-[renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
-
-[github-workflow-main-src]: <https://github.com/basics/nuxt-booster/workflows/Main/badge.svg?branch=main>
-[github-workflow-main-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3AMain>
-[github-workflow-beta-src]: <https://github.com/basics/nuxt-booster/workflows/Beta/badge.svg?branch=beta>
-[github-workflow-beta-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ABeta>
-[github-workflow-test-src]: <https://github.com/basics/nuxt-booster/workflows/Test/badge.svg?branch=main>
-[github-workflow-test-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ATest>
-
-[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=basics_nuxt-booster&metric=alert_status>
-[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=basics_nuxt-booster>
-
-[license-src]: https://img.shields.io/npm/l/nuxt-booster.svg?style=flat-square
-[license-href]: https://npmjs.com/package/nuxt-booster
-
-[npm-version-latest-src]: https://img.shields.io/npm/v/nuxt-booster/latest.svg?
-[npm-version-latest-href]: https://npmjs.com/package/nuxt-booster/v/latest
-
-[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-booster.svg?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/nuxt-booster
