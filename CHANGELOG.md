@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.0.0-next.53](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.52...v3.0.0-next.53) (2024-04-20)
+
+
+### Bug Fixes
+
+* **deprecation:** added deprecation message ([13eb5e0](https://github.com/GrabarzUndPartner/nuxt-speedkit/commit/13eb5e04ef2f5dca927c12d94ad5217111b29e60))
+
 # [3.0.0-next.52](https://github.com/GrabarzUndPartner/nuxt-speedkit/compare/v3.0.0-next.51...v3.0.0-next.52) (2024-04-19)
 
 
