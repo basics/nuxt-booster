@@ -91,9 +91,3 @@ export default {
 :::info
 The booster components will be expanded in the future. If you have explicit wishes, please send us a feature request or directly a pull request with the corresponding feature :)
 :::
-
-## Example
-
-You can check out a sample integration of `nuxt-booster` at [Nuxt Booster Example](https://github.com/basics/nuxt-booster-example).
-
-<iframe class="embed-sandbox" src="//codesandbox.io/embed/github/basics/nuxt-booster-example/tree/main/?hidenavigation=1&theme=dark"></iframe>
