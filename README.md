@@ -1,61 +1,10 @@
-<p align="right">
-  share me:
-  <a href="https://twitter.com/intent/tweet?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&text=nuxt-speedkit will help you to improve the lighthouse performance score of your website&via=grabarzpartner&hashtags=vue,nuxt,speedkit">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg?sanitize=true"/>
-  </a>
-  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/GrabarzUndPartner/nuxt-speedkit&t=nuxt-speedkit will help you to improve the lighthouse performance score">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/hackernews.svg?sanitize=true"/>
-  </a>
-  <a href="https://reddit.com/submit?url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/reddit.svg?sanitize=true"/>
-  </a>
-  <a href="https://www.facebook.com/sharer.php?u=https://github.com/GrabarzUndPartner/nuxt-speedkit">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg?sanitize=true"/>
-  </a>
-  <a href="https://www.xing.com/spi/shares/new?url=https://github.com/GrabarzUndPartner/nuxt-speedkit">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/xing.svg?sanitize=true"/>
-  </a>
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/GrabarzUndPartner/nuxt-speedkit&title=nuxt-speedkit&summary=nuxt-speedkit will help you to improve the lighthouse performance score of your website">
-    <img width="24" height="24" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg?sanitize=true"/>
-  </a>
-</p>
-
 > **Note:** Nuxt Speedkit is no longer be maintained.  
 > We recommend the use of [Nuxt Booster](https://github.com/basics/nuxt-booster) for Nuxt 3.
 
-![nuxt-speedkit][logo]
-
 # Nuxt Speedkit
-
-[![Grabarz & Partner - Module][grabarz-partner-module-src]][grabarz-partner-href]
-
-[![main][github-workflow-main-src]][github-workflow-main-href]
-[![next][github-workflow-beta-src]][github-workflow-beta-href]
-[![next][github-workflow-test-src]][github-workflow-test-href]
-[![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
-
-[![npm version][npm-version-latest-src]][npm-version-latest-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-
-[![Renovate - Status][renovate-status-src]][renovate-status-href]
-[![License][license-src]][license-href]
-
-- [✨ &nbsp;&nbsp;**Release Notes**](./CHANGELOG.md)
-- [👁 &nbsp;&nbsp;**Preview**](https://grabarzundpartner.github.io/nuxt-speedkit-example/)
 
 Nuxt Speedkit takes over the Lighthouse performance optimization of your generated website.
 All used components and resources are loaded on demand based on the viewport.
-
-## Demos
-
-- [Grabarz & Partner](https://grabarzundpartner.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarzundpartner.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarzundpartner/))
-- [Grabarz Group](https://grabarz-group.de/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fgrabarz-group.de%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/grabarz-group/))
-- [Nuxt Speedkit Example](https://nuxt-speedkit.grabarzundpartner.dev/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fnuxt-speedkit.grabarzundpartner.dev%2Fexample%2F), [Sitespeed](https://nuxt-speedkit.grabarzundpartner.dev/reports/sitespeed/nuxt-speedkit/))
-
-## Getting Started
-
-Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.grabarzundpartner.dev/)
-> Nuxt Speedkit (v1) documentation has been moved to [nuxt-speedkit.grabarzundpartner.dev/v1/](https://nuxt-speedkit.grabarzundpartner.dev/v1/).
 
 ## Requirements
 
@@ -103,44 +52,6 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://nuxt-speedkit.gra
 3. Build and start with express `npm run start:generate` or `yarn start:generate`.
 4. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in Browser.
 
-or look here
-
-- [Preview](https://nuxt-speedkit.grabarzundpartner.dev/playground)
-- [Report Client](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/client.html)
-- [Report Modern](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/modern.html)
-- [Report Server](https://nuxt-speedkit.grabarzundpartner.dev/playground/reports/webpack/server.html)
-
-## Consulting & Support
-
-Do you need further support, a consultation or a code review for an appropriate fee? Just contact us via eMail: <dev@grabarzundpartner.de>. We are looking forward to your request.
-
 ## License
 
 [MIT License](./LICENSE)
-
-<!-- Badges -->
-[logo]: https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727 "nuxt-speedkit"
-[grabarz-partner-module-src]: <https://img.shields.io/badge/Grabarz%20&%20Partner-Module-d19700>
-[grabarz-partner-href]: <https://grabarzundpartner.de>
-
-[renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
-[renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
-
-[github-workflow-main-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Main/badge.svg?branch=main>
-[github-workflow-main-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3AMain>
-[github-workflow-beta-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Beta/badge.svg?branch=beta>
-[github-workflow-beta-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ABeta>
-[github-workflow-test-src]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/workflows/Test/badge.svg?branch=main>
-[github-workflow-test-href]: <https://github.com/GrabarzUndPartner/nuxt-speedkit/actions?query=workflow%3ATest>
-
-[sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=GrabarzUndPartner_nuxt-speedkit&metric=alert_status>
-[sonarcloud-href]: <https://sonarcloud.io/dashboard?id=GrabarzUndPartner_nuxt-speedkit>
-
-[license-src]: https://img.shields.io/npm/l/nuxt-speedkit.svg?style=flat-square
-[license-href]: https://npmjs.com/package/nuxt-speedkit
-
-[npm-version-latest-src]: https://img.shields.io/npm/v/nuxt-speedkit/latest.svg?
-[npm-version-latest-href]: https://npmjs.com/package/nuxt-speedkit/v/latest
-
-[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-speedkit.svg?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/nuxt-speedkit
