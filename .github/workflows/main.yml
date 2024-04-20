@@ -98,6 +98,7 @@ jobs:
       - name: Build
         run: |
           npm run generate
+          touch playground/dist/.nojekyll
         env:
           BASE_URL: /nuxt-booster/playground/
       - name: Archive Production Artifact
@@ -132,6 +133,7 @@ jobs:
       - name: Build
         run: |
           npm run docs:build
+          touch docs/.vitepress/dist/.nojekyll
         env:
           BASE_URL: /nuxt-booster/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -154,19 +156,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docsArtifact
-          path: public/docs
+          path: public
       - name: Download Artifact (Playground)
         uses: actions/download-artifact@v4
         with:
           name: playgroundArtifact
-          path: public/docs/playground
+          path: public/playground
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
           # cname:
-          keep_files: false
 
   # report-sitespeed:
   #   needs: deploy-ghpages
@@ -214,7 +215,7 @@ jobs:
   #       uses: actions/download-artifact@v4
   #       with:
   #         name: sitespeedReportArtifact
-  #         path: public/docs/reports/sitespeed
+  #         path: public/reports/sitespeed
   #     - name: Deploy to GH-Pages
   #       uses: peaceiris/actions-gh-pages@v3
   #       with:
