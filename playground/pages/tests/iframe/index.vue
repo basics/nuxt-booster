@@ -1,18 +1,11 @@
 <template>
-  <document-section tag="main">
+  <div>
     <critical critical />
     <lazy />
-  </document-section>
+  </div>
 </template>
 
-<script>
+<script setup>
 import Critical from './components/Critical';
 import Lazy from './components/Lazy';
-
-export default {
-  components: {
-    Critical,
-    Lazy
-  }
-};
 </script>

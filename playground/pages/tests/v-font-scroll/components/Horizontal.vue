@@ -1,33 +1,27 @@
 <template>
-  <organism-preview-container>
+  <preview-container>
     <template #default>
-      <scroll-container id="horizontalScroll" v-bind="scrollContainer" />
+      <scroll-container id="horizontalScroll" v-bind="data" />
     </template>
     <template #title>
       <p>Horizontal Scroll - v-font</p>
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
-import ScrollContainer from '@/components/organisms/ScrollContainer';
-export default {
-  components: { OrganismPreviewContainer, ScrollContainer },
-  data() {
-    return {
-      scrollContainer: {
-        directionHorizontal: true,
-        items: [
-          { font: ['Merriweather', 300, 'normal'] },
-          { font: ['Merriweather', 300, 'italic'] },
-          { font: ['Merriweather', 400, 'normal'] },
-          { font: ['Merriweather', 400, 'italic'] },
-          { font: ['Merriweather', 700, 'normal'] },
-          { font: ['Merriweather', 700, 'italic'] }
-        ]
-      }
-    };
-  }
+<script setup>
+import PreviewContainer from '@/components/PreviewContainer';
+import ScrollContainer from '@/components/fragments/ScrollContainer';
+
+const data = {
+  directionHorizontal: true,
+  items: [
+    { font: ['Merriweather', 300, 'normal'] },
+    { font: ['Merriweather', 300, 'italic'] },
+    { font: ['Merriweather', 400, 'normal'] },
+    { font: ['Merriweather', 400, 'italic'] },
+    { font: ['Merriweather', 700, 'normal'] },
+    { font: ['Merriweather', 700, 'italic'] }
+  ]
 };
 </script>

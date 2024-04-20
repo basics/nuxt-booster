@@ -1,43 +1,32 @@
 <template>
-  <organism-preview-container id="lazyContainer">
+  <preview-container id="lazyContainer">
     <template #default>
       <booster-image v-bind="image" />
     </template>
     <template #title>
       <p>Lazy - Image</p>
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
+<script setup>
 import BoosterImage from '#booster/components/BoosterImage';
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
+import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    BoosterImage,
-    OrganismPreviewContainer
-  },
-
-  data() {
-    return {
-      image: {
-        title: 'Lazy - Image',
-        source: {
-          src: '/img/pickadummy/lazy.jpg',
-          sizes: {
-            default: '100vw',
-            xxs: '100vw',
-            xs: '100vw',
-            sm: '100vw',
-            md: '100vw',
-            lg: '100vw',
-            xl: '100vw',
-            xxl: '100vw'
-          }
-        }
-      }
-    };
+const image = {
+  title: 'Lazy - Image',
+  source: {
+    src: '/img/lazy.jpg',
+    sizes: {
+      default: '100vw',
+      xxs: '100vw',
+      xs: '100vw',
+      sm: '100vw',
+      md: '100vw',
+      lg: '100vw',
+      xl: '100vw',
+      xxl: '100vw'
+    }
   }
 };
 </script>

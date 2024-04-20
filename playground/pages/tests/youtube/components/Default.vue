@@ -1,5 +1,5 @@
 <template>
-  <organism-preview-container>
+  <preview-container>
     <template #default>
       <div>
         <default-youtube v-bind="youtube" />
@@ -8,44 +8,37 @@
     <template #title>
       <p v-html="title" />
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import DefaultYoutube from '#booster/components/BoosterYoutube';
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
+import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    OrganismPreviewContainer,
-    DefaultYoutube
+const props = defineProps({
+  youtubeUrl: {
+    type: String,
+    default: 'https://www.youtube.com/watch?v=cLKvbhfVBUU'
   },
 
-  props: {
-    youtubeUrl: {
-      type: String,
-      default: 'https://www.youtube.com/watch?v=cLKvbhfVBUU'
-    },
-
-    title: {
-      type: String,
-      default: 'Youtube'
-    },
-
-    autoplay: {
-      type: Boolean,
-      default: false
-    }
+  title: {
+    type: String,
+    default: 'Youtube'
   },
 
-  computed: {
-    youtube() {
-      return {
-        url: this.youtubeUrl,
-        title: this.title,
-        autoplay: this.autoplay
-      };
-    }
+  autoplay: {
+    type: Boolean,
+    default: false
   }
-};
+});
+
+const youtube = computed(() => {
+  return {
+    url: props.youtubeUrl,
+    title: props.title,
+    autoplay: props.autoplay
+  };
+});
 </script>

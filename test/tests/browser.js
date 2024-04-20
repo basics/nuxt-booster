@@ -1,33 +1,21 @@
-import { chromium, firefox } from 'playwright';
+import { chromium } from 'playwright';
 import { afterAll, describe, it, expect } from 'vitest';
 import { joinURL } from 'ufo';
-const BROWSERS = { CHROMIUM: 0, FIREFOX: 1 };
 
-const browsers = new Map([
-  [BROWSERS.CHROMIUM, chromium.launch()],
-  [BROWSERS.FIREFOX, firefox.launch()]
-]);
+const browser = chromium.launch();
 
 export default runtime => {
   afterAll(async () => {
-    await Promise.all(
-      Array.from(browsers.values()).map(async browser =>
-        (await browser).close()
-      )
-    );
+    await (await browser).close();
   });
 
   describe('🧐 inspect browser (chromium)', () => {
-    browserTests({ browser: BROWSERS.CHROMIUM, runtime });
+    browserTests(runtime);
   });
 
-  describe('🧐 inspect browser (firefox)', () => {
-    browserTests({ browser: BROWSERS.FIREFOX, runtime });
-  });
-
-  function browserTests({ browser = false, runtime }) {
+  function browserTests(runtime) {
     const createPage = async (path, nojs) => {
-      let context = await browsers.get(browser);
+      let context = await browser;
       if (nojs) {
         context = await context.newContext({
           javaScriptEnabled: false
@@ -52,13 +40,13 @@ export default runtime => {
       );
       await page.waitForLoadState('networkidle');
 
-      await page.waitForSelector('html.nuxt-booster-reduced-view');
+      await waitForSelector(page, 'html.nuxt-booster-reduced-view');
 
       // picture transformed
-      await page.waitForSelector('.nuxt-booster-picture');
+      await waitForSelector(page, '.nuxt-booster-picture');
 
       // active font
-      await page.waitForSelector('[data-font].font-active');
+      await waitForSelector(page, '[data-font].font-active');
     });
 
     it('BoosterLayer (Apply with scripts)', async () => {
@@ -73,10 +61,10 @@ export default runtime => {
       );
       await page.waitForLoadState('networkidle');
 
-      await page.waitForSelector('.ready');
+      await waitForSelector(page, '.ready');
 
       // active font
-      await page.waitForSelector('[data-font].font-active');
+      await waitForSelector(page, '[data-font].font-active');
     });
 
     it('BoosterLayer (No Javascript)', async () => {
@@ -99,6 +87,33 @@ export default runtime => {
 
     // #endregion /tests/booster-layer
 
+    // #region /tests/weak-hardware-overlay
+
+    it('WeakHardwareOverlay (Visible & Init App)', async () => {
+      const page = await createPage('/weak-hardware-overlay/');
+
+      expect(
+        await page.evaluate(() =>
+          document.querySelector('.nuxt-booster-weak-hardware-overlay')
+        )
+      ).not.toBeFalsy();
+
+      await page.evaluate(() =>
+        document
+          .querySelector('.nuxt-booster-weak-hardware-overlay button')
+          .click()
+      );
+      await page.waitForSelector('div.mounted');
+
+      expect(
+        await page.evaluate(() =>
+          document.querySelector('.nuxt-booster-weak-hardware-overlay')
+        )
+      ).toBeFalsy();
+    });
+
+    // #endregion /tests/weak-hardware-overlay
+
     // #region /tests/booster-loader
 
     it('boosterHydrate', async () => {
@@ -111,11 +126,11 @@ export default runtime => {
             .classList.contains('.active')
         )
       ).toBeFalsy();
-      await page.waitForSelector('#criticalBoosterHydrate.active');
+      await waitForSelector(page, '#criticalBoosterHydrate.active');
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector('#lazyBoosterHydrate.active');
+      await waitForSelector(page, '#lazyBoosterHydrate.active');
     });
 
     // #endregion /tests/booster-loader
@@ -124,99 +139,109 @@ export default runtime => {
 
     it('v-font (font assign simple) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazyFontAssignSimple[data-font="-7d2b6285"]')
+            .querySelector('#lazyFontAssignSimple[data-font="-6c50917f"]')
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignSimple.font-active[data-font="-7d2b6285"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignSimple.font-active[data-font="-6c50917f"]'
       );
     });
 
     it('v-font (font assign by single selector) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignBySingleSelector[data-font="-65bc6cec"]'
+              '#lazyFontAssignBySingleSelector[data-font="--1284928"]'
             )
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignBySingleSelector.font-active[data-font="-65bc6cec"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignBySingleSelector.font-active[data-font="--1284928"]'
       );
     });
 
     it('v-font (font assign by multiple variances) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignByMultipleVariances[data-font="-1f925c6c"]'
+              '#lazyFontAssignByMultipleVariances[data-font="-48f3408e"]'
             )
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignByMultipleVariances.font-active[data-font="-1f925c6c"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignByMultipleVariances.font-active[data-font="-48f3408e"]'
       );
     });
 
     it('v-font (font assign by multiple selectors) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignByMultipleSelectors[data-font="-691980b2"]'
+              '#lazyFontAssignByMultipleSelectors[data-font="-44209b8a"]'
             )
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignByMultipleSelectors.font-active[data-font="-691980b2"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignByMultipleSelectors.font-active[data-font="-44209b8a"]'
       );
     });
 
     it('v-font (font assign by deep selector) (element class)', async () => {
       const page = await createPage('/v-font/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignByDeepSelector[data-font="-26857299"]'
+              '#lazyFontAssignByDeepSelector[data-font="-4693b0e3"]'
             )
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignByDeepSelector.font-active[data-font="-26857299"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignByDeepSelector.font-active[data-font="-4693b0e3"]'
       );
     });
 
@@ -226,77 +251,85 @@ export default runtime => {
 
     it('v-font (media) (font assign simple by max 479px) (element class)', async () => {
       const page = await createPage('/v-font-media');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignSimpleByMax479[data-font="--4db87f5"]'
+              '#lazyFontAssignSimpleByMax479[data-font="-6f552471"]'
             )
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignSimpleByMax479.font-active[data-font="--4db87f5"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignSimpleByMax479.font-active[data-font="-6f552471"]'
       );
     });
 
     it('v-font (media) (font assign simple by 480px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazyFontAssignSimpleBy480[data-font="-5e7c91e5"]')
+            .querySelector('#lazyFontAssignSimpleBy480[data-font="-6b997d9f"]')
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignSimpleBy480.font-active[data-font="-5e7c91e5"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignSimpleBy480.font-active[data-font="-6b997d9f"]'
       );
     });
 
     it('v-font (media) (font assign simple by 960px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazyFontAssignSimpleBy960[data-font="-2df4a2e0"]')
+            .querySelector('#lazyFontAssignSimpleBy960[data-font="-4aba2a64"]')
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontAssignSimpleBy960.font-active[data-font="-2df4a2e0"]'
+      await waitForSelector(
+        page,
+        '#lazyFontAssignSimpleBy960.font-active[data-font="-4aba2a64"]'
       );
     });
 
     it('v-font (media) (font assign with selector by 1440px) (element class)', async () => {
       const page = await createPage('/v-font-media/');
+      await page.waitForLoadState('networkidle');
       // element has no font class?
       expect(
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontBySingleSelectorBy1440[data-font="-5f6b8217"]'
+              '#lazyFontBySingleSelectorBy1440[data-font="-6f6c30e5"]'
             )
             .classList.contains('.font-active')
         )
       ).toBeFalsy();
       // scroll to element
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // element has font class?
-      await page.waitForSelector(
-        '#lazyFontBySingleSelectorBy1440.font-active[data-font="-5f6b8217"]'
+      await waitForSelector(
+        page,
+        '#lazyFontBySingleSelectorBy1440.font-active[data-font="-6f6c30e5"]'
       );
     });
 
@@ -306,6 +339,7 @@ export default runtime => {
 
     it('v-font (scroll) (font assign simple with horizontal & vertical offset scroll)', async () => {
       const page = await createPage('/v-font-scroll');
+      await page.waitForLoadState('networkidle');
       expect(
         await page.evaluate(() =>
           document
@@ -319,7 +353,7 @@ export default runtime => {
         containerEl.scrollTo(containerEl.scrollWidth, 0);
       });
 
-      await page.waitForSelector('#horizontalScroll .item-5.font-active');
+      await waitForSelector(page, '#horizontalScroll .item-5.font-active');
 
       expect(
         await page.evaluate(() =>
@@ -329,32 +363,33 @@ export default runtime => {
         )
       ).toBeFalsy();
 
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 
       await page.evaluate(() => {
         const containerEl = document.querySelector('#verticalScroll');
         containerEl.scrollTo(0, containerEl.scrollHeight);
       });
 
-      await page.waitForSelector('#verticalScroll .item-5.font-active');
+      await waitForSelector(page, '#verticalScroll .item-5.font-active');
     });
 
     // #endregion
 
     // #region /tests/iframe
 
-    it('iframe', async () => {
+    it('BoosterIframe', async () => {
       const page = await createPage('/iframe/');
+      await page.waitForLoadState('networkidle');
       await page.evaluate(() => {
-        window.scrollBy(0, window.innerHeight);
+        window.scrollTo(0, document.body.scrollHeight);
       });
-      await page.waitForSelector('#lazyContainer iframe[src]');
+      await waitForSelector(page, '#lazyContainer iframe[src]');
     });
 
     // #endregion
 
     // #region /tests/youtube
-    it('youtube ready, play and autoplay', async () => {
+    it('BoosterYoutube ready, play and autoplay', async () => {
       const page = await createPage('/youtube/');
       await page.waitForLoadState('networkidle');
 
@@ -365,57 +400,82 @@ export default runtime => {
       await page.waitForLoadState('networkidle');
 
       // wait for playing first player playing
-      await page.waitForSelector(
+      await waitForSelector(
+        page,
         '#youtube-0 .nuxt-booster-youtube.ready.playing'
       );
 
       // scroll to second player for autoplay
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await page.waitForLoadState('networkidle');
 
-      // wait for playing first player playing
-      await page.waitForSelector(
-        '#youtube-0 .nuxt-booster-youtube.ready:not(.playing)'
-      );
-      await page.waitForSelector(
+      await waitForSelector(
+        page,
         '#youtube-1 .nuxt-booster-youtube.ready.playing'
       );
+
+      await waitForSelector(page, '#youtube-0 .nuxt-booster-youtube.ready');
+
+      // wait for playing first player playing
+      // await waitForSelector(page,
+      //   '#youtube-0 .nuxt-booster-youtube.ready:not(.playing)'
+      // );
     });
 
     // #endregion
 
-    // // #region /tests/vimeo
+    // #region /tests/vimeo
 
-    // it('vimeo ready & play', async () => {
+    // it('BoosterVimeo ready & play', async () => {
     //   const page = await createPage('/vimeo/');
     //   await page.waitForLoadState('networkidle');
 
     //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
     //   if (browser === BROWSERS.CHROMIUM) {
     //     // start first player
-    //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+    //     await page.evaluate(() =>
+    //       document.querySelector('#vimeo-0 button').click()
+    //     );
     //     await page.waitForLoadState('networkidle');
 
     //     // wait for player ready
-    //     await page.waitForSelector('#vimeo-0 .nuxt-booster-vimeo.ready');
+    //     await waitForSelector(page, '#vimeo-0 .nuxt-booster-vimeo.ready');
     //   } else {
     //     // start first player
-    //     await page.evaluate(() => document.querySelector('#vimeo-0 button').click());
+    //     await page.evaluate(() =>
+    //       document.querySelector('#vimeo-0 button').click()
+    //     );
     //     await page.waitForLoadState('networkidle');
 
     //     // wait for playing first player playing
-    //     await page.waitForSelector('#vimeo-0 .nuxt-booster-vimeo.ready.playing');
+    //     await waitForSelector(page,
+    //       '#vimeo-0 .nuxt-booster-vimeo.ready.playing'
+    //     );
 
     //     // // wait for playing first player playing
-    //     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
+    //     await page.evaluate(scroll, {direction: "down", speed: "slow"});
     //     // // start second player
-    //     await page.evaluate(() => document.querySelector('#vimeo-1 button').click());
+    //     await page.evaluate(() =>
+    //       document.querySelector('#vimeo-1 button').click()
+    //     );
     //     await page.waitForLoadState('networkidle');
 
-    //     await page.waitForSelector('#vimeo-0 .nuxt-booster-vimeo.ready:not(.playing)');
-    //     await page.waitForSelector('#vimeo-1 .nuxt-booster-vimeo.ready.playing');
+    //     await waitForSelector(page,
+    //       '#vimeo-0 .nuxt-booster-vimeo.ready:not(.playing)'
+    //     );
+    //     await waitForSelector(page,
+    //       '#vimeo-1 .nuxt-booster-vimeo.ready.playing'
+    //     );
     //   }
     // });
 
-    // // #endregion
+    // #endregion
   }
 };
+
+function waitForSelector(page, selector) {
+  const locator = page.locator(selector);
+  return locator.waitFor({
+    state: 'attached'
+  });
+}

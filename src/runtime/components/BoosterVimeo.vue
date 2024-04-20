@@ -1,5 +1,8 @@
 <template>
-  <base-vimeo class="nuxt-booster-vimeo" v-bind="$attrs" v-on="$listeners">
+  <base-vimeo class="nuxt-booster-vimeo" v-bind="$attrs">
+    <template #beforePlayer>
+      <slot name="beforePlayer" />
+    </template>
     <template #loading-spinner>
       <slot name="loading-spinner">
         <div class="loading-spinner">
@@ -45,19 +48,19 @@
     <template #default="context">
       <slot name="default" v-bind="context" />
     </template>
+    <template #afterPlayer>
+      <slot name="afterPlayer" />
+    </template>
   </base-vimeo>
 </template>
 
-<script>
+<script setup>
+import { defineOptions } from 'vue';
 import BaseVimeo from '#booster/components/BoosterVimeo/Base';
 
-export default {
-  components: {
-    BaseVimeo
-  },
-
+defineOptions({
   inheritAttrs: false
-};
+});
 </script>
 
 <style lang="postcss" scoped>

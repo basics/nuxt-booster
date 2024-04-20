@@ -1,85 +1,63 @@
 <template>
-  <only-ssr>
-    <div id="nuxt-booster-layer">
-      <input id="nuxt-booster-layer-close" name="close" type="checkbox">
-      <div id="nuxt-booster-layer-content">
-        <slot>
-          <div>
-            <p>Sorry, but you will have a limited user experience due to a…</p>
+  <div v-if="isServer" id="nuxt-booster-layer">
+    <input id="nuxt-booster-layer-close" name="close" type="checkbox" />
+    <div id="nuxt-booster-layer-content">
+      <slot>
+        <div>
+          <p>Sorry, but you will have a limited user experience due to a…</p>
 
-            <ul style="padding: 0; list-style: none;">
-              <!-- Displayed when javascript is disabled. -->
-              <li id="nuxt-booster-message-nojs">
-                disabled javascript
-              </li>
-              <!-- Displayed when browser does not support. -->
-              <li id="nuxt-booster-message-unsupported-browser">
-                outdated browser
-              </li>
-              <!-- Displayed when connection bandwidth is too low. -->
-              <li id="nuxt-booster-message-reduced-bandwidth">
-                slow connection
-              </li>
-              <!-- Displayed when user hardware are not sufficient.  -->
-              <li id="nuxt-booster-message-weak-hardware">
-                weak hardware
-              </li>
-            </ul>
+          <ul style="padding: 0; list-style: none">
+            <!-- Displayed when javascript is disabled. -->
+            <li id="nuxt-booster-message-nojs">disabled javascript</li>
+            <!-- Displayed when browser does not support. -->
+            <li id="nuxt-booster-message-unsupported-browser">
+              outdated browser
+            </li>
+            <!-- Displayed when connection bandwidth is too low. -->
+            <li id="nuxt-booster-message-reduced-bandwidth">slow connection</li>
+            <!-- Displayed when user hardware are not sufficient.  -->
+            <li id="nuxt-booster-message-weak-hardware">weak hardware</li>
+          </ul>
 
-            <!-- Button to hide the layer with no javascript -->
-            <button id="nuxt-booster-button-init-nojs">
-              <label for="nuxt-booster-layer-close">
-                Apply without js
-              </label>
-            </button>
+          <!-- Button to hide the layer with no javascript -->
+          <button id="nuxt-booster-button-init-nojs">
+            <label for="nuxt-booster-layer-close"> Apply without js </label>
+          </button>
 
-            <!-- Button for use without javascript and with fonts -->
-            <button id="nuxt-booster-button-init-reduced-view">
-              <label for="nuxt-booster-layer-close">
-                Apply without scripts
-              </label>
-            </button>
+          <!-- Button for use without javascript and with fonts -->
+          <button id="nuxt-booster-button-init-reduced-view">
+            <label for="nuxt-booster-layer-close">
+              Apply without scripts
+            </label>
+          </button>
 
-            <!-- Button for activate javascript by bad connection or browser support -->
-            <button id="nuxt-booster-button-init-app">
-              Apply with all Features
-            </button>
-          </div>
-        </slot>
-      </div>
+          <!-- Button for activate javascript by bad connection or browser support -->
+          <button id="nuxt-booster-button-init-app">
+            Apply with all Features
+          </button>
+        </div>
+      </slot>
     </div>
-  </only-ssr>
+  </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useHead } from '#imports';
 import { getStyleDescription } from '#booster/utils/description';
-import OnlySsr from '#booster/components/abstracts/OnlySsr';
 
-export default {
+const isServer = ref(true);
 
-  components: {
-    OnlySsr
-  },
+onMounted(() => (isServer.value = false));
 
-  props: {
-    critical: {
-      type: Boolean,
-      default () {
-        return true;
-      }
-    }
-  },
-
-  head () {
-    return {
-      noscript: [
-        getStyleDescription('#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs { display: initial !important; }', true)
-      ],
-      __dangerouslyDisableSanitizers: ['noscript']
-    };
-  }
-
-};
+useHead({
+  noscript: [
+    getStyleDescription(
+      `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs { display: initial !important; }`,
+      true
+    )
+  ]
+});
 </script>
 
 <style>

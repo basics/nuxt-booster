@@ -1,0 +1,11 @@
+iframe.embed-sandbox,
+iframe.embed-stackblitz {
+  width: 100%;
+  height: 480px;
+  border: none;
+}
+
+:root {
+  --vp-c-brand-1: #DC143C;
+  --vp-c-brand-2: #DC143C;
+}

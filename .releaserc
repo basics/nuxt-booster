@@ -8,6 +8,10 @@
     {
       "name": "beta",
       "prerelease": true
+    },
+    {
+      "name": "next",
+      "prerelease": true
     }
   ],
   "plugins": [

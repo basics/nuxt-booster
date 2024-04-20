@@ -1,14 +1,15 @@
 import Deferred from '../../../classes/Deferred';
-
 const vimeoAPI = new Deferred();
 
 export const load = () => {
   return {
-    hid: 'vimeo',
+    key: 'vimeo',
     src: 'https://player.vimeo.com/api/player.js',
     async: true,
     defer: true,
-    callback: () => vimeoAPI.resolve(window.Vimeo)
+    onload: () => {
+      vimeoAPI.resolve(window.Vimeo);
+    }
   };
 };
 

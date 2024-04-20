@@ -1,5 +1,6 @@
 <template>
-  <div :class="{ ready, playing }" :show="ready">
+  <div :class="{ ready, playing }">
+    <slot name="beforePlayer" />
     <iframe
       v-if="src"
       ref="player"
@@ -15,16 +16,19 @@
       <slot v-if="loading" name="loading-spinner" />
       <slot v-if="!ready && !loading" name="play" />
     </default-button>
+    <slot name="afterPlayer" />
   </div>
 </template>
 
 <script>
+import { ref, markRaw, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture';
-import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
+
+import { useHead } from '#imports';
 
 const youtube = new Youtube();
 
@@ -33,8 +37,6 @@ export default {
     BoosterPicture,
     DefaultButton
   },
-
-  inheritAttrs: false,
 
   props: {
     autoplay: {
@@ -69,11 +71,6 @@ export default {
       }
     },
 
-    posterLoadingSpinner: {
-      type: LoadingSpinner,
-      default: undefined
-    },
-
     posterSizes: {
       type: Object,
       default() {
@@ -88,26 +85,36 @@ export default {
           xxl: '100vw'
         };
       }
+    },
+
+    posterDensities: {
+      type: [String, Number],
+      default: undefined
     }
+  },
+
+  emits: ['ready', 'playing'],
+
+  setup() {
+    const script = ref([]);
+    useHead({
+      script: computed(() => {
+        return script.value;
+      })
+    });
+    return { script };
   },
 
   data() {
     return {
       src: null,
       videoId: new URL(this.url).searchParams.get('v'),
-      script: [],
       player: null,
       ready: false,
       loading: false,
       playing: false,
       landscape: false,
       isTouchDevice: isTouchSupported()
-    };
-  },
-
-  head() {
-    return {
-      script: this.script
     };
   },
 
@@ -120,10 +127,10 @@ export default {
           {
             src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
             sizes: this.posterSizes,
-            media: 'all'
+            media: 'all',
+            densities: this.posterDensities
           }
-        ],
-        loadingSpinner: this.posterLoadingSpinner
+        ]
       };
     }
   },
@@ -134,7 +141,7 @@ export default {
     }
   },
 
-  destroyed() {
+  unmounted() {
     this.player && youtube.remove(this.player);
   },
 
@@ -168,23 +175,25 @@ export default {
     },
 
     async onLoad() {
-      this.player = await youtube.createPlayer(this.$refs.player, {
-        videoId: this.videoId,
-        host: this.host,
-        events: {
-          onReady: e => {
-            e.target.mute();
-            youtube.play(e.target);
-            this.loading = false;
-            this.ready = true;
-            this.$emit('ready', {
-              iframe: e.target.getIframe(),
-              player: this.player
-            });
-          },
-          onStateChange: e => this.onPlayerStateChange(youtube.api, e.data)
-        }
-      });
+      this.player = markRaw(
+        await youtube.createPlayer(this.$refs.player, {
+          videoId: this.videoId,
+          host: this.host,
+          events: {
+            onReady: e => {
+              e.target.mute();
+              youtube.play(e.target);
+              this.loading = false;
+              this.ready = true;
+              this.$emit('ready', {
+                iframe: e.target.getIframe(),
+                player: this.player
+              });
+            },
+            onStateChange: e => this.onPlayerStateChange(youtube.api, e.data)
+          }
+        })
+      );
     },
 
     onPlayerStateChange(YT, state) {

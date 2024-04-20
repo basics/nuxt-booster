@@ -1,6 +1,8 @@
 <script>
-import LazyHydrate from 'vue-lazy-hydration';
+import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
+import { h } from 'vue';
 import BoosterImage from '#booster/components/BoosterImage/Base';
+import { useBoosterCritical } from '#imports';
 
 export default {
   inheritAttrs: false,
@@ -12,21 +14,22 @@ export default {
     }
   },
 
-  render(h) {
+  setup() {
+    const { isCritical } = useBoosterCritical();
+    return {
+      isCritical
+    };
+  },
+
+  render() {
     if (!this.hydrate) {
-      return h(LazyHydrate, { props: { never: true } }, [
+      return h(LazyHydrationWrapper, { props: { never: true } }, [
         h('noscript', {}, [
-          h(BoosterImage, {
-            props: { ...this.$attrs, critical: this.hydrate },
-            on: this.$listeners
-          })
+          h(BoosterImage, { ...this.$attrs, critical: this.hydrate })
         ])
       ]);
     }
-    return h(BoosterImage, {
-      props: { ...this.$attrs, critical: this.isCritical },
-      on: this.$listeners
-    });
+    return h(BoosterImage, { ...this.$attrs, critical: this.isCritical });
   }
 };
 </script>

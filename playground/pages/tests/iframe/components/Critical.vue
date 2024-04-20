@@ -1,30 +1,17 @@
 <template>
-  <organism-preview-container>
+  <preview-container>
     <template #default>
-      <default-iframe class="test-iframe" v-bind="iframe" />
+      <default-iframe class="test-iframe" :src="iframeSrc" />
     </template>
     <template #title>
       <p>Critical<br />Iframe</p>
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
+<script setup>
 import DefaultIframe from '#booster/components/BoosterIframe';
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
+import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    DefaultIframe,
-    OrganismPreviewContainer
-  },
-
-  data() {
-    return {
-      iframe: {
-        src: 'https://basics.github.io/nuxt-booster/playground/'
-      }
-    };
-  }
-};
+const iframeSrc = 'https://basics.github.io/nuxt-booster/playground/';
 </script>

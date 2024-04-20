@@ -1,5 +1,5 @@
 <template>
-  <organism-preview-container>
+  <preview-container>
     <template #default>
       <div>
         <default-vimeo v-bind="vimeo" />
@@ -8,43 +8,35 @@
     <template #title>
       <p v-html="title" />
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import DefaultVimeo from '#booster/components/BoosterVimeo';
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
+import PreviewContainer from '@/components/PreviewContainer';
 
-export default {
-  components: {
-    DefaultVimeo,
-    OrganismPreviewContainer
+const props = defineProps({
+  vimeoUrl: {
+    type: String,
+    default: 'https://vimeo.com/288344114'
   },
 
-  props: {
-    vimeoUrl: {
-      type: String,
-      default: 'https://vimeo.com/288344114'
-    },
-
-    title: {
-      type: String,
-      default: 'Vimeo'
-    },
-
-    autoplay: {
-      type: Boolean,
-      default: false
-    }
+  title: {
+    type: String,
+    default: 'Vimeo'
   },
 
-  computed: {
-    vimeo() {
-      return {
-        url: this.vimeoUrl,
-        autoplay: this.autoplay
-      };
-    }
+  autoplay: {
+    type: Boolean,
+    default: false
   }
-};
+});
+
+const vimeo = computed(() => {
+  return {
+    url: props.vimeoUrl,
+    autoplay: props.autoplay
+  };
+});
 </script>

@@ -1,18 +1,16 @@
-import { join, resolve } from 'path';
 import { beforeAll } from 'vitest';
-import { generate, startStaticServer } from './utils';
-import html from './tests/html';
-import browser from './tests/browser';
+import { startStaticServer } from './utils';
+import html from './tests/html.js';
+import browser from './tests/browser.js';
+
+import { distDir } from './nuxt.config.js';
 
 const runtime = { serverUrl: null };
 
-const testDir = resolve(__dirname, '.test');
-const distDir = resolve(testDir, 'dist');
-const buildDir = join(testDir, '.nuxt');
-
 beforeAll(async () => {
-  await generate(buildDir, distDir);
   runtime.serverUrl = (await startStaticServer(distDir)).url;
+
+  console.log(runtime.serverUrl);
 });
 
 browser(runtime);

@@ -1,5 +1,5 @@
 import { joinURL, parseURL, withBase, hasProtocol } from 'ufo';
-import globals from '../../../utils/globals';
+import { useRequestURL } from '#app';
 
 const SOURCE_FORMATS = ['avif', 'webp', 'png', 'jpg', 'gif'];
 const FALLBACK_FORMAT = 'jpg';
@@ -41,22 +41,17 @@ const getProvider = context => {
   return context.options.providers[context.options.provider].provider;
 };
 
-export const getMeta = async (source, compiledSrc, ssrNuxtImage) => {
-  if (typeof window !== 'undefined' && window.Image) {
+export async function getMeta(source, compiledSrc, $booster) {
+  if (!import.meta.server && window.Image) {
     source = source.modify({ src: compiledSrc });
   } else {
-    let src = compiledSrc;
-    if (Object.entries(ssrNuxtImage || {}).length) {
-      src = Object.entries(ssrNuxtImage || {}).find(([, compiledPath]) =>
-        compiledPath.endsWith(src)
-      )[0];
-    }
     source = source.modify({
-      src: hasProtocol(src)
-        ? src
-        : withBase(src, process.env.NUXT_BOOSTER_INTERAL_URL)
+      src: hasProtocol(compiledSrc)
+        ? compiledSrc
+        : withBase(compiledSrc, useRequestURL().origin)
     });
   }
-  const { width, height } = await globals.getImageSize(source.src);
+
+  const { width, height } = await $booster.getImageSize(source.src);
   return source.modify({ width, height });
-};
+}

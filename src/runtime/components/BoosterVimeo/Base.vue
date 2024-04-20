@@ -2,6 +2,7 @@
   <div :class="{ ready, playing, 'iframe-mode': iframeMode }">
     <slot name="background" v-bind="{ playing, videoData }" />
     <div class="player">
+      <slot name="beforePlayer" />
       <iframe
         ref="player"
         :key="src"
@@ -17,19 +18,21 @@
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
       </default-button>
+      <slot name="afterPlayer" />
     </div>
     <slot v-bind="{ playing, videoData }" />
   </div>
 </template>
 
 <script>
+import { markRaw, ref, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#booster/utils/browser';
-import { toHashHex } from '#booster/utils/string';
-import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
 import BoosterPicture from '#booster/components/BoosterPicture';
+
+import { useHead } from '#imports';
 
 const vimeo = new Vimeo();
 
@@ -38,8 +41,6 @@ export default {
     BoosterPicture,
     DefaultButton
   },
-
-  inheritAttrs: false,
 
   props: {
     autoplay: {
@@ -70,11 +71,6 @@ export default {
       }
     },
 
-    posterLoadingSpinner: {
-      type: LoadingSpinner,
-      default: undefined
-    },
-
     posterSizes: {
       type: Object,
       default() {
@@ -89,51 +85,68 @@ export default {
           xxl: '100vw'
         };
       }
+    },
+
+    posterDensities: {
+      type: [String, Number],
+      default: undefined
     }
+  },
+  emits: ['playing', 'ready'],
+
+  async setup(props) {
+    const script = ref([]);
+    useHead({
+      script: computed(() => {
+        return script.value;
+      })
+    });
+
+    const { withQuery } = await import('ufo');
+    const videoData = ref(null);
+    const iframeMode = ref(false);
+    const src = ref(null);
+
+    const playerSrc = computed(
+      () =>
+        videoData.value?.html
+          .replace(/.*src="([^"]*)".*/, '$1')
+          .replace(/&amp;/g, '&') ||
+        `https://player.vimeo.com/video/${props.videoId}`
+    );
+
+    try {
+      const url = withQuery('https://vimeo.com/api/oembed.json', {
+        url: props.url,
+        width: 1920,
+        height: 1080,
+        ...props.playerOptions
+      });
+      const response = await fetch(url);
+      videoData.value = await response.json();
+    } catch (error) {
+      console.error(error);
+      iframeMode.value = true;
+      src.value = playerSrc.value;
+    }
+    return {
+      playerSrc,
+      videoId: new URL(props.url).pathname.replace('/', ''),
+      iframeMode,
+      src,
+      script,
+      videoData
+    };
   },
 
   data() {
     return {
       inert: false,
-      videoData: null,
-      src: null,
-      videoId: new URL(this.url).pathname.replace('/', ''),
-      script: [],
       player: null,
       ready: false,
       loading: false,
       playing: false,
-      iframeMode: false,
       isTouchDevice: isTouchSupported()
-    };
-  },
-
-  fetchKey() {
-    return `vimeo-${toHashHex(this.videoId)}`;
-  },
-
-  async fetch() {
-    const { withQuery } = await import('ufo');
-    try {
-      const url = withQuery('https://vimeo.com/api/oembed.json', {
-        url: this.url,
-        width: 1920,
-        height: 1080,
-        ...this.playerOptions
-      });
-      const response = await fetch(url);
-      this.videoData = await response.json();
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-      this.iframeMode = true;
-      this.src = this.playerSrc;
-    }
-  },
-
-  head() {
-    return {
-      script: this.script
     };
   },
 
@@ -151,15 +164,6 @@ export default {
         autoplay: this.autoplay,
         muted: this.isTouchDevice || this.mute
       };
-    },
-
-    playerSrc() {
-      return (
-        this.videoData?.html
-          .replace(/.*src="([^"]*)".*/, '$1')
-          .replace(/&amp;/g, '&') ||
-        `https://player.vimeo.com/video/${this.videoId}`
-      );
     },
 
     pictureComponent() {
@@ -183,10 +187,10 @@ export default {
                 'vimeo'
               ),
             sizes: this.posterSizes,
-            media: 'all'
+            media: 'all',
+            densities: this.posterDensities
           }
-        ],
-        loadingSpinner: this.posterLoadingSpinner
+        ]
       };
     }
   },
@@ -206,7 +210,7 @@ export default {
     this.inert = true;
   },
 
-  destroyed() {
+  unmounted() {
     this.player && vimeo.remove(this.player);
   },
 
@@ -237,7 +241,8 @@ export default {
 
       await ready();
 
-      this.player = await vimeo.createPlayer(this.$refs.player);
+      this.player = markRaw(await vimeo.createPlayer(this.$refs.player));
+
       this.player.on('playing', () =>
         this.onPlayerStateChange({ playing: true })
       );

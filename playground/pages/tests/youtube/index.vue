@@ -1,5 +1,5 @@
 <template>
-  <document-section tag="main">
+  <div>
     <default
       v-for="(item, index) in items"
       :id="`youtube-${index}`"
@@ -7,31 +7,21 @@
       :key="item.youtubeUrl"
       :critical="index < 1"
     />
-  </document-section>
+  </div>
 </template>
 
-<script>
+<script setup>
 import boosterHydrate from '#booster/hydrate';
-
-export default {
-  components: {
-    Default: boosterHydrate(() => import('./components/Default'))
+const Default = boosterHydrate(() => import('./components/Default'));
+const items = [
+  {
+    youtubeUrl: 'https://www.youtube.com/watch?v=cLKvbhfVBUU',
+    title: 'Youtube 1'
   },
-
-  asyncData() {
-    return {
-      items: [
-        {
-          youtubeUrl: 'https://www.youtube.com/watch?v=cLKvbhfVBUU',
-          title: 'Youtube 1'
-        },
-        {
-          youtubeUrl: 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
-          title: 'Youtube 2',
-          autoplay: true
-        }
-      ]
-    };
+  {
+    youtubeUrl: 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
+    title: 'Youtube 2',
+    autoplay: true
   }
-};
+];
 </script>

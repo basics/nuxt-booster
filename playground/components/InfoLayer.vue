@@ -1,5 +1,5 @@
 <template>
-  <booster-layer class="info-layer" v-bind="$attrs" v-on="$listeners">
+  <booster-layer class="info-layer" v-bind="$attrs">
     <div>
       <p v-font="$getFont('Quicksand', 400, 'normal')">
         Sorry, but you will have a limited user experience due to a…
@@ -11,11 +11,18 @@
         <li id="nuxt-booster-message-weak-hardware">weak hardware</li>
       </ul>
       <div class="info-layer-buttons">
-        <base-button id="nuxt-booster-button-init-nojs">
-          <label for="nuxt-booster-layer-close"> Yes </label>
+        <base-button
+          id="nuxt-booster-button-init-nojs"
+          for="nuxt-booster-layer-close"
+        >
+          Yes
         </base-button>
-        <base-button id="nuxt-booster-button-init-reduced-view">
-          <label for="nuxt-booster-layer-close"> No </label>
+        <base-button
+          id="nuxt-booster-button-init-reduced-view"
+          tag="label"
+          for="nuxt-booster-layer-close"
+        >
+          No
         </base-button>
         <base-button id="nuxt-booster-button-init-app" label="Yes" />
       </div>
@@ -23,29 +30,23 @@
   </booster-layer>
 </template>
 
-<script>
+<script setup>
 import { getStyleDescription } from '#booster/utils/description';
+import { useHead, useBoosterFonts } from '#imports';
 import BoosterLayer from '#booster/components/BoosterLayer';
-import BaseButton from '@/components/atoms/BaseButton';
+import BaseButton from '@/components/base/Button';
+const { $getFont } = useBoosterFonts();
 
-export default {
-  components: {
-    BaseButton,
-    BoosterLayer
-  },
-  inheritAttrs: false,
-  head() {
-    return this.$booster.head({
-      noscript: [
-        getStyleDescription(
-          '.info-layer > div { animation-delay: initial !important; }',
-          true
-        )
-      ],
-      __dangerouslyDisableSanitizers: ['noscript']
-    });
-  }
-};
+useHead({
+  noscript: [
+    getStyleDescription(
+      '.info-layer > div { animation-delay: initial !important; }',
+      true
+    )
+  ]
+});
+
+defineOptions({ inheritAttrs: false });
 </script>
 
 <style lang="postcss" scoped>

@@ -1,22 +1,15 @@
 <template>
-  <organism-preview-container>
+  <preview-container>
     <template #default>
       <loader-test id="lazyBoosterHydrate" />
     </template>
     <template #title>
       <p>Critical<br />BoosterHydrate</p>
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
-import LoaderTest from '@/components/atoms/LoaderTest';
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
-
-export default {
-  components: {
-    OrganismPreviewContainer,
-    LoaderTest
-  }
-};
+<script setup>
+import LoaderTest from '@/components/elements/LoaderTest';
+import PreviewContainer from '@/components/PreviewContainer';
 </script>

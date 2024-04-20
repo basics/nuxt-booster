@@ -1,40 +1,12 @@
-import { resolve as fsResolve } from 'path';
-import fs, { readFile } from 'fs';
+import { existsSync, promises as fsPromises } from 'fs';
 import http from 'http';
+import pathe from 'pathe';
 import { JSDOM } from 'jsdom';
 import rimraf from 'rimraf';
 import finalhandler from 'finalhandler';
 import serveStatic from 'serve-static';
-import { defu } from 'defu';
-import { Nuxt, Builder, Generator } from 'nuxt';
 import { getPort } from 'get-port-please';
-import nuxtConfig from '../playground/nuxt.config';
 import { toHashHex } from '../src/runtime/utils/string';
-
-export const generate = async (buildDir, distDir) => {
-  const config = defu(
-    {
-      target: 'static',
-      modern: true,
-      buildDir,
-      env: {
-        DISABLE_INFO_LAYER: true
-      },
-      generate: { cache: false, dir: distDir, crawler: false },
-      dir: {
-        pages: 'pages/tests'
-      }
-    },
-    nuxtConfig
-  );
-  const nuxt = new Nuxt(config);
-  nuxt.server.listen(await getPort({ random: true }));
-  await nuxt.ready();
-
-  const builder = new Builder(nuxt);
-  await new Generator(nuxt, builder).generate({ build: true, init: true });
-  await nuxt.close();
-};
 
 export const getDom = html => new JSDOM(html).window.document;
 
@@ -49,11 +21,9 @@ export const getFontFaceSnippet = (
     `        font-style: ${style};`,
     `        font-weight: ${weight};`
   ].join('\n');
-
-  // return `@font-face{font-family:'${family}';font-style:${style};font-weight:${weight};`
 };
 
-export const getLinkPreloadHid = (
+export const getLinkPreloadKey = (
   family,
   weight = 400,
   style = 'normal',
@@ -63,13 +33,11 @@ export const getLinkPreloadHid = (
 };
 
 export const makeDir = path => {
-  /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
-  return fs.promises.mkdir(path);
+  return fsPromises.mkdir(path);
 };
 export const deleteDir = path => {
   return new Promise(resolve => {
-    /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
-    if (fs.existsSync(path)) {
+    if (existsSync(path)) {
       rimraf(path, resolve);
     } else {
       resolve();
@@ -78,14 +46,7 @@ export const deleteDir = path => {
 };
 
 export const getHTML = (path = '') => {
-  return new Promise(resolve =>
-    readFile(fsResolve(path, 'index.html'), 'utf-8', (err, data) => {
-      if (err) {
-        throw err;
-      }
-      resolve(data);
-    })
-  );
+  return fsPromises.readFile(pathe.resolve(path, 'index.html'), 'utf-8');
 };
 
 export const startStaticServer = async (dist, port, hostname = 'localhost') => {

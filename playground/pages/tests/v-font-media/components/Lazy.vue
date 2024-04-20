@@ -1,5 +1,5 @@
 <template>
-  <organism-preview-container>
+  <preview-container>
     <template #default>
       <ul class="list">
         <li>
@@ -99,14 +99,13 @@
     <template #title>
       <p>Lazy - v-font with media</p>
     </template>
-  </organism-preview-container>
+  </preview-container>
 </template>
 
-<script>
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
-export default {
-  components: { OrganismPreviewContainer }
-};
+<script setup>
+import PreviewContainer from '@/components/PreviewContainer';
+import { useBoosterFonts } from '#imports';
+const { $getFont } = useBoosterFonts();
 </script>
 
 <style lang="postcss" scoped>

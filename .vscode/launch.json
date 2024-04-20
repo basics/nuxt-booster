@@ -2,53 +2,53 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "envFile": "${workspaceFolder}/.env",
+      "presentation": {
+        "group": "nuxt"
+      },
+      "command": "npm run dev",
+      "name": "Debug: dev",
       "request": "launch",
-      "name": "Debug (generate)",
-      "runtimeVersion": "16.19.0",
-      "runtimeArgs": [
-        "--inspect"
-      ],
-      "program": "${workspaceFolder}/node_modules/.bin/nuxt",
-      "outputCapture": "std",
-      "args": [
-        "generate",
-        "--config-file",
-        "playground/nuxt.config.js",
-        "--target",
-        "static"
-      ]
+      "type": "node-terminal"
     },
     {
-      "type": "node",
+      "envFile": "${workspaceFolder}/.env",
+      "presentation": {
+        "group": "nuxt"
+      },
+      "command": "npm run build",
+      "name": "Debug: build",
       "request": "launch",
-      "name": "Debug (build)",
-      "runtimeVersion": "16.19.0",
-      "runtimeArgs": [
-        "--inspect"
-      ],
-      "program": "${workspaceFolder}/node_modules/.bin/nuxt",
-      "outputCapture": "std",
-      "args": [
-        "build",
-        "--config-file",
-        "playground/nuxt.config.js"
-      ]
+      "type": "node-terminal"
     },
     {
-      "type": "node",
+      "envFile": "${workspaceFolder}/.env",
+      "presentation": {
+        "group": "nuxt"
+      },
+      "command": "npm run generate",
+      "name": "Debug: generate",
       "request": "launch",
-      "name": "Debug (nuxt)",
-      "runtimeVersion": "16.19.0",
-      "runtimeArgs": [
-        "--inspect"
-      ],
-      "program": "${workspaceFolder}/node_modules/.bin/nuxt",
-      "outputCapture": "std",
-      "args": [
-        "--config-file",
-        "playground/nuxt.config.js"
-      ]
+      "type": "node-terminal"
+    },
+    {
+      "envFile": "${workspaceFolder}/.env",
+      "presentation": {
+        "group": "others"
+      },
+      "command": "npm run start",
+      "name": "Serve (dist)",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "presentation": {
+        "group": "tests"
+      },
+      "command": "npm run vitest:dev",
+      "name": "Debug: vitest:dev",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }

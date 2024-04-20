@@ -11,15 +11,24 @@
     :alt="alt || title"
     :loading="loadingMode"
     :decoding="decodingMode"
-    :crossorigin="getCrossorigin(crossorigin)"
-    v-on="{ ...$listeners, load: onLoad }"
+    :crossorigin="resolvedCrossorigin"
+    @load="onLoad"
   />
 </template>
 
 <script>
+import { crossorigin as validatorCrossorigin } from '../../utils/validators';
+import { getImageStyleDescription } from '#booster/utils/description';
 import { getCrossorigin } from '#booster/utils';
 import Source from '#booster/components/BoosterImage/classes/Source';
-import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
+import {
+  useBoosterCritical,
+  ref,
+  useImage,
+  useNuxtApp,
+  useHead,
+  computed
+} from '#imports';
 
 export default {
   inheritAttrs: false,
@@ -43,18 +52,71 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default() {
-        return this.$booster.crossorigin;
+        return null;
       },
-      validator: val =>
-        ['anonymous', 'use-credentials', '', true, false].includes(val)
-    },
-
-    loadingSpinner: {
-      type: LoadingSpinner,
-      default() {
-        return this.$booster.loader();
-      }
+      validator: validatorCrossorigin
     }
+  },
+
+  emits: ['load'],
+
+  async setup(props) {
+    const $img = useImage();
+    const $booster = useNuxtApp().$booster;
+    const { isCritical } = useBoosterCritical();
+
+    const resolvedCrossorigin = computed(() => {
+      return getCrossorigin(props.crossorigin || $booster.crossorigin);
+    });
+
+    if (props.source) {
+      const source = new Source(props.source);
+      const config = $img.getSizes(source.src, {
+        sizes: source.sizes,
+        modifiers: source.getModifiers(),
+        ...source.getOptions($booster)
+      });
+
+      const meta = ref(null);
+
+      useHead(() => {
+        if (meta.value) {
+          return {
+            style: [
+              meta.value && getImageStyleDescription(meta, meta.value.className)
+            ].filter(Boolean),
+            link: [
+              !(!config || !isCritical.value) &&
+                new Source(source).getPreload(
+                  config.srcset,
+                  config.sizes,
+                  resolvedCrossorigin.value
+                )
+            ].filter(Boolean),
+            noscript: [
+              {
+                key: 'img-nojs',
+                children: `<style>img { content-visibility: unset !important; }</style>`
+              }
+            ]
+          };
+        }
+      });
+
+      meta.value = await source.getMeta(config.src, $booster);
+
+      return {
+        isCritical,
+        config,
+        meta,
+        className: meta.value.className,
+        resolvedCrossorigin
+      };
+    }
+    return {
+      isCritical,
+      resolvedCrossorigin
+    };
   },
 
   data() {
@@ -66,53 +128,9 @@ export default {
     };
   },
 
-  fetchKey(getCounter) {
-    let key;
-    if (this.source) {
-      key = `image-${new Source(this.source)?.key}`;
-    } else {
-      key = 'image';
-    }
-    return `${key}-${getCounter(key)}`;
-  },
-
-  async fetch() {
-    if (this.source) {
-      const source = new Source(this.source);
-      this.config = this.$img.getSizes(source.src, {
-        sizes: source.sizes,
-        modifiers: source.getModifiers(),
-        ...source.getOptions()
-      });
-      const { ssrContext } = this.$nuxt.context;
-      this.meta = await source.getMeta(
-        this.config.src,
-        ssrContext?.nuxt?._img || {}
-      );
-      this.className = this.meta.className;
-    }
-  },
-
-  head() {
-    return {
-      style: this.style,
-      link: this.preload,
-      noscript: [
-        {
-          hid: 'img-nojs',
-          innerHTML:
-            '<style>img { content-visibility: unset !important; }</style>'
-        }
-      ],
-      __dangerouslyDisableSanitizers: ['noscript']
-    };
-  },
-
   computed: {
     classNames() {
-      const classNames = [{ loading: this.loading }].concat(this.className);
-      this.loadingSpinner && classNames.push(this.loadingSpinner.className);
-      return classNames;
+      return [{ loading: this.loading }].concat(this.className);
     },
 
     srcset() {
@@ -143,46 +161,20 @@ export default {
         return 'async';
       }
       return 'sync';
-    },
-
-    style() {
-      return [
-        this.loadingSpinner && {
-          hid: this.loadingSpinner.className,
-          type: 'text/css',
-          cssText: this.loadingSpinner.style
-        },
-        this.meta && {
-          hid: this.className,
-          type: 'text/css',
-          cssText: new Source(this.meta).style
-        }
-      ].filter(Boolean);
-    },
-
-    preload() {
-      if (!this.config || !this.isCritical) {
-        return [];
-      }
-      return [
-        new Source(this.source).getPreload(
-          this.config.srcset,
-          this.config.sizes,
-          getCrossorigin(this.crossorigin)
-        )
-      ];
     }
   },
 
   mounted() {
     this.loading = !this.$el.complete;
+    if (!this.loading) {
+      this.onLoad({ target: this.$el });
+    }
   },
 
   methods: {
-    getCrossorigin,
     onLoad(e) {
       this.loading = false;
-      this.$emit('load', e.target.currentSrc);
+      this.$emit('load', e.target);
     }
   }
 };

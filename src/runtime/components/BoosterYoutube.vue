@@ -1,5 +1,8 @@
 <template>
-  <base-youtube class="nuxt-booster-youtube" v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="nuxt-booster-youtube" v-bind="$attrs">
+    <template #beforePlayer>
+      <slot name="beforePlayer" />
+    </template>
     <template #loading-spinner>
       <slot name="loading-spinner">
         <svg
@@ -40,19 +43,19 @@
         </svg>
       </slot>
     </template>
+    <template #afterPlayer>
+      <slot name="afterPlayer" />
+    </template>
   </base-youtube>
 </template>
 
-<script>
+<script setup>
+import { defineOptions } from 'vue';
 import BaseYoutube from '#booster/components/BoosterYoutube/Base';
 
-export default {
-  components: {
-    BaseYoutube
-  },
-
+defineOptions({
   inheritAttrs: false
-};
+});
 </script>
 
 <style lang="postcss" scoped>

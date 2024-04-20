@@ -1,15 +1,10 @@
 {
-  "vueCompilerOptions": {
-    "target": 2.7
-  },
+  "extends": "./playground/.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "es2015",
-    "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "nuxt-booster/*": [
-        "src/runtime/*"
+        "src/*"
       ],
       "#booster": [
         "src/runtime/*"

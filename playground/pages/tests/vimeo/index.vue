@@ -1,5 +1,5 @@
 <template>
-  <document-section tag="main">
+  <div>
     <default
       v-for="(item, index) in items"
       :id="`vimeo-${index}`"
@@ -7,31 +7,21 @@
       :key="item.vimeoUrl"
       :critical="index < 1"
     />
-  </document-section>
+  </div>
 </template>
 
-<script>
+<script setup>
 import boosterHydrate from '#booster/hydrate';
-
-export default {
-  components: {
-    Default: boosterHydrate(() => import('./components/Default'))
+const Default = boosterHydrate(() => import('./components/Default'));
+const items = [
+  {
+    vimeoUrl: 'https://vimeo.com/288344114',
+    title: 'Vimeo 1'
   },
-
-  asyncData() {
-    return {
-      items: [
-        {
-          vimeoUrl: 'https://vimeo.com/288344114',
-          title: 'Vimeo 1'
-        },
-        {
-          vimeoUrl: 'https://vimeo.com/288344114',
-          title: 'Vimeo 2',
-          autoplay: true
-        }
-      ]
-    };
+  {
+    vimeoUrl: 'https://vimeo.com/288344114',
+    title: 'Vimeo 2',
+    autoplay: true
   }
-};
+];
 </script>

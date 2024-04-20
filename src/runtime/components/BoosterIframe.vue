@@ -1,61 +1,52 @@
 <template>
-  <component-observer v-bind="componentObserver" @enterView="onEnterView">
-    <iframe
-      :src="lazySrc"
-      class="nuxt-booster-iframe"
-      v-bind="$attrs"
-      frameborder="0"
-      @load="onLoad"
-    />
-  </component-observer>
+  <iframe
+    ref="iframe"
+    :src="lazySrc"
+    class="nuxt-booster-iframe"
+    v-bind="$attrs"
+    frameborder="0"
+    @load="loaded = $event"
+  />
 </template>
 
-<script>
-import ComponentObserver from '#booster/components/abstracts/ComponentObserver';
+<script setup>
+import { ref, watch } from 'vue';
+import useBoosterComponentObserver from '#booster/composables/componentObserver';
 
-export default {
-  components: {
-    ComponentObserver
+const props = defineProps({
+  src: {
+    type: String,
+    default: null
   },
 
-  inheritAttrs: false,
-
-  props: {
-    src: {
-      type: String,
-      default: null
-    },
-
-    componentObserver: {
-      type: Object,
-      default() {
-        return {
-          trackVisibility: true,
-          delay: 350
-        };
-      }
-    }
-  },
-
-  data() {
-    return {
-      lazySrc: null
-    };
-  },
-
-  methods: {
-    onLoad(e) {
-      if (e.target.src) {
-        this.$emit('load', e);
-      }
-    },
-
-    onEnterView(e) {
-      this.lazySrc = this.src;
-      this.$emit('enter', e);
+  componentObserver: {
+    type: Object,
+    default() {
+      return {
+        trackVisibility: true,
+        delay: 350
+      };
     }
   }
-};
+});
+
+const emit = defineEmits(['load', 'enter']);
+
+const lazySrc = ref(null);
+const loaded = ref(false);
+
+watch(loaded, e => {
+  if (e.target.src) {
+    emit('load', e);
+  }
+});
+
+const { el: iframe, inView } = useBoosterComponentObserver();
+
+watch(inView, () => {
+  lazySrc.value = props.src;
+  emit('enter');
+});
 </script>
 
 <style lang="postcss" scoped>

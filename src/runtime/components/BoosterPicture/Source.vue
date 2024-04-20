@@ -8,8 +8,11 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 import { getCrossorigin } from '#booster/utils';
 import Source from '#booster/components/BoosterImage/classes/Source';
+
+import { useImage, useNuxtApp, useHead } from '#imports';
 
 const types = new Map([['jpg', 'jpeg']]);
 
@@ -23,46 +26,40 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default() {
-        return this.$booster.crossorigin;
+        return null;
       },
       validator: val =>
         ['anonymous', 'use-credentials', '', true, false].includes(val)
     }
   },
 
-  data() {
-    return {
-      config: null
-    };
-  },
-
-  fetchKey(getCounter) {
-    const key = `source-${this.source.key}`;
-    return `${key}-${getCounter(key)}`;
-  },
-
-  fetch() {
-    this.config = this.$img.getSizes(this.source.src, {
-      sizes: this.source.sizes,
-      modifiers: this.source.getModifiers(),
-      ...this.source.getOptions()
+  setup(props) {
+    const $img = useImage();
+    const $booster = useNuxtApp().$booster;
+    const config = $img.getSizes(props.source.src, {
+      sizes: props.source.sizes,
+      modifiers: props.source.getModifiers(),
+      ...props.source.getOptions($booster)
     });
-  },
 
-  head() {
-    const imageSource = new Source(this.source);
-    if (this.config && imageSource.preload) {
-      return {
-        link: [
+    const resolvedCrossorigin = computed(() => {
+      return getCrossorigin(props.crossorigin || $booster.crossorigin);
+    });
+
+    const imageSource = new Source(props.source);
+    useHead({
+      link: [
+        config &&
+          imageSource.preload &&
           imageSource.getPreload(
-            this.config.srcset,
-            this.config.sizes,
-            getCrossorigin(this.crossorigin)
+            config.srcset,
+            config.sizes,
+            resolvedCrossorigin
           )
-        ]
-      };
-    }
-    return {};
+      ].filter(Boolean)
+    });
+
+    return { config, resolvedCrossorigin };
   },
 
   computed: {

@@ -1,18 +1,18 @@
 <template>
-  <document-section tag="main">
+  <div>
     <critical critical />
     <lazy />
-  </document-section>
+  </div>
 </template>
 
-<script>
+<script setup>
 import boosterHydrate from '#booster/hydrate';
+import { definePageMeta } from '#imports';
 
-export default {
-  components: {
-    Critical: boosterHydrate(() => import('./components/Critical')),
-    Lazy: boosterHydrate(() => import('./components/Lazy'))
-  },
+const Critical = boosterHydrate(() => import('./components/Critical'));
+const Lazy = boosterHydrate(() => import('./components/Lazy'));
+
+definePageMeta({
   layout: 'blank'
-};
+});
 </script>

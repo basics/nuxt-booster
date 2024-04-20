@@ -2,17 +2,18 @@ import { getExtension, getMeta } from '../utils/image';
 import { toHashHex } from '#booster/utils/string';
 
 export default class Source {
-  #src = null;
-  #sizes = null;
-  #media = null;
-  #width = null;
-  #height = null;
-  #format = null;
-  #quality = null;
-  #preload = false;
-  #modifiers = {};
-  #provider = undefined; // https://image.nuxtjs.org/api/options#providers
-  #preset = undefined; // https://image.nuxtjs.org/api/options#presets
+  src = null;
+  sizes = null;
+  media = null;
+  width = null;
+  height = null;
+  format = null;
+  quality = null;
+  preload = false;
+  modifiers = {}; // https://image.nuxt.com/usage/nuxt-img#modifiers
+  provider = undefined; // https://image.nuxt.com/usage/nuxt-img#provider
+  preset = undefined; // https://image.nuxt.com/usage/nuxt-img#preset
+  densities = undefined; // https://image.nuxt.com/usage/nuxt-img#densities
 
   constructor({
     src,
@@ -25,79 +26,33 @@ export default class Source {
     preload = false,
     modifiers = {},
     provider = undefined,
-    preset = undefined
+    preset = undefined,
+    densities = undefined
   }) {
-    this.#src = src;
-    this.#sizes = sizes;
-    this.#media = media;
-    this.#width = width;
-    this.#height = height;
-    this.#format = format;
-    this.#quality = quality;
-    this.#preload = preload;
-    this.#modifiers = modifiers;
-    this.#provider = provider;
-    this.#preset = preset;
+    this.src = src;
+    this.sizes = sizes;
+    this.media = media;
+    this.width = width;
+    this.height = height;
+    this.format = getFormat(src, format);
+    this.quality = quality;
+    this.preload = preload;
+    this.modifiers = modifiers;
+    this.provider = provider;
+    this.preset = preset;
+    this.densities = densities;
   }
 
   get key() {
     return toHashHex(JSON.stringify(this.toJSON()));
   }
 
-  get src() {
-    return this.#src;
-  }
-
-  get sizes() {
-    return this.#sizes;
-  }
-
-  get media() {
-    return this.#media;
-  }
-
-  get width() {
-    return this.#width;
-  }
-
-  get height() {
-    return this.#height;
-  }
-
   get ratio() {
-    return this.#width / this.#height;
-  }
-
-  get format() {
-    const extension = getExtension(this.#src);
-    if (this.#format?.includes(extension)) {
-      return extension;
-    }
-    return this.#format || extension;
-  }
-
-  get quality() {
-    return this.#quality;
-  }
-
-  get preload() {
-    return this.#preload;
-  }
-
-  get modifiers() {
-    return this.#modifiers;
-  }
-
-  get provider() {
-    return this.#provider;
-  }
-
-  get preset() {
-    return this.#preset;
+    return this.width / this.height;
   }
 
   get className() {
-    return `image-${toHashHex(this.src)}`;
+    return `image-${toHashHex(normalizeSrc(this.src))}`;
   }
 
   get style() {
@@ -112,12 +67,16 @@ export default class Source {
     return { ...this.modifiers, format: this.format, quality: this.quality };
   }
 
-  getOptions() {
-    return { provider: this.provider, preset: this.preset };
+  getOptions($booster) {
+    return {
+      provider: this.provider,
+      preset: this.preset,
+      densities: this.densities || $booster.densities
+    };
   }
 
-  getMeta(compiledSrc, ssrNuxtImage) {
-    return getMeta(new Source({ ...this.toJSON() }), compiledSrc, ssrNuxtImage);
+  getMeta(compiledSrc, $booster) {
+    return getMeta(new Source({ ...this.toJSON() }), compiledSrc, $booster);
   }
 
   getPreload(srcset, sizes, crossorigin) {
@@ -138,21 +97,38 @@ export default class Source {
 
   toJSON() {
     return {
-      src: this.#src,
-      sizes: this.#sizes,
-      media: this.#media,
-      width: this.#width,
-      height: this.#height,
-      format: this.#format,
-      quality: this.#quality,
-      preload: this.#preload,
-      modifiers: this.#modifiers,
-      provider: this.#provider,
-      preset: this.#preset
+      src: this.src,
+      sizes: this.sizes,
+      media: this.media,
+      width: this.width,
+      height: this.height,
+      format: this.format,
+      quality: this.quality,
+      preload: this.preload,
+      modifiers: this.modifiers,
+      provider: this.provider,
+      preset: this.preset,
+      densities: this.densities
     };
   }
 
   static create(...args) {
     return new this(...args);
   }
+}
+
+function getFormat(src, format) {
+  const extension = getExtension(src);
+  if (format?.includes(extension)) {
+    return extension;
+  }
+  return format || extension;
+}
+
+export function normalizeSrc(src) {
+  if (src.startsWith('/')) {
+    return src;
+  }
+  const url = new URL(src);
+  return url.pathname + url.search + url.hash;
 }

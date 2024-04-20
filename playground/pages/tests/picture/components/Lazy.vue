@@ -9,38 +9,26 @@
   </organism-preview-container>
 </template>
 
-<script>
+<script setup>
 import BoosterPicture from '#booster/components/BoosterPicture';
+import OrganismPreviewContainer from '@/components/PreviewContainer';
 
-import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
-
-export default {
-  components: {
-    BoosterPicture,
-    OrganismPreviewContainer
-  },
-
-  data() {
-    return {
-      picture: {
-        title: 'Lazy',
-        sources: [
-          {
-            src: '/img/pickadummy/lazy.jpg',
-            sizes: {
-              default: '100vw',
-              xxs: '100vw',
-              xs: '100vw',
-              sm: '100vw',
-              md: '100vw',
-              lg: '100vw',
-              xl: '100vw',
-              xxl: '100vw'
-            }
-          }
-        ]
+const picture = {
+  title: 'Lazy',
+  sources: [
+    {
+      src: '/img/lazy.jpg',
+      sizes: {
+        default: '100vw',
+        xxs: '100vw',
+        xs: '100vw',
+        sm: '100vw',
+        md: '100vw',
+        lg: '100vw',
+        xl: '100vw',
+        xxl: '100vw'
       }
-    };
-  }
+    }
+  ]
 };
 </script>

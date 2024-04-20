@@ -1,18 +1,11 @@
 <template>
-  <document-section tag="main">
+  <div>
     <horizontal />
     <vertical />
-  </document-section>
+  </div>
 </template>
 
-<script>
+<script setup>
 import Horizontal from './components/Horizontal';
 import Vertical from './components/Vertical';
-
-export default {
-  components: {
-    Horizontal,
-    Vertical
-  }
-};
 </script>

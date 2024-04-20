@@ -1,6 +1,6 @@
-import { join } from 'path';
+import { join } from 'pathe';
 import { describe, it, expect } from 'vitest';
-import { getDom, getLinkPreloadHid, getHTML } from '../utils';
+import { getDom, getLinkPreloadKey, getHTML } from '../utils.js';
 
 export default distDir => {
   describe('🧐 inspect html', () => {
@@ -11,21 +11,23 @@ export default distDir => {
 function markupTests(distDir) {
   let html, dom;
 
+  // #region /tests/v-font
+
   it('v-font (font assign simple) (font-face, class, link (preload), element class)', async () => {
     html = await getHTML(join(distDir, 'v-font'));
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-12e8e649"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-15b2b0cd"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'normal')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 400, 'normal')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
     expect(
-      dom.querySelector('#criticalFontAssignSimple[data-font="-12e8e649"]')
+      dom.querySelector('#criticalFontAssignSimple[data-font="-15b2b0cd"]')
     ).not.toBeNull();
   });
 
@@ -35,18 +37,18 @@ function markupTests(distDir) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-3e34aeed"] strong')
+      dom.head.innerHTML.indexOf('[data-font="-2e9abde9"] strong')
     ).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'normal')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 700, 'normal')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignBySingleSelector[data-font="-3e34aeed"]'
+        '#criticalFontAssignBySingleSelector[data-font="-2e9abde9"]'
       )
     ).not.toBeNull();
   });
@@ -57,26 +59,26 @@ function markupTests(distDir) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-2842d182"] strong')
+      dom.head.innerHTML.indexOf('[data-font="-2a925cfc"] strong')
     ).not.toBe(-1);
-    expect(dom.head.innerHTML.indexOf('[data-font="-2842d182"] em')).not.toBe(
+    expect(dom.head.innerHTML.indexOf('[data-font="-2a925cfc"] em')).not.toBe(
       -1
     );
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'normal')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 700, 'normal')}"]`
       )
     ).not.toBeNull();
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'italic')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 400, 'italic')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignByMultipleVariances[data-font="-2842d182"]'
+        '#criticalFontAssignByMultipleVariances[data-font="-2a925cfc"]'
       )
     ).not.toBeNull();
   });
@@ -86,19 +88,19 @@ function markupTests(distDir) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-2a653439"] em')).not.toBe(
+    expect(dom.head.innerHTML.indexOf('[data-font="-7241994b"] em')).not.toBe(
       -1
     );
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid('Merriweather', 400, 'italic')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 400, 'italic')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignByMultipleSelectors[data-font="-2a653439"]'
+        '#criticalFontAssignByMultipleSelectors[data-font="-7241994b"]'
       )
     ).not.toBeNull();
   });
@@ -109,18 +111,18 @@ function markupTests(distDir) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-28fdf168"] strong>em')
+      dom.head.innerHTML.indexOf('[data-font="--53428d4"] strong > em')
     ).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid('Merriweather', 700, 'italic')}"]`
+        `link[data-key="${getLinkPreloadKey('Merriweather', 700, 'italic')}"]`
       )
     ).not.toBeNull();
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignByDeepSelector[data-font="-28fdf168"]'
+        '#criticalFontAssignByDeepSelector[data-font="--53428d4"]'
       )
     ).not.toBeNull();
   });
@@ -134,11 +136,11 @@ function markupTests(distDir) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-43dfacd8"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-450f5c14"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           700,
           'italic',
@@ -149,7 +151,7 @@ function markupTests(distDir) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignSimpleByMax479[data-font="-43dfacd8"]'
+        '#criticalFontAssignSimpleByMax479[data-font="-450f5c14"]'
       )
     ).not.toBeNull();
   });
@@ -159,11 +161,11 @@ function markupTests(distDir) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-61d858b9"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-12909d4b"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           400,
           'normal',
@@ -173,7 +175,7 @@ function markupTests(distDir) {
     ).not.toBeNull();
     // element has data attribute?
     expect(
-      dom.querySelector('#criticalFontAssignSimpleBy480[data-font="-61d858b9"]')
+      dom.querySelector('#criticalFontAssignSimpleBy480[data-font="-12909d4b"]')
     ).not.toBeNull();
   });
 
@@ -182,11 +184,11 @@ function markupTests(distDir) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="---8e165c"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-137ab098"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           400,
           'italic',
@@ -196,7 +198,7 @@ function markupTests(distDir) {
     ).not.toBeNull();
     // element has data attribute?
     expect(
-      dom.querySelector('#criticalFontAssignSimpleBy960[data-font="---8e165c"]')
+      dom.querySelector('#criticalFontAssignSimpleBy960[data-font="-137ab098"]')
     ).not.toBeNull();
   });
 
@@ -206,12 +208,12 @@ function markupTests(distDir) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-28c088a2"] strong')
+      dom.head.innerHTML.indexOf('[data-font="-38d8e85e"] strong')
     ).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
-        `link[data-hid="${getLinkPreloadHid(
+        `link[data-key="${getLinkPreloadKey(
           'Merriweather',
           700,
           'normal',
@@ -222,7 +224,7 @@ function markupTests(distDir) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontBySingleSelectorBy1440[data-font="-28c088a2"]'
+        '#criticalFontBySingleSelectorBy1440[data-font="-38d8e85e"]'
       )
     ).not.toBeNull();
   });

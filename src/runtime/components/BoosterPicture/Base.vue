@@ -10,7 +10,6 @@
       :class="classNames.image"
       :title="title"
       :alt="alt"
-      :loading-spinner="loadingSpinner"
       :crossorigin="crossorigin"
       width="0"
       height="0"
@@ -20,9 +19,17 @@
 </template>
 
 <script>
+import { getPictureStyleDescription } from '../../utils/description';
+import { crossorigin as validatorCrossorigin } from '../../utils/validators';
+import {
+  useBoosterCritical,
+  ref,
+  useImage,
+  useHead,
+  useNuxtApp
+} from '#imports';
 import BaseImage from '#booster/components/BoosterImage/Base';
 import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
-import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
 import PictureSource from '#booster/components/BoosterPicture/Source';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
@@ -42,13 +49,8 @@ export default {
     formats: {
       type: Array,
       default() {
-        return this.$booster.targetFormats;
+        return null;
       }
-    },
-
-    loadingSpinner: {
-      type: LoadingSpinner,
-      default: undefined
     },
 
     title: {
@@ -64,10 +66,9 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default() {
-        return this.$booster.crossorigin;
+        return null;
       },
-      validator: val =>
-        ['anonymous', 'use-credentials', '', true, false].includes(val)
+      validator: validatorCrossorigin
     },
 
     sortSources: {
@@ -76,67 +77,56 @@ export default {
     }
   },
 
-  data() {
+  emits: ['load'],
+
+  async setup(props) {
+    const { isCritical } = useBoosterCritical();
+    const $img = useImage();
+    const $booster = useNuxtApp().$booster;
+
+    const sourceList = SourceList.create(props.sources, {
+      sort: props.sortSources
+    });
+
+    const metaSources = ref(null);
+
+    useHead(() => {
+      if (metaSources.value && metaSources.value.length) {
+        const classNames = metaSources.value.classNames;
+        return {
+          style: [getPictureStyleDescription(metaSources.value, classNames)]
+        };
+      }
+    });
+
+    metaSources.value = await sourceList.getMeta($img, $booster);
+
     return {
-      metaSources: {},
-      classNames: {}
+      isCritical,
+      resolvedFormats: props.formats || $booster.targetFormats,
+      sourceList,
+      metaSources,
+      classNames: metaSources.value.classNames
     };
-  },
-
-  async fetch() {
-    const { ssrContext } = this.$nuxt.context;
-    this.metaSources = await this.sourceList.getMeta(this.$img, ssrContext);
-    this.classNames = this.metaSources.classNames;
-  },
-
-  head() {
-    return {
-      style: this.style
-    };
-  },
-
-  fetchKey(getCounter) {
-    const key = `picture-${this.sourceList.key}`;
-    return `${key}-${getCounter(key)}`;
   },
 
   computed: {
-    sourceList() {
-      return SourceList.create(this.sources, { sort: this.sortSources });
-    },
-
     formatSources() {
       const sortedFormatsByPriority = Array.from(
         new Set(
           TARGET_FORMAT_PRIORITY.map(v =>
-            this.formats.find(format => format.includes(v))
+            this.resolvedFormats.find(format => format.includes(v))
           )
         )
       ).filter(Boolean);
       const preloadFormat = TARGET_FORMAT_PRIORITY.find(v =>
-        this.formats.find(format => format.includes(v))
+        this.resolvedFormats.find(format => format.includes(v))
       );
       return this.sourceList.getFormats(
         sortedFormatsByPriority,
         preloadFormat,
         this.isCritical
       );
-    },
-
-    style() {
-      if (!this.metaSources) {
-        return [];
-      }
-      const metaSources =
-        (this.metaSources.length && new SourceList(this.metaSources)) ||
-        this.metaSources;
-      return [
-        {
-          hid: this.classNames.picture,
-          type: 'text/css',
-          cssText: metaSources.style
-        }
-      ];
     }
   },
 

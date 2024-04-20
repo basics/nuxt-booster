@@ -18,11 +18,11 @@
         "enabled": true
       },
       "separateMultipleMajor": true,
-      "allowedVersions": "^19"
+      "allowedVersions": "^20"
     }
   ],
   "baseBranches": [
-    "next"
+    "main"
   ],
   "rangeStrategy": "pin"
 }
