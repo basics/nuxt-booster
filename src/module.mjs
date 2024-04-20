@@ -17,7 +17,7 @@ import { getSupportedBrowserDetector } from './utils/browser';
 
 const renamedNotification = () => {
   consola.warn(
-    '`nuxt-speedkit` becomes `nuxt-booster` with full Nuxt 3 support. Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained.'
+    '🚨 `nuxt-speedkit` becomes `nuxt-booster` with full Nuxt 3 support. Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained.'
   );
 };
 
