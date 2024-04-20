@@ -1,4 +1,4 @@
-> ⚠️ Nuxt Speedkit is renamed to Nuxt Booster. Please update your dependencies. [https://github.com/basics/nuxt-booster](https://github.com/basics/nuxt-booster)
+> # <span style="color: red;">**Important**</span><br> 🚨 `nuxt-speedkit` is renamed to `nuxt-booster`. Please update your dependencies. [https://github.com/basics/nuxt-booster](https://github.com/basics/nuxt-booster)
 
 # Nuxt Speedkit
 

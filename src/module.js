@@ -31,7 +31,7 @@ const resolver = createResolver(import.meta.url);
 
 const renamedNotification = () => {
   logger.warn(
-    '`nuxt-speedkit` is renamed to `nuxt-booster`. Please update your dependencies. `https://www.npmjs.com/package/nuxt-booster`'
+    '🚨 `nuxt-speedkit` is renamed to `nuxt-booster`. Please update your dependencies. `https://www.npmjs.com/package/nuxt-booster`'
   );
 };
 
