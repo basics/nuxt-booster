@@ -29,6 +29,12 @@ import entryTemplate from './tmpl/entry.tmpl';
 
 const resolver = createResolver(import.meta.url);
 
+const renamedNotification = () => {
+  logger.warn(
+    '🚨 `nuxt-speedkit` is renamed to `nuxt-booster`. Please update your dependencies. `https://www.npmjs.com/package/nuxt-booster`'
+  );
+};
+
 export default defineNuxtModule({
   meta: {
     name: 'nuxt-speedkit',
@@ -40,6 +46,8 @@ export default defineNuxtModule({
   defaults: getDefaultOptions(),
 
   async setup(moduleOptions, nuxt) {
+    renamedNotification();
+
     const runtimeDir = resolver.resolve('./runtime');
     nuxt.options.alias['#speedkit'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
