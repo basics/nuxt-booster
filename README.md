@@ -1,5 +1,5 @@
-> **Note:** Nuxt Speedkit is no longer be maintained.  
-> We recommend the use of [Nuxt Booster](https://github.com/basics/nuxt-booster) for Nuxt 3.
+
+> # <span style="color: red;">**Important**</span><br> 🚨 `nuxt-speedkit` becomes `nuxt-booster` with full Nuxt 3 support. Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained
 
 # Nuxt Speedkit
 
