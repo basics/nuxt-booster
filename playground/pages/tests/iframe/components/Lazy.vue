@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DefaultIframe from '#speedkit/components/SpeedkitIframe';
+import DefaultIframe from '#booster/components/BoosterIframe';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       iframe: {
-        src: 'https://grabarzundpartner.de'
+        src: 'https://basics.github.io/nuxt-booster/playground/'
       }
     };
   }

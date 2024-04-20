@@ -1,4 +1,4 @@
-import FontCollection from '#speedkit/classes/FontCollection';
+import FontCollection from '#booster/classes/FontCollection';
 
 export default {
   install(Vue) {

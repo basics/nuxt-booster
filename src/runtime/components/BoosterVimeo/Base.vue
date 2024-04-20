@@ -26,16 +26,16 @@
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
-import { isTouchSupported } from '#speedkit/utils/browser';
-import { toHashHex } from '#speedkit/utils/string';
-import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture';
+import { isTouchSupported } from '#booster/utils/browser';
+import { toHashHex } from '#booster/utils/string';
+import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
+import BoosterPicture from '#booster/components/BoosterPicture';
 
 const vimeo = new Vimeo();
 
 export default {
   components: {
-    SpeedkitPicture,
+    BoosterPicture,
     DefaultButton
   },
 
@@ -163,7 +163,7 @@ export default {
     },
 
     pictureComponent() {
-      return this.videoData ? SpeedkitPicture : 'picture';
+      return this.videoData ? BoosterPicture : 'picture';
     },
 
     poster() {
@@ -171,7 +171,7 @@ export default {
         return null;
       }
       return {
-        formats: this.$speedkit.targetFormats,
+        formats: this.$booster.targetFormats,
         title: this.playerTitle,
         sources: [
           {

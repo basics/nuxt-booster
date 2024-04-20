@@ -14,7 +14,7 @@ export default {
       },
 
       head() {
-        return this.$speedkit.head();
+        return this.$booster.head();
       }
     });
   }
@@ -24,7 +24,7 @@ export const head = function (headAddition) {
   const head = this.fontCollection.getHeadDescription
     ? this.fontCollection.getHeadDescription(
         this.isCritical,
-        this.$speedkit.crossorigin
+        this.$booster.crossorigin
       )
     : {};
   let style = head.style || [];

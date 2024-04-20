@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { getCrossorigin } from '#speedkit/utils';
-import Source from '#speedkit/components/SpeedkitImage/classes/Source';
+import { getCrossorigin } from '#booster/utils';
+import Source from '#booster/components/BoosterImage/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);
 
@@ -23,7 +23,7 @@ export default {
     crossorigin: {
       type: [Boolean, String],
       default() {
-        return this.$speedkit.crossorigin;
+        return this.$booster.crossorigin;
       },
       validator: val =>
         ['anonymous', 'use-credentials', '', true, false].includes(val)

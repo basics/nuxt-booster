@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DefaultYoutube from '#speedkit/components/SpeedkitYoutube';
+import DefaultYoutube from '#booster/components/BoosterYoutube';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {

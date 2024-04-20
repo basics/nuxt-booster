@@ -17,7 +17,7 @@ import { getSupportedBrowserDetector } from './utils/browser';
 
 const renamedNotification = () => {
   consola.warn(
-    '🚨 `nuxt-speedkit` becomes `nuxt-booster` with full Nuxt 3 support. Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained.'
+    '🚨 Please update your dependencies. You can still retrieve version 2 (`nuxt-booster@2`), but it will no longer be maintained.'
   );
 };
 
@@ -25,7 +25,7 @@ export default async function (moduleOptions) {
   renamedNotification();
 
   const options = getOptions({
-    ...this.options.speedkit,
+    ...this.options.booster,
     ...moduleOptions
   });
 
@@ -34,11 +34,11 @@ export default async function (moduleOptions) {
   }
 
   const runtimeDir = path.resolve(__dirname, 'runtime');
-  this.nuxt.options.alias['#speedkit'] = runtimeDir;
-  this.nuxt.options.build.transpile.push('#speedkit');
-  // @deprecated Alias `nuxt-speedkit` is replaced by #speedkit for runtime only
-  this.nuxt.options.alias['nuxt-speedkit'] = runtimeDir;
-  this.nuxt.options.build.transpile.push('nuxt-speedkit');
+  this.nuxt.options.alias['#booster'] = runtimeDir;
+  this.nuxt.options.build.transpile.push('#booster');
+  // @deprecated Alias `nuxt-booster` is replaced by #booster for runtime only
+  this.nuxt.options.alias['nuxt-booster'] = runtimeDir;
+  this.nuxt.options.build.transpile.push('nuxt-booster');
 
   setEnvironments(this.nuxt, options);
 
@@ -89,7 +89,7 @@ async function addBuildTemplates(scope, options) {
   const fontConfig = new FontConfig(options.fonts, scope.nuxt.options.alias);
 
   scope.nuxt.hook('listen', (_, listener) => {
-    process.env.NUXT_SPEEDKIT_INTERAL_URL = `${
+    process.env.NUXT_BOOSTER_INTERAL_URL = `${
       listener.https ? 'https' : 'http'
     }://${listener.host || 'localhost'}:${listener.port}`;
   });
@@ -161,7 +161,7 @@ async function addNuxtImage({ addModule, nuxt }) {
       ['youtube', 'vimeo'].find(alias => !(alias in nuxtImageOptions.alias))
     ) {
       consola.warn(
-        'For using `SpeedkitYoutube` and `SpeedkitVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://nuxt-speedkit.grabarzundpartner.dev/setup#nuxtimage'
+        'For using `BoosterYoutube` and `BoosterVimeo` you have to set the required domains & aliases for the `Provider` in the `@nuxt/image` options. \nLearn more https://basics.github.io/nuxt-booster/setup#nuxtimage'
       );
     }
   });

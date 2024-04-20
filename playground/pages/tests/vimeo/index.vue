@@ -11,18 +11,18 @@
 </template>
 
 <script>
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    Default: speedkitHydrate(() => import('./components/Default'))
+    Default: boosterHydrate(() => import('./components/Default'))
   },
 
   asyncData() {
     return {
       items: [
         {
-          vimeoUrl: 'https://vimeo.com/440265549',
+          vimeoUrl: 'https://vimeo.com/288344114',
           title: 'Vimeo 1'
         },
         {

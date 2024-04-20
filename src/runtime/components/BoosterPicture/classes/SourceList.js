@@ -1,6 +1,6 @@
 import createSort from 'sort-css-media-queries/lib/create-sort';
-import Source from '../../SpeedkitImage/classes/Source';
-import { toHashHex } from '#speedkit/utils/string';
+import Source from '../../BoosterImage/classes/Source';
+import { toHashHex } from '#booster/utils/string';
 
 const sortByMediaQueries = createSort();
 

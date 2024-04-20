@@ -1,6 +1,6 @@
 <script>
 import LazyHydrate from 'vue-lazy-hydration';
-import SpeedkitPicture from '#speedkit/components/SpeedkitPicture/Base';
+import BoosterPicture from '#booster/components/BoosterPicture/Base';
 
 export default {
   inheritAttrs: false,
@@ -18,10 +18,10 @@ export default {
         h(
           'noscript',
           {
-            class: 'nuxt-speedkit-picture-noscript'
+            class: 'nuxt-booster-picture-noscript'
           },
           [
-            h(SpeedkitPicture, {
+            h(BoosterPicture, {
               props: { ...this.$attrs, critical: this.hydrate },
               on: this.$listeners
             })
@@ -29,7 +29,7 @@ export default {
         )
       ]);
     }
-    return h(SpeedkitPicture, {
+    return h(BoosterPicture, {
       props: { ...this.$attrs, critical: this.isCritical },
       on: this.$listeners
     });

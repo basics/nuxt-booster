@@ -1,6 +1,6 @@
-import directive from '#speedkit/plugins/vFont/directive';
-import mixin from '#speedkit/plugins/vFont/mixin';
-import head from '#speedkit/plugins/vFont/head';
+import directive from '#booster/plugins/vFont/directive';
+import mixin from '#booster/plugins/vFont/mixin';
+import head from '#booster/plugins/vFont/head';
 
 let _installed = false;
 

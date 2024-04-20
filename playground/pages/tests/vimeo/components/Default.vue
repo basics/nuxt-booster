@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DefaultVimeo from '#speedkit/components/SpeedkitVimeo';
+import DefaultVimeo from '#booster/components/BoosterVimeo';
 import OrganismPreviewContainer from '@/components/organisms/PreviewContainer';
 
 export default {
@@ -24,7 +24,7 @@ export default {
   props: {
     vimeoUrl: {
       type: String,
-      default: 'https://vimeo.com/440265549'
+      default: 'https://vimeo.com/288344114'
     },
 
     title: {

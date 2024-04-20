@@ -13,26 +13,26 @@
 </template>
 
 <script>
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 
 export default {
   components: {
-    ComponentStage: speedkitHydrate(
+    ComponentStage: boosterHydrate(
       () => import('@/components/organisms/Stage')
     ),
-    ComponentTextA: speedkitHydrate(
+    ComponentTextA: boosterHydrate(
       () => import('@/components/organisms/TextFontA')
     ),
-    ComponentImageText: speedkitHydrate(
+    ComponentImageText: boosterHydrate(
       () => import('@/components/organisms/ImageText')
     ),
-    ComponentTextB: speedkitHydrate(
+    ComponentTextB: boosterHydrate(
       () => import('@/components/organisms/TextFontB')
     ),
-    ComponentVideoYoutube: speedkitHydrate(
+    ComponentVideoYoutube: boosterHydrate(
       () => import('@/components/organisms/VideoYoutube')
     ),
-    ComponentVideoVimeo: speedkitHydrate(
+    ComponentVideoVimeo: boosterHydrate(
       () => import('@/components/organisms/VideoVimeo')
     )
   },
@@ -40,8 +40,8 @@ export default {
     return {
       stage: {
         critical: true,
-        content: 'nuxt-speedkit',
-        claim: 'powered by Grabarz & Partner',
+        content: 'nuxt-booster',
+        claim: 'powered by Basics',
 
         picture: {
           title: 'Stage',
@@ -128,7 +128,7 @@ export default {
       },
 
       videoVimeoA: {
-        url: 'https://vimeo.com/440265549',
+        url: 'https://vimeo.com/288344114',
         text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
       },
 

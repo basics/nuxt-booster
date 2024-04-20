@@ -1,5 +1,5 @@
 <template>
-  <base-youtube class="nuxt-speedkit-youtube" v-bind="$attrs" v-on="$listeners">
+  <base-youtube class="nuxt-booster-youtube" v-bind="$attrs" v-on="$listeners">
     <template #loading-spinner>
       <slot name="loading-spinner">
         <svg
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import BaseYoutube from '#speedkit/components/SpeedkitYoutube/Base';
+import BaseYoutube from '#booster/components/BoosterYoutube/Base';
 
 export default {
   components: {

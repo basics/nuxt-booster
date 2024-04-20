@@ -1,7 +1,7 @@
 import {
   isElementOutViewport,
   getElementObserver
-} from '#speedkit/classes/intersection';
+} from '#booster/classes/intersection';
 const CLASS_FONT_ACTIVE = 'font-active';
 
 const obervers = new Map();
@@ -28,7 +28,7 @@ export default {
           activateFonts(el, binding, vnode);
         } else {
           const observer = getElementObserver(el, {
-            rootMargin: process.env.NUXT_SPEEDKIT_LAZY_OFFSET_ASSET
+            rootMargin: process.env.NUXT_BOOSTER_LAZY_OFFSET_ASSET
           });
           obervers.set(el, observer);
           await observer.enterViewOnce();

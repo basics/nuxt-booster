@@ -1,5 +1,5 @@
 <script>
-import { getElementObserver } from '#speedkit/classes/intersection';
+import { getElementObserver } from '#booster/classes/intersection';
 
 export default {
   abstract: true,

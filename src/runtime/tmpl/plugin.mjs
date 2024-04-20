@@ -2,20 +2,20 @@ import Vue from 'vue'
 
 import './fonts.css'
 
-import { head } from '#speedkit/plugins/vFont/head'
-import vFont from '#speedkit/plugins/vFont'
-import FontList from '#speedkit/classes/FontList'
-import { isSupportedBrowser } from '#speedkit/utils/browser';
-import globals from '#speedkit/utils/globals';
-import LoadingSpinner from '#speedkit/components/SpeedkitImage/classes/LoadingSpinner';
+import { head } from '#booster/plugins/vFont/head'
+import vFont from '#booster/plugins/vFont'
+import FontList from '#booster/classes/FontList'
+import { isSupportedBrowser } from '#booster/utils/browser';
+import globals from '#booster/utils/globals';
+import LoadingSpinner from '#booster/components/BoosterImage/classes/LoadingSpinner';
 <% if (options.loader && options.loader.dataUri) { %>import loaderDataUri from '<%= options.loader.dataUri %>';<% } %>
 <% if (options.mode === 'server') { %>import probe from 'probe-image-size';<% } %>
 
 
 Vue.use(vFont)
 
-const speedkit = Object.freeze({
-  head: () => console.error('$speedkit.head() is not available in context'),
+const booster = Object.freeze({
+  head: () => console.error('$booster.head() is not available in context'),
   crossorigin: <%= JSON.stringify(options.crossorigin) %>,
   isBrowserSupported: () => isSupportedBrowser(<%= options.supportedBrowserDetector %>),
   loader: () => <% if (options.loader.dataUri) { %>new LoadingSpinner({
@@ -48,7 +48,7 @@ globals.getImageSize = async (src) => {
 
 export default (context, inject) => {
   inject('getFont', fontList.getFont.bind(fontList));
-  inject('speedkit', speedkit);
+  inject('booster', booster);
 
   // For each render an own critical font style map is generated, which is used initially during page loading.
   const criticalFontStyles = {};
@@ -64,9 +64,9 @@ export default (context, inject) => {
 
 }
 
-!('$speedkit' in Vue.prototype) && Object.defineProperty(Vue.prototype, '$speedkit', {
+!('$booster' in Vue.prototype) && Object.defineProperty(Vue.prototype, '$booster', {
   get () {
-    return Object.freeze(Object.assign({}, speedkit, {head: head.bind(this)}));
+    return Object.freeze(Object.assign({}, booster, {head: head.bind(this)}));
   }
 });
 

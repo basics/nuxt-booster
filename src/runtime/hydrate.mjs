@@ -9,7 +9,7 @@ export default component => {
 
   return hydrateWhenVisible(component, {
     observerOptions: {
-      rootMargin: process.env.NUXT_SPEEDKIT_LAZY_OFFSET_COMPONENT || '0%'
+      rootMargin: process.env.NUXT_BOOSTER_LAZY_OFFSET_COMPONENT || '0%'
     }
   });
 };

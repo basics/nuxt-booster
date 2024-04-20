@@ -8,10 +8,10 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "nuxt-speedkit/*": [
+      "nuxt-booster/*": [
         "src/runtime/*"
       ],
-      "#speedkit": [
+      "#booster": [
         "src/runtime/*"
       ],
       "@/*": [

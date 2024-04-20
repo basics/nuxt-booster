@@ -54,7 +54,7 @@ export const getMeta = async (source, compiledSrc, ssrNuxtImage) => {
     source = source.modify({
       src: hasProtocol(src)
         ? src
-        : withBase(src, process.env.NUXT_SPEEDKIT_INTERAL_URL)
+        : withBase(src, process.env.NUXT_BOOSTER_INTERAL_URL)
     });
   }
   const { width, height } = await globals.getImageSize(source.src);

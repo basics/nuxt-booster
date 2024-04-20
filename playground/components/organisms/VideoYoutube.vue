@@ -3,16 +3,16 @@
     v-font="[$getFont('Merriweather', 400)]"
     class="video-youtube"
   >
-    <speedkit-youtube v-bind="$attrs" />
+    <booster-youtube v-bind="$attrs" />
     <p v-if="text" v-html="text" />
   </document-section>
 </template>
 
 <script>
-import SpeedkitYoutube from '#speedkit/components/SpeedkitYoutube';
+import BoosterYoutube from '#booster/components/BoosterYoutube';
 
 export default {
-  components: { SpeedkitYoutube },
+  components: { BoosterYoutube },
 
   inheritAttrs: false,
 

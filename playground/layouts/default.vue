@@ -10,22 +10,22 @@
 
 <script>
 import 'wicg-inert';
-import speedkitHydrate from '#speedkit/hydrate';
+import boosterHydrate from '#booster/hydrate';
 import InfoLayer from '@/components/InfoLayer';
 
 export default {
   components: {
     InfoLayer,
-    GithubCorner: speedkitHydrate(
+    GithubCorner: boosterHydrate(
       () => import(/* webpackMode: "eager" */ '@/components/atoms/GithubCorner')
     ),
-    GoogleLighthouse: speedkitHydrate(
+    GoogleLighthouse: boosterHydrate(
       () =>
         import(
-          /* webpackMode: "eager" */ 'nuxt-speedkit/components/GoogleLighthouse'
+          /* webpackMode: "eager" */ 'nuxt-booster/components/GoogleLighthouse'
         )
     ),
-    OrganismPageHeader: speedkitHydrate(
+    OrganismPageHeader: boosterHydrate(
       () =>
         import(/* webpackMode: "eager" */ '@/components/organisms/PageHeader')
     )
@@ -90,7 +90,7 @@ export default {
 
   head() {
     return {
-      title: `${this.$route.name} | nuxt-speedkit`,
+      title: `${this.$route.name} | nuxt-booster`,
       meta: [
         {
           hid: 'description',

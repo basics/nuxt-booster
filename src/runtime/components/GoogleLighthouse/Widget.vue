@@ -1,7 +1,7 @@
 <template>
   <a
     :href="reportUrl"
-    class="nuxt-speedkit-lighthouse"
+    class="nuxt-booster-lighthouse"
     target="_blank"
     :style="style"
     :class="{ ready: stats.isReady() }"
@@ -39,7 +39,7 @@
 import {
   getLighthouseMetrics,
   getPendingStats
-} from '#speedkit/utils/lighthouse';
+} from '#booster/utils/lighthouse';
 
 export default {
   props: {
@@ -133,7 +133,7 @@ export default {
 <style lang="postcss" scoped>
 /*! purgecss start ignore */
 
-.nuxt-speedkit-lighthouse {
+.nuxt-booster-lighthouse {
   --pi: 3.1416;
   --score: 0;
 
@@ -168,7 +168,7 @@ export default {
       &.pending {
         stroke-dasharray: calc(1.35 * var(--pi) * 45);
         stroke-dashoffset: calc(2 * var(--pi) * 45);
-        animation: nuxt-speedkit-lighthouse-rotating 1s linear infinite;
+        animation: nuxt-booster-lighthouse-rotating 1s linear infinite;
       }
 
       &.ready {
@@ -176,7 +176,7 @@ export default {
         fill-opacity: 0.1;
         stroke-dasharray: calc(2 * var(--pi) * 45);
         stroke-dashoffset: calc(2 * var(--pi) * 45);
-        animation: nuxt-speedkit-lighthouse-stroke var(--duration) ease-out
+        animation: nuxt-booster-lighthouse-stroke var(--duration) ease-out
           forwards;
       }
     }
@@ -205,13 +205,13 @@ export default {
   }
 }
 
-@keyframes nuxt-speedkit-lighthouse-stroke {
+@keyframes nuxt-booster-lighthouse-stroke {
   to {
     stroke-dashoffset: var(--radian);
   }
 }
 
-@keyframes nuxt-speedkit-lighthouse-stroke {
+@keyframes nuxt-booster-lighthouse-stroke {
   to {
     transform: rotate(270deg);
   }

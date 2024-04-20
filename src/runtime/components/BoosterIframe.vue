@@ -2,7 +2,7 @@
   <component-observer v-bind="componentObserver" @enterView="onEnterView">
     <iframe
       :src="lazySrc"
-      class="nuxt-speedkit-iframe"
+      class="nuxt-booster-iframe"
       v-bind="$attrs"
       frameborder="0"
       @load="onLoad"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ComponentObserver from '#speedkit/components/abstracts/ComponentObserver';
+import ComponentObserver from '#booster/components/abstracts/ComponentObserver';
 
 export default {
   components: {
