@@ -53,7 +53,7 @@ jobs:
         with:
           args: >
             -Dsonar.organization=basics
-            -Dsonar.projectKey=Basics_nuxt-booster
+            -Dsonar.projectKey=basics_nuxt-booster
             -Dsonar.eslint.reportPaths=eslint-report.json
             -Dsonar.projectVersion=${{ steps.package-version.outputs.current-version}}
         env:
