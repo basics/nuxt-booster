@@ -114,7 +114,7 @@ Do you need further support, a consultation or a code review for an appropriate 
 [MIT License](./LICENSE)
 
 <!-- Badges -->
-[logo]: https://repository-images.githubusercontent.com/265295866/7e292000-5cc1-11eb-8469-1aafbf1d2727 "nuxt-booster"
+[logo]: https://raw.githubusercontent.com/basics/nuxt-booster/feature/renaming-update/docs/src/public/poster-light.jpg "nuxt-booster"
 
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
