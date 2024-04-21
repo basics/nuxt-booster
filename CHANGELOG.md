@@ -1,5 +1,19 @@
 # Project Changelog
 
+## [3.0.1](https://github.com/basics/nuxt-booster/compare/v3.0.0...v3.0.1) (2024-04-21)
+
+
+### Bug Fixes
+
+* **entry:** `hasBatteryPerformanceIssue` modified ([90a2f66](https://github.com/basics/nuxt-booster/commit/90a2f66b9e5c5d69615d3f2ecabe418d923bee91))
+* **entry:** added battery level check ([643d417](https://github.com/basics/nuxt-booster/commit/643d41757347010bbee75f1cd9da3c27ebc1b43c))
+* **entry:** added catch for video play ([9054d5b](https://github.com/basics/nuxt-booster/commit/9054d5b58ac39a1011b837c85fd125a69c7957e0))
+* **entry:** added ignore object ([54ceb68](https://github.com/basics/nuxt-booster/commit/54ceb684812d31f777ec67e8bbb5ca841854d833))
+* **entry:** added video check (ios) ([2b9206c](https://github.com/basics/nuxt-booster/commit/2b9206cc1f999ef474041fc237c7e303e633ed5b))
+* **entry:** reduce `isBatteryLow` ([565125b](https://github.com/basics/nuxt-booster/commit/565125b7cec1865b39cc7214054eabdf419f1319))
+* **entry:** remove slient catches ([a3b9487](https://github.com/basics/nuxt-booster/commit/a3b948765f9522c730ca91fde8fe2730d3d7d149))
+* **entry:** remove try catch ([2ac023e](https://github.com/basics/nuxt-booster/commit/2ac023e6fa5e206aea299ea6bd0b72afa7b42efe))
+
 # [3.0.0](https://github.com/basics/nuxt-booster/compare/v2.2.10...v3.0.0) (2024-04-20)
 
 
