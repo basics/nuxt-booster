@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.2](https://github.com/basics/nuxt-booster/compare/v3.0.1...v3.0.2) (2024-04-21)
+
+
+### Bug Fixes
+
+* **hydrate:** disable hydrate for dev ([81f451c](https://github.com/basics/nuxt-booster/commit/81f451c3ff61ad26c8996e3fe94bcc68151840d3))
+
 ## [3.0.1](https://github.com/basics/nuxt-booster/compare/v3.0.0...v3.0.1) (2024-04-21)
 
 
