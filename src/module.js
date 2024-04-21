@@ -24,6 +24,7 @@ import { optimizePreloads } from './utils/preload';
 import { getSupportedBrowserDetector } from './utils/browser';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
+import { getTemplate as getBlobFileTemplate } from './utils/blob';
 
 import pluginTemplate from './tmpl/plugin.tmpl';
 import entryTemplate from './tmpl/entry.tmpl';
@@ -147,11 +148,22 @@ async function addBuildTemplates(nuxt, options) {
         entry: join(nuxt.options.appDir, 'entry'),
         runOptions: options.runOptions,
         ssr: nuxt.options.ssr,
-        ignorePerformance: !options.detection.performance,
+        ignore: {
+          battery: !options.detection.battery,
+          performance: !options.detection.performance
+        },
         performanceMetrics: JSON.stringify(options.performanceMetrics || {}),
         supportedBrowserDetector
       });
     },
+    write: true
+  });
+
+  const files = [['video', resolver.resolve('media/video.mp4')]];
+  const mediaContent = await getBlobFileTemplate(files);
+  addTemplate({
+    getContents: () => mediaContent,
+    filename: MODULE_NAME + '/blobs.mjs',
     write: true
   });
 }

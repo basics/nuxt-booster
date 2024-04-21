@@ -9,6 +9,7 @@
         <li id="nuxt-booster-message-unsupported-browser">outdated browser</li>
         <li id="nuxt-booster-message-reduced-bandwidth">reduced-bandwidth</li>
         <li id="nuxt-booster-message-weak-hardware">weak hardware</li>
+        <li id="nuxt-booster-message-low-battery">low battery</li>
       </ul>
       <div class="info-layer-buttons">
         <base-button

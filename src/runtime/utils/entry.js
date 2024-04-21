@@ -55,3 +55,44 @@ export function initReducedView() {
     tmp.remove();
   });
 }
+
+export async function hasBatteryPerformanceIssue(videoBlob) {
+  try {
+    if (await isBatteryLow()) {
+      throw new Error('Battery is low.');
+    }
+  } catch (error) {
+    if (error.message === 'Battery is low.') {
+      throw error;
+    }
+    await canVideoPlay(videoBlob);
+  }
+}
+
+/**
+ * Checks if battery still has enough energy.
+ * This check is for Chrome and all other browsers that support this setting.
+ *
+ * Condition is: The device is not charging and Battery is below <= 20%.
+ * @see https://blog.google/products/chrome/new-chrome-features-to-save-battery-and-make-browsing-smoother/
+ * @see https://developer.chrome.com/blog/memory-and-energy-saver-mode/
+ **/
+async function isBatteryLow() {
+  const MIN_BATTERY_LEVEL = 0.2;
+  const battery = await window.navigator.getBattery();
+  return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
+}
+
+/**
+ * Checking whether a video can be played.
+ * This check is for IOS and checks if the power saving mode is enabled.
+ *
+ * In this case no video will be played automatically and play throws an error.
+ */
+export function canVideoPlay(blob) {
+  const video = document.createElement('video');
+  video.muted = true;
+  video.playsinline = true;
+  video.src = URL.createObjectURL(blob);
+  return video.play();
+}

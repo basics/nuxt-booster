@@ -39,7 +39,8 @@ These options can be used to define the initial checks to display the [`BoosterL
 ````js
 {
   performance: true,
-  browserSupport: true
+  browserSupport: true,
+  battery: true
 }
 ````
 
@@ -47,6 +48,7 @@ These options can be used to define the initial checks to display the [`BoosterL
  | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
  | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/guide/options#performancemetrics) have been reached. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed. | `true`  |
  | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed.                                            | `true`  |
+ | `battery`        | `Boolean` | yes      | Check if the current user save power in browser. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed.                                                           | `true`  |
 
 ::: info
 For the browser support detection, the default [Browserslist](https://github.com/browserslist/browserslist) of the NuxtJS configuration is used.
