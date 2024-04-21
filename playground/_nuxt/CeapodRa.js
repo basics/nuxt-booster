@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as a,x as o,n as r,g as n}from"./C-vlNO64.js";const c=Object.assign({inheritAttrs:!1},{__name:"Button",setup(u){return(t,_)=>(s(),a("button",r(n(t.$attrs)),[o(t.$slots,"default",{},void 0,!0)],16))}}),l=e(c,[["__scopeId","data-v-7c2b9f67"]]);export{l as D};
