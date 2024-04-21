@@ -93,7 +93,7 @@ List of resources used.
 
 The definitions in the `sources` are equivalent to the [`BoosterImage (source)`](/v2/components/booster-image#source).
 
-The only differences are:
+With the exception of:
 
 - The `media` property can be used. This allows even more dependencies for the display, e.g. `(orientation: portrait)`.
 - The `format` property is not used. Instead `formats` is used for setting the output formats.

@@ -13,11 +13,11 @@ Install `nuxt-booster` as a dependency to your project:
 ::: code-group
 
   ```bash [Yarn]
-  yarn add nuxt-booster@next
+  yarn add nuxt-booster
   ```
 
   ```bash [NPM]
-  npm install nuxt-booster@next
+  npm install nuxt-booster
   ```
 
 :::

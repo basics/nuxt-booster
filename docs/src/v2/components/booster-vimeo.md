@@ -12,9 +12,7 @@ So that no empty space is visible to the user, we use the functionality of the [
 
 The `BoosterVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](https://developer.vimeo.com/player/sdk/).  
 
-::: tip
-The SDK is not part of `nuxt-booster` and will be loaded by an external script.
-:::
+> The `Vimeo Player-SDK` is not part of `nuxt-booster` and will be loaded by an external script. [Learn more](https://github.com/basics/nuxt-booster/blob/main/src/runtime/components/BoosterVimeo/utils/loader.js)
 
 The `url` of the Vimeo video must be specified.  
 

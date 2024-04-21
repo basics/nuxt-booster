@@ -106,6 +106,10 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-booster-layer-
       <li id="nuxt-booster-message-weak-hardware">
         weak hardware
       </li>
+      <!-- Displayed when the user batteries are not sufficient.  -->
+      <li id="nuxt-booster-message-low-battery">
+        low battery
+      </li>
     </ul>
 
     <!-- Button to hide the layer with no javascript -->
