@@ -85,12 +85,15 @@ export default defineNuxtModule({
     await addBuildTemplates(nuxt, moduleOptions);
 
     addImports(
-      ['useBoosterCritical', 'useBoosterConfig', 'useBoosterFonts'].map(
-        name => ({
-          name,
-          from: resolve(runtimeDir, 'composables/index')
-        })
-      )
+      [
+        'useBoosterComponentObserver',
+        'useBoosterCritical',
+        'useBoosterConfig',
+        'useBoosterFonts'
+      ].map(name => ({
+        name,
+        from: resolve(runtimeDir, 'composables/index')
+      }))
     );
   }
 });
