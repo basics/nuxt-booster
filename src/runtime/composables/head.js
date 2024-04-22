@@ -23,14 +23,14 @@ export default function () {
     nextTick(() => {
       collection.value = new FontsCollection(
         collection.value.list.filter(item => {
-          return !dispatchCollections.includes(item);
+          return !disposeCollections.includes(item);
         })
       );
-      dispatchCollections = [];
+      disposeCollections = [];
     });
   });
 
-  let dispatchCollections = [];
+  let disposeCollections = [];
   const push = (fontCollection, isCritical, options) => {
     if (!collection) {
       throw new Error('pushFontCollection must be called before setupHead');
@@ -39,7 +39,7 @@ export default function () {
     collection.value = new FontsCollection([...collection.value.list, value]);
     value = collection.value.list[collection.value.list.length - 1];
     return {
-      dispose: () => dispatchCollections.push(value)
+      dispose: () => disposeCollections.push(value)
     };
   };
   return { push, collection };
