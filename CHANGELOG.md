@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.3](https://github.com/basics/nuxt-booster/compare/v3.0.2...v3.0.3) (2024-04-22)
+
+
+### Bug Fixes
+
+* **module:** fix missing asset ([890b456](https://github.com/basics/nuxt-booster/commit/890b4563f5e3afcbf2328f59586e66fb77ac66c0))
+
 ## [3.0.2](https://github.com/basics/nuxt-booster/compare/v3.0.1...v3.0.2) (2024-04-21)
 
 
