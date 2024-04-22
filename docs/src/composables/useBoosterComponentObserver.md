@@ -31,12 +31,9 @@ title: useBoosterComponentObserver
 </template>
 
 <script setup>
-import useBoosterComponentObserver from '#booster/composables/componentObserver';
-
 const { el: target, inView } = useBoosterComponentObserver({
   trackVisibility: true,
   delay: 350
 });
-
 </script>
 ```

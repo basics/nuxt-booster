@@ -28,7 +28,6 @@ const { isCritical } = useBoosterCritical({critical: true});
 </template>
 
 <script setup>
-  import { useBoosterCritical } from '#imports';
   const { isCritical } = useBoosterCritical();
 </script>
 ```

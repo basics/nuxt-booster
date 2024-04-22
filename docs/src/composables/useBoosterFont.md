@@ -29,7 +29,6 @@ const { $getFont } = useBoosterFonts({critical: true});
 </template>
 
 <script setup>
-  import { useBoosterFonts } from '#imports';
   const { $getFont } = useBoosterFonts();
 </script>
 ```

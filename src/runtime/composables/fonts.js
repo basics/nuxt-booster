@@ -3,7 +3,7 @@ import { useHead, useBoosterCritical, useBoosterConfig } from '#imports';
 import { useNuxtApp } from '#app';
 import FontCollection from '#booster/classes/FontCollection';
 
-export default function useFonts(context) {
+export default function (context) {
   const { isCritical, critical } = useBoosterCritical(context);
 
   const runtimeConfig = useBoosterConfig();
