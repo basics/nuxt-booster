@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.0.4](https://github.com/basics/nuxt-booster/compare/v3.0.3...v3.0.4) (2024-04-22)
+
+
+### Bug Fixes
+
+* **composable:** fix missing composable ([4384e88](https://github.com/basics/nuxt-booster/commit/4384e88486f4b1d3fa6f9389ab01cb1f43d4a5ef))
+* **module:** added missing global import ([0ac46c8](https://github.com/basics/nuxt-booster/commit/0ac46c862fadfc78688d27bbebe1a7335930d3b3))
+
 ## [3.0.3](https://github.com/basics/nuxt-booster/compare/v3.0.2...v3.0.3) (2024-04-22)
 
 
