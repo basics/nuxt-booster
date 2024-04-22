@@ -81,7 +81,8 @@ export default {
             {
               text: 'useBoosterComponentObserver',
               link: '/composables/useBoosterComponentObserver'
-            }
+            },
+            { text: '⚠️ useBoosterHead', link: '/composables/useBoosterHead' }
           ]
         },
         {

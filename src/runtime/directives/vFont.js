@@ -52,19 +52,20 @@ export default {
         }
       },
 
-      async mounted(el, binding) {
+      async mounted(el, binding, scope) {
+        if (scope.fontActive) return;
         const firstFont = getFirstFont(binding.value);
         if (firstFont) {
           const { isCritical, runtimeConfig } = getFirstFont(binding.value);
           if (isCritical || !isElementOutViewport(el)) {
-            activateFonts(el, binding);
+            activateFonts(el, binding, scope);
           } else {
             const observer = getElementObserver(el, {
               rootMargin: runtimeConfig.lazyOffsetAsset
             });
             observers.set(el, observer);
             await observer.enterViewOnce();
-            activateFonts(el, binding);
+            activateFonts(el, binding, scope);
           }
         }
       },
@@ -80,7 +81,7 @@ function getFirstFont(value) {
   return [].concat(value)[0];
 }
 
-async function activateFonts(el, binding) {
+async function activateFonts(el, binding, scope) {
   const fonts = [].concat(binding.value).map(({ definition }) => definition);
   await Promise.all(
     fonts
@@ -91,6 +92,12 @@ async function activateFonts(el, binding) {
   el.classList.add(CLASS_FONT_ACTIVE);
   binding.instance.fontActive = true;
 
-  // TODO: Wird hier sowohl eine Komponente und ein HTML-Tag beachtet?
-  // binding.instance.$emit('load:font', fonts);
+  // workaround for load:font emit
+  if (
+    scope.props &&
+    'onLoad:font' in scope.props &&
+    typeof scope.props['onLoad:font'] === 'function'
+  ) {
+    scope.props['onLoad:font'](fonts);
+  }
 }

@@ -29,7 +29,6 @@ useHead(
       title: `${route.name} | nuxt-booster`,
       meta: [
         {
-          hid: 'description',
           name: 'description',
           content: `${route.name} - description`
         }

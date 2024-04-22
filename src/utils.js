@@ -23,6 +23,7 @@ export function isViteBuild(nuxt) {
 
 export const setPublicRuntimeConfig = (nuxt, options) => {
   nuxt.options.runtimeConfig.public.booster = {
+    debug: options.debug,
     lazyOffsetComponent: options.lazyOffset.component,
     lazyOffsetAsset: options.lazyOffset.asset,
     usedFontaine: !options.disableNuxtFontaine

@@ -22,6 +22,20 @@ export default class Font {
     this.loaded = new Deferred();
   }
 
+  toJSON() {
+    return {
+      family: this.family,
+      style: this.style,
+      weight: this.weight,
+      src: this.src,
+      type: this.type,
+      fallbackFamily: this.fallbackFamily,
+      rootSelector: this.rootSelector,
+      selector: this.selector,
+      media: this.media
+    };
+  }
+
   async load() {
     const fonts =
       'fonts' in window.document && (await window.document.fonts.ready);

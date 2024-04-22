@@ -112,6 +112,7 @@ export default defineNuxtConfig(async () => {
     },
 
     booster: {
+      debug: false,
       // targetFormats: ['jpg|jpeg|png|gif'],
       // densities: 'x1 x2',
       detection: {

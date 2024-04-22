@@ -1,5 +1,5 @@
-import { computed, reactive } from 'vue';
-import { useHead, useBoosterCritical, useBoosterConfig } from '#imports';
+import { reactive } from 'vue';
+import { useBoosterCritical, useBoosterConfig } from '#imports';
 import { useNuxtApp } from '#app';
 import FontCollection from '#booster/classes/FontCollection';
 
@@ -12,7 +12,18 @@ export default function (context) {
 
   const fontCollection = reactive(new FontCollection());
 
-  writeHead(isCritical, fontCollection, runtimeConfig);
+  const options = { usedFontaine: runtimeConfig.usedFontaine };
+
+  try {
+    const entry = nuxtApp.$booster.head.push(
+      fontCollection,
+      isCritical.value,
+      options
+    );
+    onBeforeUnmount(() => entry.dispose());
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     isCritical,
@@ -26,19 +37,4 @@ export default function (context) {
       };
     }
   };
-}
-
-function writeHead(isCritical, fontCollection, runtimeConfig) {
-  const options = { usedFontaine: runtimeConfig.usedFontaine };
-  useHead({
-    link: computed(() => {
-      return fontCollection.getPreloadDescriptions(isCritical.value);
-    }),
-    style: computed(() => {
-      return fontCollection.getStyleDescriptions(options);
-    }),
-    noscript: computed(() => {
-      return fontCollection.getNoScriptStyleDescriptions();
-    })
-  });
 }
