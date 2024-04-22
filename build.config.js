@@ -20,6 +20,15 @@ export default {
     'pathe',
     'serialize-to-js',
     'sort-css-media-queries',
-    'vue3-lazy-hydration'
-  ]
+    'vue3-lazy-hydration',
+    'mime-types',
+    'mime-db'
+  ],
+  hooks: {
+    'build:done': async () => {
+      // copy all things under src/assets to dist/assets
+      const { copy } = await import('fs-extra');
+      await copy('src/assets', 'dist/assets');
+    }
+  }
 };

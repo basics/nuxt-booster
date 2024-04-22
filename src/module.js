@@ -84,13 +84,13 @@ export default defineNuxtModule({
 
     await addBuildTemplates(nuxt, moduleOptions);
 
-    ['useBoosterCritical', 'useBoosterConfig', 'useBoosterFonts'].forEach(
-      name => {
-        addImports({
+    addImports(
+      ['useBoosterCritical', 'useBoosterConfig', 'useBoosterFonts'].map(
+        name => ({
           name,
           from: resolve(runtimeDir, 'composables/index')
-        });
-      }
+        })
+      )
     );
   }
 });
@@ -159,7 +159,7 @@ async function addBuildTemplates(nuxt, options) {
     write: true
   });
 
-  const files = [['video', resolver.resolve('media/video.mp4')]];
+  const files = [['video', resolver.resolve('assets/media/video.mp4')]];
   const mediaContent = await getBlobFileTemplate(files);
   addTemplate({
     getContents: () => mediaContent,

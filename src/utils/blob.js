@@ -4,7 +4,6 @@ import mime from 'mime-types';
 async function getFileInfo(name, file) {
   return {
     name,
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
     file: await fsPromises.readFile(file),
     mimeType: mime.lookup(file)
   };
