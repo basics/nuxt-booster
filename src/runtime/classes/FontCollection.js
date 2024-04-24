@@ -18,12 +18,13 @@ export default class FontCollection {
       name: 'data-font',
       value: `${toFontHex(JSON.stringify(fonts.map(font => font.getKey())))}`
     };
-    this.list = [].concat(this.list).concat(
-      fonts.map(font => {
+    this.list = [
+      ...this.list,
+      ...fonts.map(font => {
         font.setRootSelector(rootSelector);
         return font;
       })
-    );
+    ];
     return rootSelector;
   }
 

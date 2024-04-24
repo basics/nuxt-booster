@@ -4,86 +4,93 @@ export default function () {
   const head = injectHead();
   const nuxtApp = useNuxtApp();
 
-  const { debug } = useRuntimeConfig().public.booster;
+  const {
+    public: {
+      booster: { debug }
+    }
+  } = useRuntimeConfig();
   const collection = ref(new FontsCollection());
 
   let headEntry;
   watch(
     () => collection.value,
-    () => {
-      if (headEntry) {
-        headEntry.patch(createEntry(collection, debug));
-      } else {
-        headEntry = head.push({});
-      }
+    value => {
+      const data = createEntry(value, debug);
+      headEntry?.dispose();
+      nextTick(() => {
+        headEntry = head.push(() => data);
+      });
     }
   );
 
-  nuxtApp.$router.afterEach(() => {
+  nuxtApp.$router.beforeEach(() => {
     nextTick(() => {
       collection.value = new FontsCollection(
         collection.value.list.filter(item => {
-          return !disposeCollections.includes(item);
+          return !disposeCollections.value.includes(item);
         })
       );
-      disposeCollections = [];
+      disposeCollections.value = [];
     });
   });
 
-  let disposeCollections = [];
+  let disposeCollections = ref([]);
   const push = (fontCollection, isCritical, options) => {
     if (!collection) {
       throw new Error('pushFontCollection must be called before setupHead');
     }
-    let value = { fontCollection, isCritical, options };
-    collection.value = new FontsCollection([...collection.value.list, value]);
-    value = collection.value.list[collection.value.list.length - 1];
+    const notEmpty = !fontCollection.list.length;
+    let value;
+    if (notEmpty) {
+      value = { fontCollection, isCritical, options };
+      collection.value = new FontsCollection([...collection.value.list, value]);
+      value = collection.value.list[collection.value.list.length - 1];
+    }
     return {
-      dispose: () => disposeCollections.push(value)
+      dispose: () => notEmpty && disposeCollections.value.push(value)
     };
   };
   return { push, collection };
 }
 
 const createEntry = (collection, debug) => {
-  return () => {
-    if (debug) {
-      logDebug('Head Font Collections:', collection.value.toJSON());
-    }
+  if (debug) {
+    logDebug('Head Font Collections:', collection.toJSON());
+  }
 
-    const items = collection.value.list.filter(
-      ({ fontCollection }) => fontCollection.size
-    );
-
-    const uniqList = items =>
-      Array.from(new Map(items.map(item => [item.key, item])).values());
-
-    return {
-      link: uniqList(
-        items
-          .filter(({ fontCollection }) => fontCollection.size)
-          .map(({ fontCollection, isCritical }) =>
-            fontCollection.getPreloadDescriptions(isCritical)
-          )
-          .flat()
-      ),
-      style: uniqList(
-        items
-          .map(({ fontCollection, options }) =>
-            fontCollection.getStyleDescriptions(options)
-          )
-          .flat()
-      ),
-      noscript: uniqList(
-        items
-          .map(({ fontCollection }) =>
-            fontCollection.getNoScriptStyleDescriptions()
-          )
-          .flat()
-      )
-    };
+  const items = collection.list.filter(
+    ({ fontCollection }) => fontCollection.size
+  );
+  return {
+    link: prepareItems(
+      items
+        .filter(({ fontCollection }) => fontCollection.size)
+        .map(({ fontCollection, isCritical }) =>
+          fontCollection.getPreloadDescriptions(isCritical)
+        )
+        .flat()
+    ),
+    style: prepareItems(
+      items
+        .map(({ fontCollection, options }) =>
+          fontCollection.getStyleDescriptions(options)
+        )
+        .flat()
+    ),
+    noscript: prepareItems(
+      items
+        .map(({ fontCollection }) =>
+          fontCollection.getNoScriptStyleDescriptions()
+        )
+        .flat()
+    )
   };
 };
+
+const prepareItems = items =>
+  Array.from(
+    new Map(items.map(item => [item.key, { ...item, key: undefined }])).values()
+  );
 
 class FontsCollection {
   constructor(list = []) {

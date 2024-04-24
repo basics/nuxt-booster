@@ -20,7 +20,7 @@ export default function (context) {
       isCritical.value,
       options
     );
-    onBeforeUnmount(() => entry.dispose());
+    onBeforeUnmount(() => nextTick(() => entry.dispose()));
   } catch (error) {
     console.error(error);
   }

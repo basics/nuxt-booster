@@ -69,7 +69,7 @@ export function getStyleDescription(children, noScript = false, key) {
     return getNoScriptDescription(`<style>${children}</style>`, key);
   } else {
     return {
-      key: key,
+      key,
       type: 'text/css',
       children: minify(children)
     };
@@ -78,7 +78,7 @@ export function getStyleDescription(children, noScript = false, key) {
 
 export function getNoScriptDescription(textContent, key) {
   return {
-    key: key,
+    key,
     innerHTML: minify(textContent)
   };
 }
