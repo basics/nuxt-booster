@@ -80,7 +80,7 @@ export default defineNuxtModule({
         'Preload optimization is disabled by module option `optimizePreloads`.'
       );
     }
-
+    console.log(moduleOptions);
     await addBuildTemplates(nuxt, moduleOptions);
 
     addImports(
@@ -123,6 +123,7 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   ['client', 'server'].forEach(mode => {
+    console.log('targetFormats', options.targetFormats);
     addPluginTemplate({
       getContents: () => {
         return pluginTemplate({
@@ -175,6 +176,9 @@ async function addModules(nuxt, moduleOptions) {
     await addNuxtFontaine(nuxt);
   }
   if (!moduleOptions.disableNuxtImage) {
+    if (!moduleOptions.targetFormats?.length) {
+      moduleOptions.targetFormats = ['webp', 'avif', 'jpg|jpeg|png|gif'];
+    }
     await addNuxtImage(nuxt);
   }
 }
