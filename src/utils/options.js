@@ -26,7 +26,7 @@ export function getDefaultOptions() {
 
     fonts: [],
 
-    targetFormats: undefined,
+    targetFormats: [],
     densities: 'x1 x2',
 
     /**
