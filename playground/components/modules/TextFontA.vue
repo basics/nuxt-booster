@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import { useBoosterFonts } from '#imports';
 const { $getFont } = useBoosterFonts();
 defineProps({
   headline: { type: String, default: 'Headline' },

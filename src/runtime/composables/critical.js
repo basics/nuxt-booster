@@ -1,5 +1,3 @@
-import { computed, ref, inject, provide, useAttrs } from 'vue';
-
 const criticalContextKey = Symbol('criticalContext');
 
 export default function ({ critical } = {}) {

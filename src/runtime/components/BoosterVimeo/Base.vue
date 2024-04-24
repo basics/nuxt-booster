@@ -25,14 +25,11 @@
 </template>
 
 <script>
-import { markRaw, ref, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture';
-
-import { useHead } from '#imports';
 
 const vimeo = new Vimeo();
 

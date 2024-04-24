@@ -21,14 +21,11 @@
 </template>
 
 <script>
-import { ref, markRaw, computed } from 'vue';
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture';
-
-import { useHead } from '#imports';
 
 const youtube = new Youtube();
 

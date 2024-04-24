@@ -9,9 +9,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { definePageMeta } from '#imports';
-
 import BoosterLayer from '#booster/components/BoosterLayer';
 import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay';
 

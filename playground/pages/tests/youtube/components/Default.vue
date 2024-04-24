@@ -12,8 +12,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-
 import DefaultYoutube from '#booster/components/BoosterYoutube';
 import PreviewContainer from '@/components/PreviewContainer';
 

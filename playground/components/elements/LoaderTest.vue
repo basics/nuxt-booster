@@ -5,9 +5,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { onMounted, useBoosterCritical } from '#imports';
-
 const { isCritical } = useBoosterCritical();
 const active = ref(false);
 

@@ -5,8 +5,6 @@
 </template>
 
 <script setup>
-import { defineOptions } from 'vue';
-
 import PageHeaderMenu from './fragments/PageHeaderMenu';
 
 defineOptions({

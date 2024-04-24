@@ -55,7 +55,6 @@
 </template>
 
 <script setup>
-import { defineOptions } from 'vue';
 import BaseVimeo from '#booster/components/BoosterVimeo/Base';
 
 defineOptions({
