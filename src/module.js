@@ -80,7 +80,7 @@ export default defineNuxtModule({
         'Preload optimization is disabled by module option `optimizePreloads`.'
       );
     }
-    console.log(moduleOptions);
+
     await addBuildTemplates(nuxt, moduleOptions);
 
     addImports(
@@ -123,7 +123,6 @@ async function addBuildTemplates(nuxt, options) {
   });
 
   ['client', 'server'].forEach(mode => {
-    console.log('targetFormats', options.targetFormats);
     addPluginTemplate({
       getContents: () => {
         return pluginTemplate({
