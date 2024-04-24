@@ -26,7 +26,7 @@ export function getDefaultOptions() {
 
     fonts: [],
 
-    targetFormats: undefined,
+    targetFormats: ['webp', 'avif', 'jpg|jpeg|png|gif'],
     densities: 'x1 x2',
 
     /**
