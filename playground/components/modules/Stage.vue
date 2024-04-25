@@ -29,11 +29,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import BoosterPicture from '#booster/components/BoosterPicture';
 import BoosterImage from '#booster/components/BoosterImage';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg';
-import { useBoosterFonts } from '#imports';
+
 const { $getFont } = useBoosterFonts();
 
 const ready = ref(false);

@@ -11,8 +11,6 @@
 
 <script setup>
 import 'wicg-inert';
-import { ref, defineAsyncComponent, computed } from 'vue';
-import { useRoute, useHead } from '#app';
 import boosterHydrate from '#booster/hydrate';
 
 const InfoLayer = defineAsyncComponent(() => import('@/components/InfoLayer'));

@@ -44,8 +44,6 @@
 </template>
 
 <script setup>
-import { watch, computed, ref, onMounted } from 'vue';
-import { useRoute } from '#app';
 import Headline from '@/components/base/Headline';
 import LinkList from '@/components/base/LinkList';
 

@@ -14,7 +14,6 @@ import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay'
 
 import BaseButton from '@/components/base/Button';
 
-import { useBoosterFonts } from '#imports';
 const { $getFont } = useBoosterFonts();
 defineProps({
   text: {

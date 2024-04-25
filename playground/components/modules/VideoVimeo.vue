@@ -14,7 +14,7 @@
 <script setup>
 import BoosterVimeo from '#booster/components/BoosterVimeo';
 import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
-import { useBoosterFonts } from '#imports';
+
 const { $getFont } = useBoosterFonts();
 defineProps({
   text: { type: String, default: null }

@@ -1,6 +1,3 @@
-import { reactive } from 'vue';
-import { useBoosterCritical, useBoosterConfig } from '#imports';
-import { useNuxtApp } from '#app';
 import FontCollection from '#booster/classes/FontCollection';
 
 export default function (context) {
