@@ -85,7 +85,7 @@
 
 <script setup>
 import PreviewContainer from '@/components/PreviewContainer';
-import { useBoosterFonts } from '#imports';
+
 const { $getFont } = useBoosterFonts();
 </script>
 

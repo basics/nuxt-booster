@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
 const isServer = ref(true);
 
 onMounted(() => (isServer.value = false));

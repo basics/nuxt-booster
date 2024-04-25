@@ -6,8 +6,6 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { definePageMeta } from '#imports';
 import boosterHydrate from '#booster/hydrate';
 import BoosterLayer from '#booster/components/BoosterLayer';
 

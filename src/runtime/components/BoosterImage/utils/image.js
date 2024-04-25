@@ -1,5 +1,4 @@
 import { joinURL, parseURL, withBase, hasProtocol } from 'ufo';
-import { useRequestURL } from '#app';
 
 const SOURCE_FORMATS = ['avif', 'webp', 'png', 'jpg', 'gif'];
 const FALLBACK_FORMAT = 'jpg';

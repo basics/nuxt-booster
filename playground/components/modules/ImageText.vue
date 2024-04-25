@@ -27,7 +27,7 @@
 
 <script setup>
 import BoosterPicture from '#booster/components/BoosterPicture';
-import { useBoosterFonts } from '#imports';
+
 const { $getFont } = useBoosterFonts();
 defineProps({
   alignRight: { type: Boolean, default: false },

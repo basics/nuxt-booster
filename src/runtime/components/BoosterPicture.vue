@@ -1,8 +1,6 @@
 <script>
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
-import { h } from 'vue';
 import BoosterPicture from '#booster/components/BoosterPicture/Base';
-import { useBoosterCritical } from '#imports';
 
 export default {
   inheritAttrs: false,

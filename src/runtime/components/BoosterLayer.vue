@@ -44,8 +44,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useHead } from '#imports';
 import { getStyleDescription } from '#booster/utils/description';
 
 const isServer = ref(true);
