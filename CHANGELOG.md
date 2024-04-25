@@ -1,5 +1,22 @@
 # Project Changelog
 
+## [3.0.5](https://github.com/basics/nuxt-booster/compare/v3.0.4...v3.0.5) (2024-04-24)
+
+
+### Bug Fixes
+
+* **module:** integrate default targetFormats in defaults ([412e869](https://github.com/basics/nuxt-booster/commit/412e869bae43f24aa9fdf92fab94cabe3257e3b2))
+* **module:** remove logs ([b8429c0](https://github.com/basics/nuxt-booster/commit/b8429c0a225f7111b6f8d71167b656df1627553e))
+* **module:** remove types from defaults ([6b4b2a9](https://github.com/basics/nuxt-booster/commit/6b4b2a9a462ba76a5b076adeb898ee4b22dac053))
+
+## [3.0.4](https://github.com/basics/nuxt-booster/compare/v3.0.3...v3.0.4) (2024-04-22)
+
+
+### Bug Fixes
+
+* **composable:** fix missing composable ([4384e88](https://github.com/basics/nuxt-booster/commit/4384e88486f4b1d3fa6f9389ab01cb1f43d4a5ef))
+* **module:** added missing global import ([0ac46c8](https://github.com/basics/nuxt-booster/commit/0ac46c862fadfc78688d27bbebe1a7335930d3b3))
+
 ## [3.0.3](https://github.com/basics/nuxt-booster/compare/v3.0.2...v3.0.3) (2024-04-22)
 
 

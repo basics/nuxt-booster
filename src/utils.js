@@ -1,8 +1,6 @@
 import { defu } from 'defu';
 import { installModule, useLogger } from '@nuxt/kit';
 
-export const DEFAULT_TARGET_FORMATS = ['webp', 'avif', 'jpg|jpeg|png|gif'];
-
 export const MODULE_NAME = 'nuxt-booster';
 
 export const logger = useLogger(MODULE_NAME);

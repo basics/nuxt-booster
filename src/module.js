@@ -10,7 +10,6 @@ import {
 import { getCrossorigin } from './runtime/utils';
 import FontConfig from './runtime/classes/FontConfig';
 import {
-  DEFAULT_TARGET_FORMATS,
   MODULE_NAME,
   addNuxtFontaine,
   addNuxtImage,
@@ -177,8 +176,9 @@ async function addModules(nuxt, moduleOptions) {
     await addNuxtFontaine(nuxt);
   }
   if (!moduleOptions.disableNuxtImage) {
-    moduleOptions.targetFormats =
-      moduleOptions.targetFormats || DEFAULT_TARGET_FORMATS;
+    if (!moduleOptions.targetFormats?.length) {
+      moduleOptions.targetFormats = ['webp', 'avif', 'jpg|jpeg|png|gif'];
+    }
     await addNuxtImage(nuxt);
   }
 }
