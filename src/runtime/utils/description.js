@@ -64,7 +64,11 @@ export function getFontPreloadDescription(
   };
 }
 
-export function getStyleDescription(children, noScript = false, key) {
+export function getStyleDescription(
+  children,
+  noScript = false,
+  key = undefined
+) {
   if (noScript) {
     return getNoScriptDescription(`<style>${children}</style>`, key);
   } else {
@@ -76,7 +80,7 @@ export function getStyleDescription(children, noScript = false, key) {
   }
 }
 
-export function getNoScriptDescription(textContent, key) {
+export function getNoScriptDescription(textContent, key = undefined) {
   return {
     key,
     innerHTML: minify(textContent)
