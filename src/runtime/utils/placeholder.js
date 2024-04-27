@@ -2,9 +2,10 @@ export function createPlaceholder(sources, getResources, critical) {
   return Promise.all(
     sources.map(async source => {
       const [{ url }, sizes, { placeholder }] = await getResources(source);
-      return Object.assign(createSourceDescription(url, getMinMaxSize(sizes)), {
+      return {
+        ...createSourceDescription(url, getMinMaxSize(sizes)),
         dataURI: critical && placeholder
-      });
+      };
     })
   ).then(sortByWidth);
 }

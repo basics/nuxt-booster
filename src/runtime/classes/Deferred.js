@@ -18,4 +18,8 @@ export default class Deferred {
         throw new Error(e);
       });
   }
+
+  static create() {
+    return new Deferred();
+  }
 }

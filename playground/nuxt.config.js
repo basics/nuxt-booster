@@ -410,5 +410,5 @@ function getHost() {
 }
 
 function getPort() {
-  return process.env.npm_config_port || process.env.PORT || 3000;
+  return Number(process.env.npm_config_port || process.env.PORT || 3000);
 }

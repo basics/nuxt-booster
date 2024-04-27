@@ -21,7 +21,7 @@ export function getPictureStyleDescription(metaSources, classNames) {
 export function getImagePreloadDescription(
   { srcset, sizes, type },
   fetchpriority = 'high',
-  crossorigin,
+  crossorigin = 'anonymous',
   onload = () => {}
 ) {
   return {
@@ -42,7 +42,7 @@ export function getFontPreloadDescription(
   font,
   media,
   fetchpriority = 'high',
-  crossorigin,
+  crossorigin = 'anonymous',
   onload = () => {}
 ) {
   return {
