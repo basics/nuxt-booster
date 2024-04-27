@@ -1,6 +1,6 @@
 {
   "name": "nuxt-booster",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Nuxt Booster takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "author": "Stephan Gerbeth",
@@ -71,8 +71,8 @@
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@fullhuman/postcss-purgecss": "6.0.0",
-    "@nuxt/eslint": "0.3.9",
-    "@nuxt/module-builder": "0.5.5",
+    "@nuxt/eslint": "0.3.10",
+    "@nuxt/module-builder": "0.6.0",
     "@nuxt/webpack-builder": "3.11.2",
     "@types/node": "20.12.7",
     "commitlint": "19.3.0",

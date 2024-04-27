@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.6](https://github.com/basics/nuxt-booster/compare/v3.0.5...v3.0.6) (2024-04-25)
+
+
+### Bug Fixes
+
+* **clean:** removed unneeded imports ([297edf1](https://github.com/basics/nuxt-booster/commit/297edf113f11979b63b2024f805ce95354655e2d))
+
 ## [3.0.5](https://github.com/basics/nuxt-booster/compare/v3.0.4...v3.0.5) (2024-04-24)
 
 

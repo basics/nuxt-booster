@@ -13,7 +13,7 @@ export default component => {
 };
 
 const wrapComponent = component => {
-  if ((isDev || import.meta.server) && typeof component === 'function') {
+  if (!(isDev || import.meta.server) && typeof component === 'function') {
     return defineAsyncComponent(component);
   }
   return component;
