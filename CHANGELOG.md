@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.7](https://github.com/basics/nuxt-booster/compare/v3.0.6...v3.0.7) (2024-04-27)
+
+
+### Bug Fixes
+
+* **hydrate:** fix missing negate ([138569a](https://github.com/basics/nuxt-booster/commit/138569aa00d6fbf740b00caed38b61443d8afc5b))
+
 ## [3.0.6](https://github.com/basics/nuxt-booster/compare/v3.0.5...v3.0.6) (2024-04-25)
 
 
