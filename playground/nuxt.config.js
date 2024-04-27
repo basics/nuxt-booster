@@ -31,6 +31,11 @@ export default defineNuxtConfig(async () => {
 
     app: {
       baseURL: getBaseUrl(),
+
+      pageTransition: {
+        name: 'page',
+        mode: 'out-in'
+      },
       head: {
         htmlAttrs: {
           lang: 'en'

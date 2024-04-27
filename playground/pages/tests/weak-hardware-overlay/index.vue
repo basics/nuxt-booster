@@ -19,6 +19,6 @@ onMounted(() => {
 });
 
 definePageMeta({
-  layout: 'blank'
+  layout: 'test'
 });
 </script>

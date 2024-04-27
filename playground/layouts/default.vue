@@ -127,10 +127,10 @@ body {
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.5s;
+  transition: all 0.3s;
 }
 
-.page-enter,
+.page-enter-from,
 .page-leave-to {
   opacity: 0;
 }

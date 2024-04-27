@@ -12,6 +12,9 @@ export const distDir = join(rootDir, 'dist');
 
 export default defineNuxtConfig(async () => {
   const defaultConfig = await nuxtConfig();
+  defaultConfig.runtimeConfig.public.isTest = true;
+  defaultConfig.runtimeConfig.public.disableInfoLayer = true;
+
   return {
     ...defaultConfig,
     srcDir: resolver.resolve('../playground'),
@@ -25,11 +28,6 @@ export default defineNuxtConfig(async () => {
     },
 
     ssr: true,
-    runtimeConfig: {
-      public: {
-        disableInfoLayer: true
-      }
-    },
 
     dir: {
       pages: 'pages/tests'

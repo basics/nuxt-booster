@@ -1,37 +1,20 @@
 <template>
-  <div class="test-transition">
-    <nuxt-link to="/tests/useBoosterHead">Transition 1</nuxt-link> |
-    <nuxt-link to="/tests/useBoosterHead/1">Transition 2</nuxt-link> |
-    <nuxt-link to="/tests/useBoosterHead/2">Transition 3</nuxt-link>
-    <div>
-      <test-headline-b critical>Transition 2</test-headline-b>
-    </div>
+  <div>
+    <base-headline :font="['Merriweather', 400, 'normal']">
+      Merriweather - 400 - normal
+    </base-headline>
+    <base-headline :font="['Merriweather', 700, 'normal']">
+      Merriweather - 700 - normal
+    </base-headline>
+    <base-headline :font="['Merriweather', 400, 'italic']">
+      Merriweather - 400 - italic
+    </base-headline>
+    <base-headline :font="['Merriweather', 700, 'italic']">
+      Merriweather - 700 - italic
+    </base-headline>
   </div>
 </template>
 
 <script setup>
-import TestHeadlineB from '@/components/tests/TestHeadlineB';
-
-definePageMeta({
-  layout: 'transition',
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in'
-  }
-});
+import BaseHeadline from '@/components/base/Headline';
 </script>
-
-<style lang="postcss" scoped>
-.fade-enter-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-leave-active {
-  transition: opacity 2s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

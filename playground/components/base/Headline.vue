@@ -22,8 +22,17 @@ const $props = defineProps({
   }
 });
 const preparedFont = computed(() => {
-  if ($props.font) {
-    return $props.font;
+  let font = $props.font;
+  if (font) {
+    if (!(Array.isArray(font) && Array.isArray(font[0]))) {
+      font = [font];
+    }
+    return [].concat(font).map(font => {
+      if (!Array.isArray(font) && typeof font === 'object') {
+        font = [font.name, font.weight, font.style, font.selector];
+      }
+      return $getFont(...font);
+    });
   }
   return $getFont('Quicksand', 700, 'normal');
 });
