@@ -87,6 +87,7 @@ export default {
             ].filter(Boolean),
             link: [
               !(!config || !isCritical.value) &&
+                (import.meta.server || process.env.prerender) &&
                 new Source(source).getPreload(
                   config.srcset,
                   config.sizes,

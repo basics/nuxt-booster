@@ -62,14 +62,16 @@ const createEntry = (collection, debug) => {
     ({ fontCollection }) => fontCollection.size
   );
   return {
-    link: prepareItems(
-      items
-        .filter(({ fontCollection }) => fontCollection.size)
-        .map(({ fontCollection, isCritical }) =>
-          fontCollection.getPreloadDescriptions(isCritical)
-        )
-        .flat()
-    ),
+    link:
+      (import.meta.server || process.env.prerender) &&
+      prepareItems(
+        items
+          .filter(({ fontCollection }) => fontCollection.size)
+          .map(({ fontCollection, isCritical }) =>
+            fontCollection.getPreloadDescriptions(isCritical)
+          )
+          .flat()
+      ),
     style: prepareItems(
       items
         .map(({ fontCollection, options }) =>

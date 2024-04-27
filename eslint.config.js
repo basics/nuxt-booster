@@ -36,6 +36,7 @@ export default withNuxt({
         ignores: []
       }
     ],
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'vue/html-self-closing': 'off' // prettier conflict
   }
 }).prepend(pluginSecurity.configs.recommended, eslintPluginPrettierRecommended);
