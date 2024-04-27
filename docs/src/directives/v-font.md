@@ -16,7 +16,8 @@ It is recommended to use the property `critical` for components that are already
 With critical component the fonts are preloaded and are initially active.  
 More information on critical components can be found [here](/guide/usage#critical-prop-for-critical-components).
 
-For multiple fonts, a list (`Array`) can be passed.
+- For multiple fonts, a list (`Array`) can be passed.
+- The `load:font` event can be used to react to the successful loading of the fonts.
 
 ````html
 
@@ -28,6 +29,9 @@ For multiple fonts, a list (`Array`) can be passed.
   $getFont(…),
   $getFont(…)
 ]">
+
+<!-- event load -->
+<element v-font="$getFont(…)" @load:font="…">
 ````
 
 ## `$getFont(family, [weight, style, options])`

@@ -47,7 +47,7 @@ const links = ref(
 );
 
 definePageMeta({
-  layout: 'test-transition'
+  layout: 'blank'
 });
 </script>
 

@@ -27,6 +27,9 @@ export default {
               .filter(Boolean)
               .join(' ');
           }
+          if (isCritical) {
+            emit(vnode.props, 'onLoad:font', definitions);
+          }
         }
       },
 
@@ -46,9 +49,14 @@ export default {
         }
       },
 
-      updated(el, binding) {
+      updated(el, binding, vnode) {
         if (binding.instance.fontsReady.get(el)) {
           el.classList.add(CLASS_FONT_ACTIVE);
+          emit(
+            vnode.props,
+            'onLoad:font',
+            [].concat(binding.value).map(value => value.definition)
+          );
         }
       },
 
@@ -92,12 +100,11 @@ async function activateFonts(el, binding, scope) {
   el.classList.add(CLASS_FONT_ACTIVE);
   binding.instance.fontActive = true;
 
-  // workaround for load:font emit
-  if (
-    scope.props &&
-    'onLoad:font' in scope.props &&
-    typeof scope.props['onLoad:font'] === 'function'
-  ) {
-    scope.props['onLoad:font'](fonts);
-  }
+  emit(scope.props, 'onLoad:font', fonts);
 }
+
+const emit = (props, name, fonts) => {
+  if (typeof props?.[String(name)] === 'function') {
+    props[String(name)](fonts);
+  }
+};
