@@ -5,7 +5,7 @@ function hasWebpSupport() {
     return true;
   }
   const elem = window.document.createElement('canvas');
-  if (elem.getContext && elem.getContext('2d')) {
+  if (elem.getContext?.('2d')) {
     return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
   } else {
     return false;
@@ -22,7 +22,7 @@ export function isPreloadSupported() {
     const relList = window.document.createElement('link').relList;
     return (
       elementSupportsAttribute('link', 'imageSrcset') &&
-      !!(relList && relList.supports && relList.supports('preload'))
+      !!relList?.supports?.('preload')
     );
   } else {
     return true;

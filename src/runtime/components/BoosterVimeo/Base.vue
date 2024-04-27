@@ -9,7 +9,6 @@
         :inert="inert"
         :title="playerTitle"
         :src="src"
-        frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         @load="onLoad"
       />
@@ -289,6 +288,7 @@ export default {
     width: 100%;
     height: 100%;
     margin: auto;
+    border: none;
   }
 
   .iframe-mode & {

@@ -10,7 +10,11 @@ const { nav: versionNav } = useVersion();
 
 <template>
   <div>
-    <nav v-if="versionNav" class="VPNavScreenMenu">
+    <nav
+      v-if="versionNav"
+      aria-label="Screen Navigation"
+      class="VPNavScreenMenu"
+    >
       <template v-for="item in versionNav" :key="item.text">
         <v-p-nav-screen-menu-link v-if="'link' in item" :item="item" />
         <v-p-nav-screen-menu-group
@@ -20,7 +24,11 @@ const { nav: versionNav } = useVersion();
         />
       </template>
     </nav>
-    <nav v-if="theme.nav" class="VPNavScreenMenu">
+    <nav
+      v-if="theme.nav"
+      aria-label="Screen Navigation"
+      class="VPNavScreenMenu"
+    >
       <template v-for="item in theme.nav" :key="item.text">
         <v-p-nav-screen-menu-link v-if="'link' in item" :item="item" />
         <v-p-nav-screen-menu-group

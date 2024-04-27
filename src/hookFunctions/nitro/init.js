@@ -58,7 +58,7 @@ function prepareUrls(urls, relativeDir) {
         .replace(/^url\((.*)\)$/, '$1')
         .trim();
       if (isURL(value) || isDataURI(value)) {
-        return false;
+        return null;
       }
       return [url, `url(${resolve(relativeDir, value)})`];
     })

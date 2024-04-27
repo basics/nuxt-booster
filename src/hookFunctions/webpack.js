@@ -9,9 +9,6 @@ export const registerAppEntry = filePath => {
           }
           return file;
         });
-        // config.optimization.runtimeChunk = {
-        //   name: 'app'
-        // };
       });
   };
 };

@@ -125,8 +125,6 @@ div > ul {
     margin: 0;
     font-family: monospace;
     font-size: 10px;
-
-    /* font-style: italic; */
     list-style: none;
   }
 }

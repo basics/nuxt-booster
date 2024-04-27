@@ -4,13 +4,11 @@ export default class FontList {
   constructor(list = []) {
     this.list = list.map(item => {
       item.variances = item.variances.map(variance => {
-        return Object.assign(
-          {
-            style: 'normal',
-            weight: 400
-          },
-          variance
-        );
+        return {
+          style: 'normal',
+          weight: 400,
+          ...variance
+        };
       });
       return item;
     });

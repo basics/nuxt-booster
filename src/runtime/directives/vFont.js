@@ -90,7 +90,4 @@ async function activateFonts(el, binding) {
 
   el.classList.add(CLASS_FONT_ACTIVE);
   binding.instance.fontActive = true;
-
-  // TODO: Wird hier sowohl eine Komponente und ein HTML-Tag beachtet?
-  // binding.instance.$emit('load:font', fonts);
 }
