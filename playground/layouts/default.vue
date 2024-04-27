@@ -124,10 +124,12 @@ body {
     font-size: 16px;
   }
 }
+</style>
 
+<style lang="postcss">
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.3s;
+  transition: opacity 0.2s;
 }
 
 .page-enter-from,

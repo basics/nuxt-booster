@@ -12,6 +12,6 @@ const Critical = boosterHydrate(() => import('./components/Critical'));
 const Lazy = boosterHydrate(() => import('./components/Lazy'));
 
 definePageMeta({
-  layout: 'test'
+  layout: 'blank'
 });
 </script>

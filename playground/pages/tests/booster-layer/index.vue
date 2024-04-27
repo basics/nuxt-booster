@@ -42,6 +42,6 @@ const imageTextA = {
 };
 
 definePageMeta({
-  layout: 'test'
+  layout: 'blank'
 });
 </script>

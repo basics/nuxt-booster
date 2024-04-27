@@ -28,7 +28,7 @@ export default runtime => {
 
     // #region /tests/useBoosterHead
 
-    it('Transition Page Change', async () => {
+    it('Transition (Page Change)', async () => {
       const page = await createPage('/useBoosterHead/');
 
       expect(

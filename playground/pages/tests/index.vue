@@ -4,6 +4,6 @@
 
 <script setup>
 definePageMeta({
-  layout: 'test'
+  layout: 'blank'
 });
 </script>
