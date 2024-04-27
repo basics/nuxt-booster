@@ -41,7 +41,7 @@ export default class Font {
   }
 
   getKey() {
-    const data = Object.assign({}, this);
+    const data = { ...this };
     // Remove `src` and `rootSelector` from font-object for key generation
     delete data.src;
     delete data.rootSelector;

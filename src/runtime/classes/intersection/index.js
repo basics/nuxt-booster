@@ -3,10 +3,10 @@ import ElementObserver from './ElementObserver';
 
 export const getElementObserver = (el, options) => {
   const scrollContainer = getScrollableParent(el);
-  const observerOptions = Object.assign(
-    getDefaultOptions(scrollContainer),
-    options
-  );
+  const observerOptions = {
+    ...getDefaultOptions(scrollContainer),
+    ...options
+  };
   return new ElementObserver(getIntersectionObservable(observerOptions), el);
 };
 

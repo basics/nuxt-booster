@@ -48,5 +48,5 @@ const getNodeAndKey = ({ root, ...options }) => {
   if (!node.observables) {
     node.observables = new Map();
   }
-  return { key: JSON.stringify(Object.assign(options)), node };
+  return { key: JSON.stringify({ ...options }), node };
 };
