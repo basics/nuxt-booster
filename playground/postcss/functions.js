@@ -15,7 +15,7 @@ export function vw(value, viewport = 375, min = '1rem') {
 
 const resolveValue = value => {
   if (value.endsWith('value')) {
-    return parseInt(value);
+    return String(parseInt(value));
   } else {
     return String(value).replace('calc', '').replace('px', '');
   }

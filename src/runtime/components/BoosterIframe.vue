@@ -4,7 +4,7 @@
     :src="lazySrc"
     class="nuxt-booster-iframe"
     v-bind="$attrs"
-    frameborder="0"
+    :title="title"
     @load="loaded = $event"
   />
 </template>
@@ -12,6 +12,11 @@
 <script setup>
 const props = defineProps({
   src: {
+    type: String,
+    default: null
+  },
+
+  title: {
     type: String,
     default: null
   },
@@ -47,5 +52,7 @@ watch(inView, () => {
 </script>
 
 <style lang="postcss" scoped>
-/* empty */
+iframe {
+  border: none;
+}
 </style>

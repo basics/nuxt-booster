@@ -14,11 +14,10 @@ export default class FontConfig {
   }
 
   toJSON() {
-    return this.fonts.map(font =>
-      Object.assign({}, font, {
-        variances: getVariances(font, this.aliases)
-      })
-    );
+    return this.fonts.map(font => ({
+      ...font,
+      variances: getVariances(font, this.aliases)
+    }));
   }
 
   toCSS() {
@@ -36,7 +35,7 @@ export default class FontConfig {
 
 function getVariances(font, aliases) {
   return font.variances.map(variance => {
-    variance = Object.assign({}, variance);
+    variance = { ...variance };
     const source = getPrioritizedFontPreloadSource(variance.sources);
     if (Object.keys(aliases).find(alias => source.src.startsWith(alias))) {
       variance.src = source.src;

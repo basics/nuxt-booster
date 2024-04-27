@@ -29,9 +29,8 @@ export const setPublicRuntimeConfig = (nuxt, options) => {
 };
 
 function moduleExists(nuxt, moduleName) {
-  return (
-    nuxt.options.modules &&
-    nuxt.options.modules.find(module => getModuleName(module) === moduleName)
+  return nuxt.options.modules?.find(
+    module => getModuleName(module) === moduleName
   );
 }
 

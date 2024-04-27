@@ -486,59 +486,7 @@ export default runtime => {
       );
 
       await waitForSelector(page, '#youtube-0 .nuxt-booster-youtube.ready');
-
-      // wait for playing first player playing
-      // await waitForSelector(page,
-      //   '#youtube-0 .nuxt-booster-youtube.ready:not(.playing)'
-      // );
     });
-
-    // #endregion
-
-    // #region /tests/vimeo
-
-    // it('BoosterVimeo ready & play', async () => {
-    //   const page = await createPage('/vimeo/');
-    //   await page.waitForLoadState('networkidle');
-
-    //   // Other Vimeo tests not working in chromium, codec H.264 is unsupport
-    //   if (browser === BROWSERS.CHROMIUM) {
-    //     // start first player
-    //     await page.evaluate(() =>
-    //       document.querySelector('#vimeo-0 button').click()
-    //     );
-    //     await page.waitForLoadState('networkidle');
-
-    //     // wait for player ready
-    //     await waitForSelector(page, '#vimeo-0 .nuxt-booster-vimeo.ready');
-    //   } else {
-    //     // start first player
-    //     await page.evaluate(() =>
-    //       document.querySelector('#vimeo-0 button').click()
-    //     );
-    //     await page.waitForLoadState('networkidle');
-
-    //     // wait for playing first player playing
-    //     await waitForSelector(page,
-    //       '#vimeo-0 .nuxt-booster-vimeo.ready.playing'
-    //     );
-
-    //     // // wait for playing first player playing
-    //     await page.evaluate(scroll, {direction: "down", speed: "slow"});
-    //     // // start second player
-    //     await page.evaluate(() =>
-    //       document.querySelector('#vimeo-1 button').click()
-    //     );
-    //     await page.waitForLoadState('networkidle');
-
-    //     await waitForSelector(page,
-    //       '#vimeo-0 .nuxt-booster-vimeo.ready:not(.playing)'
-    //     );
-    //     await waitForSelector(page,
-    //       '#vimeo-1 .nuxt-booster-vimeo.ready.playing'
-    //     );
-    //   }
-    // });
 
     // #endregion
   }

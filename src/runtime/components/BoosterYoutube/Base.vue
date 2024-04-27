@@ -7,7 +7,6 @@
       :title="title"
       class="player"
       :src="src"
-      frameborder="0"
       allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       @load="onLoad"
     />
@@ -266,6 +265,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
   }
 }
 
