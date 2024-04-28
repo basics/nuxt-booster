@@ -245,6 +245,7 @@ button {
   height: 100%;
   margin: auto;
   background: black;
+  border: none;
 
   & > div {
     position: relative;
