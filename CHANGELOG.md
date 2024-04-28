@@ -1,5 +1,22 @@
 # Project Changelog
 
+## [3.0.8](https://github.com/basics/nuxt-booster/compare/v3.0.7...v3.0.8) (2024-04-28)
+
+
+### Bug Fixes
+
+* **booster-layer:** fix missing nojs message ([e2b75f2](https://github.com/basics/nuxt-booster/commit/e2b75f299a40ad45811a3ca0841c7513a4678555))
+* **booster-youtube:** fix border style ([a618137](https://github.com/basics/nuxt-booster/commit/a618137be252bafd9dd346cbd40b1b35bec039c2))
+* **description:** improve params ([b45366a](https://github.com/basics/nuxt-booster/commit/b45366acf9cf1edfb6227f3f7318a34263f9933e))
+* **head:** improve and added test pages ([2d4c28c](https://github.com/basics/nuxt-booster/commit/2d4c28c96464aa160fa46c3015be1ced8f13ceb9))
+* **head:** renaming ([ef9a49e](https://github.com/basics/nuxt-booster/commit/ef9a49eff48d06dc3afdc2ceac9ca4badb38a7bf))
+* **noscript:** render noscript only in ssr ([966afe1](https://github.com/basics/nuxt-booster/commit/966afe187b2e1cee7bb8f8d2692e291998871986))
+* **preload:** render link preload tags only in ssr ([a80a30e](https://github.com/basics/nuxt-booster/commit/a80a30ee61e405e439a525373684cde88b9f19f5))
+* **v-font:** clean ([5b2bbe8](https://github.com/basics/nuxt-booster/commit/5b2bbe8d2841f10cf5b0ee3dc9031889a74f228f))
+* **v-font:** fix missing style class ([66d721a](https://github.com/basics/nuxt-booster/commit/66d721ae76d751ea836a80eee7fe510f5aaf8a28))
+* **v-font:** new mechanics to write fonts in header ([8937852](https://github.com/basics/nuxt-booster/commit/89378527d12e44b3d5b05bd20eebc44e620e034b))
+* **v-font:** update font:load event ([d3d5ef5](https://github.com/basics/nuxt-booster/commit/d3d5ef5ed3c379e9e0736e618d2c81506b1f8e4f))
+
 ## [3.0.7](https://github.com/basics/nuxt-booster/compare/v3.0.6...v3.0.7) (2024-04-27)
 
 
