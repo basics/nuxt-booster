@@ -95,11 +95,11 @@ export default {
                 )
             ].filter(Boolean),
             noscript: [
-              {
+              (import.meta.server || process.env.prerender) && {
                 key: 'img-nojs',
                 children: `<style>img { content-visibility: unset !important; }</style>`
               }
-            ]
+            ].filter(Boolean)
           };
         }
       });

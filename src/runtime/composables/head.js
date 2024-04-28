@@ -79,13 +79,15 @@ const createEntry = (collection, debug) => {
         )
         .flat()
     ),
-    noscript: prepareItems(
-      items
-        .map(({ fontCollection }) =>
-          fontCollection.getNoScriptStyleDescriptions()
-        )
-        .flat()
-    )
+    noscript:
+      (import.meta.server || process.env.prerender) &&
+      prepareItems(
+        items
+          .map(({ fontCollection }) =>
+            fontCollection.getNoScriptStyleDescriptions()
+          )
+          .flat()
+      )
   };
 };
 

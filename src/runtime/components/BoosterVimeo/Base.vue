@@ -92,11 +92,14 @@ export default {
 
   async setup(props) {
     const script = ref([]);
-    useHead({
-      script: computed(() => {
-        return script.value;
-      })
-    });
+
+    if (!(import.meta.server || process.env.prerender)) {
+      useHead({
+        script: computed(() => {
+          return script.value;
+        })
+      });
+    }
 
     const { withQuery } = await import('ufo');
     const videoData = ref(null);
