@@ -15,6 +15,8 @@
 import DefaultVimeo from '#booster/components/BoosterVimeo';
 import PreviewContainer from '@/components/PreviewContainer';
 
+useBoosterCritical();
+
 const props = defineProps({
   vimeoUrl: {
     type: String,

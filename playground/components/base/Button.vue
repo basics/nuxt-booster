@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="tag"
+    :is="resolveTag"
     v-font="$getFont('Quicksand', 400, 'normal')"
     class="base-button"
     @click="$emit('click', e)"
@@ -12,21 +12,29 @@
 <script setup>
 const { $getFont } = useBoosterFonts();
 defineEmits(['click']);
-</script>
 
-<script>
-export default {
-  props: {
-    tag: {
-      type: String,
-      default: 'button'
-    },
-    label: {
-      type: String,
-      default: 'Button Label'
-    }
+defineProps({
+  tag: {
+    type: String,
+    default: 'button'
+  },
+  label: {
+    type: String,
+    default: 'Button Label'
   }
-};
+});
+
+const $attrs = useAttrs();
+
+const resolveTag = computed(() => {
+  if ($attrs.for) {
+    return 'label';
+  } else if ($attrs.to) {
+    return 'NuxtLink';
+  }
+
+  return 'button';
+});
 </script>
 
 <style lang="postcss" scoped>

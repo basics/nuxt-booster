@@ -27,6 +27,9 @@ export default {
               .filter(Boolean)
               .join(' ');
           }
+          if (isCritical) {
+            emit(vnode.props, 'onLoad:font', definitions);
+          }
         }
       },
 
@@ -46,25 +49,30 @@ export default {
         }
       },
 
-      updated(el, binding) {
+      updated(el, binding, vnode) {
         if (binding.instance.fontsReady.get(el)) {
           el.classList.add(CLASS_FONT_ACTIVE);
+          emit(
+            vnode.props,
+            'onLoad:font',
+            [].concat(binding.value).map(value => value.definition)
+          );
         }
       },
 
-      async mounted(el, binding) {
+      async mounted(el, binding, scope) {
         const firstFont = getFirstFont(binding.value);
         if (firstFont) {
           const { isCritical, runtimeConfig } = getFirstFont(binding.value);
           if (isCritical || !isElementOutViewport(el)) {
-            activateFonts(el, binding);
+            activateFonts(el, binding, scope);
           } else {
             const observer = getElementObserver(el, {
               rootMargin: runtimeConfig.lazyOffsetAsset
             });
             observers.set(el, observer);
             await observer.enterViewOnce();
-            activateFonts(el, binding);
+            activateFonts(el, binding, scope);
           }
         }
       },
@@ -80,7 +88,7 @@ function getFirstFont(value) {
   return [].concat(value)[0];
 }
 
-async function activateFonts(el, binding) {
+async function activateFonts(el, binding, scope) {
   const fonts = [].concat(binding.value).map(({ definition }) => definition);
   await Promise.all(
     fonts
@@ -90,4 +98,12 @@ async function activateFonts(el, binding) {
 
   el.classList.add(CLASS_FONT_ACTIVE);
   binding.instance.fontActive = true;
+
+  emit(scope.props, 'onLoad:font', fonts);
 }
+
+const emit = (props, name, fonts) => {
+  if (typeof props?.[String(name)] === 'function') {
+    props[String(name)](fonts);
+  }
+};

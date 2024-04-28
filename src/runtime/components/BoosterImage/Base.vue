@@ -87,6 +87,7 @@ export default {
             ].filter(Boolean),
             link: [
               !(!config || !isCritical.value) &&
+                (import.meta.server || process.env.prerender) &&
                 new Source(source).getPreload(
                   config.srcset,
                   config.sizes,
@@ -94,11 +95,11 @@ export default {
                 )
             ].filter(Boolean),
             noscript: [
-              {
+              (import.meta.server || process.env.prerender) && {
                 key: 'img-nojs',
                 children: `<style>img { content-visibility: unset !important; }</style>`
               }
-            ]
+            ].filter(Boolean)
           };
         }
       });

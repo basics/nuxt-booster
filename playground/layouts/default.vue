@@ -27,7 +27,6 @@ useHead(
       title: `${route.name} | nuxt-booster`,
       meta: [
         {
-          hid: 'description',
           name: 'description',
           content: `${route.name} - description`
         }
@@ -125,13 +124,15 @@ body {
     font-size: 16px;
   }
 }
+</style>
 
+<style lang="postcss">
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
 }
 
-.page-enter,
+.page-enter-from,
 .page-leave-to {
   opacity: 0;
 }

@@ -53,8 +53,9 @@ onMounted(() => (isServer.value = false));
 useHead({
   noscript: [
     getStyleDescription(
-      `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs { display: initial !important; }`,
-      true
+      `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
+      true,
+      'booster-layer'
     )
   ]
 });

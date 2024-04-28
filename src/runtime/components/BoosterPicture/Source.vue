@@ -48,6 +48,7 @@ export default {
       link: [
         config &&
           imageSource.preload &&
+          (import.meta.server || process.env.prerender) &&
           imageSource.getPreload(
             config.srcset,
             config.sizes,

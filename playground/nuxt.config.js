@@ -31,6 +31,11 @@ export default defineNuxtConfig(async () => {
 
     app: {
       baseURL: getBaseUrl(),
+
+      pageTransition: {
+        name: 'page',
+        mode: 'out-in'
+      },
       head: {
         htmlAttrs: {
           lang: 'en'
@@ -112,6 +117,7 @@ export default defineNuxtConfig(async () => {
     },
 
     booster: {
+      debug: false,
       // targetFormats: ['jpg|jpeg|png|gif'],
       // densities: 'x1 x2',
       detection: {

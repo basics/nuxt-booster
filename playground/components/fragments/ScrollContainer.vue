@@ -12,6 +12,7 @@
     />
   </div>
 </template>
+
 <script setup>
 import ScrollItem from '../elements/ScrollItem';
 defineProps({
@@ -25,6 +26,7 @@ defineProps({
   }
 });
 </script>
+
 <style lang="postcss" scoped>
 .scroll-container {
   width: 100%;

@@ -9,17 +9,22 @@ export default class FontCollection {
     this.list = [];
   }
 
+  getKey() {
+    return toFontHex(JSON.stringify(this.list.map(font => font.getKey())));
+  }
+
   add(fonts) {
     const rootSelector = {
       name: 'data-font',
       value: `${toFontHex(JSON.stringify(fonts.map(font => font.getKey())))}`
     };
-    this.list = [].concat(this.list).concat(
-      fonts.map(font => {
+    this.list = [
+      ...this.list,
+      ...fonts.map(font => {
         font.setRootSelector(rootSelector);
         return font;
       })
-    );
+    ];
     return rootSelector;
   }
 
@@ -45,7 +50,9 @@ export default class FontCollection {
   getStyleDescriptions(options) {
     return getRelevantDescriptions([
       getStyleDescription(
-        this.list.map(font => font.getCSSText(options)).join(' ')
+        this.list.map(font => font.getCSSText(options)).join(' '),
+        false,
+        this.getKey()
       )
     ]);
   }
@@ -54,14 +61,20 @@ export default class FontCollection {
     return getRelevantDescriptions([
       getStyleDescription(
         this.list.map(font => font.getNoScriptCSSText()).join(' '),
-        true
+        true,
+        this.getKey()
       )
     ]);
   }
 
-  // has to be declared -> https://github.com/vuex-orm/vuex-orm/issues/255
+  get size() {
+    return this.list.length;
+  }
+
   toJSON() {
-    return this.list;
+    return {
+      list: this.list.map(font => font.toJSON())
+    };
   }
 }
 

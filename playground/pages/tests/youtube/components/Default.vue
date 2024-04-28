@@ -15,6 +15,8 @@
 import DefaultYoutube from '#booster/components/BoosterYoutube';
 import PreviewContainer from '@/components/PreviewContainer';
 
+useBoosterCritical();
+
 const props = defineProps({
   youtubeUrl: {
     type: String,

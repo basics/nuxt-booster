@@ -88,7 +88,8 @@ export default defineNuxtModule({
         'useBoosterComponentObserver',
         'useBoosterCritical',
         'useBoosterConfig',
-        'useBoosterFonts'
+        'useBoosterFonts',
+        'useBoosterHead'
       ].map(name => ({
         name,
         from: resolve(runtimeDir, 'composables/index')

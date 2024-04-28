@@ -64,19 +64,25 @@ export function getFontPreloadDescription(
   };
 }
 
-export function getStyleDescription(children, noScript = false) {
+export function getStyleDescription(
+  children,
+  noScript = false,
+  key = undefined
+) {
   if (noScript) {
-    return getNoScriptDescription(`<style>${children}</style>`);
+    return getNoScriptDescription(`<style>${children}</style>`, key);
   } else {
     return {
+      key,
       type: 'text/css',
       children: minify(children)
     };
   }
 }
 
-export function getNoScriptDescription(textContent) {
+export function getNoScriptDescription(textContent, key = undefined) {
   return {
+    key,
     innerHTML: minify(textContent)
   };
 }

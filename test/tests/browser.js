@@ -26,6 +26,77 @@ export default runtime => {
       return page;
     };
 
+    // #region /tests/useBoosterHead
+
+    it('Transition (Page Change)', async () => {
+      const page = await createPage('/useBoosterHead/');
+
+      expect(
+        await page.evaluate(() =>
+          document.head.innerHTML.indexOf(
+            '[data-font="-6c50917f"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-6c50917f"] { font-family: "Montserrat Alternates", sans-serif; }'
+          )
+        )
+      ).not.toBe(-1);
+
+      await page.waitForSelector('[data-font="-370c22ce"].font-active');
+
+      await page.waitForTimeout(2000);
+      await page.getByText('Click here').click();
+
+      await page.waitForSelector('[data-font="-15b2b0cd"].font-active');
+      await page.waitForLoadState('networkidle');
+
+      expect(
+        await page.evaluate(() =>
+          document.head.innerHTML.indexOf(
+            '[data-font="-15b2b0cd"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-15b2b0cd"] { font-family: "Merriweather", Georgia, sans-serif; }'
+          )
+        )
+      ).not.toBe(-1);
+
+      // Go two pages to clean Head.
+      await page.getByText('Empty 1').click();
+      await page.waitForSelector('.empty-1.ready');
+
+      expect(
+        await page.evaluate(() =>
+          document.head.innerHTML.indexOf(
+            '[data-font="-15b2b0cd"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-15b2b0cd"] { font-family: "Merriweather", Georgia, sans-serif; }'
+          )
+        )
+      ).not.toBe(-1);
+
+      expect(
+        await page.evaluate(() =>
+          document.head.innerHTML.indexOf(
+            '[data-font="-6c50917f"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-6c50917f"] { font-family: "Montserrat Alternates", sans-serif; }'
+          )
+        )
+      ).not.toBe(-1);
+
+      await page.getByText('Empty 2').click();
+      await page.waitForSelector('.empty-2.ready');
+
+      expect(
+        await page.evaluate(() =>
+          document.head.innerHTML.indexOf(
+            '[data-font="-15b2b0cd"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-15b2b0cd"] { font-family: "Merriweather", Georgia, sans-serif; }'
+          )
+        )
+      ).toBe(-1);
+
+      expect(
+        await page.evaluate(() =>
+          document.head.innerHTML.indexOf(
+            '[data-font="-6c50917f"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-6c50917f"] { font-family: "Montserrat Alternates", sans-serif; }'
+          )
+        )
+      ).toBe(-1);
+    });
+
+    // #endregion
+
     // #region /tests/booster-layer
 
     it('BoosterLayer (Apply without scripts)', async () => {
