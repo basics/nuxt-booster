@@ -61,10 +61,6 @@ export default {
       },
 
       async mounted(el, binding, scope) {
-        if (scope.fontActive) {
-          activateFonts(el, binding, scope);
-          return;
-        }
         const firstFont = getFirstFont(binding.value);
         if (firstFont) {
           const { isCritical, runtimeConfig } = getFirstFont(binding.value);
