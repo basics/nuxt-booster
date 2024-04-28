@@ -10,29 +10,25 @@
 
 <script setup>
 const { $getFont } = useBoosterFonts();
-</script>
 
-<script>
-export default {
-  props: {
-    items: {
-      type: Array,
-      default() {
-        return [
-          {
-            title: 'Link 1.'
-          },
-          {
-            title: 'Link 2.'
-          },
-          {
-            title: 'Link 3.'
-          }
-        ];
-      }
+defineProps({
+  items: {
+    type: Array,
+    default() {
+      return [
+        {
+          title: 'Link 1.'
+        },
+        {
+          title: 'Link 2.'
+        },
+        {
+          title: 'Link 3.'
+        }
+      ];
     }
   }
-};
+});
 </script>
 
 <style scoped lang="postcss">
