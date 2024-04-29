@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as s,A as o,n as r,g as n}from"./DFIxEXO0.js";const c=Object.assign({inheritAttrs:!1},{__name:"Button",setup(u){return(t,_)=>(a(),s("button",r(n(t.$attrs)),[o(t.$slots,"default",{},void 0,!0)],16))}}),l=e(c,[["__scopeId","data-v-9e2aa796"]]);export{l as D};
