@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.0.9](https://github.com/basics/nuxt-booster/compare/v3.0.8...v3.0.9) (2024-04-29)
+
+
+### Bug Fixes
+
+* **hydrate:** revert hydrate ([29647c7](https://github.com/basics/nuxt-booster/commit/29647c703a896155f8d1a720f512d364db4f0e48))
+* **module:** fix missing imports ([2783caf](https://github.com/basics/nuxt-booster/commit/2783caf785f87646c115338097409391d556f480))
+
 ## [3.0.8](https://github.com/basics/nuxt-booster/compare/v3.0.7...v3.0.8) (2024-04-28)
 
 
