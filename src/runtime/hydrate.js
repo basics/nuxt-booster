@@ -1,4 +1,5 @@
 import { hydrateWhenVisible } from 'vue3-lazy-hydration';
+import { defineAsyncComponent, useRuntimeConfig } from '#imports';
 
 const isDev = process.env.NODE_ENV === 'development';
 

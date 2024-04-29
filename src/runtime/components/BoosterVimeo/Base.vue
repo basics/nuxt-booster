@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { useHead, markRaw } from '#imports';
+
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
