@@ -10,9 +10,9 @@
 </template>
 
 <script setup>
-import { ref, defineEmits, watch, useBoosterComponentObserver } from '#imports';
+import { ref, watch, useBoosterComponentObserver } from '#imports';
 
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   src: {
