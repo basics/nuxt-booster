@@ -4,18 +4,18 @@ import { defineAsyncComponent, useRuntimeConfig } from '#imports';
 const isDev = process.env.NODE_ENV === 'development';
 
 export default component => {
-  if (isDev || import.meta.server) {
-    if (typeof component === 'function') {
-      component = defineAsyncComponent(component);
-    }
-    return component;
-  }
-
   const runtimeConfig = useRuntimeConfig();
 
-  return hydrateWhenVisible(component, {
+  return hydrateWhenVisible(wrapComponent(component), {
     observerOptions: {
       rootMargin: runtimeConfig.public.booster.lazyOffsetComponent || '0%'
     }
   });
+};
+
+const wrapComponent = component => {
+  if (!(isDev || import.meta.server) && typeof component === 'function') {
+    return defineAsyncComponent(component);
+  }
+  return component;
 };
