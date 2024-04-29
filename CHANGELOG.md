@@ -1,5 +1,15 @@
 # Project Changelog
 
+## [3.0.9-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.8...v3.0.9-next.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* **booster-iframe:** fix import ([d260817](https://github.com/basics/nuxt-booster/commit/d260817cc79026edc99584c6228e882eddfdcc86))
+* **hydrate:** revert hydrate ([29647c7](https://github.com/basics/nuxt-booster/commit/29647c703a896155f8d1a720f512d364db4f0e48))
+* **module:** fix missing imports ([2783caf](https://github.com/basics/nuxt-booster/commit/2783caf785f87646c115338097409391d556f480))
+* **module:** fix more missing imports ([94370c2](https://github.com/basics/nuxt-booster/commit/94370c221824a9f615088901e706216ba6442c67))
+
 ## [3.0.8](https://github.com/basics/nuxt-booster/compare/v3.0.7...v3.0.8) (2024-04-28)
 
 
