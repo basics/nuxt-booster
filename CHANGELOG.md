@@ -2,6 +2,12 @@
 
 ## [3.0.9-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.8...v3.0.9-next.1) (2024-04-29)
 
+### Bug Fixes
+
+* **hydrate:** revert hydrate ([29647c7](https://github.com/basics/nuxt-booster/commit/29647c703a896155f8d1a720f512d364db4f0e48))
+* **module:** fix missing imports ([2783caf](https://github.com/basics/nuxt-booster/commit/2783caf785f87646c115338097409391d556f480))
+
+## [3.0.9](https://github.com/basics/nuxt-booster/compare/v3.0.8...v3.0.9) (2024-04-29)
 
 ### Bug Fixes
 
@@ -11,7 +17,6 @@
 * **module:** fix more missing imports ([94370c2](https://github.com/basics/nuxt-booster/commit/94370c221824a9f615088901e706216ba6442c67))
 
 ## [3.0.8](https://github.com/basics/nuxt-booster/compare/v3.0.7...v3.0.8) (2024-04-28)
-
 
 ### Bug Fixes
 
@@ -29,20 +34,17 @@
 
 ## [3.0.7](https://github.com/basics/nuxt-booster/compare/v3.0.6...v3.0.7) (2024-04-27)
 
-
 ### Bug Fixes
 
 * **hydrate:** fix missing negate ([138569a](https://github.com/basics/nuxt-booster/commit/138569aa00d6fbf740b00caed38b61443d8afc5b))
 
 ## [3.0.6](https://github.com/basics/nuxt-booster/compare/v3.0.5...v3.0.6) (2024-04-25)
 
-
 ### Bug Fixes
 
 * **clean:** removed unneeded imports ([297edf1](https://github.com/basics/nuxt-booster/commit/297edf113f11979b63b2024f805ce95354655e2d))
 
 ## [3.0.5](https://github.com/basics/nuxt-booster/compare/v3.0.4...v3.0.5) (2024-04-24)
-
 
 ### Bug Fixes
 
@@ -52,7 +54,6 @@
 
 ## [3.0.4](https://github.com/basics/nuxt-booster/compare/v3.0.3...v3.0.4) (2024-04-22)
 
-
 ### Bug Fixes
 
 * **composable:** fix missing composable ([4384e88](https://github.com/basics/nuxt-booster/commit/4384e88486f4b1d3fa6f9389ab01cb1f43d4a5ef))
@@ -60,20 +61,17 @@
 
 ## [3.0.3](https://github.com/basics/nuxt-booster/compare/v3.0.2...v3.0.3) (2024-04-22)
 
-
 ### Bug Fixes
 
 * **module:** fix missing asset ([890b456](https://github.com/basics/nuxt-booster/commit/890b4563f5e3afcbf2328f59586e66fb77ac66c0))
 
 ## [3.0.2](https://github.com/basics/nuxt-booster/compare/v3.0.1...v3.0.2) (2024-04-21)
 
-
 ### Bug Fixes
 
 * **hydrate:** disable hydrate for dev ([81f451c](https://github.com/basics/nuxt-booster/commit/81f451c3ff61ad26c8996e3fe94bcc68151840d3))
 
 ## [3.0.1](https://github.com/basics/nuxt-booster/compare/v3.0.0...v3.0.1) (2024-04-21)
-
 
 ### Bug Fixes
 
@@ -87,7 +85,6 @@
 * **entry:** remove try catch ([2ac023e](https://github.com/basics/nuxt-booster/commit/2ac023e6fa5e206aea299ea6bd0b72afa7b42efe))
 
 # [3.0.0](https://github.com/basics/nuxt-booster/compare/v2.2.10...v3.0.0) (2024-04-20)
-
 
 ### Bug Fixes
 
@@ -162,12 +159,10 @@
 * **v-font:** ignore missing props ([561b271](https://github.com/basics/nuxt-booster/commit/561b271fafb723940c1cc2cf2354eb83de4e7bc5))
 * **webpack:** added workaround for ssr styles ([663318d](https://github.com/basics/nuxt-booster/commit/663318d34ad9b9ec64251b9a8ac9a81fb5e57a8a))
 
-
 ### chore
 
 * **readme:** updated readme ([d593082](https://github.com/basics/nuxt-booster/commit/d5930828f368c486e8b6e67b10bfbe5bbfa03a49))
 * **v3:** release ([2ef2877](https://github.com/basics/nuxt-booster/commit/2ef2877e97089177ccc52d408a0d2cb50fa97b58))
-
 
 ### BREAKING CHANGES
 
@@ -176,13 +171,11 @@
 
 # [3.0.0-next.52](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.51...v3.0.0-next.52) (2024-04-19)
 
-
 ### Bug Fixes
 
 * **v-font:** ignore missing props ([561b271](https://github.com/basics/nuxt-booster/commit/561b271fafb723940c1cc2cf2354eb83de4e7bc5))
 
 # [3.0.0-next.51](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.50...v3.0.0-next.51) (2024-03-21)
-
 
 ### Bug Fixes
 
@@ -190,13 +183,11 @@
 
 # [3.0.0-next.50](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.49...v3.0.0-next.50) (2024-02-19)
 
-
 ### Bug Fixes
 
 * **image:** added load trigger for mounted with complete ([dc5bfd5](https://github.com/basics/nuxt-booster/commit/dc5bfd550b9c2eefe27c413266216a050b302cbd))
 
 # [3.0.0-next.49](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.48...v3.0.0-next.49) (2024-02-11)
-
 
 ### Bug Fixes
 
@@ -204,13 +195,11 @@
 
 # [3.0.0-next.48](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.47...v3.0.0-next.48) (2024-02-10)
 
-
 ### Bug Fixes
 
 * **v-font:** fix missing font-active class ([a16c688](https://github.com/basics/nuxt-booster/commit/a16c688a8dc194b29d79cf41d0f3744a84f266fd))
 
 # [3.0.0-next.47](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.46...v3.0.0-next.47) (2024-02-10)
-
 
 ### Bug Fixes
 
@@ -218,13 +207,11 @@
 
 # [3.0.0-next.46](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.45...v3.0.0-next.46) (2024-02-08)
 
-
 ### Bug Fixes
 
 * **source:** fix invalid hash ssr/client ([5ba987c](https://github.com/basics/nuxt-booster/commit/5ba987cef6735d9d0cbec27c844c8eaf7b0552de))
 
 # [3.0.0-next.45](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.44...v3.0.0-next.45) (2024-01-27)
-
 
 ### Bug Fixes
 
@@ -232,20 +219,17 @@
 
 # [3.0.0-next.44](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.43...v3.0.0-next.44) (2023-12-15)
 
-
 ### Bug Fixes
 
 * **components:** replace ticks ([50c9150](https://github.com/basics/nuxt-booster/commit/50c915051327d388ec9781c551507363d3fe2bf3))
 
 # [3.0.0-next.43](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.42...v3.0.0-next.43) (2023-12-14)
 
-
 ### Bug Fixes
 
 * **pkg:** remove unused deps; clean ([90e903e](https://github.com/basics/nuxt-booster/commit/90e903e9db73bfd8aede2e2ffe2f738578d8b851))
 
 # [3.0.0-next.42](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.41...v3.0.0-next.42) (2023-12-14)
-
 
 ### Bug Fixes
 
@@ -254,20 +238,17 @@
 
 # [3.0.0-next.41](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.40...v3.0.0-next.41) (2023-12-14)
 
-
 ### Bug Fixes
 
 * **module:** improve templates… ([87206fc](https://github.com/basics/nuxt-booster/commit/87206fc74248cd0fd13787caa1d0f8ea18acbc16))
 
 # [3.0.0-next.40](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.39...v3.0.0-next.40) (2023-12-14)
 
-
 ### Bug Fixes
 
 * **module:** fix missing mjs files ([7ed3467](https://github.com/basics/nuxt-booster/commit/7ed3467440b701f4960354afc647a88e9560f59f))
 
 # [3.0.0-next.39](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.38...v3.0.0-next.39) (2023-12-14)
-
 
 ### Bug Fixes
 
@@ -278,20 +259,17 @@
 
 # [3.0.0-next.38](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.37...v3.0.0-next.38) (2023-11-17)
 
-
 ### Bug Fixes
 
 * **source-list:** fix missing import ([7ab32cf](https://github.com/basics/nuxt-booster/commit/7ab32cf5c91cbd676e1c50cc230253c90d993595))
 
 # [3.0.0-next.37](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.36...v3.0.0-next.37) (2023-11-17)
 
-
 ### Bug Fixes
 
 * **source-list:** added workaround for create-sort ([899d971](https://github.com/basics/nuxt-booster/commit/899d971a47b002abe60a9d97279a5a13e5020647))
 
 # [3.0.0-next.36](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.35...v3.0.0-next.36) (2023-11-15)
-
 
 ### Bug Fixes
 
@@ -301,7 +279,6 @@
 
 # [3.0.0-next.35](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.34...v3.0.0-next.35) (2023-11-13)
 
-
 ### Bug Fixes
 
 * **source:** `@nuxt/image` `densities` definition ([8adfa89](https://github.com/basics/nuxt-booster/commit/8adfa8932fc1aedd6d54858b46ef1c794e404610))
@@ -309,13 +286,11 @@
 
 # [3.0.0-next.34](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.33...v3.0.0-next.34) (2023-11-12)
 
-
 ### Bug Fixes
 
 * **module:** remove alias workaround ([417d554](https://github.com/basics/nuxt-booster/commit/417d5541a43cdbd6272f74ae3b569f7ef600a686))
 
 # [3.0.0-next.33](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.32...v3.0.0-next.33) (2023-11-11)
-
 
 ### Bug Fixes
 
@@ -323,13 +298,11 @@
 
 # [3.0.0-next.32](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.31...v3.0.0-next.32) (2023-11-08)
 
-
 ### Bug Fixes
 
 * **update:** replaced `path` with `pathe` ([a9755eb](https://github.com/basics/nuxt-booster/commit/a9755eb8dd066fa2c69e3eb87361891b5496d75c))
 
 # [3.0.0-next.31](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.30...v3.0.0-next.31) (2023-11-02)
-
 
 ### Bug Fixes
 
@@ -337,13 +310,11 @@
 
 # [3.0.0-next.30](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.29...v3.0.0-next.30) (2023-10-30)
 
-
 ### Bug Fixes
 
 * **preload:** ignore url link tags ([3188864](https://github.com/basics/nuxt-booster/commit/31888645a9614c8b280b3dcc2d874eca39a13101))
 
 # [3.0.0-next.29](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.28...v3.0.0-next.29) (2023-10-30)
-
 
 ### Bug Fixes
 
@@ -351,13 +322,11 @@
 
 # [3.0.0-next.28](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.27...v3.0.0-next.28) (2023-10-30)
 
-
 ### Bug Fixes
 
 * **preload:** fix invalid css url paths and … ([961c4b2](https://github.com/basics/nuxt-booster/commit/961c4b20da6204127b22d1838033db9b01539cf5))
 
 # [3.0.0-next.27](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.26...v3.0.0-next.27) (2023-10-10)
-
 
 ### Bug Fixes
 
@@ -365,13 +334,11 @@
 
 # [3.0.0-next.26](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.25...v3.0.0-next.26) (2023-09-13)
 
-
 ### Bug Fixes
 
 * **module:** fix missing var ([0bf9cf0](https://github.com/basics/nuxt-booster/commit/0bf9cf0c392d959dfa360547cb4441fdcbdc8a4f))
 
 # [3.0.0-next.25](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.24...v3.0.0-next.25) (2023-09-13)
-
 
 ### Bug Fixes
 
@@ -379,20 +346,17 @@
 
 # [3.0.0-next.24](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.23...v3.0.0-next.24) (2023-09-13)
 
-
 ### Bug Fixes
 
 * **font:** update fallback font ([b49fa7c](https://github.com/basics/nuxt-booster/commit/b49fa7c2fb8a6b02285f191b2bcc2c0f61f6161b))
 
 # [3.0.0-next.23](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.22...v3.0.0-next.23) (2023-09-13)
 
-
 ### Bug Fixes
 
 * **module:** improve critters handling ([315e2fe](https://github.com/basics/nuxt-booster/commit/315e2fe5aa764ba9da424e26d14eb5bb088ddb70))
 
 # [3.0.0-next.22](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.21...v3.0.0-next.22) (2023-09-13)
-
 
 ### Bug Fixes
 
@@ -401,13 +365,11 @@
 
 # [3.0.0-next.21](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.20...v3.0.0-next.21) (2023-09-12)
 
-
 ### Bug Fixes
 
 * **module:** remove unnecessary templates ([a205139](https://github.com/basics/nuxt-booster/commit/a205139d1deaa36089e0c684661e39ab2a6559c6))
 
 # [3.0.0-next.20](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.19...v3.0.0-next.20) (2023-09-11)
-
 
 ### Bug Fixes
 
@@ -415,13 +377,11 @@
 
 # [3.0.0-next.19](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.18...v3.0.0-next.19) (2023-08-18)
 
-
 ### Bug Fixes
 
 * **head:** fix noscript content attribute ([e580fe2](https://github.com/basics/nuxt-booster/commit/e580fe2272a8fe66cf84ef9d60f3b86f295f554d))
 
 # [3.0.0-next.18](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.17...v3.0.0-next.18) (2023-08-11)
-
 
 ### Bug Fixes
 
@@ -429,13 +389,11 @@
 
 # [3.0.0-next.17](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.16...v3.0.0-next.17) (2023-06-14)
 
-
 ### Bug Fixes
 
 * **package:** fix missing dep `@nuxtjs/fontaine` ([163c86e](https://github.com/basics/nuxt-booster/commit/163c86e7bd6d773588164dd50ae62aaeb5a4a9db))
 
 # [3.0.0-next.16](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.15...v3.0.0-next.16) (2023-06-14)
-
 
 ### Bug Fixes
 
@@ -443,13 +401,11 @@
 
 # [3.0.0-next.15](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.14...v3.0.0-next.15) (2023-06-13)
 
-
 ### Bug Fixes
 
 * **update:** update components & pages ([27daf75](https://github.com/basics/nuxt-booster/commit/27daf75b552f213b3c8772e77087e4d94afdcf62))
 
 # [3.0.0-next.14](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.13...v3.0.0-next.14) (2023-06-13)
-
 
 ### Bug Fixes
 
@@ -458,20 +414,17 @@
 
 # [3.0.0-next.13](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.12...v3.0.0-next.13) (2023-06-12)
 
-
 ### Bug Fixes
 
 * **source:** remove S char ([72c1fb2](https://github.com/basics/nuxt-booster/commit/72c1fb2c4f84ee076e383a671529830c0a5e1783))
 
 # [3.0.0-next.12](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.11...v3.0.0-next.12) (2023-06-12)
 
-
 ### Bug Fixes
 
 * **components:** added WeakHardwareOverlay ([43f255e](https://github.com/basics/nuxt-booster/commit/43f255ee81e5706379ec6b5c6edf0a5dc71a242d))
 
 # [3.0.0-next.11](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.10...v3.0.0-next.11) (2023-06-12)
-
 
 ### Bug Fixes
 
@@ -480,13 +433,11 @@
 
 # [3.0.0-next.10](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.9...v3.0.0-next.10) (2023-06-11)
 
-
 ### Bug Fixes
 
 * **update:** fix missing imports by external use ([a29e4af](https://github.com/basics/nuxt-booster/commit/a29e4af73a00209ed29e06e7dcc2ed7fc9a7ea87))
 
 # [3.0.0-next.9](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.8...v3.0.0-next.9) (2023-06-10)
-
 
 ### Bug Fixes
 
@@ -494,13 +445,11 @@
 
 # [3.0.0-next.8](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.7...v3.0.0-next.8) (2023-06-10)
 
-
 ### Bug Fixes
 
 * **update:** added components & improvements ([d0d8426](https://github.com/basics/nuxt-booster/commit/d0d84261ee11bf1913609b1ffd0e42e9c650b49b))
 
 # [3.0.0-next.7](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.6...v3.0.0-next.7) (2023-06-07)
-
 
 ### Bug Fixes
 
@@ -508,13 +457,11 @@
 
 # [3.0.0-next.6](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.5...v3.0.0-next.6) (2023-06-07)
 
-
 ### Bug Fixes
 
 * **update:** update ([c0fe916](https://github.com/basics/nuxt-booster/commit/c0fe916add224284cf16b213f4e0d016b32ad4b2))
 
 # [3.0.0-next.5](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.4...v3.0.0-next.5) (2023-06-07)
-
 
 ### Bug Fixes
 
@@ -522,13 +469,11 @@
 
 # [3.0.0-next.4](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.3...v3.0.0-next.4) (2023-06-07)
 
-
 ### Bug Fixes
 
 * **publish:** test 3 ([93410f8](https://github.com/basics/nuxt-booster/commit/93410f89b1acf85dd96ed0e4ad948b338fa2902e))
 
 # [3.0.0-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.2...v3.0.0-next.3) (2023-06-07)
-
 
 ### Bug Fixes
 
@@ -539,25 +484,21 @@
 
 # [3.0.0-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.0-next.1...v3.0.0-next.2) (2023-06-06)
 
-
 ### Bug Fixes
 
 * **publish:** test 1 ([34a9360](https://github.com/basics/nuxt-booster/commit/34a93607b17c258e9ba25e874f2835910375e9d1))
 
 # [3.0.0-next.1](https://github.com/basics/nuxt-booster/compare/v2.2.1-next.1...v3.0.0-next.1) (2023-06-06)
 
-
 ### chore
 
 * **readme:** updated readme ([d593082](https://github.com/basics/nuxt-booster/commit/d5930828f368c486e8b6e67b10bfbe5bbfa03a49))
-
 
 ### BREAKING CHANGES
 
 * **readme:** version change for nuxt3
 
 ## [2.2.1-next.1](https://github.com/basics/nuxt-booster/compare/v2.2.0...v2.2.1-next.1) (2023-06-06)
-
 
 ### Bug Fixes
 
@@ -569,13 +510,11 @@
 
 # [2.2.0](https://github.com/basics/nuxt-booster/compare/v2.1.7...v2.2.0) (2023-04-21)
 
-
 ### Features
 
 * **codespace:** added codespace config ([9a155a9](https://github.com/basics/nuxt-booster/commit/9a155a99c1de0ae19754931aae263319a942ad41))
 
 ## [2.1.7](https://github.com/basics/nuxt-booster/compare/v2.1.6...v2.1.7) (2023-04-20)
-
 
 ### Bug Fixes
 
@@ -583,13 +522,11 @@
 
 ## [2.1.6](https://github.com/basics/nuxt-booster/compare/v2.1.5...v2.1.6) (2023-04-20)
 
-
 ### Bug Fixes
 
 * **build:** split install task ([727d9bf](https://github.com/basics/nuxt-booster/commit/727d9bf13d56806950a75bc1286e669bdd61074d))
 
 ## [2.1.5](https://github.com/basics/nuxt-booster/compare/v2.1.4...v2.1.5) (2023-04-20)
-
 
 ### Bug Fixes
 
@@ -619,7 +556,6 @@
 
 ## [2.1.5-beta.14](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.13...v2.1.5-beta.14) (2023-04-19)
 
-
 ### Bug Fixes
 
 * **docs:** fix colors ([3c13d4e](https://github.com/basics/nuxt-booster/commit/3c13d4e241f873e0d9696ef9070554d8e2b41e25))
@@ -627,20 +563,17 @@
 
 ## [2.1.5-beta.13](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.12...v2.1.5-beta.13) (2023-04-19)
 
-
 ### Bug Fixes
 
 * **ci:** test 2 ([094ce9c](https://github.com/basics/nuxt-booster/commit/094ce9ccf832e5db9210330edb3e4a52a68305fa))
 
 ## [2.1.5-beta.12](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.11...v2.1.5-beta.12) (2023-04-19)
 
-
 ### Bug Fixes
 
 * **ci:** test 1 ([6301cd6](https://github.com/basics/nuxt-booster/commit/6301cd6ebc5eaa1aebb726defd58a54a4565bf96))
 
 ## [2.1.5-beta.11](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.10...v2.1.5-beta.11) (2023-04-19)
-
 
 ### Bug Fixes
 
@@ -649,13 +582,11 @@
 
 ## [2.1.5-beta.10](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.9...v2.1.5-beta.10) (2023-04-17)
 
-
 ### Bug Fixes
 
 * **ci:** test 8 ([2f59e63](https://github.com/basics/nuxt-booster/commit/2f59e63ce28c0142c1c8009f5fc2d656217ed0d3))
 
 ## [2.1.5-beta.9](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.8...v2.1.5-beta.9) (2023-04-17)
-
 
 ### Bug Fixes
 
@@ -663,13 +594,11 @@
 
 ## [2.1.5-beta.8](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.7...v2.1.5-beta.8) (2023-04-17)
 
-
 ### Bug Fixes
 
 * **ci:** test 6 ([b3c615b](https://github.com/basics/nuxt-booster/commit/b3c615b2dc36c78ee602a4b3e4b73bb009497dc1))
 
 ## [2.1.5-beta.7](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.6...v2.1.5-beta.7) (2023-04-17)
-
 
 ### Bug Fixes
 
@@ -677,13 +606,11 @@
 
 ## [2.1.5-beta.6](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.5...v2.1.5-beta.6) (2023-04-17)
 
-
 ### Bug Fixes
 
 * **ci:** test 5 ([7323ea8](https://github.com/basics/nuxt-booster/commit/7323ea80b4f8a3d0b43743e03a82ae160d5f35bd))
 
 ## [2.1.5-beta.5](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.4...v2.1.5-beta.5) (2023-04-17)
-
 
 ### Bug Fixes
 
@@ -693,13 +620,11 @@
 
 ## [2.1.5-beta.4](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.3...v2.1.5-beta.4) (2023-04-16)
 
-
 ### Bug Fixes
 
 * **ci:** test 2 ([5e3fc79](https://github.com/basics/nuxt-booster/commit/5e3fc79fe4dcf1f5de9188978261b953621845ce))
 
 ## [2.1.5-beta.3](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.2...v2.1.5-beta.3) (2023-04-16)
-
 
 ### Bug Fixes
 
@@ -707,14 +632,12 @@
 
 ## [2.1.5-beta.2](https://github.com/basics/nuxt-booster/compare/v2.1.5-beta.1...v2.1.5-beta.2) (2023-04-16)
 
-
 ### Bug Fixes
 
 * **publish:** force publish ([d92ef7b](https://github.com/basics/nuxt-booster/commit/d92ef7b79ee50afc4f54f51a6dd984d4c4aeb60e))
 * **test:** fix test ([a0bad9e](https://github.com/basics/nuxt-booster/commit/a0bad9ef1e68bb7c77b2469485eb7b341537cc48))
 
 ## [2.1.5-beta.1](https://github.com/basics/nuxt-booster/compare/v2.1.4...v2.1.5-beta.1) (2023-04-16)
-
 
 ### Bug Fixes
 
@@ -726,13 +649,11 @@
 
 ## [2.1.4](https://github.com/basics/nuxt-booster/compare/v2.1.3...v2.1.4) (2023-03-29)
 
-
 ### Bug Fixes
 
 * upgrade sort-css-media-queries from 2.1.0 to 2.1.1 ([2e6d7ed](https://github.com/basics/nuxt-booster/commit/2e6d7edaaa853edc92a884a702c19ab6cfef4dca))
 
 ## [2.1.3](https://github.com/basics/nuxt-booster/compare/v2.1.2...v2.1.3) (2023-01-17)
-
 
 ### Bug Fixes
 
@@ -743,13 +664,11 @@
 
 ## [2.1.3-beta.4](https://github.com/basics/nuxt-booster/compare/v2.1.3-beta.3...v2.1.3-beta.4) (2022-12-19)
 
-
 ### Bug Fixes
 
 * **entry:** added global var for force init ([e3c56a1](https://github.com/basics/nuxt-booster/commit/e3c56a1c87b761434ebb645247aa1cefaa5fbf93))
 
 ## [2.1.3-beta.3](https://github.com/basics/nuxt-booster/compare/v2.1.3-beta.2...v2.1.3-beta.3) (2022-12-18)
-
 
 ### Bug Fixes
 
@@ -757,20 +676,17 @@
 
 ## [2.1.3-beta.2](https://github.com/basics/nuxt-booster/compare/v2.1.3-beta.1...v2.1.3-beta.2) (2022-12-18)
 
-
 ### Bug Fixes
 
 * **entry:** replaced 1document.hidden1 with `document.visibilityState` ([06d4fb8](https://github.com/basics/nuxt-booster/commit/06d4fb84e82b57ca761886eaeca06bc8d90a4a24))
 
 ## [2.1.3-beta.1](https://github.com/basics/nuxt-booster/compare/v2.1.2...v2.1.3-beta.1) (2022-12-17)
 
-
 ### Bug Fixes
 
 * **entry:** added callback for `document.hidden` ([fe5ccfe](https://github.com/basics/nuxt-booster/commit/fe5ccfead557092901a78171e4c6b55acdf6de92))
 
 ## [2.1.2](https://github.com/basics/nuxt-booster/compare/v2.1.1...v2.1.2) (2022-11-02)
-
 
 ### Bug Fixes
 
@@ -779,13 +695,11 @@
 
 ## [2.1.1](https://github.com/basics/nuxt-booster/compare/v2.1.0...v2.1.1) (2022-10-27)
 
-
 ### Bug Fixes
 
 * **performance:** fix missing `requestIdleCallback` ([76905f9](https://github.com/basics/nuxt-booster/commit/76905f9f3da3db0222e88eeadd07bedc1175e65a))
 
 # [2.1.0](https://github.com/basics/nuxt-booster/compare/v2.0.22...v2.1.0) (2022-10-27)
-
 
 ### Features
 
@@ -798,13 +712,11 @@
 
 # [2.1.0-beta.6](https://github.com/basics/nuxt-booster/compare/v2.1.0-beta.5...v2.1.0-beta.6) (2022-10-26)
 
-
 ### Features
 
 * **entry:** renamed event property `success` to `sufficient` ([af870fe](https://github.com/basics/nuxt-booster/commit/af870fe880f69a645ce750c064ba15bc4854783f))
 
 # [2.1.0-beta.5](https://github.com/basics/nuxt-booster/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2022-10-26)
-
 
 ### Features
 
@@ -812,13 +724,11 @@
 
 # [2.1.0-beta.4](https://github.com/basics/nuxt-booster/compare/v2.1.0-beta.3...v2.1.0-beta.4) (2022-10-26)
 
-
 ### Features
 
 * **entry:** added onload event ([a3b2bda](https://github.com/basics/nuxt-booster/commit/a3b2bdaea04aae0b10f7cc696ba580f448157f57))
 
 # [2.1.0-beta.3](https://github.com/basics/nuxt-booster/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2022-10-25)
-
 
 ### Features
 
@@ -826,20 +736,17 @@
 
 # [2.1.0-beta.2](https://github.com/basics/nuxt-booster/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2022-10-25)
 
-
 ### Features
 
 * **clean:** clean hydrate, remove unused code ([1ceb81d](https://github.com/basics/nuxt-booster/commit/1ceb81d55ae6f82702429c9aa9157aa486507338))
 
 # [2.1.0-beta.1](https://github.com/basics/nuxt-booster/compare/v2.0.22...v2.1.0-beta.1) (2022-10-25)
 
-
 ### Features
 
 * **entry:** revision of the initial performance check ([af3e89b](https://github.com/basics/nuxt-booster/commit/af3e89b8738953e49852712eb92cfacbe9003c77))
 
 ## [2.0.22](https://github.com/basics/nuxt-booster/compare/v2.0.21...v2.0.22) (2022-10-17)
-
 
 ### Bug Fixes
 
@@ -855,7 +762,6 @@
 
 ## [2.0.22-beta.1](https://github.com/basics/nuxt-booster/compare/v2.0.21...v2.0.22-beta.1) (2022-10-17)
 
-
 ### Bug Fixes
 
 * **directive:** fix missing `load:font` event on vnode ([d8b8a0a](https://github.com/basics/nuxt-booster/commit/d8b8a0a776f5d1e00ecbc29516784a226002aba0))
@@ -870,13 +776,11 @@
 
 ## [2.0.21-beta.9](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.8...v2.0.21-beta.9) (2022-10-12)
 
-
 ### Bug Fixes
 
 * **entry:** added customEvent for idle waiting duration ([847334a](https://github.com/basics/nuxt-booster/commit/847334a9cc33f166a292173436fdd67d0fcbc4e1))
 
 ## [2.0.21-beta.8](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.7...v2.0.21-beta.8) (2022-10-05)
-
 
 ### Bug Fixes
 
@@ -884,13 +788,11 @@
 
 ## [2.0.21-beta.7](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.6...v2.0.21-beta.7) (2022-09-24)
 
-
 ### Bug Fixes
 
 * **directive:** fix missing `load:font` event on vnode ([d8b8a0a](https://github.com/basics/nuxt-booster/commit/d8b8a0a776f5d1e00ecbc29516784a226002aba0))
 
 ## [2.0.21-beta.6](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.5...v2.0.21-beta.6) (2022-09-23)
-
 
 ### Bug Fixes
 
@@ -898,13 +800,11 @@
 
 ## [2.0.21-beta.5](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.4...v2.0.21-beta.5) (2022-09-17)
 
-
 ### Bug Fixes
 
 * **vimeo:** fix missing fetch data ([f5050a6](https://github.com/basics/nuxt-booster/commit/f5050a6209702f7c461fa6a538064dc76799ccbf))
 
 ## [2.0.21-beta.4](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.3...v2.0.21-beta.4) (2022-09-17)
-
 
 ### Bug Fixes
 
@@ -912,13 +812,11 @@
 
 ## [2.0.21-beta.3](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.2...v2.0.21-beta.3) (2022-09-15)
 
-
 ### Bug Fixes
 
 * **vimeo:** fix wrong embed url ([5023df0](https://github.com/basics/nuxt-booster/commit/5023df0c460d1f50ca5d631b80888af02bea16c3))
 
 ## [2.0.21-beta.2](https://github.com/basics/nuxt-booster/compare/v2.0.21-beta.1...v2.0.21-beta.2) (2022-09-08)
-
 
 ### Bug Fixes
 
@@ -926,20 +824,17 @@
 
 ## [2.0.21-beta.1](https://github.com/basics/nuxt-booster/compare/v2.0.20...v2.0.21-beta.1) (2022-09-08)
 
-
 ### Bug Fixes
 
 * **hydrate:** removed redundant render wrapper ([794fdcc](https://github.com/basics/nuxt-booster/commit/794fdcc8c421edfd3f6242ff5fd6f1f024cfcde2))
 
 ## [2.0.20](https://github.com/basics/nuxt-booster/compare/v2.0.19...v2.0.20) (2022-08-21)
 
-
 ### Bug Fixes
 
 * **source:** fix external `basePath` ([31a4522](https://github.com/basics/nuxt-booster/commit/31a45229c79566ced024758c6b5aee0a54354692))
 
 ## [2.0.19](https://github.com/basics/nuxt-booster/compare/v2.0.18...v2.0.19) (2022-08-21)
-
 
 ### Bug Fixes
 
@@ -948,13 +843,11 @@
 
 ## [2.0.18](https://github.com/basics/nuxt-booster/compare/v2.0.17...v2.0.18) (2022-07-26)
 
-
 ### Bug Fixes
 
 * **hydrate:** ignore `boosterHydrate` by server ([d5ee14f](https://github.com/basics/nuxt-booster/commit/d5ee14fd749d80aaf5de5fb54182aa6783ef4b80))
 
 ## [2.0.17](https://github.com/basics/nuxt-booster/compare/v2.0.16...v2.0.17) (2022-07-19)
-
 
 ### Bug Fixes
 
@@ -964,7 +857,6 @@
 
 ## [2.0.16](https://github.com/basics/nuxt-booster/compare/v2.0.15...v2.0.16) (2022-07-13)
 
-
 ### Bug Fixes
 
 * **crossorigin:** `crossorigin` can be overridden globally or directly on the component ([ededf96](https://github.com/basics/nuxt-booster/commit/ededf964a35221f0067f75529693dcae44f0443e))
@@ -972,20 +864,17 @@
 
 ## [2.0.15](https://github.com/basics/nuxt-booster/compare/v2.0.14...v2.0.15) (2022-07-12)
 
-
 ### Bug Fixes
 
 * **options:** added option `disableNuxtImage` to disable `@nuxt/image` ([cd80b4e](https://github.com/basics/nuxt-booster/commit/cd80b4e9f2c075de25a7639cd0df64783a9513ea))
 
 ## [2.0.14](https://github.com/basics/nuxt-booster/compare/v2.0.13...v2.0.14) (2022-06-28)
 
-
 ### Bug Fixes
 
 * **publish:** force `npm` publish ([e488463](https://github.com/basics/nuxt-booster/commit/e488463ccda022d084f3e034f59f822146d54c5c))
 
 ## [2.0.13](https://github.com/basics/nuxt-booster/compare/v2.0.12...v2.0.13) (2022-05-19)
-
 
 ### Bug Fixes
 
@@ -1007,13 +896,11 @@
 
 ## [2.0.13-beta.8](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.7...v2.0.13-beta.8) (2022-05-19)
 
-
 ### Bug Fixes
 
 * **entry:** changed `maxIdleTries` to `maxIdleDuration` ([534653a](https://github.com/basics/nuxt-booster/commit/534653a4238d87a0bd2f657455a6677b915bb54a))
 
 ## [2.0.13-beta.7](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.6...v2.0.13-beta.7) (2022-05-18)
-
 
 ### Bug Fixes
 
@@ -1021,13 +908,11 @@
 
 ## [2.0.13-beta.6](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.5...v2.0.13-beta.6) (2022-05-18)
 
-
 ### Bug Fixes
 
 * **entry:** renamed `performance-issue` to `weak hardware` ([d38d09d](https://github.com/basics/nuxt-booster/commit/d38d09d6dd80733230d14269bba2936871fe7bd6))
 
 ## [2.0.13-beta.5](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.4...v2.0.13-beta.5) (2022-05-17)
-
 
 ### Bug Fixes
 
@@ -1035,13 +920,11 @@
 
 ## [2.0.13-beta.4](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.3...v2.0.13-beta.4) (2022-05-17)
 
-
 ### Bug Fixes
 
 * **booster-layer:** fix button tag ([d35d0e6](https://github.com/basics/nuxt-booster/commit/d35d0e609117a490174a54c358a971c63b7e4a40))
 
 ## [2.0.13-beta.3](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.2...v2.0.13-beta.3) (2022-05-17)
-
 
 ### Bug Fixes
 
@@ -1055,13 +938,11 @@
 
 ## [2.0.13-beta.2](https://github.com/basics/nuxt-booster/compare/v2.0.13-beta.1...v2.0.13-beta.2) (2022-05-16)
 
-
 ### Bug Fixes
 
 * **entry:** test entry init 1 ([5c99642](https://github.com/basics/nuxt-booster/commit/5c996421972a13c40b15989ad1d054eaa606c0ff))
 
 ## [2.0.13-beta.1](https://github.com/basics/nuxt-booster/compare/v2.0.12...v2.0.13-beta.1) (2022-05-13)
-
 
 ### Bug Fixes
 
@@ -1070,14 +951,12 @@
 
 ## [2.0.12](https://github.com/basics/nuxt-booster/compare/v2.0.11...v2.0.12) (2022-05-04)
 
-
 ### Bug Fixes
 
 * **entry:** fix ids ([b95300d](https://github.com/basics/nuxt-booster/commit/b95300de59f99ce656fff9063edca5ba24ea3c52))
 * **entry:** fix booster-layer ids ([ce06c81](https://github.com/basics/nuxt-booster/commit/ce06c81d826d6e32c230aa9f5efd2358ad43de7f))
 
 ## [2.0.11](https://github.com/basics/nuxt-booster/compare/v2.0.10...v2.0.11) (2022-04-19)
-
 
 ### Bug Fixes
 
@@ -1087,20 +966,17 @@
 
 ## [2.0.10](https://github.com/basics/nuxt-booster/compare/v2.0.9...v2.0.10) (2022-04-14)
 
-
 ### Bug Fixes
 
 * **module:** added `pictureFormats` property for `BoosterPicture` formats ([a13d828](https://github.com/basics/nuxt-booster/commit/a13d828aa0608a8b0d6e8d675b965d60b39e7ec0))
 
 ## [2.0.9](https://github.com/basics/nuxt-booster/compare/v2.0.8...v2.0.9) (2022-04-11)
 
-
 ### Bug Fixes
 
 * **head:** remove merge strategy override ([b2535fe](https://github.com/basics/nuxt-booster/commit/b2535fe9cfeed643ae43472972f9c45d9c63204b))
 
 ## [2.0.8](https://github.com/basics/nuxt-booster/compare/v2.0.7...v2.0.8) (2022-04-06)
-
 
 ### Bug Fixes
 
@@ -1113,7 +989,6 @@
 
 ## [2.0.8-beta.4](https://github.com/basics/nuxt-booster/compare/v2.0.8-beta.3...v2.0.8-beta.4) (2022-04-05)
 
-
 ### Bug Fixes
 
 * **module:** add required default `@nuxt/image` options ([c0838e4](https://github.com/basics/nuxt-booster/commit/c0838e40d409ef265cf3c452e4667d955a466014))
@@ -1121,20 +996,17 @@
 
 ## [2.0.8-beta.3](https://github.com/basics/nuxt-booster/compare/v2.0.8-beta.2...v2.0.8-beta.3) (2022-04-05)
 
-
 ### Bug Fixes
 
 * **deps:** remove override ([1d248b0](https://github.com/basics/nuxt-booster/commit/1d248b0f86e4d30809e0dcf2769f2945bc1b2634))
 
 ## [2.0.8-beta.2](https://github.com/basics/nuxt-booster/compare/v2.0.8-beta.1...v2.0.8-beta.2) (2022-04-05)
 
-
 ### Bug Fixes
 
 * **deps:** test override ([425f1e2](https://github.com/basics/nuxt-booster/commit/425f1e2b5c397570f3497165460a4fb0277fa492))
 
 ## [2.0.8-beta.1](https://github.com/basics/nuxt-booster/compare/v2.0.7...v2.0.8-beta.1) (2022-04-05)
-
 
 ### Bug Fixes
 
@@ -1143,13 +1015,11 @@
 
 ## [2.0.7](https://github.com/basics/nuxt-booster/compare/v2.0.6...v2.0.7) (2022-03-31)
 
-
 ### Bug Fixes
 
 * **plugin:** remove optional chaining ([c74b80f](https://github.com/basics/nuxt-booster/commit/c74b80fb58d4e28c68b52248946c0a0c617bd167))
 
 ## [2.0.6](https://github.com/basics/nuxt-booster/compare/v2.0.5...v2.0.6) (2022-03-23)
-
 
 ### Bug Fixes
 
@@ -1157,13 +1027,11 @@
 
 ## [2.0.5](https://github.com/basics/nuxt-booster/compare/v2.0.4...v2.0.5) (2022-03-22)
 
-
 ### Bug Fixes
 
 * **defu:** fix `defu` import ([0401409](https://github.com/basics/nuxt-booster/commit/0401409397c7238e6882f793a0e14fa3b9c9bdf1))
 
 ## [2.0.4](https://github.com/basics/nuxt-booster/compare/v2.0.3...v2.0.4) (2022-03-22)
-
 
 ### Bug Fixes
 
@@ -1171,13 +1039,11 @@
 
 ## [2.0.3](https://github.com/basics/nuxt-booster/compare/v2.0.2...v2.0.3) (2022-03-18)
 
-
 ### Bug Fixes
 
 * **entry:** without ssr load client as eager ([a959007](https://github.com/basics/nuxt-booster/commit/a9590075be8910788f0d36502caf8221e6ea0cb0))
 
 ## [2.0.2](https://github.com/basics/nuxt-booster/compare/v2.0.1...v2.0.2) (2022-03-18)
-
 
 ### Bug Fixes
 
@@ -1185,13 +1051,11 @@
 
 ## [2.0.1](https://github.com/basics/nuxt-booster/compare/v2.0.0...v2.0.1) (2022-03-17)
 
-
 ### Bug Fixes
 
 * **npm:** remove changelog from npm package ([4cd8b96](https://github.com/basics/nuxt-booster/commit/4cd8b965e3889a588cef6951f70a53f73c5537fd))
 
 # [2.0.0](https://github.com/basics/nuxt-booster/compare/v1.3.2...v2.0.0) (2022-03-17)
-
 
 ### Bug Fixes
 
@@ -1289,29 +1153,24 @@
 * **workspace.config:** enabled new feature -> colored brackets without performance issues ([77434d8](https://github.com/basics/nuxt-booster/commit/77434d82554d85ef906edb9090db4632f9e3717f))
 * **youtube:** changed script attribute order ([e94c693](https://github.com/basics/nuxt-booster/commit/e94c69358a5aabd4802408a6d1d88c61977d77be))
 
-
 ### chore
 
 * **v2:** version update ([fbaea95](https://github.com/basics/nuxt-booster/commit/fbaea95b703296265a9511f6c3785e50375753c3))
-
 
 ### Features
 
 * **update:** update test pages; add Youtube/Vimeo Component ([581ee91](https://github.com/basics/nuxt-booster/commit/581ee917243347823da8431434d1a5d5e0b62e96))
 * **v2:** prepare v2 ([852d851](https://github.com/basics/nuxt-booster/commit/852d85126247e449a0f35759635630ac87f6805a))
 
-
 ### Performance Improvements
 
 * **v2:** version change to v2 ([09c11c9](https://github.com/basics/nuxt-booster/commit/09c11c9369db920ddb8d02072e3cdd3a49ca1906))
-
 
 ### BREAKING CHANGES
 
 * **v2:** version update
 
 # [2.0.0-beta.48](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.47...v2.0.0-beta.48) (2022-03-17)
-
 
 ### Bug Fixes
 
@@ -1320,13 +1179,11 @@
 
 # [2.0.0-beta.47](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.46...v2.0.0-beta.47) (2022-03-16)
 
-
 ### Bug Fixes
 
 * **components:** fix load event in picture and image ([921c059](https://github.com/basics/nuxt-booster/commit/921c05921a27127b96814c6383ffbed5c7827bdc))
 
 # [2.0.0-beta.46](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.45...v2.0.0-beta.46) (2022-03-16)
-
 
 ### Bug Fixes
 
@@ -1334,20 +1191,17 @@
 
 # [2.0.0-beta.45](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.44...v2.0.0-beta.45) (2022-03-16)
 
-
 ### Bug Fixes
 
 * **components:** improve hover and focus style vimeo and youtube ([a6042b3](https://github.com/basics/nuxt-booster/commit/a6042b33581f8cbede5baabddbab7f8dcad7a40c))
 
 # [2.0.0-beta.44](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.43...v2.0.0-beta.44) (2022-03-14)
 
-
 ### Bug Fixes
 
 * **v-font:** add argument for additional head ([6e620bd](https://github.com/basics/nuxt-booster/commit/6e620bdf971bf53958c0fd502ae7cc3411ee1556))
 
 # [2.0.0-beta.43](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.42...v2.0.0-beta.43) (2022-03-14)
-
 
 ### Bug Fixes
 
@@ -1357,13 +1211,11 @@
 
 # [2.0.0-beta.42](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.41...v2.0.0-beta.42) (2022-03-09)
 
-
 ### Bug Fixes
 
 * **module:** activate `resourceHints` and `asyncScripts` ([798772b](https://github.com/basics/nuxt-booster/commit/798772be94ff3ba39d989f7b43a9373d32a1c2f0))
 
 # [2.0.0-beta.41](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.40...v2.0.0-beta.41) (2022-03-08)
-
 
 ### Bug Fixes
 
@@ -1380,7 +1232,6 @@
 
 # [2.0.0-beta.40](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.39...v2.0.0-beta.40) (2022-02-21)
 
-
 ### Bug Fixes
 
 * **module:** add method for nuxt option optimization ([5af68d5](https://github.com/basics/nuxt-booster/commit/5af68d538ab884835084be173fd5742eb7eb659c))
@@ -1388,13 +1239,11 @@
 
 # [2.0.0-beta.39](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.38...v2.0.0-beta.39) (2022-02-20)
 
-
 ### Bug Fixes
 
 * **lint:** fix lint error ([100f822](https://github.com/basics/nuxt-booster/commit/100f822f3651a2b6d711271c856708b020c99644))
 
 # [2.0.0-beta.38](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.37...v2.0.0-beta.38) (2022-02-20)
-
 
 ### Bug Fixes
 
@@ -1403,13 +1252,11 @@
 
 # [2.0.0-beta.37](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.36...v2.0.0-beta.37) (2022-02-18)
 
-
 ### Bug Fixes
 
 * **entry:** add idle callback for client ([f6fc0ef](https://github.com/basics/nuxt-booster/commit/f6fc0ef7e0e568c807d1fc0784cbd348ea92c56a))
 
 # [2.0.0-beta.36](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.35...v2.0.0-beta.36) (2022-02-17)
-
 
 ### Bug Fixes
 
@@ -1417,13 +1264,11 @@
 
 # [2.0.0-beta.35](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.34...v2.0.0-beta.35) (2022-02-17)
 
-
 ### Bug Fixes
 
 * **booster-picture:** update formats ([b199ef0](https://github.com/basics/nuxt-booster/commit/b199ef08c3c904ca80e497f13543528434d57fc6))
 
 # [2.0.0-beta.34](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.33...v2.0.0-beta.34) (2022-02-16)
-
 
 ### Bug Fixes
 
@@ -1431,13 +1276,11 @@
 
 # [2.0.0-beta.33](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.32...v2.0.0-beta.33) (2022-02-16)
 
-
 ### Bug Fixes
 
 * **booster-picture:** improve the use of formats and fix missing png ([8c93b6b](https://github.com/basics/nuxt-booster/commit/8c93b6b62031704b70ff0e97611da6cd621d4b74))
 
 # [2.0.0-beta.32](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.31...v2.0.0-beta.32) (2022-02-16)
-
 
 ### Bug Fixes
 
@@ -1446,7 +1289,6 @@
 
 # [2.0.0-beta.31](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.30...v2.0.0-beta.31) (2022-02-15)
 
-
 ### Bug Fixes
 
 * **loader:** ignore loader in dev mode (improve hot reload) ([ee15889](https://github.com/basics/nuxt-booster/commit/ee15889b7a917520725b073b2c466282df2b55e3))
@@ -1454,13 +1296,11 @@
 
 # [2.0.0-beta.30](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.29...v2.0.0-beta.30) (2022-02-14)
 
-
 ### Bug Fixes
 
 * **directive:** fix font load with media ([e892946](https://github.com/basics/nuxt-booster/commit/e892946dba966cfa85177048ea59fb7c85568ff9))
 
 # [2.0.0-beta.29](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2022-02-14)
-
 
 ### Bug Fixes
 
@@ -1468,13 +1308,11 @@
 
 # [2.0.0-beta.28](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.27...v2.0.0-beta.28) (2022-02-14)
 
-
 ### Bug Fixes
 
 * **mixin:** fix missing init prev map ([59654b7](https://github.com/basics/nuxt-booster/commit/59654b7166ee8d7c9844f5514a812b38060b0d4f))
 
 # [2.0.0-beta.27](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2022-02-14)
-
 
 ### Bug Fixes
 
@@ -1486,13 +1324,11 @@
 
 # [2.0.0-beta.26](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2022-02-08)
 
-
 ### Bug Fixes
 
 * **mixin:** fix state data request ([a5d2105](https://github.com/basics/nuxt-booster/commit/a5d2105f81e3e62191df80038b5459f8b2176c69))
 
 # [2.0.0-beta.25](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2022-02-08)
-
 
 ### Bug Fixes
 
@@ -1500,13 +1336,11 @@
 
 # [2.0.0-beta.24](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2022-02-08)
 
-
 ### Bug Fixes
 
 * **image:** revert nuxt/image version ([8cc8525](https://github.com/basics/nuxt-booster/commit/8cc85255a066b882a6ab4f3c75e0d24ad2b22a55))
 
 # [2.0.0-beta.23](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2022-02-08)
-
 
 ### Bug Fixes
 
@@ -1515,13 +1349,11 @@
 
 # [2.0.0-beta.22](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.21...v2.0.0-beta.22) (2022-02-07)
 
-
 ### Bug Fixes
 
 * **mixin:** improve context request ([1747f0e](https://github.com/basics/nuxt-booster/commit/1747f0ea623f43d533eb2ffef1fe5d74bfa9d31a))
 
 # [2.0.0-beta.21](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.20...v2.0.0-beta.21) (2022-02-07)
-
 
 ### Bug Fixes
 
@@ -1529,20 +1361,17 @@
 
 # [2.0.0-beta.20](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.19...v2.0.0-beta.20) (2022-02-07)
 
-
 ### Bug Fixes
 
 * **fonts:** remove generate hook; add font cache for ssr ([6089530](https://github.com/basics/nuxt-booster/commit/6089530519f083b9d60a99a133254ae2bd59f824))
 
 # [2.0.0-beta.19](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.18...v2.0.0-beta.19) (2022-02-07)
 
-
 ### Bug Fixes
 
 * **generate:** add generate hook for preventing critical font style remove ([47c9eb1](https://github.com/basics/nuxt-booster/commit/47c9eb19047dc2131e99fc3339dd4e0833d75ba3))
 
 # [2.0.0-beta.18](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.17...v2.0.0-beta.18) (2022-02-07)
-
 
 ### Bug Fixes
 
@@ -1553,7 +1382,6 @@
 
 # [2.0.0-beta.17](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.16...v2.0.0-beta.17) (2022-02-04)
 
-
 ### Bug Fixes
 
 * **directive:** removing delaying import ([7ab509e](https://github.com/basics/nuxt-booster/commit/7ab509ea3e0de916ed0f3dc1dfd9ce9855b3c9b9))
@@ -1561,13 +1389,11 @@
 
 # [2.0.0-beta.16](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.15...v2.0.0-beta.16) (2022-01-04)
 
-
 ### Bug Fixes
 
 * **stylelint:** fixes for new stylelint ([f9812c5](https://github.com/basics/nuxt-booster/commit/f9812c5910ac0de20e89ebc11bab276bd5d61f39))
 
 # [2.0.0-beta.15](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.14...v2.0.0-beta.15) (2021-11-07)
-
 
 ### Bug Fixes
 
@@ -1575,13 +1401,11 @@
 
 # [2.0.0-beta.14](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.13...v2.0.0-beta.14) (2021-11-01)
 
-
 ### Bug Fixes
 
 * **module:** fix internalUrl with protocol and host ([d9e0ceb](https://github.com/basics/nuxt-booster/commit/d9e0ceba25781fc2863b1431903ed901161a5009))
 
 # [2.0.0-beta.13](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.12...v2.0.0-beta.13) (2021-10-19)
-
 
 ### Bug Fixes
 
@@ -1589,13 +1413,11 @@
 
 # [2.0.0-beta.12](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.11...v2.0.0-beta.12) (2021-10-14)
 
-
 ### Bug Fixes
 
 * **directive:** improve imports ([ba99823](https://github.com/basics/nuxt-booster/commit/ba998230fffa46acfeb03ac51fb2e4dc28cbb730))
 
 # [2.0.0-beta.11](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.10...v2.0.0-beta.11) (2021-10-13)
-
 
 ### Bug Fixes
 
@@ -1603,20 +1425,17 @@
 
 # [2.0.0-beta.10](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2021-10-12)
 
-
 ### Bug Fixes
 
 * **vimeo:** add iframe fallback for protected videos ([57be633](https://github.com/basics/nuxt-booster/commit/57be633a84b5a48497e4e07f7a7976b492eb739c))
 
 # [2.0.0-beta.9](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2021-10-10)
 
-
 ### Bug Fixes
 
 * **vimeo:** update player, add api title as default, and default slot with api data ([346d6da](https://github.com/basics/nuxt-booster/commit/346d6dafee1c612ef503f623e59e1ff07287730a))
 
 # [2.0.0-beta.8](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2021-10-05)
-
 
 ### Bug Fixes
 
@@ -1625,13 +1444,11 @@
 
 # [2.0.0-beta.7](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2021-10-05)
 
-
 ### Bug Fixes
 
 * **observer:** fix horizontal root node ([19a3c5e](https://github.com/basics/nuxt-booster/commit/19a3c5e24d1b1d9a0178a5de757ec654e927eace))
 
 # [2.0.0-beta.6](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2021-10-05)
-
 
 ### Bug Fixes
 
@@ -1639,13 +1456,11 @@
 
 # [2.0.0-beta.5](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2021-10-04)
 
-
 ### Bug Fixes
 
 * **style:** fix video player styles ([20de67a](https://github.com/basics/nuxt-booster/commit/20de67a885b7cbe7c0826e0e442912ac3e5005aa))
 
 # [2.0.0-beta.4](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2021-10-04)
-
 
 ### Bug Fixes
 
@@ -1653,13 +1468,11 @@
 
 # [2.0.0-beta.3](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2021-10-04)
 
-
 ### Bug Fixes
 
 * **naming:** renaming components for auto import ([a7fa314](https://github.com/basics/nuxt-booster/commit/a7fa3140607f98d6239df553497ba8f427bda361))
 
 # [2.0.0-beta.2](https://github.com/basics/nuxt-booster/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2021-10-01)
-
 
 ### Bug Fixes
 
@@ -1667,11 +1480,9 @@
 
 # [2.0.0-beta.1](https://github.com/basics/nuxt-booster/compare/v1.4.0-beta.4...v2.0.0-beta.1) (2021-10-01)
 
-
 ### chore
 
 * **v2:** version update ([fbaea95](https://github.com/basics/nuxt-booster/commit/fbaea95b703296265a9511f6c3785e50375753c3))
-
 
 ### BREAKING CHANGES
 
@@ -1679,13 +1490,11 @@
 
 # [1.4.0-beta.4](https://github.com/basics/nuxt-booster/compare/v1.4.0-beta.3...v1.4.0-beta.4) (2021-10-01)
 
-
 ### Performance Improvements
 
 * **v2:** version change to v2 ([09c11c9](https://github.com/basics/nuxt-booster/commit/09c11c9369db920ddb8d02072e3cdd3a49ca1906))
 
 # [1.4.0-beta.3](https://github.com/basics/nuxt-booster/compare/v1.4.0-beta.2...v1.4.0-beta.3) (2021-10-01)
-
 
 ### Bug Fixes
 
@@ -1693,13 +1502,11 @@
 
 # [1.4.0-beta.2](https://github.com/basics/nuxt-booster/compare/v1.4.0-beta.1...v1.4.0-beta.2) (2021-09-30)
 
-
 ### Bug Fixes
 
 * **deps:** set @nuxt/image as dep; fix package.json require ([b5e793f](https://github.com/basics/nuxt-booster/commit/b5e793f199b53766c90b22912a32349f10ee4422))
 
 # [1.4.0-beta.1](https://github.com/basics/nuxt-booster/compare/v1.3.0...v1.4.0-beta.1) (2021-09-30)
-
 
 ### Bug Fixes
 
@@ -1724,7 +1531,6 @@
 * **workspace.config:** enabled new feature -> colored brackets without performance issues ([77434d8](https://github.com/basics/nuxt-booster/commit/77434d82554d85ef906edb9090db4632f9e3717f))
 * **youtube:** changed script attribute order ([e94c693](https://github.com/basics/nuxt-booster/commit/e94c69358a5aabd4802408a6d1d88c61977d77be))
 
-
 ### Features
 
 * **update:** update test pages; add Youtube/Vimeo Component ([581ee91](https://github.com/basics/nuxt-booster/commit/581ee917243347823da8431434d1a5d5e0b62e96))
@@ -1732,11 +1538,9 @@
 
 # [1.3.0](https://github.com/basics/nuxt-booster/compare/v1.2.6...v1.3.0) (2021-08-19)
 
-
 ### Bug Fixes
 
 * **lint:** fix sonar lint errors ([165caa3](https://github.com/basics/nuxt-booster/commit/165caa3ea6714cdee9e5e9a840f7704f229c3e4d))
-
 
 ### Features
 
@@ -1744,20 +1548,17 @@
 
 # [1.3.0-beta.2](https://github.com/basics/nuxt-booster/compare/v1.3.0-beta.1...v1.3.0-beta.2) (2021-07-12)
 
-
 ### Bug Fixes
 
 * **lint:** fix sonar lint errors ([165caa3](https://github.com/basics/nuxt-booster/commit/165caa3ea6714cdee9e5e9a840f7704f229c3e4d))
 
 # [1.3.0-beta.1](https://github.com/basics/nuxt-booster/compare/v1.2.6...v1.3.0-beta.1) (2021-07-12)
 
-
 ### Features
 
 * **options:** add option to disable nuxt/image ([7d52075](https://github.com/basics/nuxt-booster/commit/7d52075cc5e18d8adac06e43217c6562af372cc9))
 
 ## [1.2.6](https://github.com/basics/nuxt-booster/compare/v1.2.5...v1.2.6) (2021-06-29)
-
 
 ### Bug Fixes
 
@@ -1766,13 +1567,11 @@
 
 ## [1.2.5](https://github.com/basics/nuxt-booster/compare/v1.2.4...v1.2.5) (2021-05-20)
 
-
 ### Bug Fixes
 
 * **error:** add error-handling for missing font variance ([ecc0a27](https://github.com/basics/nuxt-booster/commit/ecc0a27bb649e5d898b163e6663682fca7127aaa))
 
 ## [1.2.4](https://github.com/basics/nuxt-booster/compare/v1.2.3...v1.2.4) (2021-04-27)
-
 
 ### Bug Fixes
 
@@ -1780,13 +1579,11 @@
 
 ## [1.2.3](https://github.com/basics/nuxt-booster/compare/v1.2.2...v1.2.3) (2021-04-08)
 
-
 ### Bug Fixes
 
 * **ci:** next test ([7f39e91](https://github.com/basics/nuxt-booster/commit/7f39e9140fb5234da3fa99ee9dd3bc7b3a28fe7d))
 
 ## [1.2.2](https://github.com/basics/nuxt-booster/compare/v1.2.1...v1.2.2) (2021-04-08)
-
 
 ### Bug Fixes
 
@@ -1794,13 +1591,11 @@
 
 ## [1.2.1](https://github.com/basics/nuxt-booster/compare/v1.2.0...v1.2.1) (2021-04-07)
 
-
 ### Bug Fixes
 
 * **ie11:** fix polyfill order ([d47d08d](https://github.com/basics/nuxt-booster/commit/d47d08d395f23714cdc974d8c3d8219a3525ce13))
 
 # [1.2.0](https://github.com/basics/nuxt-booster/compare/v1.1.28...v1.2.0) (2021-04-06)
-
 
 ### Bug Fixes
 
@@ -1808,13 +1603,11 @@
 * **custom-picture:** improve polyfill execute ([17f01c7](https://github.com/basics/nuxt-booster/commit/17f01c7472f6681e4a74a97c16114bfeb63d5ce8))
 * **ie11:** prepare for ie11 (preloads, intersectionObserver) ([1b0be90](https://github.com/basics/nuxt-booster/commit/1b0be905bb9d52fd3d5431c5a91df3737baca834))
 
-
 ### Features
 
 * **ie11:** improve for ie11 ([70c1f3e](https://github.com/basics/nuxt-booster/commit/70c1f3ea69e18402a28ab7bd416f25ccb569a34c))
 
 ## [1.1.28](https://github.com/basics/nuxt-booster/compare/v1.1.27...v1.1.28) (2021-03-30)
-
 
 ### Bug Fixes
 
@@ -1822,13 +1615,11 @@
 
 ## [1.1.27](https://github.com/basics/nuxt-booster/compare/v1.1.26...v1.1.27) (2021-03-30)
 
-
 ### Bug Fixes
 
 * **readme:** added points ([1cbf798](https://github.com/basics/nuxt-booster/commit/1cbf798132b4b8170935da6718303c175f093181))
 
 ## [1.1.26](https://github.com/basics/nuxt-booster/compare/v1.1.25...v1.1.26) (2021-03-29)
-
 
 ### Bug Fixes
 
@@ -1836,13 +1627,11 @@
 
 ## [1.1.25](https://github.com/basics/nuxt-booster/compare/v1.1.24...v1.1.25) (2021-03-29)
 
-
 ### Bug Fixes
 
 * **npm:** optimize package ([15e032d](https://github.com/basics/nuxt-booster/commit/15e032db4be3ba869675e504404aaecd81f6e6f2))
 
 ## [1.1.24](https://github.com/basics/nuxt-booster/compare/v1.1.23...v1.1.24) (2021-03-29)
-
 
 ### Bug Fixes
 
@@ -1850,13 +1639,11 @@
 
 ## [1.1.23](https://github.com/basics/nuxt-booster/compare/v1.1.22...v1.1.23) (2021-03-26)
 
-
 ### Bug Fixes
 
 * **directive:** fix intersection unregister with unobserve ([5248b30](https://github.com/basics/nuxt-booster/commit/5248b304a28252eb05a3b4c9f47d918a6690ef6c))
 
 ## [1.1.22](https://github.com/basics/nuxt-booster/compare/v1.1.21...v1.1.22) (2021-03-16)
-
 
 ### Bug Fixes
 
@@ -1873,13 +1660,11 @@
 
 ## [1.1.21](https://github.com/basics/nuxt-booster/compare/v1.1.20...v1.1.21) (2021-03-02)
 
-
 ### Bug Fixes
 
 * **plugin:** fix missing import ([0382e40](https://github.com/basics/nuxt-booster/commit/0382e40b09dc24c8cf85d1d4775a13c0cef7a810))
 
 ## [1.1.20](https://github.com/basics/nuxt-booster/compare/v1.1.19...v1.1.20) (2021-03-02)
-
 
 ### Bug Fixes
 
@@ -1887,13 +1672,11 @@
 
 ## [1.1.19](https://github.com/basics/nuxt-booster/compare/v1.1.18...v1.1.19) (2021-02-28)
 
-
 ### Bug Fixes
 
 * **directive:** add font-active via classlist in inserted and update ([eba5d3d](https://github.com/basics/nuxt-booster/commit/eba5d3d1591eb4ff8fc2582c6d8b186ed6e24da5))
 
 ## [1.1.18](https://github.com/basics/nuxt-booster/compare/v1.1.17...v1.1.18) (2021-02-23)
-
 
 ### Bug Fixes
 
@@ -1901,13 +1684,11 @@
 
 ## [1.1.17](https://github.com/basics/nuxt-booster/compare/v1.1.16...v1.1.17) (2021-02-22)
 
-
 ### Bug Fixes
 
 * **npm:** force publish ([c3727e2](https://github.com/basics/nuxt-booster/commit/c3727e2ef67032337d8528d5ffe68db679fc4b90))
 
 ## [1.1.16](https://github.com/basics/nuxt-booster/compare/v1.1.15...v1.1.16) (2021-02-12)
-
 
 ### Bug Fixes
 
@@ -1915,13 +1696,11 @@
 
 ## [1.1.15](https://github.com/basics/nuxt-booster/compare/v1.1.14...v1.1.15) (2021-02-11)
 
-
 ### Bug Fixes
 
 * **components:** fix auto import for abstracts and experimental ([4be8bb6](https://github.com/basics/nuxt-booster/commit/4be8bb65108d87afecf11afc9a9926ea8df64bdc))
 
 ## [1.1.14](https://github.com/basics/nuxt-booster/compare/v1.1.13...v1.1.14) (2021-02-11)
-
 
 ### Bug Fixes
 
@@ -1929,14 +1708,12 @@
 
 ## [1.1.13](https://github.com/basics/nuxt-booster/compare/v1.1.12...v1.1.13) (2021-02-11)
 
-
 ### Bug Fixes
 
 * **booster-layer:** remove no-script tags, replace with id and noscript css ([64137a7](https://github.com/basics/nuxt-booster/commit/64137a74b53312dbcb2bf647382b93b731fc7cd1))
 * **booster-layer:** remove unused props ([9fa27d5](https://github.com/basics/nuxt-booster/commit/9fa27d53a85202c0c17264b3101058e90e12ce46))
 
 ## [1.1.12](https://github.com/basics/nuxt-booster/compare/v1.1.11...v1.1.12) (2021-02-10)
-
 
 ### Bug Fixes
 
@@ -1948,13 +1725,11 @@
 
 ## [1.1.11](https://github.com/basics/nuxt-booster/compare/v1.1.10...v1.1.11) (2021-02-03)
 
-
 ### Bug Fixes
 
 * **head:** adapted merge strategy from data ([54d2abb](https://github.com/basics/nuxt-booster/commit/54d2abb6db04daca3ac483e4f81cffa59d9d7dbd))
 
 ## [1.1.10](https://github.com/basics/nuxt-booster/compare/v1.1.9...v1.1.10) (2021-02-02)
-
 
 ### Bug Fixes
 
@@ -1964,13 +1739,11 @@
 
 ## [1.1.9](https://github.com/basics/nuxt-booster/compare/v1.1.8...v1.1.9) (2021-02-02)
 
-
 ### Bug Fixes
 
 * **browserlist:** fix pkg file for browserlist ([1fa27c6](https://github.com/basics/nuxt-booster/commit/1fa27c66c682f0401ee38faa5b93b74984a9bee0))
 
 ## [1.1.8](https://github.com/basics/nuxt-booster/compare/v1.1.7...v1.1.8) (2021-02-02)
-
 
 ### Bug Fixes
 
@@ -1984,20 +1757,17 @@
 
 ## [1.1.7](https://github.com/basics/nuxt-booster/compare/v1.1.6...v1.1.7) (2021-02-02)
 
-
 ### Bug Fixes
 
 * **fonts:** fix font check ([3461777](https://github.com/basics/nuxt-booster/commit/346177722ed5e05f283dece18d7a3231d65b5649))
 
 ## [1.1.6](https://github.com/basics/nuxt-booster/compare/v1.1.5...v1.1.6) (2021-02-01)
 
-
 ### Bug Fixes
 
 * **ci:** remove github config ([13d3e0f](https://github.com/basics/nuxt-booster/commit/13d3e0fb06a3c2226dc2c3ebcb2eaa8aa907aac0))
 
 ## [1.1.5](https://github.com/basics/nuxt-booster/compare/v1.1.4...v1.1.5) (2021-02-01)
-
 
 ### Bug Fixes
 
@@ -2007,13 +1777,11 @@
 
 ## [1.1.4](https://github.com/basics/nuxt-booster/compare/v1.1.3...v1.1.4) (2021-02-01)
 
-
 ### Bug Fixes
 
 * **booster-picture:** fix imports ([c1443d6](https://github.com/basics/nuxt-booster/commit/c1443d693840c0dfb236042c8acc196cbd7dbfc4))
 
 ## [1.1.4-beta.1](https://github.com/basics/nuxt-booster/compare/v1.1.3...v1.1.4-beta.1) (2021-02-01)
-
 
 ### Bug Fixes
 
@@ -2021,20 +1789,17 @@
 
 ## [1.1.3](https://github.com/basics/nuxt-booster/compare/v1.1.2...v1.1.3) (2021-02-01)
 
-
 ### Bug Fixes
 
 * **release:** revert config for latest npm ([5bc51aa](https://github.com/basics/nuxt-booster/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
 
 ## [1.1.3-beta.1](https://github.com/basics/nuxt-booster/compare/v1.1.2...v1.1.3-beta.1) (2021-02-01)
 
-
 ### Bug Fixes
 
 * **release:** revert config for latest npm ([5bc51aa](https://github.com/basics/nuxt-booster/commit/5bc51aa1028175107dd68068479c0fc15d2bb99d))
 
 ## [1.1.2-beta.1](https://github.com/basics/nuxt-booster/compare/v1.1.1...v1.1.2-beta.1) (2021-02-01)
-
 
 ### Bug Fixes
 
@@ -2043,13 +1808,11 @@
 
 ## [1.1.1](https://github.com/basics/nuxt-booster/compare/v1.1.0...v1.1.1) (2021-02-01)
 
-
 ### Bug Fixes
 
 * **booster-picture:** add placeholder property; fix booster-youtube ([4a145ea](https://github.com/basics/nuxt-booster/commit/4a145ea20ff02e73fd2bd6495b7f81c0a6c7953b))
 
 # [1.1.0](https://github.com/basics/nuxt-booster/compare/v1.0.11...v1.1.0) (2021-01-31)
-
 
 ### Bug Fixes
 
@@ -2102,7 +1865,6 @@
 * **v-font:** performance update ([de3fdef](https://github.com/basics/nuxt-booster/commit/de3fdefd749fa8acef4504137d9b68788148af4f))
 * **v-font:** use el instead of vnode.elm ([7bb4fa1](https://github.com/basics/nuxt-booster/commit/7bb4fa101e6a827967f73cb498ff7fd088d0f82c))
 * **youtube:** correct loading of poster image and added blur animation ([7b98807](https://github.com/basics/nuxt-booster/commit/7b988078416532f6d60acea4a879c31a031f66b1))
-
 
 ### Features
 
@@ -2112,13 +1874,11 @@
 
 # [1.1.0-beta.2](https://github.com/basics/nuxt-booster/compare/v1.1.0-beta.1...v1.1.0-beta.2) (2021-01-31)
 
-
 ### Bug Fixes
 
 * **readme:** update readme ([b35eb5b](https://github.com/basics/nuxt-booster/commit/b35eb5b2a05e86bdac3b3ebbac69119e3fe2990f))
 
 # [1.1.0-beta.1](https://github.com/basics/nuxt-booster/compare/v1.0.11-beta.1...v1.1.0-beta.1) (2021-01-31)
-
 
 ### Bug Fixes
 
@@ -2171,7 +1931,6 @@
 * **v-font:** use el instead of vnode.elm ([7bb4fa1](https://github.com/basics/nuxt-booster/commit/7bb4fa101e6a827967f73cb498ff7fd088d0f82c))
 * **youtube:** correct loading of poster image and added blur animation ([7b98807](https://github.com/basics/nuxt-booster/commit/7b988078416532f6d60acea4a879c31a031f66b1))
 
-
 ### Features
 
 * **font:** noscript font declaration ([69d2c7a](https://github.com/basics/nuxt-booster/commit/69d2c7ad70f7e6b957ccf0e58bab2abf0d7cb669))
@@ -2180,13 +1939,11 @@
 
 ## [1.0.11-beta.1](https://github.com/basics/nuxt-booster/compare/v1.0.10...v1.0.11-beta.1) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **sematic-release:** force release ([3033700](https://github.com/basics/nuxt-booster/commit/3033700dd8aeee08f0916aeed78b37f7d2d6f718))
 
 ## [1.0.10-beta.2](https://github.com/basics/nuxt-booster/compare/v1.0.10-beta.1...v1.0.10-beta.2) (2021-01-22)
-
 
 ### Bug Fixes
 
@@ -2194,13 +1951,11 @@
 
 ## [1.0.10](https://github.com/basics/nuxt-booster/compare/v1.0.9...v1.0.10) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **sematic-release:** revert main settings for npm publish ([709569e](https://github.com/basics/nuxt-booster/commit/709569ed28fc1ac2dfc3801fc0609e85ed2cec67))
 
 ## [1.0.10-beta.1](https://github.com/basics/nuxt-booster/compare/v1.0.9...v1.0.10-beta.1) (2021-01-22)
-
 
 ### Bug Fixes
 
@@ -2208,14 +1963,11 @@
 
 ## [1.0.9](https://github.com/basics/nuxt-booster/compare/v1.0.8...v1.0.9) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **semantic-release:** set debug ([499271a](https://github.com/basics/nuxt-booster/commit/499271a98c904456c4811b43d630cbf0276ba252))
 
-
 ## [1.0.9-beta.1](https://github.com/basics/nuxt-booster/compare/v1.0.8...v1.0.9-beta.1) (2021-01-22)
-
 
 ### Bug Fixes
 
@@ -2223,13 +1975,11 @@
 
 ## [1.0.8](https://github.com/basics/nuxt-booster/compare/v1.0.7...v1.0.8) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **release:** fix branch settings 1 ([994958b](https://github.com/basics/nuxt-booster/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
 
 ## [1.0.8-beta.2](https://github.com/basics/nuxt-booster/compare/v1.0.8-beta.1...v1.0.8-beta.2) (2021-01-22)
-
 
 ### Bug Fixes
 
@@ -2237,13 +1987,11 @@
 
 ## [1.0.8-beta.1](https://github.com/basics/nuxt-booster/compare/v1.0.7...v1.0.8-beta.1) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **release:** fix branch settings 1 ([994958b](https://github.com/basics/nuxt-booster/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
 
 ## [1.0.7](https://github.com/basics/nuxt-booster/compare/v1.0.6...v1.0.7) (2021-01-22)
-
 
 ### Bug Fixes
 
@@ -2251,20 +1999,17 @@
 
 ## [1.0.7-beta.2](https://github.com/basics/nuxt-booster/compare/v1.0.7-beta.1...v1.0.7-beta.2) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **release:** fix branch settings 1 ([994958b](https://github.com/basics/nuxt-booster/commit/994958b91ce4de71daed87daa28397ad36d77d6d))
 
 ## [1.0.7-beta.1](https://github.com/basics/nuxt-booster/compare/v1.0.6...v1.0.7-beta.1) (2021-01-22)
 
-
 ### Bug Fixes
 
 * **booster:** replace booster function with vue-lazy-hydration ([78bfbce](https://github.com/basics/nuxt-booster/commit/78bfbcecf6081598b1b5295629d73598781e1201))
 
 ## [1.0.6](https://github.com/basics/nuxt-booster/compare/v1.0.5...v1.0.6) (2021-01-22)
-
 
 ### Bug Fixes
 
@@ -2274,7 +2019,6 @@
 
 ## [1.0.5](https://github.com/basics/nuxt-booster/compare/v1.0.4...v1.0.5) (2021-01-16)
 
-
 ### Bug Fixes
 
 * **eslint:** ignore duplicated strings ([31cea75](https://github.com/basics/nuxt-booster/commit/31cea7520be4784b3891e4af4d727b38bbc8e5a7))
@@ -2282,13 +2026,11 @@
 
 ## [1.0.4](https://github.com/basics/nuxt-booster/compare/v1.0.3...v1.0.4) (2021-01-16)
 
-
 ### Bug Fixes
 
 * **lighthouse:** fixed object sink + added lost css ([2427ae4](https://github.com/basics/nuxt-booster/commit/2427ae47658a792c1940011afb97f8a8ca63ffb4))
 
 ## [1.0.3](https://github.com/basics/nuxt-booster/compare/v1.0.2...v1.0.3) (2021-01-15)
-
 
 ### Bug Fixes
 
@@ -2296,20 +2038,17 @@
 
 ## [1.0.2](https://github.com/basics/nuxt-booster/compare/v1.0.1...v1.0.2) (2021-01-14)
 
-
 ### Bug Fixes
 
 * **security:** removed security issues ([6b7212d](https://github.com/basics/nuxt-booster/commit/6b7212d0cfd21b3f6e63c0a863e598bf161fa382))
 
 ## [1.0.1](https://github.com/basics/nuxt-booster/compare/v1.0.0...v1.0.1) (2021-01-14)
 
-
 ### Bug Fixes
 
 * **eslint:** updated eslint rule to force semicolons ([413f1c8](https://github.com/basics/nuxt-booster/commit/413f1c827859954e2a9b347893a69dfac277b7ef))
 
 # 1.0.0 (2021-01-12)
-
 
 ### Bug Fixes
 
@@ -2513,7 +2252,6 @@
 * **webp-fallback:** added webp detection ([330831d](https://github.com/basics/nuxt-booster/commit/330831db7004216b929c3a8fc79399c793a7f27e))
 * **webpack:** fix entry files; add GithubCorner as auto-import ([4c90c5c](https://github.com/basics/nuxt-booster/commit/4c90c5cc0bef93c3fd6bec3c7c78aaa216e6282c))
 * **webpack:** removed lazy comments ([838685f](https://github.com/basics/nuxt-booster/commit/838685f9a6956cc9181894d756dc1f80a3ae29a3))
-
 
 ### Features
 
@@ -2548,13 +2286,11 @@
 
 # [1.0.0-beta.35](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.34...v1.0.0-beta.35) (2021-01-11)
 
-
 ### Bug Fixes
 
 * **others:** rename experiments to experimental ([42eac49](https://github.com/basics/nuxt-booster/commit/42eac493434d0586abca20498585c7e6ad8f55f8))
 
 # [1.0.0-beta.34](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.33...v1.0.0-beta.34) (2021-01-11)
-
 
 ### Bug Fixes
 
@@ -2562,20 +2298,17 @@
 
 # [1.0.0-beta.33](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2021-01-11)
 
-
 ### Bug Fixes
 
 * **renaming:** renamed lazy components to booster e.g. booster-picture ([0efb249](https://github.com/basics/nuxt-booster/commit/0efb249fd9a76cd50afce5bcb07ceb3316eba56b))
 
 # [1.0.0-beta.32](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2021-01-11)
 
-
 ### Bug Fixes
 
 * **npm:** add ignore file ([b12f196](https://github.com/basics/nuxt-booster/commit/b12f1969cf64c631c9bcdc30b6e8c83c600b9567))
 
 # [1.0.0-beta.31](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2021-01-11)
-
 
 ### Bug Fixes
 
@@ -2586,20 +2319,17 @@
 
 # [1.0.0-beta.30](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2021-01-06)
 
-
 ### Bug Fixes
 
 * **multi-font-files:** added support to register multi font files ([63b5a44](https://github.com/basics/nuxt-booster/commit/63b5a440b748f39bd0670bb151f1b3ca8263712c))
 
 # [1.0.0-beta.29](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2021-01-05)
 
-
 ### Bug Fixes
 
 * **placeholder:** fix empty placeholder undefined error ([1136ae8](https://github.com/basics/nuxt-booster/commit/1136ae8d1f57f52d2f39c899fea16d8a5934abb6))
 
 # [1.0.0-beta.28](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2021-01-04)
-
 
 ### Bug Fixes
 
@@ -2608,20 +2338,17 @@
 
 # [1.0.0-beta.27](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2021-01-04)
 
-
 ### Bug Fixes
 
 * **options:** set false as default value for ignorePerformance ([2a8441c](https://github.com/basics/nuxt-booster/commit/2a8441cca279d2efc343e87d5984b694540efe07))
 
 # [1.0.0-beta.26](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2021-01-03)
 
-
 ### Bug Fixes
 
 * **deps:** fix deps ([b599611](https://github.com/basics/nuxt-booster/commit/b599611db7d47eff894374c4f02411777be3544d))
 
 # [1.0.0-beta.25](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2021-01-03)
-
 
 ### Bug Fixes
 
@@ -2630,13 +2357,11 @@
 
 # [1.0.0-beta.24](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2020-12-21)
 
-
 ### Bug Fixes
 
 * **routes:** added trailing slash to config ([b4ad553](https://github.com/basics/nuxt-booster/commit/b4ad5531171840a8c112e3b1175b5cb2266c9883))
 
 # [1.0.0-beta.23](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2020-12-19)
-
 
 ### Bug Fixes
 
@@ -2663,7 +2388,6 @@
 * **video:** removed stream player ([40b3c6d](https://github.com/basics/nuxt-booster/commit/40b3c6d1658cdef697bb8eb098c7f95bb0e55bbe))
 * **webp-fallback:** added webp detection ([330831d](https://github.com/basics/nuxt-booster/commit/330831db7004216b929c3a8fc79399c793a7f27e))
 
-
 ### Features
 
 * **font:** refactored font handling ([a86a34e](https://github.com/basics/nuxt-booster/commit/a86a34e5d8961fc246408e3a38a07954cfa4d8a8))
@@ -2673,13 +2397,11 @@
 
 # [1.0.0-beta.22](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.21...v1.0.0-beta.22) (2020-11-09)
 
-
 ### Bug Fixes
 
 * **safari:** fix load font with weight ([e85c1c7](https://github.com/basics/nuxt-booster/commit/e85c1c7e7b2bae8f0e980c9d8a0cde78f40f5186))
 
 # [1.0.0-beta.21](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2020-11-08)
-
 
 ### Bug Fixes
 
@@ -2687,13 +2409,11 @@
 
 # [1.0.0-beta.20](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2020-11-08)
 
-
 ### Bug Fixes
 
 * **ci:** fix cache action ([873c9fa](https://github.com/basics/nuxt-booster/commit/873c9facd93b69655a7d24226a3f1a7cf5c30e54))
 
 # [1.0.0-beta.19](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2020-11-08)
-
 
 ### Features
 
@@ -2701,11 +2421,9 @@
 
 # [1.0.0-beta.18](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2020-11-08)
 
-
 ### Bug Fixes
 
 * **entry:** disable entry by spa ([ad560e2](https://github.com/basics/nuxt-booster/commit/ad560e2e8ba0834afd7a576b4cdf424c0f4cb5c7))
-
 
 ### Features
 
@@ -2713,14 +2431,12 @@
 
 # [1.0.0-beta.17](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2020-11-02)
 
-
 ### Bug Fixes
 
 * **options:** update default options; add intersectionobserver options ([4320a99](https://github.com/basics/nuxt-booster/commit/4320a990e3935b6aea21f5a20fd81142d95525a7))
 * **booster:** add booster template wrapper ([0ae3d36](https://github.com/basics/nuxt-booster/commit/0ae3d36ce00caee748d28689c349ac458b1886e7))
 
 # [1.0.0-beta.16](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2020-11-02)
-
 
 ### Bug Fixes
 
@@ -2730,7 +2446,6 @@
 * **optimization:** refactored image preload & refactored performance metrics detection ([7d0d236](https://github.com/basics/nuxt-booster/commit/7d0d236bb4ff07b077f674cdf26150798579de22))
 
 # 1.0.0-beta.15
-
 
 ### Bug Fixes
 
@@ -2765,7 +2480,6 @@
 * **transpile:** add module to nuxt build transpile ([20d0f26](https://github.com/basics/nuxt-booster/commit/20d0f26e7380f70c50a50e6a13f58544d65eba95))
 * **v-font:** splitted up code ([1e2f971](https://github.com/basics/nuxt-booster/commit/1e2f9716b6e8a15f535a7446715edc2e0a698cfc))
 
-
 ### Features
 
 * **alias:** remove lib from imports ([c003e77](https://github.com/basics/nuxt-booster/commit/c003e77dd39eaeddd110ab85c8d8e10b2a871441))
@@ -2775,13 +2489,11 @@
 
 # [1.0.0-beta.15](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **transpile:** add module to nuxt build transpile ([20d0f26](https://github.com/basics/nuxt-booster/commit/20d0f26e7380f70c50a50e6a13f58544d65eba95))
 
 # [1.0.0-beta.14](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2020-10-31)
-
 
 ### Bug Fixes
 
@@ -2789,13 +2501,11 @@
 
 # [1.0.0-beta.13](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.12...v1.0.0-beta.13) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **package:** add index.js for package main for dev / prod import ([b7d98c6](https://github.com/basics/nuxt-booster/commit/b7d98c6eac64bae81ab9b1dcc039c0f5f71188b8))
 
 # [1.0.0-beta.12](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2020-10-31)
-
 
 ### Bug Fixes
 
@@ -2803,20 +2513,17 @@
 
 # [1.0.0-beta.11](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2020-10-31)
 
-
 ### Features
 
 * **alias:** remove lib from imports ([c003e77](https://github.com/basics/nuxt-booster/commit/c003e77dd39eaeddd110ab85c8d8e10b2a871441))
 
 # [1.0.0-beta.10](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **release:** generate release 9 ([71e4276](https://github.com/basics/nuxt-booster/commit/71e42762d5ce6686796e558ad0332dbdb108c83e))
 
 # [1.0.0-beta.9](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2020-10-31)
-
 
 ### Bug Fixes
 
@@ -2825,13 +2532,11 @@
 
 # [1.0.0-beta.8](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **release:** generate release 6 ([741e242](https://github.com/basics/nuxt-booster/commit/741e2428b9589cf3ca4e6fc3a3f544ffba546e85))
 
 # [1.0.0-beta.7](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2020-10-31)
-
 
 ### Bug Fixes
 
@@ -2839,13 +2544,11 @@
 
 # [1.0.0-beta.6](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **release:** generate release 4 ([216a554](https://github.com/basics/nuxt-booster/commit/216a554ba2eb5b66fd3ca76772ab5f7c69a2a814))
 
 # [1.0.0-beta.5](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2020-10-31)
-
 
 ### Bug Fixes
 
@@ -2853,13 +2556,11 @@
 
 # [1.0.0-beta.4](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **release:** generate release 2 ([3975fd6](https://github.com/basics/nuxt-booster/commit/3975fd646b21cbc592744449e04892f599b870b3))
 
 # [1.0.0-beta.3](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2020-10-31)
-
 
 ### Bug Fixes
 
@@ -2867,13 +2568,11 @@
 
 # [1.0.0-beta.2](https://github.com/basics/nuxt-booster/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-10-31)
 
-
 ### Bug Fixes
 
 * **alias:** remove package alias ([56d6223](https://github.com/basics/nuxt-booster/commit/56d62237c3213a9d054c5d6398702b6f25bd5d5f))
 
 # 1.0.0-beta.1 (2020-10-30)
-
 
 ### Bug Fixes
 
@@ -3014,7 +2713,6 @@
 * **video:** ios native orientation stream support ([5b80f91](https://github.com/basics/nuxt-booster/commit/5b80f911cefc4a4eb5d6b0b638429c04ad706415))
 * **webpack:** fix entry files; add GithubCorner as auto-import ([4c90c5c](https://github.com/basics/nuxt-booster/commit/4c90c5cc0bef93c3fd6bec3c7c78aaa216e6282c))
 * **webpack:** removed lazy comments ([838685f](https://github.com/basics/nuxt-booster/commit/838685f9a6956cc9181894d756dc1f80a3ae29a3))
-
 
 ### Features
 
