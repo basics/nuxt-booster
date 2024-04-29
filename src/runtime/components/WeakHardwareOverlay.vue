@@ -8,6 +8,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from '#imports';
+
 const isServer = ref(true);
 
 onMounted(() => (isServer.value = false));

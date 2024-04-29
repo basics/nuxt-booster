@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { useHead, markRaw } from '#imports';
+import { useHead, markRaw, computed, ref } from '#imports';
 
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';

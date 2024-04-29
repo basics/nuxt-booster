@@ -1,4 +1,4 @@
-import { useAttrs, provide, inject } from '#imports';
+import { useAttrs, provide, inject, ref, computed } from '#imports';
 
 const criticalContextKey = Symbol('criticalContext');
 

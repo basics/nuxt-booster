@@ -1,5 +1,12 @@
 import { logDebug } from '../utils/log';
-import { nextTick, injectHead, useNuxtApp, useRuntimeConfig } from '#imports';
+import {
+  nextTick,
+  injectHead,
+  useNuxtApp,
+  useRuntimeConfig,
+  ref,
+  watch
+} from '#imports';
 
 export default function () {
   const head = injectHead();

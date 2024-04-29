@@ -45,7 +45,7 @@
 
 <script setup>
 import { getStyleDescription } from '#booster/utils/description';
-import { useHead } from '#imports';
+import { useHead, ref, onMounted } from '#imports';
 
 const isServer = ref(true);
 
