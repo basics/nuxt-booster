@@ -1,4 +1,5 @@
 import { getElementObserver } from '#booster/classes/intersection';
+import { useBoosterCritical } from '#imports';
 
 export default function (options) {
   const el = ref(null);

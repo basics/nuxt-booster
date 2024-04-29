@@ -10,6 +10,8 @@
 </template>
 
 <script setup>
+import { useBoosterComponentObserver } from '#imports';
+
 const props = defineProps({
   src: {
     type: String,

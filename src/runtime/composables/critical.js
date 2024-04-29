@@ -1,3 +1,5 @@
+import { useAttrs, provide, inject } from '#imports';
+
 const criticalContextKey = Symbol('criticalContext');
 
 export default function ({ critical } = {}) {

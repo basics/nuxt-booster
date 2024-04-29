@@ -1,5 +1,13 @@
 import FontCollection from '#booster/classes/FontCollection';
 
+import {
+  useBoosterCritical,
+  useBoosterConfig,
+  useNuxtApp,
+  nextTick,
+  onBeforeUnmount
+} from '#imports';
+
 export default function (context) {
   const { isCritical, critical } = useBoosterCritical(context);
 

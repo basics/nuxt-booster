@@ -3,7 +3,7 @@ export default options => {
 import { isSupportedBrowser } from '#booster/utils/browser';
 import FontList from '#booster/classes/FontList';
 import hydrate from '#booster/hydrate';
-import userBoosterHead from '#booster/composables/head';
+import { useNuxtApp, useBoosterHead, useRequestHeaders, useRequestURL, useRequestFetch } from '#imports';
 import './fonts.css';
 
 export default defineNuxtPlugin({
@@ -16,7 +16,7 @@ export default defineNuxtPlugin({
     );
     const fontList = new FontList(fontConfig);
 
-    const head = userBoosterHead();
+    const head = useBoosterHead();
 
     nuxtApp.provide('booster', {
       head,
