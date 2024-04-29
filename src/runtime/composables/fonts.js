@@ -5,7 +5,8 @@ import {
   useBoosterConfig,
   useNuxtApp,
   nextTick,
-  onBeforeUnmount
+  onBeforeUnmount,
+  reactive
 } from '#imports';
 
 export default function (context) {

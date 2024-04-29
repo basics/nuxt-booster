@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { useNuxtApp, useHead, useImage } from '#imports';
+import { useNuxtApp, useHead, useImage, computed } from '#imports';
 import { getCrossorigin } from '#booster/utils';
 import Source from '#booster/components/BoosterImage/classes/Source';
 

@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import { useHead, markRaw } from '#imports';
+import { useHead, ref, computed, markRaw } from '#imports';
+
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
