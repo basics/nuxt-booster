@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.0.11-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.10...v3.0.11-next.1) (2024-04-30)
+
+
+### Bug Fixes
+
+* **composables:** fix rollup warnings ([d8796c6](https://github.com/basics/nuxt-booster/commit/d8796c667353d065611c6d1ae66f650cad8628c2))
+* **module:** remove `serialize-to-js` ([396afde](https://github.com/basics/nuxt-booster/commit/396afdec2655fca980bfa4ee60c6d7e9b2effde1))
+
 ## [3.0.10](https://github.com/basics/nuxt-booster/compare/v3.0.9...v3.0.10) (2024-04-29)
 
 
