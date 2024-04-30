@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.11-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.11-next.1...v3.0.11-next.2) (2024-04-30)
+
+
+### Bug Fixes
+
+* **blob:** fix import test ([1e226b8](https://github.com/basics/nuxt-booster/commit/1e226b80e55af83052a6582e769460d1317a6c33))
+
 ## [3.0.11-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.10...v3.0.11-next.1) (2024-04-30)
 
 
