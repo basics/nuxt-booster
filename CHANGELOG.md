@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.11-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.11-next.2...v3.0.11-next.3) (2024-04-30)
+
+
+### Bug Fixes
+
+* **build:** clean rollup ([c62bc10](https://github.com/basics/nuxt-booster/commit/c62bc10c7e1a33d1b0ce093870d91f69722683c9))
+
 ## [3.0.11-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.11-next.1...v3.0.11-next.2) (2024-04-30)
 
 
