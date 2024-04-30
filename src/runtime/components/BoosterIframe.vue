@@ -12,8 +12,6 @@
 <script setup>
 import { ref, watch, useBoosterComponentObserver } from '#imports';
 
-import { defineProps, defineEmits } from 'vue';
-
 const props = defineProps({
   src: {
     type: String,

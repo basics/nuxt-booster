@@ -1,7 +1,7 @@
 import { resolve, join } from 'pathe';
 
 import {
-  addImports,
+  addImportsDir,
   createResolver,
   defineNuxtModule,
   addPluginTemplate,
@@ -83,18 +83,7 @@ export default defineNuxtModule({
 
     await addBuildTemplates(nuxt, moduleOptions);
 
-    addImports(
-      [
-        'useBoosterComponentObserver',
-        'useBoosterCritical',
-        'useBoosterConfig',
-        'useBoosterFonts',
-        'useBoosterHead'
-      ].map(name => ({
-        name,
-        from: resolve(runtimeDir, 'composables/index')
-      }))
-    );
+    addImportsDir(resolve(runtimeDir, 'composables'));
   }
 });
 
