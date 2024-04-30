@@ -18,7 +18,6 @@ export default {
     'htmlparser2',
     'image-meta',
     'pathe',
-    'serialize-to-js',
     'sort-css-media-queries',
     'vue3-lazy-hydration',
     'mime-types',

@@ -1,16 +1,18 @@
-import serialize from 'serialize-to-js';
 import { getUserAgentRegex } from 'browserslist-useragent-regexp';
 
 function getSupportedBrowserDetector(ignore) {
   if (ignore) {
     return JSON.stringify({ regex: '' });
   } else {
-    return serialize({
-      regex: getUserAgentRegex({
+    return JSON.stringify({
+      regex: 'value'
+    }).replace(
+      '"value"',
+      `new RegExp(${getUserAgentRegex({
         allowHigherVersions: true,
         allowZeroSubversions: true
-      })
-    });
+      })})`
+    );
   }
 }
 
