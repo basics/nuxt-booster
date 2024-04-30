@@ -13,3 +13,10 @@ export const isTouchSupported = () =>
     'ontouchstart' in window ||
     (window.DocumentTouch && document instanceof window.DocumentTouch)
   );
+
+export const getCrossorigin = (crossorigin, defaultCrossOrigin) => {
+  crossorigin = crossorigin === true ? 'anonymous' : crossorigin;
+  crossorigin =
+    crossorigin === undefined ? defaultCrossOrigin || 'anonymous' : crossorigin;
+  return crossorigin;
+};

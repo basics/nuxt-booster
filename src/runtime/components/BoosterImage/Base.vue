@@ -19,7 +19,7 @@
 <script>
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import { getImageStyleDescription } from '#booster/utils/description';
-import { getCrossorigin } from '#booster/utils';
+import { getCrossorigin } from '#booster/utils/browser';
 import Source from '#booster/components/BoosterImage/classes/Source';
 import {
   useBoosterCritical,

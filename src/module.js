@@ -7,8 +7,8 @@ import {
   addPluginTemplate,
   addTemplate
 } from '@nuxt/kit';
-import { getCrossorigin } from './runtime/utils';
-import FontConfig from './runtime/classes/FontConfig';
+import { getCrossorigin, getSupportedBrowserDetector } from './utils/browser';
+import FontConfig from './classes/FontConfig';
 import {
   MODULE_NAME,
   addNuxtFontaine,
@@ -20,7 +20,6 @@ import {
 import { deprecationsNotification, getDefaultOptions } from './utils/options';
 import { getFontConfigTemplate } from './utils/template';
 import { optimizePreloads } from './utils/preload';
-import { getSupportedBrowserDetector } from './utils/browser';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
 import { getTemplate as getBlobFileTemplate } from './utils/blob';
