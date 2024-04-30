@@ -1,7 +1,8 @@
 import { promises as fsPromises } from 'fs';
-import mime from 'mime-types';
 
 async function getFileInfo(name, file) {
+  const mime = await import('mime-types');
+  console.log(mime);
   return {
     name,
     file: await fsPromises.readFile(file),
