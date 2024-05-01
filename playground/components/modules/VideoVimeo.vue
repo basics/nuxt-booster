@@ -23,7 +23,7 @@ defineProps({
 
 <style lang="postcss" scoped>
 .video-vimeo {
-  padding: 0 10%;
+  padding: em(40px) 10%;
 
   & .description {
     margin-top: em(20px);

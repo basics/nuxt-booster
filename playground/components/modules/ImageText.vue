@@ -1,14 +1,13 @@
 <template>
   <section
+    v-font="[
+      $getFont('Merriweather', 300, 'normal'),
+      $getFont('Montserrat Alternates', 700, 'normal', { selector: 'h2' })
+    ]"
     class="component-image-text"
     :class="{ ['component-image-text-right']: alignRight }"
   >
-    <div
-      v-font="[
-        $getFont('Merriweather', 300, 'normal'),
-        $getFont('Montserrat Alternates', 700, 'normal', { selector: 'h2' })
-      ]"
-    >
+    <div>
       <div class="image">
         <booster-picture
           :title="picture.title"
@@ -39,8 +38,10 @@ defineProps({
 
 <style lang="postcss" scoped>
 .component-image-text {
+  padding: em(40px);
+
   @media (orientation: portrait) {
-    padding: 0 10%;
+    padding: em(40px) 10%;
   }
 
   & :deep(img) {

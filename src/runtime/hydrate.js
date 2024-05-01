@@ -7,9 +7,7 @@ export default component => {
   const runtimeConfig = useRuntimeConfig();
 
   return hydrateWhenVisible(wrapComponent(component), {
-    observerOptions: {
-      rootMargin: runtimeConfig.public.booster.lazyOffsetComponent || '0%'
-    }
+    rootMargin: runtimeConfig.public.booster.lazyOffsetComponent || '0%'
   });
 };
 

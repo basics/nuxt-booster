@@ -17,17 +17,18 @@ export default {
           const definitions = values.map(({ definition }) => definition);
           const rootSelector = fontCollection.add(definitions);
           el.setAttribute(rootSelector.name, rootSelector.value);
-          binding.instance.fontsReady.set(el, true);
+          binding.instance.fontsReady.set(el, isCritical);
           vnode.fontActive = isCritical;
-          if (typeof vnode.props?.class === 'string') {
-            vnode.props.class = [
-              ...vnode.props.class.split(' '),
-              isCritical && CLASS_FONT_ACTIVE
-            ]
-              .filter(Boolean)
-              .join(' ');
-          }
+
           if (isCritical) {
+            if (typeof vnode.props?.class === 'string') {
+              vnode.props.class = [
+                ...vnode.props.class.split(' '),
+                isCritical && CLASS_FONT_ACTIVE
+              ]
+                .filter(Boolean)
+                .join(' ');
+            }
             emit(vnode.props, 'onLoad:font', definitions);
           }
         }
@@ -52,6 +53,7 @@ export default {
       updated(el, binding, vnode) {
         if (binding.instance.fontsReady.get(el)) {
           el.classList.add(CLASS_FONT_ACTIVE);
+          console.log('jooo2', el);
           emit(
             vnode.props,
             'onLoad:font',
@@ -68,10 +70,11 @@ export default {
             activateFonts(el, binding, scope);
           } else {
             const observer = getElementObserver(el, {
-              rootMargin: runtimeConfig.lazyOffsetAsset
+              rootMargin: runtimeConfig.lazyOffsetAsset || '0px'
             });
             observers.set(el, observer);
             await observer.enterViewOnce();
+            console.log('jooo', el);
             activateFonts(el, binding, scope);
           }
         }

@@ -21,6 +21,6 @@ defineProps({
 
 <style lang="postcss" scoped>
 .video-youtube {
-  padding: 0 10%;
+  padding: em(40px) 10%;
 }
 </style>

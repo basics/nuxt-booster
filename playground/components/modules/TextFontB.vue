@@ -1,5 +1,5 @@
 <template>
-  <section class="component-text-font-b">
+  <section :class="{ ready }" class="component-text-font-b">
     <div
       v-font="[
         $getFont('Montserrat Alternates', 300, 'normal'),
@@ -21,15 +21,19 @@
 
 <script setup>
 const { $getFont } = useBoosterFonts();
+const ready = ref(false);
 defineProps({
   headline: { type: String, default: 'Headline' },
   content: { type: String, default: 'Text' }
+});
+onMounted(() => {
+  ready.value = true;
 });
 </script>
 
 <style lang="postcss" scoped>
 .component-text-font-b {
-  padding: 0 10%;
+  padding: em(40px) 10%;
 
   & :deep(p) {
     line-height: 1.6;
