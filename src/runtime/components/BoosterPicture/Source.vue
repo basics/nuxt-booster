@@ -9,7 +9,7 @@
 
 <script>
 import { useNuxtApp, useHead, useImage, computed } from '#imports';
-import { getCrossorigin } from '#booster/utils';
+import { getCrossorigin } from '#booster/utils/browser';
 import Source from '#booster/components/BoosterImage/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);
