@@ -100,7 +100,7 @@
     "stylelint-config-standard": "36.0.0",
     "vite-svg-loader": "5.1.0",
     "vitepress": "1.1.4",
-    "vitest": "1.5.2",
+    "vitest": "1.5.3",
     "wicg-inert": "3.1.2"
   }
 }
