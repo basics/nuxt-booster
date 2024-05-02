@@ -60,14 +60,14 @@ The buttons are interaction elements for the user with which he can make his cho
 Initially, all IDs except for `nuxt-booster-button-nojs` are set to `display: none;`.
 When an event is triggered, the relevant button is displayed via the ID using the style attribute `display: block;`.
 
-| ID                                                    | Description                                                                                                                                                       |
+| Selector                                                    | Description                                                                                                                                                       |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <nobr>`nuxt-booster-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/booster-layer#hide-layer) implementation. |
-| <nobr>`nuxt-booster-button-init-reduced-view`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts and images. Other initialisations of the Javascript are prevented.          |
-| <nobr>`nuxt-booster-button-init-app`</nobr>          | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                       |
+| <nobr>`.nuxt-booster-button-init-nojs`</nobr>         | Visible when javascript is disabled, needed so that the user can hide the layer. Requires the [Hide Layer](/components/booster-layer#hide-layer) implementation. |
+| <nobr>`.nuxt-booster-button-init-reduced-view`</nobr> | Is used to offer the user the possibility to visit the page only with activated fonts and images. Other initialisations of the Javascript are prevented.          |
+| <nobr>`.nuxt-booster-button-init-app`</nobr>          | Activates all features. The initialisation of the JavaScript is started, images are loaded.                                                                       |
 
 ::: info
-It is recommended to register an **Inline Click-Event** for the buttons `#nuxt-booster-button-init-reduced-view` and `#nuxt-booster-button-init-app`.<br><br>More information under [Force App initialization](/components/booster-layer#force-app-initialization)
+It is recommended to register an **Inline Click-Event** for the buttons `.nuxt-booster-button-init-reduced-view` and `.nuxt-booster-button-init-app`.<br><br>More information under [Force App initialization](/components/booster-layer#force-app-initialization)
 :::
 
 ## Hide Layer
@@ -113,21 +113,21 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-booster-layer-
     </ul>
 
     <!-- Button to hide the layer with no javascript -->
-    <button id="nuxt-booster-button-init-nojs">
+    <button class="nuxt-booster-button-init-nojs">
       <label for="nuxt-booster-layer-close">
         Apply without js
       </label>
     </button>
 
     <!-- Button for use without javascript and with fonts -->
-    <button id="nuxt-booster-button-init-reduced-view">
+    <button class="nuxt-booster-button-init-reduced-view">
       <label for="nuxt-booster-layer-close">
         Apply without scripts
       </label>
     </button>
 
     <!-- Button for activate javascript by bad connection or browser support -->
-    <button id="nuxt-booster-button-init-app">
+    <button class="nuxt-booster-button-init-app">
       Apply with all Features
     </button>
   </div>
@@ -136,11 +136,7 @@ The layer can be closed via a `for` attribute with the `id` `nuxt-booster-layer-
 
 ## Force App initialization
 
-For Unsupported-Browser and Insufficient Hardware events, an `onclick` event must also be set with the `id`.
-
-In the event, the global variable `__NUXT_BOOSTER_AUTO_INIT__` must be set to `true`.
-
-These are needed if the user has already reacted before the initial Javascript has been loaded. After the javascript has been successfully loaded, the app is automatically initialised.
+Set the global variable `__NUXT_BOOSTER_AUTO_INIT__` to `true` to force the initialization of the app.
 
 | Variable                      | Type      | Description                                                                  | Default |
 | ----------------------------- | --------- | ---------------------------------------------------------------------------- | ------- |

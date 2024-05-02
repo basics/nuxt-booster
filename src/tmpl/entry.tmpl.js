@@ -123,8 +123,8 @@ if (!force) {
       initApp(forceInit);
     } else {
 
-      observeBoosterButton('nuxt-booster-button-init-reduced-view', initReducedView);
-      observeBoosterButton('nuxt-booster-button-init-app', () => initApp(true));
+      observeBoosterButton('.nuxt-booster-button-init-reduced-view', initReducedView);
+      observeBoosterButton('.nuxt-booster-button-init-app', () => initApp(true));
 
       setup(${options.performanceMetrics});
 

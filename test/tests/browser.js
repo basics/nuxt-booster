@@ -107,7 +107,7 @@ export default runtime => {
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
-        document.getElementById('nuxt-booster-button-init-reduced-view').click()
+        document.querySelector('.nuxt-booster-button-init-reduced-view').click()
       );
       await page.waitForLoadState('networkidle');
 
@@ -128,7 +128,7 @@ export default runtime => {
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
-        document.getElementById('nuxt-booster-button-init-app').click()
+        document.querySelector('.nuxt-booster-button-init-app').click()
       );
       await page.waitForLoadState('networkidle');
 
@@ -146,7 +146,7 @@ export default runtime => {
       ).not.toBeFalsy();
 
       await page.evaluate(() =>
-        document.getElementById('nuxt-booster-button-init-nojs').click()
+        document.querySelector('.nuxt-booster-button-init-nojs').click()
       );
 
       expect(

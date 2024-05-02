@@ -2,7 +2,7 @@
   <booster-weak-hardware-overlay>
     <div v-font="$getFont('Montserrat Alternates', 400, 'normal')">
       <p>{{ text }}</p>
-      <base-button id="nuxt-booster-button-init-app">
+      <base-button class="nuxt-booster-button-init-app">
         {{ buttonText }}
       </base-button>
     </div>

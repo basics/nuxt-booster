@@ -13,19 +13,17 @@
       </ul>
       <div class="info-layer-buttons">
         <base-button
-          id="nuxt-booster-button-init-nojs"
+          class="nuxt-booster-button-init-nojs"
           for="nuxt-booster-layer-close"
-        >
-          Yes
-        </base-button>
+          label="Yes"
+        />
         <base-button
-          id="nuxt-booster-button-init-reduced-view"
+          class="nuxt-booster-button-init-reduced-view"
           tag="label"
           for="nuxt-booster-layer-close"
-        >
-          No
-        </base-button>
-        <base-button id="nuxt-booster-button-init-app" label="Yes" />
+          label="No"
+        />
+        <base-button class="nuxt-booster-button-init-app" label="Yes" />
       </div>
     </div>
   </booster-layer>
