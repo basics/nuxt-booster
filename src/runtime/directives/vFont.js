@@ -18,8 +18,6 @@ export default {
           const rootSelector = fontCollection.add(definitions);
           el.setAttribute(rootSelector.name, rootSelector.value);
           binding.instance.fontsReady.set(el, isCritical);
-          vnode.fontActive = isCritical;
-
           if (isCritical) {
             if (typeof vnode.props?.class === 'string') {
               vnode.props.class = [
@@ -98,7 +96,7 @@ async function activateFonts(el, binding, scope) {
   );
 
   el.classList.add(CLASS_FONT_ACTIVE);
-  binding.instance.fontActive = true;
+  binding.instance.fontsReady.set(el, true);
 
   emit(scope.props, 'onLoad:font', fonts);
 }
