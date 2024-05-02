@@ -49,4 +49,4 @@ We provide the following CMS-friendly features:
 
 ## Demos
 
-- [Nuxt Booster Example](https://basics.github.io/nuxt-booster/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fbasics.github.io/nuxt-boosterv%2Fplayground%2F), [Sitespeed](https://basics.github.io/nuxt-booster/reports/sitespeed/nuxt-booster/))
+- [Nuxt Booster Example](https://basics.github.io/nuxt-booster/playground/) ([Lighthouse](https://pagespeed.web.dev/report?url=https%3A%2F%2Fbasics.github.io/nuxt-booster%2Fplayground%2F))
