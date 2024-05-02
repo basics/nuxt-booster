@@ -142,13 +142,5 @@ const videoVimeoB = {
 .page-index {
   padding: em(40px) 0;
   padding-top: 0;
-
-  & > section {
-    margin: em(80px) 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
 }
 </style>

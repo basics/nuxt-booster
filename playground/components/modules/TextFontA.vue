@@ -1,16 +1,18 @@
 <template>
-  <section class="component-text-font-a">
-    <div
-      v-font="[
-        $getFont('Merriweather', 300, 'normal'),
-        $getFont('Merriweather', 700, 'normal', { selector: 'h1,h2' }),
-        $getFont('Merriweather', 300, 'italic', { selector: 'em' }),
-        $getFont('Merriweather', 700, 'normal', { selector: 'strong' }),
-        $getFont('Merriweather', 700, 'italic', {
-          selector: 'em strong, strong em'
-        })
-      ]"
-    >
+  <section
+    v-font="[
+      $getFont('Merriweather', 300, 'normal'),
+      $getFont('Merriweather', 700, 'normal', { selector: 'h1,h2' }),
+      $getFont('Merriweather', 300, 'italic', { selector: 'em' }),
+      $getFont('Merriweather', 700, 'normal', { selector: 'strong' }),
+      $getFont('Merriweather', 700, 'italic', {
+        selector: 'em strong, strong em'
+      })
+    ]"
+    :class="{ ready }"
+    class="component-text-font-a"
+  >
+    <div>
       <h2>{{ headline }}</h2>
       <div v-html="content" />
     </div>
@@ -19,6 +21,12 @@
 
 <script setup>
 const { $getFont } = useBoosterFonts();
+const ready = ref(false);
+
+onMounted(() => {
+  ready.value = true;
+});
+
 defineProps({
   headline: { type: String, default: 'Headline' },
   content: { type: String, default: 'Text' }
@@ -27,7 +35,7 @@ defineProps({
 
 <style lang="postcss" scoped>
 .component-text-font-a {
-  padding: 0 10%;
+  padding: em(40px) 10%;
 
   & :deep(p) {
     line-height: 1.6;

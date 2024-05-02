@@ -82,6 +82,7 @@ defineProps({
 .component-stage {
   position: relative;
   min-height: 100vh;
+  padding: 0 !important;
   margin: 0;
   overflow: hidden;
 
