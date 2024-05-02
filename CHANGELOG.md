@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.0.12](https://github.com/basics/nuxt-booster/compare/v3.0.11...v3.0.12) (2024-05-02)
+
+
+### Bug Fixes
+
+* **hydrate:** fix intersection options ([363d649](https://github.com/basics/nuxt-booster/commit/363d649c80f5b24a4921657a0de577ce8ddb9d9a))
+* **v-font:** remove logs ([5a8b9f0](https://github.com/basics/nuxt-booster/commit/5a8b9f0d1f6fa3bfbcd906174b1623f71a7aad77))
+
 ## [3.0.11](https://github.com/basics/nuxt-booster/compare/v3.0.10...v3.0.11) (2024-05-01)
 
 
