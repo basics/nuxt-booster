@@ -78,6 +78,7 @@ useHead({
   display: none;
 }
 
+#nuxt-booster-button-init-nojs, /* id selector will removed in future */
 .nuxt-booster-button-init-nojs {
   display: none;
 }

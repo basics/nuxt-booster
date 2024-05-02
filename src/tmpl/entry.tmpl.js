@@ -2,7 +2,7 @@ export default options => {
   let code = `import { ${
     options.performanceCheck ? `run, ` : ``
   }hasSufficientPerformance, setup } from '#booster/utils/performance';
-import { triggerRunCallback, observeBoosterButton, setupBoosterLayer, updateBoosterLayerMessage, initReducedView, hasBatteryPerformanceIssue } from '#booster/utils/entry';
+import { triggerRunCallback, observeBoosterButton, setupBoosterLayer, updateBoosterLayerMessage, initReducedView, hasBatteryPerformanceIssue, deprecationWarningButtonSelector } from '#booster/utils/entry';
 import Deferred from '#booster/classes/Deferred';
 import { isSupportedBrowser } from '#booster/utils/browser';
 import {video as videoBlob} from './blobs.mjs';
@@ -125,6 +125,9 @@ if (!force) {
 
       observeBoosterButton('.nuxt-booster-button-init-reduced-view', initReducedView);
       observeBoosterButton('.nuxt-booster-button-init-app', () => initApp(true));
+
+      /* id selector will removed in future */
+      deprecationWarningButtonSelector(initApp);
 
       setup(${options.performanceMetrics});
 

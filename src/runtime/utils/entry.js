@@ -96,3 +96,20 @@ export const canVideoPlay = blob => {
   video.src = URL.createObjectURL(blob);
   return video.play();
 };
+
+export const deprecationWarningButtonSelector = initApp => {
+  if (
+    document.querySelector(
+      '#nuxt-booster-button-init-nojs, #nuxt-booster-button-init-app, #nuxt-booster-button-init-reduced-view'
+    )
+  ) {
+    console.warn(
+      'The `#nuxt-booster-button-init-nojs`, `#nuxt-booster-button-init-reduced-view` and `#nuxt-booster-button-init-app` ids are deprecated. Please use the following classes instead: `.nuxt-booster-button-init-nojs`, `.nuxt-booster-button-init-reduced-view` and `.nuxt-booster-button-init-app`.'
+    );
+    observeBoosterButton(
+      '#nuxt-booster-button-init-reduced-view',
+      initReducedView
+    );
+    observeBoosterButton('#nuxt-booster-button-init-app', () => initApp(true));
+  }
+};
