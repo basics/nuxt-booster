@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.13](https://github.com/basics/nuxt-booster/compare/v3.0.12...v3.0.13) (2024-05-02)
+
+
+### Bug Fixes
+
+* **v-font:** fix font active remove by update ([7aa02b6](https://github.com/basics/nuxt-booster/commit/7aa02b6847ed9832ec3b333d2d00b8db7e1cd078))
+
 ## [3.0.12](https://github.com/basics/nuxt-booster/compare/v3.0.11...v3.0.12) (2024-05-02)
 
 
