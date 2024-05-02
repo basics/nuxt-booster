@@ -69,7 +69,7 @@ export default {
             activateFonts(el, binding, scope);
           } else {
             const observer = getElementObserver(el, {
-              rootMargin: runtimeConfig.lazyOffsetAsset || '0px'
+              rootMargin: runtimeConfig.lazyOffsetAsset || '0%'
             });
             observers.set(el, observer);
             await observer.enterViewOnce();
