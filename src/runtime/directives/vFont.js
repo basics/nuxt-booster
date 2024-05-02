@@ -53,7 +53,6 @@ export default {
       updated(el, binding, vnode) {
         if (binding.instance.fontsReady.get(el)) {
           el.classList.add(CLASS_FONT_ACTIVE);
-          console.log('jooo2', el);
           emit(
             vnode.props,
             'onLoad:font',
@@ -74,7 +73,6 @@ export default {
             });
             observers.set(el, observer);
             await observer.enterViewOnce();
-            console.log('jooo', el);
             activateFonts(el, binding, scope);
           }
         }
