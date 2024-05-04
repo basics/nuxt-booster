@@ -14,7 +14,7 @@ function getBuilder() {
 
 export default defineNuxtConfig(async () => {
   const { repository } = await readPackage();
-  console.log(repository);
+
   return {
     dev: isDev,
 
