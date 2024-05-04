@@ -7,10 +7,9 @@ title: WeakHardwareOverlay
 The `WeakHardwareOverlay` is used in components that are affected by the BoosterLayer event `Weak Hardware`. (*Example: Component requires the execution of `mounted` for functionality.*)
 
 ::: info
-The **performance issue event** occurs when initialization determines that the client is overloaded with execution and the user has confirmed the `#nuxt-booster-button-init-reduced-view` button in the BoosterLayer.
+The **performance issue event** occurs when initialization determines that the client is overloaded with execution and the user has confirmed the `.nuxt-booster-button-init-reduced-view` button in the BoosterLayer.
 
-- [Learn more about BoosterLayer interactions)](/components/booster-layer#buttons)
-
+[Learn more about BoosterLayer interactions)](/components/booster-layer#buttons)  
 :::
 
 Basically, the overlay is used to make content visible when the `Weak Hardware` has occurred, if this does not occur, the overlay is not visible.

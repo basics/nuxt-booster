@@ -58,19 +58,27 @@ defineOptions({ inheritAttrs: false });
     width: 100%;
     height: 100%;
     background-color: rgb(0 0 0 / 25%);
-    backdrop-filter: blur(em(7px));
+    backdrop-filter: blur(em(7));
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 0.2s;
     animation-delay: 3s;
     animation-fill-mode: forwards;
 
+    & p {
+      margin: 0;
+    }
+
     & > div {
-      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: em(10);
+      align-items: center;
+      padding: em(20) em(10);
       color: #fff;
       text-align: center;
       background-color: rgb(0 0 0 / 60%);
-      box-shadow: 0 0 em(10px) rgb(0 0 0 / 60%);
+      box-shadow: 0 0 em(10) rgb(0 0 0 / 60%);
       transform: translateY(-100%);
       animation-name: fall-down;
       animation-duration: 0.2s;
@@ -96,10 +104,13 @@ ul {
 }
 
 .info-layer-buttons {
-  margin: em(10px) 0;
+  display: flex;
+  gap: em(15);
+  padding-top: em(10);
 
-  & > * {
-    margin: 0 em(5px);
+  @media (width <= 768px) {
+    flex-direction: column;
+    width: 100%;
   }
 }
 

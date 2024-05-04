@@ -54,7 +54,11 @@ onMounted(() => (isServer.value = false));
 useHead({
   noscript: [
     getStyleDescription(
-      `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
+      [
+        `#nuxt-booster-layer button:not(.nuxt-booster-button-init-nojs) { display: none !important; } .nuxt-booster-button-nojs, .nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
+        // This is a temporary fix for the button display issue.
+        `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`
+      ].join(' '),
       true,
       'booster-layer'
     )
