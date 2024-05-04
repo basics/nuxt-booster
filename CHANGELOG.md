@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [3.0.14](https://github.com/basics/nuxt-booster/compare/v3.0.13...v3.0.14) (2024-05-04)
+
+
+### Bug Fixes
+
+* **booster-layer:** added deprecation warning ([01c5653](https://github.com/basics/nuxt-booster/commit/01c5653caa25f6c1abc72cfb2d19096ea3a02f32))
+* **booster-layer:** added missing ssr styles for ids ([a7730a8](https://github.com/basics/nuxt-booster/commit/a7730a81b729a290290f695d746e0cee21066ca8))
+* **booster-layer:** replace button id with class (seo) ([be94b18](https://github.com/basics/nuxt-booster/commit/be94b1800e2b31f3b0f7e2afe23df5cc7fa9208c))
+
 ## [3.0.13](https://github.com/basics/nuxt-booster/compare/v3.0.12...v3.0.13) (2024-05-02)
 
 
