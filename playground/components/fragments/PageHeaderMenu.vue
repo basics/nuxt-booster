@@ -1,14 +1,18 @@
 <template>
   <div class="menu">
     <input
-      id="menu-control"
+      id="menuControl"
       type="checkbox"
-      name="menu-control"
+      name="menuControl"
       :checked="modelValue"
       @input="onInput"
     />
     <div class="content" aria-label="Menu" :inert="inert">
-      <label for="menu-control" />
+      <label
+        id="menuButton"
+        for="menuControl"
+        :aria-label="`${modelValue ? 'Open' : 'Close'} Menu`"
+      />
       <div>
         <div>
           <nav>
@@ -26,7 +30,7 @@
         </div>
       </div>
     </div>
-    <label for="menu-control" class="toggle">
+    <label for="menuControl" class="toggle" aria-labelledby="menuButton">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
         <g id="open">
           <g>
