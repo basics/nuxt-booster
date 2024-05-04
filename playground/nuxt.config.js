@@ -14,7 +14,7 @@ function getBuilder() {
 
 export default defineNuxtConfig(async () => {
   const { repository } = await readPackage();
-
+  console.log(repository);
   return {
     dev: isDev,
 
@@ -24,7 +24,7 @@ export default defineNuxtConfig(async () => {
 
     runtimeConfig: {
       public: {
-        githubRepoUrl: repository.url,
+        githubRepoUrl: repository.url.replace(/^git\+(.*)\.git$/, '$1'),
         disableInfoLayer: false
       }
     },
@@ -36,6 +36,7 @@ export default defineNuxtConfig(async () => {
         name: 'page',
         mode: 'out-in'
       },
+
       head: {
         htmlAttrs: {
           lang: 'en'
