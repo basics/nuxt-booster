@@ -2,7 +2,7 @@
   <div v-if="isServer" class="nuxt-booster-weak-hardware-overlay">
     <slot>
       Area is disabled for performance reasons.<br />
-      <button id="nuxt-booster-button-init-app">Click for activation</button>
+      <button class="nuxt-booster-button-init-app">Click for activation</button>
     </slot>
   </div>
 </template>

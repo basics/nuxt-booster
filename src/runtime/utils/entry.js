@@ -5,17 +5,17 @@ export const triggerRunCallback = sufficient =>
     new CustomEvent('nuxt-booster:run', { detail: { sufficient } })
   );
 
-export function observeBoosterButton(id, callback) {
-  Array.from(document.querySelectorAll('#' + id)).forEach(el => {
+export const observeBoosterButton = (selector, callback) => {
+  Array.from(document.querySelectorAll(selector)).forEach(el => {
     el.addEventListener('click', callback, {
       capture: true,
       once: true,
       passive: true
     });
   });
-}
+};
 
-export function updateBoosterLayerMessage(layerEl, id) {
+export const updateBoosterLayerMessage = (layerEl, id) => {
   const el = window.document.getElementById(id);
   if (!el) {
     throw new Error("Can't update booster-layer, message " + id + ' missing.');
@@ -23,9 +23,9 @@ export function updateBoosterLayerMessage(layerEl, id) {
     el.style.display = 'block';
     layerEl.className += ' nuxt-booster-layer-visible';
   }
-}
+};
 
-export function setupBoosterLayer(layerEl, supportedBrowser) {
+export const setupBoosterLayer = (layerEl, supportedBrowser) => {
   if (!supportedBrowser) {
     updateBoosterLayerMessage('nuxt-booster-message-unsupported-browser');
   }
@@ -35,9 +35,9 @@ export function setupBoosterLayer(layerEl, supportedBrowser) {
       'nuxt-booster-message-reduced-bandwidth'
     );
   }
-}
+};
 
-export function initReducedView() {
+export const initReducedView = () => {
   document.documentElement.classList.add('nuxt-booster-reduced-view');
 
   // activate fonts
@@ -54,9 +54,9 @@ export function initReducedView() {
     el.parentNode.replaceChild(tmp.children[0], el);
     tmp.remove();
   });
-}
+};
 
-export async function hasBatteryPerformanceIssue(videoBlob) {
+export const hasBatteryPerformanceIssue = async videoBlob => {
   try {
     if (await isBatteryLow()) {
       throw new Error('Battery is low.');
@@ -67,7 +67,7 @@ export async function hasBatteryPerformanceIssue(videoBlob) {
     }
     await canVideoPlay(videoBlob);
   }
-}
+};
 
 /**
  * Checks if battery still has enough energy.
@@ -77,11 +77,11 @@ export async function hasBatteryPerformanceIssue(videoBlob) {
  * @see https://blog.google/products/chrome/new-chrome-features-to-save-battery-and-make-browsing-smoother/
  * @see https://developer.chrome.com/blog/memory-and-energy-saver-mode/
  **/
-async function isBatteryLow() {
+const isBatteryLow = async () => {
   const MIN_BATTERY_LEVEL = 0.2;
   const battery = await window.navigator.getBattery();
   return !battery.charging && battery.level <= MIN_BATTERY_LEVEL;
-}
+};
 
 /**
  * Checking whether a video can be played.
@@ -89,10 +89,27 @@ async function isBatteryLow() {
  *
  * In this case no video will be played automatically and play throws an error.
  */
-export function canVideoPlay(blob) {
+export const canVideoPlay = blob => {
   const video = document.createElement('video');
   video.muted = true;
   video.playsinline = true;
   video.src = URL.createObjectURL(blob);
   return video.play();
-}
+};
+
+export const deprecationWarningButtonSelector = initApp => {
+  if (
+    document.querySelector(
+      '#nuxt-booster-button-init-nojs, #nuxt-booster-button-init-app, #nuxt-booster-button-init-reduced-view'
+    )
+  ) {
+    console.warn(
+      'The `#nuxt-booster-button-init-nojs`, `#nuxt-booster-button-init-reduced-view` and `#nuxt-booster-button-init-app` ids are deprecated. Please use the following classes instead: `.nuxt-booster-button-init-nojs`, `.nuxt-booster-button-init-reduced-view` and `.nuxt-booster-button-init-app`.'
+    );
+    observeBoosterButton(
+      '#nuxt-booster-button-init-reduced-view',
+      initReducedView
+    );
+    observeBoosterButton('#nuxt-booster-button-init-app', () => initApp(true));
+  }
+};

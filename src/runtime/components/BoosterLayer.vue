@@ -22,19 +22,19 @@
           </ul>
 
           <!-- Button to hide the layer with no javascript -->
-          <button id="nuxt-booster-button-init-nojs">
+          <button class="nuxt-booster-button-init-nojs">
             <label for="nuxt-booster-layer-close"> Apply without js </label>
           </button>
 
           <!-- Button for use without javascript and with fonts -->
-          <button id="nuxt-booster-button-init-reduced-view">
+          <button class="nuxt-booster-button-init-reduced-view">
             <label for="nuxt-booster-layer-close">
               Apply without scripts
             </label>
           </button>
 
           <!-- Button for activate javascript by bad connection or browser support -->
-          <button id="nuxt-booster-button-init-app">
+          <button class="nuxt-booster-button-init-app">
             Apply with all Features
           </button>
         </div>
@@ -54,7 +54,11 @@ onMounted(() => (isServer.value = false));
 useHead({
   noscript: [
     getStyleDescription(
-      `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
+      [
+        `#nuxt-booster-layer button:not(.nuxt-booster-button-init-nojs) { display: none !important; } .nuxt-booster-button-nojs, .nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
+        // This is a temporary fix for the button display issue.
+        `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`
+      ].join(' '),
       true,
       'booster-layer'
     )
@@ -78,7 +82,8 @@ useHead({
   display: none;
 }
 
-#nuxt-booster-button-init-nojs {
+#nuxt-booster-button-init-nojs, /* id selector will removed in future */
+.nuxt-booster-button-init-nojs {
   display: none;
 }
 

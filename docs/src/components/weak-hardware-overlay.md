@@ -7,15 +7,14 @@ title: WeakHardwareOverlay
 The `WeakHardwareOverlay` is used in components that are affected by the BoosterLayer event `Weak Hardware`. (*Example: Component requires the execution of `mounted` for functionality.*)
 
 ::: info
-The **performance issue event** occurs when initialization determines that the client is overloaded with execution and the user has confirmed the `#nuxt-booster-button-init-reduced-view` button in the BoosterLayer.
+The **performance issue event** occurs when initialization determines that the client is overloaded with execution and the user has confirmed the `.nuxt-booster-button-init-reduced-view` button in the BoosterLayer.
 
-- [Learn more about BoosterLayer interactions)](/components/booster-layer#buttons)
-
+[Learn more about BoosterLayer interactions)](/components/booster-layer#buttons)  
 :::
 
 Basically, the overlay is used to make content visible when the `Weak Hardware` has occurred, if this does not occur, the overlay is not visible.
 
-It is recommended to include an interaction element in the overlay that allows the user to switch to the normal state. For this the interaction element must get the ID `nuxt-booster-button-init-app` and reacts on `click` with the initialization of the app.
+It is recommended to include an interaction element in the overlay that allows the user to switch to the normal state. For this the interaction element must get the Style Class `.nuxt-booster-button-init-app` and reacts on `click` with the initialization of the app.
 
 ## Example
 
@@ -29,7 +28,7 @@ Example of defining a custom `WeakHardwareOverlay` component and placing it in a
 <template>
   <booster-weak-hardware-overlay>
     To improve your experience, extensive features have been disabled.<br>
-    <button id="nuxt-booster-button-init-app">
+    <button class="nuxt-booster-button-init-app">
      Click here to enable them.
     </button>
   </booster-weak-hardware-overlay>
