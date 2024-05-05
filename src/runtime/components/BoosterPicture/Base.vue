@@ -98,9 +98,11 @@ export default {
         };
       }
     });
-
-    metaSources.value = await sourceList.getMeta($img, $booster);
-
+    try {
+      metaSources.value = await sourceList.getMeta($img, $booster);
+    } catch (error) {
+      console.error(error);
+    }
     return {
       isCritical,
       resolvedFormats: props.formats || $booster.targetFormats,
