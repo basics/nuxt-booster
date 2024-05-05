@@ -70,7 +70,7 @@ function client () {
 
       if (!!layerEl) {
         // User must interact via the layer.
-        updateSpeedkitLayerMessage(layerEl, 'nuxt-speedkit-message-low-battery');
+        updateBoosterLayerMessage(layerEl, 'nuxt-booster-message-low-battery');
         return null;
       }
     }

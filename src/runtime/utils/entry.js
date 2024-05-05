@@ -27,7 +27,10 @@ export const updateBoosterLayerMessage = (layerEl, id) => {
 
 export const setupBoosterLayer = (layerEl, supportedBrowser) => {
   if (!supportedBrowser) {
-    updateBoosterLayerMessage('nuxt-booster-message-unsupported-browser');
+    updateBoosterLayerMessage(
+      layerEl,
+      'nuxt-booster-message-unsupported-browser'
+    );
   }
   if (!hasSufficientDownloadPerformance()) {
     updateBoosterLayerMessage(

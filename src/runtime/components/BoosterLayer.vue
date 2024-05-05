@@ -103,7 +103,7 @@ useHead({
   display: none;
 }
 
-#nuxt-speedkit-message-low-battery {
+#nuxt-booster-message-low-battery {
   display: none;
 }
 
