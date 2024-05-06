@@ -104,7 +104,11 @@ export default {
         }
       });
 
-      meta.value = await source.getMeta(config.src, $booster);
+      try {
+        meta.value = await source.getMeta(config.src, $booster);
+      } catch (error) {
+        console.error(error);
+      }
 
       return {
         isCritical,
