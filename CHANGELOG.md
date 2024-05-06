@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [3.0.15](https://github.com/basics/nuxt-booster/compare/v3.0.14...v3.0.15) (2024-05-06)
+
+
+### Bug Fixes
+
+* **booster-image:** added try catch ([7b6359d](https://github.com/basics/nuxt-booster/commit/7b6359d892ab5d73e44bf7d7ef248f5310e140c4))
+* **booster-layer:** fix invalid message and function id/name ([9ffcd07](https://github.com/basics/nuxt-booster/commit/9ffcd074b43c2beab1c0b7c6927d87f666c062be))
+* **booster-picture:** added try catch ([41cffee](https://github.com/basics/nuxt-booster/commit/41cffee95c2dff0ca35c50709726afa15c8cc5b7))
+
 ## [3.0.14](https://github.com/basics/nuxt-booster/compare/v3.0.13...v3.0.14) (2024-05-04)
 
 
