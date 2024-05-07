@@ -97,9 +97,6 @@ Please follow the [📖 &nbsp;&nbsp;**Documentation**](https://basics.github.io/
 or look here
 
 - [Preview](https://basics.github.io/nuxt-booster/playground)
-- [Report Client](https://basics.github.io/nuxt-booster/playground/reports/webpack/client.html)
-- [Report Modern](https://basics.github.io/nuxt-booster/playground/reports/webpack/modern.html)
-- [Report Server](https://basics.github.io/nuxt-booster/playground/reports/webpack/server.html)
 
 ## Consulting & Support
 
