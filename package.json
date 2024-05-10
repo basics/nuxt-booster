@@ -70,7 +70,7 @@
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@fullhuman/postcss-purgecss": "6.0.0",
-    "@nuxt/eslint": "0.3.10",
+    "@nuxt/eslint": "0.3.12",
     "@nuxt/module-builder": "0.6.0",
     "@nuxt/webpack-builder": "3.11.2",
     "@types/node": "20.12.11",
