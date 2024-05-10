@@ -1,5 +1,6 @@
 export default options => {
-  let code = `import vFont from '#booster/directives/vFont';
+  let code = `import { defineNuxtPlugin } from '#imports';
+import vFont from '#booster/directives/vFont';
 import { isSupportedBrowser } from '#booster/utils/browser';
 import FontList from '#booster/classes/FontList';
 import hydrate from '#booster/hydrate';
