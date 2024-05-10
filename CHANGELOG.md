@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.16-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.15...v3.0.16-next.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* **global-import:** fix missing import ([a10b95d](https://github.com/basics/nuxt-booster/commit/a10b95d6b38f60ec2ffba7d4845f003cc826812a))
+
 ## [3.0.15](https://github.com/basics/nuxt-booster/compare/v3.0.14...v3.0.15) (2024-05-06)
 
 
