@@ -47,7 +47,7 @@ export default (nuxt, options = { manifest: [] }) =>
   };
 
 function getUrlValues(css) {
-  return css.match(/url\(([^)]+)\)/g);
+  return css.match(/url\(([^)]+)\)/g) || [];
 }
 
 function prepareUrls(urls, relativeDir) {
