@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.16-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.16-next.1...v3.0.16-next.2) (2024-05-13)
+
+
+### Bug Fixes
+
+* **vite:** enabled cssCodeSplit ([6941914](https://github.com/basics/nuxt-booster/commit/694191473bebf741098325c59c084a916f4edf7a))
+
 ## [3.0.16-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.15...v3.0.16-next.1) (2024-05-10)
 
 
