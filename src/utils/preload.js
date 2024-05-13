@@ -6,7 +6,7 @@ export function optimizePreloads(moduleOptions, nuxt) {
 
   if (isViteBuild(nuxt)) {
     nuxt.options.vite.build.manifest = false;
-    nuxt.options.vite.build.cssCodeSplit = false;
+    nuxt.options.vite.build.cssCodeSplit = true;
   } else if (isWebpackBuild(nuxt)) {
     nuxt.options.webpack.extractCSS = true;
     logger.info(`Use workaround for \`SSR Styles\` in \`Webpack\`.`);
