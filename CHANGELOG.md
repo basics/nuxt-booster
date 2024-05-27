@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.16-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.16-next.2...v3.0.16-next.3) (2024-05-27)
+
+
+### Bug Fixes
+
+* **components:** fix empty head ([9888d1b](https://github.com/basics/nuxt-booster/commit/9888d1b197146a93ecda2f4940430b4a5f431ee0))
+
 ## [3.0.16-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.16-next.1...v3.0.16-next.2) (2024-05-13)
 
 
