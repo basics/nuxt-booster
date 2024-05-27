@@ -97,6 +97,7 @@ export default {
           style: [getPictureStyleDescription(metaSources.value, classNames)]
         };
       }
+      return {};
     });
     try {
       metaSources.value = await sourceList.getMeta($img, $booster);
