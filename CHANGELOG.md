@@ -1,5 +1,26 @@
 # Project Changelog
 
+## [3.0.16-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.16-next.2...v3.0.16-next.3) (2024-05-27)
+
+
+### Bug Fixes
+
+* **components:** fix empty head ([9888d1b](https://github.com/basics/nuxt-booster/commit/9888d1b197146a93ecda2f4940430b4a5f431ee0))
+
+## [3.0.16-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.16-next.1...v3.0.16-next.2) (2024-05-13)
+
+
+### Bug Fixes
+
+* **vite:** enabled cssCodeSplit ([6941914](https://github.com/basics/nuxt-booster/commit/694191473bebf741098325c59c084a916f4edf7a))
+
+## [3.0.16-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.15...v3.0.16-next.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* **global-import:** fix missing import ([a10b95d](https://github.com/basics/nuxt-booster/commit/a10b95d6b38f60ec2ffba7d4845f003cc826812a))
+
 ## [3.0.15](https://github.com/basics/nuxt-booster/compare/v3.0.14...v3.0.15) (2024-05-06)
 
 

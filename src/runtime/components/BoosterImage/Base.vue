@@ -102,6 +102,7 @@ export default {
             ].filter(Boolean)
           };
         }
+        return {};
       });
 
       try {
