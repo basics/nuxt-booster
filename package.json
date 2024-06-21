@@ -63,7 +63,7 @@
     "htmlparser2": "9.1.0",
     "image-meta": "0.2.0",
     "pathe": "1.1.2",
-    "sort-css-media-queries": "2.2.0",
+    "sort-css-media-queries": "2.3.0",
     "vue3-lazy-hydration": "1.2.1"
   },
   "devDependencies": {
@@ -73,7 +73,7 @@
     "@nuxt/eslint": "0.3.13",
     "@nuxt/module-builder": "0.8.0",
     "@nuxt/webpack-builder": "3.12.2",
-    "@types/node": "20.14.6",
+    "@types/node": "20.14.7",
     "commitlint": "19.3.0",
     "eslint": "9.5.0",
     "eslint-config-prettier": "9.1.0",
@@ -97,7 +97,7 @@
     "read-pkg": "9.0.1",
     "serve-static": "1.15.0",
     "stylelint-config-recess-order": "5.0.1",
-    "stylelint-config-standard": "36.0.0",
+    "stylelint-config-standard": "36.0.1",
     "vite-svg-loader": "5.1.0",
     "vitepress": "1.2.3",
     "vitest": "1.6.0",
