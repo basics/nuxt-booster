@@ -1,6 +1,6 @@
 {
   "name": "nuxt-booster",
-  "version": "3.0.16",
+  "version": "3.0.17-next.1",
   "description": "Nuxt Booster takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "author": "Stephan Gerbeth",

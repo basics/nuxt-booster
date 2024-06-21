@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.17-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.16...v3.0.17-next.1) (2024-06-21)
+
+
+### Bug Fixes
+
+* **blob:** added missing dep ([31a975a](https://github.com/basics/nuxt-booster/commit/31a975ad9a4de73257cb53c05d7e550fc87e4201))
+
 ## [3.0.16](https://github.com/basics/nuxt-booster/compare/v3.0.15...v3.0.16) (2024-05-28)
 
 
