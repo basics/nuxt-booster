@@ -21,9 +21,7 @@
   "type": "module",
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
+    "prepare": "husky",
     "build": "nuxt build playground",
     "dev": "nuxt dev playground",
     "generate": "nuxt generate playground",
