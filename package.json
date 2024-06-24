@@ -86,7 +86,6 @@
     "lint-staged": "15.2.7",
     "markdown-it-inline-comments": "1.0.1",
     "nuxt": "3.11.2",
-    "pinst": "3.0.0",
     "playwright": "1.44.1",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.7.0",
