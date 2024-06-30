@@ -44,8 +44,14 @@ Important: For using `BoosterVimeo` do not disable `@nuxt/image` via `disableNux
 import BoosterVimeo from '#booster/components/BoosterVimeo';
 
 defineProps({
-  url: { type: String, default: '<vimeo-url>' },
-  title: { type: String, default: 'Vimeo Title' },
+  url: { 
+    type: String, 
+    default: '<vimeo-url>' 
+  },
+  title: { 
+    type: String, 
+    default: 'Vimeo Title' 
+  },
   options: {
     type: String,
     default() {
@@ -62,6 +68,10 @@ defineProps({
         md: '50vw'
       };
     }
+  },
+  posterSrc: {
+    type: String,
+    default: '<poster-override-src>'
   }
 });
 
@@ -79,7 +89,8 @@ const onPlaying = () => console.log('Vimeo Player playing!');
   autoplay: false,
   mute: false,
   posterSizes: { … },
-  options: { … }
+  options: { … },
+  posterSrc: '<poster-override-src>'
 }
 ````
 
@@ -132,6 +143,11 @@ For `autoplay` and `mute` the component properties are used.
 Option `playsinline` is always set, `mute` is set automatically for touch devices.  
 This is important for autoplay on mobile devices.
 :::
+
+### `posterSrc`
+
+- Type: `String`
+  - default: `undefined`
 
 ## Slots
 
