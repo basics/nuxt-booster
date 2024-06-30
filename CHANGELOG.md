@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.17-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.1...v3.0.17-next.2) (2024-06-30)
+
+
+### Bug Fixes
+
+* **components:** added `posterSrc` for override ([baddaa1](https://github.com/basics/nuxt-booster/commit/baddaa1a97f08273f3e85afb8babe69d79e16cbb))
+
 ## [3.0.17-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.16...v3.0.17-next.1) (2024-06-21)
 
 
