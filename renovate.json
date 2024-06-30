@@ -6,9 +6,9 @@
   "packageRules": [
     {
       "matchPackagePatterns": [
-        "@nuxt/image"
+        "nuxt"
       ],
-      "groupName": "@nuxt/image"
+      "groupName": "nuxt"
     },
     {
       "packageNames": [
