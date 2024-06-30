@@ -65,6 +65,10 @@ defineProps({
         md: '50vw'
       };
     }
+  },
+  posterSrc: {
+    type: String,
+    default: '<poster-override-src>'
   }
 });
 
@@ -82,7 +86,8 @@ const onPlaying = () => console.log('Youtube Player playing!');
   autoplay: false,
   mute: false,
   posterSizes: { … },
-  options: { … }
+  options: { … },
+  posterSrc: '<poster-override-src>'
 }
 ````
 
@@ -144,6 +149,13 @@ This is important for autoplay on mobile devices.
   - default: `'https://www.youtube-nocookie.com'`
 
 Sets the host for the player.
+
+### `posterSrc`
+
+- Type: `String`
+  - default: `undefined`
+
+Overrides the poster source.
 
 ::: info
 It is recommended to use the default (<https://www.youtube-nocookie.com>).
