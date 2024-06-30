@@ -88,6 +88,11 @@ export default {
     posterDensities: {
       type: [String, Number],
       default: undefined
+    },
+
+    posterSrc: {
+      type: String,
+      default: undefined
     }
   },
 
@@ -118,18 +123,33 @@ export default {
 
   computed: {
     pictureDataset() {
-      return {
-        formats: this.$booster.targetFormats,
-        title: this.title,
-        sources: [
-          {
-            src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
-            sizes: this.posterSizes,
-            media: 'all',
-            densities: this.posterDensities
-          }
-        ]
-      };
+      if (this.posterSrc) {
+        return {
+          formats: this.$booster.targetFormats,
+          title: this.title,
+          sources: [
+            {
+              src: this.posterSrc,
+              sizes: this.posterSizes,
+              media: 'all',
+              densities: this.posterDensities
+            }
+          ]
+        };
+      } else {
+        return {
+          formats: this.$booster.targetFormats,
+          title: this.title,
+          sources: [
+            {
+              src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
+              sizes: this.posterSizes,
+              media: 'all',
+              densities: this.posterDensities
+            }
+          ]
+        };
+      }
     }
   },
 

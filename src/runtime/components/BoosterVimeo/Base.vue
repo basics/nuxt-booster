@@ -88,6 +88,16 @@ export default {
     posterDensities: {
       type: [String, Number],
       default: undefined
+    },
+
+    posterOverride: {
+      type: Object,
+      default: undefined
+    },
+
+    posterSrc: {
+      type: String,
+      default: undefined
     }
   },
   emits: ['playing', 'ready'],
@@ -175,24 +185,39 @@ export default {
       if (!this.videoData) {
         return null;
       }
-      return {
-        formats: this.$booster.targetFormats,
-        title: this.playerTitle,
-        sources: [
-          {
-            format: 'jpg',
-            src:
-              this.videoData &&
-              this.videoData.thumbnail_url?.replace(
-                'https://i.vimeocdn.com',
-                'vimeo'
-              ),
-            sizes: this.posterSizes,
-            media: 'all',
-            densities: this.posterDensities
-          }
-        ]
-      };
+      if (this.posterSrc) {
+        return {
+          formats: this.$booster.targetFormats,
+          title: this.title,
+          sources: [
+            {
+              src: this.posterSrc,
+              sizes: this.posterSizes,
+              media: 'all',
+              densities: this.posterDensities
+            }
+          ]
+        };
+      } else {
+        return {
+          formats: this.$booster.targetFormats,
+          title: this.playerTitle,
+          sources: [
+            {
+              format: 'jpg',
+              src:
+                this.videoData &&
+                this.videoData.thumbnail_url?.replace(
+                  'https://i.vimeocdn.com',
+                  'vimeo'
+                ),
+              sizes: this.posterSizes,
+              media: 'all',
+              densities: this.posterDensities
+            }
+          ]
+        };
+      }
     }
   },
 
