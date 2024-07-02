@@ -5,10 +5,24 @@ import { load } from 'cheerio';
 import { render } from 'dom-serializer';
 import { isWebpackBuild, logger } from '../../utils';
 
-export default (nuxt, options = { manifest: [] }) =>
+export default (
+    nuxt,
+    options = {
+      manifest: [],
+      cleanPreloads: true,
+      cleanPrefetches: true,
+      inlineStyles: true
+    }
+  ) =>
   nitro => {
     nitro.hooks.hook('prerender:generate', async route => {
-      const { manifest } = options;
+      const { manifest, cleanPreloads, cleanPrefetches, inlineStyles } = {
+        manifest: [],
+        cleanPreloads: true,
+        cleanPrefetches: true,
+        inlineStyles: true,
+        ...options
+      };
 
       if (!route.fileName?.endsWith('.html') || !route.contents) {
         return;
@@ -32,15 +46,21 @@ export default (nuxt, options = { manifest: [] }) =>
         });
       }
 
-      $('[rel="modulepreload"][as="script"]').remove();
-      $('[rel="prefetch"][as="script"]').remove();
+      if (cleanPreloads) {
+        $('[rel="modulepreload"][as="script"]').remove();
+        $('[rel="preload"][as="fetch"]').remove();
+        $('[rel="preload"][as="style"]').remove();
+      }
 
-      $('[rel="preload"][as="fetch"]').remove();
-      $('[rel="preload"][as="style"]').remove();
-      $('[rel="prefetch"][as="style"]').remove();
+      if (cleanPrefetches) {
+        $('[rel="prefetch"][as="script"]').remove();
+        $('[rel="prefetch"][as="style"]').remove();
+      }
 
-      // embed css files
-      await prepareLinkStylesheets($, { distNuxt, route });
+      if (inlineStyles) {
+        // embed css files
+        await prepareLinkStylesheets($, { distNuxt, route });
+      }
 
       route.contents = render(document);
     });
