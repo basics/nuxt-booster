@@ -9,7 +9,9 @@ export function optimizeSSR({ optimizeSSR }, nuxt) {
     ...(typeof optimizeSSR === 'boolean' ? {} : optimizeSSR)
   };
 
-  nuxt.options.experimental.inlineSSRStyles = false;
+  if (options.inlineStyles) {
+    nuxt.options.experimental.inlineSSRStyles = false;
+  }
 
   if (isViteBuild(nuxt)) {
     nuxt.options.vite.build.manifest = false;
