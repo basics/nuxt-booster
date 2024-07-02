@@ -91,7 +91,6 @@ const imageTextA = {
 };
 
 const videoYoutube = {
-  posterSrc: '/img/image-text-b.jpg',
   title: 'Youtube',
   url: 'https://www.youtube.com/watch?v=cLKvbhfVBUU',
   text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
@@ -124,8 +123,7 @@ const imageTextB = {
 
 const videoVimeoA = {
   url: 'https://vimeo.com/288344114',
-  text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.',
-  posterSrc: '/img/image-text-b.jpg'
+  text: 'Nunc odio nisl dapibus consequat recusandae doloremque nisi natus repudiandae do accusantium corrupti. Harum quisquam, maxime, perspiciatis lobortis earum iure.'
 };
 
 const textB = {
