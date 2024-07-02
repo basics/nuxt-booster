@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.0.17-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.2...v3.0.17-next.3) (2024-07-02)
+
+
+### Bug Fixes
+
+* **module:** improve optimization options ([e5fc73a](https://github.com/basics/nuxt-booster/commit/e5fc73aa26b9ab9db0400969cbc6eea00375fb86))
+* **module:** update optimization ([5122215](https://github.com/basics/nuxt-booster/commit/5122215637c4737e8bf8768f97d5d63e5c12f18b))
+
 ## [3.0.17-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.1...v3.0.17-next.2) (2024-06-30)
 
 
