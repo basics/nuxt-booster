@@ -19,7 +19,7 @@ import {
 } from './utils';
 import { deprecationsNotification, getDefaultOptions } from './utils/options';
 import { getFontConfigTemplate } from './utils/template';
-import { optimizePreloads } from './utils/preload';
+import { optimizeSSR } from './utils/optimization';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
 import { getTemplate as getBlobFileTemplate } from './utils/blob';
@@ -72,11 +72,11 @@ export default defineNuxtModule({
       );
     }
 
-    if (moduleOptions.optimizePreloads) {
-      optimizePreloads(moduleOptions, nuxt);
+    if (moduleOptions.optimizeSSR) {
+      optimizeSSR(moduleOptions, nuxt);
     } else {
       logger.warn(
-        'Preload optimization is disabled by module option `optimizePreloads`.'
+        'Preload optimization is disabled by module option `optimizeSSR`.'
       );
     }
 

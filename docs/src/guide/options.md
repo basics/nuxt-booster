@@ -16,19 +16,37 @@ The default value is the `crossorigin` value from the [Render Configuration](htt
 
 [MDN - HTML.Attributes.crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
 
-## `optimizePreloads`
+## `optimizeSSR`
 
-- Type: `Boolean`
+- Type: `Boolean`, `Object`
   - Default: `true`
 
-Activating this option optimizes the initial script preloads and removes unnecessary loads.
+Activating this option optimizes the initial load.
+
+- remove unnecessary preloads
+- remove unnecessary prefetches
+- inline critical CSS
 
 The following NuxtJS settings are made or overwritten in the `nuxt.config`:
 
-| Property                           | Value   |
-| ---------------------------------- | ------- |
-| `nuxt.options.vite.build.manifest` | `false` |
-| `nuxt.options.noScripts`           | `true`  |
+| Property                                    | Value  |
+| ------------------------------------------- | ------ |
+| `nuxt.options.experimental.inlineSSRStyles` | `false` |
+| `nuxt.options.vite.build.manifest`          | `false` |
+| `nuxt.options.vite.build.cssCodeSplit`      | `true` |
+| `nuxt.options.webpack.extractCSS`           | `true` |
+
+You can also pass an object to customize the optimization.
+
+````js
+{
+  optimizeSSR: {
+    cleanPreloads: true,
+    cleanPrefetches: true,
+    inlineStyles: true
+  }
+}
+````
 
 ## `detection`
 
@@ -44,10 +62,10 @@ These options can be used to define the initial checks to display the [`BoosterL
 }
 ````
 
- | Key              | Type      | Required | Description                                                                                                                                                                                        | Default |
- | ---------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | Key              | Type      | Required | Description                                                                                                                                                                                            | Default |
+ | ---------------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
  | `performance`    | `Boolean` | yes      | Checking whether the [minimum characteristic values](/guide/options#performancemetrics) have been reached. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed. | `true`  |
- | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed.                                            | `true`  |
+ | `browserSupport` | `Boolean` | yes      | Check if the current browser on client side is supported. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed.                                                  | `true`  |
  | `battery`        | `Boolean` | yes      | Check if the current user save power in browser. If the test is negative, the [`BoosterLayer`](/components/booster-layer) will be displayed.                                                           | `true`  |
 
 ::: info
@@ -251,9 +269,9 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
 }
 ````
 
- | Key         | Type     | Required | Description                                                                                                                                                                       | Default |
- | ----------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
- | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`BoosterHydrate`](/guide/usage#import-components).                         | `0%`    |
+ | Key         | Type     | Required | Description                                                                                                                                                                     | Default |
+ | ----------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+ | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`BoosterHydrate`](/guide/usage#import-components).                  | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `BoosterPicture` & `BoosterImage`). | `0%`    |
 
 ## `disableNuxtFontaine`
