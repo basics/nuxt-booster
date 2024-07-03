@@ -61,7 +61,7 @@
     "dom-serializer": "2.0.0",
     "dynamic-class-list": "2.0.2",
     "htmlparser2": "9.1.0",
-    "image-meta": "0.2.0",
+    "image-meta": "0.2.1",
     "pathe": "1.1.2",
     "sort-css-media-queries": "2.3.0",
     "vue3-lazy-hydration": "1.2.1"
@@ -88,7 +88,7 @@
     "markdown-it-inline-comments": "1.0.1",
     "nuxt": "3.11.2",
     "pinst": "3.0.0",
-    "playwright": "1.45.0",
+    "playwright": "1.45.1",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.7.0",
     "postcss-nesting": "12.1.5",
