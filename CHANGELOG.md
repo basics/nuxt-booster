@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.0.17-next.4](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.3...v3.0.17-next.4) (2024-07-21)
+
+
+### Bug Fixes
+
+* **optimization:** added useBoosterCritical youtube/vimeo ([a159706](https://github.com/basics/nuxt-booster/commit/a159706f0335ae4d4b37b626287f112add401ab0))
+
 ## [3.0.17-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.2...v3.0.17-next.3) (2024-07-02)
 
 
