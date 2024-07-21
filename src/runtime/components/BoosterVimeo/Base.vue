@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { useHead, markRaw, computed, ref } from '#imports';
+import { useHead, markRaw, computed, ref, useBoosterCritical } from '#imports';
 
 import DefaultButton from '../Button';
 import { load, ready } from './utils/loader';
@@ -103,6 +103,8 @@ export default {
   emits: ['playing', 'ready'],
 
   async setup(props) {
+    useBoosterCritical();
+
     const script = ref([]);
 
     if (!(import.meta.server || process.env.prerender)) {

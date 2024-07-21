@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { useHead, ref, computed, markRaw } from '#imports';
+import { useHead, ref, computed, markRaw, useBoosterCritical } from '#imports';
 
 import DefaultButton from '../Button';
 import { load } from './utils/loader';
@@ -99,6 +99,8 @@ export default {
   emits: ['ready', 'playing'],
 
   setup() {
+    useBoosterCritical();
+
     const script = ref([]);
     useHead({
       script: computed(() => {
