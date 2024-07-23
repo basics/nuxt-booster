@@ -23,15 +23,30 @@ export default defineNuxtConfig(async () => {
 
     nitro: {
       prerender: {
-        crawlLinks: false
+        crawlLinks: false,
+        routes: [
+          '/booster-layer',
+          '/booster-loader',
+          '/iframe',
+          '/image',
+          '/picture',
+          '/useBoosterHead',
+          '/v-font',
+          '/v-font-media',
+          '/v-font-scroll',
+          '/vimeo',
+          '/weak-hardware-overlay',
+          '/youtube',
+          '/useBoosterHead'
+        ]
       }
     },
-
-    ssr: true,
 
     dir: {
       pages: 'pages/tests'
     },
+
+    ssr: true,
 
     booster: {
       ...defaultConfig.booster,
