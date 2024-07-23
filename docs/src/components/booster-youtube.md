@@ -61,9 +61,6 @@ defineProps({
     {
       src: undefined,
       media: 'all',
-      modifiers: {
-        negate: true
-      },
       sizes: {
         default: '100vw'
       }
