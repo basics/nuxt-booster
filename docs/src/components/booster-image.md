@@ -147,6 +147,23 @@ In the following example, one image with two different image sizes by breakpoint
 You can give separate modifiers to each source.
 This overwrites the global ones of the preset if available.
 
+**Example**
+
+````js
+[
+  { 
+    src: '/img/image.jpg', 
+    modifiers: { 
+        width: 200,
+        height: 200,
+        fit: 'cover',
+        negate: true,
+        grayscale: true 
+    } 
+  }
+]
+````
+
 Learn more about `modifiers`:
 
 - <https://image.nuxt.com/usage/nuxt-img#modifiers>
