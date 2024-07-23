@@ -13,7 +13,11 @@
         @load="onLoad"
       />
       <default-button aria-label="Play Video" @click="onInit">
-        <component :is="pictureComponent" class="poster" v-bind="poster" />
+        <component
+          :is="pictureComponent"
+          class="poster"
+          v-bind="pictureDataset"
+        />
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
       </default-button>
@@ -69,35 +73,19 @@ export default {
       }
     },
 
-    posterSizes: {
-      type: Object,
+    posterSources: {
+      type: Array,
       default() {
-        return {
-          default: '100vw',
-          xxs: '100vw',
-          xs: '100vw',
-          sm: '100vw',
-          md: '100vw',
-          lg: '100vw',
-          xl: '100vw',
-          xxl: '100vw'
-        };
+        return [
+          {
+            src: undefined,
+            media: 'all',
+            sizes: {
+              default: '100vw'
+            }
+          }
+        ];
       }
-    },
-
-    posterDensities: {
-      type: [String, Number],
-      default: undefined
-    },
-
-    posterOverride: {
-      type: Object,
-      default: undefined
-    },
-
-    posterSrc: {
-      type: String,
-      default: undefined
     }
   },
   emits: ['playing', 'ready'],
@@ -183,43 +171,20 @@ export default {
       return this.videoData ? BoosterPicture : 'picture';
     },
 
-    poster() {
-      if (!this.videoData) {
-        return null;
-      }
-      if (this.posterSrc) {
-        return {
-          formats: this.$booster.targetFormats,
-          title: this.title,
-          sources: [
-            {
-              src: this.posterSrc,
-              sizes: this.posterSizes,
-              media: 'all',
-              densities: this.posterDensities
-            }
-          ]
-        };
-      } else {
-        return {
-          formats: this.$booster.targetFormats,
-          title: this.playerTitle,
-          sources: [
-            {
-              format: 'jpg',
-              src:
-                this.videoData &&
-                this.videoData.thumbnail_url?.replace(
-                  'https://i.vimeocdn.com',
-                  'vimeo'
-                ),
-              sizes: this.posterSizes,
-              media: 'all',
-              densities: this.posterDensities
-            }
-          ]
-        };
-      }
+    pictureDataset() {
+      return {
+        formats: this.$booster.targetFormats,
+        title: this.title,
+        sources: this.posterSources.map(source => ({
+          ...source,
+          src:
+            source.src ||
+            this.videoData?.thumbnail_url?.replace(
+              'https://i.vimeocdn.com',
+              'vimeo'
+            )
+        }))
+      };
     }
   },
 

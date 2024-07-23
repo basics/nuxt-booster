@@ -16,7 +16,7 @@ The `BoosterVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](
 
 The `url` of the Vimeo video must be specified.  
 
-The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is sizes?)](/components/booster-image#source).
+The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sources with [`posterSources` (What is posterSources?)](/components/booster-picture#sources).
 
 [Learn more about `BoosterPicture`](/components/booster-picture)
 
@@ -60,19 +60,25 @@ defineProps({
       };
     }
   },
-  posterSizes: {
-    type: Object,
-    default() {
-      return {
+  posterSources: [
+    {
+      src: undefined,
+      media: 'all',
+      modifiers: {
+        negate: true
+      },
+      sizes: {
         default: '100vw',
-        md: '50vw'
-      };
+        xxs: '100vw',
+        xs: '100vw',
+        sm: '100vw',
+        md: '100vw',
+        lg: '100vw',
+        xl: '100vw',
+        xxl: '100vw'
+      }
     }
-  },
-  posterSrc: {
-    type: String,
-    default: '<poster-override-src>'
-  }
+  ]
 });
 
 const onPlaying = () => console.log('Vimeo Player playing!');
@@ -90,7 +96,7 @@ const onPlaying = () => console.log('Vimeo Player playing!');
   mute: false,
   posterSizes: { … },
   options: { … },
-  posterSrc: '<poster-override-src>'
+  posterSources: { … },
 }
 ````
 
@@ -120,10 +126,27 @@ When set starts video in autoplay. It is required that the component is integrat
 
 When set the player is muted.
 
-### `posterSizes`
+### `posterSources`
 
-- Type: `String`
-  - Default: `{ default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }`
+- Type: `Array`
+  - Default: `[
+          {
+            src: undefined,
+            media: 'all',
+            sizes: {
+              default: '100vw'
+            }
+          }
+        ]`
+
+Sets the image sources of the poster.
+
+::: info
+You can overwrite the poster `src` with your own.  
+The `src` property is optionally available for this purpose.
+:::
+
+[Learn more about `sources`](/components/booster-picture#sources)
 
 Sets the image sizes of the poster.
 
@@ -143,11 +166,6 @@ For `autoplay` and `mute` the component properties are used.
 Option `playsinline` is always set, `mute` is set automatically for touch devices.  
 This is important for autoplay on mobile devices.
 :::
-
-### `posterSrc`
-
-- Type: `String`
-  - default: `undefined`
 
 ## Slots
 
