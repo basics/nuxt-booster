@@ -13,10 +13,10 @@
         @load="onLoad"
       />
       <default-button aria-label="Play Video" @click="onInit">
-        <component
-          :is="pictureComponent"
+        <booster-picture
           class="poster"
           v-bind="pictureDataset"
+          :title="title"
         />
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
@@ -165,10 +165,6 @@ export default {
         autoplay: this.autoplay,
         muted: this.isTouchDevice || this.mute
       };
-    },
-
-    pictureComponent() {
-      return this.videoData ? BoosterPicture : 'picture';
     },
 
     pictureDataset() {
