@@ -112,7 +112,8 @@ export default {
           items: [
             { text: 'v2.0.x to v2.0.13', link: '/migration/v2-0-13' },
             { text: 'v2.0.13 to v2.2.0', link: '/migration/v2-2-0' },
-            { text: 'v2 to v3', link: '/migration/v3' }
+            { text: 'v2 to v3', link: '/migration/v3' },
+            { text: 'v3 to v3.1.0', link: '/migration/v3.1.0' }
           ]
         }
       ]

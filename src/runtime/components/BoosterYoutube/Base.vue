@@ -69,30 +69,19 @@ export default {
       }
     },
 
-    posterSizes: {
-      type: Object,
+    posterSources: {
+      type: Array,
       default() {
-        return {
-          default: '100vw',
-          xxs: '100vw',
-          xs: '100vw',
-          sm: '100vw',
-          md: '100vw',
-          lg: '100vw',
-          xl: '100vw',
-          xxl: '100vw'
-        };
+        return [
+          {
+            src: undefined,
+            media: 'all',
+            sizes: {
+              default: '100vw'
+            }
+          }
+        ];
       }
-    },
-
-    posterDensities: {
-      type: [String, Number],
-      default: undefined
-    },
-
-    posterSrc: {
-      type: String,
-      default: undefined
     }
   },
 
@@ -125,33 +114,14 @@ export default {
 
   computed: {
     pictureDataset() {
-      if (this.posterSrc) {
-        return {
-          formats: this.$booster.targetFormats,
-          title: this.title,
-          sources: [
-            {
-              src: this.posterSrc,
-              sizes: this.posterSizes,
-              media: 'all',
-              densities: this.posterDensities
-            }
-          ]
-        };
-      } else {
-        return {
-          formats: this.$booster.targetFormats,
-          title: this.title,
-          sources: [
-            {
-              src: `/youtube/vi/${this.videoId}/maxresdefault.jpg`,
-              sizes: this.posterSizes,
-              media: 'all',
-              densities: this.posterDensities
-            }
-          ]
-        };
-      }
+      return {
+        formats: this.$booster.targetFormats,
+        title: this.title,
+        sources: this.posterSources.map(source => ({
+          ...source,
+          src: source.src || `/youtube/vi/${this.videoId}/maxresdefault.jpg`
+        }))
+      };
     }
   },
 
