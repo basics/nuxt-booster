@@ -158,11 +158,11 @@ This overwrites the global ones of the preset if available.
 { 
   src: '/img/image.jpg', 
   modifiers: { 
-      width: 200,
-      height: 200,
-      fit: 'cover',
-      negate: true,
-      grayscale: true 
+    width: 200,
+    height: 200,
+    fit: 'cover',
+    negate: true,
+    grayscale: true 
   } 
 }
 ````
