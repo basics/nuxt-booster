@@ -16,7 +16,7 @@
         <booster-picture
           class="poster"
           v-bind="pictureDataset"
-          :title="title"
+          :title="playerTitle"
         />
         <slot v-if="loading" name="loading-spinner" />
         <slot v-if="!ready && !loading" name="play" />
