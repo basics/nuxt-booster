@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.1.0-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.0-next.1...v3.1.0-next.2) (2024-07-25)
+
+
+### Bug Fixes
+
+* **vimeo:** fix missing title ([b099fc7](https://github.com/basics/nuxt-booster/commit/b099fc713eedec821b93252a6859b1643b80d366))
+
 # [3.1.0-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.4...v3.1.0-next.1) (2024-07-25)
 
 
