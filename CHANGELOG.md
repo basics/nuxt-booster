@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.1.0-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.4...v3.1.0-next.1) (2024-07-25)
+
+
+### Features
+
+* **player:** properties replaced with property `posterSources` ([d4c67d3](https://github.com/basics/nuxt-booster/commit/d4c67d3cfe48f2a71b76587126dfef700ff9396a))
+
 ## [3.0.17-next.4](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.3...v3.0.17-next.4) (2024-07-21)
 
 
