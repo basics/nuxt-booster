@@ -1,6 +1,6 @@
 {
   "name": "nuxt-booster",
-  "version": "3.0.16",
+  "version": "3.1.0-next.2",
   "description": "Nuxt Booster takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "author": "Stephan Gerbeth",
@@ -16,14 +16,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/basics/nuxt-booster"
+    "url": "git+https://github.com/basics/nuxt-booster.git"
   },
   "type": "module",
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
+    "prepare": "husky",
     "build": "nuxt build playground",
     "dev": "nuxt dev playground",
     "generate": "nuxt generate playground",
@@ -62,6 +60,7 @@
     "dynamic-class-list": "2.0.2",
     "htmlparser2": "9.1.0",
     "image-meta": "0.2.1",
+    "mime-types": "^2.1.35",
     "pathe": "1.1.2",
     "sort-css-media-queries": "2.3.0",
     "vue3-lazy-hydration": "1.2.1"
@@ -87,7 +86,6 @@
     "lint-staged": "15.2.8",
     "markdown-it-inline-comments": "1.0.1",
     "nuxt": "3.12.4",
-    "pinst": "3.0.0",
     "playwright": "1.45.3",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.7.0",

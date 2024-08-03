@@ -121,6 +121,13 @@ export default defineNuxtConfig(async () => {
       debug: false,
       // targetFormats: ['jpg|jpeg|png|gif'],
       // densities: 'x1 x2',
+
+      // optimizeSSR: {
+      //   cleanPreloads: true,
+      //   cleanPrefetches: true,
+      //   inlineStyles: true
+      // },
+
       detection: {
         performance: true,
         browserSupport: true

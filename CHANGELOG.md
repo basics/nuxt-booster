@@ -1,5 +1,48 @@
 # Project Changelog
 
+# [3.1.0-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.0-next.1...v3.1.0-next.2) (2024-07-25)
+
+
+### Bug Fixes
+
+* **vimeo:** fix missing title ([b099fc7](https://github.com/basics/nuxt-booster/commit/b099fc713eedec821b93252a6859b1643b80d366))
+
+# [3.1.0-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.4...v3.1.0-next.1) (2024-07-25)
+
+
+### Features
+
+* **player:** properties replaced with property `posterSources` ([d4c67d3](https://github.com/basics/nuxt-booster/commit/d4c67d3cfe48f2a71b76587126dfef700ff9396a))
+
+## [3.0.17-next.4](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.3...v3.0.17-next.4) (2024-07-21)
+
+
+### Bug Fixes
+
+* **optimization:** added useBoosterCritical youtube/vimeo ([a159706](https://github.com/basics/nuxt-booster/commit/a159706f0335ae4d4b37b626287f112add401ab0))
+
+## [3.0.17-next.3](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.2...v3.0.17-next.3) (2024-07-02)
+
+
+### Bug Fixes
+
+* **module:** improve optimization options ([e5fc73a](https://github.com/basics/nuxt-booster/commit/e5fc73aa26b9ab9db0400969cbc6eea00375fb86))
+* **module:** update optimization ([5122215](https://github.com/basics/nuxt-booster/commit/5122215637c4737e8bf8768f97d5d63e5c12f18b))
+
+## [3.0.17-next.2](https://github.com/basics/nuxt-booster/compare/v3.0.17-next.1...v3.0.17-next.2) (2024-06-30)
+
+
+### Bug Fixes
+
+* **components:** added `posterSrc` for override ([baddaa1](https://github.com/basics/nuxt-booster/commit/baddaa1a97f08273f3e85afb8babe69d79e16cbb))
+
+## [3.0.17-next.1](https://github.com/basics/nuxt-booster/compare/v3.0.16...v3.0.17-next.1) (2024-06-21)
+
+
+### Bug Fixes
+
+* **blob:** added missing dep ([31a975a](https://github.com/basics/nuxt-booster/commit/31a975ad9a4de73257cb53c05d7e550fc87e4201))
+
 ## [3.0.16](https://github.com/basics/nuxt-booster/compare/v3.0.15...v3.0.16) (2024-05-28)
 
 

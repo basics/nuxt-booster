@@ -9,7 +9,11 @@ export function getDefaultOptions() {
     disableNuxtFontaine: false, // If set, `@nuxtjs/fontaine` will not be integrated.
     disableNuxtImage: false, // If set, `@nuxt/image` will not be integrated.
 
-    optimizePreloads: true,
+    optimizeSSR: {
+      cleanPreloads: true,
+      cleanPrefetches: true,
+      inlineStyles: true
+    },
 
     detection: {
       performance: true,
@@ -51,5 +55,11 @@ export function deprecationsNotification(options) {
       'Option `disableNuxtCritters` is deprecated, there is no integrated critters anymore.'
     );
     delete options.loader;
+  }
+  if ('optimizePreloads' in options) {
+    logger.warn(
+      'Option `optimizePreloads` is deprecated, use `optimizeSSR` instead.'
+    );
+    delete options.optimizePreloads;
   }
 }

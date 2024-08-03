@@ -16,7 +16,7 @@ The `BoosterVimeo` is used to initialise Vimeo videos with [`Vimeo Player-SDK`](
 
 The `url` of the Vimeo video must be specified.  
 
-The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is sizes?)](/components/booster-image#source).
+The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sources with [`posterSources` (What is posterSources?)](/components/booster-picture#sources).
 
 [Learn more about `BoosterPicture`](/components/booster-picture)
 
@@ -44,8 +44,14 @@ Important: For using `BoosterVimeo` do not disable `@nuxt/image` via `disableNux
 import BoosterVimeo from '#booster/components/BoosterVimeo';
 
 defineProps({
-  url: { type: String, default: '<vimeo-url>' },
-  title: { type: String, default: 'Vimeo Title' },
+  url: { 
+    type: String, 
+    default: '<vimeo-url>' 
+  },
+  title: { 
+    type: String, 
+    default: 'Vimeo Title' 
+  },
   options: {
     type: String,
     default() {
@@ -54,15 +60,15 @@ defineProps({
       };
     }
   },
-  posterSizes: {
-    type: Object,
-    default() {
-      return {
-        default: '100vw',
-        md: '50vw'
-      };
+  posterSources: [
+    {
+      src: undefined,
+      media: 'all',
+      sizes: {
+        default: '100vw'
+      }
     }
-  }
+  ]
 });
 
 const onPlaying = () => console.log('Vimeo Player playing!');
@@ -79,7 +85,8 @@ const onPlaying = () => console.log('Vimeo Player playing!');
   autoplay: false,
   mute: false,
   posterSizes: { … },
-  options: { … }
+  options: { … },
+  posterSources: { … },
 }
 ````
 
@@ -109,10 +116,27 @@ When set starts video in autoplay. It is required that the component is integrat
 
 When set the player is muted.
 
-### `posterSizes`
+### `posterSources`
 
-- Type: `String`
-  - Default: `{ default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }`
+- Type: `Array`
+  - Default: `[
+          {
+            src: undefined,
+            media: 'all',
+            sizes: {
+              default: '100vw'
+            }
+          }
+        ]`
+
+Sets the image sources of the poster.
+
+::: info
+You can overwrite the poster `src` with your own.  
+The `src` property is optionally available for this purpose.
+:::
+
+[Learn more about `sources`](/components/booster-picture#sources)
 
 Sets the image sizes of the poster.
 

@@ -16,7 +16,7 @@ The `BoosterYoutube`is used to initialise Youtube videos with [`Youtube Iframe-A
 
 The `url` of the Youtube video must be specified.  
 
-The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sizes with [`sizes` (What is sizes?)](/components/booster-picture#sources).
+The `BoosterPicture` is used for the poster, so the generation of the poster is automated, you can define the image sources with [`posterSources` (What is posterSources?)](/components/booster-picture#sources).
 
 [Learn more about `BoosterPicture`](/components/booster-picture)
 
@@ -56,16 +56,16 @@ defineProps({
         fs: false // use boolean instead of 0 or 1
       };
     }
-  },
-  posterSizes: {
-    type: Object,
-    default() {
-      return {
-        default: '100vw',
-        md: '50vw'
-      };
+  },  
+  posterSources: [
+    {
+      src: undefined,
+      media: 'all',
+      sizes: {
+        default: '100vw'
+      }
     }
-  }
+  ]
 });
 
 const onPlaying = () => console.log('Youtube Player playing!');
@@ -81,8 +81,8 @@ const onPlaying = () => console.log('Youtube Player playing!');
   title: 'Player Title',
   autoplay: false,
   mute: false,
-  posterSizes: { … },
-  options: { … }
+  options: { … },
+  posterSources: { … },
 }
 ````
 
@@ -112,14 +112,27 @@ When set starts video in autoplay. It is required that the component is integrat
 
 When set the player is muted.
 
-### `posterSizes`
+### `posterSources`
 
-- Type: `String`
-  - Default: `{ default: '100vw', xxs: '100vw', xs: '100vw', sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }`
+- Type: `Array`
+  - Default: `[
+          {
+            src: undefined,
+            media: 'all',
+            sizes: {
+              default: '100vw'
+            }
+          }
+        ]`
 
-Sets the image sizes of the poster.
+Sets the image sources of the poster.
 
-[Learn more about `sizes`](/components/booster-picture#sources)
+::: info
+You can overwrite the poster `src` with your own.  
+The `src` property is optionally available for this purpose.
+:::
+
+[Learn more about `sources`](/components/booster-picture#sources)
 
 ### `options`
 
@@ -144,10 +157,6 @@ This is important for autoplay on mobile devices.
   - default: `'https://www.youtube-nocookie.com'`
 
 Sets the host for the player.
-
-::: info
-It is recommended to use the default (<https://www.youtube-nocookie.com>).
-:::
 
 ## Slots
 

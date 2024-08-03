@@ -135,9 +135,14 @@ The image width, is definied by [`screens`](https://image.nuxtjs.org/configurati
 In the following example, one image with two different image sizes by breakpoints and output format is `webp`.
 
 ````js
-[
-  { format: 'webp', src: '/img/image.jpg', sizes: { default: '100vw', sm: '100vw' } }
-]
+{ 
+  format: 'webp', 
+  src: '/img/image.jpg', 
+  sizes: { 
+    default: '100vw', 
+    sm: '100vw' 
+  } 
+}
 ````
 
 #### `modifiers`
@@ -146,6 +151,21 @@ In the following example, one image with two different image sizes by breakpoint
 
 You can give separate modifiers to each source.
 This overwrites the global ones of the preset if available.
+
+**Example**
+
+````js
+{ 
+  src: '/img/image.jpg', 
+  modifiers: { 
+    width: 200,
+    height: 200,
+    fit: 'cover',
+    negate: true,
+    grayscale: true 
+  } 
+}
+````
 
 Learn more about `modifiers`:
 

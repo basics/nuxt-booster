@@ -18,7 +18,7 @@ export default defineNuxtConfig(async () => {
   return {
     ...defaultConfig,
     srcDir: resolver.resolve('../playground'),
-    buildDir: join(rootDir, '.nuxt'),
+    buildDir: resolver.resolve('../playground/.nuxt'),
     distDir: resolve(rootDir, 'dist'),
 
     nitro: {
