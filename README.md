@@ -25,7 +25,6 @@
 # Nuxt Booster
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
-[![next][github-workflow-beta-src]][github-workflow-beta-href]
 [![next][github-workflow-next-src]][github-workflow-next-href]
 [![test][github-workflow-test-src]][github-workflow-test-href]
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
@@ -115,8 +114,6 @@ Do you need further support, a consultation or a code review for an appropriate 
 
 [github-workflow-main-src]: <https://github.com/basics/nuxt-booster/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3AMain>
-[github-workflow-beta-src]: <https://github.com/basics/nuxt-booster/workflows/Beta/badge.svg?branch=beta>
-[github-workflow-beta-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ABeta>
 [github-workflow-next-src]: <https://github.com/basics/nuxt-booster/workflows/Next/badge.svg?branch=next>
 [github-workflow-next-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ANext>
 [github-workflow-test-src]: <https://github.com/basics/nuxt-booster/workflows/Test/badge.svg?branch=main>
