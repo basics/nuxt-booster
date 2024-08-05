@@ -13,22 +13,17 @@
 </template>
 
 <script setup>
-import boosterHydrate from '#booster/hydrate';
+import { useBoosterHydrate } from '#imports';
+const hydrate = useBoosterHydrate();
 
-const ModuleStage = boosterHydrate(() => import('@/components/modules/Stage'));
-const ModuleTextA = boosterHydrate(
-  () => import('@/components/modules/TextFontA')
-);
-const ModuleImageText = boosterHydrate(
-  () => import('@/components/modules/ImageText')
-);
-const ModuleTextB = boosterHydrate(
-  () => import('@/components/modules/TextFontB')
-);
-const ModuleVideoYoutube = boosterHydrate(
+const ModuleStage = hydrate(() => import('@/components/modules/Stage'));
+const ModuleTextA = hydrate(() => import('@/components/modules/TextFontA'));
+const ModuleImageText = hydrate(() => import('@/components/modules/ImageText'));
+const ModuleTextB = hydrate(() => import('@/components/modules/TextFontB'));
+const ModuleVideoYoutube = hydrate(
   () => import('@/components/modules/VideoYoutube')
 );
-const ModuleVideoVimeo = boosterHydrate(
+const ModuleVideoVimeo = hydrate(
   () => import('@/components/modules/VideoVimeo')
 );
 
