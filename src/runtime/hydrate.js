@@ -1,8 +1,10 @@
 import { hydrate } from './composables/useBoosterHydrate';
+import { obsolete } from './utils/deprecation';
 
-export default (...args) => {
-  console.warn(
-    'import `#booster/hydrate` is deprecated. Use `useBoosterHydrate` instead.'
-  );
-  return hydrate(...args);
-};
+/**
+ * @deprecated Import `#booster/hydrate` has been deprecated, please use the new composable `useBoosterHydrate` instead!
+ */
+export default obsolete(
+  hydrate,
+  'WARNING! Obsolete import called. Import `#booster/hydrate` has been deprecated, please use the new composable `useBoosterHydrate` instead!'
+);
