@@ -11,13 +11,14 @@
 
 <script setup>
 import 'wicg-inert';
-import boosterHydrate from '#booster/hydrate';
+import { useBoosterHydrate } from '#imports';
+const hydrate = useBoosterHydrate();
 
 const InfoLayer = defineAsyncComponent(() => import('@/components/InfoLayer'));
-const GithubCorner = boosterHydrate(
+const GithubCorner = hydrate(
   () => import('@/components/elements/GithubCorner')
 );
-const PageHeader = boosterHydrate(() => import('@/components/PageHeader'));
+const PageHeader = hydrate(() => import('@/components/PageHeader'));
 
 const route = useRoute();
 

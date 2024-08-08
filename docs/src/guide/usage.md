@@ -42,12 +42,14 @@ Until now, components were imported either statically (`import component from '@
 
 In the background, the module [`vue3-lazy-hydration`](https://github.com/freddy38510/vue3-lazy-hydration) inspired by `vue-lazy-hydration` from [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
 
+[Learn more about `useBoosterHydrate`](/composables/useBoosterHydrate).
+
 ````js
-import boosterHydrate from '#booster/hydrate';
+const hydrate = useBoosterHydrate();
 
 export default {
   components: {
-    Stage: boosterHydrate(() => import('@/components/organisms/Stage')),
+    Stage: hydrate(() => import('@/components/organisms/Stage')),
   }
 };
 ````
@@ -55,7 +57,7 @@ export default {
 Whether a component is in the viewport or not is determined in the background by the intersection observer. If the initialisation is to take place earlier, e.g. when scrolling, this can be adjusted accordingly via the `rootMargin` option in the [nuxt.config](/guide/options#lazyoffset).
 
 ::: warning
-Although the <code>#booster/hydrate</code> function can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
+Although the `useBoosterHydrate` composable can be used in any component, we recommend its explicit use only in pages and layout. Its use within components can be useful only in explicit special cases.  Here we recommend the general use of static imports.
 :::
 
 ::: info
