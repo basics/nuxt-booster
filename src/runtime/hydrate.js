@@ -1,19 +1,10 @@
-import { hydrateWhenVisible } from 'vue3-lazy-hydration';
-import { defineAsyncComponent, useRuntimeConfig } from '#imports';
+import { hydrate } from './composables/useBoosterHydrate';
+import { obsolete } from './utils/deprecation';
 
-const isDev = process.env.NODE_ENV === 'development';
-
-export default component => {
-  const runtimeConfig = useRuntimeConfig();
-
-  return hydrateWhenVisible(wrapComponent(component), {
-    rootMargin: runtimeConfig.public.booster.lazyOffsetComponent || '0%'
-  });
-};
-
-const wrapComponent = component => {
-  if (!(isDev || import.meta.server) && typeof component === 'function') {
-    return defineAsyncComponent(component);
-  }
-  return component;
-};
+/**
+ * @deprecated Import `#booster/hydrate` has been deprecated, please use the new composable `useBoosterHydrate` instead!
+ */
+export default obsolete(
+  hydrate,
+  'WARNING! Obsolete import called. Import `#booster/hydrate` has been deprecated, please use the new composable `useBoosterHydrate` instead!'
+);

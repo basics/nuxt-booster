@@ -1,9 +1,8 @@
 export default options => {
-  let code = `import { defineNuxtPlugin } from '#imports';
+  let code = `import { defineNuxtPlugin, useBoosterHydrate } from '#imports';
 import vFont from '#booster/directives/vFont';
 import { isSupportedBrowser } from '#booster/utils/browser';
 import FontList from '#booster/classes/FontList';
-import hydrate from '#booster/hydrate';
 import { useNuxtApp, useBoosterHead, useRequestHeaders, useRequestURL, useRequestFetch } from '#imports';
 import './fonts.css';
 
@@ -11,6 +10,8 @@ export default defineNuxtPlugin({
   name: 'booster-plugin',
   enforce: 'post',
   async setup(nuxtApp) {
+
+    const hydrate = useBoosterHydrate();
 
     const fontConfig = await import('./fontConfig').then(
       module => module.default || module

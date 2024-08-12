@@ -6,14 +6,16 @@
 </template>
 
 <script setup>
-import boosterHydrate from '#booster/hydrate';
 import BoosterLayer from '#booster/components/BoosterLayer';
+import { useBoosterHydrate } from '#imports';
+
+const hydrate = useBoosterHydrate();
 
 const ready = ref(false);
 
 onMounted(() => (ready.value = true));
 
-const ComponentImageText = boosterHydrate(
+const ComponentImageText = hydrate(
   () => import('@/components/modules/ImageText')
 );
 

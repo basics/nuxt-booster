@@ -16,6 +16,7 @@ export default defineNuxtConfig(async () => {
   const { repository } = await readPackage();
 
   return {
+    compatibilityDate: '2024-08-01',
     dev: isDev,
 
     builder: getBuilder(),

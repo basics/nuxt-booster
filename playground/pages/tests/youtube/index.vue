@@ -11,8 +11,11 @@
 </template>
 
 <script setup>
-import boosterHydrate from '#booster/hydrate';
-const Default = boosterHydrate(() => import('./components/Default'));
+import { useBoosterHydrate } from '#imports';
+
+const hydrate = useBoosterHydrate();
+
+const Default = hydrate(() => import('./components/Default'));
 const items = [
   {
     youtubeUrl: 'https://www.youtube.com/watch?v=cLKvbhfVBUU',

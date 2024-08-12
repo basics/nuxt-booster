@@ -72,6 +72,10 @@ export default {
           text: 'Composables',
           collapsed: true,
           items: [
+            {
+              text: 'useBoosterHydrate',
+              link: '/composables/useBoosterHydrate'
+            },
             { text: 'useBoosterFont', link: '/composables/useBoosterFont' },
             {
               text: 'useBoosterCritical',

@@ -6,10 +6,12 @@
 </template>
 
 <script setup>
-import boosterHydrate from '#booster/hydrate';
+import { useBoosterHydrate } from '#imports';
 
-const Critical = boosterHydrate(() => import('./components/Critical'));
-const Lazy = boosterHydrate(() => import('./components/Lazy'));
+const hydrate = useBoosterHydrate();
+
+const Critical = hydrate(() => import('./components/Critical'));
+const Lazy = hydrate(() => import('./components/Lazy'));
 
 definePageMeta({
   layout: 'blank'
