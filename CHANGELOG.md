@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.2](https://github.com/basics/nuxt-booster/compare/v3.1.1...v3.1.2) (2024-08-12)
+
+
+### Bug Fixes
+
+* **render:** added decodeEntities option to preserve special characters ([ae31ccc](https://github.com/basics/nuxt-booster/commit/ae31ccc87884b4aea9159d62afceb52598330faf))
+
 ## [3.1.1](https://github.com/basics/nuxt-booster/compare/v3.1.0...v3.1.1) (2024-08-12)
 
 
