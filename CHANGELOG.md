@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.1](https://github.com/basics/nuxt-booster/compare/v3.1.0...v3.1.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* **composable:** added `useBoosterHydrate` composable ([0bbf359](https://github.com/basics/nuxt-booster/commit/0bbf35937f2d949952375c633c5cacd87d2c2fb6))
+* **hydrate:** added deprecation message ([542eec3](https://github.com/basics/nuxt-booster/commit/542eec3d786c63f6b552dd216e644672c98dbda5))
+
 # [3.1.0](https://github.com/basics/nuxt-booster/compare/v3.0.16...v3.1.0) (2024-08-03)
 
 
