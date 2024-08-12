@@ -16,9 +16,9 @@ const { isCritical } = useBoosterCritical({critical: true});
 
 ## Return
 
-| Property     | Description |
-| ------------ | ----------- |
-| `isCritical` |             |
+| Property     | Description                           |
+| ------------ | ------------------------------------- |
+| `isCritical` | Indicates whether critical is active. |
 
 ## Example
 

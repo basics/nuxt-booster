@@ -16,10 +16,10 @@ const { $getFont } = useBoosterFonts({critical: true});
 
 ## Return
 
-| Property     | Description |
-| ------------ | ----------- |
-| `isCritical` |             |
-| `$getFont`   |             |
+| Property     | Description                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------ |
+| `isCritical` | Indicates whether critical is active.                                                      |
+| `$getFont`   | [Learn more about `$getFont`](/directives/v-font.html#getfont-family-weight-style-options) |
 
 ## Example
 
