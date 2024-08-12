@@ -62,7 +62,7 @@ export default (
         await prepareLinkStylesheets($, { distNuxt, route });
       }
 
-      route.contents = render(document);
+      route.contents = render(document, { decodeEntities: false });
     });
   };
 
