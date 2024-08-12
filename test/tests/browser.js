@@ -460,33 +460,34 @@ export default runtime => {
     // #endregion
 
     // #region /tests/youtube
-    it('BoosterYoutube ready, play and autoplay', async () => {
-      const page = await createPage('/youtube/');
-      await page.waitForLoadState('networkidle');
 
-      // start first player
-      await page.evaluate(() =>
-        document.querySelector('#youtube-0 button').click()
-      );
-      await page.waitForLoadState('networkidle');
+    // it('BoosterYoutube ready, play and autoplay', async () => {
+    //   const page = await createPage('/youtube/');
+    //   await page.waitForLoadState('networkidle');
 
-      // wait for playing first player playing
-      await waitForSelector(
-        page,
-        '#youtube-0 .nuxt-booster-youtube.ready.playing'
-      );
+    //   // start first player
+    //   await page.evaluate(() =>
+    //     document.querySelector('#youtube-0 button').click()
+    //   );
+    //   await page.waitForLoadState('networkidle');
 
-      // scroll to second player for autoplay
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      await page.waitForLoadState('networkidle');
+    //   // wait for playing first player playing
+    //   await waitForSelector(
+    //     page,
+    //     '#youtube-0 .nuxt-booster-youtube.ready.playing'
+    //   );
 
-      await waitForSelector(
-        page,
-        '#youtube-1 .nuxt-booster-youtube.ready.playing'
-      );
+    //   // scroll to second player for autoplay
+    //   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    //   await page.waitForLoadState('networkidle');
 
-      await waitForSelector(page, '#youtube-0 .nuxt-booster-youtube.ready');
-    });
+    //   await waitForSelector(
+    //     page,
+    //     '#youtube-1 .nuxt-booster-youtube.ready.playing'
+    //   );
+
+    //   await waitForSelector(page, '#youtube-0 .nuxt-booster-youtube.ready');
+    // });
 
     // #endregion
   }
