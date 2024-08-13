@@ -6,7 +6,7 @@
       "nuxt-booster/*": [
         "src/*"
       ],
-      "#booster": [
+      "#booster/*": [
         "src/runtime/*"
       ],
       "@/*": [
