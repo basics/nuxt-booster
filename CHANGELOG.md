@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.3](https://github.com/basics/nuxt-booster/compare/v3.1.2...v3.1.3) (2024-08-13)
+
+
+### Bug Fixes
+
+* **hydrate:** fix invalid import ([924294a](https://github.com/basics/nuxt-booster/commit/924294a36b7504eaf99dfe3277bfb3f73f9c926f))
+
 ## [3.1.2](https://github.com/basics/nuxt-booster/compare/v3.1.1...v3.1.2) (2024-08-12)
 
 
