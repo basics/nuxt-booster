@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.4-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.3...v3.1.4-next.1) (2024-08-17)
+
+
+### Bug Fixes
+
+* **image:** optimize getImageSize ([36a3627](https://github.com/basics/nuxt-booster/commit/36a36272ed2811c9cd2dc0f8f7561e1559e89f13))
+
 ## [3.1.3](https://github.com/basics/nuxt-booster/compare/v3.1.2...v3.1.3) (2024-08-13)
 
 
