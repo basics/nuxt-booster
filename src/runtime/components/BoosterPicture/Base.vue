@@ -18,7 +18,7 @@
   </picture>
 </template>
 
-<script>
+<script setup>
 import { getPictureStyleDescription } from '../../utils/description';
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import {
@@ -34,111 +34,92 @@ import PictureSource from '#booster/components/BoosterPicture/Source';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
-export default {
-  components: {
-    PictureSource,
-    BaseImage
+const $props = defineProps({
+  sources: {
+    type: [Array, SourceList],
+    required: true
   },
 
-  props: {
-    sources: {
-      type: [Array, SourceList],
-      required: true
-    },
-
-    formats: {
-      type: Array,
-      default() {
-        return null;
-      }
-    },
-
-    title: {
-      type: String,
-      default: null
-    },
-
-    alt: {
-      type: String,
-      default: null
-    },
-
-    crossorigin: {
-      type: [Boolean, String],
-      default() {
-        return null;
-      },
-      validator: validatorCrossorigin
-    },
-
-    sortSources: {
-      type: Boolean,
-      default: true
+  formats: {
+    type: Array,
+    default() {
+      return null;
     }
   },
 
-  emits: ['load'],
-
-  async setup(props) {
-    const { isCritical } = useBoosterCritical();
-    const $img = useImage();
-    const $booster = useNuxtApp().$booster;
-
-    const sourceList = SourceList.create(props.sources, {
-      sort: props.sortSources
-    });
-
-    const metaSources = ref(null);
-
-    useHead(() => {
-      if (metaSources.value && metaSources.value.length) {
-        const classNames = metaSources.value.classNames;
-        return {
-          style: [getPictureStyleDescription(metaSources.value, classNames)]
-        };
-      }
-      return {};
-    });
-    try {
-      metaSources.value = await sourceList.getMeta($img, $booster);
-    } catch (error) {
-      console.error(error);
-    }
-    return {
-      isCritical,
-      resolvedFormats: props.formats || $booster.targetFormats,
-      sourceList,
-      metaSources,
-      classNames: metaSources.value.classNames
-    };
+  title: {
+    type: String,
+    default: null
   },
 
-  computed: {
-    formatSources() {
-      const sortedFormatsByPriority = Array.from(
-        new Set(
-          TARGET_FORMAT_PRIORITY.map(v =>
-            this.resolvedFormats.find(format => format.includes(v))
-          )
-        )
-      ).filter(Boolean);
-      const preloadFormat = TARGET_FORMAT_PRIORITY.find(v =>
-        this.resolvedFormats.find(format => format.includes(v))
-      );
-      return this.sourceList.getFormats(
-        sortedFormatsByPriority,
-        preloadFormat,
-        this.isCritical
-      );
-    }
+  alt: {
+    type: String,
+    default: null
   },
 
-  methods: {
-    onLoad(e) {
-      this.$emit('load', e);
-    }
+  crossorigin: {
+    type: [Boolean, String],
+    default() {
+      return null;
+    },
+    validator: validatorCrossorigin
+  },
+
+  sortSources: {
+    type: Boolean,
+    default: true
   }
+});
+
+const $emit = defineEmits(['load']);
+
+const { isCritical } = useBoosterCritical();
+const $img = useImage();
+const $booster = useNuxtApp().$booster;
+
+const sourceList = SourceList.create($props.sources, {
+  sort: $props.sortSources
+});
+
+const metaSources = ref(null);
+
+const resolvedFormats = $props.formats || $booster.targetFormats;
+const sortedFormatsByPriority = Array.from(
+  new Set(
+    TARGET_FORMAT_PRIORITY.map(v =>
+      resolvedFormats.find(format => format.includes(v))
+    )
+  )
+).filter(Boolean);
+const preloadFormat = TARGET_FORMAT_PRIORITY.find(v =>
+  resolvedFormats.find(format => format.includes(v))
+);
+
+const formatSources = ref(
+  sourceList.getFormats(sortedFormatsByPriority, preloadFormat, isCritical)
+);
+
+const classNames = computed(() => metaSources.value?.classNames || {});
+
+const onLoad = e => {
+  $emit('load', e);
 };
+
+useHead(() => {
+  if (metaSources.value && metaSources.value.length) {
+    const classNames = metaSources.value.classNames;
+    return {
+      style: [getPictureStyleDescription(metaSources.value, classNames)]
+    };
+  }
+  return {};
+});
+
+try {
+  metaSources.value = await sourceList.getMeta($img, $booster);
+} catch (error) {
+  console.error(error);
+}
 </script>
 
 <style lang="postcss" scoped>

@@ -7,6 +7,7 @@ export default {
     'hash-sum',
     'probe-image-size',
     'vue3-lazy-hydration',
+    'node-cache',
 
     // package
     '@nuxt/image',
