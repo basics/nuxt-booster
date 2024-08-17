@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.4-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.4-next.1...v3.1.4-next.2) (2024-08-17)
+
+
+### Bug Fixes
+
+* **imports:** imrpove imports ([2d4d589](https://github.com/basics/nuxt-booster/commit/2d4d589a036f74d9a90966d1b81b76c3130e293c))
+
 ## [3.1.4-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.3...v3.1.4-next.1) (2024-08-17)
 
 
