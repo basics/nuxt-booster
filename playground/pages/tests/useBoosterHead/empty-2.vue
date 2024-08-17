@@ -3,6 +3,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+
 const ready = ref(false);
 onMounted(() => {
   ready.value = true;

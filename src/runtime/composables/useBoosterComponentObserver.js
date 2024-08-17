@@ -1,5 +1,6 @@
 import { getElementObserver } from '#booster/classes/intersection';
-import { useBoosterCritical, ref, onMounted } from '#imports';
+import { useBoosterCritical } from '#imports';
+import { onMounted, ref } from 'vue';
 
 export default function (options) {
   const el = ref(null);

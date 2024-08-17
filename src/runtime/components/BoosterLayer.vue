@@ -45,7 +45,8 @@
 
 <script setup>
 import { getStyleDescription } from '#booster/utils/description';
-import { useHead, ref, onMounted } from '#imports';
+import { useHead } from '#imports';
+import { ref, onMounted } from 'vue';
 
 const isServer = ref(true);
 

@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import { useHead, ref, computed, markRaw, useBoosterCritical } from '#imports';
+import { useHead, useBoosterCritical } from '#imports';
+import { ref, computed, markRaw } from 'vue';
 
 import DefaultButton from '../Button';
 import { load } from './utils/loader';

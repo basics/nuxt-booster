@@ -74,6 +74,7 @@
 </template>
 
 <script setup>
+import { useBoosterFonts } from '#imports';
 import PreviewContainer from '@/components/PreviewContainer';
 
 const { $getFont } = useBoosterFonts();

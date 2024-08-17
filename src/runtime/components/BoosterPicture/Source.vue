@@ -8,8 +8,10 @@
 </template>
 
 <script setup>
-import { useNuxtApp, useHead, useImage } from '#imports';
 import { getCrossorigin } from '#booster/utils/browser';
+import { useNuxtApp, useHead, useImage } from '#imports';
+import { ref } from 'vue';
+
 import Source from '#booster/components/BoosterImage/classes/Source';
 
 const types = new Map([['jpg', 'jpeg']]);

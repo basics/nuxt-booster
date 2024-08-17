@@ -10,8 +10,9 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import DefaultIframe from '#booster/components/BoosterIframe';
 import PreviewContainer from '@/components/PreviewContainer';
 
-const iframeSrc = 'https://basics.github.io/nuxt-booster/playground/';
+const iframeSrc = ref('https://basics.github.io/nuxt-booster/playground/');
 </script>

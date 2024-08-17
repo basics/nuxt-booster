@@ -21,13 +21,9 @@
 <script setup>
 import { getPictureStyleDescription } from '../../utils/description';
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
-import {
-  useBoosterCritical,
-  ref,
-  useImage,
-  useHead,
-  useNuxtApp
-} from '#imports';
+import { useBoosterCritical, useImage, useHead, useNuxtApp } from '#imports';
+import { ref, computed } from 'vue';
+
 import BaseImage from '#booster/components/BoosterImage/Base';
 import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
 import PictureSource from '#booster/components/BoosterPicture/Source';

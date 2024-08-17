@@ -1,13 +1,6 @@
 import FontCollection from '#booster/classes/FontCollection';
-
-import {
-  useBoosterCritical,
-  useBoosterConfig,
-  useNuxtApp,
-  nextTick,
-  onBeforeUnmount,
-  reactive
-} from '#imports';
+import { useBoosterCritical, useBoosterConfig, useNuxtApp } from '#imports';
+import { reactive, nextTick, onBeforeUnmount } from 'vue';
 
 export default function (context) {
   const { isCritical, critical } = useBoosterCritical(context);

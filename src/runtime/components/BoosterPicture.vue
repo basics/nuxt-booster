@@ -1,5 +1,6 @@
 <script>
-import { useBoosterCritical, h } from '#imports';
+import { useBoosterCritical } from '#imports';
+import { h } from 'vue';
 
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 import BoosterPicture from '#booster/components/BoosterPicture/Base';

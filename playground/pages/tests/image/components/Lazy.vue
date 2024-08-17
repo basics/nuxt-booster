@@ -10,10 +10,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 import BoosterImage from '#booster/components/BoosterImage';
 import PreviewContainer from '@/components/PreviewContainer';
 
-const image = {
+const image = ref({
   title: 'Lazy - Image',
   source: {
     src: '/img/lazy.jpg',
@@ -28,5 +30,5 @@ const image = {
       xxl: '100vw'
     }
   }
-};
+});
 </script>
