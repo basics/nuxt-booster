@@ -26,7 +26,6 @@
 
 [![main][github-workflow-main-src]][github-workflow-main-href]
 [![next][github-workflow-next-src]][github-workflow-next-href]
-[![test][github-workflow-test-src]][github-workflow-test-href]
 [![Sonarcloud Status][sonarcloud-src]][sonarcloud-href]
 
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
@@ -116,8 +115,6 @@ Do you need further support, a consultation or a code review for an appropriate 
 [github-workflow-main-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3AMain>
 [github-workflow-next-src]: <https://github.com/basics/nuxt-booster/workflows/Next/badge.svg?branch=next>
 [github-workflow-next-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ANext>
-[github-workflow-test-src]: <https://github.com/basics/nuxt-booster/workflows/Test/badge.svg?branch=main>
-[github-workflow-test-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ATest>
 
 [sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=basics_nuxt-booster&metric=alert_status>
 [sonarcloud-href]: <https://sonarcloud.io/dashboard?id=basics_nuxt-booster>
