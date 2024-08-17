@@ -61,6 +61,7 @@
     "htmlparser2": "9.1.0",
     "image-meta": "0.2.1",
     "mime-types": "2.1.35",
+    "node-cache": "^5.1.2",
     "pathe": "1.1.2",
     "sort-css-media-queries": "2.3.0",
     "vue3-lazy-hydration": "1.2.1"
