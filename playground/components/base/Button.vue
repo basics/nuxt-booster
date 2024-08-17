@@ -10,6 +10,9 @@
 </template>
 
 <script setup>
+import { useBoosterFonts } from '#imports';
+import { computed, useAttrs } from 'vue';
+
 const { $getFont } = useBoosterFonts();
 defineEmits(['click']);
 

@@ -12,6 +12,7 @@
 <script setup>
 import BoosterYoutube from '#booster/components/BoosterYoutube';
 import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
+import { useBoosterFonts } from '#imports';
 
 const { $getFont } = useBoosterFonts();
 defineProps({

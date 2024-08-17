@@ -11,7 +11,8 @@
 
 <script setup>
 import 'wicg-inert';
-import { useBoosterHydrate } from '#imports';
+import { useBoosterHydrate, useRoute, useHead } from '#imports';
+import { defineAsyncComponent, ref, computed } from 'vue';
 const hydrate = useBoosterHydrate();
 
 const InfoLayer = defineAsyncComponent(() => import('@/components/InfoLayer'));

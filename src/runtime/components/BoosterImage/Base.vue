@@ -23,12 +23,12 @@ import { getCrossorigin } from '#booster/utils/browser';
 import Source from '#booster/components/BoosterImage/classes/Source';
 import {
   useBoosterCritical,
-  ref,
   useImage,
   useNuxtApp,
   useHead,
-  computed
+  useAttrs
 } from '#imports';
+import { ref, computed, markRaw } from 'vue';
 
 defineOptions({
   inheritAttrs: false

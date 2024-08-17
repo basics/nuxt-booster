@@ -9,6 +9,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+
 import BoosterLayer from '#booster/components/BoosterLayer';
 import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay';
 

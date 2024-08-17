@@ -50,6 +50,8 @@
 <script setup>
 import Headline from '@/components/base/Headline';
 import LinkList from '@/components/base/LinkList';
+import { useRoute } from 'vue-router';
+import { ref, computed, watch, onMounted } from 'vue';
 
 const props = defineProps({
   modelValue: {

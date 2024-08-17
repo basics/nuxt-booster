@@ -23,6 +23,10 @@ export default defineNuxtConfig(async () => {
 
     ssr: true,
 
+    imports: {
+      autoImport: false
+    },
+
     runtimeConfig: {
       public: {
         githubRepoUrl: repository.url.replace(/^git\+(.*)\.git$/, '$1'),

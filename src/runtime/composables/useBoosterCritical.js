@@ -1,7 +1,14 @@
-import { useAttrs, provide, inject, ref, computed } from '#imports';
+import { useAttrs, provide, inject, ref, computed } from 'vue';
 
 const criticalContextKey = Symbol('criticalContext');
 
+/**
+ *
+ * @param {*} param0
+ * @returns {
+ * isCritical: import('vue').ComputedRef<boolean>,}
+ *
+ */
 export default function ({ critical } = {}) {
   const attrs = useAttrs();
 

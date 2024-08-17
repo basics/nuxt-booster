@@ -1,12 +1,6 @@
 import { logDebug } from '../utils/log';
-import {
-  nextTick,
-  injectHead,
-  useNuxtApp,
-  useRuntimeConfig,
-  ref,
-  watch
-} from '#imports';
+import { injectHead, useNuxtApp, useRuntimeConfig } from '#imports';
+import { ref, watch, nextTick } from 'vue';
 
 export default function () {
   const head = injectHead();
