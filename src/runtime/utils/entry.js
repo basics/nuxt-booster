@@ -93,11 +93,19 @@ const isBatteryLow = async () => {
  * In this case no video will be played automatically and play throws an error.
  */
 export const canVideoPlay = blob => {
-  const video = document.createElement('video');
-  video.muted = true;
-  video.playsinline = true;
-  video.src = URL.createObjectURL(blob);
-  return video.play();
+  const objectUrl = URL.createObjectURL(blob);
+  try {
+    const video = document.createElement('video');
+    video.muted = true;
+    video.playsinline = true;
+    video.src = objectUrl;
+    const result = video.play();
+    URL.revokeObjectURL(objectUrl);
+    return result;
+  } catch (error) {
+    URL.revokeObjectURL(objectUrl);
+    throw error;
+  }
 };
 
 export const deprecationWarningButtonSelector = initApp => {
