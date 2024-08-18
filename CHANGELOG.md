@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.4-next.3](https://github.com/basics/nuxt-booster/compare/v3.1.4-next.2...v3.1.4-next.3) (2024-08-18)
+
+
+### Bug Fixes
+
+* **plugin:** added revokeObjectURL ([389b23e](https://github.com/basics/nuxt-booster/commit/389b23e55aa35163b68ccb1e649bea1dbf081719))
+
 ## [3.1.4-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.4-next.1...v3.1.4-next.2) (2024-08-17)
 
 
