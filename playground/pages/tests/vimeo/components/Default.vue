@@ -12,6 +12,9 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useBoosterCritical } from '#imports';
+
 import DefaultVimeo from '#booster/components/BoosterVimeo';
 import PreviewContainer from '@/components/PreviewContainer';
 

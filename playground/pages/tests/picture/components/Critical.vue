@@ -10,10 +10,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 import BoosterPicture from '#booster/components/BoosterPicture';
 import PreviewContainer from '@/components/PreviewContainer';
 
-const picture = {
+const picture = ref({
   title: 'Critical',
   sources: [
     {
@@ -30,5 +32,5 @@ const picture = {
       }
     }
   ]
-};
+});
 </script>

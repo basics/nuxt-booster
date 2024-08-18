@@ -53,5 +53,6 @@ export async function getMeta(source, compiledSrc, $booster) {
   }
 
   const { width, height } = await $booster.getImageSize(source.src);
+
   return source.modify({ width, height });
 }

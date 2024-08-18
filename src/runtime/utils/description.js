@@ -1,12 +1,11 @@
 import { minify } from './string';
 import { toHashHex } from '#booster/utils/string';
-import Source from '#booster/components/BoosterImage/classes/Source';
 
-export function getImageStyleDescription(meta, className) {
+export function getImageStyleDescription(source) {
   return {
-    key: className,
+    key: source.className,
     type: 'text/css',
-    children: minify(new Source(meta.value).style)
+    children: minify(source.style)
   };
 }
 

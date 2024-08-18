@@ -16,174 +16,146 @@
   />
 </template>
 
-<script>
+<script setup>
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import { getImageStyleDescription } from '#booster/utils/description';
 import { getCrossorigin } from '#booster/utils/browser';
 import Source from '#booster/components/BoosterImage/classes/Source';
 import {
   useBoosterCritical,
-  ref,
   useImage,
   useNuxtApp,
   useHead,
-  computed
+  useAttrs
 } from '#imports';
+import { ref, computed, markRaw } from 'vue';
 
-export default {
-  inheritAttrs: false,
+defineOptions({
+  inheritAttrs: false
+});
 
-  props: {
-    source: {
-      type: [Source, Object],
-      default: null
-    },
+const $attrs = useAttrs();
 
-    title: {
-      type: String,
-      required: true
-    },
-
-    alt: {
-      type: String,
-      default: null
-    },
-
-    crossorigin: {
-      type: [Boolean, String],
-      default() {
-        return null;
-      },
-      validator: validatorCrossorigin
-    }
+const $props = defineProps({
+  source: {
+    type: [Source, Object],
+    default: null
   },
 
-  emits: ['load'],
-
-  async setup(props) {
-    const $img = useImage();
-    const $booster = useNuxtApp().$booster;
-    const { isCritical } = useBoosterCritical();
-
-    const resolvedCrossorigin = computed(() => {
-      return getCrossorigin(props.crossorigin || $booster.crossorigin);
-    });
-
-    if (props.source) {
-      const source = new Source(props.source);
-      const config = $img.getSizes(source.src, {
-        sizes: source.sizes,
-        modifiers: source.getModifiers(),
-        ...source.getOptions($booster)
-      });
-
-      const meta = ref(null);
-
-      useHead(() => {
-        if (meta.value) {
-          return {
-            style: [
-              meta.value && getImageStyleDescription(meta, meta.value.className)
-            ].filter(Boolean),
-            link: [
-              !(!config || !isCritical.value) &&
-                (import.meta.server || process.env.prerender) &&
-                new Source(source).getPreload(
-                  config.srcset,
-                  config.sizes,
-                  resolvedCrossorigin.value
-                )
-            ].filter(Boolean),
-            noscript: [
-              (import.meta.server || process.env.prerender) && {
-                key: 'img-nojs',
-                children: `<style>img { content-visibility: unset !important; }</style>`
-              }
-            ].filter(Boolean)
-          };
-        }
-        return {};
-      });
-
-      try {
-        meta.value = await source.getMeta(config.src, $booster);
-      } catch (error) {
-        console.error(error);
-      }
-
-      return {
-        isCritical,
-        config,
-        meta,
-        className: meta.value.className,
-        resolvedCrossorigin
-      };
-    }
-    return {
-      isCritical,
-      resolvedCrossorigin
-    };
+  title: {
+    type: String,
+    required: true
   },
 
-  data() {
-    return {
-      className: null,
-      loading: true,
-      config: null,
-      meta: null
-    };
+  alt: {
+    type: String,
+    default: null
   },
 
-  computed: {
-    classNames() {
-      return [{ loading: this.loading }].concat(this.className);
+  crossorigin: {
+    type: [Boolean, String],
+    default() {
+      return null;
     },
-
-    srcset() {
-      return this.config?.srcset || this.config?.src;
-    },
-
-    sizes() {
-      return this.config?.sizes;
-    },
-
-    width() {
-      return this.$attrs.width || this.meta?.width;
-    },
-
-    height() {
-      return this.$attrs.height || this.meta?.height;
-    },
-
-    loadingMode() {
-      if (this.isCritical) {
-        return 'eager';
-      }
-      return 'lazy';
-    },
-
-    decodingMode() {
-      if (!this.source || new Source(this.source).format !== 'svg') {
-        return 'async';
-      }
-      return 'sync';
-    }
-  },
-
-  mounted() {
-    this.loading = !this.$el.complete;
-    if (!this.loading) {
-      this.onLoad({ target: this.$el });
-    }
-  },
-
-  methods: {
-    onLoad(e) {
-      this.loading = false;
-      this.$emit('load', e.target);
-    }
+    validator: validatorCrossorigin
   }
+});
+
+const $emit = defineEmits(['load']);
+
+const $img = useImage();
+const $booster = useNuxtApp().$booster;
+const { isCritical } = useBoosterCritical();
+
+const loading = ref(true);
+const meta = ref(null);
+const config = ref(null);
+const resolvedSource = ref(null);
+const srcset = ref(null);
+const sizes = ref(null);
+
+const resolvedCrossorigin = computed(() => {
+  return getCrossorigin($props.crossorigin || $booster.crossorigin);
+});
+
+const classNames = computed(() => {
+  return [{ loading: loading.value }].concat(resolvedSource.value?.className);
+});
+
+const width = computed(() => {
+  return $attrs.width || meta.value?.width;
+});
+
+const height = computed(() => {
+  return $attrs.height || meta.value?.height;
+});
+
+const loadingMode = computed(() => {
+  if (isCritical.value) {
+    return 'eager';
+  }
+  return 'lazy';
+});
+
+const decodingMode = computed(() => {
+  if (!$props.source || new Source($props.source).format !== 'svg') {
+    return 'async';
+  }
+  return 'sync';
+});
+
+const onLoad = e => {
+  loading.value = false;
+  $emit('load', e.target);
 };
+
+if ($props.source) {
+  resolvedSource.value = markRaw(new Source($props.source));
+  config.value = $img.getSizes(resolvedSource.value.src, {
+    sizes: resolvedSource.value.sizes,
+    modifiers: resolvedSource.value.getModifiers(),
+    ...resolvedSource.value.getOptions($booster)
+  });
+
+  srcset.value = config.value.srcset || config.value.src;
+  sizes.value = config.value.sizes;
+
+  const headData = ref({});
+
+  useHead(() => {
+    return headData.value;
+  });
+
+  try {
+    meta.value = markRaw(
+      await resolvedSource.value.getMeta(config.value.src, $booster)
+    );
+  } catch (error) {
+    console.error(error);
+  }
+  headData.value = {
+    style: [
+      meta.value && getImageStyleDescription(resolvedSource.value)
+    ].filter(Boolean),
+    link: [
+      !(!config.value || !isCritical.value) &&
+        (import.meta.server || process.env.prerender) &&
+        resolvedSource.value.getPreload(
+          config.value.srcset,
+          config.value.sizes,
+          resolvedCrossorigin.value
+        )
+    ].filter(Boolean),
+    noscript: [
+      (import.meta.server || process.env.prerender) && {
+        key: 'img-nojs',
+        children: `<style>img { content-visibility: unset !important; }</style>`
+      }
+    ].filter(Boolean)
+  };
+} else {
+  loading.value = false;
+}
 </script>
 
 <style lang="postcss" scoped>

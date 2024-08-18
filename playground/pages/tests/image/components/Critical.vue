@@ -10,10 +10,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 import BoosterImage from '#booster/components/BoosterImage';
 import PreviewContainer from '@/components/PreviewContainer';
 
-const image = {
+const image = ref({
   title: 'Critical - Image',
   source: {
     format: 'jpg',
@@ -29,5 +31,5 @@ const image = {
       xxl: '100vw'
     }
   }
-};
+});
 </script>

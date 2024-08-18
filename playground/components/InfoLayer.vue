@@ -33,6 +33,7 @@
 import { getStyleDescription } from '#booster/utils/description';
 import BoosterLayer from '#booster/components/BoosterLayer';
 import BaseButton from '@/components/base/Button';
+import { useBoosterFonts, useHead } from '#imports';
 
 const { $getFont } = useBoosterFonts();
 

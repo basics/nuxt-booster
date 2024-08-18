@@ -1,5 +1,6 @@
 import { hydrateWhenVisible } from 'vue3-lazy-hydration';
-import { defineAsyncComponent, useRuntimeConfig } from '#imports';
+import { useRuntimeConfig } from '#imports';
+import { defineAsyncComponent } from 'vue';
 
 export default function () {
   return hydrate;

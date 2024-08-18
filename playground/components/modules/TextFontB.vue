@@ -20,6 +20,9 @@
 </template>
 
 <script setup>
+import { useBoosterFonts } from '#imports';
+import { ref, onMounted } from 'vue';
+
 const { $getFont } = useBoosterFonts();
 const ready = ref(false);
 defineProps({

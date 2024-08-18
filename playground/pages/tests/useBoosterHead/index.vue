@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import BaseHeadline from '@/components/base/Headline';
 
 const show = ref(false);

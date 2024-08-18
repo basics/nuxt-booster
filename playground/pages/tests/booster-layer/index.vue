@@ -6,8 +6,10 @@
 </template>
 
 <script setup>
-import BoosterLayer from '#booster/components/BoosterLayer';
+import { ref, onMounted } from 'vue';
 import { useBoosterHydrate } from '#imports';
+
+import BoosterLayer from '#booster/components/BoosterLayer';
 
 const hydrate = useBoosterHydrate();
 

@@ -12,6 +12,9 @@
 </template>
 
 <script setup>
+import { definePageMeta, useRuntimeConfig } from '#imports';
+import { ref } from 'vue';
+
 const {
   public: { isTest }
 } = useRuntimeConfig();

@@ -5,6 +5,9 @@
 </template>
 
 <script setup>
+import { useBoosterFonts } from '#imports';
+import { computed } from 'vue';
+
 const { $getFont } = useBoosterFonts();
 
 const $props = defineProps({

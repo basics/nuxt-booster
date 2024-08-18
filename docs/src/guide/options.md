@@ -274,6 +274,22 @@ Global option for the [`IntersectionObserver`](https://developer.mozilla.org/en-
  | `component` | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for [`BoosterHydrate`](/guide/usage#import-components).                  | `0%`    |
  | `asset`     | `String` | yes      | [`rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) value for all static ressources (`v-font`, `BoosterPicture` & `BoosterImage`). | `0%`    |
 
+## `imageSizeCache`
+
+- Type: `Object`
+  - Default: `{ stdTTL: 3600, checkperiod: 1800 }`
+
+The `imageSizeCache` option is used to cache the image sizes of the `BoosterImage` and `BoosterPicture` components. This reduces the number of requests to the server and speeds up the loading process.
+
+Learn more about the options in the [node-cache documentation](https://www.npmjs.com/package/node-cache#options).
+
+````js
+{
+  stdTTL: 3600,
+  checkperiod: 1800
+}
+````
+
 ## `disableNuxtFontaine`
 
 - Type: `Boolean`
