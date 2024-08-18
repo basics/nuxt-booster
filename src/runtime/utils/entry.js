@@ -92,16 +92,15 @@ const isBatteryLow = async () => {
  *
  * In this case no video will be played automatically and play throws an error.
  */
-export const canVideoPlay = blob => {
+export const canVideoPlay = async blob => {
   const objectUrl = URL.createObjectURL(blob);
   try {
     const video = document.createElement('video');
     video.muted = true;
     video.playsinline = true;
     video.src = objectUrl;
-    const result = video.play();
+    await video.play();
     URL.revokeObjectURL(objectUrl);
-    return result;
   } catch (error) {
     URL.revokeObjectURL(objectUrl);
     throw error;
