@@ -153,6 +153,8 @@ if ($props.source) {
       }
     ].filter(Boolean)
   };
+} else {
+  loading.value = false;
 }
 </script>
 
