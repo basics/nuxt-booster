@@ -105,6 +105,7 @@ async function getImageSize (src) {
         Buffer.from(await res.arrayBuffer())
       );
       const dimension = await imageMeta(data);
+      URL.revokeObjectURL(blob)
       dimensionCache.set(url, dimension);
     }
 
