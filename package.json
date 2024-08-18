@@ -61,7 +61,7 @@
     "htmlparser2": "9.1.0",
     "image-meta": "0.2.1",
     "mime-types": "2.1.35",
-    "node-cache": "^5.1.2",
+    "node-cache": "5.1.2",
     "pathe": "1.1.2",
     "sort-css-media-queries": "2.3.0",
     "vue3-lazy-hydration": "1.2.1"
@@ -74,7 +74,7 @@
     "@nuxt/module-builder": "0.8.3",
     "@nuxt/webpack-builder": "3.12.4",
     "@types/node": "20.16.0",
-    "@types/vue": "^2.0.0",
+    "@types/vue": "2.0.0",
     "commitlint": "19.4.0",
     "eslint": "9.9.0",
     "eslint-config-prettier": "9.1.0",
