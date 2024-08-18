@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.5](https://github.com/basics/nuxt-booster/compare/v3.1.4...v3.1.5) (2024-08-18)
+
+
+### Bug Fixes
+
+* **entry:** added revoke ([a961f5a](https://github.com/basics/nuxt-booster/commit/a961f5a017488d48b10bdf4cb1ce872de367fc62))
+* **entry:** fix missing await ([89ce7df](https://github.com/basics/nuxt-booster/commit/89ce7dfc9a2272861a92ea9d43224b333da8ed32))
+
 ## [3.1.4](https://github.com/basics/nuxt-booster/compare/v3.1.3...v3.1.4) (2024-08-18)
 
 
