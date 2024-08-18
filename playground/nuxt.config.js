@@ -133,10 +133,12 @@ export default defineNuxtConfig(async () => {
       //   inlineStyles: true
       // },
 
-      detection: {
-        performance: true,
-        browserSupport: true
-      },
+      // detection: {
+      //   performance: true,
+      //   browserSupport: true,
+      //   battery: true
+      // },
+
       performanceMetrics: {
         device: {
           hardwareConcurrency: { min: 2, max: 48 },
