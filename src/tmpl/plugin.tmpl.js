@@ -101,11 +101,14 @@ async function getImageSize (src) {
         module => module.default || module
       );
 
-      const data = await fetchRetry(URL.createObjectURL(blob), undefined, 3).then(async res =>
+      const objectUrl = URL.createObjectURL(blob);
+      const data = await fetchRetry(objectUrl, undefined, 3).then(async res =>
         Buffer.from(await res.arrayBuffer())
       );
       const dimension = await imageMeta(data);
-      URL.revokeObjectURL(blob)
+
+      URL.revokeObjectURL(objectUrl);
+
       dimensionCache.set(url, dimension);
     }
 
