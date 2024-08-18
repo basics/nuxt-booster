@@ -39,7 +39,9 @@ export function getDefaultOptions() {
     lazyOffset: {
       component: '0%',
       asset: '0%'
-    }
+    },
+
+    imageSizeCache: { stdTTL: 3600, checkperiod: 1800 }
   };
 }
 
