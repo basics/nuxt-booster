@@ -59,13 +59,6 @@ export default defineNuxtPlugin({
 const dimensionCache = new Map();`;
   } else {
     code += `
-function fetchRetry(url, options, retries = 3, delay = 300) {
-  return fetch(url, options).catch(function (error) {
-    if (retries <= 0) throw error;
-    return new Promise(resolve => setTimeout(resolve, delay)).then(() => fetchRetry(url, options, retries - 1, delay));
-  });
-}
-
 const dimensionCache = new NodeCache({ stdTTL: 60 * 60 * 24, checkperiod: 60 * 60 * 1, useClones: false });`;
   }
 
@@ -102,7 +95,7 @@ async function getImageSize (src) {
       );
 
       const objectUrl = URL.createObjectURL(blob);
-      const data = await fetchRetry(objectUrl, undefined, 3).then(async res =>
+      const data = await fetch(objectUrl).then(async res =>
         Buffer.from(await res.arrayBuffer())
       );
       const dimension = await imageMeta(data);
