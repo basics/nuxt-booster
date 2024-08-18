@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.4-next.4](https://github.com/basics/nuxt-booster/compare/v3.1.4-next.3...v3.1.4-next.4) (2024-08-18)
+
+
+### Bug Fixes
+
+* **plugin:** fix invalid object url ([dfe4c5a](https://github.com/basics/nuxt-booster/commit/dfe4c5ad5674ac4796dbdc6fab8612b6a9f2ece7))
+* **plugin:** remove fetch retry, not necessary for object url ([667223c](https://github.com/basics/nuxt-booster/commit/667223ccd00551095cc64e1ef86de107a12bac7e))
+
 ## [3.1.4-next.3](https://github.com/basics/nuxt-booster/compare/v3.1.4-next.2...v3.1.4-next.3) (2024-08-18)
 
 
