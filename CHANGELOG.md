@@ -1,5 +1,18 @@
 # Project Changelog
 
+## [3.1.4](https://github.com/basics/nuxt-booster/compare/v3.1.3...v3.1.4) (2024-08-18)
+
+
+### Bug Fixes
+
+* **components:** remove skeleton ([38a4a99](https://github.com/basics/nuxt-booster/commit/38a4a99a91c2409ac750b518d851746a709c04a9))
+* **image-size:** added option ([a6255cc](https://github.com/basics/nuxt-booster/commit/a6255cc36969c236a097b394a2446085c1cd6802))
+* **image:** optimize getImageSize ([36a3627](https://github.com/basics/nuxt-booster/commit/36a36272ed2811c9cd2dc0f8f7561e1559e89f13))
+* **imports:** imrpove imports ([2d4d589](https://github.com/basics/nuxt-booster/commit/2d4d589a036f74d9a90966d1b81b76c3130e293c))
+* **plugin:** added revokeObjectURL ([389b23e](https://github.com/basics/nuxt-booster/commit/389b23e55aa35163b68ccb1e649bea1dbf081719))
+* **plugin:** fix invalid object url ([dfe4c5a](https://github.com/basics/nuxt-booster/commit/dfe4c5ad5674ac4796dbdc6fab8612b6a9f2ece7))
+* **plugin:** remove fetch retry, not necessary for object url ([667223c](https://github.com/basics/nuxt-booster/commit/667223ccd00551095cc64e1ef86de107a12bac7e))
+
 ## [3.1.4-next.5](https://github.com/basics/nuxt-booster/compare/v3.1.4-next.4...v3.1.4-next.5) (2024-08-18)
 
 
