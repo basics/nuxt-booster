@@ -3,7 +3,7 @@ export default options => {
 import vFont from '#booster/directives/vFont';
 import { isSupportedBrowser } from '#booster/utils/browser';
 import FontList from '#booster/classes/FontList';
-import { useNuxtApp, useBoosterHead, useRequestHeaders, useRequestURL, useRequestFetch } from '#imports';
+import { useFetch, useNuxtApp, useBoosterHead, useRequestHeaders, useRequestURL, useRequestFetch } from '#imports';
 import './fonts.css';`;
 
   if (options.mode !== 'client') {
@@ -80,6 +80,7 @@ async function getImageSize (src) {
   return dimensionCache.get(src)`;
   } else {
     code += `
+  const requestFetch = useRequestFetch();
   const isNitroPrerender = 'x-nitro-prerender' in useRequestHeaders()
 
   try {
@@ -89,19 +90,17 @@ async function getImageSize (src) {
     }
 
     if (!dimensionCache.has(url)) {
-      const blob = await useRequestFetch()(url);
-      const { imageMeta } = await import('image-meta').then(
-        module => module.default || module
-      );
+      const requestUrl = useRequestURL()
+      const blob = await requestFetch(url);
+      requestUrl.pathname = '${options.routeImageSize}'
+      requestUrl.searchParams.append('url', URL.createObjectURL(blob));
 
-      const objectUrl = URL.createObjectURL(blob);
-      const data = await fetch(objectUrl).then(async res =>
-        Buffer.from(await res.arrayBuffer())
-      );
-      const dimension = await imageMeta(data);
+      let preparedUrl  = requestUrl.toString()
+      if (isNitroPrerender) {
+        preparedUrl = preparedUrl.replace(requestUrl.origin, '');
+      }
 
-      URL.revokeObjectURL(objectUrl);
-
+      const dimension = await requestFetch(preparedUrl, {method: 'get'});
       dimensionCache.set(url, dimension);
     }
 

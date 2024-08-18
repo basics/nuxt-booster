@@ -5,12 +5,14 @@ import {
   createResolver,
   defineNuxtModule,
   addPluginTemplate,
-  addTemplate
+  addTemplate,
+  addServerHandler
 } from '@nuxt/kit';
 import { getCrossorigin, getSupportedBrowserDetector } from './utils/browser';
 import FontConfig from './classes/FontConfig';
 import {
   MODULE_NAME,
+  ROUTE_IMAGE_SIZE,
   addNuxtFontaine,
   addNuxtImage,
   isWebpackBuild,
@@ -41,6 +43,7 @@ export default defineNuxtModule({
 
   async setup(moduleOptions, nuxt) {
     const runtimeDir = resolver.resolve('./runtime');
+    const serverMiddlewareDir = resolver.resolve('./server-middleware');
     nuxt.options.alias['#booster'] = runtimeDir;
     nuxt.options.build.transpile.push(runtimeDir);
 
@@ -83,6 +86,11 @@ export default defineNuxtModule({
     await addBuildTemplates(nuxt, moduleOptions);
 
     addImportsDir(resolve(runtimeDir, 'composables'));
+
+    addServerHandler({
+      route: ROUTE_IMAGE_SIZE,
+      handler: resolve(serverMiddlewareDir, 'image-size.get')
+    });
   }
 });
 
@@ -120,7 +128,8 @@ async function addBuildTemplates(nuxt, options) {
           targetFormats: options.targetFormats,
           crossorigin: getCrossorigin(options.crossorigin),
           supportedBrowserDetector,
-          loader: options.loader
+          loader: options.loader,
+          routeImageSize: ROUTE_IMAGE_SIZE
         });
       },
       filename: MODULE_NAME + `/plugin.${mode}.js`,

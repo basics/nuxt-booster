@@ -3,6 +3,8 @@ import { installModule, useLogger } from '@nuxt/kit';
 
 export const MODULE_NAME = 'nuxt-booster';
 
+export const ROUTE_IMAGE_SIZE = `/api/${MODULE_NAME}/get-image-size`;
+
 export const logger = useLogger(MODULE_NAME);
 
 function getModuleName(m) {
