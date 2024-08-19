@@ -73,7 +73,7 @@
     "@nuxt/eslint": "0.5.0",
     "@nuxt/module-builder": "0.8.3",
     "@nuxt/webpack-builder": "3.12.4",
-    "@types/node": "20.16.0",
+    "@types/node": "20.16.1",
     "@types/vue": "2.0.0",
     "commitlint": "19.4.0",
     "eslint": "9.9.0",
