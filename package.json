@@ -83,7 +83,7 @@
     "eslint-plugin-security": "3.0.1",
     "finalhandler": "1.2.0",
     "get-port-please": "3.1.2",
-    "husky": "9.1.4",
+    "husky": "9.1.5",
     "jsdom": "24.1.1",
     "lint-staged": "15.2.9",
     "markdown-it-inline-comments": "1.0.1",
