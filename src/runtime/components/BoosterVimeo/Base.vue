@@ -36,6 +36,7 @@ import { load, ready } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture';
+import props from './props';
 
 const vimeo = new Vimeo();
 
@@ -45,50 +46,8 @@ export default {
     DefaultButton
   },
 
-  props: {
-    autoplay: {
-      type: Boolean,
-      default: false
-    },
+  props,
 
-    mute: {
-      type: Boolean,
-      default: undefined
-    },
-
-    url: {
-      type: String,
-      required: true
-    },
-
-    title: {
-      type: String,
-      required: false,
-      default: null
-    },
-
-    options: {
-      type: Object,
-      default() {
-        return {};
-      }
-    },
-
-    posterSources: {
-      type: Array,
-      default() {
-        return [
-          {
-            src: undefined,
-            media: 'all',
-            sizes: {
-              default: '100vw'
-            }
-          }
-        ];
-      }
-    }
-  },
   emits: ['playing', 'ready'],
 
   async setup(props) {

@@ -1,39 +1,47 @@
-<template>
-  <render />
-</template>
-
-<script setup>
-import { useBoosterCritical, useAttrs } from '#imports';
-import { h } from 'vue';
+<script>
+import { h, useBoosterCritical } from '#imports';
 import HydrateWrapper from './HydrateWrapper';
 import BoosterPicture from '#booster/components/BoosterPicture/Base';
+import pictureProps from './BoosterPicture/props';
 
-defineOptions({
-  inheritAttrs: false
-});
+export default {
+  props: {
+    hydrate: {
+      type: Boolean,
+      default: true
+    },
+    ...pictureProps
+  },
+  setup() {
+    const { isCritical } = useBoosterCritical();
+    return {
+      isCritical
+    };
+  },
 
-const $props = defineProps({
-  hydrate: {
-    type: Boolean,
-    default: true
+  render() {
+    if (!this.hydrate) {
+      return h(HydrateWrapper, {}, [
+        h(
+          'noscript',
+          {
+            class: 'nuxt-booster-image-noscript'
+          },
+          [
+            h(BoosterPicture, {
+              ...this.$attrs,
+              ...{ ...this.$props, hydrate: undefined },
+              critical: this.hydrate
+            })
+          ]
+        )
+      ]);
+    }
+    return h(BoosterPicture, {
+      ...this.$attrs,
+      ...{ ...this.$props, hydrate: undefined },
+      critical: this.isCritical
+    });
   }
-});
-
-const $attrs = useAttrs();
-const { isCritical } = useBoosterCritical();
-
-const render = () => {
-  if (!$props.hydrate) {
-    return h(HydrateWrapper, {}, [
-      h(
-        'noscript',
-        {
-          class: 'nuxt-booster-picture-noscript'
-        },
-        [h(BoosterPicture, { ...$attrs, critical: $props.hydrate })]
-      )
-    ]);
-  }
-  return h(BoosterPicture, { ...$attrs, critical: isCritical.value });
 };
 </script>

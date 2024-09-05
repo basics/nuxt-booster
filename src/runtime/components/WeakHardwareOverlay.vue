@@ -7,12 +7,17 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
-
-const isServer = ref(true);
-
-onMounted(() => (isServer.value = false));
+<script>
+export default {
+  data: function () {
+    return {
+      isServer: true
+    };
+  },
+  mounted() {
+    this.isServer = false;
+  }
+};
 </script>
 
 <style lang="postcss" scoped>

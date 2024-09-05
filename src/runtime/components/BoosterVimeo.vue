@@ -1,5 +1,5 @@
 <template>
-  <base-vimeo class="nuxt-booster-vimeo" v-bind="$attrs">
+  <base-vimeo class="nuxt-booster-vimeo" v-bind="$props">
     <template #beforePlayer>
       <slot name="beforePlayer" />
     </template>
@@ -54,12 +54,16 @@
   </base-vimeo>
 </template>
 
-<script setup>
+<script>
 import BaseVimeo from '#booster/components/BoosterVimeo/Base';
+import props from './BoosterVimeo/props';
 
-defineOptions({
-  inheritAttrs: false
-});
+export default {
+  components: {
+    BaseVimeo
+  },
+  props
+};
 </script>
 
 <style lang="postcss" scoped>
