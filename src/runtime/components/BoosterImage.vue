@@ -1,36 +1,38 @@
-<template>
-  <render />
-</template>
-
-<script setup>
-import { useBoosterCritical, useAttrs } from '#imports';
-import { h } from 'vue';
+<script>
+import { useBoosterCritical, h } from '#imports';
 
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 import BoosterImage from '#booster/components/BoosterImage/Base';
 
-defineOptions({
-  inheritAttrs: false
-});
+export default {
+  inheritAttrs: false,
 
-const $attrs = useAttrs();
+  props: {
+    hydrate: {
+      type: Boolean,
+      default: true
+    }
+  },
+  setup() {
+    const { isCritical } = useBoosterCritical();
+    return {
+      isCritical
+    };
+  },
 
-const $props = defineProps({
-  hydrate: {
-    type: Boolean,
-    default: true
+  render() {
+    if (!this.hydrate) {
+      return h(LazyHydrationWrapper, { never: true }, [
+        h(
+          'noscript',
+          {
+            class: 'nuxt-booster-image-noscript'
+          },
+          [h(BoosterImage, { ...this.$attrs, critical: this.hydrate })]
+        )
+      ]);
+    }
+    return h(BoosterImage, { ...this.$attrs, critical: this.isCritical });
   }
-});
-
-const { isCritical } = useBoosterCritical();
-const render = () => {
-  if (!$props.hydrate) {
-    return h(LazyHydrationWrapper, { props: { never: true } }, [
-      h('noscript', {}, [
-        h(BoosterImage, { ...$attrs, critical: $props.hydrate })
-      ])
-    ]);
-  }
-  return h(BoosterImage, { ...$attrs, critical: isCritical.value });
 };
 </script>
