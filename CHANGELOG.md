@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.6-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.1...v3.1.6-next.2) (2024-09-05)
+
+
+### Bug Fixes
+
+* **components:** improvements for typescript ([e3f9409](https://github.com/basics/nuxt-booster/commit/e3f9409263e695bb92ae92fe656948a93301d4cc))
+
 ## [3.1.6-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.5...v3.1.6-next.1) (2024-09-05)
 
 
