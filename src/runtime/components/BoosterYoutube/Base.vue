@@ -28,6 +28,7 @@ import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture';
+import props from './props';
 
 const youtube = new Youtube();
 
@@ -37,54 +38,7 @@ export default {
     DefaultButton
   },
 
-  props: {
-    autoplay: {
-      type: Boolean,
-      default: false
-    },
-
-    mute: {
-      type: Boolean,
-      default: undefined
-    },
-
-    url: {
-      type: String,
-      required: true
-    },
-
-    title: {
-      type: String,
-      required: true
-    },
-
-    host: {
-      type: String,
-      default: 'https://www.youtube-nocookie.com'
-    },
-
-    options: {
-      type: Object,
-      default() {
-        return {};
-      }
-    },
-
-    posterSources: {
-      type: Array,
-      default() {
-        return [
-          {
-            src: undefined,
-            media: 'all',
-            sizes: {
-              default: '100vw'
-            }
-          }
-        ];
-      }
-    }
-  },
+  props,
 
   emits: ['ready', 'playing'],
 

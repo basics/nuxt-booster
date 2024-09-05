@@ -3,6 +3,7 @@ import { useBoosterCritical, h } from '#imports';
 
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 import BoosterImage from '#booster/components/BoosterImage/Base';
+import imageProps from './BoosterImage/props';
 
 export default {
   inheritAttrs: false,
@@ -11,7 +12,8 @@ export default {
     hydrate: {
       type: Boolean,
       default: true
-    }
+    },
+    ...imageProps
   },
   setup() {
     const { isCritical } = useBoosterCritical();
@@ -28,11 +30,21 @@ export default {
           {
             class: 'nuxt-booster-image-noscript'
           },
-          [h(BoosterImage, { ...this.$attrs, critical: this.hydrate })]
+          [
+            h(BoosterImage, {
+              ...this.$attrs,
+              ...{ ...this.$props, hydrate: undefined },
+              critical: this.hydrate
+            })
+          ]
         )
       ]);
     }
-    return h(BoosterImage, { ...this.$attrs, critical: this.isCritical });
+    return h(BoosterImage, {
+      ...this.$attrs,
+      ...{ ...this.$props, hydrate: undefined },
+      critical: this.isCritical
+    });
   }
 };
 </script>
