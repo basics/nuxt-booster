@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.6-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.5...v3.1.6-next.1) (2024-09-05)
+
+
+### Bug Fixes
+
+* **components:** added export for create missing ts defs ([04406bf](https://github.com/basics/nuxt-booster/commit/04406bfba67759eee02111442f0a9cc6e97c96f1))
+
 ## [3.1.5](https://github.com/basics/nuxt-booster/compare/v3.1.4...v3.1.5) (2024-08-18)
 
 
