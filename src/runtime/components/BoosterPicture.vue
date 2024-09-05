@@ -5,8 +5,7 @@
 <script setup>
 import { useBoosterCritical, useAttrs } from '#imports';
 import { h } from 'vue';
-
-import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
+import HydrateWrapper from './HydrateWrapper';
 import BoosterPicture from '#booster/components/BoosterPicture/Base';
 
 defineOptions({
@@ -25,7 +24,7 @@ const { isCritical } = useBoosterCritical();
 
 const render = () => {
   if (!$props.hydrate) {
-    return h(LazyHydrationWrapper, { never: true }, [
+    return h(HydrateWrapper, {}, [
       h(
         'noscript',
         {
