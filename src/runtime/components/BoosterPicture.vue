@@ -25,7 +25,7 @@ export default {
         h(
           'noscript',
           {
-            class: 'nuxt-booster-image-noscript'
+            class: 'nuxt-booster-picture-noscript'
           },
           [
             h(BoosterPicture, {
