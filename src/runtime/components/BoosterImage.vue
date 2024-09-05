@@ -6,8 +6,6 @@ import BoosterImage from '#booster/components/BoosterImage/Base';
 import imageProps from './BoosterImage/props';
 
 export default {
-  inheritAttrs: false,
-
   props: {
     hydrate: {
       type: Boolean,
