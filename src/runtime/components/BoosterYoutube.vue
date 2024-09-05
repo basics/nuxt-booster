@@ -49,12 +49,14 @@
   </base-youtube>
 </template>
 
-<script setup>
+<script>
 import BaseYoutube from '#booster/components/BoosterYoutube/Base';
-
-defineOptions({
-  inheritAttrs: false
-});
+export default {
+  components: {
+    BaseYoutube
+  },
+  inerhitAttrs: false
+};
 </script>
 
 <style lang="postcss" scoped>

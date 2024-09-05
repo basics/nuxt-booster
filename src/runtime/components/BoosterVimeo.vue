@@ -54,12 +54,14 @@
   </base-vimeo>
 </template>
 
-<script setup>
+<script>
 import BaseVimeo from '#booster/components/BoosterVimeo/Base';
-
-defineOptions({
-  inheritAttrs: false
-});
+export default {
+  components: {
+    BaseVimeo
+  },
+  inerhitAttrs: false
+};
 </script>
 
 <style lang="postcss" scoped>
