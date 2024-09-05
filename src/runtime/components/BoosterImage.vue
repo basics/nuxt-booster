@@ -24,7 +24,7 @@ const $props = defineProps({
 const { isCritical } = useBoosterCritical();
 const render = () => {
   if (!$props.hydrate) {
-    return h(HydrateWrapper, { props: { never: true } }, [
+    return h(HydrateWrapper, {}, [
       h('noscript', {}, [
         h(BoosterImage, { ...$attrs, critical: $props.hydrate })
       ])
