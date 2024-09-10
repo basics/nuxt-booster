@@ -21,7 +21,7 @@ export default {
 
   render() {
     if (!this.hydrate) {
-      return h(HydrateWrapper, { never: true }, [
+      return h(HydrateWrapper, {}, [
         h(
           'noscript',
           {
