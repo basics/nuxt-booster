@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.6-next.5](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.4...v3.1.6-next.5) (2024-09-13)
+
+
+### Bug Fixes
+
+* **plugin:** improved dimension query ([819c4d0](https://github.com/basics/nuxt-booster/commit/819c4d0392e4915abff689fd6ef7487e27796cca))
+
 ## [3.1.6-next.4](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.3...v3.1.6-next.4) (2024-09-10)
 
 
