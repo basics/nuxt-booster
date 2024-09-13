@@ -1,5 +1,19 @@
 # Project Changelog
 
+## [3.1.6-next.4](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.3...v3.1.6-next.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* **components:** removed log ([e880d2e](https://github.com/basics/nuxt-booster/commit/e880d2eb1b50a0cac939c24277673e759acfe072))
+
+## [3.1.6-next.3](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.2...v3.1.6-next.3) (2024-09-05)
+
+
+### Bug Fixes
+
+* **components:** removed inheritAttrs ([624a666](https://github.com/basics/nuxt-booster/commit/624a6665fba9aadd445d1bcf9786d5502b9324ba))
+
 ## [3.1.6-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.1...v3.1.6-next.2) (2024-09-05)
 
 

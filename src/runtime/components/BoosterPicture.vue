@@ -37,6 +37,7 @@ export default {
         )
       ]);
     }
+
     return h(BoosterPicture, {
       ...this.$attrs,
       ...{ ...this.$props, hydrate: undefined },
