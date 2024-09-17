@@ -1,5 +1,17 @@
 # Project Changelog
 
+## [3.1.6-next.6](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.5...v3.1.6-next.6) (2024-09-17)
+
+
+### Bug Fixes
+
+* **components:** fix class ([d7e84f6](https://github.com/basics/nuxt-booster/commit/d7e84f67e67038e68bd46885d63bcd118bf70425))
+* **components:** remove Test component ([f64b550](https://github.com/basics/nuxt-booster/commit/f64b55049ceec29dffad63eaedf7fc56e7614cad))
+* **components:** removed unused props ([4d071f1](https://github.com/basics/nuxt-booster/commit/4d071f119065b1b782f8b60f3dfdec12f8beb8bf))
+* **hydrate:** removed `vue3-lazy-hydration`, added vue hydration ([ffd02c9](https://github.com/basics/nuxt-booster/commit/ffd02c9816f851cadc6e3c1f717e5bdc42605dce))
+* **module:** update compatibility for nuxt ([765b835](https://github.com/basics/nuxt-booster/commit/765b8358e4b194654a61c542a65ac4e90cebf974))
+* **update:** removed unused values ([e8f603e](https://github.com/basics/nuxt-booster/commit/e8f603e7576a71933aab484274d906f93932132f))
+
 ## [3.1.6-next.5](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.4...v3.1.6-next.5) (2024-09-13)
 
 
