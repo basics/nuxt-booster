@@ -34,7 +34,7 @@ export default defineNuxtModule({
     name: 'nuxt-booster',
     configKey: 'booster',
     compatibility: {
-      nuxt: '^3.0.x'
+      nuxt: '>=3.13.1'
     }
   },
   defaults: getDefaultOptions(),

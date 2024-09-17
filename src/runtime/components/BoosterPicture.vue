@@ -1,7 +1,6 @@
 <script>
-import { useBoosterCritical, h } from '#imports';
-
-import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
+import { h, useBoosterCritical } from '#imports';
+import HydrateWrapper from './HydrateWrapper';
 import BoosterPicture from '#booster/components/BoosterPicture/Base';
 import pictureProps from './BoosterPicture/props';
 
@@ -13,7 +12,6 @@ export default {
     },
     ...pictureProps
   },
-
   setup() {
     const { isCritical } = useBoosterCritical();
     return {
@@ -23,7 +21,7 @@ export default {
 
   render() {
     if (!this.hydrate) {
-      return h(LazyHydrationWrapper, { never: true }, [
+      return h(HydrateWrapper, {}, [
         h(
           'noscript',
           {

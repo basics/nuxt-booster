@@ -6,7 +6,6 @@ export default {
     'change-case',
     'hash-sum',
     'probe-image-size',
-    'vue3-lazy-hydration',
     'node-cache',
 
     // package
@@ -20,7 +19,6 @@ export default {
     'image-meta',
     'pathe',
     'sort-css-media-queries',
-    'vue3-lazy-hydration',
     'mime-types',
     'mime-db'
   ],

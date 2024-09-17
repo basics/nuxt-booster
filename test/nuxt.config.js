@@ -26,7 +26,7 @@ export default defineNuxtConfig(async () => {
         crawlLinks: false,
         routes: [
           '/booster-layer',
-          '/booster-loader',
+          '/booster-hydrate',
           '/iframe',
           '/image',
           '/picture',

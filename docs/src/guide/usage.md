@@ -40,8 +40,6 @@ Until now, components were imported either statically (`import component from '@
 - 'Ensures that components are initialized only when needed in the visible viewport.'
 - 'Optimizes initialization of critical components on initial page load (critical components are initially in the visible viewport).'
 
-In the background, the module [`vue3-lazy-hydration`](https://github.com/freddy38510/vue3-lazy-hydration) inspired by `vue-lazy-hydration` from [Markus Oberlehner](https://github.com/maoberlehner/vue-lazy-hydration) is used in a standardised way.
-
 [Learn more about `useBoosterHydrate`](/composables/useBoosterHydrate).
 
 ````js
