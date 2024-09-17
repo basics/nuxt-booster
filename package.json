@@ -1,6 +1,6 @@
 {
   "name": "nuxt-booster",
-  "version": "3.1.5",
+  "version": "3.1.6-next.6",
   "description": "Nuxt Booster takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "author": "Stephan Gerbeth",
@@ -63,16 +63,15 @@
     "mime-types": "2.1.35",
     "node-cache": "5.1.2",
     "pathe": "1.1.2",
-    "sort-css-media-queries": "2.4.0",
-    "vue3-lazy-hydration": "1.2.1"
+    "sort-css-media-queries": "2.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@fullhuman/postcss-purgecss": "6.0.0",
-    "@nuxt/eslint": "0.5.5",
+    "@nuxt/eslint": "0.5.6",
     "@nuxt/module-builder": "0.8.3",
-    "@nuxt/webpack-builder": "3.13.0",
+    "@nuxt/webpack-builder": "3.13.1",
     "@types/node": "20.16.5",
     "@types/vue": "2.0.0",
     "commitlint": "19.5.0",
@@ -87,7 +86,7 @@
     "jsdom": "25.0.0",
     "lint-staged": "15.2.10",
     "markdown-it-inline-comments": "1.0.1",
-    "nuxt": "3.13.0",
+    "nuxt": "3.13.1",
     "playwright": "1.47.1",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.7.0",

@@ -71,8 +71,12 @@ async function getImageSize (src) {
 
   if (!dimensionCache.has(src)) {
     const { width, height } = await new Promise((resolve) => {
-      const img = new global.Image();
-      img.onload = () => resolve({width: img.naturalWidth, height: img.naturalHeight});
+      let img = new global.Image();
+      img.onload = () =>  {
+        const dimension = { width: img.naturalWidth, height: img.naturalHeight };
+        img = null;
+        resolve(dimension)
+      };
       img.src = src;
     });
     dimensionCache.set(src, { width, height });

@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import { getImageStyleDescription } from '#booster/utils/description';
 import { getCrossorigin } from '#booster/utils/browser';
 import Source from '#booster/components/BoosterImage/classes/Source';
@@ -29,37 +28,14 @@ import {
   useAttrs
 } from '#imports';
 import { ref, computed, markRaw } from 'vue';
+import props from './props';
 
 defineOptions({
   inheritAttrs: false
 });
 
 const $attrs = useAttrs();
-
-const $props = defineProps({
-  source: {
-    type: [Source, Object],
-    default: null
-  },
-
-  title: {
-    type: String,
-    required: true
-  },
-
-  alt: {
-    type: String,
-    default: null
-  },
-
-  crossorigin: {
-    type: [Boolean, String],
-    default() {
-      return null;
-    },
-    validator: validatorCrossorigin
-  }
-});
+const $props = defineProps(props);
 
 const $emit = defineEmits(['load']);
 

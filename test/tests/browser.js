@@ -185,11 +185,11 @@ export default runtime => {
 
     // #endregion /tests/weak-hardware-overlay
 
-    // #region /tests/booster-loader
+    // #region /tests/booster-hydrate
 
     it('boosterHydrate', async () => {
-      const page = await createPage('/booster-loader/');
-      // element has no font class?
+      const page = await createPage('/booster-hydrate/');
+
       expect(
         await page.evaluate(() =>
           document
@@ -197,14 +197,20 @@ export default runtime => {
             .classList.contains('.active')
         )
       ).toBeFalsy();
+
       await waitForSelector(page, '#criticalBoosterHydrate.active');
-      // scroll to element
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      // element has font class?
-      await waitForSelector(page, '#lazyBoosterHydrate.active');
+      await waitForSelector(page, '#customBoosterHydrate.active');
+
+      await page.setViewportSize({
+        width: 400,
+        height: 800
+      });
+
+      await waitForSelector(page, '#mediaBoosterHydrate.active');
     });
 
-    // #endregion /tests/booster-loader
+    // #endregion /tests/booster-hydrate
 
     // #region /tests/v-font
 

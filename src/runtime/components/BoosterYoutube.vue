@@ -1,5 +1,5 @@
 <template>
-  <base-youtube class="nuxt-booster-youtube" v-bind="$attrs">
+  <base-youtube class="nuxt-booster-youtube" v-bind="$props">
     <template #beforePlayer>
       <slot name="beforePlayer" />
     </template>
@@ -49,12 +49,16 @@
   </base-youtube>
 </template>
 
-<script setup>
+<script>
 import BaseYoutube from '#booster/components/BoosterYoutube/Base';
+import props from './BoosterYoutube/props';
 
-defineOptions({
-  inheritAttrs: false
-});
+export default {
+  components: {
+    BaseYoutube
+  },
+  props
+};
 </script>
 
 <style lang="postcss" scoped>

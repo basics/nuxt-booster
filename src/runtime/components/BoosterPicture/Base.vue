@@ -20,52 +20,17 @@
 
 <script setup>
 import { getPictureStyleDescription } from '../../utils/description';
-import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import { useBoosterCritical, useImage, useHead, useNuxtApp } from '#imports';
 import { ref, computed } from 'vue';
 
 import BaseImage from '#booster/components/BoosterImage/Base';
 import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
 import PictureSource from '#booster/components/BoosterPicture/Source';
+import props from './props';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
-const $props = defineProps({
-  sources: {
-    type: [Array, SourceList],
-    required: true
-  },
-
-  formats: {
-    type: Array,
-    default() {
-      return null;
-    }
-  },
-
-  title: {
-    type: String,
-    default: null
-  },
-
-  alt: {
-    type: String,
-    default: null
-  },
-
-  crossorigin: {
-    type: [Boolean, String],
-    default() {
-      return null;
-    },
-    validator: validatorCrossorigin
-  },
-
-  sortSources: {
-    type: Boolean,
-    default: true
-  }
-});
+const $props = defineProps(props);
 
 const $emit = defineEmits(['load']);
 
