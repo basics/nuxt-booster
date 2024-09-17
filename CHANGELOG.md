@@ -1,5 +1,22 @@
 # Project Changelog
 
+## [3.1.6](https://github.com/basics/nuxt-booster/compare/v3.1.5...v3.1.6) (2024-09-17)
+
+
+### Bug Fixes
+
+* **components:** added export for create missing ts defs ([04406bf](https://github.com/basics/nuxt-booster/commit/04406bfba67759eee02111442f0a9cc6e97c96f1))
+* **components:** fix class ([d7e84f6](https://github.com/basics/nuxt-booster/commit/d7e84f67e67038e68bd46885d63bcd118bf70425))
+* **components:** improvements for typescript ([e3f9409](https://github.com/basics/nuxt-booster/commit/e3f9409263e695bb92ae92fe656948a93301d4cc))
+* **components:** remove Test component ([f64b550](https://github.com/basics/nuxt-booster/commit/f64b55049ceec29dffad63eaedf7fc56e7614cad))
+* **components:** removed inheritAttrs ([624a666](https://github.com/basics/nuxt-booster/commit/624a6665fba9aadd445d1bcf9786d5502b9324ba))
+* **components:** removed log ([e880d2e](https://github.com/basics/nuxt-booster/commit/e880d2eb1b50a0cac939c24277673e759acfe072))
+* **components:** removed unused props ([4d071f1](https://github.com/basics/nuxt-booster/commit/4d071f119065b1b782f8b60f3dfdec12f8beb8bf))
+* **hydrate:** removed `vue3-lazy-hydration`, added vue hydration ([ffd02c9](https://github.com/basics/nuxt-booster/commit/ffd02c9816f851cadc6e3c1f717e5bdc42605dce))
+* **module:** update compatibility for nuxt ([765b835](https://github.com/basics/nuxt-booster/commit/765b8358e4b194654a61c542a65ac4e90cebf974))
+* **plugin:** improved dimension query ([819c4d0](https://github.com/basics/nuxt-booster/commit/819c4d0392e4915abff689fd6ef7487e27796cca))
+* **update:** removed unused values ([e8f603e](https://github.com/basics/nuxt-booster/commit/e8f603e7576a71933aab484274d906f93932132f))
+
 ## [3.1.6-next.6](https://github.com/basics/nuxt-booster/compare/v3.1.6-next.5...v3.1.6-next.6) (2024-09-17)
 
 
