@@ -5,7 +5,6 @@ import pluginSecurity from 'eslint-plugin-security';
 
 export default withNuxt({
   files: ['**/*.js', '**/*.vue'],
-  ignores: eslintIgnores,
   rules: {
     'prettier/prettier': 'error',
     classPrivateMethods: 'off',
@@ -39,4 +38,8 @@ export default withNuxt({
     'vue/multi-word-component-names': 'off',
     'vue/html-self-closing': 'off' // prettier conflict
   }
-}).prepend(pluginSecurity.configs.recommended, eslintPluginPrettierRecommended);
+}).prepend(
+  eslintIgnores,
+  pluginSecurity.configs.recommended,
+  eslintPluginPrettierRecommended
+);
