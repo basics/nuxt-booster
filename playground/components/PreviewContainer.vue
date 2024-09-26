@@ -1,22 +1,24 @@
 <template>
-  <section class="preview-container">
+  <content-container class="preview-container">
     <div class="preview">
       <div>
         <slot name="default" />
       </div>
     </div>
-    <h2 class="info">
+    <content-headline class="info">
       <span v-font="$getFont('Quicksand', 400, 'normal')">
         <slot name="title">
           <p>Preview Info</p>
         </slot>
       </span>
-    </h2>
-  </section>
+    </content-headline>
+  </content-container>
 </template>
 
 <script setup>
 import { useBoosterFonts } from '#imports';
+import ContentContainer from 'vue-semantic-structure/ContentContainer.vue';
+import ContentHeadline from 'vue-semantic-structure/ContentHeadline.vue';
 const { $getFont } = useBoosterFonts();
 </script>
 

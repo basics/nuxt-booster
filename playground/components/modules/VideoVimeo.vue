@@ -1,5 +1,8 @@
 <template>
-  <section v-font="[$getFont('Merriweather', 400)]" class="video-vimeo">
+  <content-container
+    v-font="[$getFont('Merriweather', 400)]"
+    class="video-vimeo"
+  >
     <booster-vimeo v-bind="$attrs">
       <template #default="{ videoData }">
         <div class="description" v-html="videoData && videoData.description" />
@@ -8,12 +11,13 @@
         <weak-hardware-overlay />
       </template>
     </booster-vimeo>
-  </section>
+  </content-container>
 </template>
 
 <script setup>
 import BoosterVimeo from '#booster/components/BoosterVimeo';
 import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
+import ContentContainer from 'vue-semantic-structure/ContentContainer.vue';
 import { useBoosterFonts } from '#imports';
 
 const { $getFont } = useBoosterFonts();

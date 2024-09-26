@@ -1,9 +1,9 @@
 <template>
   <div>
     <page-header v-model="menuOpened" v-bind="pageHeaderData" />
-    <main :inert="menuOpened">
+    <content-container :inert="menuOpened">
       <slot />
-    </main>
+    </content-container>
     <info-layer v-if="!$config.public.disableInfoLayer" critical />
     <github-corner :url="$config.public.githubRepoUrl" />
   </div>
@@ -12,6 +12,7 @@
 <script setup>
 import 'wicg-inert';
 import { useBoosterHydrate, useRoute, useHead } from '#imports';
+import ContentContainer from 'vue-semantic-structure/ContentContainer.vue';
 import { defineAsyncComponent, ref, computed } from 'vue';
 const hydrate = useBoosterHydrate();
 
