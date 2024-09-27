@@ -1,5 +1,5 @@
 <template>
-  <section
+  <content-container
     v-font="[
       $getFont('Merriweather', 300, 'normal'),
       $getFont('Merriweather', 700, 'normal', { selector: 'h1,h2' }),
@@ -13,15 +13,16 @@
     class="component-text-font-a"
   >
     <div>
-      <h2>{{ headline }}</h2>
+      <content-headline>{{ headline }}</content-headline>
       <div v-html="content" />
     </div>
-  </section>
+  </content-container>
 </template>
 
 <script setup>
 import { useBoosterFonts } from '#imports';
 import { ref, onMounted } from 'vue';
+import { ContentContainer, ContentHeadline } from 'vue-semantic-structure';
 
 const { $getFont } = useBoosterFonts();
 const ready = ref(false);

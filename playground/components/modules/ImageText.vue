@@ -1,5 +1,5 @@
 <template>
-  <section
+  <content-container
     v-font="[
       $getFont('Merriweather', 300, 'normal'),
       $getFont('Montserrat Alternates', 700, 'normal', { selector: 'h2' })
@@ -17,15 +17,16 @@
         />
       </div>
       <div class="text">
-        <h2>{{ headline }}</h2>
+        <content-headline>{{ headline }}</content-headline>
         <div v-html="content" />
       </div>
     </div>
-  </section>
+  </content-container>
 </template>
 
 <script setup>
 import BoosterPicture from '#booster/components/BoosterPicture';
+import { ContentContainer, ContentHeadline } from 'vue-semantic-structure';
 import { useBoosterFonts } from '#imports';
 
 const { $getFont } = useBoosterFonts();

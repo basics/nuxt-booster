@@ -1,12 +1,12 @@
 <template>
-  <section class="component-stage" :level="-1">
+  <header class="component-stage" :level="-1">
     <booster-picture
       class="background"
       :title="picture.title"
       :alt="picture.alt"
       :sources="picture.sources"
     />
-    <h1 class="headline">
+    <content-headline class="headline">
       <span
         v-font="[
           $getFont('Montserrat Alternates', 700, 'normal', {
@@ -18,19 +18,20 @@
         <span class="content">{{ content }}</span>
         <span class="claim">{{ claim }}</span>
       </span>
-    </h1>
+    </content-headline>
 
     <transition name="fade">
       <span v-if="ready" class="arrow"><svg-chevron-down /></span>
     </transition>
 
     <booster-image class="logo" v-bind="image" :loading-spinner="null" />
-  </section>
+  </header>
 </template>
 
 <script setup>
 import BoosterPicture from '#booster/components/BoosterPicture';
 import BoosterImage from '#booster/components/BoosterImage';
+import { ContentHeadline } from 'vue-semantic-structure';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg';
 import { useBoosterFonts } from '#imports';
 import { ref, onMounted } from 'vue';
