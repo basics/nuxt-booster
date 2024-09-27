@@ -26,8 +26,7 @@
 
 <script setup>
 import BoosterPicture from '#booster/components/BoosterPicture';
-import ContentContainer from 'vue-semantic-structure/ContentContainer.vue';
-import ContentHeadline from 'vue-semantic-structure/ContentHeadline.vue';
+import { ContentContainer, ContentHeadline } from 'vue-semantic-structure';
 import { useBoosterFonts } from '#imports';
 
 const { $getFont } = useBoosterFonts();

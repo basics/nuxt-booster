@@ -17,7 +17,7 @@
 <script setup>
 import BoosterVimeo from '#booster/components/BoosterVimeo';
 import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
-import ContentContainer from 'vue-semantic-structure/ContentContainer.vue';
+import { ContentContainer } from 'vue-semantic-structure';
 import { useBoosterFonts } from '#imports';
 
 const { $getFont } = useBoosterFonts();

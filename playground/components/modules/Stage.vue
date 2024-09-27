@@ -31,7 +31,7 @@
 <script setup>
 import BoosterPicture from '#booster/components/BoosterPicture';
 import BoosterImage from '#booster/components/BoosterImage';
-import ContentHeadline from 'vue-semantic-structure/ContentHeadline.vue';
+import { ContentHeadline } from 'vue-semantic-structure';
 import SvgChevronDown from '@/assets/svg/chevron-down.svg';
 import { useBoosterFonts } from '#imports';
 import { ref, onMounted } from 'vue';

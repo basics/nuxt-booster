@@ -12,7 +12,7 @@
 <script setup>
 import 'wicg-inert';
 import { useBoosterHydrate, useRoute, useHead } from '#imports';
-import ContentContainer from 'vue-semantic-structure/ContentContainer.vue';
+import { ContentContainer } from 'vue-semantic-structure';
 import { defineAsyncComponent, ref, computed } from 'vue';
 const hydrate = useBoosterHydrate();
 
