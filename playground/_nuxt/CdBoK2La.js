@@ -1,0 +1,1 @@
+import{_ as t,o as s,c as o,A as r,n as a,g as n}from"./clJAH_i8.js";const c={inheritAttrs:!1};function d(e,p,f,u,i,l){return s(),o("button",a(n(e.$attrs)),[r(e.$slots,"default",{},void 0,!0)],16)}const $=t(c,[["render",d],["__scopeId","data-v-cb973d3f"]]);export{$ as D};
