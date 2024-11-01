@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.7-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.6...v3.1.7-next.1) (2024-11-01)
+
+
+### Bug Fixes
+
+* **node-cache:** removed `node-cache` ([a3afce2](https://github.com/basics/nuxt-booster/commit/a3afce206b74d278a785a757b773b2644e0147e4))
+
 ## [3.1.6](https://github.com/basics/nuxt-booster/compare/v3.1.5...v3.1.6) (2024-09-17)
 
 
