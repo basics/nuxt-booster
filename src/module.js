@@ -120,8 +120,7 @@ async function addBuildTemplates(nuxt, options) {
           targetFormats: options.targetFormats,
           crossorigin: getCrossorigin(options.crossorigin),
           supportedBrowserDetector,
-          loader: options.loader,
-          imageSizeCache: options.imageSizeCache
+          loader: options.loader
         });
       },
       filename: MODULE_NAME + `/plugin.${mode}.js`,
