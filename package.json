@@ -86,7 +86,7 @@
     "jsdom": "25.0.1",
     "lint-staged": "15.2.10",
     "markdown-it-inline-comments": "1.0.1",
-    "nuxt": "3.14.0",
+    "nuxt": "3.14.159",
     "playwright": "1.48.2",
     "postcss-functions": "4.0.2",
     "postcss-html": "1.7.0",
