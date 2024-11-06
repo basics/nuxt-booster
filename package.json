@@ -71,7 +71,7 @@
     "@fullhuman/postcss-purgecss": "6.0.0",
     "@nuxt/eslint": "0.6.1",
     "@nuxt/module-builder": "0.8.4",
-    "@nuxt/webpack-builder": "3.14.0",
+    "@nuxt/webpack-builder": "3.14.159",
     "@types/node": "22.9.0",
     "@types/vue": "2.0.0",
     "commitlint": "19.5.0",
