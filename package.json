@@ -68,7 +68,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.6.0",
     "@commitlint/config-conventional": "19.6.0",
-    "@fullhuman/postcss-purgecss": "6.0.0",
+    "@fullhuman/postcss-purgecss": "7.0.2",
     "@nuxt/eslint": "0.6.1",
     "@nuxt/module-builder": "0.8.4",
     "@nuxt/webpack-builder": "3.14.159",
