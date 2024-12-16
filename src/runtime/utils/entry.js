@@ -111,7 +111,13 @@ export const canVideoPlay = async blob => {
     video.muted = true;
     video.playsinline = true;
     video.src = objectUrl;
-    await video.play();
+
+    const { resolve, promise } = Promise.withResolvers();
+    const timeout = window.setTimeout(resolve, 500);
+
+    await Promise.race([video.play(), promise]);
+    window.clearTimeout(timeout);
+
     URL.revokeObjectURL(objectUrl);
   } catch (error) {
     URL.revokeObjectURL(objectUrl);
