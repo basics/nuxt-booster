@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.7-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.7-next.1...v3.1.7-next.2) (2024-12-16)
+
+
+### Bug Fixes
+
+* **entry:** added timeout for video check ([8ae386a](https://github.com/basics/nuxt-booster/commit/8ae386a2992ab94f3dd2a840ae6b9223ea70bd4a))
+* **entry:** update visiblity check ([962bf07](https://github.com/basics/nuxt-booster/commit/962bf073be5162cbade22e7eb5f9e5734ed17889))
+
 ## [3.1.7-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.6...v3.1.7-next.1) (2024-11-01)
 
 
