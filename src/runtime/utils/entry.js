@@ -72,6 +72,18 @@ export const hasBatteryPerformanceIssue = async videoBlob => {
   }
 };
 
+export const waitForVisibilty = () => {
+  const { promise, resolve } = Promise.withResolvers();
+  if (document.visibilityState === 'hidden') {
+    document.addEventListener('visibilitychange', resolve, {
+      once: true
+    });
+  } else {
+    resolve();
+  }
+  return promise;
+};
+
 /**
  * Checks if battery still has enough energy.
  * This check is for Chrome and all other browsers that support this setting.
@@ -99,7 +111,13 @@ export const canVideoPlay = async blob => {
     video.muted = true;
     video.playsinline = true;
     video.src = objectUrl;
-    await video.play();
+
+    const { resolve, promise } = Promise.withResolvers();
+    const timeout = window.setTimeout(resolve, 500);
+
+    await Promise.race([video.play(), promise]);
+    window.clearTimeout(timeout);
+
     URL.revokeObjectURL(objectUrl);
   } catch (error) {
     URL.revokeObjectURL(objectUrl);
