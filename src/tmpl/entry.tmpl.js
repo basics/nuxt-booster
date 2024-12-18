@@ -2,7 +2,7 @@ export default options => {
   let code = `import { ${
     options.performanceCheck ? `run, ` : ``
   }hasSufficientPerformance, setup } from '#booster/utils/performance';
-import { triggerRunCallback, observeBoosterButton, setupBoosterLayer, updateBoosterLayerMessage, initReducedView, hasBatteryPerformanceIssue, deprecationWarningButtonSelector } from '#booster/utils/entry';
+import { waitForVisibilty, triggerRunCallback, observeBoosterButton, setupBoosterLayer, updateBoosterLayerMessage, initReducedView, hasBatteryPerformanceIssue, deprecationWarningButtonSelector } from '#booster/utils/entry';
 import Deferred from '#booster/classes/Deferred';
 import { isSupportedBrowser } from '#booster/utils/browser';
 import {video as videoBlob} from './blobs.mjs';
@@ -51,6 +51,8 @@ function client () {
     if (initialized) {
       deferred.resolve();
     }
+
+    await waitForVisibilty();
 
     document.documentElement.classList.remove('nuxt-booster-reduced-view');
 

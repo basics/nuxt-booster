@@ -72,22 +72,8 @@ export const getDefaultRunOptions = () => {
   return { maxTime: 1000, threshold: 0.65 };
 };
 
-export const waitForVisibleDocument = () => {
-  return new Promise(resolve => {
-    if (document.visibilityState === 'hidden') {
-      document.addEventListener('visibilitychange', () => resolve(), {
-        once: true
-      });
-    } else {
-      resolve();
-    }
-  });
-};
-
 export const run = async (options = {}) => {
   if (window.requestIdleCallback) {
-    await waitForVisibleDocument();
-
     const { maxTime, threshold } = { ...getDefaultRunOptions(), ...options };
     const fpsObserver = new CallbackObserver(rafTime);
     const idleObserver = new CallbackObserver(idleTime);

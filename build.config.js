@@ -6,7 +6,6 @@ export default {
     'change-case',
     'hash-sum',
     'probe-image-size',
-    'node-cache',
 
     // package
     '@nuxt/image',
