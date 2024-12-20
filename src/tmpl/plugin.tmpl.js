@@ -6,12 +6,6 @@ import FontList from '#booster/classes/FontList';
 import { useNuxtApp, useBoosterHead, useRequestHeaders, useRequestURL, useRequestFetch } from '#imports';
 import './fonts.css';`;
 
-  if (options.mode !== 'client') {
-    code += `
-import NodeCache from 'node-cache';
-`;
-  }
-
   code += `
 
 export default defineNuxtPlugin({
@@ -54,15 +48,9 @@ export default defineNuxtPlugin({
 
 `;
 
-  if (options.mode === 'client') {
-    code += `
-const dimensionCache = new Map();`;
-  } else {
-    code += `
-const dimensionCache = new NodeCache({  useClones: false, ...${JSON.stringify(options.imageSizeCache)} });`;
-  }
-
   code += `
+const dimensionCache = new Map();
+
 async function getImageSize (src) {
 `;
 

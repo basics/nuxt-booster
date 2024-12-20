@@ -39,13 +39,17 @@ export function getDefaultOptions() {
     lazyOffset: {
       component: '0%',
       asset: '0%'
-    },
-
-    imageSizeCache: { stdTTL: 3600, checkperiod: 1800 }
+    }
   };
 }
 
 export function deprecationsNotification(options) {
+  if ('imageSizeCache' in options) {
+    logger.warn(
+      'Option `imageSizeCache` is deprecated, is no longer required.'
+    );
+    delete options.loader;
+  }
   if ('loader' in options) {
     logger.warn(
       'Option `loader` is deprecated, there is no integrated loader anymore.'
