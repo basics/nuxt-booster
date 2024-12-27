@@ -113,7 +113,7 @@ export const canVideoPlay = async blob => {
     video.playsinline = true;
     video.src = objectUrl;
 
-    const { resolve, promise } = new Deferred();
+    const { promise, resolve } = new Deferred();
     const timeout = window.setTimeout(resolve, 500);
 
     await Promise.race([video.play(), promise]);
