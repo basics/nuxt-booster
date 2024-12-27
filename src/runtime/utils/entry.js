@@ -1,3 +1,4 @@
+import Deferred from '../classes/Deferred';
 import { hasSufficientDownloadPerformance } from './performance';
 
 export const triggerRunCallback = sufficient =>
@@ -73,7 +74,7 @@ export const hasBatteryPerformanceIssue = async videoBlob => {
 };
 
 export const waitForVisibilty = () => {
-  const { promise, resolve } = Promise.withResolvers();
+  const { promise, resolve } = new Deferred();
   if (document.visibilityState === 'hidden') {
     document.addEventListener('visibilitychange', resolve, {
       once: true
@@ -112,7 +113,7 @@ export const canVideoPlay = async blob => {
     video.playsinline = true;
     video.src = objectUrl;
 
-    const { resolve, promise } = Promise.withResolvers();
+    const { promise, resolve } = new Deferred();
     const timeout = window.setTimeout(resolve, 500);
 
     await Promise.race([video.play(), promise]);
