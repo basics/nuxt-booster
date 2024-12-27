@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.8](https://github.com/basics/nuxt-booster/compare/v3.1.7...v3.1.8) (2024-12-27)
+
+
+### Bug Fixes
+
+* **entry:** format ([1310aea](https://github.com/basics/nuxt-booster/commit/1310aeaaaa6967ae2537a7b639bc1815f1061057))
+* **entry:** replaced `promise.withResolvers` ([78e8244](https://github.com/basics/nuxt-booster/commit/78e82440e9d955796b36e4210e8c5e7d03a5bb92))
+
 ## [3.1.7](https://github.com/basics/nuxt-booster/compare/v3.1.6...v3.1.7) (2024-12-20)
 
 
