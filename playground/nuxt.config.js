@@ -30,7 +30,7 @@ export default defineNuxtConfig(async () => {
     runtimeConfig: {
       public: {
         githubRepoUrl: repository.url.replace(/^git\+(.*)\.git$/, '$1'),
-        disableInfoLayer: false
+        disableInfoLayer: true
       }
     },
 
@@ -137,6 +137,12 @@ export default defineNuxtConfig(async () => {
       //   performance: true,
       //   browserSupport: true,
       //   battery: true
+      // },
+
+      // experimental: {
+      //   fallbackInit: {
+      //     duration: 3000
+      //   }
       // },
 
       performanceMetrics: {

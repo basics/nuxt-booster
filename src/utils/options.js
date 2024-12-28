@@ -39,6 +39,10 @@ export function getDefaultOptions() {
     lazyOffset: {
       component: '0%',
       asset: '0%'
+    },
+
+    experimental: {
+      fallbackInit: false
     }
   };
 }
