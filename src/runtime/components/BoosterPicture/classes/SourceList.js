@@ -1,5 +1,6 @@
 import Source, { normalizeSrc } from '../../BoosterImage/classes/Source';
-import createSort from '#booster/externals/create-sort';
+import createSort from 'sort-css-media-queries/lib/create-sort';
+
 import { toHashHex } from '#booster/utils/string';
 
 const sortByMediaQueries = createSort();
