@@ -11,7 +11,6 @@ export default {
     'htmlparser2',
     'image-meta',
     'pathe',
-    'sort-css-media-queries',
     'mime-types',
     'mime-db'
   ],

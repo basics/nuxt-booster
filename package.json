@@ -61,8 +61,7 @@
     "htmlparser2": "9.1.0",
     "image-meta": "0.2.1",
     "mime-types": "2.1.35",
-    "pathe": "1.1.2",
-    "sort-css-media-queries": "2.4.0"
+    "pathe": "1.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "19.6.1",
