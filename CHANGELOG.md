@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.9-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.9-next.1...v3.1.9-next.2) (2024-12-28)
+
+
+### Bug Fixes
+
+* **source-list:** remove workaround ([a0592b5](https://github.com/basics/nuxt-booster/commit/a0592b58514a06de616aa67d154822d0bee870a2))
+
 ## [3.1.9-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.8...v3.1.9-next.1) (2024-12-28)
 
 
