@@ -147,7 +147,7 @@ function _testIsPrint(a, b) {
  * @param {boolean} [configuration.unitlessMqAlwaysFirst]
  * @returns {(function(string, string): number)|*}
  */
-module.exports = function createSort(configuration) {
+export default function createSort(configuration) {
   const config = configuration || {};
   const UNITLESS_MQ_ALWAYS_FIRST = config.unitlessMqAlwaysFirst;
 
@@ -312,4 +312,4 @@ module.exports = function createSort(configuration) {
   };
 
   return sortCSSmq;
-};
+}
