@@ -1,12 +1,6 @@
 export default {
   failOnWarn: false,
   externals: [
-    'glob',
-    'consola',
-    'change-case',
-    'hash-sum',
-    'probe-image-size',
-
     // package
     '@nuxt/image',
     'browserslist-useragent-regexp',
