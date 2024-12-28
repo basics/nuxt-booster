@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.9-next.3](https://github.com/basics/nuxt-booster/compare/v3.1.9-next.2...v3.1.9-next.3) (2024-12-28)
+
+
+### Bug Fixes
+
+* **source-list:** fix export ([2c2cd30](https://github.com/basics/nuxt-booster/commit/2c2cd301b6811e7ebb7e7dbe281d33fcbeec949e))
+* **source-list:** revert workaround ([397a8cd](https://github.com/basics/nuxt-booster/commit/397a8cda03cc71a9b0cb57cd9fdbdf746260d106))
+
 ## [3.1.9-next.2](https://github.com/basics/nuxt-booster/compare/v3.1.9-next.1...v3.1.9-next.2) (2024-12-28)
 
 
