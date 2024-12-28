@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.9-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.8...v3.1.9-next.1) (2024-12-28)
+
+
+### Bug Fixes
+
+* **module:** remove hash-sum ([1b61c43](https://github.com/basics/nuxt-booster/commit/1b61c43b3ed6ebf635b084ad551ba6946539a275))
+
 ## [3.1.8](https://github.com/basics/nuxt-booster/compare/v3.1.7...v3.1.8) (2024-12-27)
 
 
