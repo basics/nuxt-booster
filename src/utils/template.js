@@ -1,11 +1,17 @@
-import hashSum from 'hash-sum';
+let identifier = 0;
+const identifiersBySrc = new Map();
+function getIdentifier(src) {
+  const id = identifiersBySrc.get(src) || identifier++;
+  identifiersBySrc.set(src, id);
+  return identifiersBySrc.get(src) || identifier++;
+}
 
 function prepareFontsConfiguartion(fontConfig) {
   const fonts = fontConfig.toJSON();
   const imports = new Map();
   const preparedFonts = fonts.map(font => {
     font.variances = font.variances.map(variance => {
-      const hash = `Font${hashSum(variance.src)}`;
+      const hash = `Font${getIdentifier(variance.src)}`;
       imports.set(hash, variance.src);
 
       return { ...variance, src: `HASH(${hash})` };
@@ -42,7 +48,9 @@ export function getFontConfigCSSTemplate(fontConfig) {
   }
 
   function renderImports(imports) {
-    return imports.map(([, src]) => `import Font${hashSum(src)} from ${src};`);
+    return imports.map(
+      ([, src]) => `import Font${getIdentifier(src)} from ${src};`
+    );
   }
 
   const css = fontConfig.toCSS();
@@ -50,7 +58,7 @@ export function getFontConfigCSSTemplate(fontConfig) {
   const imports = getImports(css);
 
   const finalCSS = imports.reduce((result, [key, src]) => {
-    return result.replace(key, `url('\${Font${hashSum(src)}}')`);
+    return result.replace(key, `url('\${Font${getIdentifier(src)}}')`);
   }, css);
 
   return (

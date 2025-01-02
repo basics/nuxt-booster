@@ -1,6 +1,6 @@
 {
   "name": "nuxt-booster",
-  "version": "3.1.8",
+  "version": "3.1.9-next.3",
   "description": "Nuxt Booster takes over the Lighthouse performance optimization of your generated website.",
   "license": "MIT",
   "author": "Stephan Gerbeth",
@@ -61,8 +61,7 @@
     "htmlparser2": "10.0.0",
     "image-meta": "0.2.1",
     "mime-types": "2.1.35",
-    "pathe": "1.1.2",
-    "sort-css-media-queries": "2.4.0"
+    "pathe": "1.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "19.6.1",

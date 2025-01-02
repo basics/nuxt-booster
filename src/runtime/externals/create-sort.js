@@ -25,6 +25,9 @@ const maxHeight = /\(\s*max(-device)?-height|\(\s*height\s*<(=)?/i;
 const isMinHeight = _testQuery(minMaxHeight, maxMinHeight, minHeight);
 const isMaxHeight = _testQuery(maxMinHeight, minMaxHeight, maxHeight);
 
+const lessThan = /<(?!=)/;
+const grtrThan = />(?!=)/;
+
 const isPrint = /print/i;
 const isPrintOnly = /^print$/i;
 
@@ -92,12 +95,14 @@ function _testQuery(doubleTestTrue, doubleTestFalse, singleTest) {
    * @return {boolean}
    */
   return function (query) {
-    if (doubleTestTrue.test(query)) {
-      return true;
-    } else if (doubleTestFalse.test(query)) {
-      return false;
-    }
-    return singleTest.test(query);
+    let result;
+
+    if (doubleTestTrue.test(query)) result = true;
+    else if (doubleTestFalse.test(query)) result = false;
+    else result = singleTest.test(query);
+
+    /** Not keyword inverts the whole query */
+    return query.includes('not') ? !result : result;
   };
 }
 
@@ -203,6 +208,25 @@ export default function createSort(configuration) {
         return -1;
       }
 
+      if (lengthA === lengthB) {
+        if (maxA && maxB) {
+          if (lessThan.test(a) && !lessThan.test(b)) {
+            return 1;
+          }
+          if (!lessThan.test(a) && lessThan.test(b)) {
+            return -1;
+          }
+        }
+        if (minA && minB) {
+          if (grtrThan.test(a) && !grtrThan.test(b)) {
+            return 1;
+          }
+          if (!grtrThan.test(a) && grtrThan.test(b)) {
+            return -1;
+          }
+        }
+      }
+
       return a.localeCompare(b);
     }
   }
@@ -262,6 +286,25 @@ export default function createSort(configuration) {
           return 1;
         }
         return -1;
+      }
+
+      if (lengthA === lengthB) {
+        if (maxA && maxB) {
+          if (lessThan.test(a) && !lessThan.test(b)) {
+            return 1;
+          }
+          if (!lessThan.test(a) && lessThan.test(b)) {
+            return -1;
+          }
+        }
+        if (minA && minB) {
+          if (grtrThan.test(a) && !grtrThan.test(b)) {
+            return 1;
+          }
+          if (!grtrThan.test(a) && grtrThan.test(b)) {
+            return -1;
+          }
+        }
       }
 
       return -a.localeCompare(b);
