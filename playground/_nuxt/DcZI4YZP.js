@@ -1,0 +1,1 @@
+import{_ as o,o as r,c as t,A as n}from"./B_lentf6.js";import"./D7Hs2GqI.js";const c={};function s(e,a){return r(),t("div",null,[n(e.$slots,"default")])}const f=o(c,[["render",s]]);export{f as default};
