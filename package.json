@@ -61,7 +61,7 @@
     "htmlparser2": "10.0.0",
     "image-meta": "0.2.1",
     "mime-types": "2.1.35",
-    "pathe": "2.0.0"
+    "pathe": "2.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "19.6.1",
