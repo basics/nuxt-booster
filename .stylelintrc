@@ -15,6 +15,14 @@
         "camelCaseSvgKeywords": true
       }
     ],
+    "declaration-property-value-no-unknown": [
+      true,
+      {
+        "ignoreProperties": {
+          "/.+/": "/(vw|em)+/"
+        }
+      }
+    ],
     "function-no-unknown": [
       true,
       {
