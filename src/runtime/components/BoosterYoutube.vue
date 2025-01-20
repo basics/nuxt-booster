@@ -71,8 +71,8 @@ export default {
   margin: auto;
 
   & circle {
-    stroke-dasharray: 5, 177;
     stroke-width: 6px;
+    stroke-dasharray: 5, 177;
     animation: stroke 1.3333s ease infinite;
   }
 }

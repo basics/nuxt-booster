@@ -49,10 +49,10 @@ const resolveTag = computed(() => {
   color: currentColor;
   appearance: none;
   cursor: pointer;
+  outline: none;
   background: transparent;
   border: solid currentColor em(1px, var(--font-size));
   border-radius: em(5px, var(--font-size));
-  outline: none;
   transition: transform 0.1s ease-in;
   will-change: transform;
 
