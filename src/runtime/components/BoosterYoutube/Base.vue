@@ -172,8 +172,8 @@ button {
   cursor: pointer;
 
   .ready & {
-    pointer-events: none;
     visibility: hidden;
+    pointer-events: none;
   }
 }
 

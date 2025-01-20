@@ -112,11 +112,11 @@ export default {
     color: var(--color-foreground);
     background: var(--color-background);
     border-radius: 0.5em;
+    transform: translate(-50%, -50%);
     transition:
       opacity var(--transition-duration),
       background-color var(--transition-duration),
       color var(--transition-duration);
-    transform: translate(-50%, -50%);
 
     & svg {
       display: block;

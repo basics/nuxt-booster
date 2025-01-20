@@ -123,8 +123,8 @@ html.js-menu-open {
     left: em(10px);
     padding: em(10px);
     cursor: pointer;
-    background: rgb(255 255 255 / 40%);
     outline: none;
+    background: rgb(255 255 255 / 40%);
     transition: background 0.2s linear;
 
     @media (prefers-color-scheme: dark) {
@@ -138,10 +138,10 @@ html.js-menu-open {
 
     & path {
       fill: #333;
+      transform-origin: center;
       transition:
         opacity 0.2s linear,
         transform 0.2s linear;
-      transform-origin: center;
 
       @media (prefers-color-scheme: dark) {
         fill: #fff;
@@ -320,8 +320,8 @@ html.js-menu-open {
         overflow: auto;
         text-align: left;
         background: rgb(255 255 255 / 50%);
-        transition: transform 0.2s ease-in;
         transform: translateX(-100%);
+        transition: transform 0.2s ease-in;
 
         @media (prefers-color-scheme: dark) {
           background: rgb(0 0 0 / 50%);
@@ -345,8 +345,8 @@ html.js-menu-open {
     transition-delay: 0s;
 
     & > div > div {
-      transition-delay: 0.2s;
       transform: translateX(0%);
+      transition-delay: 0.2s;
     }
   }
 }
