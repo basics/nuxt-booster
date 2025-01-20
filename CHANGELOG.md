@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.1.10](https://github.com/basics/nuxt-booster/compare/v3.1.9...v3.1.10) (2025-01-20)
+
+
+### Bug Fixes
+
+* **lint:** fix stylelint errors ([02fbaaa](https://github.com/basics/nuxt-booster/commit/02fbaaa2672a727821e98f4dd1554ad06dcc55b9))
+
 ## [3.1.9](https://github.com/basics/nuxt-booster/compare/v3.1.8...v3.1.9) (2025-01-02)
 
 
