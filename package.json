@@ -96,8 +96,8 @@
     "stylelint-config-recess-order": "6.0.0",
     "stylelint-config-standard": "37.0.0",
     "vite-svg-loader": "5.1.0",
-    "vitepress": "1.6.0",
-    "vitest": "3.0.2",
+    "vitepress": "1.6.1",
+    "vitest": "3.0.3",
     "vue-semantic-structure": "1.0.0",
     "wicg-inert": "3.1.3"
   }
