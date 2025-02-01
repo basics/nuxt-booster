@@ -62,19 +62,47 @@ The problem here is that the fonts are not loaded correctly.
 This can have a negative impact on performance values.
 
 To prevent this, the use of `font-family` should be identified for each framework component.  
-This position is then modified with a `$getFont` and `font-family: unset;`.  
+This definition is then modified `$getFont` and `unset` value for  `font-family`, `font-weight`, `font-style`.  
 This suppresses the automatic loading of the font.
 
 ### Icon loading
 
 Similar to fonts, icons are also initially loaded as fonts by most UI frameworks.
 
-They must be converted to SVG icons in order to improve the performance values.
+They must be replaced by SVG icons in order to improve the performance values.
 
-**Example:**
+**SVG Integration:**
 
 - <https://vuetifyjs.com/en/components/icons/#mdi-svg>
 - <https://quasar.dev/vue-components/icon#svg-icons>
+
+#### Quasar Example with Font and Icon
+
+```vue
+<template>
+  <q-btn :icon="matSettings" v-font="$getFont('CustomFont', 500, 'normal')" />
+</template>
+
+<script setup>
+import { QBtn } from 'quasar';
+import { matSettings } from '@quasar/extras/material-icons';
+import { useBoosterFonts } from '#booster';
+
+const { $getFont } = useBoosterFonts()
+
+</script>
+
+<style scoped>
+
+.q-btn {
+  font-family: unset;
+  font-weight: unset;
+  font-style: unset;
+}
+
+</style>
+
+```
 
 These were two examples that should be taken into account when using UI frameworks.
 However, depending on the framework, further adjustments may also be necessary.
