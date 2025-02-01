@@ -52,7 +52,7 @@ In this case the global event `nuxt-booster:run` can be used. It will return an 
 If you use a UI framework such as Vuetify or Quasar, certain modifications must be made:
 
 - Font loading
-- Load icon
+- Icon loading
 
 ### Font loading
 
