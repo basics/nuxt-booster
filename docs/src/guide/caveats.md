@@ -46,3 +46,35 @@ In this case the global event `nuxt-booster:run` can be used. It will return an 
 
 </script>
 ```
+
+## Usage of UI frameworks (Vuetify, Quasar)
+
+If you use a UI framework such as Vuetify or Quasar, certain modifications must be made:
+
+- Font loading
+- Load icon
+
+### Font loading
+
+Most UI frameworks use their own fonts.
+
+The problem here is that the fonts are not loaded correctly.
+This can have a negative impact on performance values.
+
+To prevent this, the use of `font-family` should be identified for each framework component.  
+This position is then modified with a `$getFont` and `font-family: unset;`.  
+This suppresses the automatic loading of the font.
+
+### Icon loading
+
+Similar to fonts, icons are also initially loaded as fonts by most UI frameworks.
+
+They must be converted to SVG icons in order to improve the performance values.
+
+**Example:**
+
+- <https://vuetifyjs.com/en/components/icons/#mdi-svg>
+- <https://quasar.dev/vue-components/icon#svg-icons>
+
+These were two examples that should be taken into account when using UI frameworks.
+However, depending on the framework, further adjustments may also be necessary.
