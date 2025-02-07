@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [20]
+        node: [22]
 
     steps:
       - uses: actions/setup-node@v4
@@ -55,7 +55,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [20]
+        node: [22]
 
     steps:
       - uses: actions/setup-node@v4
@@ -75,7 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release --provider=github --debug=true
+          npx -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release
 
   build-playground:
     name: Build (Playground)
@@ -85,7 +85,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [20]
+        node: [22]
 
     steps:
       - uses: actions/setup-node@v4
@@ -119,7 +119,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [20]
+        node: [22]
 
     steps:
       - uses: actions/setup-node@v4
@@ -154,7 +154,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [20]
+        node: [22]
     steps:
       - name: Download Artifact (Docs)
         uses: actions/download-artifact@v4
@@ -181,7 +181,7 @@ jobs:
   #   strategy:
   #     matrix:
   #       os: [ubuntu-latest]
-  #       node: [20]
+  #       node: [22]
 
   #   steps:
   #     - name: docker pull
@@ -213,7 +213,7 @@ jobs:
   #   strategy:
   #     matrix:
   #       os: [ubuntu-latest]
-  #       node: [20]
+  #       node: [22]
   #   steps:
   #     - name: Download Artifact (Sitespeed)
   #       uses: actions/download-artifact@v4
