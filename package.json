@@ -73,7 +73,7 @@
     "@types/node": "22.13.1",
     "@types/vue": "2.0.0",
     "commitlint": "19.7.1",
-    "eslint": "9.19.0",
+    "eslint": "9.20.0",
     "eslint-config-prettier": "10.0.1",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-prettier": "5.2.3",
