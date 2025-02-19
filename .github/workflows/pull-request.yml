@@ -1,9 +1,9 @@
-name: Next
+name: Pull-Request
 
 on:
-  push:
+  pull_request:
     branches:
-      - next
+      - "**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -11,7 +11,6 @@ concurrency:
 
 jobs:
   install:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     name: Install
     runs-on: ${{ matrix.os }}
 
@@ -38,17 +37,11 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-
       - name: Lint
         run: npm run lint
 
-      - name: Test
-        run: npm run test
-
-  semantic-version:
-    name: Semantic Release
+  publish:
+    name: Publish Preview
     needs: install
     runs-on: ${{ matrix.os }}
 
@@ -69,10 +62,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-      - name: Versioning
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build
         run: |
-          npx -p @nuxt/module-builder -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/exec -p @semantic-release/github semantic-release
+          npx pkg-pr-new publish

@@ -46,3 +46,63 @@ In this case the global event `nuxt-booster:run` can be used. It will return an 
 
 </script>
 ```
+
+## Usage of UI frameworks (Vuetify, Quasar)
+
+If you use a UI framework such as Vuetify or Quasar, certain modifications must be made:
+
+- Font loading
+- Icon loading
+
+### Font loading
+
+Most UI frameworks use their own fonts.
+
+The problem here is that the fonts are not loaded correctly.
+This can have a negative impact on performance values.
+
+To prevent this, the use of `font-family` should be identified for each framework component.  
+This definition is then modified `$getFont` and `unset` value for  `font-family`, `font-weight`, `font-style`.  
+This suppresses the automatic loading of the font.
+
+### Icon loading
+
+Similar to fonts, icons are also initially loaded as fonts by most UI frameworks.
+
+They must be replaced by SVG icons in order to improve the performance values.
+
+**SVG Integration:**
+
+- <https://vuetifyjs.com/en/components/icons/#mdi-svg>
+- <https://quasar.dev/vue-components/icon#svg-icons>
+
+#### Quasar Example with Font and Icon
+
+```vue
+<template>
+  <q-btn :icon="matSettings" v-font="$getFont('CustomFont', 500, 'normal')" />
+</template>
+
+<script setup>
+import { QBtn } from 'quasar';
+import { matSettings } from '@quasar/extras/material-icons';
+import { useBoosterFonts } from '#booster';
+
+const { $getFont } = useBoosterFonts()
+
+</script>
+
+<style scoped>
+
+.q-btn {
+  font-family: unset;
+  font-weight: unset;
+  font-style: unset;
+}
+
+</style>
+
+```
+
+These were two examples that should be taken into account when using UI frameworks.
+However, depending on the framework, further adjustments may also be necessary.

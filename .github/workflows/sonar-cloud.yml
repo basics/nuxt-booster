@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [20]
+        node: [22]
 
     steps:
       - uses: actions/setup-node@v4
@@ -37,8 +37,6 @@ jobs:
         with:
           path: |
             node_modules
-            ~/.cache/ms-playwright/
-            ~\AppData\Local\ms-playwright\
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Install Dependencies
@@ -52,8 +50,8 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@master
         with:
           args: >
             -Dsonar.organization=basics

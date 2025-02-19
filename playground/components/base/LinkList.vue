@@ -49,8 +49,8 @@ a {
   padding: em(5px) em(10px);
   color: currentColor;
   text-decoration: none;
-  border-radius: em(3px);
   outline: none;
+  border-radius: em(3px);
   opacity: 0.8;
   transition:
     opacity 0.2s linear,
