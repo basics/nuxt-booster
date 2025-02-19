@@ -2,15 +2,10 @@ import { useAttrs, provide, inject, ref, computed } from 'vue';
 
 const criticalContextKey = Symbol('criticalContext');
 
-/**
- *
- * @param {*} param0
- * @returns {
- * isCritical: import('vue').ComputedRef<boolean>,}
- *
- */
-export default function ({ critical } = {}) {
+export default function (context = {}) {
   const attrs = useAttrs();
+
+  const { critical = false } = { critical: false, ...context };
 
   const currentCritical = ref(
     !('critical' in attrs)
