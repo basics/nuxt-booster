@@ -5,7 +5,7 @@ const criticalContextKey = Symbol('criticalContext');
 export default function (context = {}) {
   const attrs = useAttrs();
 
-  const { critical = false } = { critical: false, ...context };
+  const { critical } = { critical: false, ...context };
 
   const currentCritical = ref(
     !('critical' in attrs)
