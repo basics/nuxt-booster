@@ -20,6 +20,10 @@ Install `nuxt-booster` as a dependency to your project:
   npm install nuxt-booster
   ```
 
+  ```bash [PNPM]
+  pnpm add nuxt-booster
+  ```
+
 :::
 
 Add `nuxt-booster` to the `modules` section of `nuxt.config.js`:
