@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.1.11](https://github.com/basics/nuxt-booster/compare/v3.1.10...v3.1.11) (2025-02-20)
+
+
+### Bug Fixes
+
+* **composable:** added default values ([d5a8b13](https://github.com/basics/nuxt-booster/commit/d5a8b135df8b58a4c4739417aba2e214726835ad))
+* **composable:** fix default value ([fd44a20](https://github.com/basics/nuxt-booster/commit/fd44a20e6dc1557cb457601d64153f101bb53724))
+
 ## [3.1.10](https://github.com/basics/nuxt-booster/compare/v3.1.9...v3.1.10) (2025-01-20)
 
 
