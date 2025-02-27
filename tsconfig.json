@@ -1,0 +1,25 @@
+{
+  "extends": "./playground/.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "youtube",
+      "vimeo"
+    ]
+  },
+  "include": [
+    "docs/**/*.mts",
+    "docs/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "playground/**/*.ts",
+    "test/**/*.ts",
+    "types/**/*.vue",
+  ]
+}

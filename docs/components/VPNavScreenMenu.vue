@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useData } from 'vitepress/dist/client/theme-default/composables/data';
+import { useData } from 'vitepress';
 import VPNavScreenMenuLink from 'vitepress/dist/client/theme-default/components/VPNavScreenMenuLink.vue';
 import VPNavScreenMenuGroup from 'vitepress/dist/client/theme-default/components/VPNavScreenMenuGroup.vue';
-import { useVersion } from '../composables/version.js';
+import useVersion from '../composables/version';
 
 const { theme } = useData();
 const { nav: versionNav } = useVersion();

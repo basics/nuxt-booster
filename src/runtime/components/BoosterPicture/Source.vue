@@ -7,12 +7,13 @@
   />
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { getCrossorigin } from '#booster/utils/browser';
 import { useNuxtApp, useHead, useImage } from '#imports';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import Source from '#booster/components/BoosterImage/classes/Source';
+import type { CrossOrigin } from '../../../types';
 
 const types = new Map([['jpg', 'jpeg']]);
 
@@ -27,8 +28,8 @@ const $props = defineProps({
     default() {
       return null;
     },
-    validator: val =>
-      ['anonymous', 'use-credentials', '', true, false].includes(val)
+    validator: (v: CrossOrigin) =>
+      ['anonymous', 'use-credentials', '', true, false, undefined].includes(v)
   }
 });
 
@@ -42,21 +43,34 @@ const config = $img.getSizes($props.source.src, {
 
 const srcset = ref(config.srcset || config.src);
 const type = ref(
-  `image/${types.get($props.source.format) || $props.source.format}`
+  $props.source.format &&
+    `image/${types.get($props.source.format) || $props.source.format}`
 );
 
-const resolvedCrossorigin = ref(
-  getCrossorigin($props.crossorigin || $booster.crossorigin)
-);
+const resolvedCrossorigin = computed(() => {
+  return getCrossorigin(
+    ($props.crossorigin as CrossOrigin) || $booster.crossorigin
+  );
+});
 
 const imageSource = new Source($props.source);
 
-useHead({
-  link: [
+useHead(() => {
+  const hasPreload =
     config &&
-      imageSource.preload &&
-      (import.meta.server || process.env.prerender) &&
-      imageSource.getPreload(srcset, config.sizes, resolvedCrossorigin)
-  ].filter(Boolean)
+    imageSource.preload &&
+    srcset.value &&
+    (import.meta.server || process.env.prerender);
+  return {
+    link: hasPreload
+      ? [
+          imageSource.getPreload(
+            srcset.value as string,
+            config.sizes,
+            resolvedCrossorigin.value
+          )
+        ]
+      : []
+  };
 });
 </script>

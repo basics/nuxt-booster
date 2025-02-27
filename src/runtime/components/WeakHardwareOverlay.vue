@@ -7,17 +7,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: function () {
-    return {
-      isServer: true
-    };
-  },
-  mounted() {
-    this.isServer = false;
-  }
-};
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+
+const isServer = ref(false);
+
+onMounted(() => {
+  isServer.value = true;
+});
 </script>
 
 <style lang="postcss" scoped>

@@ -30,7 +30,7 @@ export default defineNuxtConfig(async () => {
     runtimeConfig: {
       public: {
         githubRepoUrl: repository.url.replace(/^git\+(.*)\.git$/, '$1'),
-        disableInfoLayer: false
+        disableInfoLayer: true
       }
     },
 
@@ -416,7 +416,7 @@ export default defineNuxtConfig(async () => {
 
     eslint: {
       config: {
-        typescript: false
+        // typescript: false
       }
     }
   };

@@ -54,16 +54,11 @@
   </base-vimeo>
 </template>
 
-<script>
-import BaseVimeo from '#booster/components/BoosterVimeo/Base';
+<script lang="ts" setup>
+import BaseVimeo from '#booster/components/BoosterVimeo/Base.vue';
 import props from './BoosterVimeo/props';
 
-export default {
-  components: {
-    BaseVimeo
-  },
-  props
-};
+defineProps(props);
 </script>
 
 <style lang="postcss" scoped>

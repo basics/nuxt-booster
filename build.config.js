@@ -2,6 +2,7 @@ export default {
   failOnWarn: false,
   externals: [
     // package
+    'vue-bundle-renderer',
     '@nuxt/image',
     'browserslist-useragent-regexp',
     'cheerio',

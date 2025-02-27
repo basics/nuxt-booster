@@ -5,57 +5,49 @@
     class="nuxt-booster-iframe"
     v-bind="$attrs"
     :title="title"
-    @load="loaded = $event"
+    @load="onLoad"
   />
 </template>
 
-<script>
+<script lang="ts" setup>
 import { useBoosterComponentObserver } from '#imports';
-export default {
-  props: {
-    src: {
-      type: String,
-      default: null
-    },
+import { ref, watch } from 'vue';
 
-    title: {
-      type: String,
-      default: null
-    },
-
-    componentObserver: {
-      type: Object,
-      default() {
-        return {
-          trackVisibility: true,
-          delay: 350
-        };
-      }
-    }
+const $props = defineProps({
+  src: {
+    type: String,
+    default: null
   },
-  emits: ['load', 'enter'],
-  setup() {
-    const { el: iframe, inView } = useBoosterComponentObserver();
-    return { iframe, inView };
+  title: {
+    type: String,
+    default: null
   },
-  data() {
-    return {
-      lazySrc: null,
-      loaded: false
-    };
-  },
-  watch: {
-    loaded(e) {
-      if (e.target.src) {
-        this.$emit('load', e);
-      }
-    },
-    inView() {
-      this.lazySrc = this.src;
-      this.$emit('enter');
-    }
+  componentObserver: {
+    type: Object,
+    default: () => ({
+      trackVisibility: true,
+      delay: 350
+    })
   }
-};
+});
+
+const $emit = defineEmits(['load', 'enter']);
+
+const { el: iframe, inView } = useBoosterComponentObserver();
+
+const lazySrc = ref<string | undefined>(undefined);
+
+function onLoad(e: HTMLElementEventMap['load']) {
+  const target = e.target as HTMLIFrameElement;
+  if (target?.src) {
+    $emit('load', e);
+  }
+}
+
+watch(inView, () => {
+  lazySrc.value = $props.src;
+  $emit('enter');
+});
 </script>
 
 <style lang="postcss" scoped>

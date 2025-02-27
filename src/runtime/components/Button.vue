@@ -4,10 +4,10 @@
   </button>
 </template>
 
-<script>
-export default {
+<script lang="ts" setup>
+defineOptions({
   inheritAttrs: false
-};
+});
 </script>
 
 <style lang="postcss" scoped>
