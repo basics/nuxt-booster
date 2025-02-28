@@ -1,8 +1,8 @@
-<script setup>
-import { useData } from 'vitepress/dist/client/theme-default/composables/data';
+<script setup lang="ts">
+import { useData } from 'vitepress';
 import VPNavBarMenuLink from 'vitepress/dist/client/theme-default/components/VPNavBarMenuLink.vue';
 import VPNavBarMenuGroup from 'vitepress/dist/client/theme-default/components/VPNavBarMenuGroup.vue';
-import { useVersion } from '../composables/version.js';
+import useVersion from '../composables/version';
 
 const { theme } = useData();
 

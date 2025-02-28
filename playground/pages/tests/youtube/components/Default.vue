@@ -11,12 +11,12 @@
   </preview-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { useBoosterCritical } from '#imports';
 
-import DefaultYoutube from '#booster/components/BoosterYoutube';
-import PreviewContainer from '@/components/PreviewContainer';
+import DefaultYoutube from '#booster/components/BoosterYoutube.vue';
+import PreviewContainer from '@/components/PreviewContainer.vue';
 
 useBoosterCritical();
 

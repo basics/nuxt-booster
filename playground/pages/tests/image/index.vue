@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
-import Critical from './components/Critical';
-import Lazy from './components/Lazy';
+<script setup lang="ts">
+import Critical from './components/Critical.vue';
+import Lazy from './components/Lazy.vue';
 </script>

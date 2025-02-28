@@ -24,8 +24,8 @@
   </content-container>
 </template>
 
-<script setup>
-import BoosterPicture from '#booster/components/BoosterPicture';
+<script setup lang="ts">
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
 import { ContentContainer, ContentHeadline } from 'vue-semantic-structure';
 import { useBoosterFonts } from '#imports';
 

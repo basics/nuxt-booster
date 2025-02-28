@@ -18,15 +18,18 @@
   </picture>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { getPictureStyleDescription } from '../../utils/description';
 import { useBoosterCritical, useImage, useHead, useNuxtApp } from '#imports';
-import { ref, computed } from 'vue';
+import { ref, computed, type Ref, type ComputedRef } from 'vue';
 
-import BaseImage from '#booster/components/BoosterImage/Base';
-import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
-import PictureSource from '#booster/components/BoosterPicture/Source';
+import BaseImage from '#booster/components/BoosterImage/Base.vue';
+import SourceList, {
+  type ClassNames
+} from '#booster/components/BoosterPicture/classes/SourceList';
+import PictureSource from '#booster/components/BoosterPicture/Source.vue';
 import props from './props';
+import type Source from '../BoosterImage/classes/Source';
 
 const TARGET_FORMAT_PRIORITY = ['avif', 'webp', 'png', 'jpg', 'gif'];
 
@@ -38,11 +41,11 @@ const { isCritical } = useBoosterCritical();
 const $img = useImage();
 const $booster = useNuxtApp().$booster;
 
-const sourceList = SourceList.create($props.sources, {
+const sourceList = SourceList.create($props.sources as Source[], {
   sort: $props.sortSources
 });
 
-const metaSources = ref(null);
+const metaSources: Ref<SourceList | undefined> = ref();
 
 const resolvedFormats = $props.formats || $booster.targetFormats;
 const sortedFormatsByPriority = Array.from(
@@ -51,18 +54,24 @@ const sortedFormatsByPriority = Array.from(
       resolvedFormats.find(format => format.includes(v))
     )
   )
-).filter(Boolean);
+).filter(Boolean) as string[];
 const preloadFormat = TARGET_FORMAT_PRIORITY.find(v =>
   resolvedFormats.find(format => format.includes(v))
-);
+) as string;
 
 const formatSources = ref(
-  sourceList.getFormats(sortedFormatsByPriority, preloadFormat, isCritical)
+  sourceList.getFormats(
+    sortedFormatsByPriority,
+    preloadFormat,
+    isCritical.value
+  )
 );
 
-const classNames = computed(() => metaSources.value?.classNames || {});
+const classNames: ComputedRef<ClassNames> = computed(
+  () => metaSources.value?.classNames || { picture: '', image: [] }
+);
 
-const onLoad = e => {
+const onLoad = (e: HTMLElementEventMap['load']) => {
   $emit('load', e);
 };
 

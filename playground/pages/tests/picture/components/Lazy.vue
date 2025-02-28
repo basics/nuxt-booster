@@ -9,11 +9,11 @@
   </organism-preview-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-import BoosterPicture from '#booster/components/BoosterPicture';
-import OrganismPreviewContainer from '@/components/PreviewContainer';
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
+import OrganismPreviewContainer from '@/components/PreviewContainer.vue';
 
 const picture = ref({
   title: 'Lazy',

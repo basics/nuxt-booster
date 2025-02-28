@@ -9,11 +9,11 @@
   </preview-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-import DefaultIframe from '#booster/components/BoosterIframe';
-import PreviewContainer from '@/components/PreviewContainer';
+import DefaultIframe from '#booster/components/BoosterIframe.vue';
+import PreviewContainer from '@/components/PreviewContainer.vue';
 
 const iframeSrc = ref('https://basics.github.io/nuxt-booster/playground/');
 </script>

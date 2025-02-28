@@ -29,10 +29,10 @@
   </booster-layer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { getStyleDescription } from '#booster/utils/description';
-import BoosterLayer from '#booster/components/BoosterLayer';
-import BaseButton from '@/components/base/Button';
+import BoosterLayer from '#booster/components/BoosterLayer.vue';
+import BaseButton from '@/components/base/Button.vue';
 import { useBoosterFonts, useHead } from '#imports';
 
 const { $getFont } = useBoosterFonts();

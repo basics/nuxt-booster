@@ -34,46 +34,34 @@ Important: For using `BoosterVimeo` do not disable `@nuxt/image` via `disableNux
         url,
         title,
         options,
-        posterSizes
+        posterSources
       }"
-      @playing="onPlaying" />
+      @playing="onPlaying"
+    />
   </div>
 </template>
 
-<script setup>
-import BoosterVimeo from '#booster/components/BoosterVimeo';
+<script setup lang="ts">
+import BoosterVimeo from '#booster/components/BoosterVimeo.vue';
+import { ref } from 'vue';
 
-defineProps({
-  url: { 
-    type: String, 
-    default: '<vimeo-url>' 
-  },
-  title: { 
-    type: String, 
-    default: 'Vimeo Title' 
-  },
-  options: {
-    type: String,
-    default() {
-      return {
-        controls: false
-      };
-    }
-  },
-  posterSources: [
-    {
-      src: undefined,
-      media: 'all',
-      sizes: {
-        default: '100vw'
-      }
-    }
-  ]
+const url = ref('<vimeo-url>');
+const title = ref('Vimeo Title');
+const options = ref({
+  controls: false
 });
+const posterSources = ref([
+  {
+    src: undefined,
+    media: 'all',
+    sizes: {
+      default: '100vw'
+    }
+  }
+]);
 
 const onPlaying = () => console.log('Vimeo Player playing!');
 </script>
-
 ````
 
 ## Properties

@@ -35,36 +35,28 @@ Important: For using `BoosterImage` do not disable `@nuxt/image` via `disableNux
 ````vue
 <template>
   <div>
-    <booster-image v-bind="{ source, title, alt }" @load="onLoadImage"  />
+    <booster-image
+      :source="source"
+      :title="title"
+      :alt="alt"
+      @load="onLoadImage"
+    />
   </div>
 </template>
 
-<script setup>
-import BoosterImage from '#booster/components/BoosterImage';
+<script setup lang="ts">
+import BoosterImage from '#booster/components/BoosterImage.vue';
+import { ref } from 'vue';
 
-defineProps({
-  source: {
-    type: Object,
-    default() {
-      return {
-        format: 'jpg',
-        src: '/img/image.jpg',
-        sizes: {
-          default: '100vw',
-          xxs: '100vw',
-          xs: '100vw',
-          sm: '100vw',
-          md: '100vw',
-          lg: '100vw',
-          xl: '100vw',
-          xxl: '100vw'
-        }
-      };
-    }
-  },
-  title: String,
-  alt: String
+const source = ref({
+  format: 'jpg',
+  src: '/img/image.jpg',
+  sizes: {
+    default: '1024px'
+  }
 });
+const title = ref('Image title');
+const alt = ref('Image alt');
 
 const onLoadImage = () => console.log('Image loaded!');
 </script>

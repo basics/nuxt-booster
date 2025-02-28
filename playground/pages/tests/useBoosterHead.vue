@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { definePageMeta, useRuntimeConfig } from '#imports';
 import { ref } from 'vue';
 

@@ -14,9 +14,9 @@
   </content-container>
 </template>
 
-<script setup>
-import BoosterVimeo from '#booster/components/BoosterVimeo';
-import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
+<script setup lang="ts">
+import BoosterVimeo from '#booster/components/BoosterVimeo.vue';
+import WeakHardwareOverlay from '@/components/WeakHardwareOverlay.vue';
 import { ContentContainer } from 'vue-semantic-structure';
 import { useBoosterFonts } from '#imports';
 

@@ -49,16 +49,11 @@
   </base-youtube>
 </template>
 
-<script>
-import BaseYoutube from '#booster/components/BoosterYoutube/Base';
+<script setup lang="ts">
+import BaseYoutube from '#booster/components/BoosterYoutube/Base.vue';
 import props from './BoosterYoutube/props';
 
-export default {
-  components: {
-    BaseYoutube
-  },
-  props
-};
+defineProps(props);
 </script>
 
 <style lang="postcss" scoped>

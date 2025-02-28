@@ -1,42 +1,31 @@
 <template>
-  <component :is="tag" v-font="preparedFont" class="element-headline">
+  <component :is="tag || 'h1'" v-font="preparedFont" class="element-headline">
     <slot>{{ content }}</slot>
   </component>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBoosterFonts } from '#imports';
 import { computed } from 'vue';
+import type { DirectiveGetFontResult } from '../../../src/types';
 
 const { $getFont } = useBoosterFonts();
 
-const $props = defineProps({
-  tag: {
-    type: String,
-    default: 'h1'
-  },
-  content: {
-    type: String,
-    default: 'Headline'
-  },
-  font: {
-    type: Object,
-    default: undefined
-  }
-});
+const $props = defineProps<{
+  tag?: string;
+  content?: string;
+  font?: DirectiveGetFontResult | DirectiveGetFontResult[];
+}>();
+
 const preparedFont = computed(() => {
-  let font = $props.font;
-  if (font) {
-    if (!(Array.isArray(font) && Array.isArray(font[0]))) {
-      font = [font];
+  let font: DirectiveGetFontResult[] = [$getFont('Quicksand', 700, 'normal')];
+  if ($props.font) {
+    if (!Array.isArray($props.font)) {
+      font = [$props.font as DirectiveGetFontResult];
+    } else {
+      font = $props.font as DirectiveGetFontResult[];
     }
-    return [].concat(font).map(font => {
-      if (!Array.isArray(font) && typeof font === 'object') {
-        font = [font.name, font.weight, font.style, font.selector];
-      }
-      return $getFont(...font);
-    });
   }
-  return $getFont('Quicksand', 700, 'normal');
+  return font;
 });
 </script>

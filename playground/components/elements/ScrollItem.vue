@@ -1,15 +1,28 @@
 <template>
-  <div v-font="$getFont(...font)">
-    {{ font.join(' - ') }}
+  <div
+    v-font="$getFont(font.family, font.weight, font.style)"
+    class="scroll-item"
+  >
+    {{ [font.family, font.weight, font.style].join(' - ') }}
   </div>
 </template>
 
-<script setup>
-import { useBoosterFonts } from '#imports';
+<script setup lang="ts">
+import { useBoosterFonts, type PropType } from '#imports';
+
 const { $getFont } = useBoosterFonts();
+
+export type Item = {
+  font: {
+    family: string;
+    weight: number;
+    style: string;
+  };
+};
+
 defineProps({
   font: {
-    type: Array,
+    type: Object as PropType<Item['font']>,
     required: true
   }
 });

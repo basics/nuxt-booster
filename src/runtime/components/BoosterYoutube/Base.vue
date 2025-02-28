@@ -3,7 +3,7 @@
     <slot name="beforePlayer" />
     <iframe
       v-if="src"
-      ref="player"
+      ref="playerEl"
       :title="title"
       class="player"
       :src="src"
@@ -19,141 +19,132 @@
   </div>
 </template>
 
-<script>
-import { useHead, useBoosterCritical } from '#imports';
-import { ref, computed, markRaw } from 'vue';
+<script setup lang="ts">
+import { useHead, useBoosterCritical, useBoosterContext } from '#imports';
+import { ref, computed, markRaw, type Ref, onUnmounted, onMounted } from 'vue';
+import type { Script } from '@unhead/schema';
 
-import DefaultButton from '../Button';
+import DefaultButton from '../Button.vue';
 import { load } from './utils/loader';
 import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#booster/utils/browser';
-import BoosterPicture from '#booster/components/BoosterPicture';
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
 import props from './props';
+
+useBoosterCritical();
+const $booster = useBoosterContext();
 
 const youtube = new Youtube();
 
-export default {
-  components: {
-    BoosterPicture,
-    DefaultButton
-  },
+const script: Ref<Script[]> = ref([]);
+const src: Ref<string | undefined> = ref();
+const player: Ref<YT.Player | undefined> = ref();
+const playerEl = ref<HTMLElement | null>();
+const ready: Ref<boolean> = ref(false);
+const loading: Ref<boolean> = ref(false);
+const playing: Ref<boolean> = ref(false);
+const isTouchDevice: Ref<boolean> = ref(isTouchSupported());
 
-  props,
+const $props = defineProps(props);
 
-  emits: ['ready', 'playing'],
+const $emit = defineEmits(['ready', 'playing']);
 
-  setup() {
-    useBoosterCritical();
+// setup
 
-    const script = ref([]);
-    useHead({
-      script: computed(() => {
-        return script.value;
-      })
-    });
-    return { script };
-  },
-
-  data() {
-    return {
-      src: null,
-      videoId: new URL(this.url).searchParams.get('v'),
-      player: null,
-      ready: false,
-      loading: false,
-      playing: false,
-      landscape: false,
-      isTouchDevice: isTouchSupported()
-    };
-  },
-
-  computed: {
-    pictureDataset() {
-      return {
-        formats: this.$booster.targetFormats,
-        title: this.title,
-        sources: this.posterSources.map(source => ({
-          ...source,
-          src: source.src || `/youtube/vi/${this.videoId}/maxresdefault.jpg`
-        }))
-      };
-    }
-  },
-
-  mounted() {
-    if (this.autoplay) {
-      this.onInit();
-    }
-  },
-
-  unmounted() {
-    this.player && youtube.remove(this.player);
-  },
-
-  methods: {
-    reset() {
-      this.src = null;
-      this.ready = false;
-      this.playing = false;
-    },
-    onInit() {
-      this.loading = true;
-
-      const params = {
-        rel: 0,
-        enablejsapi: 1,
-        autoplay: 0,
-        modestbranding: 1,
-        showinfo: 0,
-        iv_load_policy: 3,
-        ...this.options,
-        playsinline: 1,
-        mute: Number(this.isTouchDevice) || Number(this.mute)
-      };
-
-      this.src =
-        `${this.host}/embed/${this.videoId}?` +
-        Object.entries(params)
-          .map(([name, value]) => `${name}=${value}`)
-          .join('&');
-      this.script = [load()];
-    },
-
-    async onLoad() {
-      this.player = markRaw(
-        await youtube.createPlayer(this.$refs.player, {
-          videoId: this.videoId,
-          host: this.host,
-          events: {
-            onReady: e => {
-              e.target.mute();
-              youtube.play(e.target);
-              this.loading = false;
-              this.ready = true;
-              this.$emit('ready', {
-                iframe: e.target.getIframe(),
-                player: this.player
-              });
-            },
-            onStateChange: e => this.onPlayerStateChange(youtube.api, e.data)
-          }
-        })
-      );
-    },
-
-    onPlayerStateChange(YT, state) {
-      if (state === YT.PlayerState.PLAYING) {
-        this.playing = true;
-      } else if (
-        state === YT.PlayerState.ENDED ||
-        state === YT.PlayerState.PAUSED
-      ) {
-        this.playing = false;
-      }
-      this.$emit('playing', this.playing);
-    }
+onMounted(() => {
+  if ($props.autoplay) {
+    onInit();
   }
-};
+});
+
+onUnmounted(() => {
+  if (player.value) {
+    youtube.remove(player.value);
+  }
+});
+
+// head
+
+useHead({
+  script: computed(() => {
+    return script.value;
+  })
+});
+
+// computed
+
+const videoId = computed(() => {
+  return ($props.url && new URL($props.url).searchParams.get('v')) || undefined;
+});
+const pictureDataset = computed(() => {
+  return {
+    formats: $booster.targetFormats,
+    title: $props.title,
+    sources: $props.posterSources.map(source => ({
+      ...source,
+      src: source.src || `/youtube/vi/${videoId.value}/maxresdefault.jpg`
+    }))
+  };
+});
+
+// Functions
+
+function onInit() {
+  loading.value = true;
+
+  const params = {
+    rel: 0,
+    enablejsapi: 1,
+    autoplay: 0,
+    modestbranding: 1,
+    showinfo: 0,
+    iv_load_policy: 3,
+    ...$props.options,
+    playsinline: 1,
+    mute: Number(isTouchDevice.value) || Number($props.mute)
+  };
+
+  src.value =
+    `${$props.host}/embed/${videoId.value}?` +
+    Object.entries(params)
+      .map(([name, value]) => `${name}=${value}`)
+      .join('&');
+  script.value = [load()];
+}
+
+async function onLoad() {
+  const ytPlayer = await youtube.createPlayer(playerEl.value as HTMLElement, {
+    videoId: videoId.value,
+    host: $props.host,
+    events: {
+      onReady: e => {
+        e.target.mute();
+        youtube.play(e.target);
+        loading.value = false;
+        ready.value = true;
+        $emit('ready', {
+          iframe: e.target.getIframe(),
+          player: player
+        });
+      },
+      onStateChange: e =>
+        youtube.api && onPlayerStateChange(youtube.api, e.data)
+    }
+  });
+  player.value = markRaw(ytPlayer);
+}
+
+function onPlayerStateChange(scopeYT: typeof YT, state: YT.PlayerState) {
+  if (state === scopeYT.PlayerState.PLAYING) {
+    playing.value = true;
+  } else if (
+    state === scopeYT.PlayerState.ENDED ||
+    state === scopeYT.PlayerState.PAUSED
+  ) {
+    playing.value = false;
+  }
+  $emit('playing', playing.value);
+}
 </script>
 
 <style lang="postcss" scoped>

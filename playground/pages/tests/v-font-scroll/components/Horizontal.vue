@@ -1,7 +1,11 @@
 <template>
   <preview-container>
     <template #default>
-      <scroll-container id="horizontalScroll" v-bind="data" />
+      <scroll-container
+        id="horizontalScroll"
+        direction-horizontal
+        :items="items"
+      />
     </template>
     <template #title>
       <p>Horizontal Scroll - v-font</p>
@@ -9,19 +13,17 @@
   </preview-container>
 </template>
 
-<script setup>
-import PreviewContainer from '@/components/PreviewContainer';
-import ScrollContainer from '@/components/fragments/ScrollContainer';
+<script setup lang="ts">
+import PreviewContainer from '@/components/PreviewContainer.vue';
+import ScrollContainer from '@/components/fragments/ScrollContainer.vue';
+import { ref } from 'vue';
 
-const data = {
-  directionHorizontal: true,
-  items: [
-    { font: ['Merriweather', 300, 'normal'] },
-    { font: ['Merriweather', 300, 'italic'] },
-    { font: ['Merriweather', 400, 'normal'] },
-    { font: ['Merriweather', 400, 'italic'] },
-    { font: ['Merriweather', 700, 'normal'] },
-    { font: ['Merriweather', 700, 'italic'] }
-  ]
-};
+const items = ref([
+  { font: { family: 'Merriweather', weight: 300, style: 'normal' } },
+  { font: { family: 'Merriweather', weight: 300, style: 'italic' } },
+  { font: { family: 'Merriweather', weight: 400, style: 'normal' } },
+  { font: { family: 'Merriweather', weight: 400, style: 'italic' } },
+  { font: { family: 'Merriweather', weight: 700, style: 'normal' } },
+  { font: { family: 'Merriweather', weight: 700, style: 'italic' } }
+]);
 </script>

@@ -9,7 +9,7 @@
   </preview-container>
 </template>
 
-<script setup>
-import LoaderTest from '@/components/elements/LoaderTest';
-import PreviewContainer from '@/components/PreviewContainer';
+<script setup lang="ts">
+import LoaderTest from '@/components/elements/LoaderTest.vue';
+import PreviewContainer from '@/components/PreviewContainer.vue';
 </script>

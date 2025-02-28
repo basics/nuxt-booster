@@ -27,18 +27,17 @@ Example of defining a custom `WeakHardwareOverlay` component and placing it in a
 ````vue[@/components/WeakHardwareOverlay.vue]
 <template>
   <booster-weak-hardware-overlay>
-    To improve your experience, extensive features have been disabled.<br>
+    To improve your experience, extensive features have been disabled.<br />
     <button class="nuxt-booster-button-init-app">
-     Click here to enable them.
+      Click here to enable them.
     </button>
   </booster-weak-hardware-overlay>
 </template>
-<script>
-import BoosterWeakHardwareOverlay from 'nuxt-booster/components/WeakHardwareOverlay';
-export default {
-  components: { BoosterWeakHardwareOverlay }
-};
+
+<script setup lang="ts">
+import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay.vue';
 </script>
+
 <style lang="postcss" scoped>
 .nuxt-booster-weak-hardware-overlay {
   position: absolute;
