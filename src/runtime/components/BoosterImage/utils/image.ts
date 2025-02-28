@@ -1,5 +1,5 @@
 import type { BoosterContext } from './../../../../types';
-import { parseURL, withBase, hasProtocol } from 'ufo';
+import { parseURL, withBase, hasProtocol, parseFilename } from 'ufo';
 import { useRequestURL } from '#imports';
 import type { Nuxt } from 'nuxt/schema';
 import type Source from '../classes/Source';
@@ -9,8 +9,11 @@ const FALLBACK_FORMAT = 'jpg';
 
 export const getExtension = (url: string) => {
   const { pathname } = parseURL(url);
-  const match = /[^.]+$/.exec(pathname);
-  const value = match ? match[0] : '';
+
+  const filename = parseFilename(pathname, { strict: false }) || '';
+  const match = filename.match(/\.([^.]+)$/);
+  const value = match ? match[1] : '';
+
   if (value && SOURCE_FORMATS.includes(value)) {
     return value;
   }
