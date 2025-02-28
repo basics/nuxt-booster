@@ -142,3 +142,34 @@ export const deprecationWarningButtonSelector = initApp => {
     observeBoosterButton('#nuxt-booster-button-init-app', () => initApp(true));
   }
 };
+
+export const createInitElement = (
+  callback,
+  { duration } = { duration: 3000 }
+) => {
+  const div = document.createElement('div');
+  div.style.position = 'fixed';
+  div.style.top = 0;
+  div.style.left = 0;
+  div.style.opacity = 0;
+  div.style.animationName = 'fade-in';
+  div.style.animationDuration = '0.2s';
+  div.style.animationDelay = `${duration}ms`;
+  div.style.animationFillMode = 'forwards';
+  div.addEventListener('animationend', () => {
+    console.log('REMOVE!');
+    div.remove();
+    style.remove();
+    callback();
+  });
+  document.body.appendChild(div);
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fade-in {
+      100% {
+        opacity: 1;
+      }
+    }
+    `;
+  document.head.appendChild(style);
+};
