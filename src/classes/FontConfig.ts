@@ -1,7 +1,8 @@
 import type {
   FontOption,
-  FontVarianceOption,
-  FontVarianceSourceOption
+  FontOptionVariance,
+  FontOptionVarianceSource,
+  PreparedFontOption
 } from '../types';
 
 const fontPrioritizationPreloadOrder = ['woff2', 'woff', 'truetype', 'svg'];
@@ -14,10 +15,10 @@ const fontDeclarationOrder = [
 ];
 
 export default class FontConfig {
-  fonts: FontOption[];
+  fonts: PreparedFontOption[];
   aliases: Record<string, string>;
 
-  constructor(fonts: FontOption[], aliases: Record<string, string>) {
+  constructor(fonts: PreparedFontOption[], aliases: Record<string, string>) {
     this.fonts = fonts;
     this.aliases = aliases;
   }
@@ -26,7 +27,7 @@ export default class FontConfig {
     return this.fonts.map(font => ({
       ...font,
       variances: getVariances(font, this.aliases)
-    })) as FontOption[];
+    })) as PreparedFontOption[];
   }
 
   toCSS() {
@@ -42,7 +43,10 @@ export default class FontConfig {
   }
 }
 
-function getVariances(font: FontOption, aliases: Record<string, string>) {
+function getVariances(
+  font: PreparedFontOption,
+  aliases: Record<string, string>
+) {
   return font.variances.map(variance => {
     variance = { ...variance };
     const source = getPrioritizedFontPreloadSource(variance.sources);
@@ -59,7 +63,7 @@ function getVariances(font: FontOption, aliases: Record<string, string>) {
 
 function getFontFaceDeclaration(
   font: FontOption,
-  variance: FontVarianceOption
+  variance: FontOptionVariance
 ) {
   return `
     @font-face {
@@ -72,7 +76,7 @@ function getFontFaceDeclaration(
   `;
 }
 
-function getPrioritizedFontPreloadSource(sources: FontVarianceSourceOption[]) {
+function getPrioritizedFontPreloadSource(sources: FontOptionVarianceSource[]) {
   return [
     ...sources.sort(function (a, b) {
       return (
@@ -84,7 +88,7 @@ function getPrioritizedFontPreloadSource(sources: FontVarianceSourceOption[]) {
 }
 
 function getPrioritizedFontSources(
-  sources: FontVarianceSourceOption[],
+  sources: FontOptionVarianceSource[],
   locals: string[] = []
 ) {
   return locals

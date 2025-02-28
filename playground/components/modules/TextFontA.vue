@@ -19,7 +19,7 @@
   </content-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBoosterFonts } from '#imports';
 import { ref, onMounted } from 'vue';
 import { ContentContainer, ContentHeadline } from 'vue-semantic-structure';

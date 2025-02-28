@@ -6,8 +6,9 @@ import type {
   ModuleOptions as NuxtModuleOptions,
   Nuxt
 } from 'nuxt/schema';
-import type { ModuleOptions, PublicBoosterOptions } from './types';
+import type { PublicBoosterOptions } from './types';
 import type * as consola from 'consola';
+import type { ModuleOptions } from './module';
 
 export const MODULE_NAME = 'nuxt-booster';
 

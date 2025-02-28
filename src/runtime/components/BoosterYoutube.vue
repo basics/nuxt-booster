@@ -49,7 +49,7 @@
   </base-youtube>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import BaseYoutube from '#booster/components/BoosterYoutube/Base.vue';
 import props from './BoosterYoutube/props';
 

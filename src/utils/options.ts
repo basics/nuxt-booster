@@ -1,4 +1,4 @@
-import type { ModuleOptions } from '../types';
+import type { ModuleOptions } from '../module';
 import { logger } from '../utils';
 
 export function getDefaultOptions(): ModuleOptions {

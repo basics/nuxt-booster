@@ -83,9 +83,9 @@
   </preview-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBoosterFonts } from '#imports';
-import PreviewContainer from '@/components/PreviewContainer';
+import PreviewContainer from '@/components/PreviewContainer.vue';
 
 const { $getFont } = useBoosterFonts();
 </script>

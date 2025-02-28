@@ -16,7 +16,7 @@
   />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { getImageStyleDescription } from '#booster/utils/description';
 import { getCrossorigin } from '#booster/utils/browser';
 import Source from '#booster/components/BoosterImage/classes/Source';

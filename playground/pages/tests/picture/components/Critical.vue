@@ -9,11 +9,11 @@
   </preview-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-import BoosterPicture from '#booster/components/BoosterPicture';
-import PreviewContainer from '@/components/PreviewContainer';
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
+import PreviewContainer from '@/components/PreviewContainer.vue';
 
 const picture = ref({
   title: 'Critical',

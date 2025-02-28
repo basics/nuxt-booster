@@ -1,49 +1,12 @@
 import type { Nuxt, ViteConfig } from 'nuxt/schema';
 import type { Manifest } from 'vue-bundle-renderer';
 
-export interface ModuleOptions {
-  debug: boolean;
-
-  crossorigin?: CrossOrigin;
-
-  disableNuxtFontaine?: boolean; // If set, `@nuxtjs/fontaine` will not be integrated.
-  disableNuxtImage?: boolean; // If set, `@nuxt/image` will not be integrated.
-
-  optimizeSSR?: {
-    cleanPreloads?: boolean;
-    cleanPrefetches?: boolean;
-    inlineStyles?: boolean;
-  };
-
-  detection?: {
-    performance?: boolean;
-    browserSupport?: boolean;
-    battery?: boolean;
-  };
-
-  performanceMetrics?: PerformanceMetrics;
-
-  fonts?: [];
-
-  targetFormats?: string[];
-  densities?: string;
-
-  /**
-   * IntersectionObserver rootMargin for Compoennts and Assets
-   */
-  lazyOffset: {
-    component: string;
-    asset: string;
-  };
-
-  runOptions?: {
-    performance: number;
-    battery: number;
-  };
-}
-
 export type PerformanceMetrics = {
-  timing: {
+  device?: {
+    hardwareConcurrency: { min: number; max: number };
+    deviceMemory: { min: number };
+  };
+  timing?: {
     fcp: number;
     dcl: number;
   };
@@ -104,7 +67,7 @@ export type HookOptions = {
 };
 
 export interface PictureSource {
-  src: string;
+  src?: string;
   media: string;
   sizes: Record<string, string | number>;
 }
@@ -127,9 +90,6 @@ declare module '@vue/runtime-core' {
       targetFormats: string[];
     };
   }
-}
-
-declare module '@vue/runtime-core' {
   interface GlobalComponents {
     $booster: BoosterContext;
   }

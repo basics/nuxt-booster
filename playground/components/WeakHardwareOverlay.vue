@@ -9,9 +9,9 @@
   </booster-weak-hardware-overlay>
 </template>
 
-<script setup>
-import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay';
-import BaseButton from '@/components/base/Button';
+<script setup lang="ts">
+import BoosterWeakHardwareOverlay from '#booster/components/WeakHardwareOverlay.vue';
+import BaseButton from '@/components/base/Button.vue';
 import { useBoosterFonts } from '#imports';
 
 const { $getFont } = useBoosterFonts();

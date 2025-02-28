@@ -7,13 +7,13 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
-const isServer = ref(false);
+const isServer = ref(true);
 
 onMounted(() => {
-  isServer.value = true;
+  isServer.value = false;
 });
 </script>
 

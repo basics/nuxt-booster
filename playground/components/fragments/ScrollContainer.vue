@@ -13,15 +13,16 @@
   </div>
 </template>
 
-<script setup>
-import ScrollItem from '../elements/ScrollItem';
+<script setup lang="ts">
+import type { Item } from '../elements/ScrollItem.vue';
+import ScrollItem from '../elements/ScrollItem.vue';
 defineProps({
   directionHorizontal: {
     type: Boolean,
     default: false
   },
   items: {
-    type: Array,
+    type: Array<Item>,
     required: true
   }
 });

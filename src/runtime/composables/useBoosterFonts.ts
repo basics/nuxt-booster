@@ -3,7 +3,10 @@ import { useBoosterCritical, useBoosterConfig, useNuxtApp } from '#imports';
 import { reactive, nextTick, onBeforeUnmount } from 'vue';
 
 import type FontList from '#booster/classes/FontList';
-import type { IGetFontOptions, IGetFontResult } from '../../types';
+import type {
+  DirectiveGetFontOptions,
+  DirectiveGetFontResult
+} from '../../types';
 
 export default function (context = {}) {
   const { isCritical, critical } = useBoosterCritical(context);
@@ -29,8 +32,8 @@ export default function (context = {}) {
     family: string,
     weight?: string | number,
     style?: string,
-    options?: IGetFontOptions
-  ): IGetFontResult => {
+    options?: DirectiveGetFontOptions
+  ): DirectiveGetFontResult => {
     return {
       runtimeConfig,
       isCritical: isCritical.value,

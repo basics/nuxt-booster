@@ -28,7 +28,53 @@ import pluginTemplate from './tmpl/plugin.tmpl';
 import entryTemplate from './tmpl/entry.tmpl';
 
 import type { Nuxt } from 'nuxt/schema';
-import type { FontOption, ModuleOptions } from './types';
+import type {
+  CrossOrigin,
+  FontOption,
+  PerformanceMetrics,
+  PreparedFontOption
+} from './types';
+
+export interface ModuleOptions {
+  debug: boolean;
+
+  crossorigin?: CrossOrigin;
+
+  disableNuxtFontaine?: boolean; // If set, `@nuxtjs/fontaine` will not be integrated.
+  disableNuxtImage?: boolean; // If set, `@nuxt/image` will not be integrated.
+
+  optimizeSSR?: {
+    cleanPreloads?: boolean;
+    cleanPrefetches?: boolean;
+    inlineStyles?: boolean;
+  };
+
+  detection?: {
+    performance?: boolean;
+    browserSupport?: boolean;
+    battery?: boolean;
+  };
+
+  performanceMetrics?: PerformanceMetrics;
+
+  fonts?: FontOption[];
+
+  targetFormats?: string[];
+  densities?: string;
+
+  /**
+   * IntersectionObserver rootMargin for Compoennts and Assets
+   */
+  lazyOffset: {
+    component: string;
+    asset: string;
+  };
+
+  runOptions?: {
+    performance: number;
+    battery: number;
+  };
+}
 
 const resolver = createResolver(import.meta.url);
 
@@ -94,7 +140,7 @@ async function addBuildTemplates(nuxt: Nuxt, options: ModuleOptions) {
     !options.detection?.browserSupport
   );
   const fontConfig = new FontConfig(
-    options.fonts as FontOption[],
+    options.fonts as PreparedFontOption[],
     nuxt.options.alias
   );
 

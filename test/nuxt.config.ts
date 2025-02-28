@@ -12,9 +12,8 @@ export const distDir = join(rootDir, 'dist');
 
 export default defineNuxtConfig(
   await (async () => {
-    const defaultConfig = (await (
-      nuxtConfig as CallableFunction
-    )()) as NuxtConfig;
+    const defaultConfig =
+      (await (nuxtConfig as CallableFunction)) as NuxtConfig;
     if (defaultConfig.runtimeConfig?.public) {
       defaultConfig.runtimeConfig.public.isTest = true;
       defaultConfig.runtimeConfig.public.disableInfoLayer = true;

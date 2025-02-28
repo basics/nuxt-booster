@@ -33,7 +33,7 @@ export function hasSufficientPerformance() {
 }
 
 export function hasSufficientDownloadPerformance() {
-  if (window.performance) {
+  if (window.performance && customConfig.timing) {
     const paint = performance.getEntriesByName('first-contentful-paint');
     const resources = performance.getEntriesByType('resource');
     if (paint.length) {

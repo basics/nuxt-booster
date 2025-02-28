@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useHead, useBoosterCritical, useBoosterContext } from '#imports';
 import { ref, computed, markRaw, type Ref, onUnmounted, onMounted } from 'vue';
 import type { Script } from '@unhead/schema';

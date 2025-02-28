@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useData } from 'vitepress';
 import { useLangs } from 'vitepress/dist/client/theme-default/composables/langs.js';
 import { normalizeLink } from 'vitepress/dist/client/theme-default/support/utils.js';

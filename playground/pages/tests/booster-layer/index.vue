@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { definePageMeta, useBoosterHydrate } from '#imports';
 
@@ -18,7 +18,7 @@ const ready = ref(false);
 onMounted(() => (ready.value = true));
 
 const ComponentImageText = hydrate(
-  () => import('@/components/modules/ImageText')
+  () => import('@/components/modules/ImageText.vue')
 );
 
 const imageTextA = {

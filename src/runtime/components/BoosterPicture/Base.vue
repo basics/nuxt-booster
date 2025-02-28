@@ -18,7 +18,7 @@
   </picture>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { getPictureStyleDescription } from '../../utils/description';
 import { useBoosterCritical, useImage, useHead, useNuxtApp } from '#imports';
 import { ref, computed, type Ref, type ComputedRef } from 'vue';

@@ -1,20 +1,20 @@
 import type {
-  FontOption,
-  FontVarianceOption,
-  IGetFontOptions
+  FontOptionVariance,
+  DirectiveGetFontOptions,
+  PreparedFontOption
 } from './../../types';
 import Font from './Font';
 
 export default class FontList {
-  list: FontOption[];
-  constructor(list: FontOption[] = []) {
+  list: PreparedFontOption[];
+  constructor(list: PreparedFontOption[] = []) {
     this.list = list.map(item => {
       item.variances = item.variances.map(variance => {
         return {
           ...({
             style: 'normal',
             weight: 400
-          } as FontVarianceOption),
+          } as FontOptionVariance),
           ...variance
         };
       });
@@ -26,7 +26,7 @@ export default class FontList {
     family: string,
     weight?: string | number,
     style?: string,
-    options?: IGetFontOptions
+    options?: DirectiveGetFontOptions
   ) {
     weight = weight || 400;
     style = style || 'normal';
@@ -42,7 +42,7 @@ export default class FontList {
 }
 
 function getFontVariance(
-  config: FontOption,
+  config: PreparedFontOption,
   weight?: string | number,
   style?: string,
   options: { selector?: string; media?: string } = {

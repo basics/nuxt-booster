@@ -7,7 +7,7 @@
   />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { getCrossorigin } from '#booster/utils/browser';
 import { useNuxtApp, useHead, useImage } from '#imports';
 import { computed, ref } from 'vue';

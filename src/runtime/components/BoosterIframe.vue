@@ -9,27 +9,18 @@
   />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useBoosterComponentObserver } from '#imports';
 import { ref, watch } from 'vue';
 
-const $props = defineProps({
-  src: {
-    type: String,
-    default: null
-  },
-  title: {
-    type: String,
-    default: null
-  },
+const $props = defineProps<{
+  src: string;
+  title?: string;
   componentObserver: {
-    type: Object,
-    default: () => ({
-      trackVisibility: true,
-      delay: 350
-    })
-  }
-});
+    trackVisibility: boolean;
+    delay: number;
+  };
+}>();
 
 const $emit = defineEmits(['load', 'enter']);
 

@@ -43,6 +43,7 @@ export interface VimeoApiResponse {
   video_id: number;
   uri: string;
   thumbnail_url?: string;
+  description: string;
 }
 
 export const load = () => {

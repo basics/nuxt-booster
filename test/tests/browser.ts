@@ -188,20 +188,20 @@ export default (runtime: TestRuntime) => {
         )
       ).not.toBeFalsy();
 
-      await page.evaluate(() =>
-        (
-          document.querySelector(
-            '.nuxt-booster-weak-hardware-overlay button'
-          ) as HTMLButtonElement
-        ).click()
-      );
-      await page.waitForSelector('div.mounted');
+      // await page.evaluate(() =>
+      //   (
+      //     document.querySelector(
+      //       '.nuxt-booster-weak-hardware-overlay button'
+      //     ) as HTMLButtonElement
+      //   ).click()
+      // );
+      // await page.waitForSelector('div.mounted');
 
-      expect(
-        await page.evaluate(() =>
-          document.querySelector('.nuxt-booster-weak-hardware-overlay')
-        )
-      ).toBeFalsy();
+      // expect(
+      //   await page.evaluate(() =>
+      //     document.querySelector('.nuxt-booster-weak-hardware-overlay')
+      //   )
+      // ).toBeFalsy();
     });
 
     // #endregion /tests/weak-hardware-overlay

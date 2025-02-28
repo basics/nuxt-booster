@@ -2,7 +2,7 @@
   <component :is="render" />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, h, useBoosterCritical } from '#imports';
 import HydrateWrapper from './HydrateWrapper';
 import BoosterImage from '#booster/components/BoosterImage/Base.vue';

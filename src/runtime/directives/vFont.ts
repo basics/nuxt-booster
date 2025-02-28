@@ -2,14 +2,16 @@ import {
   isElementOutViewport,
   getElementObserver
 } from '#booster/classes/intersection';
+
 import type {
   ComponentPublicInstance,
   DirectiveBinding,
   VNode,
   App as VueApp
 } from 'vue';
-import type { IGetFontResult } from '../../types';
+import type { DirectiveGetFontResult } from '../../types';
 import type Font from '#booster/classes/Font';
+
 const CLASS_FONT_ACTIVE = 'font-active';
 
 type Instance =
@@ -20,7 +22,7 @@ type Instance =
 
 interface Binding extends Omit<DirectiveBinding, 'value'> {
   instance: Instance;
-  value: IGetFontResult | IGetFontResult[];
+  value: DirectiveGetFontResult | DirectiveGetFontResult[];
 }
 
 const observers = new Map();
@@ -31,7 +33,7 @@ export default {
         const instance: Instance | null = binding.instance;
         if (instance) {
           instance.fontsReady = instance.fontsReady || new Map();
-          let values: IGetFontResult[] = [];
+          let values: DirectiveGetFontResult[] = [];
           if (Array.isArray(binding.value)) {
             values = binding.value;
           } else {
@@ -113,11 +115,13 @@ export default {
   }
 };
 
-function getValueList(value: IGetFontResult | IGetFontResult[]) {
+function getValueList(
+  value: DirectiveGetFontResult | DirectiveGetFontResult[]
+) {
   return Array.isArray(value) ? value : [value];
 }
 
-function getFirstFont(values: IGetFontResult[]) {
+function getFirstFont(values: DirectiveGetFontResult[]) {
   return values[0];
 }
 

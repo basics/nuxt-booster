@@ -48,7 +48,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { getStyleDescription } from '#booster/utils/description';
 import { useHead } from '#imports';
 import { ref, onMounted } from 'vue';

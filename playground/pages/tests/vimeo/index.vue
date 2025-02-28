@@ -10,12 +10,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBoosterHydrate } from '#imports';
 
 const hydrate = useBoosterHydrate();
 
-const Default = hydrate(() => import('./components/Default'));
+const Default = hydrate(() => import('./components/Default.vue'));
 const items = [
   {
     vimeoUrl: 'https://vimeo.com/288344114',
