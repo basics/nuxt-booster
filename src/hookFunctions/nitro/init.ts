@@ -8,7 +8,6 @@ import { isWebpackBuild, logger } from '../../utils';
 import type { Nuxt } from 'nuxt/schema';
 import type { HookOptions } from '../../types';
 import type { Nitro, PrerenderRoute } from 'nitropack';
-import type { Manifest } from 'vue-bundle-renderer';
 
 function getDefaultOptions(): HookOptions {
   return {
@@ -140,7 +139,7 @@ async function prepareLinkStylesheets(
 
 function getCSSFilesFromManifest(
   $: CheerioAPI,
-  manifest: Manifest | undefined
+  manifest: HookOptions['manifest'] | undefined
 ) {
   const scripts = Array.from($('script[type="module"]'));
   return scripts

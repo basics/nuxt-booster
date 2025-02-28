@@ -6,9 +6,8 @@ import type {
   ModuleOptions as NuxtModuleOptions,
   Nuxt
 } from 'nuxt/schema';
-import type { PublicBoosterOptions } from './types';
 import type * as consola from 'consola';
-import type { ModuleOptions } from './module';
+import type { ModuleOptions, ModulePublicRuntimeConfig } from './types';
 
 export const MODULE_NAME = 'nuxt-booster';
 
@@ -35,7 +34,7 @@ export function isViteBuild(nuxt: Nuxt) {
 }
 
 export function setPublicRuntimeConfig(nuxt: Nuxt, options: ModuleOptions) {
-  (nuxt.options.runtimeConfig.public.booster as PublicBoosterOptions) = {
+  (nuxt.options.runtimeConfig.public.booster as ModulePublicRuntimeConfig) = {
     debug: options.debug,
     lazyOffsetComponent: options.lazyOffset.component,
     lazyOffsetAsset: options.lazyOffset.asset,

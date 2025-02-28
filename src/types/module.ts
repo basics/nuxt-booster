@@ -1,5 +1,55 @@
 import type { Nuxt, ViteConfig } from 'nuxt/schema';
 import type { Manifest } from 'vue-bundle-renderer';
+import type { FontOption } from './font';
+
+export type ModulePublicRuntimeConfig = {
+  debug: boolean;
+  lazyOffsetComponent: string;
+  lazyOffsetAsset: string;
+  usedFontaine: boolean;
+};
+
+// export interface ModuleRuntimeConfig {}
+export interface ModuleOptions {
+  debug: boolean;
+
+  crossorigin?: CrossOrigin;
+
+  disableNuxtFontaine?: boolean; // If set, `@nuxtjs/fontaine` will not be integrated.
+  disableNuxtImage?: boolean; // If set, `@nuxt/image` will not be integrated.
+
+  optimizeSSR?: {
+    cleanPreloads?: boolean;
+    cleanPrefetches?: boolean;
+    inlineStyles?: boolean;
+  };
+
+  detection?: {
+    performance?: boolean;
+    browserSupport?: boolean;
+    battery?: boolean;
+  };
+
+  performanceMetrics?: PerformanceMetrics;
+
+  fonts?: FontOption[];
+
+  targetFormats?: string[];
+  densities?: string;
+
+  /**
+   * IntersectionObserver rootMargin for Compoennts and Assets
+   */
+  lazyOffset: {
+    component: string;
+    asset: string;
+  };
+
+  runOptions?: {
+    performance: number;
+    battery: number;
+  };
+}
 
 export type PerformanceMetrics = {
   device?: {
@@ -18,13 +68,6 @@ export type CrossOrigin = boolean | HTMLCrossOriginAttribute | undefined;
 export type ViteBuildContext = {
   nuxt: Nuxt;
   config: ViteConfig;
-};
-
-export type PublicBoosterOptions = {
-  debug: boolean;
-  lazyOffsetComponent: string;
-  lazyOffsetAsset: string;
-  usedFontaine: boolean;
 };
 
 export interface BoosterContext {
@@ -70,12 +113,6 @@ export interface PictureSource {
   src?: string;
   media: string;
   sizes: Record<string, string | number>;
-}
-
-declare module 'nuxt/schema' {
-  interface PublicRuntimeConfig {
-    booster: PublicBoosterOptions;
-  }
 }
 
 declare module 'nuxt/app' {

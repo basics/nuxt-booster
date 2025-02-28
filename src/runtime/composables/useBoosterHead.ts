@@ -4,12 +4,12 @@ import { ref, watch, nextTick, type Ref } from 'vue';
 
 import type FontCollection from '#booster/classes/FontCollection';
 import type { Head } from '@unhead/vue';
-import type { PublicBoosterOptions } from '../../types';
 import type {
   Link,
   TagUserProperties,
   UserTagConfigWithoutInnerContent
 } from '@unhead/schema';
+import type { ModulePublicRuntimeConfig } from '../../types';
 
 export interface HeadFontCollector {
   push: (description: HeadFontCollectorDescription) => HeadFontCollectorEntry;
@@ -24,7 +24,7 @@ declare module '../../types' {
 }
 
 export interface HeadFontCollectorDescription {
-  options: PublicBoosterOptions;
+  options: ModulePublicRuntimeConfig;
   fontCollection: FontCollection;
   isCritical: boolean;
 }

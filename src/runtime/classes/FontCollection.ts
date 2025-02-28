@@ -5,12 +5,12 @@ import {
   type Description
 } from '../utils/description';
 import type Font from './Font';
-import type { PublicBoosterOptions } from '../../types';
 import type {
   Link,
   TagUserProperties,
   UserTagConfigWithoutInnerContent
 } from '@unhead/schema';
+import type { ModulePublicRuntimeConfig } from '../../types';
 
 export default class FontCollection {
   list: Font[];
@@ -60,7 +60,7 @@ export default class FontCollection {
   }
 
   getStyleDescriptions(
-    options: PublicBoosterOptions
+    options: ModulePublicRuntimeConfig
   ): Link<TagUserProperties>[] {
     return getRelevantDescriptions([
       getStyleDescription(

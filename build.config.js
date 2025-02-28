@@ -1,7 +1,8 @@
-export default {
+import { defineBuildConfig } from 'unbuild';
+
+export default defineBuildConfig({
   failOnWarn: false,
   externals: [
-    // package
     'vue-bundle-renderer',
     '@nuxt/image',
     'browserslist-useragent-regexp',
@@ -22,4 +23,4 @@ export default {
       await copy('src/assets', 'dist/assets');
     }
   }
-};
+});

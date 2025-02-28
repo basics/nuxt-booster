@@ -28,53 +28,25 @@ import pluginTemplate from './tmpl/plugin.tmpl';
 import entryTemplate from './tmpl/entry.tmpl';
 
 import type { Nuxt } from 'nuxt/schema';
-import type {
-  CrossOrigin,
-  FontOption,
+import type { ModuleOptions, PreparedFontOption } from './types';
+
+export type {
+  // module types
+  ModuleOptions,
   PerformanceMetrics,
-  PreparedFontOption
+  HTMLCrossOriginAttribute,
+  CrossOrigin,
+  BoosterContext,
+
+  // font types
+  FontOption,
+  FontOptionVariance,
+  FontOptionVarianceSource,
+
+  // directive types
+  DirectiveGetFontOptions,
+  DirectiveGetFontResult
 } from './types';
-
-export interface ModuleOptions {
-  debug: boolean;
-
-  crossorigin?: CrossOrigin;
-
-  disableNuxtFontaine?: boolean; // If set, `@nuxtjs/fontaine` will not be integrated.
-  disableNuxtImage?: boolean; // If set, `@nuxt/image` will not be integrated.
-
-  optimizeSSR?: {
-    cleanPreloads?: boolean;
-    cleanPrefetches?: boolean;
-    inlineStyles?: boolean;
-  };
-
-  detection?: {
-    performance?: boolean;
-    browserSupport?: boolean;
-    battery?: boolean;
-  };
-
-  performanceMetrics?: PerformanceMetrics;
-
-  fonts?: FontOption[];
-
-  targetFormats?: string[];
-  densities?: string;
-
-  /**
-   * IntersectionObserver rootMargin for Compoennts and Assets
-   */
-  lazyOffset: {
-    component: string;
-    asset: string;
-  };
-
-  runOptions?: {
-    performance: number;
-    battery: number;
-  };
-}
 
 const resolver = createResolver(import.meta.url);
 
