@@ -1,8 +1,15 @@
+// import type { ModuleOptions } from '../src/types/module';
 import { defineNuxtConfig, type NuxtConfig } from 'nuxt/config';
 import { createResolver } from '@nuxt/kit';
 
 import { join, resolve } from 'pathe';
 import nuxtConfig from '../playground/nuxt.config.js';
+
+interface ExtendedNuxtConfig extends NuxtConfig {
+  booster?: {
+    targetFormats?: string[];
+  };
+}
 
 const resolver = createResolver(import.meta.url);
 
@@ -13,7 +20,7 @@ export const distDir = join(rootDir, 'dist');
 export default defineNuxtConfig(
   await (async () => {
     const defaultConfig =
-      (await (nuxtConfig as CallableFunction)) as NuxtConfig;
+      (await (nuxtConfig as CallableFunction)) as ExtendedNuxtConfig;
     if (defaultConfig.runtimeConfig?.public) {
       defaultConfig.runtimeConfig.public.isTest = true;
       defaultConfig.runtimeConfig.public.disableInfoLayer = true;

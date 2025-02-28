@@ -8,8 +8,8 @@ import * as postcssFunctions from './postcss/functions';
 const isDev = process.env.NODE_ENV === 'development';
 
 function getBuilder() {
-  return (process.env.npm_config_builder ||
-    process.env.BUILDER ||
+  return (process.env.npm_config_builder ??
+    process.env.BUILDER ??
     'vite') as NuxtConfig['builder'];
 }
 
@@ -404,23 +404,23 @@ export default defineNuxtConfig({
     ]
   },
 
-  modules: ['@nuxt/eslint', '../src/module']
+  modules: ['@nuxt/eslint', '../src/module'],
 
-  // eslint: {
-  //   config: {
-  //     // typescript: false
-  //   }
-  // }
+  typescript: {
+    tsConfig: {
+      include: ['../../test/**/*.ts']
+    }
+  }
 });
 
 function getBaseUrl() {
-  return process.env.npm_config_base_url || process.env.BASE_URL || '/';
+  return process.env.npm_config_base_url ?? process.env.BASE_URL ?? '/';
 }
 
 function getHost() {
-  return process.env.npm_config_host || process.env.HOST || 'localhost';
+  return process.env.npm_config_host ?? process.env.HOST ?? 'localhost';
 }
 
 function getPort() {
-  return Number(process.env.npm_config_port || process.env.PORT || 3000);
+  return Number(process.env.npm_config_port ?? process.env.PORT ?? 3000);
 }
