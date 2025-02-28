@@ -20,7 +20,7 @@
   },
   "type": "module",
   "scripts": {
-    "prepack": "nuxt-module-build build",
+    "prepack": "nuxt prepare playground && nuxt-module-build build",
     "prepare": "husky",
     "testt": "nuxt prepare playground",
     "build": "nuxt build playground",
