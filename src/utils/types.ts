@@ -1,6 +1,6 @@
 import type FontConfig from '../classes/FontConfig';
 
-export function getFontTypes(fontConfig: FontConfig) {
+export function getTypesContent(fontConfig: FontConfig) {
   const family = unique(fontConfig.fonts.map(font => font.family));
   const weight = unique(
     fontConfig.fonts

@@ -24,7 +24,7 @@ import { optimizeSSR } from './utils/optimization';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
 import { getTemplate as getBlobFileTemplate } from './utils/blob';
-import { getFontTypes } from './utils/types';
+import { getTypesContent } from './utils/types';
 
 import pluginTemplate from './tmpl/plugin.tmpl';
 import entryTemplate from './tmpl/entry.tmpl';
@@ -190,8 +190,8 @@ async function addBuildTemplates(nuxt: Nuxt, options: ModuleOptions) {
   });
 
   addTypeTemplate({
-    filename: 'types/font.d.ts',
-    getContents: () => getFontTypes(fontConfig),
+    filename: 'types/nuxt-booster.d.ts',
+    getContents: () => getTypesContent(fontConfig),
     write: true
   });
 }
