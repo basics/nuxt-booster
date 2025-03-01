@@ -1,5 +1,5 @@
-import { FontsCollection } from './../../classes/FontsCollection';
-import { logDebug } from '../utils/log';
+import { FontsCollection } from '#booster/classes/FontsCollection';
+import { logDebug } from '#booster/utils/log';
 import { injectHead, useRouter, useRuntimeConfig } from '#imports';
 import { ref, watch, nextTick, type Ref } from 'vue';
 

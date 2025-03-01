@@ -1,6 +1,6 @@
 import type { Ref } from 'vue';
 import type { ModulePublicRuntimeConfig } from './module';
-import type { FontsCollection } from '../classes/FontsCollection';
+import type { FontsCollection } from '../runtime/classes/FontsCollection';
 import type FontCollection from '../runtime/classes/FontCollection';
 
 export interface HeadFontCollector {
