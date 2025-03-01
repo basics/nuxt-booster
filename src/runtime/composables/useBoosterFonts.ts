@@ -8,6 +8,7 @@ import type {
   DirectiveGetFontOptions,
   DirectiveGetFontResult
 } from '../../types';
+import type { FontFamily, FontStyle, FontWeigth } from '#build/types/font';
 
 export default function useBoosterFonts(
   options: {
@@ -35,9 +36,9 @@ export default function useBoosterFonts(
   }
 
   const $getFont = (
-    family: string,
-    weight?: string | number,
-    style?: string,
+    family: FontFamily,
+    weight?: FontWeigth,
+    style?: FontStyle,
     options?: DirectiveGetFontOptions
   ): DirectiveGetFontResult => {
     return {

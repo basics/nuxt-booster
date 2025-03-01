@@ -1,3 +1,4 @@
+import type { FontFamily, FontStyle, FontWeigth } from '#build/types/font';
 import type {
   FontOptionVariance,
   DirectiveGetFontOptions,
@@ -23,9 +24,9 @@ export default class FontList {
   }
 
   getFont(
-    family: string,
-    weight?: string | number,
-    style?: string,
+    family: FontFamily,
+    weight?: FontWeigth,
+    style?: FontStyle,
     options?: DirectiveGetFontOptions
   ) {
     weight = weight || 400;

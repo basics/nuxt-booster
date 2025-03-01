@@ -5,7 +5,8 @@ import {
   createResolver,
   defineNuxtModule,
   addPluginTemplate,
-  addTemplate
+  addTemplate,
+  addTypeTemplate
 } from '@nuxt/kit';
 import { getCrossorigin, getSupportedBrowserDetector } from './utils/browser';
 import FontConfig from './classes/FontConfig';
@@ -23,6 +24,7 @@ import { optimizeSSR } from './utils/optimization';
 import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/webpack';
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
 import { getTemplate as getBlobFileTemplate } from './utils/blob';
+import { getFontTypes } from './utils/types';
 
 import pluginTemplate from './tmpl/plugin.tmpl';
 import entryTemplate from './tmpl/entry.tmpl';
@@ -184,6 +186,12 @@ async function addBuildTemplates(nuxt: Nuxt, options: ModuleOptions) {
   addTemplate({
     getContents: () => mediaContent,
     filename: MODULE_NAME + '/blobs.mjs',
+    write: true
+  });
+
+  addTypeTemplate({
+    filename: 'types/font.d.ts',
+    getContents: () => getFontTypes(fontConfig),
     write: true
   });
 }
