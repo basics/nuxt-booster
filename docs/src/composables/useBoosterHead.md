@@ -12,7 +12,7 @@ Is required to create and manage a head entry.
 
 :::
 
-## Type
+## Types
 
 ```typescript
 export default function useBoosterHead(): HeadFontCollector;

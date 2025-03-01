@@ -4,7 +4,7 @@ title: useBoosterCritical
 
 # {{$frontmatter.title}}
 
-## Type
+## Types
 
 ```typescript
 export default function useBoosterCritical(options?: {

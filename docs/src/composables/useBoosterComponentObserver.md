@@ -4,7 +4,7 @@ title: useBoosterComponentObserver
 
 # {{$frontmatter.title}}
 
-## Type
+## Types
 
 ```typescript
 declare function useBoosterComponentObserver(options?: ObservableOptions): {

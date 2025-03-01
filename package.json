@@ -22,7 +22,6 @@
   "scripts": {
     "prepack": "nuxt prepare playground && nuxt-module-build build",
     "prepare": "husky",
-    "testt": "nuxt prepare playground",
     "build": "nuxt build playground",
     "dev": "nuxt-module-build prepare && nuxt dev playground",
     "generate": "nuxt generate playground",

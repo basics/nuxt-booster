@@ -8,7 +8,7 @@ Compasable provides a function for wrapping components in order to control hydra
 
 [Learn more about component import](/guide/usage#import-components).
 
-## Type
+## Types
 
 ```typescript
 import type { AsyncComponentLoader, Component, HydrationStrategy } from 'vue';

@@ -4,7 +4,7 @@ title: useBoosterConfig
 
 # {{$frontmatter.title}}
 
-## Type
+## Types
 
 ```typescript
 declare function useBoosterConfig(): ModulePublicRuntimeConfig;

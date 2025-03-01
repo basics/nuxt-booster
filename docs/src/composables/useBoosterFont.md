@@ -4,7 +4,7 @@ title: useBoosterFont
 
 # {{$frontmatter.title}}
 
-## Type
+## Types
 
 ```typescript
 declare function useBoosterFonts(options?: {
