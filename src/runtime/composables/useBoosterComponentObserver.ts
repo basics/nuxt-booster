@@ -1,11 +1,14 @@
 import { getElementObserver } from '#booster/classes/intersection';
-import type { ObservableOptions } from '#booster/classes/intersection/Observable';
-import { useBoosterCritical } from '#imports';
-import { onMounted, ref } from 'vue';
 
-export default function (options: ObservableOptions = {}) {
-  const el = ref(null);
-  const inView = ref(false);
+import { useBoosterCritical } from '#imports';
+import { onMounted, ref, type Ref } from 'vue';
+import type { ObservableHTMLElement, ObservableOptions } from '../../types';
+
+export default function useBoosterComponentObserver(
+  options: ObservableOptions = {}
+) {
+  const el: Ref<HTMLElement | undefined> = ref(undefined);
+  const inView: Ref<boolean> = ref(false);
 
   const { isCritical } = useBoosterCritical();
 
@@ -23,7 +26,10 @@ export default function (options: ObservableOptions = {}) {
       inView.value = true;
     } else {
       if (el.value) {
-        await getElementObserver(el.value, options).enterViewOnce();
+        await getElementObserver(
+          el.value as ObservableHTMLElement,
+          options
+        ).enterViewOnce();
         inView.value = true;
       } else {
         console.error('Element not found');

@@ -1,5 +1,6 @@
 import FontCollection from '#booster/classes/FontCollection';
 import { useBoosterCritical, useBoosterConfig, useNuxtApp } from '#imports';
+import type { Ref } from 'vue';
 import { reactive, nextTick, onBeforeUnmount } from 'vue';
 
 import type FontList from '#booster/classes/FontList';
@@ -8,8 +9,13 @@ import type {
   DirectiveGetFontResult
 } from '../../types';
 
-export default function (context = {}) {
-  const { isCritical, critical } = useBoosterCritical(context);
+export default function useBoosterFonts(
+  options: {
+    critical?: boolean;
+  } = {}
+) {
+  const { isCritical }: { isCritical: Ref<boolean> } =
+    useBoosterCritical(options);
 
   const runtimeConfig = useBoosterConfig();
 
@@ -44,12 +50,11 @@ export default function (context = {}) {
 
   return {
     isCritical,
-    critical,
     $getFont
   };
 }
 
-declare module '../../types' {
+declare module '../../types/module' {
   // interface RuntimeConfig {}
   interface BoosterContext {
     getFont: FontList['getFont'];

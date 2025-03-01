@@ -1,14 +1,4 @@
-export type ObservableOptions = {
-  root?: HTMLElement;
-  rootMargin?: string;
-  threshold?: number | number[];
-  trackVisibility?: boolean;
-  delay?: number;
-};
-
-export type ObservableHTMLElement = HTMLElement & {
-  observables: Map<string, IntersectionObservable>;
-};
+import type { ObservableHTMLElement, ObservableOptions } from '../../../types';
 
 export default class IntersectionObservable {
   #intersectionObserver;

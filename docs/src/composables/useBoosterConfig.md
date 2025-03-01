@@ -4,12 +4,20 @@ title: useBoosterConfig
 
 # {{$frontmatter.title}}
 
+## Type
+
+```typescript
+declare function useBoosterConfig(): ModulePublicRuntimeConfig;
+```
+
 ## Return
 
-Returns `nuxt-booster` public runtime options.
+Returns booster public runtime options.
 
 ## Example
 
-```js
-const $boosterOptions = useBoosterConfig();
+```typescript
+const $boosterConfig: ModulePublicRuntimeConfig = useBoosterConfig();
+
+console.log($boosterConfig.lazyOffsetComponent);
 ```

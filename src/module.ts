@@ -45,7 +45,11 @@ export type {
 
   // directive types
   DirectiveGetFontOptions,
-  DirectiveGetFontResult
+  DirectiveGetFontResult,
+
+  // observable types
+  ObservableHTMLElement,
+  ObservableOptions
 } from './types';
 
 const resolver = createResolver(import.meta.url);

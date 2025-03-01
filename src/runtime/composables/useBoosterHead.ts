@@ -1,3 +1,4 @@
+import { FontsCollection } from './../../classes/FontsCollection';
 import { logDebug } from '../utils/log';
 import { injectHead, useRouter, useRuntimeConfig } from '#imports';
 import { ref, watch, nextTick, type Ref } from 'vue';
@@ -9,31 +10,13 @@ import type {
   TagUserProperties,
   UserTagConfigWithoutInnerContent
 } from '@unhead/schema';
-import type { ModulePublicRuntimeConfig } from '../../types';
+import type {
+  HeadFontCollector,
+  HeadFontCollectorDescription,
+  HeadFontCollectorEntry
+} from '../../types';
 
-export interface HeadFontCollector {
-  push: (description: HeadFontCollectorDescription) => HeadFontCollectorEntry;
-  collection: Ref<FontsCollection>;
-}
-
-declare module '../../types' {
-  // interface RuntimeConfig {}
-  interface BoosterContext {
-    head: HeadFontCollector;
-  }
-}
-
-export interface HeadFontCollectorDescription {
-  options: ModulePublicRuntimeConfig;
-  fontCollection: FontCollection;
-  isCritical: boolean;
-}
-
-export type HeadFontCollectorEntry = {
-  dispose: () => void;
-};
-
-export default function (): HeadFontCollector {
+export default function useBoosterHead(): HeadFontCollector {
   const head = injectHead();
 
   const $router = useRouter();
@@ -142,25 +125,4 @@ function prepareItems(
   return Array.from(
     new Map(items.map(item => [item.key, { ...item, key: undefined }])).values()
   );
-}
-
-class FontsCollection {
-  list: HeadFontCollectorDescription[] = [];
-
-  constructor(list: HeadFontCollectorDescription[] = []) {
-    this.list = list;
-  }
-
-  get size() {
-    return this.list.length;
-  }
-
-  toJSON() {
-    return {
-      list: this.list.map(item => ({
-        ...item,
-        fontCollection: item.fontCollection.toJSON()
-      }))
-    };
-  }
 }

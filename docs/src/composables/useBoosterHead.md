@@ -11,3 +11,9 @@ title: ⚠️ useBoosterHead
 Is required to create and manage a head entry.
 
 :::
+
+## Type
+
+```typescript
+export default function useBoosterHead(): HeadFontCollector;
+```

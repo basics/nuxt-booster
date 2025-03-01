@@ -91,6 +91,7 @@ export type ViteBuildContext = {
 };
 
 export interface BoosterContext {
+  // getFont: FontList['getFont'];
   getImageSize: (src: string) => Promise<{ width: number; height: number }>;
   densities: string;
   targetFormats: string[];
@@ -152,6 +153,6 @@ declare module '@vue/runtime-core' {
   }
 
   interface GlobalDirectives {
-    vGetFont: Directive;
+    vFont: Directive;
   }
 }

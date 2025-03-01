@@ -41,9 +41,10 @@ Important: For using `BoosterPicture` do not disable `@nuxt/image` via `disableN
 
 <script setup lang="ts">
 import BoosterPicture from '#booster/components/BoosterPicture.vue';
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
+import type { PictureSource } from 'nuxt-booster';
 
-const sources = ref([
+const sources: Ref<PictureSource[]> = ref([
   {
     src: '/img/landscape.png',
     sizes: {
@@ -62,6 +63,7 @@ const alt = ref('Picture alt');
 
 const onLoadPicture = () => console.log('Picture loaded!');
 </script>
+
 ````
 
 ## Properties
