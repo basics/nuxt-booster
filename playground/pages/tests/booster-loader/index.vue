@@ -5,13 +5,13 @@
   </div>
 </template>
 
-<script setup>
-import { useBoosterHydrate } from '#imports';
+<script setup lang="ts">
+import { definePageMeta, useBoosterHydrate } from '#imports';
 
 const hydrate = useBoosterHydrate();
 
-const Critical = hydrate(() => import('./components/Critical'));
-const Lazy = hydrate(() => import('./components/Lazy'));
+const Critical = hydrate(() => import('./components/Critical.vue'));
+const Lazy = hydrate(() => import('./components/Lazy.vue'));
 
 definePageMeta({
   layout: 'blank'

@@ -4,8 +4,8 @@
   </header>
 </template>
 
-<script setup>
-import PageHeaderMenu from './fragments/PageHeaderMenu';
+<script setup lang="ts">
+import PageHeaderMenu from './fragments/PageHeaderMenu.vue';
 
 defineOptions({
   inheritAttrs: false

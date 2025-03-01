@@ -4,34 +4,46 @@
     <content-container :inert="menuOpened">
       <slot />
     </content-container>
+
     <info-layer v-if="!$config.public.disableInfoLayer" critical />
     <github-corner :url="$config.public.githubRepoUrl" />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import 'wicg-inert';
-import { useBoosterHydrate, useRoute, useHead } from '#imports';
+import {
+  useRuntimeConfig,
+  useBoosterHydrate,
+  useRoute,
+  useHead
+} from '#imports';
+
 import { ContentContainer } from 'vue-semantic-structure';
 import { defineAsyncComponent, ref, computed } from 'vue';
 const hydrate = useBoosterHydrate();
 
-const InfoLayer = defineAsyncComponent(() => import('@/components/InfoLayer'));
-const GithubCorner = hydrate(
-  () => import('@/components/elements/GithubCorner')
-);
-const PageHeader = hydrate(() => import('@/components/PageHeader'));
+const $config = useRuntimeConfig();
 
-const route = useRoute();
+const InfoLayer = defineAsyncComponent(
+  () => import('@/components/InfoLayer.vue')
+);
+const GithubCorner = hydrate(
+  () => import('@/components/elements/GithubCorner.vue')
+);
+const PageHeader = hydrate(() => import('@/components/PageHeader.vue'));
+
+const $route = useRoute();
 
 useHead(
   computed(() => {
+    const name = String($route.name);
     return {
-      title: `${route.name} | nuxt-booster`,
+      title: `${name} | nuxt-booster`,
       meta: [
         {
           name: 'description',
-          content: `${route.name} - description`
+          content: `${name} - description`
         }
       ]
     };

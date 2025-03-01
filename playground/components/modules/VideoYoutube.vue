@@ -12,9 +12,9 @@
   </content-container>
 </template>
 
-<script setup>
-import BoosterYoutube from '#booster/components/BoosterYoutube';
-import WeakHardwareOverlay from '@/components/WeakHardwareOverlay';
+<script setup lang="ts">
+import BoosterYoutube from '#booster/components/BoosterYoutube.vue';
+import WeakHardwareOverlay from '@/components/WeakHardwareOverlay.vue';
 import { ContentContainer } from 'vue-semantic-structure';
 import { useBoosterFonts } from '#imports';
 

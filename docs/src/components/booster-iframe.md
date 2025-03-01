@@ -45,19 +45,19 @@ The `BoosterIframe` is used like a normal [HTML Iframe](https://www.w3schools.co
 
 ````vue
 <template>
-  <booster-iframe v-bind="iframe" @load="onLoadIframe" />
+  <booster-iframe
+    :src="src"
+    :component-observer="componentObserver"
+    @load="onLoadIframe"
+  />
 </template>
 
-<script setup>
-const src = defineProps({
-  src: String,
-  componentObserver: {
-    type: Object,
-    default() {
-      return { trackVisibility: true, delay: 350 };
-    }
-  }
-});
+<script setup lang="ts">
+import BoosterIframe from '#booster/components/BoosterIframe.vue';
+import { ref } from 'vue';
+
+const src = ref('<url>');
+const componentObserver = ref({ trackVisibility: true, delay: 350 });
 
 const onLoadIframe = () => console.log('iframe loaded!');
 </script>

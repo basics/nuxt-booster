@@ -17,14 +17,14 @@
         <div>
           <nav>
             <div v-for="({ headline, links }, index) in lists" :key="index">
-              <headline
+              <base-headline
                 v-if="headline"
                 tag="span"
                 class="headline"
                 type="menu"
                 :content="headline"
               />
-              <link-list :items="links" aria-label="Menu" />
+              <base-link-list :items="links" aria-label="Menu" />
             </div>
           </nav>
         </div>
@@ -47,11 +47,17 @@
   </div>
 </template>
 
-<script setup>
-import Headline from '@/components/base/Headline';
-import LinkList from '@/components/base/LinkList';
+<script setup lang="ts">
+import BaseHeadline from '@/components/base/Headline.vue';
+import BaseLinkList from '@/components/base/LinkList.vue';
 import { useRoute } from 'vue-router';
 import { ref, computed, watch, onMounted } from 'vue';
+import type { LinkProps } from '~/types';
+
+export type List = {
+  headline: string;
+  links: LinkProps[];
+};
 
 const props = defineProps({
   modelValue: {
@@ -59,7 +65,7 @@ const props = defineProps({
     default: false
   },
   lists: {
-    type: Array,
+    type: Array<List>,
     default() {
       return [
         {
@@ -98,8 +104,11 @@ watch(
   { deep: true, immediate: true }
 );
 
-const onInput = e => {
-  emit('update:modelValue', e.target.checked);
+const onInput = (e: Event) => {
+  const target = e.target as HTMLInputElement | null;
+  if (target) {
+    emit('update:modelValue', target.checked);
+  }
 };
 </script>
 
