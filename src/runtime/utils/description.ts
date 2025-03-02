@@ -4,19 +4,7 @@ import type { ClassNames as SourceListClassNames } from '#booster/components/Boo
 import type SourceList from '#booster/components/BoosterPicture/classes/SourceList';
 import { toHashHex, minify } from './string';
 
-export interface Description {
-  key?: string;
-}
-
-export interface StyleDescription extends Description {
-  key?: string;
-  type: string;
-  children: string;
-}
-export interface NoScriptDescription extends Description {
-  key?: string;
-  innerHTML: string;
-}
+import type { Noscript, Style } from '@unhead/schema';
 
 export function getImageStyleDescription(source: Source) {
   return {
@@ -29,7 +17,7 @@ export function getImageStyleDescription(source: Source) {
 export function getPictureStyleDescription(
   metaSources: SourceList,
   classNames: SourceListClassNames
-): StyleDescription {
+): Style {
   return {
     key: classNames.picture as string,
     type: 'text/css',
@@ -87,7 +75,7 @@ export function getStyleDescription(
   children: string,
   noScript = false,
   key?: string
-): StyleDescription | NoScriptDescription {
+): Style | Noscript {
   if (noScript) {
     return getNoScriptDescription(`<style>${children}</style>`, key);
   } else {
@@ -102,7 +90,7 @@ export function getStyleDescription(
 export function getNoScriptDescription(
   textContent: string,
   key?: string
-): NoScriptDescription {
+): Noscript {
   return {
     key,
     innerHTML: minify(textContent)
