@@ -6,7 +6,7 @@ title: Definitions
 
 All listed definitions are available in the `nuxt-booster` package.
 
-**Example**
+### Example
 
 ```ts
 import type { FontOption } from 'nuxt-booster';
