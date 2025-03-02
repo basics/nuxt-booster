@@ -39,6 +39,34 @@ More information on critical components can be found [here](/guide/usage#critica
 `$getFont` is included as a plugin and can be accessed via any component scope.  
 Use `$getFont` in the `v-font` directive and create the relevant font definition.
 
+## Types
+
+```ts
+
+export interface DirectiveGetFontArguments {
+  family: FontFamily;
+  weight?: FontWeight;
+  style?: FontStyle;
+  options?: DirectiveGetFontOptions;
+}
+
+export interface DirectiveGetFontOptions {
+  selector?: string;
+  media?: string;
+}
+export interface DirectiveGetFontResult {
+  runtimeConfig: ModulePublicRuntimeConfig;
+  isCritical: boolean;
+  fontCollection: FontCollection;
+  definition: Font;
+}
+
+declare type FontFamily = <Your Configured Font Familiess>;
+declare type FontWeight = <Your Configured Font Weights>;
+declare type FontStyle = <Your Configured Font Styles>;
+
+```
+
 | Key       | Type               | Requried | Description                                                        | Default  |
 | --------- | ------------------ | -------- | ------------------------------------------------------------------ | -------- |
 | `family`  | `String`           | yes      | Font-Family e.g. `Custom Font`                                     |          |

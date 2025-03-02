@@ -14,7 +14,8 @@ export default defineBuildConfig({
     'image-meta',
     'pathe',
     'mime-types',
-    'mime-db'
+    'mime-db',
+    '#build/types/booster'
   ],
   hooks: {
     'build:done': async () => {

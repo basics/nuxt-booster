@@ -5,10 +5,11 @@ import { reactive, nextTick, onBeforeUnmount } from 'vue';
 
 import type FontList from '#booster/classes/FontList';
 import type {
+  DirectiveGetFontArguments,
   DirectiveGetFontOptions,
   DirectiveGetFontResult
 } from '../../types';
-import type { FontFamily, FontStyle, FontWeigth } from '#build/types/font';
+import type { FontFamily, FontStyle, FontWeight } from '#build/types/booster';
 
 export default function useBoosterFonts(
   options: {
@@ -36,11 +37,17 @@ export default function useBoosterFonts(
   }
 
   const $getFont = (
-    family: FontFamily,
-    weight?: FontWeigth,
+    family: FontFamily | DirectiveGetFontArguments,
+    weight?: FontWeight,
     style?: FontStyle,
     options?: DirectiveGetFontOptions
   ): DirectiveGetFontResult => {
+    if (typeof family === 'object') {
+      options = family.options;
+      style = family.style;
+      weight = family.weight;
+      family = family.family;
+    }
     return {
       runtimeConfig,
       isCritical: isCritical.value,

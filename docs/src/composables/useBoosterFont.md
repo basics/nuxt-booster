@@ -7,24 +7,13 @@ title: useBoosterFont
 ## Types
 
 ```typescript
-declare function useBoosterFonts(options?: {
+
+declare default function useBoosterFonts(options?: {
     critical?: boolean;
 }): {
     isCritical: Ref<boolean, boolean>;
-    $getFont: (family: string, weight?: string | number, style?: string, options?: DirectiveGetFontOptions) => DirectiveGetFontResult;
+    $getFont: (family: FontFamily | DirectiveGetFontArguments, weight?: FontWeight, style?: FontStyle, options?: DirectiveGetFontOptions) => DirectiveGetFontResult;
 };
-
-declare interface DirectiveGetFontOptions {
-  selector?: string;
-  media?: string;
-}
-
-declare interface DirectiveGetFontResult {
-  runtimeConfig: ModulePublicRuntimeConfig;
-  isCritical: boolean;
-  fontCollection: FontCollection;
-  definition: Font;
-}
 
 ```
 

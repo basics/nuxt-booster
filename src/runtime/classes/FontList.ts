@@ -1,4 +1,4 @@
-import type { FontFamily, FontStyle, FontWeigth } from '#build/types/font';
+import type { FontFamily, FontStyle, FontWeigth } from '#build/types/booster';
 import type {
   FontOptionVariance,
   DirectiveGetFontOptions,
