@@ -1,4 +1,4 @@
-import type { PictureSource } from '../../../module';
+import type { ISource } from '../../../module';
 
 export default {
   autoplay: {
@@ -34,7 +34,7 @@ export default {
   },
 
   posterSources: {
-    type: Array<PictureSource>,
+    type: Array<ISource>,
     default() {
       return [
         {

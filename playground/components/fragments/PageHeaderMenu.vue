@@ -52,7 +52,7 @@ import BaseHeadline from '@/components/base/Headline.vue';
 import BaseLinkList from '@/components/base/LinkList.vue';
 import { useRoute } from 'vue-router';
 import { ref, computed, watch, onMounted } from 'vue';
-import type { LinkProps } from '~/types';
+import type { LinkProps } from '@/types';
 
 export type List = {
   headline: string;

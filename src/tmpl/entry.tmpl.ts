@@ -1,4 +1,4 @@
-import type { EntryOptions } from '../types';
+import type { EntryOptions } from '../module';
 
 export default (options: EntryOptions) => {
   let code = `import { ${

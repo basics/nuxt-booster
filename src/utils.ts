@@ -7,7 +7,7 @@ import type {
   Nuxt
 } from 'nuxt/schema';
 import type * as consola from 'consola';
-import type { ModuleOptions, ModulePublicRuntimeConfig } from './types';
+import type { ModuleOptions, ModulePublicRuntimeConfig } from './module';
 
 export const MODULE_NAME = 'nuxt-booster';
 

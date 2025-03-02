@@ -197,13 +197,22 @@ interface BoosterContext {
 }
 ```
 
-### PictureSource
+### ISource
 
 ```ts
-interface PictureSource {
-  src?: string;
-  media: string;
-  sizes: Record<string, string | number>;
+export interface ISource {
+  src: string;
+  media?: string;
+  sizes?: Record<string, string | number>;
+  width?: number;
+  height?: number;
+  format?: string;
+  quality?: number;
+  preload?: boolean;
+  modifiers?: Partial<ImageModifiers>;
+  provider?: string;
+  preset?: string;
+  densities?: string;
 }
 ```
 

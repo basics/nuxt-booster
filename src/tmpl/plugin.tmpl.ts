@@ -1,4 +1,4 @@
-import type { PluginOptions } from '../types';
+import type { PluginOptions } from '../module';
 
 export default (options: PluginOptions) => {
   let code = `import { defineNuxtPlugin, useBoosterHydrate } from '#imports';

@@ -1,5 +1,5 @@
 import type FontConfig from '../classes/FontConfig';
-import type { FontOption } from '../types';
+import type { FontOption } from '../module';
 
 let identifier = 0;
 const identifiersBySrc = new Map();

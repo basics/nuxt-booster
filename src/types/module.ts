@@ -1,6 +1,7 @@
 import type { Nuxt, ViteConfig } from 'nuxt/schema';
 import type { Manifest } from 'vue-bundle-renderer';
 import type { FontOption } from './font';
+import type { ImageModifiers } from '@nuxt/image';
 
 export type HTMLCrossOriginAttribute = 'anonymous' | 'use-credentials' | '';
 export type CrossOrigin = boolean | HTMLCrossOriginAttribute | undefined;
@@ -132,10 +133,19 @@ export interface HookOptions {
   inlineStyles: boolean;
 }
 
-export interface PictureSource {
-  src?: string;
-  media: string;
-  sizes: Record<string, string | number>;
+export interface ISource {
+  src: string;
+  media?: string;
+  sizes?: Record<string, string | number>;
+  width?: number;
+  height?: number;
+  format?: string;
+  quality?: number;
+  preload?: boolean;
+  modifiers?: Partial<ImageModifiers>; // https://image.nuxt.com/usage/nuxt-img#modifiers
+  provider?: string; // https://image.nuxt.com/usage/nuxt-img#provider
+  preset?: string; // https://image.nuxt.com/usage/nuxt-img#preset
+  densities?: string; // https://image.nuxt.com/usage/nuxt-img#densities
 }
 
 declare module 'nuxt/app' {

@@ -3,7 +3,7 @@ import type {
   FontOptionVariance,
   FontOptionVarianceSource,
   PreparedFontOption
-} from '../types';
+} from '../module';
 
 const fontPrioritizationPreloadOrder = ['woff2', 'woff', 'truetype', 'svg'];
 const fontDeclarationOrder = [

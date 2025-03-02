@@ -6,7 +6,7 @@ import { render } from 'dom-serializer';
 import { isWebpackBuild, logger } from '../../utils';
 import type { Nuxt } from 'nuxt/schema';
 import type { CheerioAPI } from 'cheerio';
-import type { HookOptions } from '../../types';
+import type { HookOptions } from '../../module';
 import type { Nitro, PrerenderRoute } from 'nitropack';
 
 function getDefaultOptions(): HookOptions {

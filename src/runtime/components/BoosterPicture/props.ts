@@ -1,9 +1,9 @@
+import type { ISource } from '../../../module';
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
-import type Source from '../BoosterImage/classes/Source';
 
 export default {
   sources: {
-    type: Array<Source | object>,
+    type: Array<ISource>,
     default() {
       return [];
     }

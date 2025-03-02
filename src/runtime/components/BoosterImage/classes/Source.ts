@@ -3,30 +3,25 @@ import { getExtension, getMeta } from '../utils/image';
 import type {
   BoosterContext,
   CrossOrigin,
-  HTMLCrossOriginAttribute
+  HTMLCrossOriginAttribute,
+  ISource
 } from '../../../../module';
 import { toHashHex } from '../../../utils/string';
 import type { Link, TagUserProperties } from '@unhead/schema';
 
-export interface SourceSize {
-  width: number;
-  height: number;
-}
-
-export default class Source {
+export default class Source implements ISource {
   src: string;
-  sizes?: SourceSize[];
   media?: string;
-  width: number;
-  height: number;
+  sizes?: Record<string, string | number>;
+  width?: number;
+  height?: number;
   format?: string;
   quality?: number;
   preload?: boolean;
-  modifiers?: Partial<ImageModifiers>; // https://image.nuxt.com/usage/nuxt-img#modifiers
-  provider?: string; // https://image.nuxt.com/usage/nuxt-img#provider
-  preset?: string; // https://image.nuxt.com/usage/nuxt-img#preset
-  densities?: string; // https://image.nuxt.com/usage/nuxt-img#densities
-
+  modifiers?: Partial<ImageModifiers>;
+  provider?: string;
+  preset?: string;
+  densities?: string;
   constructor({
     src,
     sizes,
@@ -60,7 +55,7 @@ export default class Source {
   }
 
   get ratio() {
-    return this.width / this.height;
+    return (this.width ?? 0) / (this.height ?? 0);
   }
 
   get className() {

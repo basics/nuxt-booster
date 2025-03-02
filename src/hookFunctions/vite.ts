@@ -1,4 +1,4 @@
-import type { ViteBuildContext, ViteBuildContextExtend } from '../types';
+import type { ViteBuildContext, ViteBuildContextExtend } from '../module';
 
 export function registerAppEntry(filePath: string) {
   return (context: ViteBuildContext) => {

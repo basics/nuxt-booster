@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { useBoosterFonts } from '#imports';
 import { computed } from 'vue';
-import type { DirectiveGetFontResult } from '../../../src/types';
+import type { DirectiveGetFontResult } from '../../../src/module';
 
 const { $getFont } = useBoosterFonts();
 
