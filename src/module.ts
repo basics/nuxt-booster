@@ -33,8 +33,15 @@ import type { Nuxt } from 'nuxt/schema';
 import type { ModuleOptions, PreparedFontOption } from './types';
 
 export type {
+  HeadFontCollector,
+  HeadFontCollectorDescription,
+  HeadFontCollectorEntry,
+  RunOptions,
+  PictureSource,
+
   // module types
   ModuleOptions,
+  ModulePublicRuntimeConfig,
   PerformanceMetrics,
   HTMLCrossOriginAttribute,
   CrossOrigin,
@@ -44,10 +51,12 @@ export type {
   FontOption,
   FontOptionVariance,
   FontOptionVarianceSource,
+  PreparedFontOption,
 
   // directive types
   DirectiveGetFontOptions,
   DirectiveGetFontResult,
+  DirectiveGetFontArguments,
 
   // observable types
   ObservableHTMLElement,

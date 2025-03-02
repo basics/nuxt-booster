@@ -1,5 +1,5 @@
 import { useNuxtApp } from '#imports';
-import type { BoosterContext } from '../../types';
+import type { BoosterContext } from '../../module';
 
 export default function useBoosterContext(): BoosterContext {
   const { $booster } = useNuxtApp();

@@ -1,4 +1,4 @@
-import type { PictureSource } from '../../../types';
+import type { PictureSource } from '../../../module';
 
 export default {
   url: {

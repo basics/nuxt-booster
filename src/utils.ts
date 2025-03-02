@@ -36,8 +36,8 @@ export function isViteBuild(nuxt: Nuxt) {
 export function setPublicRuntimeConfig(nuxt: Nuxt, options: ModuleOptions) {
   (nuxt.options.runtimeConfig.public.booster as ModulePublicRuntimeConfig) = {
     debug: options.debug,
-    lazyOffsetComponent: options.lazyOffset.component,
-    lazyOffsetAsset: options.lazyOffset.asset,
+    lazyOffsetComponent: options.lazyOffset.component || '0%',
+    lazyOffsetAsset: options.lazyOffset.asset || '0%',
     usedFontaine: !options.disableNuxtFontaine
   };
 }

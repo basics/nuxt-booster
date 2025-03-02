@@ -1,4 +1,4 @@
-import type { ObservableHTMLElement, ObservableOptions } from '../../../types';
+import type { ObservableHTMLElement, ObservableOptions } from '../../../module';
 
 export default class IntersectionObservable {
   #intersectionObserver;

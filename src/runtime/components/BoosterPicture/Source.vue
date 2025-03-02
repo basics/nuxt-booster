@@ -13,7 +13,7 @@ import { useNuxtApp, useHead, useImage } from '#imports';
 import { computed, ref } from 'vue';
 
 import Source from '#booster/components/BoosterImage/classes/Source';
-import type { CrossOrigin } from '../../../types';
+import type { CrossOrigin } from '../../../module';
 
 const types = new Map([['jpg', 'jpeg']]);
 

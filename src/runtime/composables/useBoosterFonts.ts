@@ -8,7 +8,7 @@ import type {
   DirectiveGetFontArguments,
   DirectiveGetFontOptions,
   DirectiveGetFontResult
-} from '../../types';
+} from '../../module';
 import type { FontFamily, FontStyle, FontWeight } from '#build/types/booster';
 
 export default function useBoosterFonts(

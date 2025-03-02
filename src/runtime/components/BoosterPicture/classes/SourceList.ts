@@ -1,7 +1,7 @@
 import Source, { normalizeSrc } from '../../BoosterImage/classes/Source';
 import createSort from '#booster/externals/create-sort';
 import { toHashHex } from '#booster/utils/string';
-import type { BoosterContext } from '../../../../types';
+import type { BoosterContext } from '../../../../module';
 import type { $Img } from '@nuxt/image';
 
 const sortByMediaQueries = createSort();

@@ -4,7 +4,7 @@ import type {
   BoosterContext,
   CrossOrigin,
   HTMLCrossOriginAttribute
-} from '../../../../types';
+} from '../../../../module';
 import { toHashHex } from '../../../utils/string';
 import type { Link, TagUserProperties } from '@unhead/schema';
 

@@ -1,9 +1,9 @@
-import type { FontFamily, FontStyle, FontWeigth } from '#build/types/booster';
+import type { FontFamily, FontStyle, FontWeight } from '#build/types/booster';
 import type {
   FontOptionVariance,
   DirectiveGetFontOptions,
   PreparedFontOption
-} from './../../types';
+} from './../../module';
 import Font from './Font';
 
 export default class FontList {
@@ -25,7 +25,7 @@ export default class FontList {
 
   getFont(
     family: FontFamily,
-    weight?: FontWeigth,
+    weight?: FontWeight,
     style?: FontStyle,
     options?: DirectiveGetFontOptions
   ) {

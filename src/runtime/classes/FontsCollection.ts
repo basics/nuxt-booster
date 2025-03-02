@@ -1,4 +1,4 @@
-import type { HeadFontCollectorDescription } from '../../types';
+import type { HeadFontCollectorDescription } from '../../module';
 
 export class FontsCollection {
   list: HeadFontCollectorDescription[] = [];

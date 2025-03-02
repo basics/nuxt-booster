@@ -32,7 +32,7 @@ import {
 } from '#imports';
 import { ref, computed, markRaw, type Ref, type Raw } from 'vue';
 import props from './props';
-import type { CrossOrigin } from '../../../types';
+import type { CrossOrigin } from '../../../module';
 
 defineOptions({
   inheritAttrs: false

@@ -1,6 +1,6 @@
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
 import Source from '#booster/components/BoosterImage/classes/Source';
-import type { CrossOrigin } from '../../../types';
+import type { CrossOrigin } from '../../../module';
 
 export default {
   source: {

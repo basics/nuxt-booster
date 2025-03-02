@@ -9,7 +9,7 @@ import type {
   VNode,
   App as VueApp
 } from 'vue';
-import type { DirectiveGetFontResult } from '../../types';
+import type { DirectiveGetFontResult } from '../../module';
 import type Font from '#booster/classes/Font';
 
 const CLASS_FONT_ACTIVE = 'font-active';

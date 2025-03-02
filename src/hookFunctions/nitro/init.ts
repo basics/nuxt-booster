@@ -1,11 +1,11 @@
 import { promises as fsPromises } from 'fs';
 import { basename, dirname, join, resolve } from 'pathe';
 import { parseDocument } from 'htmlparser2';
-import type { CheerioAPI } from 'cheerio';
 import { load } from 'cheerio';
 import { render } from 'dom-serializer';
 import { isWebpackBuild, logger } from '../../utils';
 import type { Nuxt } from 'nuxt/schema';
+import type { CheerioAPI } from 'cheerio';
 import type { HookOptions } from '../../types';
 import type { Nitro, PrerenderRoute } from 'nitropack';
 

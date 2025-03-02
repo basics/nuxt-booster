@@ -1,4 +1,4 @@
-import type { BoosterContext } from './../../../../types';
+import type { BoosterContext } from './../../../../module';
 import { parseURL, withBase, hasProtocol, parseFilename } from 'ufo';
 import { useRequestURL } from '#imports';
 import type { Nuxt } from 'nuxt/schema';

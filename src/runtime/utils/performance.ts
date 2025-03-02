@@ -1,4 +1,4 @@
-import type { PerformanceMetrics, RunOptions } from './../../types';
+import type { PerformanceMetrics, RunOptions } from './../../module';
 import {
   CallbackObserver,
   combineCallbackObserver

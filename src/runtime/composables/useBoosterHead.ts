@@ -14,7 +14,7 @@ import type {
   HeadFontCollector,
   HeadFontCollectorDescription,
   HeadFontCollectorEntry
-} from '../../types';
+} from '../../module';
 
 export default function useBoosterHead(): HeadFontCollector {
   const head = injectHead();

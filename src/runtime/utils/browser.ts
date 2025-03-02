@@ -1,4 +1,4 @@
-import type { CrossOrigin, HTMLCrossOriginAttribute } from '../../types';
+import type { CrossOrigin, HTMLCrossOriginAttribute } from '../../module';
 
 export function isSupportedBrowser(browserSupport: { regex: string }) {
   // eslint-disable-next-line security/detect-non-literal-regexp

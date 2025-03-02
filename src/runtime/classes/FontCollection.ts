@@ -10,7 +10,7 @@ import type {
   TagUserProperties,
   UserTagConfigWithoutInnerContent
 } from '@unhead/schema';
-import type { ModulePublicRuntimeConfig } from '../../types';
+import type { ModulePublicRuntimeConfig } from '../../module';
 
 export default class FontCollection {
   list: Font[];
