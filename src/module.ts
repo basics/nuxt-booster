@@ -32,36 +32,7 @@ import entryTemplate from './tmpl/entry.tmpl';
 import type { Nuxt } from 'nuxt/schema';
 import type { ModuleOptions, PreparedFontOption } from './types';
 
-export type {
-  HeadFontCollector,
-  HeadFontCollectorDescription,
-  HeadFontCollectorEntry,
-  RunOptions,
-  PictureSource,
-
-  // module types
-  ModuleOptions,
-  ModulePublicRuntimeConfig,
-  PerformanceMetrics,
-  HTMLCrossOriginAttribute,
-  CrossOrigin,
-  BoosterContext,
-
-  // font types
-  FontOption,
-  FontOptionVariance,
-  FontOptionVarianceSource,
-  PreparedFontOption,
-
-  // directive types
-  DirectiveGetFontOptions,
-  DirectiveGetFontResult,
-  DirectiveGetFontArguments,
-
-  // observable types
-  ObservableHTMLElement,
-  ObservableOptions
-} from './types';
+export type * from './types';
 
 const resolver = createResolver(import.meta.url);
 
