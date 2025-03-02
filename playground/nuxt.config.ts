@@ -115,7 +115,7 @@ export default defineNuxtConfig({
   },
 
   booster: {
-    debug: true,
+    // debug: true,
     // targetFormats: ['jpg|jpeg|png|gif'],
     // densities: 'x1 x2',
 
@@ -131,11 +131,11 @@ export default defineNuxtConfig({
     //   battery: true
     // },
 
-    experimental: {
-      fallbackInit: {
-        duration: 3000
-      }
-    },
+    // experimental: {
+    //   fallbackInit: {
+    //     duration: 3000
+    //   }
+    // },
 
     performanceMetrics: {
       device: {
