@@ -36,12 +36,12 @@ export default function useBoosterFonts(
     console.error(error);
   }
 
-  const $getFont = (
+  function $getFont(
     family: FontFamily | DirectiveGetFontArguments,
     weight?: FontWeight,
     style?: FontStyle,
     options?: DirectiveGetFontOptions
-  ): DirectiveGetFontResult => {
+  ): DirectiveGetFontResult {
     if (typeof family === 'object') {
       options = family.options;
       style = family.style;
@@ -54,7 +54,7 @@ export default function useBoosterFonts(
       fontCollection,
       definition: nuxtApp.$booster.getFont(family, weight, style, options)
     };
-  };
+  }
 
   return {
     isCritical,

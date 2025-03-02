@@ -2,7 +2,7 @@ import { getElementObserver } from '#booster/classes/intersection';
 
 import { useBoosterCritical } from '#imports';
 import { onMounted, ref, type Ref } from 'vue';
-import type { ObservableHTMLElement, ObservableOptions } from '../../types';
+import type { ObservableHTMLElement, ObservableOptions } from '../../module';
 
 export default function useBoosterComponentObserver(
   options: ObservableOptions = {}

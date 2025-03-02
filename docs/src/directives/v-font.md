@@ -34,7 +34,7 @@ More information on critical components can be found [here](/guide/usage#critica
 <element v-font="$getFont(…)" @load:font="…">
 ````
 
-## `$getFont(family, [weight, style, options])`
+## `$getFont`
 
 `$getFont` is included as a plugin and can be accessed via any component scope.  
 Use `$getFont` in the `v-font` directive and create the relevant font definition.
@@ -43,42 +43,40 @@ Use `$getFont` in the `v-font` directive and create the relevant font definition
 
 ```ts
 
-export interface DirectiveGetFontArguments {
+declare function $getFont (family: FontFamily | DirectiveGetFontArguments, weight?: FontWeight, style?: FontStyle, options?: DirectiveGetFontOptions) => DirectiveGetFontResult;
+
+declare interface DirectiveGetFontArguments {
   family: FontFamily;
   weight?: FontWeight;
   style?: FontStyle;
   options?: DirectiveGetFontOptions;
 }
 
-export interface DirectiveGetFontOptions {
-  selector?: string;
-  media?: string;
-}
-export interface DirectiveGetFontResult {
-  runtimeConfig: ModulePublicRuntimeConfig;
-  isCritical: boolean;
-  fontCollection: FontCollection;
-  definition: Font;
-}
-
-declare type FontFamily = <Your Configured Font Familiess>;
+declare type FontFamily = <Your Configured Font Families>;
 declare type FontWeight = <Your Configured Font Weights>;
 declare type FontStyle = <Your Configured Font Styles>;
 
 ```
 
-| Key       | Type               | Requried | Description                                                        | Default  |
-| --------- | ------------------ | -------- | ------------------------------------------------------------------ | -------- |
-| `family`  | `String`           | yes      | Font-Family e.g. `Custom Font`                                     |          |
-| `weight`  | `String`, `Number` |          | Font-Weight e.g. `400`, `normal`                                   | `400`    |
-| `style`   | `String`           |          | Font-Style e.g. `normal`, `italic`                                 | `normal` |
-| `options` | `Object`           |          | Media & Selector Options [see more](/directives/v-font#options) |          |
+| Key       | Description                                                     | Default  |
+| --------- | --------------------------------------------------------------- | -------- |
+| `family`  | Font-Family e.g. `Custom Font`                                  |          |
+| `weight`  | Font-Weight e.g. `400`, `normal`                                | `400`    |
+| `style`   | Font-Style e.g. `normal`, `italic`                              | `normal` |
+| `options` | Media & Selector Options [see more](/directives/v-font#options) |          |
 
 ### options
 
 Each definition can be modified in its behaviour via the options.  
 With the property `media`, the call of the font definition can be made dependent on the viewport.
 The property `selector` can be used to limit the font to elements (e.g. `span`, `.class`).
+
+```ts
+declare interface DirectiveGetFontOptions {
+  media?: string;
+  selector?: string;
+}
+```
 
 ````js
 {
@@ -87,10 +85,10 @@ The property `selector` can be used to limit the font to elements (e.g. `span`, 
 }
 ````
 
-| Key        | Type     | Requried | Description                                    | Default |
-| ---------- | -------- | -------- | ---------------------------------------------- | ------- |
-| `media`    | `String` |          | CSS Media Query e.g. `(min-width: 768px)`      |         |
-| `selector` | `String` |          | CSS Selector e.g. `element, .elm, .elm:before` |         |
+| Key        | Description                                    | Default |
+| ---------- | ---------------------------------------------- | ------- |
+| `media`    | CSS Media Query e.g. `(min-width: 768px)`      |         |
+| `selector` | CSS Selector e.g. `element, .elm, .elm:before` |         |
 
 ## Examples
 

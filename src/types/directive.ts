@@ -14,6 +14,7 @@ export interface DirectiveGetFontOptions {
   selector?: string;
   media?: string;
 }
+
 export interface DirectiveGetFontResult {
   runtimeConfig: ModulePublicRuntimeConfig;
   isCritical: boolean;
