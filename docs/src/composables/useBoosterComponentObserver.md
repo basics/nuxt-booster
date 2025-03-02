@@ -6,7 +6,7 @@ title: useBoosterComponentObserver
 
 ## Types
 
-```typescript
+```ts
 declare function useBoosterComponentObserver(options?: ObservableOptions): {
     el: Ref<HTMLElement | undefined, HTMLElement | undefined>;
     inView: Ref<boolean, boolean>;

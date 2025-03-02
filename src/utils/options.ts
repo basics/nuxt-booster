@@ -48,12 +48,12 @@ export function getDefaultOptions(): ModuleOptions {
   };
 }
 
-export type BoosterOptionsDeprecations = ModuleOptions & {
+export interface BoosterOptionsDeprecations extends ModuleOptions {
   imageSizeCache?: boolean;
   loader?: boolean;
   disableNuxtCritters?: boolean;
   optimizePreloads?: boolean;
-};
+}
 
 export function deprecationsNotification(options: BoosterOptionsDeprecations) {
   if ('imageSizeCache' in options) {

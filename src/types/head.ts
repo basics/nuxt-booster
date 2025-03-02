@@ -21,6 +21,6 @@ export interface HeadFontCollectorDescription {
   isCritical: boolean;
 }
 
-export type HeadFontCollectorEntry = {
+export interface HeadFontCollectorEntry {
   dispose: () => void;
-};
+}

@@ -14,6 +14,6 @@ Is required to create and manage a head entry.
 
 ## Types
 
-```typescript
+```ts
 export default function useBoosterHead(): HeadFontCollector;
 ```

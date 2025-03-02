@@ -4,19 +4,19 @@ import type { ClassNames as SourceListClassNames } from '#booster/components/Boo
 import type SourceList from '#booster/components/BoosterPicture/classes/SourceList';
 import { toHashHex, minify } from './string';
 
-export type Description = {
+export interface Description {
   key?: string;
-};
+}
 
-export type StyleDescription = Description & {
+export interface StyleDescription extends Description {
   key?: string;
   type: string;
   children: string;
-};
-export type NoScriptDescription = Description & {
+}
+export interface NoScriptDescription extends Description {
   key?: string;
   innerHTML: string;
-};
+}
 
 export function getImageStyleDescription(source: Source) {
   return {

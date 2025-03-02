@@ -6,7 +6,7 @@ title: useBoosterConfig
 
 ## Types
 
-```typescript
+```ts
 declare function useBoosterConfig(): ModulePublicRuntimeConfig;
 ```
 
@@ -16,7 +16,7 @@ Returns booster public runtime options.
 
 ## Example
 
-```typescript
+```ts
 const $boosterConfig: ModulePublicRuntimeConfig = useBoosterConfig();
 
 console.log($boosterConfig.lazyOffsetComponent);

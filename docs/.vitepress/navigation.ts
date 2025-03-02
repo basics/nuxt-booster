@@ -65,6 +65,7 @@ export default {
             { text: 'Setup', link: '/guide/setup' },
             { text: 'Options', link: '/guide/options' },
             { text: 'Usage', link: '/guide/usage' },
+            { text: 'Definitions', link: '/guide/definitions' },
             { text: 'Caveats', link: '/guide/caveats' }
           ]
         },

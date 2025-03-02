@@ -1,33 +1,34 @@
-export type FontOption = {
+export interface FontOption {
   family: string;
   fallback: string[];
   variances: FontOptionVariance[];
   locals?: string[];
-};
+}
 
-export type FontOptionVariance = {
+export interface FontOptionVariance {
   style: string;
   weight: string | number;
   sources: FontOptionVarianceSource[];
-};
+}
 
-export type FontOptionVarianceSource = {
+export interface FontOptionVarianceSource {
   src: string;
   type: string;
-};
+}
 
-export type PreparedFontOption = {
+export interface PreparedFontOption extends FontOption {
   variances: PreparedFontOptionVariance[];
-} & FontOption;
+}
 
-export type PreparedFontOptionVariance = {
+export interface PreparedFontOptionVariance extends FontOptionVariance {
   sources: PreparedFontOptionVarianceSource[];
   type: string;
   src: string;
   hash?: string;
-} & FontOptionVariance;
+}
 
-export type PreparedFontOptionVarianceSource = {
+export interface PreparedFontOptionVarianceSource
+  extends FontOptionVarianceSource {
   className: string;
   style: string;
-} & FontOptionVarianceSource;
+}

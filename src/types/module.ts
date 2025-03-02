@@ -2,12 +2,15 @@ import type { Nuxt, ViteConfig } from 'nuxt/schema';
 import type { Manifest } from 'vue-bundle-renderer';
 import type { FontOption } from './font';
 
-export type ModulePublicRuntimeConfig = {
+export type HTMLCrossOriginAttribute = 'anonymous' | 'use-credentials' | '';
+export type CrossOrigin = boolean | HTMLCrossOriginAttribute | undefined;
+
+export interface ModulePublicRuntimeConfig {
   debug: boolean;
   lazyOffsetComponent: string;
   lazyOffsetAsset: string;
   usedFontaine: boolean;
-};
+}
 
 // export interface ModuleRuntimeConfig {}
 export interface ModuleOptions {
@@ -18,7 +21,7 @@ export interface ModuleOptions {
   disableNuxtFontaine?: boolean; // If set, `@nuxtjs/fontaine` will not be integrated.
   disableNuxtImage?: boolean; // If set, `@nuxt/image` will not be integrated.
 
-  optimizeSSR?: OptimizeSSR;
+  optimizeSSR?: boolean | OptimizeSSR;
 
   detection?: Detection;
 
@@ -39,7 +42,7 @@ export interface ModuleOptions {
   experimental?: Experimental;
 }
 
-export type PerformanceMetrics = {
+export interface PerformanceMetrics {
   device?: {
     hardwareConcurrency: { min: number; max: number };
     deviceMemory: { min: number };
@@ -48,47 +51,46 @@ export type PerformanceMetrics = {
     fcp: number;
     dcl: number;
   };
-};
+}
 
-export type OptimizeSSR =
-  | {
-      cleanPreloads?: boolean;
-      cleanPrefetches?: boolean;
-      inlineStyles?: boolean;
-    }
-  | boolean;
+export interface OptimizeSSR {
+  cleanPreloads?: boolean;
+  cleanPrefetches?: boolean;
+  inlineStyles?: boolean;
+}
 
-export type Experimental = {
+export interface Experimental {
   fallbackInit?:
     | {
         duration?: number;
       }
     | boolean;
-};
+}
 
-export type Detection = {
+export interface Detection {
   performance?: boolean;
   browserSupport?: boolean;
   battery?: boolean;
-};
+}
 
-export type LazyOffset = {
+export interface LazyOffset {
   component?: string;
   asset?: string;
-};
+}
 
-export type RunOptions = {
+export interface RunOptions {
   maxTime?: number;
   threshold?: number;
-};
+}
 
-export type HTMLCrossOriginAttribute = 'anonymous' | 'use-credentials' | '';
-export type CrossOrigin = boolean | HTMLCrossOriginAttribute | undefined;
-
-export type ViteBuildContext = {
+export interface ViteBuildContext {
   nuxt: Nuxt;
   config: ViteConfig;
-};
+}
+
+export interface ViteBuildContextExtend extends ViteBuildContext {
+  entry: string;
+}
 
 export interface BoosterContext {
   // getFont: FontList['getFont'];
@@ -98,15 +100,15 @@ export interface BoosterContext {
   crossorigin: CrossOrigin;
 }
 
-export type PluginOptions = {
+export interface PluginOptions {
   crossorigin?: CrossOrigin;
   supportedBrowserDetector: string;
   targetFormats?: string[];
   densities?: string;
   mode: string;
-};
+}
 
-export type EntryOptions = {
+export interface EntryOptions {
   debug: boolean;
   entry: string;
   performanceCheck: boolean;
@@ -121,14 +123,14 @@ export type EntryOptions = {
     performance: boolean;
   };
   experimental?: Experimental;
-};
+}
 
-export type HookOptions = {
+export interface HookOptions {
   manifest?: Manifest;
   cleanPreloads: boolean;
   cleanPrefetches: boolean;
   inlineStyles: boolean;
-};
+}
 
 export interface PictureSource {
   src?: string;

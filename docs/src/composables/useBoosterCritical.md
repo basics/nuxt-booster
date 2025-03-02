@@ -6,7 +6,7 @@ title: useBoosterCritical
 
 ## Types
 
-```typescript
+```ts
 export default function useBoosterCritical(options?: {
     critical?: boolean;
 }): {

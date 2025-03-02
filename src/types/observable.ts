@@ -8,6 +8,6 @@ export interface ObservableOptions {
   delay?: number;
 }
 
-export type ObservableHTMLElement = HTMLElement & {
+export interface ObservableHTMLElement extends HTMLElement {
   observables: Map<string, IntersectionObservable>;
-};
+}

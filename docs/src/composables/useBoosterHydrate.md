@@ -10,7 +10,7 @@ Compasable provides a function for wrapping components in order to control hydra
 
 ## Types
 
-```typescript
+```ts
 import type { AsyncComponentLoader, Component, HydrationStrategy } from 'vue';
 
 declare function useBoosterHydrate(): <T extends Component>(component: AsyncComponentLoader<T>, hydrate?: HydrationStrategy) => T;

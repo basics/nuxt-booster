@@ -6,7 +6,7 @@ title: useBoosterFont
 
 ## Types
 
-```typescript
+```ts
 
 declare default function useBoosterFonts(options?: {
     critical?: boolean;

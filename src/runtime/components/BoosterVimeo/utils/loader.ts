@@ -2,7 +2,7 @@ import Deferred from '../../../classes/Deferred';
 
 const vimeoAPI = new Deferred() as Deferred<VimeoApi>;
 
-export type VimeoApiPlayer = {
+export interface VimeoApiPlayer {
   play: () => void;
   getPaused: () => Promise<boolean>;
   pause: () => void;
@@ -10,7 +10,7 @@ export type VimeoApiPlayer = {
   destroy: () => void;
   element: HTMLElement;
   ready: () => Promise<void>;
-};
+}
 
 export enum VimeoApiPlayerState {
   PLAYING,

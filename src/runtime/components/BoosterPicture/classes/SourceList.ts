@@ -6,10 +6,10 @@ import type { $Img } from '@nuxt/image';
 
 const sortByMediaQueries = createSort();
 
-export type ClassNames = {
+export interface ClassNames {
   picture: string;
   image: string[];
-};
+}
 
 export default class SourceList {
   list: Source[] = [];

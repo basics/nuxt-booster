@@ -8,10 +8,10 @@ import type {
 import { toHashHex } from '../../../utils/string';
 import type { Link, TagUserProperties } from '@unhead/schema';
 
-export type SourceSize = {
+export interface SourceSize {
   width: number;
   height: number;
-};
+}
 
 export default class Source {
   src: string;

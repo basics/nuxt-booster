@@ -3,7 +3,7 @@ import initHook from '../hookFunctions/nitro/init';
 import { isViteBuild, isWebpackBuild, logger } from '../utils';
 import type { HookOptions, OptimizeSSR } from '../types';
 
-export function optimizeSSR(optimizeSSR: OptimizeSSR, nuxt: Nuxt) {
+export function optimizeSSR(optimizeSSR: boolean | OptimizeSSR, nuxt: Nuxt) {
   const options = {
     cleanPreloads: true,
     cleanPrefetches: true,
