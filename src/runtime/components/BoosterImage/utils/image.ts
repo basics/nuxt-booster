@@ -1,4 +1,4 @@
-import type { BoosterContext } from './../../../../module';
+import type { BoosterProvide } from './../../../../module';
 import { parseURL, withBase, hasProtocol, parseFilename } from 'ufo';
 import { useRequestURL } from '#imports';
 import type { Nuxt } from 'nuxt/schema';
@@ -33,7 +33,7 @@ export const isStaticAsset = (context: Nuxt, url: string) => {
 export async function getMeta(
   source: Source,
   compiledSrc: string,
-  $booster: BoosterContext
+  $booster: BoosterProvide
 ) {
   if (!import.meta.server && window.Image) {
     source = source.modify({ src: compiledSrc });

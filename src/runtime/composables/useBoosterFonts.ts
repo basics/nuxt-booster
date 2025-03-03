@@ -64,7 +64,7 @@ export default function useBoosterFonts(
 
 declare module '../../types/module' {
   // interface RuntimeConfig {}
-  interface BoosterContext {
+  interface BoosterProvide {
     getFont: FontList['getFont'];
   }
 }

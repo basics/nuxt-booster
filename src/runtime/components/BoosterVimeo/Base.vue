@@ -52,11 +52,11 @@ import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture.vue';
 import props from './props';
-import useBoosterContext from '#booster/composables/useBoosterContext';
+import useBoosterProvide from '#booster/composables/useBoosterProvide';
 import { withQuery } from 'ufo';
 
 useBoosterCritical();
-const $booster = useBoosterContext();
+const $booster = useBoosterProvide();
 
 const vimeo = new Vimeo();
 

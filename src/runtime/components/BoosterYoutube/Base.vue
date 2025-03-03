@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { useHead, useBoosterCritical, useBoosterContext } from '#imports';
+import { useHead, useBoosterCritical, useBoosterProvide } from '#imports';
 import { ref, computed, markRaw, type Ref, onUnmounted, onMounted } from 'vue';
 import type { Script } from '@unhead/schema';
 
@@ -32,7 +32,7 @@ import BoosterPicture from '#booster/components/BoosterPicture.vue';
 import props from './props';
 
 useBoosterCritical();
-const $booster = useBoosterContext();
+const $booster = useBoosterProvide();
 
 const youtube = new Youtube();
 

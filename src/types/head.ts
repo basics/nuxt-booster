@@ -10,7 +10,7 @@ export interface HeadFontCollector {
 
 declare module './module' {
   // interface RuntimeConfig {}
-  interface BoosterContext {
+  interface BoosterProvide {
     head: HeadFontCollector;
   }
 }

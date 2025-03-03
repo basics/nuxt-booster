@@ -183,10 +183,10 @@ interface RunOptions {
 }
 ```
 
-### BoosterContext
+### BoosterProvide
 
 ```ts
-interface BoosterContext {
+interface BoosterProvide {
   getImageSize: (src: string) => Promise<{
     width: number;
     height: number;
@@ -301,7 +301,7 @@ interface ObservableHTMLElement extends HTMLElement {
 ```ts
 declare module 'nuxt/app' {
   interface NuxtApp {
-    $booster: BoosterContext;
+    $booster: BoosterProvide;
   }
 }
 ```
@@ -316,7 +316,7 @@ declare module '@vue/runtime-core' {
     };
   }
   interface GlobalComponents {
-    $booster: BoosterContext;
+    $booster: BoosterProvide;
   }
   interface GlobalDirectives {
     vFont: Directive;
@@ -324,11 +324,11 @@ declare module '@vue/runtime-core' {
 }
 ```
 
-### BoosterContext (Module)
+### BoosterProvide (Module)
 
 ```ts
 declare module './module' {
-  interface BoosterContext {
+  interface BoosterProvide {
     head: HeadFontCollector;
   }
 }

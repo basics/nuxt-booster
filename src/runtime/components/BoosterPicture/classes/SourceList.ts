@@ -1,7 +1,7 @@
 import Source, { normalizeSrc } from '../../BoosterImage/classes/Source';
 import createSort from '#booster/externals/create-sort';
 import { toHashHex } from '#booster/utils/string';
-import type { BoosterContext } from '../../../../module';
+import type { BoosterProvide } from '../../../../module';
 import type { $Img } from '@nuxt/image';
 
 const sortByMediaQueries = createSort();
@@ -83,7 +83,7 @@ export default class SourceList {
       []
     );
   }
-  async getMeta($img: $Img, $booster: BoosterContext) {
+  async getMeta($img: $Img, $booster: BoosterProvide) {
     const result = await Promise.all(
       this.sorted
         .map(source => {

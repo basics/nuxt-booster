@@ -93,7 +93,7 @@ export interface ViteBuildContextExtend extends ViteBuildContext {
   entry: string;
 }
 
-export interface BoosterContext {
+export interface BoosterProvide {
   // getFont: FontList['getFont'];
   getImageSize: (src: string) => Promise<{ width: number; height: number }>;
   densities: string;
@@ -150,7 +150,7 @@ export interface ISource {
 
 declare module 'nuxt/app' {
   interface NuxtApp {
-    $booster: BoosterContext;
+    $booster: BoosterProvide;
   }
 }
 
@@ -161,7 +161,7 @@ declare module '@vue/runtime-core' {
     };
   }
   interface GlobalComponents {
-    $booster: BoosterContext;
+    $booster: BoosterProvide;
   }
 
   interface GlobalDirectives {

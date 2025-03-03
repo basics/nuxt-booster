@@ -1,7 +1,7 @@
 import type { ImageModifiers } from '@nuxt/image';
 import { getExtension, getMeta } from '../utils/image';
 import type {
-  BoosterContext,
+  BoosterProvide,
   CrossOrigin,
   HTMLCrossOriginAttribute,
   ISource
@@ -74,7 +74,7 @@ export default class Source implements ISource {
     return { ...this.modifiers, format: this.format, quality: this.quality };
   }
 
-  getOptions($booster: BoosterContext) {
+  getOptions($booster: BoosterProvide) {
     return {
       provider: this.provider,
       preset: this.preset,
@@ -82,7 +82,7 @@ export default class Source implements ISource {
     };
   }
 
-  getMeta(compiledSrc: string, $booster: BoosterContext) {
+  getMeta(compiledSrc: string, $booster: BoosterProvide) {
     return getMeta(
       new Source({ ...this.toJSON() } as Source),
       compiledSrc,
