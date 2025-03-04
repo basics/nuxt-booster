@@ -1,5 +1,5 @@
 import Source, { normalizeSrc } from '../../BoosterImage/classes/Source';
-import createSort from '#booster/externals/create-sort';
+import createSort from 'sort-css-media-queries/create-sort';
 import { toHashHex } from '#booster/utils/string';
 import type { BoosterProvide } from '../../../../module';
 import type { $Img } from '@nuxt/image';
@@ -37,7 +37,9 @@ export default class SourceList {
 
   get sorted() {
     if (this.sort) {
-      return this.list.sort((a, b) => sortByMediaQueries(a.media, b.media));
+      return this.list.sort((a, b) =>
+        sortByMediaQueries(a.media || '', b.media || '')
+      );
     } else {
       return this.list;
     }

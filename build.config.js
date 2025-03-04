@@ -15,6 +15,7 @@ export default defineBuildConfig({
     'pathe',
     'mime-types',
     'mime-db',
+    'sort-css-media-queries',
     '#build/types/booster'
   ],
   hooks: {
