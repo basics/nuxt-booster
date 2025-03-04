@@ -5,8 +5,8 @@ export default defineComponent({
   name: 'HydrationWrapper',
 
   setup(props, { slots }) {
-    const test = slots.default ? slots.default() : [];
-    return () => normalizeSlot(test);
+    const defaultSlot = slots.default ? slots.default() : [];
+    return () => normalizeSlot(defaultSlot);
   }
 });
 

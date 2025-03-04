@@ -16,7 +16,7 @@ import { ref, watch } from 'vue';
 const $props = defineProps<{
   src: string;
   title?: string;
-  componentObserver: {
+  componentObserver?: {
     trackVisibility: boolean;
     delay: number;
   };
@@ -24,7 +24,9 @@ const $props = defineProps<{
 
 const $emit = defineEmits(['load', 'enter']);
 
-const { el: iframe, inView } = useBoosterComponentObserver();
+const { el: iframe, inView } = useBoosterComponentObserver(
+  $props.componentObserver || {}
+);
 
 const lazySrc = ref<string | undefined>(undefined);
 

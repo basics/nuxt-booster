@@ -8,15 +8,16 @@
 </template>
 
 <script setup lang="ts">
+import type { FontFamily, FontStyle, FontWeight } from '#build/types/booster';
 import { useBoosterFonts, type PropType } from '#imports';
 
 const { $getFont } = useBoosterFonts();
 
 export type Item = {
   font: {
-    family: string;
-    weight: number;
-    style: string;
+    family: FontFamily;
+    weight: FontWeight;
+    style: FontStyle;
   };
 };
 

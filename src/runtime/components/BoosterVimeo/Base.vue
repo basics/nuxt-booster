@@ -106,7 +106,8 @@ const pictureDataset = computed(() => {
         videoData.value?.thumbnail_url?.replace(
           'https://i.vimeocdn.com',
           'vimeo'
-        )
+        ) ||
+        ''
     }))
   };
 });

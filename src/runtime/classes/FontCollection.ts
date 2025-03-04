@@ -1,12 +1,13 @@
 import { toHashHex } from '../utils/string';
 import {
   getFontPreloadDescription,
-  getStyleDescription,
-  type Description
+  getStyleDescription
 } from '../utils/description';
 import type Font from './Font';
 import type {
   Link,
+  Noscript,
+  Style,
   TagUserProperties,
   UserTagConfigWithoutInnerContent
 } from '@unhead/schema';
@@ -68,7 +69,7 @@ export default class FontCollection {
         false,
         this.getKey()
       )
-    ]);
+    ]) as Link<TagUserProperties>[];
   }
 
   getNoScriptStyleDescriptions(): TagUserProperties[] {
@@ -96,6 +97,6 @@ function toFontHex(value: string) {
   return toHashHex(value).padStart(9, '-');
 }
 
-function getRelevantDescriptions(descriptions: Description[]) {
+function getRelevantDescriptions(descriptions: (Style | Noscript)[]) {
   return descriptions.filter(item => item.key !== '0');
 }

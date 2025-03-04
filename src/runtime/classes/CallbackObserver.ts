@@ -1,6 +1,7 @@
 export class CallbackObserver {
   #listeners: CallableFunction[] = [];
   #destroyed = false;
+
   constructor(fn: CallableFunction) {
     fn((value: CallableFunction) => {
       if (this.#destroyed) {

@@ -16,9 +16,10 @@
 <script setup lang="ts">
 import PreviewContainer from '@/components/PreviewContainer.vue';
 import ScrollContainer from '@/components/fragments/ScrollContainer.vue';
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
+import type { Item } from '~/components/elements/ScrollItem.vue';
 
-const items = ref([
+const items: Ref<Item[]> = ref([
   { font: { family: 'Merriweather', weight: 300, style: 'normal' } },
   { font: { family: 'Merriweather', weight: 300, style: 'italic' } },
   { font: { family: 'Merriweather', weight: 400, style: 'normal' } },
