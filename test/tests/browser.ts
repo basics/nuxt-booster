@@ -38,23 +38,23 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document.head.innerHTML.indexOf(
-            '[data-font="-2fb56a9c"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-2fb56a9c"] { font-family: "Montserrat Alternates", sans-serif; }'
+            '[data-font="-5ade5013"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-5ade5013"] { font-family: "Montserrat Alternates", sans-serif; }'
           )
         )
       ).not.toBe(-1);
 
-      await page.waitForSelector('[data-font="-6c6f9ad7"].font-active');
+      await page.waitForSelector('[data-font="-4a3957dd"].font-active');
 
       await page.waitForTimeout(2000);
       await page.getByText('Click here').click();
 
-      await page.waitForSelector('[data-font="-60eac43b"].font-active');
+      await page.waitForSelector('[data-font="-5ade5013"].font-active');
       await page.waitForLoadState('networkidle');
 
       expect(
         await page.evaluate(() =>
           document.head.innerHTML.indexOf(
-            '[data-font="-60eac43b"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-60eac43b"] { font-family: "Merriweather", Georgia, sans-serif; }'
+            '[data-font="-7658b076"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-7658b076"] { font-family: "Merriweather", Georgia, sans-serif; }'
           )
         )
       ).not.toBe(-1);
@@ -66,7 +66,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document.head.innerHTML.indexOf(
-            '[data-font="-60eac43b"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-60eac43b"] { font-family: "Merriweather", Georgia, sans-serif; }'
+            '[data-font="-7658b076"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-7658b076"] { font-family: "Merriweather", Georgia, sans-serif; }'
           )
         )
       ).not.toBe(-1);
@@ -74,7 +74,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document.head.innerHTML.indexOf(
-            '[data-font="-2fb56a9c"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-2fb56a9c"] { font-family: "Montserrat Alternates", sans-serif; }'
+            '[data-font="-5ade5013"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-5ade5013"] { font-family: "Montserrat Alternates", sans-serif; }'
           )
         )
       ).not.toBe(-1);
@@ -85,7 +85,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document.head.innerHTML.indexOf(
-            '[data-font="-60eac43b"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-60eac43b"] { font-family: "Merriweather", Georgia, sans-serif; }'
+            '[data-font="-7658b076"] { font-family: "Merriweather fallback",Georgia, sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-7658b076"] { font-family: "Merriweather", Georgia, sans-serif; }'
           )
         )
       ).toBe(-1);
@@ -93,7 +93,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document.head.innerHTML.indexOf(
-            '[data-font="-2fb56a9c"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-2fb56a9c"] { font-family: "Montserrat Alternates", sans-serif; }'
+            '[data-font="-5ade5013"] { font-family: "Montserrat Alternates fallback",sans-serif; font-weight: 400; font-style: normal; } .font-active[data-font="-5ade5013"] { font-family: "Montserrat Alternates", sans-serif; }'
           )
         )
       ).toBe(-1);
@@ -242,7 +242,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazyFontAssignSimple[data-font="-2fb56a9c"]')
+            .querySelector('#lazyFontAssignSimple[data-font="-5ade5013"]')
             ?.classList.contains('.font-active')
         )
       ).toBeFalsy();
@@ -251,7 +251,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignSimple.font-active[data-font="-2fb56a9c"]'
+        '#lazyFontAssignSimple.font-active[data-font="-5ade5013"]'
       );
     });
 
@@ -263,7 +263,7 @@ export default (runtime: TestRuntime) => {
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignBySingleSelector[data-font="-794537fd"]'
+              '#lazyFontAssignBySingleSelector[data-font="-1c8196ac"]'
             )
             ?.classList.contains('.font-active')
         )
@@ -273,7 +273,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignBySingleSelector.font-active[data-font="-794537fd"]'
+        '#lazyFontAssignBySingleSelector.font-active[data-font="-1c8196ac"]'
       );
     });
 
@@ -285,7 +285,7 @@ export default (runtime: TestRuntime) => {
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignByMultipleVariances[data-font="-46d97114"]'
+              '#lazyFontAssignByMultipleVariances[data-font="--9f55d73"]'
             )
             ?.classList.contains('.font-active')
         )
@@ -295,7 +295,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignByMultipleVariances.font-active[data-font="-46d97114"]'
+        '#lazyFontAssignByMultipleVariances.font-active[data-font="--9f55d73"]'
       );
     });
 
@@ -307,7 +307,7 @@ export default (runtime: TestRuntime) => {
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignByMultipleSelectors[data-font="-21b06e70"]'
+              '#lazyFontAssignByMultipleSelectors[data-font="-75fd5a18"]'
             )
             ?.classList.contains('.font-active')
         )
@@ -317,7 +317,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignByMultipleSelectors.font-active[data-font="-21b06e70"]'
+        '#lazyFontAssignByMultipleSelectors.font-active[data-font="-75fd5a18"]'
       );
     });
 
@@ -329,7 +329,7 @@ export default (runtime: TestRuntime) => {
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignByDeepSelector[data-font="-3581ca77"]'
+              '#lazyFontAssignByDeepSelector[data-font="-5d2b1101"]'
             )
             ?.classList.contains('.font-active')
         )
@@ -339,7 +339,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignByDeepSelector.font-active[data-font="-3581ca77"]'
+        '#lazyFontAssignByDeepSelector.font-active[data-font="-5d2b1101"]'
       );
     });
 
@@ -355,7 +355,7 @@ export default (runtime: TestRuntime) => {
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontAssignSimpleByMax479[data-font="--8e6ef60"]'
+              '#lazyFontAssignSimpleByMax479[data-font="-65000818"]'
             )
             ?.classList.contains('.font-active')
         )
@@ -365,7 +365,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignSimpleByMax479.font-active[data-font="--8e6ef60"]'
+        '#lazyFontAssignSimpleByMax479.font-active[data-font="-65000818"]'
       );
     });
 
@@ -376,7 +376,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazyFontAssignSimpleBy480[data-font="-50ba1a90"]')
+            .querySelector('#lazyFontAssignSimpleBy480[data-font="-71c4d208"]')
             ?.classList.contains('.font-active')
         )
       ).toBeFalsy();
@@ -385,7 +385,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignSimpleBy480.font-active[data-font="-50ba1a90"]'
+        '#lazyFontAssignSimpleBy480.font-active[data-font="-71c4d208"]'
       );
     });
 
@@ -396,7 +396,7 @@ export default (runtime: TestRuntime) => {
       expect(
         await page.evaluate(() =>
           document
-            .querySelector('#lazyFontAssignSimpleBy960[data-font="-20322b8b"]')
+            .querySelector('#lazyFontAssignSimpleBy960[data-font="-78a78f03"]')
             ?.classList.contains('.font-active')
         )
       ).toBeFalsy();
@@ -405,7 +405,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontAssignSimpleBy960.font-active[data-font="-20322b8b"]'
+        '#lazyFontAssignSimpleBy960.font-active[data-font="-78a78f03"]'
       );
     });
 
@@ -417,7 +417,7 @@ export default (runtime: TestRuntime) => {
         await page.evaluate(() =>
           document
             .querySelector(
-              '#lazyFontBySingleSelectorBy1440[data-font="--c4b5e14"]'
+              '#lazyFontBySingleSelectorBy1440[data-font="--75c7c9b"]'
             )
             ?.classList.contains('.font-active')
         )
@@ -427,7 +427,7 @@ export default (runtime: TestRuntime) => {
       // element has font class?
       await waitForSelector(
         page,
-        '#lazyFontBySingleSelectorBy1440.font-active[data-font="--c4b5e14"]'
+        '#lazyFontBySingleSelectorBy1440.font-active[data-font="--75c7c9b"]'
       );
     });
 

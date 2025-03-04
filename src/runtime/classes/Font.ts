@@ -70,9 +70,9 @@ export default class Font {
 
   getKey() {
     const data: Partial<Font> = { ...this };
-    // Remove `src` and `rootSelector` from font-object for key generation
     delete data.src;
     delete data.rootSelector;
+    delete data.loaded;
     return btoa(JSON.stringify(data));
   }
 

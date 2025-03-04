@@ -18,7 +18,7 @@ function markupTests(distDir: string) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-60eac43b"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-7658b076"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
@@ -27,7 +27,7 @@ function markupTests(distDir: string) {
     ).not.toBeNull();
     // element has data attribute?
     expect(
-      dom.querySelector('#criticalFontAssignSimple[data-font="-60eac43b"]')
+      dom.querySelector('#criticalFontAssignSimple[data-font="-7658b076"]')
     ).not.toBeNull();
   });
 
@@ -37,7 +37,7 @@ function markupTests(distDir: string) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-65a35e05"] strong')
+      dom.head.innerHTML.indexOf('[data-font="--3699154"] strong')
     ).not.toBe(-1);
     // font link preload exists?
     expect(
@@ -48,7 +48,7 @@ function markupTests(distDir: string) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignBySingleSelector[data-font="-65a35e05"]'
+        '#criticalFontAssignBySingleSelector[data-font="--3699154"]'
       )
     ).not.toBeNull();
   });
@@ -59,9 +59,9 @@ function markupTests(distDir: string) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-2b27139c"] strong')
+      dom.head.innerHTML.indexOf('[data-font="-743a96e4"] strong')
     ).not.toBe(-1);
-    expect(dom.head.innerHTML.indexOf('[data-font="-2b27139c"] em')).not.toBe(
+    expect(dom.head.innerHTML.indexOf('[data-font="-743a96e4"] em')).not.toBe(
       -1
     );
     // font link preload exists?
@@ -78,7 +78,7 @@ function markupTests(distDir: string) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignByMultipleVariances[data-font="-2b27139c"]'
+        '#criticalFontAssignByMultipleVariances[data-font="-743a96e4"]'
       )
     ).not.toBeNull();
   });
@@ -88,7 +88,7 @@ function markupTests(distDir: string) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-27203bd0"] em')).not.toBe(
+    expect(dom.head.innerHTML.indexOf('[data-font="-3081aedf"] em')).not.toBe(
       -1
     );
     // font link preload exists?
@@ -100,7 +100,7 @@ function markupTests(distDir: string) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignByMultipleSelectors[data-font="-27203bd0"]'
+        '#criticalFontAssignByMultipleSelectors[data-font="-3081aedf"]'
       )
     ).not.toBeNull();
   });
@@ -111,7 +111,7 @@ function markupTests(distDir: string) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-51d8e6af"] strong > em')
+      dom.head.innerHTML.indexOf('[data-font="-2b9dc800"] strong > em')
     ).not.toBe(-1);
     // font link preload exists?
     expect(
@@ -122,7 +122,7 @@ function markupTests(distDir: string) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignByDeepSelector[data-font="-51d8e6af"]'
+        '#criticalFontAssignByDeepSelector[data-font="-2b9dc800"]'
       )
     ).not.toBeNull();
   });
@@ -136,7 +136,7 @@ function markupTests(distDir: string) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-5582e803"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-253976ac"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
@@ -151,7 +151,7 @@ function markupTests(distDir: string) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontAssignSimpleByMax479[data-font="-5582e803"]'
+        '#criticalFontAssignSimpleByMax479[data-font="-253976ac"]'
       )
     ).not.toBeNull();
   });
@@ -161,7 +161,7 @@ function markupTests(distDir: string) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-737b93e4"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-339ef935"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
@@ -175,7 +175,7 @@ function markupTests(distDir: string) {
     ).not.toBeNull();
     // element has data attribute?
     expect(
-      dom.querySelector('#criticalFontAssignSimpleBy480[data-font="-737b93e4"]')
+      dom.querySelector('#criticalFontAssignSimpleBy480[data-font="-339ef935"]')
     ).not.toBeNull();
   });
 
@@ -184,7 +184,7 @@ function markupTests(distDir: string) {
     dom = getDom(html);
 
     // font class exists?
-    expect(dom.head.innerHTML.indexOf('[data-font="-12315187"]')).not.toBe(-1);
+    expect(dom.head.innerHTML.indexOf('[data-font="-505c02d8"]')).not.toBe(-1);
     // font link preload exists?
     expect(
       dom.head.querySelector(
@@ -198,7 +198,7 @@ function markupTests(distDir: string) {
     ).not.toBeNull();
     // element has data attribute?
     expect(
-      dom.querySelector('#criticalFontAssignSimpleBy960[data-font="-12315187"]')
+      dom.querySelector('#criticalFontAssignSimpleBy960[data-font="-505c02d8"]')
     ).not.toBeNull();
   });
 
@@ -208,7 +208,7 @@ function markupTests(distDir: string) {
 
     // font class exists?
     expect(
-      dom.head.innerHTML.indexOf('[data-font="-6b889733"] strong')
+      dom.head.innerHTML.indexOf('[data-font="--68f0282"] strong')
     ).not.toBe(-1);
     // font link preload exists?
     expect(
@@ -224,7 +224,7 @@ function markupTests(distDir: string) {
     // element has data attribute?
     expect(
       dom.querySelector(
-        '#criticalFontBySingleSelectorBy1440[data-font="-6b889733"]'
+        '#criticalFontBySingleSelectorBy1440[data-font="--68f0282"]'
       )
     ).not.toBeNull();
   });
