@@ -4,7 +4,7 @@
     <div class="player">
       <slot name="beforePlayer" />
       <iframe
-        ref="player"
+        ref="playerEl"
         :key="src"
         :inert="inert"
         :title="playerTitle"
@@ -27,190 +27,210 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { useHead, useBoosterCritical } from '#imports';
-import { ref, computed, markRaw } from 'vue';
+import {
+  ref,
+  computed,
+  markRaw,
+  type Ref,
+  watch,
+  onMounted,
+  onUnmounted
+} from 'vue';
+import type { Script } from '@unhead/schema';
 
-import DefaultButton from '../Button';
-import { load, ready } from './utils/loader';
+import DefaultButton from '../Button.vue';
+import {
+  load,
+  ready as apiReady,
+  VimeoApiPlayerState,
+  type VimeoApiPlayer,
+  type VimeoApiResponse
+} from './utils/loader';
 import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#booster/utils/browser';
-import BoosterPicture from '#booster/components/BoosterPicture';
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
 import props from './props';
+import useBoosterProvide from '#booster/composables/useBoosterProvide';
+import { withQuery } from 'ufo';
+
+useBoosterCritical();
+const $booster = useBoosterProvide();
 
 const vimeo = new Vimeo();
 
-export default {
-  components: {
-    BoosterPicture,
-    DefaultButton
-  },
+const inert = ref(false);
+const player: Ref<VimeoApiPlayer | undefined> = ref(undefined);
 
-  props,
+const playerEl: Ref<HTMLIFrameElement | undefined> = ref(undefined);
+const ready = ref(false);
+const loading = ref(false);
+const playing = ref(false);
+const isTouchDevice = ref(isTouchSupported());
 
-  emits: ['playing', 'ready'],
+const $props = defineProps(props);
+const $emit = defineEmits(['ready', 'playing']);
 
-  async setup(props) {
-    useBoosterCritical();
+// setup
 
-    const script = ref([]);
+const script: Ref<Script[]> = ref([]);
+const videoData: Ref<VimeoApiResponse | undefined> = ref();
+const iframeMode = ref(false);
+const src: Ref<string | undefined> = ref();
+const videoId = ref(new URL($props.url || '').pathname.replace('/', ''));
 
-    if (!(import.meta.server || process.env.prerender)) {
-      useHead({
-        script: computed(() => {
-          return script.value;
-        })
-      });
-    }
+const playerTitle = computed(() => {
+  return $props.title || (videoData.value && videoData.value.title);
+});
 
-    const { withQuery } = await import('ufo');
-    const videoData = ref(null);
-    const iframeMode = ref(false);
-    const src = ref(null);
+const playerOptions = computed(() => {
+  return {
+    dnt: true,
+    autopause: false,
+    ...$props.options,
+    playsinline: true,
+    autoplay: $props.autoplay,
+    muted: isTouchDevice.value || $props.mute
+  };
+});
 
-    const playerSrc = computed(
-      () =>
-        videoData.value?.html
-          .replace(/.*src="([^"]*)".*/, '$1')
-          .replace(/&amp;/g, '&') ||
-        `https://player.vimeo.com/video/${props.videoId}`
-    );
+const pictureDataset = computed(() => {
+  return {
+    formats: $booster.targetFormats,
+    title: $props.title,
+    sources: $props.posterSources.map(source => ({
+      ...source,
+      src:
+        source.src ||
+        videoData.value?.thumbnail_url?.replace(
+          'https://i.vimeocdn.com',
+          'vimeo'
+        ) ||
+        ''
+    }))
+  };
+});
 
-    try {
-      const url = withQuery('https://vimeo.com/api/oembed.json', {
-        url: props.url,
-        width: 1920,
-        height: 1080,
-        ...props.playerOptions
-      });
-      const response = await fetch(url);
-      videoData.value = await response.json();
-    } catch (error) {
-      console.error(error);
-      iframeMode.value = true;
-      src.value = playerSrc.value;
-    }
-    return {
-      playerSrc,
-      videoId: new URL(props.url).pathname.replace('/', ''),
-      iframeMode,
-      src,
-      script,
-      videoData
-    };
-  },
+onMounted(() => {
+  inert.value = true;
+});
 
-  data() {
-    return {
-      inert: false,
-      player: null,
-      ready: false,
-      loading: false,
-      playing: false,
-      isTouchDevice: isTouchSupported()
-    };
-  },
+onUnmounted(() => {
+  if (player.value) {
+    vimeo.remove(player.value);
+  }
+});
 
-  computed: {
-    playerTitle() {
-      return this.title || (this.videoData && this.videoData.title);
-    },
+// head
 
-    playerOptions() {
-      return {
-        dnt: true,
-        autopause: false,
-        ...this.options,
-        playsinline: true,
-        autoplay: this.autoplay,
-        muted: this.isTouchDevice || this.mute
-      };
-    },
+if (!(import.meta.server || process.env.prerender)) {
+  useHead({
+    script: computed(() => {
+      return script.value;
+    })
+  });
+}
 
-    pictureDataset() {
-      return {
-        formats: this.$booster.targetFormats,
-        title: this.title,
-        sources: this.posterSources.map(source => ({
-          ...source,
-          src:
-            source.src ||
-            this.videoData?.thumbnail_url?.replace(
-              'https://i.vimeocdn.com',
-              'vimeo'
-            )
-        }))
-      };
-    }
-  },
+// computed
 
-  watch: {
-    videoData(videoData) {
-      if (videoData && this.autoplay) {
-        this.onInit();
-      }
-    },
-    ready() {
-      this.inert = false;
-    }
-  },
+const playerSrc = computed(
+  () =>
+    videoData.value?.html
+      .replace(/.*src="([^"]*)".*/, '$1')
+      .replace(/&amp;/g, '&') ||
+    `https://player.vimeo.com/video/${videoId.value}`
+);
 
-  mounted() {
-    this.inert = true;
-  },
+try {
+  const url = withQuery('https://vimeo.com/api/oembed.json', {
+    url: $props.url,
+    width: 1920,
+    height: 1080,
+    ...playerOptions.value
+  });
+  const response = await fetch(url);
+  videoData.value = await response.json();
+} catch (error) {
+  console.error(error);
+  iframeMode.value = true;
+  src.value = playerSrc.value;
+}
 
-  unmounted() {
-    this.player && vimeo.remove(this.player);
-  },
+// watch
 
-  methods: {
-    onInit() {
-      this.loading = true;
-      this.src = this.playerSrc;
-      this.script = [load()];
-      if (this.iframeMode) {
-        // force iframe reload for onload
-        this.$refs.player.src = String(this.$refs.player.src);
-      }
-    },
-
-    onPlayerStateChange(state) {
-      if (state.playing) {
-        this.playing = true;
-      } else if (state.ended || state.pause) {
-        this.playing = false;
-      }
-      this.$emit('playing', this.playing);
-    },
-
-    async onLoad(e) {
-      if (!e.target.src || !this.script.length) {
-        return;
-      }
-
-      await ready();
-
-      this.player = markRaw(await vimeo.createPlayer(this.$refs.player));
-
-      this.player.on('playing', () =>
-        this.onPlayerStateChange({ playing: true })
-      );
-      this.player.on('pause', () => this.onPlayerStateChange({ pause: true }));
-      this.player.on('ended', () => this.onPlayerStateChange({ ended: true }));
-
-      await this.player.ready();
-      vimeo.play(this.player);
-
-      this.loading = false;
-      this.ready = true;
-
-      this.$emit('ready', {
-        iframe: this.player.element,
-        player: this.player
-      });
+watch(
+  () => videoData.value,
+  data => {
+    if (data && $props.autoplay) {
+      onInit();
     }
   }
-};
+);
+watch(
+  () => ready.value,
+  () => {
+    inert.value = false;
+  }
+);
+
+// functions
+
+function onInit() {
+  loading.value = true;
+  src.value = playerSrc.value;
+  script.value = [load()];
+  if (iframeMode.value && playerEl.value) {
+    // force iframe reload for onload
+    playerEl.value.src = String(playerEl.value.src);
+  }
+}
+
+function onPlayerStateChange(state: VimeoApiPlayerState) {
+  if (state === VimeoApiPlayerState.PLAYING) {
+    playing.value = true;
+  } else if (
+    state === VimeoApiPlayerState.ENDED ||
+    state === VimeoApiPlayerState.PAUSE
+  ) {
+    playing.value = false;
+  }
+  $emit('playing', playing.value);
+}
+
+async function onLoad(e: HTMLElementEventMap['load']) {
+  const target = e.target as HTMLIFrameElement;
+  if (!target?.src || !script.value.length) {
+    return;
+  }
+
+  await apiReady();
+
+  if (playerEl.value) {
+    player.value = markRaw(await vimeo.createPlayer(playerEl.value));
+
+    player.value.on('playing', () =>
+      onPlayerStateChange(VimeoApiPlayerState.PLAYING)
+    );
+    player.value.on('pause', () =>
+      onPlayerStateChange(VimeoApiPlayerState.PAUSE)
+    );
+    player.value.on('ended', () =>
+      onPlayerStateChange(VimeoApiPlayerState.ENDED)
+    );
+
+    await player.value.ready();
+    vimeo.play(player.value);
+
+    loading.value = false;
+    ready.value = true;
+
+    $emit('ready', {
+      iframe: player.value.element,
+      player: player.value
+    });
+  }
+}
 </script>
 
 <style lang="postcss" scoped>

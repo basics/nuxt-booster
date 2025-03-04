@@ -1,6 +1,11 @@
 <template>
   <div v-if="isServer" id="nuxt-booster-layer">
-    <input id="nuxt-booster-layer-close" name="close" type="checkbox" />
+    <input
+      id="nuxt-booster-layer-close"
+      ref="closeEl"
+      name="close"
+      type="checkbox"
+    />
     <div id="nuxt-booster-layer-content">
       <slot>
         <div>
@@ -43,39 +48,32 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { getStyleDescription } from '#booster/utils/description';
+import { useHead } from '#imports';
+import { ref, onMounted } from 'vue';
 
-export default {
-  data: function () {
-    return {
-      isServer: true
-    };
-  },
-  head() {
-    return {
-      noscript: [
-        getStyleDescription(
-          [
-            `#nuxt-booster-layer button:not(.nuxt-booster-button-init-nojs) { display: none !important; } .nuxt-booster-button-nojs, .nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
-            // This is a temporary fix for the button display issue.
-            `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`
-          ].join(' '),
-          true,
-          'booster-layer'
-        )
-      ]
-    };
-  },
-  mounted() {
-    this.isServer = false;
-  },
-  methods: {
-    closeLayer() {
-      document.getElementById('nuxt-booster-layer-close').checked = false;
-    }
-  }
-};
+const isServer = ref(true);
+
+onMounted(() => {
+  isServer.value = false;
+});
+
+useHead(() => {
+  return {
+    noscript: [
+      getStyleDescription(
+        [
+          `#nuxt-booster-layer button:not(.nuxt-booster-button-init-nojs) { display: none !important; } .nuxt-booster-button-nojs, .nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`,
+          // This is a temporary fix for the button display issue.
+          `#nuxt-booster-layer button:not(#nuxt-booster-button-init-nojs) { display: none !important; } #nuxt-booster-button-nojs, #nuxt-booster-button-init-nojs, #nuxt-booster-message-nojs { display: initial !important; }`
+        ].join(' '),
+        true,
+        'booster-layer'
+      )
+    ]
+  };
+});
 </script>
 
 <style>

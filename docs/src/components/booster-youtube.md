@@ -29,48 +29,35 @@ Important: For using `BoosterYoutube` do not disable `@nuxt/image` via `disableN
 ````vue
 <template>
   <div>
-    <booster-youtube v-bind="youtube" @playing="onPlaying" />
+    <booster-youtube
+      v-bind="{ url, title, host, options, posterSources }"
+      @playing="onPlaying"
+    />
   </div>
 </template>
 
-<script setup>
-import BoosterYoutube from '#booster/components/BoosterYoutube';
+<script setup lang="ts">
+import BoosterYoutube from '#booster/components/BoosterYoutube.vue';
+import { ref } from 'vue';
 
-defineProps({
-  url: {
-    type: String,
-    default: '<youtube-url>'
-  },
-  title: {
-    type: String,
-    default: 'Youtube Title'
-  },
-  host: {
-    type: String,
-    default: 'https://www.youtube.com'
-  },
-  options: {
-    type: Object,
-    default() {
-      return {
-        fs: false // use boolean instead of 0 or 1
-      };
-    }
-  },  
-  posterSources: [
-    {
-      src: undefined,
-      media: 'all',
-      sizes: {
-        default: '100vw'
-      }
-    }
-  ]
+const url = ref('<youtube-url>');
+const title = ref('Youtube Title');
+const host = ref('https://www.youtube.com');
+const options = ref({
+  fs: false // use boolean instead of 0 or 1
 });
+const posterSources = ref([
+  {
+    src: undefined,
+    media: 'all',
+    sizes: {
+      default: '100vw'
+    }
+  }
+]);
 
 const onPlaying = () => console.log('Youtube Player playing!');
 </script>
-
 ````
 
 ## Properties

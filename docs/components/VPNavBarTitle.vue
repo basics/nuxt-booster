@@ -1,10 +1,10 @@
-<script setup>
-import { useData } from 'vitepress/dist/client/theme-default/composables/data';
-import { useLangs } from 'vitepress/dist/client/theme-default/composables/langs';
-import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar';
-import { normalizeLink } from 'vitepress/dist/client/theme-default/support/utils';
+<script setup lang="ts">
+import { useData } from 'vitepress';
+import { useLangs } from 'vitepress/dist/client/theme-default/composables/langs.js';
+import { normalizeLink } from 'vitepress/dist/client/theme-default/support/utils.js';
 import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue';
 import Logo from './Logo.vue';
+import { useSidebar } from 'vitepress/theme';
 
 const { site, theme } = useData();
 const { hasSidebar } = useSidebar();

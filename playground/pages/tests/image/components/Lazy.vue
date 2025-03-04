@@ -9,11 +9,11 @@
   </preview-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-import BoosterImage from '#booster/components/BoosterImage';
-import PreviewContainer from '@/components/PreviewContainer';
+import BoosterImage from '#booster/components/BoosterImage.vue';
+import PreviewContainer from '@/components/PreviewContainer.vue';
 
 const image = ref({
   title: 'Lazy - Image',

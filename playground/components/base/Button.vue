@@ -3,13 +3,13 @@
     :is="resolveTag"
     v-font="$getFont('Quicksand', 400, 'normal')"
     class="base-button"
-    @click="$emit('click', e)"
+    @click="$emit('click', $event)"
   >
     <slot>{{ label }}</slot>
   </component>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBoosterFonts } from '#imports';
 import { computed, useAttrs } from 'vue';
 

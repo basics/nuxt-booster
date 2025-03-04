@@ -28,11 +28,11 @@
   </header>
 </template>
 
-<script setup>
-import BoosterPicture from '#booster/components/BoosterPicture';
-import BoosterImage from '#booster/components/BoosterImage';
+<script setup lang="ts">
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
+import BoosterImage from '#booster/components/BoosterImage.vue';
 import { ContentHeadline } from 'vue-semantic-structure';
-import SvgChevronDown from '@/assets/svg/chevron-down.svg';
+import SvgChevronDown from '@/assets/svg/chevron-down.svg?component';
 import { useBoosterFonts } from '#imports';
 import { ref, onMounted } from 'vue';
 

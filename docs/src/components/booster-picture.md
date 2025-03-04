@@ -39,36 +39,27 @@ Important: For using `BoosterPicture` do not disable `@nuxt/image` via `disableN
   </div>
 </template>
 
-<script setup>
-import BoosterPicture from '#booster/components/BoosterPicture';
+<script setup lang="ts">
+import BoosterPicture from '#booster/components/BoosterPicture.vue';
+import { ref, type Ref } from 'vue';
+import type { PictureSource } from 'nuxt-booster';
 
-defineProps({
-  sources: {
-    type: Object,
-    default() {
-      return [
-        {
-          src: '/img/landscape.png',
-          sizes: {
-            sm: '100vw',
-            md: '100vw',
-            lg: '100vw',
-            xl: '100vw',
-            xxl: '100vw'
-          },
-          media: '(orientation: landscape)'
-        },
-        {
-          src: '/img/portrait.png',
-          sizes: { default: '100vw', xxs: '100vw', xs: '100vw' },
-          media: '(orientation: portrait)'
-        }
-      ];
-    }
+const sources: Ref<PictureSource[]> = ref([
+  {
+    src: '/img/landscape.png',
+    sizes: {
+      default: '1024px'
+    },
+    media: '(orientation: landscape)'
   },
-  title: String,
-  alt: String
-});
+  {
+    src: '/img/portrait.png',
+    sizes: { default: '1024px' },
+    media: '(orientation: portrait)'
+  }
+]);
+const title = ref('Picture title');
+const alt = ref('Picture alt');
 
 const onLoadPicture = () => console.log('Picture loaded!');
 </script>

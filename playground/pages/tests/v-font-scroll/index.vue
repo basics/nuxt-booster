@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
-import Horizontal from './components/Horizontal';
-import Vertical from './components/Vertical';
+<script setup lang="ts">
+import Horizontal from './components/Horizontal.vue';
+import Vertical from './components/Vertical.vue';
 </script>

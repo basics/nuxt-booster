@@ -1,31 +1,27 @@
 ---
 title: useBoosterHydrate
-title2: useBoosterHydrate(component, hydrateOverride)
 ---
 
-# {{$frontmatter.title2}}
+# {{$frontmatter.title}}
 
 Compasable provides a function for wrapping components in order to control hydration.
 
 [Learn more about component import](/guide/usage#import-components).
 
+## Types
+
+```ts
+import type { AsyncComponentLoader, Component, HydrationStrategy } from 'vue';
+
+declare function useBoosterHydrate(): <T extends Component>(component: AsyncComponentLoader<T>, hydrate?: HydrationStrategy) => T;
+```
+
 ## Arguments
 
-### `component`
-
-- Type: `Function`
-  - Default: `true`
-
-Component import function.
-
-### `hydrateOverride`
-
-- Type: `Function`
-  - Default: `hydrateOnVisible(…)`
-
-Hydrate override function.
-
-Learn more about [Lazy Hydration](https://vuejs.org/guide/components/async#lazy-hydration).
+| name              | Description                                                                                                               | Default               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `component`       | Component import function                                                                                                 |                 |
+| `hydrateOverride` | Hydrate override function.<br>Learn more about [Lazy Hydration](https://vuejs.org/guide/components/async#lazy-hydration). | `hydrateOnVisible(…)` |
 
 ## Return
 
@@ -37,7 +33,7 @@ Returns import wrapper function.
 const hydrate = useBoosterHydrate();
 
 const component = hydrate(
-  () => import('~/components/MyComponent.vue'),
+  () => import('@/components/MyComponent.vue'),
   hydrateOnVisibleSpezificRoute({ rootMargin: '100px' })
 );
 ```

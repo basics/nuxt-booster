@@ -4,11 +4,21 @@ title: useBoosterCritical
 
 # {{$frontmatter.title}}
 
+## Types
+
+```ts
+export default function useBoosterCritical(options?: {
+    critical?: boolean;
+}): {
+    isCritical: ComputedRef<boolean>;
+};
+```
+
 ## Options
 
-| Property   | Type      | Description                       | Default Value          |
-| ---------- | --------- | --------------------------------- | ---------------------- |
-| `critical` | `Boolean` | Override critical from component. | inherit from component |
+| Property   | Description                       | Default Value          |
+| ---------- | --------------------------------- | ---------------------- |
+| `critical` | Override critical from component. | inherit from component |
 
 ```js
 const { isCritical } = useBoosterCritical({critical: true});
@@ -22,7 +32,7 @@ const { isCritical } = useBoosterCritical({critical: true});
 
 ## Example
 
-```html
+```vue
 <template>
   <span>Critical? {{isCritical}}</span>
 </template>

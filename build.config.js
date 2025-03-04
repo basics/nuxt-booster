@@ -1,7 +1,9 @@
-export default {
+import { defineBuildConfig } from 'unbuild';
+
+export default defineBuildConfig({
   failOnWarn: false,
   externals: [
-    // package
+    'vue-bundle-renderer',
     '@nuxt/image',
     'browserslist-useragent-regexp',
     'cheerio',
@@ -12,7 +14,8 @@ export default {
     'image-meta',
     'pathe',
     'mime-types',
-    'mime-db'
+    'mime-db',
+    '#build/types/booster'
   ],
   hooks: {
     'build:done': async () => {
@@ -21,4 +24,4 @@ export default {
       await copy('src/assets', 'dist/assets');
     }
   }
-};
+});
