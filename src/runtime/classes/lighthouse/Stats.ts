@@ -1,39 +1,40 @@
-/* eslint-disable security/detect-object-injection */
-export const READY = Symbol('ready');
-export const FAIL = Symbol('fail');
-export const PENDING = Symbol('pending');
+enum State {
+  READY,
+  FAIL,
+  PENDING
+}
 
 const STATE_COLORS = {
-  [READY]: {
+  [State.READY]: {
     pass: '#0CCE6B',
     average: '#FFA400',
     fail: '#FF4E42'
   },
-  [FAIL]: '#FF4E42',
-  [PENDING]: '#BDBDBD'
+  [State.FAIL]: '#FF4E42',
+  [State.PENDING]: '#BDBDBD'
 };
 
 type Stats = {
   lhrSlim: { id: string; score: number }[];
 };
 export class LighthouseStats {
-  state: symbol;
+  state: State;
   data: Stats;
-  constructor(state: symbol, data?: Stats) {
+  constructor(state: State, data?: Stats) {
     this.state = state;
     this.data = data || { lhrSlim: [] };
   }
 
   isPending() {
-    return this.state === PENDING;
+    return this.state === State.PENDING;
   }
 
   isFailed() {
-    return this.state === FAIL;
+    return this.state === State.FAIL;
   }
 
   isReady() {
-    return this.state === READY;
+    return this.state === State.READY;
   }
 
   getScoreOfMetric(metric: string) {
@@ -43,22 +44,22 @@ export class LighthouseStats {
 
   getStateColorByMetric(metric: string) {
     switch (this.state) {
-      case READY:
+      case State.READY:
         return getColorByScore(this.getScoreOfMetric(metric));
-      case FAIL:
-        return STATE_COLORS[FAIL];
+      case State.FAIL:
+        return STATE_COLORS[State.FAIL];
       default:
-        return STATE_COLORS[PENDING];
+        return STATE_COLORS[State.PENDING];
     }
   }
 }
 
 function getColorByScore(score: number) {
   if (score >= 0.9) {
-    return STATE_COLORS[READY].pass;
+    return STATE_COLORS[State.READY].pass;
   } else if (score >= 0.5) {
-    return STATE_COLORS[READY].average;
+    return STATE_COLORS[State.READY].average;
   } else {
-    return STATE_COLORS[READY].fail;
+    return STATE_COLORS[State.READY].fail;
   }
 }

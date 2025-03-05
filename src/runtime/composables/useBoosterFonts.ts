@@ -1,8 +1,7 @@
 import FontCollection from '#booster/classes/FontCollection';
 import { useBoosterCritical, useBoosterConfig, useNuxtApp } from '#imports';
-import type { Ref } from 'vue';
 import { reactive, nextTick, onBeforeUnmount } from 'vue';
-
+import type { Ref } from 'vue';
 import type FontList from '#booster/classes/FontList';
 import type {
   DirectiveGetFontArguments,

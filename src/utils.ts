@@ -1,6 +1,5 @@
 import { defu } from 'defu';
 import { installModule, useLogger } from '@nuxt/kit';
-
 import type {
   ModuleDefinition,
   ModuleOptions as NuxtModuleOptions,
@@ -10,7 +9,6 @@ import type * as consola from 'consola';
 import type { ModuleOptions, ModulePublicRuntimeConfig } from './module';
 
 export const MODULE_NAME = 'nuxt-booster';
-
 export const logger = useLogger(MODULE_NAME) as consola.ConsolaInstance;
 
 function getModuleName(

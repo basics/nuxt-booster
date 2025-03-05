@@ -11,7 +11,7 @@ const runtime: TestRuntime = {};
 beforeAll(async () => {
   runtime.serverUrl = (await startStaticServer(distDir)).url;
 
-  console.log(runtime.serverUrl);
+  console.log('Test Url:', runtime.serverUrl);
 });
 
 browser(runtime);

@@ -1,5 +1,5 @@
-import type { RendererElement, RendererNode, VNode } from 'vue';
 import { defineComponent } from 'vue';
+import type { RendererElement, RendererNode, VNode } from 'vue';
 
 export default defineComponent({
   name: 'HydrationWrapper',

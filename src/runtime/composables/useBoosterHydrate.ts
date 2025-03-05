@@ -1,6 +1,6 @@
 import { useRuntimeConfig } from '#imports';
-import type { AsyncComponentLoader, Component, HydrationStrategy } from 'vue';
 import { defineAsyncComponent, hydrateOnVisible } from 'vue';
+import type { AsyncComponentLoader, Component, HydrationStrategy } from 'vue';
 
 export default function useBoosterHydrate() {
   return <T extends Component>(

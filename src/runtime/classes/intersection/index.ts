@@ -1,6 +1,6 @@
-import type { ObservableHTMLElement, ObservableOptions } from '../../../module';
 import ElementObserver from './ElementObserver';
 import { getIntersectionObservable } from './Observable';
+import type { ObservableHTMLElement, ObservableOptions } from '../../../module';
 
 export const getElementObserver = (
   el: ObservableHTMLElement,
