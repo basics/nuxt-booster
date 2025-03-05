@@ -1,10 +1,10 @@
+import Font from './Font';
 import type { FontFamily, FontStyle, FontWeight } from '#build/types/booster';
 import type {
   FontOptionVariance,
   DirectiveGetFontOptions,
   PreparedFontOption
 } from './../../module';
-import Font from './Font';
 
 export default class FontList {
   list: PreparedFontOption[];

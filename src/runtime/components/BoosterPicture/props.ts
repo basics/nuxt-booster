@@ -1,5 +1,5 @@
-import type { ISource } from '../../../module';
 import { crossorigin as validatorCrossorigin } from '../../utils/validators';
+import type { ISource } from '../../../module';
 
 export default {
   sources: {

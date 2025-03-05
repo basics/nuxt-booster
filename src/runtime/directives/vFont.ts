@@ -2,7 +2,6 @@ import {
   isElementOutViewport,
   getElementObserver
 } from '#booster/classes/intersection';
-
 import type {
   ComponentPublicInstance,
   DirectiveBinding,

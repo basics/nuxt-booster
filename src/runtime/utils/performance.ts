@@ -1,8 +1,8 @@
-import type { PerformanceMetrics, RunOptions } from './../../module';
 import {
   CallbackObserver,
   combineCallbackObserver
 } from '#booster/classes/CallbackObserver';
+import type { PerformanceMetrics, RunOptions } from './../../module';
 
 function getDefaultConfig(): PerformanceMetrics {
   return {

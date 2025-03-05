@@ -1,8 +1,8 @@
-import type { BoosterProvide } from './../../../../module';
 import { parseURL, withBase, hasProtocol, parseFilename } from 'ufo';
 import { useRequestURL } from '#imports';
 import type { Nuxt } from 'nuxt/schema';
 import type Source from '../classes/Source';
+import type { BoosterProvide } from './../../../../module';
 
 const SOURCE_FORMATS = ['avif', 'webp', 'png', 'jpg', 'gif'];
 const FALLBACK_FORMAT = 'jpg';

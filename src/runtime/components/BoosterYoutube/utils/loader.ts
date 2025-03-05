@@ -1,5 +1,5 @@
-import type { Script } from '@unhead/schema';
 import Deferred from '../../../classes/Deferred';
+import type { Script } from '@unhead/schema';
 
 declare global {
   interface Window {

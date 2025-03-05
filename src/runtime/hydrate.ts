@@ -1,6 +1,6 @@
-import type { AsyncComponentLoader } from 'vue';
 import useBoosterHydrate from './composables/useBoosterHydrate';
 import { obsolete } from './utils/deprecation';
+import type { AsyncComponentLoader } from 'vue';
 
 const hydrate = useBoosterHydrate();
 

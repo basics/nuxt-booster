@@ -1,12 +1,12 @@
-import type { ImageModifiers } from '@nuxt/image';
 import { getExtension, getMeta } from '../utils/image';
+import type { ImageModifiers } from '@nuxt/image';
+import { toHashHex } from '../../../utils/string';
 import type {
   BoosterProvide,
   CrossOrigin,
   HTMLCrossOriginAttribute,
   ISource
 } from '../../../../module';
-import { toHashHex } from '../../../utils/string';
 import type { Link, TagUserProperties } from '@unhead/schema';
 
 export default class Source implements ISource {

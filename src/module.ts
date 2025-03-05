@@ -25,10 +25,8 @@ import { registerAppEntry as registerAppEntryWebpack } from './hookFunctions/web
 import { registerAppEntry as registerAppEntryVite } from './hookFunctions/vite';
 import { getTemplate as getBlobFileTemplate } from './utils/blob';
 import { getTypesContent } from './utils/types';
-
 import pluginTemplate from './tmpl/plugin.tmpl';
 import entryTemplate from './tmpl/entry.tmpl';
-
 import type { Nuxt } from 'nuxt/schema';
 import type { ModuleOptions, PreparedFontOption } from './types';
 

@@ -1,7 +1,7 @@
-import type { Nuxt } from 'nuxt/schema';
 import initHook from '../hookFunctions/nitro/init';
 import { isViteBuild, isWebpackBuild, logger } from '../utils';
 import type { HookOptions, OptimizeSSR } from '../module';
+import type { Nuxt } from 'nuxt/schema';
 
 export function optimizeSSR(optimizeSSR: boolean | OptimizeSSR, nuxt: Nuxt) {
   const options = {

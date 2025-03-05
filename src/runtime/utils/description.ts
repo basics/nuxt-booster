@@ -1,9 +1,8 @@
+import { toHashHex, minify } from './string';
 import type Font from '#booster/classes/Font';
 import type Source from '#booster/components/BoosterImage/classes/Source';
 import type { ClassNames as SourceListClassNames } from '#booster/components/BoosterPicture/classes/SourceList';
 import type SourceList from '#booster/components/BoosterPicture/classes/SourceList';
-import { toHashHex, minify } from './string';
-
 import type { Noscript, Style } from '@unhead/schema';
 
 export function getImageStyleDescription(source: Source) {

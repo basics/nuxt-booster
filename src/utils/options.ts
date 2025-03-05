@@ -1,5 +1,5 @@
-import type { ModuleOptions } from '../module';
 import { logger } from '../utils';
+import type { ModuleOptions } from '../module';
 
 export function getDefaultOptions(): ModuleOptions {
   return {
