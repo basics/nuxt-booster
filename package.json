@@ -38,7 +38,7 @@
     "start": "npx serve playground/dist",
     "start:generate": "npm run generate && npx serve playground/dist",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "nuxt prepare playground && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "exports": {
