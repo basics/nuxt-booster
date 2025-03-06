@@ -15,5 +15,5 @@ Is required to create and manage a head entry.
 ## Types
 
 ```ts
-export default function useBoosterHead(): HeadFontCollector;
+declare function useBoosterHead(): HeadFontCollector;
 ```

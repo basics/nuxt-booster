@@ -7,7 +7,7 @@ title: useBoosterCritical
 ## Types
 
 ```ts
-export default function useBoosterCritical(options?: {
+declare function useBoosterCritical(options?: {
     critical?: boolean;
 }): {
     isCritical: ComputedRef<boolean>;
