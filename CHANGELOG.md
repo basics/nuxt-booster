@@ -1,5 +1,20 @@
 # Project Changelog
 
+# [3.2.0](https://github.com/basics/nuxt-booster/compare/v3.1.11...v3.2.0) (2025-03-06)
+
+
+### Bug Fixes
+
+* **dependencies:** add sort-css-media-queries package and update imports ([a7aa6e2](https://github.com/basics/nuxt-booster/commit/a7aa6e20314b94c2fd3e58fab31995ebf684e4c1))
+* **experimental:** added init fallback ([73239d9](https://github.com/basics/nuxt-booster/commit/73239d9ca23e8164a741d23575f03e6c80534f82))
+
+
+### Features
+
+* **typescript:** added typescript support ([f7c906a](https://github.com/basics/nuxt-booster/commit/f7c906a3016fb6283020cea6dd238a86b2167967))
+* **typescript:** imrpove typescript support ([9f839d3](https://github.com/basics/nuxt-booster/commit/9f839d390e4fb49f67c84ee8ce37caa9478fac76))
+* **typescript:** update components ([49cd8d7](https://github.com/basics/nuxt-booster/commit/49cd8d7a3ee32073474b7fe78f61dba0d826095e))
+
 # [3.2.0-next.1](https://github.com/basics/nuxt-booster/compare/v3.1.11...v3.2.0-next.1) (2025-03-04)
 
 
