@@ -111,7 +111,7 @@
     "typescript-eslint": "8.26.0",
     "vite-svg-loader": "5.1.0",
     "vitepress": "1.6.3",
-    "vitest": "3.0.7",
+    "vitest": "3.0.8",
     "vue-semantic-structure": "1.0.5",
     "vue-tsc": "2.2.8",
     "wicg-inert": "3.1.3"
