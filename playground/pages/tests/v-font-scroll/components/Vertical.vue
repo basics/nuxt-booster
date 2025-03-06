@@ -1,7 +1,7 @@
 <template>
   <preview-container>
     <template #default>
-      <scroll-container id="verticalScroll" v-bind="data" />
+      <scroll-container id="verticalScroll" :items="items" />
     </template>
     <template #title>
       <p>Vertical Scroll - v-font</p>
@@ -9,18 +9,18 @@
   </preview-container>
 </template>
 
-<script setup>
-import PreviewContainer from '@/components/PreviewContainer';
-import ScrollContainer from '@/components/fragments/ScrollContainer';
+<script setup lang="ts">
+import PreviewContainer from '@/components/PreviewContainer.vue';
+import ScrollContainer from '@/components/fragments/ScrollContainer.vue';
+import { ref, type Ref } from 'vue';
+import type { Item } from '~/components/elements/ScrollItem.vue';
 
-const data = {
-  items: [
-    { font: ['Montserrat Alternates', 300, 'normal'] },
-    { font: ['Montserrat Alternates', 300, 'italic'] },
-    { font: ['Montserrat Alternates', 400, 'normal'] },
-    { font: ['Montserrat Alternates', 400, 'italic'] },
-    { font: ['Montserrat Alternates', 700, 'normal'] },
-    { font: ['Montserrat Alternates', 700, 'italic'] }
-  ]
-};
+const items: Ref<Item[]> = ref([
+  { font: { family: 'Montserrat Alternates', weight: 300, style: 'normal' } },
+  { font: { family: 'Montserrat Alternates', weight: 300, style: 'italic' } },
+  { font: { family: 'Montserrat Alternates', weight: 400, style: 'normal' } },
+  { font: { family: 'Montserrat Alternates', weight: 400, style: 'italic' } },
+  { font: { family: 'Montserrat Alternates', weight: 700, style: 'normal' } },
+  { font: { family: 'Montserrat Alternates', weight: 700, style: 'italic' } }
+]);
 </script>

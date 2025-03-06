@@ -12,19 +12,21 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBoosterHydrate } from '#imports';
 const hydrate = useBoosterHydrate();
 
-const ModuleStage = hydrate(() => import('@/components/modules/Stage'));
-const ModuleTextA = hydrate(() => import('@/components/modules/TextFontA'));
-const ModuleImageText = hydrate(() => import('@/components/modules/ImageText'));
-const ModuleTextB = hydrate(() => import('@/components/modules/TextFontB'));
+const ModuleStage = hydrate(() => import('@/components/modules/Stage.vue'));
+const ModuleTextA = hydrate(() => import('@/components/modules/TextFontA.vue'));
+const ModuleImageText = hydrate(
+  () => import('@/components/modules/ImageText.vue')
+);
+const ModuleTextB = hydrate(() => import('@/components/modules/TextFontB.vue'));
 const ModuleVideoYoutube = hydrate(
-  () => import('@/components/modules/VideoYoutube')
+  () => import('@/components/modules/VideoYoutube.vue')
 );
 const ModuleVideoVimeo = hydrate(
-  () => import('@/components/modules/VideoVimeo')
+  () => import('@/components/modules/VideoVimeo.vue')
 );
 
 const stage = {

@@ -4,11 +4,24 @@ title: useBoosterFont
 
 # {{$frontmatter.title}}
 
+## Types
+
+```ts
+
+declare default function useBoosterFonts(options?: {
+    critical?: boolean;
+}): {
+    isCritical: Ref<boolean, boolean>;
+    $getFont: (family: FontFamily | DirectiveGetFontArguments, weight?: FontWeight, style?: FontStyle, options?: DirectiveGetFontOptions) => DirectiveGetFontResult;
+};
+
+```
+
 ## Options
 
-| Property   | Type      | Description                       | Default Value          |
-| ---------- | --------- | --------------------------------- | ---------------------- |
-| `critical` | `Boolean` | Override critical from component. | inherit from component |
+| Property   | Description                       | Default Value          |
+| ---------- | --------------------------------- | ---------------------- |
+| `critical` | Override critical from component. | inherit from component |
 
 ```js
 const { $getFont } = useBoosterFonts({critical: true});

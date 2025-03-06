@@ -2,9 +2,10 @@ import { withNuxt } from './playground/.nuxt/eslint.config.mjs';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintIgnores from './eslint.ignores.js';
 import pluginSecurity from 'eslint-plugin-security';
+import tseslint from 'typescript-eslint';
 
 export default withNuxt({
-  files: ['**/*.js', '**/*.vue'],
+  files: ['**/*.js', '**/*.ts', '**/*.d.ts', '**/*.vue'],
   rules: {
     'prettier/prettier': 'error',
     classPrivateMethods: 'off',
@@ -40,6 +41,7 @@ export default withNuxt({
   }
 }).prepend(
   eslintIgnores,
+  tseslint.configs.recommended,
   pluginSecurity.configs.recommended,
   eslintPluginPrettierRecommended
 );

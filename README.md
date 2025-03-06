@@ -31,6 +31,7 @@
 [![npm version][npm-version-latest-src]][npm-version-latest-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 
+[![TypeScript][typescript-badge-src]](http://www.typescriptlang.org/)
 [![Renovate - Status][renovate-status-src]][renovate-status-href]
 [![License][license-src]][license-href]
 
@@ -110,6 +111,8 @@ Do you need further support, a consultation or a code review for an appropriate 
 
 [renovate-status-src]: <https://img.shields.io/badge/renovate-enabled-brightgreen>
 [renovate-status-href]: <https://renovate.whitesourcesoftware.com/>
+
+[typescript-badge-src]: https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg
 
 [github-workflow-main-src]: <https://github.com/basics/nuxt-booster/workflows/Main/badge.svg?branch=main>
 [github-workflow-main-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3AMain>
