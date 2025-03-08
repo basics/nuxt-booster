@@ -1,0 +1,1 @@
+import{e as a,r as s,l as t,c as o,m as r,o as n}from"./RST-GrFH.js";import"./CWdewKh6.js";const _=a({__name:"empty-1",setup(c){const e=s(!1);return t(()=>{e.value=!0}),(l,m)=>(n(),o("div",{class:r(["empty-1",{ready:e.value}])},"EMPTY 1",2))}});export{_ as default};
