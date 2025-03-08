@@ -67,8 +67,8 @@
     "pathe": "2.0.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.7.1",
-    "@commitlint/config-conventional": "19.7.1",
+    "@commitlint/cli": "19.8.0",
+    "@commitlint/config-conventional": "19.8.0",
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@nuxt/eslint": "1.1.0",
     "@nuxt/module-builder": "0.8.4",
@@ -84,9 +84,9 @@
     "@types/vue": "2.0.0",
     "@types/webpack": "5.28.5",
     "@types/youtube": "0.1.0",
-    "commitlint": "19.7.1",
+    "commitlint": "19.8.0",
     "consola": "3.4.0",
-    "eslint": "9.21.0",
+    "eslint": "9.22.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-prettier": "5.2.3",
