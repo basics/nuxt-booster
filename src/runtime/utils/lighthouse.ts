@@ -1,9 +1,4 @@
-import {
-  LighthouseStats,
-  READY,
-  FAIL,
-  PENDING
-} from '../classes/lighthouse/Stats';
+import { LighthouseStats, State } from '../classes/lighthouse/Stats';
 import LighthouseError from '../classes/lighthouse/Error';
 
 let controller: AbortController | undefined;
@@ -35,7 +30,7 @@ export function getLighthouseMetrics(url: string) {
 }
 
 export function getPendingStats() {
-  return new LighthouseError(PENDING);
+  return new LighthouseError(State.PENDING);
 }
 
 function getAbortSignal() {
@@ -48,7 +43,7 @@ function getAbortSignal() {
 
 async function handleResponse(response: Response) {
   if (!response.ok) {
-    throw new LighthouseError(FAIL);
+    throw new LighthouseError(State.FAIL);
   }
-  return new LighthouseStats(READY, await response.json());
+  return new LighthouseStats(State.READY, await response.json());
 }

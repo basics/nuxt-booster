@@ -1,6 +1,20 @@
 import Deferred from '../../../classes/Deferred';
+import type { Script } from '@unhead/vue';
 
 const vimeoAPI = new Deferred() as Deferred<VimeoApi>;
+
+declare global {
+  interface Window {
+    BOOSTER_VIMEO_API_RESOLVE?: CallableFunction;
+  }
+}
+
+if (!import.meta.server) {
+  window.BOOSTER_VIMEO_API_RESOLVE = (api: VimeoApi) => {
+    vimeoAPI.resolve(api);
+    delete window.BOOSTER_VIMEO_API_RESOLVE;
+  };
+}
 
 export interface VimeoApiPlayer {
   play: () => void;
@@ -46,18 +60,15 @@ export interface VimeoApiResponse {
   description: string;
 }
 
-export const load = () => {
+export function load(): Script {
   return {
     key: 'vimeo',
     src: 'https://player.vimeo.com/api/player.js',
     async: true,
     defer: true,
-    onload: () => {
-      vimeoAPI.resolve(window.Vimeo);
-    }
+    onload: 'VIMEO_API_RESOLVE(window.Vimeo)'
   };
-};
-
-export const ready = () => {
+}
+export function ready() {
   return vimeoAPI.promise;
-};
+}

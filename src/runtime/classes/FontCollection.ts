@@ -4,14 +4,12 @@ import {
   getStyleDescription
 } from '../utils/description';
 import type Font from './Font';
-import type {
-  Link,
-  Noscript,
-  Style,
-  TagUserProperties,
-  UserTagConfigWithoutInnerContent
-} from '@unhead/schema';
+// import type { RawInput } from 'unhead/types';
+// import type { Link, Noscript, Style } from '@unhead/vue';
 import type { ModulePublicRuntimeConfig } from '../../module';
+
+// TagUserProperties,
+//   UserTagConfigWithoutInnerContent
 
 export default class FontCollection {
   list: Font[];
@@ -38,10 +36,7 @@ export default class FontCollection {
     return rootSelector;
   }
 
-  getPreloadDescriptions(
-    critical: boolean,
-    crossorigin = 'anonymous'
-  ): Link<UserTagConfigWithoutInnerContent>[] {
+  getPreloadDescriptions(critical: boolean, crossorigin = 'anonymous') {
     return Array.from(
       this.list
         .reduce((result, font) => {
@@ -60,19 +55,17 @@ export default class FontCollection {
     );
   }
 
-  getStyleDescriptions(
-    options: ModulePublicRuntimeConfig
-  ): Link<TagUserProperties>[] {
+  getStyleDescriptions(options: ModulePublicRuntimeConfig) {
     return getRelevantDescriptions([
       getStyleDescription(
         this.list.map(font => font.getCSSText(options)).join(' '),
         false,
         this.getKey()
       )
-    ]) as Link<TagUserProperties>[];
+    ]);
   }
 
-  getNoScriptStyleDescriptions(): TagUserProperties[] {
+  getNoScriptStyleDescriptions() {
     return getRelevantDescriptions([
       getStyleDescription(
         this.list.map(font => font.getNoScriptCSSText()).join(' '),
@@ -97,6 +90,6 @@ function toFontHex(value: string) {
   return toHashHex(value).padStart(9, '-');
 }
 
-function getRelevantDescriptions(descriptions: (Style | Noscript)[]) {
+function getRelevantDescriptions(descriptions: Partial<{ key: string }>[]) {
   return descriptions.filter(item => item.key !== '0');
 }

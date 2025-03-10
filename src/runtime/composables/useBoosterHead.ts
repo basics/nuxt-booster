@@ -3,12 +3,7 @@ import { logDebug } from '#booster/utils/log';
 import { injectHead, useRouter, useRuntimeConfig } from '#imports';
 import { ref, watch, nextTick, type Ref } from 'vue';
 import type FontCollection from '#booster/classes/FontCollection';
-import type { Head } from '@unhead/vue';
-import type {
-  Link,
-  TagUserProperties,
-  UserTagConfigWithoutInnerContent
-} from '@unhead/schema';
+import type { Head, Link } from '@unhead/vue';
 import type {
   HeadFontCollector,
   HeadFontCollectorDescription,
@@ -96,7 +91,7 @@ function createEntry(collection: FontsCollection, debug: boolean): Head {
                 fontCollection.getPreloadDescriptions(isCritical)
               )
               .flat()
-          ) as Link<UserTagConfigWithoutInnerContent>[])
+          ) as Link[])
         : undefined,
     style: prepareItems(
       items
@@ -118,9 +113,7 @@ function createEntry(collection: FontsCollection, debug: boolean): Head {
   };
 }
 
-function prepareItems(
-  items: (Link<UserTagConfigWithoutInnerContent> | TagUserProperties)[]
-) {
+function prepareItems(items: Link[]) {
   return Array.from(
     new Map(items.map(item => [item.key, { ...item, key: undefined }])).values()
   );

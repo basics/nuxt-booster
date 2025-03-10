@@ -3,7 +3,6 @@ import type Font from '#booster/classes/Font';
 import type Source from '#booster/components/BoosterImage/classes/Source';
 import type { ClassNames as SourceListClassNames } from '#booster/components/BoosterPicture/classes/SourceList';
 import type SourceList from '#booster/components/BoosterPicture/classes/SourceList';
-import type { Noscript, Style } from '@unhead/schema';
 
 export function getImageStyleDescription(source: Source) {
   return {
@@ -16,7 +15,7 @@ export function getImageStyleDescription(source: Source) {
 export function getPictureStyleDescription(
   metaSources: SourceList,
   classNames: SourceListClassNames
-): Style {
+) {
   return {
     key: classNames.picture as string,
     type: 'text/css',
@@ -74,7 +73,7 @@ export function getStyleDescription(
   children: string,
   noScript = false,
   key?: string
-): Style | Noscript {
+) {
   if (noScript) {
     return getNoScriptDescription(`<style>${children}</style>`, key);
   } else {
@@ -86,10 +85,7 @@ export function getStyleDescription(
   }
 }
 
-export function getNoScriptDescription(
-  textContent: string,
-  key?: string
-): Noscript {
+export function getNoScriptDescription(textContent: string, key?: string) {
   return {
     key,
     innerHTML: minify(textContent)

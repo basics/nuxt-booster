@@ -1,5 +1,5 @@
 import Deferred from '../../../classes/Deferred';
-import type { Script } from '@unhead/schema';
+import type { Script } from '@unhead/vue';
 
 declare global {
   interface Window {
