@@ -1,4 +1,4 @@
-enum State {
+export enum State {
   READY,
   FAIL,
   PENDING
