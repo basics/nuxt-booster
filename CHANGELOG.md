@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.2](https://github.com/basics/nuxt-booster/compare/v3.2.1...v3.2.2) (2025-03-10)
+
+
+### Bug Fixes
+
+* **lighthouse:** update Lighthouse error handling to use State enum ([c653901](https://github.com/basics/nuxt-booster/commit/c653901ce24fe674679cae5c73b0e4a754b03422))
+
 ## [3.2.1](https://github.com/basics/nuxt-booster/compare/v3.2.0...v3.2.1) (2025-03-10)
 
 
