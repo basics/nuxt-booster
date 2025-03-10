@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import { useHead, useBoosterCritical, useBoosterProvide } from '#imports';
 import { ref, computed, markRaw, type Ref, onUnmounted, onMounted } from 'vue';
-import type { Script } from '@unhead/schema';
+import type { Script } from '@unhead/vue';
 
 import DefaultButton from '../Button.vue';
 import { load } from './utils/loader';

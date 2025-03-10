@@ -38,7 +38,7 @@ import {
   onMounted,
   onUnmounted
 } from 'vue';
-import type { Script } from '@unhead/schema';
+import type { Script } from '@unhead/vue';
 
 import DefaultButton from '../Button.vue';
 import {
