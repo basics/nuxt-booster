@@ -3,7 +3,6 @@ import type Font from '#booster/classes/Font';
 import type Source from '#booster/components/BoosterImage/classes/Source';
 import type { ClassNames as SourceListClassNames } from '#booster/components/BoosterPicture/classes/SourceList';
 import type SourceList from '#booster/components/BoosterPicture/classes/SourceList';
-import type { Noscript } from '@unhead/vue';
 
 export function getImageStyleDescription(source: Source) {
   return {
@@ -86,10 +85,7 @@ export function getStyleDescription(
   }
 }
 
-export function getNoScriptDescription(
-  textContent: string,
-  key?: string
-): Noscript {
+export function getNoScriptDescription(textContent: string, key?: string) {
   return {
     key,
     innerHTML: minify(textContent)
