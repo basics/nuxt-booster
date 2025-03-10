@@ -7,7 +7,7 @@ import type {
   HTMLCrossOriginAttribute,
   ISource
 } from '../../../../module';
-import type { Link, TagUserProperties } from '@unhead/schema';
+import type { Link } from '@unhead/vue';
 
 export default class Source implements ISource {
   src: string;
@@ -90,12 +90,8 @@ export default class Source implements ISource {
     );
   }
 
-  getPreload(
-    srcset: string,
-    sizes?: string,
-    crossorigin?: CrossOrigin
-  ): Link<TagUserProperties> {
-    const preload: Link<TagUserProperties> = {
+  getPreload(srcset: string, sizes?: string, crossorigin?: CrossOrigin): Link {
+    const preload: Link = {
       rel: 'preload',
       as: 'image',
       imagesrcset: srcset,

@@ -4,14 +4,11 @@ import {
   getStyleDescription
 } from '../utils/description';
 import type Font from './Font';
-import type {
-  Link,
-  Noscript,
-  Style,
-  TagUserProperties,
-  UserTagConfigWithoutInnerContent
-} from '@unhead/schema';
+import type { Link, Noscript, Style } from '@unhead/vue';
 import type { ModulePublicRuntimeConfig } from '../../module';
+
+// TagUserProperties,
+//   UserTagConfigWithoutInnerContent
 
 export default class FontCollection {
   list: Font[];
@@ -38,10 +35,7 @@ export default class FontCollection {
     return rootSelector;
   }
 
-  getPreloadDescriptions(
-    critical: boolean,
-    crossorigin = 'anonymous'
-  ): Link<UserTagConfigWithoutInnerContent>[] {
+  getPreloadDescriptions(critical: boolean, crossorigin = 'anonymous'): Link[] {
     return Array.from(
       this.list
         .reduce((result, font) => {
@@ -60,19 +54,17 @@ export default class FontCollection {
     );
   }
 
-  getStyleDescriptions(
-    options: ModulePublicRuntimeConfig
-  ): Link<TagUserProperties>[] {
+  getStyleDescriptions(options: ModulePublicRuntimeConfig): Link[] {
     return getRelevantDescriptions([
       getStyleDescription(
         this.list.map(font => font.getCSSText(options)).join(' '),
         false,
         this.getKey()
       )
-    ]) as Link<TagUserProperties>[];
+    ]) as Link[];
   }
 
-  getNoScriptStyleDescriptions(): TagUserProperties[] {
+  getNoScriptStyleDescriptions() {
     return getRelevantDescriptions([
       getStyleDescription(
         this.list.map(font => font.getNoScriptCSSText()).join(' '),
