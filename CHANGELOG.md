@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.1](https://github.com/basics/nuxt-booster/compare/v3.2.0...v3.2.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* **types:** ensure default string type for FontFamily, FontWeight, and FontStyle ([2c0c2fc](https://github.com/basics/nuxt-booster/commit/2c0c2fcd9893fd8030daca9df0dc76da4344745c))
+
 # [3.2.0](https://github.com/basics/nuxt-booster/compare/v3.1.11...v3.2.0) (2025-03-06)
 
 
