@@ -30,9 +30,9 @@ function generateAliases({
   style: string[];
 }) {
   return `
-    export type FontFamily = ${family.map(family => `'${family}'`).join(' | ')};
-    export type FontWeight = ${weight.map(v => (typeof v === 'number' ? Number(v) : `"${v}"`)).join(' | ')};
-    export type FontStyle = ${style.map(style => `'${style}'`).join(' | ')};
+    export type FontFamily = ${family.map(family => `'${family}'`).join(' | ') || 'string'};
+    export type FontWeight = ${weight.map(v => (typeof v === 'number' ? Number(v) : `"${v}"`)).join(' | ') || 'string'};
+    export type FontStyle = ${style.map(style => `'${style}'`).join(' | ') || 'string'};
   `;
 }
 
