@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.3](https://github.com/basics/nuxt-booster/compare/v3.2.2...v3.2.3) (2025-03-11)
+
+
+### Bug Fixes
+
+* lint ([86d2e87](https://github.com/basics/nuxt-booster/commit/86d2e8788dd75ce39995316c6095dc68439d44e0))
+
 ## [3.2.2](https://github.com/basics/nuxt-booster/compare/v3.2.1...v3.2.2) (2025-03-10)
 
 
