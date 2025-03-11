@@ -1,25 +1,29 @@
 import type FontConfig from '../classes/FontConfig';
 import type { FontOptionVariance } from '../types';
 
+/* eslint-disable security/detect-object-injection */
 interface TextProperties {
-  [key: string]: (string | number)[]
+  [key: string]: (string | number)[];
   family: string[];
   weight: (string | number)[];
   style: string[];
 }
 
-function getFromVariances<T>(fontConfig: FontConfig, key: keyof FontOptionVariance): T[] {
-  const uniqueStyles = new Set<T>()
-  const fontCount = fontConfig.fonts.length
+function getFromVariances<T>(
+  fontConfig: FontConfig,
+  key: keyof FontOptionVariance
+): T[] {
+  const uniqueStyles = new Set<T>();
+  const fontCount = fontConfig.fonts.length;
 
   for (let i = 0; i < fontCount; i++) {
-    const values = fontConfig.fonts[i].variances
+    const values = fontConfig.fonts[i].variances;
     for (let j = 0, valueCount = values.length; j < valueCount; j++) {
-      uniqueStyles.add(values[j][key] as T)
+      uniqueStyles.add(values[j][key] as T);
     }
   }
 
-  return Array.from(uniqueStyles).filter(Boolean)
+  return Array.from(uniqueStyles).filter(Boolean);
 }
 
 function unique<T>(array: T[]): T[] {
@@ -39,7 +43,7 @@ function generateAliases(textProperties: TextProperties): string {
     const prop = props[i];
     const propValues: (string | number)[] = textProperties[props[i]];
     const valueCount = propValues.length;
-    let line = `export type Font${capitalize(prop)} = `;
+    const line = `export type Font${capitalize(prop)} = `;
     // Output generic type "string", if there are no values to parse
     if (!valueCount) output[i] = `${line}'string';`;
     else {
@@ -61,3 +65,4 @@ export function getTypesContent(fontConfig: FontConfig): string {
     style: getFromVariances(fontConfig, 'style')
   });
 }
+/* eslint-enable security/detect-object-injection */
