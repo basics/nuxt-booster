@@ -114,9 +114,9 @@ Do you need further support, a consultation or a code review for an appropriate 
 
 [typescript-badge-src]: https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg
 
-[github-workflow-main-src]: <https://github.com/basics/nuxt-booster/workflows/Main/badge.svg?branch=main>
+[github-workflow-main-src]: <https://github.com/basics/nuxt-booster/workflows/Main/badge.svg>
 [github-workflow-main-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3AMain>
-[github-workflow-next-src]: <https://github.com/basics/nuxt-booster/workflows/Next/badge.svg?branch=next>
+[github-workflow-next-src]: <https://github.com/basics/nuxt-booster/workflows/Next/badge.svg>
 [github-workflow-next-href]: <https://github.com/basics/nuxt-booster/actions?query=workflow%3ANext>
 
 [sonarcloud-src]: <https://sonarcloud.io/api/project_badges/measure?project=basics_nuxt-booster&metric=alert_status>
