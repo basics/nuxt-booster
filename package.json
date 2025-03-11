@@ -32,6 +32,7 @@
     "lint:css": "stylelint \"(src|playground)/**/*.vue\"",
     "lint:report": "nuxt prepare playground && eslint -f json-relative -o ./eslint-report.json .",
     "test": "npm run vitest:run",
+    "test:unit": "vitest ./test/tests/utils",
     "test:dev": "npm run vitest:dev",
     "vitest:run": "nuxt generate test && vitest run",
     "vitest:dev": "nuxt generate test && vitest dev",
