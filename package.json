@@ -96,7 +96,7 @@
     "get-port-please": "3.1.2",
     "husky": "9.1.7",
     "jsdom": "26.0.0",
-    "lint-staged": "15.4.3",
+    "lint-staged": "15.5.0",
     "markdown-it-inline-comments": "1.0.1",
     "nuxt": "3.16.0",
     "playwright": "1.51.0",
