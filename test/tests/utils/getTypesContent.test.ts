@@ -43,7 +43,7 @@ describe('getTypesContent', () => {
         }
       ])
     ).toBe(
-      "export type FontFamily = 'Roboto';\nexport type FontWeight = '400' | 'bold';\nexport type FontStyle = 'italic' | 'normal';"
+      "export type FontFamily = 'Roboto';\nexport type FontWeight = 400 | 'bold';\nexport type FontStyle = 'italic' | 'normal';"
     );
   });
 });
