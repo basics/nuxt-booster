@@ -4,20 +4,19 @@ import { getTypesContent } from '../../../src/utils/types';
 describe('getTypesContent', () => {
   it('generates generic types on empty font config', () => {
     expect(
-      getTypesContent({
-        fonts: [
-          {
-            family: '',
-            variances: [
-              {
-                style: '',
-                weight: 0,
-                sources: []
-              }
-            ]
-          }
-        ]
-      })
+      getTypesContent([
+        {
+          family: '',
+          fallback: [],
+          variances: [
+            {
+              style: '',
+              weight: 0,
+              sources: []
+            }
+          ]
+        }
+      ])
     ).toBe(
       "export type FontFamily = 'string';\nexport type FontWeight = 'string';\nexport type FontStyle = 'string';"
     );
@@ -25,25 +24,24 @@ describe('getTypesContent', () => {
 
   it('generates proper types on valid font config', () => {
     expect(
-      getTypesContent({
-        fonts: [
-          {
-            family: 'Roboto',
-            variances: [
-              {
-                style: 'italic',
-                weight: 400,
-                sources: []
-              },
-              {
-                style: 'normal',
-                weight: 'bold',
-                sources: []
-              }
-            ]
-          }
-        ]
-      })
+      getTypesContent([
+        {
+          family: 'Roboto',
+          fallback: [],
+          variances: [
+            {
+              style: 'italic',
+              weight: 400,
+              sources: []
+            },
+            {
+              style: 'normal',
+              weight: 'bold',
+              sources: []
+            }
+          ]
+        }
+      ])
     ).toBe(
       "export type FontFamily = 'Roboto';\nexport type FontWeight = '400' | 'bold';\nexport type FontStyle = 'italic' | 'normal';"
     );
