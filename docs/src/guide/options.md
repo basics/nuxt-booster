@@ -29,12 +29,11 @@ Activating this option optimizes the initial load.
 
 The following NuxtJS settings are made or overwritten in the `nuxt.config`:
 
-| Property                                    | Value  |
-| ------------------------------------------- | ------ |
-| `nuxt.options.experimental.inlineSSRStyles` | `false` |
-| `nuxt.options.vite.build.manifest`          | `false` |
-| `nuxt.options.vite.build.cssCodeSplit`      | `true` |
-| `nuxt.options.webpack.extractCSS`           | `true` |
+| Property                               | Value   |
+| -------------------------------------- | ------- |
+| `nuxt.options.vite.build.manifest`     | `false` |
+| `nuxt.options.vite.build.cssCodeSplit` | `true`  |
+| `nuxt.options.webpack.extractCSS`      | `true`  |
 
 You can also pass an object to customize the optimization.
 
@@ -295,3 +294,37 @@ If set, `@nuxt/image` will not be integrated.
 ::: danger
 Note that the use of `BoosterImage`, `BoosterPicture`, `BoosterVimeo` and `BoosterYoutube` is not supported if `@nuxt/image` is not integrated.
 :::
+
+## `experimental.fallbackInit`
+
+- Type: `Object`, `Boolean`
+  - Default: `false`
+
+[Definition](/guide/definitions.html#experimental)
+
+The initial loading of the page can be adjusted with the `experimental.fallbackInit` option.
+
+In rare cases, the initialization of the page stops and blocks if `detection.performance` is set to `true`.  
+In this case, initialization is forced after **3 seconds**.
+
+**Simple use:**
+
+```js
+{
+  experimental: {
+    fallbackInit: true
+  }
+}
+```
+
+**Customized use:**
+
+```js
+{
+  experimental: {
+    fallbackInit: {
+      duration: 4000
+    }
+  }
+}
+```
