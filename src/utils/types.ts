@@ -1,5 +1,4 @@
-import type FontConfig from '../classes/FontConfig';
-import type { FontOptionVariance } from '../types';
+import type { FontOption, FontOptionVariance } from '../types';
 
 /* eslint-disable security/detect-object-injection */
 interface TextProperties {
@@ -10,14 +9,14 @@ interface TextProperties {
 }
 
 function getFromVariances<T>(
-  fontConfig: FontConfig,
+  fonts: FontOption[],
   key: keyof FontOptionVariance
 ): T[] {
   const uniqueStyles = new Set<T>();
-  const fontCount = fontConfig.fonts.length;
+  const fontCount = fonts.length;
 
   for (let i = 0; i < fontCount; i++) {
-    const values = fontConfig.fonts[i].variances;
+    const values = fonts[i].variances;
     for (let j = 0, valueCount = values.length; j < valueCount; j++) {
       uniqueStyles.add(values[j][key] as T);
     }
@@ -50,7 +49,11 @@ function generateAliases(textProperties: TextProperties): string {
       // Merge all values into a union (|) type value.
       const values: string[] = new Array(valueCount);
       for (let j = 0; j < valueCount; j++) {
-        values[j] = `'${propValues[j]}'`;
+        if (/\d+/.test(String(propValues[j]))) {
+          values[j] = String(propValues[j]);
+        } else {
+          values[j] = `'${propValues[j]}'`;
+        }
       }
       output[i] = `${line}${values.join(' | ')};`;
     }
@@ -58,11 +61,10 @@ function generateAliases(textProperties: TextProperties): string {
   return output.join('\n');
 }
 
-export function getTypesContent(fontConfig: FontConfig): string {
+export function getTypesContent(fonts: FontOption[]): string {
   return generateAliases({
-    family: unique(fontConfig.fonts.map(font => font.family)),
-    weight: getFromVariances(fontConfig, 'weight'),
-    style: getFromVariances(fontConfig, 'style')
+    family: unique(fonts.map(font => font.family)),
+    weight: getFromVariances(fonts, 'weight'),
+    style: getFromVariances(fonts, 'style')
   });
 }
-/* eslint-enable security/detect-object-injection */

@@ -169,7 +169,7 @@ async function addBuildTemplates(nuxt: Nuxt, options: ModuleOptions) {
 
   addTypeTemplate({
     filename: 'types/booster.d.ts',
-    getContents: () => getTypesContent(fontConfig),
+    getContents: () => getTypesContent(options.fonts || []),
     write: true
   });
 }
