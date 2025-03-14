@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import { readPackage } from 'read-pkg';
 import svgLoader from 'vite-svg-loader';
+import checker from 'vite-plugin-checker';
 
 import type { NuxtConfig } from '@nuxt/schema';
 import * as postcssFunctions from './postcss/functions';
@@ -67,6 +68,9 @@ export default defineNuxtConfig({
     plugins: [
       svgLoader({
         defaultImport: 'component' // or 'raw'
+      }),
+      checker({
+        vueTsc: true
       })
     ]
   },
