@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.4](https://github.com/basics/nuxt-booster/compare/v3.2.3...v3.2.4) (2025-03-14)
+
+
+### Bug Fixes
+
+* **tests:** correct FontWeight type in getTypesContent test ([f738788](https://github.com/basics/nuxt-booster/commit/f738788f2e71e2624de31670d7aa1c269c5050c0))
+
 ## [3.2.3](https://github.com/basics/nuxt-booster/compare/v3.2.2...v3.2.3) (2025-03-11)
 
 
