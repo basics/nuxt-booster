@@ -5,7 +5,7 @@ export default (options: PluginOptions) => {
 import vFont from '#booster/directives/vFont';
 import FontList from '#booster/classes/FontList';
 import { isSupportedBrowser } from '#booster/utils/browser';
-import { getImageSize } from '#booster/utils/plugin.${options.mode === 'client' ? 'client' : 'server'}';
+import { getImageSize } from '#booster/utils/plugin.${options.mode}';
 
 import './fonts.css';`;
 
