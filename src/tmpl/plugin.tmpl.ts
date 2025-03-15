@@ -3,9 +3,10 @@ import type { PluginOptions } from '../module';
 export default (options: PluginOptions) => {
   let code = `import { defineNuxtPlugin, useNuxtApp, useBoosterHead, useBoosterHydrate } from '#imports';
 import vFont from '#booster/directives/vFont';
-import { isSupportedBrowser } from '#booster/utils/browser';
 import FontList from '#booster/classes/FontList';
+import { isSupportedBrowser } from '#booster/utils/browser';
 import { getImageSize } from '#booster/utils/plugin.${options.mode === 'client' ? 'client' : 'server'}';
+
 import './fonts.css';`;
 
   code += `
