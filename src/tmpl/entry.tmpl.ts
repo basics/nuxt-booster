@@ -148,10 +148,10 @@ function client () {
 
       setup(${options.performanceMetrics});
 
-      const autoInit = '__NUXT_BOOSTER_AUTO_INIT__' in window && window.__NUXT_BOOSTER_AUTO_INIT__;
+      const autoInit = '__NUXT_BOOSTER_AUTO_INIT__' in window && window.__NUXT_BOOSTER_AUTO_INIT__ || false;
 
       if (autoInit || ((${!options.ignore.performance} && hasSufficientPerformance()) && supportedBrowser)) {
-        initApp();
+        initApp(autoInit);
       } else {
         setupBoosterLayer(layerEl, supportedBrowser)
       }
