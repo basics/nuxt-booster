@@ -1,5 +1,5 @@
 import Source, { normalizeSrc } from '../../BoosterImage/classes/Source';
-import createSort from '../../../externals/create-sort';
+import createSort from 'sort-css-media-queries/create-sort';
 import { toHashHex } from '#booster/utils/string';
 import type { BoosterProvide } from '../../../../module';
 import type { $Img } from '@nuxt/image';
