@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.6](https://github.com/basics/nuxt-booster/compare/v3.2.5...v3.2.6) (2025-03-15)
+
+
+### Bug Fixes
+
+* **deps:** add sort-css-media-queries package and update imports ([9bae7fa](https://github.com/basics/nuxt-booster/commit/9bae7fa5925c178197947a1f434f8d6e6db3d10c))
+
 ## [3.2.5](https://github.com/basics/nuxt-booster/compare/v3.2.4...v3.2.5) (2025-03-15)
 
 
