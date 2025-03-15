@@ -1,11 +1,12 @@
 import type { PluginOptions } from '../module';
 
 export default (options: PluginOptions) => {
-  let code = `import { defineNuxtPlugin, useBoosterHydrate } from '#imports';
+  let code = `import { defineNuxtPlugin, useNuxtApp, useBoosterHead, useBoosterHydrate } from '#imports';
 import vFont from '#booster/directives/vFont';
-import { isSupportedBrowser } from '#booster/utils/browser';
 import FontList from '#booster/classes/FontList';
-import { useNuxtApp, useBoosterHead, useRequestHeaders, useRequestURL, useRequestFetch } from '#imports';
+import { isSupportedBrowser } from '#booster/utils/browser';
+import { getImageSize } from '#booster/utils/plugin.${options.mode}';
+
 import './fonts.css';`;
 
   code += `
@@ -48,67 +49,6 @@ export default defineNuxtPlugin({
   }
 });
 
-`;
-
-  code += `
-const dimensionCache = new Map();
-
-async function getImageSize (src) {
-`;
-
-  if (options.mode === 'client') {
-    code += `
-
-  if (!dimensionCache.has(src)) {
-    const { width, height } = await new Promise((resolve) => {
-      let img = new global.Image();
-      img.onload = () =>  {
-        const dimension = { width: img.naturalWidth, height: img.naturalHeight };
-        img = null;
-        resolve(dimension)
-      };
-      img.src = src;
-    });
-    dimensionCache.set(src, { width, height });
-  }
-  return dimensionCache.get(src)`;
-  } else {
-    code += `
-  const isNitroPrerender = 'x-nitro-prerender' in useRequestHeaders()
-
-  try {
-    let url = src;
-    if (isNitroPrerender) {
-      url = url.replace(useRequestURL().origin, '');
-    }
-
-    if (!dimensionCache.has(url)) {
-      const blob = await useRequestFetch()(url);
-      const { imageMeta } = await import('image-meta').then(
-        module => module.default || module
-      );
-
-      const objectUrl = URL.createObjectURL(blob);
-      const dimension = await fetch(objectUrl)
-      .then(res => res.arrayBuffer())
-      .then(Buffer.from)
-      .then(imageMeta);
-
-      URL.revokeObjectURL(objectUrl);
-
-      dimensionCache.set(url, dimension);
-    }
-
-    return dimensionCache.get(url);
-  } catch (error) {
-    console.error('getImageSize: ' + src, error);
-    return { width: 0, height: 0 };
-  }
-`;
-  }
-
-  code += `
-}
 `;
 
   return code;
