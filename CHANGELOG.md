@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.5](https://github.com/basics/nuxt-booster/compare/v3.2.4...v3.2.5) (2025-03-15)
+
+
+### Bug Fixes
+
+* **entry:** fix missing force argument ([648297d](https://github.com/basics/nuxt-booster/commit/648297d69051a2853be43cd84862072239935624))
+
 ## [3.2.4](https://github.com/basics/nuxt-booster/compare/v3.2.3...v3.2.4) (2025-03-14)
 
 
