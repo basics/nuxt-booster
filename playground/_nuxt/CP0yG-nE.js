@@ -1,0 +1,2 @@
+function s(t){let e=0;if(t.length===0)return e;for(let n=0;n<t.length;n++){const i=t.charCodeAt(n);e=(e<<5)-e+i,e=e&e}return e}function o(t){return s(t).toString(16)}function r(t){return t.split(`
+`).map(e=>e.trim()).join(" ")}function l(t){return{key:t.className,type:"text/css",children:r(t.style)}}function u(t,e){return{key:e.picture,type:"text/css",children:r(t.style)}}function a(t,e=!1,n){return e?c(`<style>${t}</style>`,n):{key:n,type:"text/css",children:r(t)}}function c(t,e){return{key:e,innerHTML:r(t)}}export{a,u as b,l as g,o as t};
