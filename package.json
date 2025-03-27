@@ -64,7 +64,7 @@
     "dynamic-class-list": "2.0.2",
     "htmlparser2": "10.0.0",
     "image-meta": "0.2.1",
-    "mime-types": "2.1.35",
+    "mime-types": "3.0.1",
     "pathe": "2.0.3",
     "sort-css-media-queries": "3.0.1"
   },
