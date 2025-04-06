@@ -1,12 +1,9 @@
 {
   "extends": "./playground/.nuxt/tsconfig.json",
   "compilerOptions": {
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "types": [
-      "youtube",
-      "vimeo"
-    ]
+      "@types/vimeo",
+      "@types/youtube"
+    ],
   }
 }
