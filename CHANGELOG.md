@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.7](https://github.com/basics/nuxt-booster/compare/v3.2.6...v3.2.7) (2025-04-06)
+
+
+### Bug Fixes
+
+* **module:** fixes for new `@nuxt/module-builder` version ([09d2ef2](https://github.com/basics/nuxt-booster/commit/09d2ef250d33ba3b669ce150709e546a19f8f26c))
+
 ## [3.2.6](https://github.com/basics/nuxt-booster/compare/v3.2.5...v3.2.6) (2025-03-15)
 
 
