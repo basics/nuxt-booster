@@ -2,6 +2,7 @@ import type { Nuxt, ViteConfig } from 'nuxt/schema';
 import type { Manifest } from 'vue-bundle-renderer';
 import type { FontOption } from './font';
 import type { ImageModifiers } from '@nuxt/image';
+import type { Directive } from 'vue';
 
 export type HTMLCrossOriginAttribute = 'anonymous' | 'use-credentials' | '';
 export type CrossOrigin = boolean | HTMLCrossOriginAttribute | undefined;
@@ -154,7 +155,7 @@ declare module 'nuxt/app' {
   }
 }
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   interface ComponentCustomProperties {
     $booster: {
       targetFormats: string[];
