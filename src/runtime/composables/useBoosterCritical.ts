@@ -1,11 +1,4 @@
-import {
-  useAttrs,
-  provide,
-  inject,
-  ref,
-  computed,
-  type ComputedRef
-} from 'vue';
+import { useAttrs, provide, inject, ref, computed } from 'vue';
 
 const criticalContextKey = Symbol('criticalContext');
 
@@ -29,7 +22,7 @@ export default function useBoosterCritical(
     currentCritical.value || false
   );
 
-  const isCritical: ComputedRef<boolean> = computed(() => {
+  const isCritical = computed<boolean>(() => {
     return typeof currentCritical.value === 'boolean'
       ? currentCritical.value
       : criticalInject;

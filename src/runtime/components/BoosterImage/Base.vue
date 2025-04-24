@@ -30,7 +30,7 @@ import {
   useHead,
   useAttrs
 } from '#imports';
-import { ref, computed, markRaw, type Ref, type Raw } from 'vue';
+import { ref, computed, markRaw, type Raw } from 'vue';
 import props from './props';
 import type { CrossOrigin } from '../../../module';
 
@@ -49,8 +49,8 @@ const { isCritical } = useBoosterCritical();
 
 const loading = ref(true);
 const meta = ref();
-const config: Ref<ImageSizes | undefined> = ref();
-const resolvedSource: Ref<Raw<Source> | undefined> = ref();
+const config = ref<ImageSizes | undefined>();
+const resolvedSource = ref<Raw<Source> | undefined>();
 const srcset = ref();
 const sizes = ref();
 
