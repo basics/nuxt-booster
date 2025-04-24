@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.2.9](https://github.com/basics/nuxt-booster/compare/v3.2.8...v3.2.9) (2025-04-24)
+
+
+### Bug Fixes
+
+* **types:** update module declaration for `vue` ([300cc79](https://github.com/basics/nuxt-booster/commit/300cc797d9e3844c3e2e164e3dfcdba1743a245c))
+
 ## [3.2.8](https://github.com/basics/nuxt-booster/compare/v3.2.7...v3.2.8) (2025-04-10)
 
 
