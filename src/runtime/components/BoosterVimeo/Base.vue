@@ -29,15 +29,7 @@
 
 <script setup lang="ts">
 import { useHead, useBoosterCritical } from '#imports';
-import {
-  ref,
-  computed,
-  markRaw,
-  type Ref,
-  watch,
-  onMounted,
-  onUnmounted
-} from 'vue';
+import { ref, computed, markRaw, watch, onMounted, onUnmounted } from 'vue';
 import type { Script } from '@unhead/vue';
 
 import DefaultButton from '../Button.vue';
@@ -61,9 +53,9 @@ const $booster = useBoosterProvide();
 const vimeo = new Vimeo();
 
 const inert = ref(false);
-const player: Ref<VimeoApiPlayer | undefined> = ref(undefined);
+const player = ref<VimeoApiPlayer | undefined>(undefined);
 
-const playerEl: Ref<HTMLIFrameElement | undefined> = ref(undefined);
+const playerEl = ref<HTMLIFrameElement | undefined>(undefined);
 const ready = ref(false);
 const loading = ref(false);
 const playing = ref(false);
@@ -74,10 +66,10 @@ const $emit = defineEmits(['ready', 'playing']);
 
 // setup
 
-const script: Ref<Script[]> = ref([]);
-const videoData: Ref<VimeoApiResponse | undefined> = ref();
+const script = ref<Script[]>([]);
+const videoData = ref<VimeoApiResponse | undefined>();
 const iframeMode = ref(false);
-const src: Ref<string | undefined> = ref();
+const src = ref<string | undefined>();
 const videoId = ref(new URL($props.url || '').pathname.replace('/', ''));
 
 const playerTitle = computed(() => {

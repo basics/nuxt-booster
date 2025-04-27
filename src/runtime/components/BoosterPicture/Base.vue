@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { getPictureStyleDescription } from '../../utils/description';
 import { useBoosterCritical, useImage, useHead, useNuxtApp } from '#imports';
-import { ref, computed, type Ref, type ComputedRef } from 'vue';
+import { ref, computed } from 'vue';
 
 import BaseImage from '#booster/components/BoosterImage/Base.vue';
 import SourceList, {
@@ -45,7 +45,7 @@ const sourceList = SourceList.create($props.sources as Source[], {
   sort: $props.sortSources
 });
 
-const metaSources: Ref<SourceList | undefined> = ref();
+const metaSources = ref<SourceList | undefined>();
 
 const resolvedFormats = $props.formats || $booster.targetFormats;
 const sortedFormatsByPriority = Array.from(
@@ -67,7 +67,7 @@ const formatSources = ref(
   )
 );
 
-const classNames: ComputedRef<ClassNames> = computed(
+const classNames = computed<ClassNames>(
   () => metaSources.value?.classNames || { picture: '', image: [] }
 );
 

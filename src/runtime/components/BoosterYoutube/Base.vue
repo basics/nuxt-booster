@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { useHead, useBoosterCritical, useBoosterProvide } from '#imports';
-import { ref, computed, markRaw, type Ref, onUnmounted, onMounted } from 'vue';
+import { ref, computed, markRaw, onUnmounted, onMounted } from 'vue';
 import type { Script } from '@unhead/vue';
 
 import DefaultButton from '../Button.vue';
@@ -36,14 +36,14 @@ const $booster = useBoosterProvide();
 
 const youtube = new Youtube();
 
-const script: Ref<Script[]> = ref([]);
-const src: Ref<string | undefined> = ref();
-const player: Ref<YT.Player | undefined> = ref();
+const script = ref<Script[]>([]);
+const src = ref<string | undefined>();
+const player = ref<YT.Player | undefined>();
 const playerEl = ref<HTMLElement | null>();
-const ready: Ref<boolean> = ref(false);
-const loading: Ref<boolean> = ref(false);
-const playing: Ref<boolean> = ref(false);
-const isTouchDevice: Ref<boolean> = ref(isTouchSupported());
+const ready = ref<boolean>(false);
+const loading = ref<boolean>(false);
+const playing = ref<boolean>(false);
+const isTouchDevice = ref<boolean>(isTouchSupported());
 
 const $props = defineProps(props);
 

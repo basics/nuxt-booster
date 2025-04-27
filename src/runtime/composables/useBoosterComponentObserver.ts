@@ -1,13 +1,13 @@
 import { getElementObserver } from '#booster/classes/intersection';
 import { useBoosterCritical } from '#imports';
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import type { ObservableHTMLElement, ObservableOptions } from '../../module';
 
 export default function useBoosterComponentObserver(
   options: ObservableOptions = {}
 ) {
-  const el: Ref<HTMLElement | undefined> = ref(undefined);
-  const inView: Ref<boolean> = ref(false);
+  const el = ref<HTMLElement | undefined>(undefined);
+  const inView = ref<boolean>(false);
 
   const { isCritical } = useBoosterCritical();
 
