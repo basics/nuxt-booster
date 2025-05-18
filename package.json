@@ -86,7 +86,7 @@
     "@types/youtube": "0.1.1",
     "commitlint": "19.8.1",
     "consola": "3.4.2",
-    "eslint": "9.26.0",
+    "eslint": "9.27.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-prettier": "5.4.0",
