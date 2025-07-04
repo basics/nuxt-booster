@@ -152,10 +152,10 @@ if ($props.source) {
 /*! purgecss start ignore */
 
 .nuxt-booster-image {
-  content-visibility: auto;
   display: block;
   width: 100%;
   height: auto;
+  content-visibility: auto;
   object-fit: cover;
 }
 
