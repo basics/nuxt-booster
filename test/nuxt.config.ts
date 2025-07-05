@@ -1,5 +1,6 @@
 // import type { ModuleOptions } from '../src/types/module';
-import { defineNuxtConfig, type NuxtConfig } from 'nuxt/config';
+import { defineNuxtConfig } from 'nuxt/config';
+import type { NuxtConfig } from 'nuxt/config';
 import { createResolver } from '@nuxt/kit';
 
 import { join, resolve } from 'pathe';

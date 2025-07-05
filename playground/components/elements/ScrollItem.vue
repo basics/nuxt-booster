@@ -9,7 +9,8 @@
 
 <script setup lang="ts">
 import type { FontFamily, FontStyle, FontWeight } from '#build/types/booster';
-import { useBoosterFonts, type PropType } from '#imports';
+import { useBoosterFonts } from '#imports';
+import type { PropType } from '#imports';
 
 const { $getFont } = useBoosterFonts();
 
