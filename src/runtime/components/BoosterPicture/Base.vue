@@ -24,9 +24,8 @@ import { useBoosterCritical, useImage, useHead, useNuxtApp } from '#imports';
 import { ref, computed } from 'vue';
 
 import BaseImage from '#booster/components/BoosterImage/Base.vue';
-import SourceList, {
-  type ClassNames
-} from '#booster/components/BoosterPicture/classes/SourceList';
+import SourceList from '#booster/components/BoosterPicture/classes/SourceList';
+import type { ClassNames } from '#booster/components/BoosterPicture/classes/SourceList';
 import PictureSource from '#booster/components/BoosterPicture/Source.vue';
 import props from './props';
 import type Source from '../BoosterImage/classes/Source';

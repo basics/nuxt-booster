@@ -30,7 +30,8 @@ import {
   useHead,
   useAttrs
 } from '#imports';
-import { ref, computed, markRaw, type Raw } from 'vue';
+import { ref, computed, markRaw } from 'vue';
+import type { Raw } from 'vue';
 import props from './props';
 import type { CrossOrigin } from '../../../module';
 

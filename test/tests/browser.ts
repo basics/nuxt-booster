@@ -1,4 +1,5 @@
-import { chromium, type Page } from 'playwright';
+import { chromium } from 'playwright';
+import type { Page } from 'playwright';
 import { afterAll, describe, it, expect } from 'vitest';
 import { joinURL } from 'ufo';
 import type { TestRuntime } from '../types';

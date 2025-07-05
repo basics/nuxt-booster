@@ -1,4 +1,5 @@
-import { ready, type VimeoApi, type VimeoApiPlayer } from '../utils/loader';
+import { ready } from '../utils/loader';
+import type { VimeoApi, VimeoApiPlayer } from '../utils/loader';
 
 export default class Vimeo {
   api?: VimeoApi;

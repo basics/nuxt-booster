@@ -33,13 +33,8 @@ import { ref, computed, markRaw, watch, onMounted, onUnmounted } from 'vue';
 import type { Script } from '@unhead/vue';
 
 import DefaultButton from '../Button.vue';
-import {
-  load,
-  ready as apiReady,
-  VimeoApiPlayerState,
-  type VimeoApiPlayer,
-  type VimeoApiResponse
-} from './utils/loader';
+import { load, ready as apiReady, VimeoApiPlayerState } from './utils/loader';
+import type { VimeoApiPlayer, VimeoApiResponse } from './utils/loader';
 import Vimeo from './classes/Vimeo';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture.vue';
