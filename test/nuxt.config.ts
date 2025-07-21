@@ -29,7 +29,7 @@ export default defineNuxtConfig(
 
     return {
       ...defaultConfig,
-      srcDir: resolver.resolve('../playground'),
+      srcDir: resolver.resolve('../playground/app'),
       buildDir: resolver.resolve('../playground/.nuxt'),
       distDir: resolve(rootDir, 'dist'),
 
@@ -59,7 +59,8 @@ export default defineNuxtConfig(
       },
 
       dir: {
-        pages: 'pages/tests'
+        pages: 'pages/tests',
+        public: '../playground/public'
       },
 
       ssr: true,

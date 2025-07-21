@@ -119,11 +119,11 @@ export default defineNuxtConfig({
     // targetFormats: ['jpg|jpeg|png|gif'],
     // densities: 'x1 x2',
 
-    // optimizeSSR: {
-    //   cleanPreloads: true,
-    //   cleanPrefetches: true,
-    //   inlineStyles: true
-    // },
+    optimizeSSR: {
+      cleanPreloads: false,
+      cleanPrefetches: false,
+      inlineStyles: false
+    },
 
     // detection: {
     //   performance: true,
@@ -414,6 +414,7 @@ export default defineNuxtConfig({
 
   typescript: {
     typeCheck: true,
+    strict: false,
     tsConfig: {
       include: ['../../test/**/*.ts']
     }
