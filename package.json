@@ -86,7 +86,7 @@
     "@types/youtube": "0.1.2",
     "commitlint": "19.8.1",
     "consola": "3.4.2",
-    "eslint": "9.31.0",
+    "eslint": "9.32.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-prettier": "5.5.3",
@@ -108,13 +108,13 @@
     "serve-static": "2.2.0",
     "stylelint-config-recess-order": "7.1.0",
     "stylelint-config-standard": "38.0.0",
-    "typescript-eslint": "8.37.0",
+    "typescript-eslint": "8.38.0",
     "vite-plugin-checker": "0.10.1",
     "vite-svg-loader": "5.1.0",
     "vitepress": "1.6.3",
     "vitest": "3.2.4",
     "vue-semantic-structure": "1.0.5",
-    "vue-tsc": "3.0.3",
+    "vue-tsc": "3.0.4",
     "wicg-inert": "3.1.3"
   }
 }
