@@ -11,7 +11,7 @@
         <div>
           <p>Sorry, but you will have a limited user experience due to a…</p>
 
-          <ul style="padding: 0; list-style: none">
+          <ul>
             <!-- Displayed when javascript is disabled. -->
             <li id="nuxt-booster-message-nojs">disabled javascript</li>
             <!-- Displayed when browser does not support. -->
@@ -75,6 +75,13 @@ useHead(() => {
   };
 });
 </script>
+
+<style lang="postcss" scoped>
+ul {
+  padding: 0;
+  list-style: none;
+}
+</style>
 
 <style>
 /*! purgecss start ignore */

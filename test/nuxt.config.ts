@@ -33,6 +33,10 @@ export default defineNuxtConfig(
       buildDir: resolver.resolve('../playground/.nuxt'),
       distDir: resolve(rootDir, 'dist'),
 
+      alias: {
+        '@': resolver.resolve('../playground/app')
+      },
+
       nitro: {
         prerender: {
           crawlLinks: false,
@@ -59,7 +63,9 @@ export default defineNuxtConfig(
       },
 
       dir: {
-        pages: 'pages/tests'
+        layouts: '../playground/app/layouts',
+        pages: '../playground/app/pages/tests',
+        public: '../playground/public'
       },
 
       ssr: true,

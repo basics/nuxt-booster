@@ -8,7 +8,7 @@ export function getImageStyleDescription(source: Source) {
   return {
     key: source.className,
     type: 'text/css',
-    children: minify(source.style)
+    textContent: minify(source.style)
   };
 }
 
@@ -19,7 +19,7 @@ export function getPictureStyleDescription(
   return {
     key: classNames.picture as string,
     type: 'text/css',
-    children: minify(metaSources.style)
+    textContent: minify(metaSources.style)
   };
 }
 
@@ -80,7 +80,7 @@ export function getStyleDescription(
     return {
       key,
       type: 'text/css',
-      children: minify(children)
+      textContent: minify(children)
     };
   }
 }

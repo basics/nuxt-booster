@@ -13,7 +13,7 @@
 import PreviewContainer from '@/components/PreviewContainer.vue';
 import ScrollContainer from '@/components/fragments/ScrollContainer.vue';
 import { ref } from 'vue';
-import type { Item } from '~/components/elements/ScrollItem.vue';
+import type { Item } from '@/components/elements/ScrollItem.vue';
 
 const items = ref<Item[]>([
   { font: { family: 'Montserrat Alternates', weight: 300, style: 'normal' } },
