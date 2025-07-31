@@ -1,5 +1,14 @@
 # Project Changelog
 
+## [3.2.10](https://github.com/basics/nuxt-booster/compare/v3.2.9...v3.2.10) (2025-07-31)
+
+
+### Bug Fixes
+
+* **nuxt:** prepare for nuxt 4 ([2d6519c](https://github.com/basics/nuxt-booster/commit/2d6519ca9d62f024322ad423fdda390d3f86585c))
+* **runtime:** change `children` to `textContent` ([c9e80f3](https://github.com/basics/nuxt-booster/commit/c9e80f3898f3155e6b0787ce6f43df18c15ec971))
+* **test:** fix test config ([2c0c6de](https://github.com/basics/nuxt-booster/commit/2c0c6de971a6054cd528f8935590299c8b2c6fff))
+
 ## [3.2.9](https://github.com/basics/nuxt-booster/compare/v3.2.8...v3.2.9) (2025-04-24)
 
 
