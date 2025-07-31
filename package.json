@@ -25,6 +25,7 @@
     "build": "nuxt build playground",
     "dev": "nuxt dev playground",
     "dev:prepare": "nuxt-module-build prepare",
+    "dev:test": "nuxt dev test",
     "generate": "nuxt generate playground",
     "preview": "nuxt preview playground",
     "lint": "nuxt prepare playground && npm run lint:css && npm run lint:es",

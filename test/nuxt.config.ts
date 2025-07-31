@@ -29,9 +29,13 @@ export default defineNuxtConfig(
 
     return {
       ...defaultConfig,
-      srcDir: resolver.resolve('../playground/app'),
+      srcDir: resolver.resolve('../playground'),
       buildDir: resolver.resolve('../playground/.nuxt'),
       distDir: resolve(rootDir, 'dist'),
+
+      alias: {
+        '@': resolver.resolve('../playground/app')
+      },
 
       nitro: {
         prerender: {
@@ -59,7 +63,8 @@ export default defineNuxtConfig(
       },
 
       dir: {
-        pages: 'pages/tests',
+        layouts: '../playground/app/layouts',
+        pages: '../playground/app/pages/tests',
         public: '../playground/public'
       },
 
