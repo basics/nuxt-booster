@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [3.2.11](https://github.com/basics/nuxt-booster/compare/v3.2.10...v3.2.11) (2025-08-02)
+
+
+### Bug Fixes
+
+* handling of quoted `url()` content in `prepareUrls` ([072327f](https://github.com/basics/nuxt-booster/commit/072327ffe90ec1d8f3ea57d568f87af1cbaee793))
+* remove unnecessary whitespace in prepareUrls function ([3923932](https://github.com/basics/nuxt-booster/commit/39239320e79d0952ad78ae36e35e5e0e2f59efb3))
+
 ## [3.2.10](https://github.com/basics/nuxt-booster/compare/v3.2.9...v3.2.10) (2025-07-31)
 
 
