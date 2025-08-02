@@ -88,7 +88,7 @@ function prepareUrls(urls: string[], relativeDir: string) {
       if (value.startsWith("'") || value.startsWith('"')) {
         value = value.slice(1, -1);
       }
-      
+
       if (isURL(value) || isDataURI(value)) {
         return null;
       }
