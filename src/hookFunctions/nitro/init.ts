@@ -79,10 +79,16 @@ function getUrlValues(css: string) {
 function prepareUrls(urls: string[], relativeDir: string) {
   return urls
     .map(url => {
-      const value = url
+      let value = url
         .trim()
         .replace(/^url\((.*)\)$/, '$1')
         .trim();
+
+      // remove ticks
+      if (value.startsWith("'") || value.startsWith('"')) {
+        value = value.slice(1, -1);
+      }
+
       if (isURL(value) || isDataURI(value)) {
         return null;
       }
