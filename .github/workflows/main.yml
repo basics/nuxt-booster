@@ -156,12 +156,12 @@ jobs:
         node: [22]
     steps:
       - name: Download Artifact (Docs)
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: docsArtifact
           path: public
       - name: Download Artifact (Playground)
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: playgroundArtifact
           path: public/playground
