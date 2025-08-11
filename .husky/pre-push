@@ -4,4 +4,11 @@
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-npx branch-name-lint .branchlintrc
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+REGEX='^(feature|bugfix|hotfix|release|chore)\/[a-z0-9\-]+$'
+
+if ! [[ $BRANCH_NAME =~ $REGEX ]]; then
+  echo "Invalid branch name: $BRANCH_NAME" // EN: "Invalid branch name: $BRANCH_NAME"
+  echo "Branch names must follow the pattern: e.g. feature/my-feature"
+  exit 1
+fi
