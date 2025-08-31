@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [3.3.0](https://github.com/basics/nuxt-booster/compare/v3.2.11...v3.3.0) (2025-08-31)
+
+
+### Features
+
+* add `fetchpriority=high` to image preload elements ([3dcbe8e](https://github.com/basics/nuxt-booster/commit/3dcbe8ef4c7a5a0b532da7b82670a8002241fb8d))
+
 ## [3.2.11](https://github.com/basics/nuxt-booster/compare/v3.2.10...v3.2.11) (2025-08-02)
 
 
