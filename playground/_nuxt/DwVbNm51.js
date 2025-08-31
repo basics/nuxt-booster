@@ -1,1 +1,0 @@
-import{e as a,j as s,q as t,c as o,s as r,o as n}from"./C_t4KIag.js";import"./BoxB1Hgi.js";const _=a({__name:"empty-1",setup(c){const e=s(!1);return t(()=>{e.value=!0}),(l,m)=>(n(),o("div",{class:r(["empty-1",{ready:e.value}])},"EMPTY 1",2))}});export{_ as default};
