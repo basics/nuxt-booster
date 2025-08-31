@@ -103,7 +103,7 @@
     "postcss-functions": "4.0.2",
     "postcss-html": "1.8.0",
     "postcss-nesting": "13.0.2",
-    "postcss-preset-env": "10.2.4",
+    "postcss-preset-env": "10.3.1",
     "prettier": "3.6.2",
     "read-pkg": "9.0.1",
     "serve-static": "2.2.0",
