@@ -5,7 +5,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
-REGEX='^(feature|bugfix|hotfix|release|chore)\/[a-z0-9\-]+$'
+REGEX='^(renovate|feature|bugfix|hotfix|release|chore)\/[a-z0-9\-]+$'
 
 if ! [[ $BRANCH_NAME =~ $REGEX ]]; then
   echo "Invalid branch name: $BRANCH_NAME" // EN: "Invalid branch name: $BRANCH_NAME"
