@@ -1,0 +1,1 @@
+import r from"./HU5LVjGz.js";import t from"./DPiePRde.js";import{e,c as i,b as o,o as m}from"./C_t4KIag.js";import"./Zfxq5SP2.js";import"./DEZ8z8WG.js";import"./DDFFFyF9.js";import"./0RFJQWzK.js";import"./CkJfcuOb.js";import"./BoxB1Hgi.js";const B=e({__name:"index",setup(p){return(a,c)=>(m(),i("div",null,[o(r,{critical:""}),o(t)]))}});export{B as default};
