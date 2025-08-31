@@ -97,7 +97,8 @@ export default class Source implements ISource {
       imagesrcset: srcset,
       imagesizes: sizes,
       media: this.media,
-      crossorigin: crossorigin as HTMLCrossOriginAttribute
+      crossorigin: crossorigin as HTMLCrossOriginAttribute,
+      fetchpriority: 'high'
     };
     return preload;
   }
