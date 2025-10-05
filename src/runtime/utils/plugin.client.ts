@@ -4,7 +4,8 @@ export async function getImageSize(src: string) {
   if (!dimensionCache.has(src)) {
     const { width, height } = (await new Promise(resolve => {
       let img: HTMLImageElement | undefined = new global.Image();
-      img.onload = () => {
+
+      const resolvePromise = () => {
         const dimension = {
           width: img?.naturalWidth || 0,
           height: img?.naturalHeight || 0
@@ -12,6 +13,9 @@ export async function getImageSize(src: string) {
         img = undefined;
         resolve(dimension);
       };
+
+      img.onload = () => resolvePromise();
+      img.onerror = () => resolvePromise();
       img.src = src;
     })) as { width: number; height: number };
     dimensionCache.set(src, { width, height });
