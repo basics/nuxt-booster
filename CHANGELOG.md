@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.3.1](https://github.com/basics/nuxt-booster/compare/v3.3.0...v3.3.1) (2025-10-05)
+
+
+### Bug Fixes
+
+* resolve promise `onerror` in addition to `onload` in `getImageSize` ([23f2864](https://github.com/basics/nuxt-booster/commit/23f286465db9e1efa604bf66a632d897d2bca527))
+
 # [3.3.0](https://github.com/basics/nuxt-booster/compare/v3.2.11...v3.3.0) (2025-08-31)
 
 
