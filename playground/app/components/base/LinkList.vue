@@ -10,13 +10,13 @@
 
 <script setup lang="ts">
 import { useBoosterFonts } from '#imports';
-import type { LinkProps } from '@/types';
 
 const { $getFont } = useBoosterFonts();
 
 defineProps({
   items: {
-    type: Array<LinkProps>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: Array<any>,
     default() {
       return [
         {
