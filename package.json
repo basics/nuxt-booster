@@ -106,7 +106,7 @@
     "serve-static": "2.2.0",
     "stylelint-config-recess-order": "7.3.0",
     "stylelint-config-standard": "39.0.0",
-    "typescript-eslint": "8.42.0",
+    "typescript-eslint": "8.46.0",
     "vite-plugin-checker": "0.10.3",
     "vite-svg-loader": "5.1.0",
     "vitepress": "1.6.4",
