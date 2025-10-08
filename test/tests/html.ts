@@ -240,7 +240,7 @@ function markupTests(distDir: string) {
       .querySelector('#criticalContainer picture source:first-child')
       ?.getAttribute('srcset');
     expect(
-      dom.querySelector(`link[imageSrcset="${imageSrcset}"][rel="preload"]`)
+      Array.from(dom.querySelectorAll(`link[imageSrcset][rel="preload"]`)).find((el: HTMLLinkElement) => el.attributes.getNamedItem('imagesrcset').value === imageSrcset)
     ).not.toBeNull();
   });
 
@@ -255,7 +255,7 @@ function markupTests(distDir: string) {
       .querySelector('#criticalContainer img')
       ?.getAttribute('srcset');
     expect(
-      dom.querySelector(`link[imageSrcset="${imageSrcset}"][rel="preload"]`)
+      Array.from(dom.querySelectorAll(`link[imageSrcset][rel="preload"]`)).find((el: HTMLLinkElement) => el.attributes.getNamedItem('imagesrcset').value === imageSrcset)
     ).not.toBeNull();
   });
 
