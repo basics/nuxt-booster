@@ -17,6 +17,7 @@
       "source.fixAll": "explicit"
     },
     "eslint.validate": [
+      "typescript",
       "javascript",
       "javascriptreact",
       "vue",
