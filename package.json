@@ -78,7 +78,7 @@
     "@types/jsdom": "27.0.0",
     "@types/mime-types": "3.0.1",
     "@types/node": "24.7.0",
-    "@types/serve-static": "1.15.9",
+    "@types/serve-static": "2.2.0",
     "@types/vimeo": "2.1.8",
     "@types/webpack": "5.28.5",
     "@types/youtube": "0.1.2",
