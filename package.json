@@ -102,7 +102,7 @@
     "postcss-nesting": "13.0.2",
     "postcss-preset-env": "10.4.0",
     "prettier": "3.6.2",
-    "read-pkg": "9.0.1",
+    "read-pkg": "10.0.0",
     "serve-static": "2.2.0",
     "stylelint-config-recess-order": "7.4.0",
     "stylelint-config-standard": "39.0.1",
