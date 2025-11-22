@@ -1,1 +1,0 @@
-import{e as a,j as s,q as t,c as o,s as r,o as n}from"./C9Aty9oY.js";import"./DVfBXfa7.js";const _=a({__name:"empty-2",setup(c){const e=s(!1);return t(()=>{e.value=!0}),(l,m)=>(n(),o("div",{class:r(["empty-2",{ready:e.value}])},"EMPTY 2",2))}});export{_ as default};

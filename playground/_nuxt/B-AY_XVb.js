@@ -1,1 +1,0 @@
-import{e as o,c as s,o as r,n as a,g as n,Y as u,_ as c,G as p}from"./C9Aty9oY.js";const _=o({inheritAttrs:!1,__name:"Button",setup(e){return(t,i)=>(r(),s("button",a(n(t.$attrs)),[u(t.$slots,"default",{},void 0,!0)],16))}}),l=c(_,[["__scopeId","data-v-69be1d0a"]]);function f(){const{$booster:e}=p();return e}export{l as D,f as u};
