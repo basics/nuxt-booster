@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [3.3.2](https://github.com/basics/nuxt-booster/compare/v3.3.1...v3.3.2) (2025-11-22)
+
+
+### Bug Fixes
+
+* **deps:** update nuxt image ([a170b1e](https://github.com/basics/nuxt-booster/commit/a170b1e000228203a53683b2b54c68dd15912529))
+
 ## [3.3.1](https://github.com/basics/nuxt-booster/compare/v3.3.0...v3.3.1) (2025-10-05)
 
 
