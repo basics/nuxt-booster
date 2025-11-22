@@ -76,9 +76,11 @@ export default class Source implements ISource {
 
   getOptions($booster: BoosterProvide) {
     return {
-      provider: this.provider,
-      preset: this.preset,
-      densities: this.densities || $booster.densities
+      imageOptions: {
+        provider: this.provider,
+        preset: this.preset,
+        densities: this.densities || $booster.densities
+      }
     };
   }
 
