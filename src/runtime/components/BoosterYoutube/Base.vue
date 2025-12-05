@@ -7,7 +7,14 @@
       :title="title"
       class="player"
       :src="src"
-      allow="accelerometer; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="
+        accelerometer;
+        fullscreen;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+      "
       @load="onLoad"
     />
     <default-button @click="onInit">
