@@ -27,8 +27,7 @@ export interface PreparedFontOptionVariance extends FontOptionVariance {
   hash?: string;
 }
 
-export interface PreparedFontOptionVarianceSource
-  extends FontOptionVarianceSource {
+export interface PreparedFontOptionVarianceSource extends FontOptionVarianceSource {
   className: string;
   style: string;
 }
