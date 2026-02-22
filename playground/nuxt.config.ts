@@ -65,6 +65,7 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [
+      // @ts-expect-error @ts-ignore
       svgLoader({
         defaultImport: 'component' // or 'raw'
       })
