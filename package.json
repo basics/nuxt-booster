@@ -70,7 +70,7 @@
   "devDependencies": {
     "@commitlint/cli": "20.4.2",
     "@commitlint/config-conventional": "20.4.2",
-    "@fullhuman/postcss-purgecss": "7.0.2",
+    "@fullhuman/postcss-purgecss": "8.0.0",
     "@nuxt/eslint": "1.12.1",
     "@nuxt/module-builder": "1.0.2",
     "@nuxt/webpack-builder": "4.2.2",
