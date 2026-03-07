@@ -85,7 +85,7 @@
     "commander": "14.0.3",
     "commitlint": "20.4.2",
     "consola": "3.4.2",
-    "eslint": "9.39.3",
+    "eslint": "10.0.3",
     "eslint-config-prettier": "10.1.8",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-prettier": "5.5.5",
