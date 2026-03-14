@@ -64,8 +64,10 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    optimizeDeps: {
+      include: ['sort-css-media-queries/create-sort']
+    },
     plugins: [
-      // @ts-expect-error @ts-ignore
       svgLoader({
         defaultImport: 'component' // or 'raw'
       })
