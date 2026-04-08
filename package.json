@@ -93,7 +93,7 @@
     "finalhandler": "2.1.1",
     "get-port-please": "3.2.0",
     "husky": "9.1.7",
-    "jsdom": "28.1.0",
+    "jsdom": "29.0.2",
     "lint-staged": "16.4.0",
     "markdown-it-inline-comments": "1.0.1",
     "nuxt": "4.4.2",
