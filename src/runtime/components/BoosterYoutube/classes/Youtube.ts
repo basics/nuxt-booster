@@ -1,4 +1,5 @@
 import { ready } from '../utils/loader.js';
+import type YT from 'youtube';
 
 export default class Youtube {
   api?: typeof YT;

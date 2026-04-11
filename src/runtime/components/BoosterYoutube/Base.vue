@@ -37,6 +37,7 @@ import Youtube from './classes/Youtube';
 import { isTouchSupported } from '#booster/utils/browser';
 import BoosterPicture from '#booster/components/BoosterPicture.vue';
 import props from './props';
+import type YT from 'youtube';
 
 useBoosterCritical();
 const $booster = useBoosterProvide();

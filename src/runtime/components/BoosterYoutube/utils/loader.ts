@@ -1,5 +1,6 @@
 import Deferred from '../../../classes/Deferred';
 import type { Script } from '@unhead/vue';
+import type YT from 'youtube';
 
 declare global {
   interface Window {
