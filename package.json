@@ -68,8 +68,8 @@
     "sort-css-media-queries": "3.0.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.0",
-    "@commitlint/config-conventional": "20.5.0",
+    "@commitlint/cli": "21.0.2",
+    "@commitlint/config-conventional": "21.0.2",
     "@fullhuman/postcss-purgecss": "8.0.0",
     "@nuxt/eslint": "1.15.2",
     "@nuxt/module-builder": "1.0.2",
@@ -83,7 +83,7 @@
     "@types/webpack": "5.28.5",
     "@types/youtube": "0.2.0",
     "commander": "14.0.3",
-    "commitlint": "20.5.0",
+    "commitlint": "21.0.2",
     "consola": "3.4.2",
     "eslint": "10.2.0",
     "eslint-config-prettier": "10.1.8",
