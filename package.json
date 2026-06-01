@@ -75,7 +75,7 @@
     "@nuxt/module-builder": "1.0.2",
     "@nuxt/webpack-builder": "4.4.2",
     "@types/finalhandler": "1.2.4",
-    "@types/jsdom": "27.0.0",
+    "@types/jsdom": "28.0.3",
     "@types/mime-types": "3.0.1",
     "@types/node": "25.6.0",
     "@types/serve-static": "2.2.0",
