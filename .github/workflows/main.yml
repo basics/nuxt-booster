@@ -21,13 +21,13 @@ jobs:
         node: [22]
 
     steps:
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.5.0
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
       - name: cache node_modules
-        uses: actions/cache@v5
+        uses: actions/cache@v5.1.0
         id: cache
         with:
           path: |
@@ -58,13 +58,13 @@ jobs:
         node: [22]
 
     steps:
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.5.0
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
       - name: cache node_modules
-        uses: actions/cache@v5
+        uses: actions/cache@v5.1.0
         id: cache
         with:
           path: node_modules
@@ -87,13 +87,13 @@ jobs:
         node: [22]
 
     steps:
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.5.0
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
       - name: cache node_modules
-        uses: actions/cache@v5
+        uses: actions/cache@v5.1.0
         id: cache
         with:
           path: node_modules
@@ -105,7 +105,7 @@ jobs:
         env:
           BASE_URL: /nuxt-booster/playground/
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: playgroundArtifact
           path: playground/dist
@@ -121,13 +121,13 @@ jobs:
         node: [22]
 
     steps:
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.5.0
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
       - name: cache docs/node_modules
-        uses: actions/cache@v5
+        uses: actions/cache@v5.1.0
         id: cache
         with:
           path: |
@@ -141,7 +141,7 @@ jobs:
           BASE_URL: /nuxt-booster/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: docsArtifact
           path: docs/.vitepress/dist
@@ -156,17 +156,17 @@ jobs:
         node: [22]
     steps:
       - name: Download Artifact (Docs)
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v8.0.1
         with:
           name: docsArtifact
           path: public
       - name: Download Artifact (Playground)
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v8.0.1
         with:
           name: playgroundArtifact
           path: public/playground
       - name: Deploy to GH-Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
