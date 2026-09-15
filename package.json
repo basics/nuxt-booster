@@ -82,7 +82,7 @@
     "@types/vimeo": "2.1.8",
     "@types/webpack": "5.28.5",
     "@types/youtube": "0.2.0",
-    "commander": "14.0.3",
+    "commander": "15.0.0",
     "commitlint": "20.5.0",
     "consola": "3.4.2",
     "eslint": "10.2.0",
